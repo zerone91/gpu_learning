@@ -39,6 +39,7 @@
 
 **附录**
 - 🟨 [A1 · 占用率算例 与瓶颈定位方法](./01-SIMT核的物理实现/A1-算例·占用率与瓶颈定位.md)
+- 🟨 [A2 · 案例：FlashAttention 与 MoE Group GEMM 瓶颈剖析](./01-SIMT核的物理实现/A2-案例·FlashAttention与MoE-GroupGEMM瓶颈剖析.md)
 
 ### 模块 02 · 空间脉动架构
 - ⬜ [MAC / PE 单元与二维阵列](./02-空间脉动架构/01-MAC与PE阵列.md)
