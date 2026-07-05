@@ -74,6 +74,45 @@ FA kernel 的 tile 大（如 Br=Bc=128，d=128）：
 
 > **一句话**：FlashAttention 把 attention 从"HBM-bound（naive 落 N×N）"救到"Tensor-bound"，FA-3 再把残余的 MUFU 序列化藏掉；但 decode 阶段绕不开 KV cache 的 HBM 带宽。
 
+### 1.7 深挖：FA-3 的 ping-pong 精确时序
+
+**三个角色**（Hopper 上 warpgroup = 4 warp = 128 线程，是 WGMMA 的操作单位）：
+- **1 个生产者 warp(group)**：只发 TMA，把 K_j/V_j tile 灌进 SMEM 环形缓冲；`setmaxnreg.dec` 释放自己的寄存器。
+- **2 个消费者 warpgroup（WG_A, WG_B）**：`setmaxnreg.inc` 拿到大寄存器堆放 O 累加器，跑 WGMMA + softmax。
+
+**单个 K/V 块 j 的关键路径**（三段，用两种不同引擎）：
+```
+G1_j : S_j = Q·K_jᵀ         (Tensor / WGMMA)
+SM_j : softmax(S_j)          (SFU/MUFU 的 exp + 行归约)
+G2_j : O += P_j·V_j          (Tensor / WGMMA)
+```
+痛点：`SM_j`(SFU) 夹在两个 Tensor 段之间，**串行则 Tensor Core 空转**。FA-3 用两层重叠消掉它：
+
+**(a) warpgroup 内 2-stage 流水（GEMM–softmax pipelining）**——靠 WGMMA 异步（发了不等）：
+```
+发 G1_0; 等 G1_0
+for j:
+    发 G1_{j+1}      # 下一块 QKᵀ，Tensor 后台跑
+    SM_j             # 当前块 softmax（SFU）——与 G1_{j+1} 重叠 ✅
+    发 G2_j          # P_j·V_j（Tensor）
+    等 G1_{j+1}
+```
+→ `SM_j` 的 SFU 工作藏进 `G1_{j+1}` 的 Tensor 工作里。
+
+**(b) warpgroup 间 ping-pong**——两个 WG 相位错开半拍，用**命名屏障（`bar.sync` id）**强制"一个在 GEMM 时另一个在 softmax"，让共享的 Tensor 管道永远被某个 WG 占着：
+```
+time →     t0        t1        t2        t3
+WG_A:    GEMM(0)   SFTMX(0)  GEMM(1)   SFTMX(1)
+WG_B:      —       GEMM(0)   SFTMX(0)  GEMM(1)
+──────────────────────────────────────────────
+Tensor:    A         B         A         B     ← 从不空闲
+SFU:       —         A         B         A     ← 与 Tensor 重叠
+```
+底下还叠着生产者 TMA，于是 **TMA(DMA 引擎) ‖ WGMMA(Tensor) ‖ softmax(SFU) 三重重叠**。
+**同步骨架**：TMA 完成 → `mbarrier`（生产者→消费者）；ping-pong 交接 → **命名屏障**（WG_A↔WG_B）；WGMMA 完成 → `wgmma.wait_group`。
+
+> 🔑 **本质**：FA-3 把三种不同"引擎"（DMA / Tensor Core / SFU）的活儿在时间轴上**交叠填满**，让每个引擎都尽量不空——这是 §02 §2.6"warp 专化 + 多缓冲 + ping-pong"在 attention 上的完整落地。同步语义细节 → **§05**。
+
 ---
 
 ## 2. MoE Group GEMM（Grouped GEMM）
@@ -119,6 +158,36 @@ MoE：每个 token 经路由送到 top-k 个专家，每个专家是一个 FFN�
 
 > **一句话**：MoE Group GEMM 的 bound 强依赖 M_i——decode 权重带宽 bound、prefill Tensor bound；变长小 M 额外带来 tile/wave 量化浪费，必须靠 persistent + 动态 tile 调度救回 SM 利用率。
 
+### 2.6 深挖：batch / M 到多大，专家 GEMM 才翻转成 compute-bound？
+
+一个专家 GEMM `[M×K]·[K×N]`，完整 AI（权重读一次、激活读一次、输出写一次）：
+
+$$AI(M) = \frac{2MKN}{\underbrace{K\!N\,b_w}_{权重} + \underbrace{MK\,b_a}_{输入} + \underbrace{MN\,b_a}_{输出}}$$
+
+小 M 时**权重项主导** → `AI ≈ 2M / b_w`。令它等于机器平衡点 β（峰值算力÷带宽）：
+
+> **翻转阈值 M\* ≈ β · b_w / 2**
+
+代入 H100：
+- **bf16**：β≈295 FLOP/byte，b_w=2 → **M\*≈295**
+- **FP8**：β≈590，b_w=1 → **M\*≈295**
+
+> 🔑 **不论精度，翻转阈值都落在 ~256–300 tokens/专家**——因为低精度同时"抬算力、降权重字节"，token 阈值近似抵消不变。**记死这个数：每个专家攒够约 256–300 个 token，才喂得饱 Tensor Core。**
+
+换算成 batch（`M = B·S·top_k / E`，S=每序列本步 token 数）：**B\* ≈ M\* · E / (top_k · S)**
+
+| 配置 | 阶段 | 每专家 M_i | 翻转所需 batch B* |
+| --- | --- | --- | --- |
+| Mixtral (E=8, k=2) | **decode** (S=1) | B/4 | **~1200** |
+| Mixtral | prefill (S=4096) | 巨大 | 极小（早已 compute-bound） |
+| DeepSeek 型 (E=256, k=8) | **decode** (S=1) | B/32 | **~9400** |
+
+→ decode 要 **batch ~1200（Mixtral）/ ~9400（细粒度 MoE）** 并发序列才 compute-bound，而真实服务 batch 通常几十~几百 → **MoE decode 实践中几乎总是权重带宽 bound**；专家越细（越多），每专家越"饿"，阈值越高。
+
+**运营洞察（为什么要拼命 batch）**：memory-bound 区，处理 M 个 token 的耗时 ≈ 读权重耗时（几乎与 M 无关）→ **per-token 成本 ∝ 1/M**，一路降到 M\*；越过 M\* 后 time∝M、per-token 成本走平。**所以"往每个专家里攒 token"在 ~300 之前近乎免费**——这是 MoE 服务做 continuous batching / expert parallelism 的第一动机。
+
+> ⚠️ 不均衡的后果：路由不均时，有的专家已越过 M\*（compute-bound）、有的还没（memory-bound），**同一个 kernel 里两种 regime 并存**——这正是 §2.4 persistent + stream-K 调度要摊平的对象。
+
 ---
 
 ## 3. 横向对照：把 A1 主线钉牢
@@ -161,16 +230,20 @@ MoE：每个 token 经路由送到 top-k 个专家，每个专家是一个 FFN�
 | wave 量化 | wave quantization | tile 总数非 SM 整数倍，尾部半空 | 01 |
 | persistent kernel | | 常驻 CTA + 全局 tile 调度器，摊平不均、喂满 SM | 01/04 |
 | stream-K | | 沿 K 维切分 + 全局归约的均衡调度策略 | 04 |
+| warpgroup | | 4 warp=128 线程，Hopper WGMMA 的操作单位 | 01/03 |
+| WGMMA | wgmma | Hopper 异步 warpgroup 级 MMA，发了不等 | 03 |
+| 命名屏障 | named barrier / `bar.sync id` | ping-pong 里两 warpgroup 的交接同步 | 01/05 |
+| 翻转阈值 | crossover M* | 约 256–300 token/专家喂饱 Tensor（跨精度近似不变） | 01/04 |
 
 > ✅ 待同步登记到 [术语表](../05-收敛-术语表与真实芯片/术语表.md)
 
 ## 7. 我的困惑 / 待深挖
 
-- （待填）FA-3 ping-pong 的精确时序：两个 warpgroup 怎么在 mbarrier 上交接、寄存器怎么分？
-- （待填）MoE decode 权重带宽 bound 下，batch 到多大才翻转成 Tensor-bound？和 expert 并行/张量并行怎么交互？
+- ✅（已答，§1.7）FA-3 ping-pong 精确时序：2 warpgroup 用命名屏障错相位、生产者 setmaxnreg 让寄存器、TMA‖Tensor‖SFU 三重重叠。**遗留**：不同 head dim / 因果掩码下相位如何调整？
+- ✅（已答，§2.6）翻转阈值 M\*≈256–300 token/专家（跨精度近似不变），Mixtral decode 需 batch~1200。**遗留**：expert 并行（EP）把 token 集中到本卡后 M 实际怎么变？和 TP/DP 的联合影响？
 - （待填）tile 量化 vs wave 量化在 Nsight 里如何各自量化其损失（有效 FLOP 效率 vs 占用率缺口）？
 - （待填）stream-K 在变长 Group GEMM 上的归约开销 vs 负载均衡收益的权衡点？
 
 ---
 
-*最后更新：2026-07-05（第一版）*
+*最后更新：2026-07-05（第二版：+§1.7 FA-3 ping-pong 时序、+§2.6 MoE 翻转阈值推导）*
