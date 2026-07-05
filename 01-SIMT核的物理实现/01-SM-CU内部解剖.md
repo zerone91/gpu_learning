@@ -72,7 +72,34 @@
 > 调度器挑 warp → LSU 发 32 个 load 取 `x`（合并成一两笔事务）→ **warp 卡住等数据，调度器立刻切别的 warp** → 数据回来后 32 条 ALU lane 锁步各算 `2*x` → LSU 写回 32 个结果 → warp 退休。
 > 真正"算"的时间极短，大头在等访存 → element-wise 几乎总是 **memory-bound**（→ 引出下一节）。
 
-## 3. 和其它模块的挂钩
+## 3. 开发者视角：代码/工具里怎么摸到它
+
+> **总框架——感知硬件只有三个通道**：① **源码拨盘**（源码里唯一朝硬件的旋钮：launch config、`__shared__`、dtype、调哪个库）② **编译器回执**（`-Xptxas -v` 的离线体检）③ **Profiler 探针**（Nsight Compute/Systems 的运行时示波器）。
+> **硬件特性大多不是"写"出来的，是拨盘 + 访存模式"暗示"出来的，再靠 profiler 的症状反推。** ⇒ 学硬件的实用目的，一大半是为了看懂 profiler 在说什么。
+
+| SM 部件 / 特性 | ① 源码拨盘 | ② 编译器回执 | ③ Profiler 探针（Nsight Compute） |
+| --- | --- | --- | --- |
+| warp 调度 / 藏延迟 / occupancy | launch config 的 **block 大小** | — | `Achieved Occupancy`；`Eligible Warps/Scheduler`；Stall `Long Scoreboard`（等显存） |
+| ALU / FMA lane | 算术表达式 | SASS 里的 `FFMA` | `Compute (SM) Throughput %`；FMA pipe util |
+| 寄存器堆 | 局部变量数；`__launch_bounds__`、`-maxrregcount` | `-Xptxas -v` → "Used N registers"、"**spill**"（溢出=坏信号） | `Registers Per Thread`；"limited by registers" |
+| LSU / coalescing | **索引模式**（相邻线程是否相邻地址） | — | `Global Load/Store Efficiency`；`Sectors/Request`；`DRAM Throughput` |
+| Shared Memory / L1 | `__shared__` 声明；padding；carveout 配置 | 静态 shared 用量 | `Shared Bank Conflicts`；`L1 Hit Rate` |
+| Tensor Core | 用 `wmma`/cuBLAS/CUTLASS/Triton 而非裸 `*`；喂 fp16/bf16/tf32；形状对齐 | SASS 里的 `HMMA`（没有=没用上） | `Tensor Pipe Active %`（为 0 就是白买） |
+
+`y=2x` 的闭环：`-Xptxas -v` 报"每线程 8 寄存器、0 spill" → `ncu` 看到 occupancy 高、Compute 低、`DRAM Throughput` ~90%、主 stall 是 `Long Scoreboard` → 三证齐指 **memory-bound**。
+
+### 站位阶梯：你在栈的哪一层，"感官"完全不同
+
+| 站位 | 拨盘 | 观测手段（感官） |
+| --- | --- | --- |
+| 框架层（PyTorch） | 算子选择、dtype、`torch.compile` | `torch.profiler`、`nvidia-smi`、看 kernel 名是否命中融合/TensorCore |
+| Triton 层 | `BLOCK_SIZE`、`num_warps`、`num_stages` | `@triton.autotune` 结果、`do_bench` |
+| CUDA C 层 | launch config、`__shared__`、`-maxrregcount` | 上面那张大表（Nsight Compute） |
+| PTX/SASS 层 | 几乎不写，只读 | `cuobjdump -sass` / `nvdisasm` |
+
+> 越往上拨盘越少越抽象、越难精确看见硬件；越往下旋钮越多、profiler 越精细、越费人。**算法侧日常主战场是上两层**，核心感官是 `torch.profiler` + Triton autotune，而非 SASS。这条阶梯就是**模块 04 软件栈**的骨架。
+
+## 4. 和其它模块的挂钩
 
 - 寄存器占用限制驻留 warp 数 → **本模块 02（occupancy）**
 - 32 线程锁步是"分支发散"的前提 → **本模块 03**
@@ -80,7 +107,7 @@
 - Tensor Core 内部的小脉动阵列 → **模块 03**，对照大阵列 → **模块 02**
 - shared memory 的显式复用、双缓冲 → 对照脉动阵列的 scratchpad/tiling → **模块 02 第 04**
 
-## 4. 一句话黑话卡
+## 5. 一句话黑话卡
 
 | 术语 | 英文 / 别名 | 一句话解释 | 挂在哪个模块 |
 | --- | --- | --- | --- |
@@ -96,7 +123,7 @@
 
 > ✅ 已同步登记到 [术语表](../05-收敛-术语表与真实芯片/术语表.md)
 
-## 5. 我的困惑 / 待深挖
+## 6. 我的困惑 / 待深挖
 
 - （待填）Hopper 之外的架构（Ampere/Ada/AMD CDNA）子分区数、寄存器量差异？
 - （待填）"独立线程调度"（Volta 起）如何改变锁步的严格程度？→ 留到第 03 节发散
