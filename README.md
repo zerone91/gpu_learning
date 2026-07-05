@@ -30,8 +30,8 @@
 - ⬜ [两种范式：空间 vs SIMT](./00-两种范式地图/01-空间vs-SIMT.md)
 
 ### 模块 01 · SIMT 核的物理实现
-- 🟨 [SM/CU 内部解剖](./01-SIMT核的物理实现/01-SM-CU内部解剖.md)
-- ⬜ [warp 锁步执行与 occupancy](./01-SIMT核的物理实现/02-warp锁步执行与occupancy.md)
+- ✅ [SM/CU 内部解剖](./01-SIMT核的物理实现/01-SM-CU内部解剖.md)
+- 🟨 [warp 锁步执行与 occupancy](./01-SIMT核的物理实现/02-warp锁步执行与occupancy.md)
 - ⬜ [分支发散](./01-SIMT核的物理实现/03-分支发散.md)
 - ⬜ [访存通路：寄存器 → HBM](./01-SIMT核的物理实现/04-访存通路.md)
 - ⬜ [同步全家桶](./01-SIMT核的物理实现/05-同步全家桶.md)
