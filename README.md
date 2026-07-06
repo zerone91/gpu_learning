@@ -42,7 +42,7 @@
 - 🟨 [A2 · 案例：FlashAttention 与 MoE Group GEMM 瓶颈剖析](./01-SIMT核的物理实现/A2-案例·FlashAttention与MoE-GroupGEMM瓶颈剖析.md)
 
 ### 模块 02 · 空间脉动架构
-- ⬜ [MAC / PE 单元与二维阵列](./02-空间脉动架构/01-MAC与PE阵列.md)
+- 🟨 [MAC / PE 单元与二维阵列](./02-空间脉动架构/01-MAC与PE阵列.md)
 - ⬜ [脉动阵列的数据流与时序](./02-空间脉动架构/02-脉动阵列数据流与时序.md)
 - ⬜ [数据流复用分类（weight/output/row-stationary）](./02-空间脉动架构/03-数据流复用分类.md)
 - ⬜ [片上存储层次与 tiling](./02-空间脉动架构/04-片上存储与tiling.md)
