@@ -15,5 +15,5 @@
 
 **代码精读 B 系列**（逐段三问：映射哪一维 / 硬件变成什么 / 改错会怎样）
 - ✅ [B1 · Triton 版 FlashAttention-2 前向](./B1-代码精读·Triton-FlashAttention.md)
-- 🟨 [B2 · FA-3 的 Hopper warp 专化流水（CUTLASS/CuTe）](./B2-代码精读·FA3-Hopper流水.md)
-- ⬜ B3 · DeepSeek 栈（DeepGEMM FP8 细粒度缩放 + DeepEP dispatch 骨架）
+- ✅ [B2 · FA-3 的 Hopper warp 专化流水（CUTLASS/CuTe）](./B2-代码精读·FA3-Hopper流水.md)
+- 🟨 [B3 · DeepSeek 栈（DeepGEMM 两级累加 + DeepEP 通信骨架）](./B3-代码精读·DeepSeek栈.md)
