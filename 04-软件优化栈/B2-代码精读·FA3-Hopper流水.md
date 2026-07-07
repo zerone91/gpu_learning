@@ -1,166 +1,212 @@
-# B2 · 代码精读：FA-3 的 Hopper warp 专化流水（CUTLASS/CuTe 层）
+# B2 · 代码精读：FlashAttention-3 的 Hopper 流水线
 
-> **所属系列**：模块 04 · 代码精读 B 系列（B1 Triton FA2 → **B2** → B3 DeepSeek 栈）
-> **状态**：🟨 学习中（第一版，知识截至 2026-01。代码为忠实于 CUTLASS 3.x / FA-3 结构的**注释性伪代码**——保留全部关键机制与真实指令名，简化模板噪音与边界处理；真实实现见 flash-attention repo hopper 目录与 CUTLASS FMHA 示例）
-> **一句话主旨**：B1 里 Triton 用 `num_stages=3` 一个参数代管的东西，这里全部**显式摊开**——TMA 描述符、mbarrier 的 expect_tx/phase、wgmma 异步组、setmaxnreg、命名屏障 ping-pong。读完两件事就通了：**① Triton 那个参数背后到底是什么；② "同步是异步的账单"（§01-05）在真实代码里长什么样——每一个异步器件旁边必然站着它的同步原语。**
+> **所属系列**：模块 04 · 代码精读 B 系列（B1 Triton FA-2 → **B2** → B3 DeepSeek 栈）
+> **状态**：🟨 学习中（第二版：按《写作规范》重写。代码为忠实于 CUTLASS 3.x / FA-3 结构的注释性伪代码——保留全部关键机制与真实指令名，省略模板噪音；真实实现见 flash-attention 仓库的 hopper 目录。知识截至 2026-01）
+> **本篇主旨**：B1 结尾留了一个瓶颈：softmax 走的特殊函数单元把矩阵单元拖到只有三成利用率。FA-3 在 Hopper 上把它治好了——手段是**把 Triton 用一个参数代管的东西全部显式摊开**：搬运引擎的订单（TMA）、可等字节数的屏障（mbarrier）、异步矩阵指令、寄存器的重新分配、两组计算线程的错拍轮舞。读完本篇你会明白两件事：**Triton 的 num_stages 背后到底是什么**；以及"同步是异步的账单"（模块 01 第 5 节）这句话在真实代码里长什么样——每一个异步器件旁边，必然站着它的等待原语。
 
 ---
 
-## 0. 全景：映射方案与"人员编制"
+## 0. 这一篇要回答的问题
 
-一个 CTA（block）= **384 线程 = 3 个 warpgroup**，各司其职（A2 §1.7 三角色的代码化）：
+- FA-3 的"人员编制"是什么样的？为什么要把线程分成搬运工和计算工？
+- 生产者怎么用 TMA 加 mbarrier 发货？"期待字节数"和"相位"在代码里怎么用？
+- 消费者怎么用异步矩阵指令边算边等？
+- 两组消费者的"乒乓"轮舞怎么用屏障指挥？它治好了 B1 的哪个瓶颈？
+- B1 的每个 Triton 写法，对应这里的哪段显式代码？
+
+## 1. 基础词汇：先把 Hopper 的四样器件讲清楚
+
+（都在模块 01 有完整机制，这里给读代码够用的版本。）
+
+**warpgroup（线程组团）**。4 个 warp（128 线程）结成的调度单位。Hopper 的大块矩阵指令（wgmma）以它为操作主体——块大到单个 warp 的寄存器装不下，需要四个 warp 拼资源（模块 03 第 1 节）。
+
+**mbarrier（可计数屏障）**。放在 shared memory 里的小计数器对象，三个动作：到达（计数）、等待（阻塞到条件满足）、**期待字节数**（先声明"这轮要收到 N 字节"，搬运引擎每交一段货自动汇报，凑满才放行）。它还自带**相位位**：每完成一轮自动在 0/1 之间翻面，等待者认"相位变了"而非"计数归零"——同一个屏障对象因此能在循环里无限复用（模块 01 第 5 节的心跳机制）。
+
+**setmaxnreg（寄存器重分配）**。Hopper 允许一个线程块内的不同 warpgroup **动态调整各自的寄存器配额**：一组交出（dealloc），另一组扩容（alloc）。总量不变，内部转移。
+
+**命名屏障（named barrier）**。带编号的屏障，每个线程块最多 16 个，各自指定参与线程数——比"全块等齐"的 `__syncthreads` 更细：可以只让两个 warpgroup 之间等齐，不惊动别人。
+
+## 2. 全景：人员编制与同步器件清单
+
+一个线程块 = 384 线程 = 3 个 warpgroup，各司其职：
 
 ```
-WG0（生产者）: 只发 TMA。setmaxnreg.dec 让出寄存器（瘦身到 ~24 reg/线程）
-WG1（消费者A）: wgmma + softmax。setmaxnreg.inc 增肥（~240 reg/线程，装 O 累加器）
-WG2（消费者B）: 同 WG1，与 A 错半拍 ping-pong
+WG0（生产者）：只发 TMA 搬运订单。用 setmaxnreg 交出寄存器（瘦身到约 24 个/线程）
+WG1（消费者甲）：矩阵乘 + softmax。扩容到约 240 寄存器/线程（装输出累加器）
+WG2（消费者乙）：与甲同工，错开半拍轮舞
 
-shared memory 布局:
-  sQ            : Q tile（装一次，常驻）
-  sK[0..S-1]    : K tile 环形缓冲（S = 流水级数，如 3）
-  sV[0..S-1]    : V tile 环形缓冲
-  full[0..S-1]  : mbarrier ×S —— "第 s 格装满了"（生产者→消费者）
-  empty[0..S-1] : mbarrier ×S —— "第 s 格用完了"（消费者→生产者）
+shared memory 布局：
+  sQ           —— Q 块（装一次，常驻）
+  sK[0..S-1]   —— K 块的环形缓冲（S = 流水级数，如 3）
+  sV[0..S-1]   —— V 块的环形缓冲
+  full[0..S-1] —— mbarrier × S：「第 s 格装满了」（生产者→消费者的信号）
+  empty[0..S-1]—— mbarrier × S：「第 s 格用完了」（消费者→生产者的信号）
 ```
 
-**同步器件清单**（每个异步能力配一个同步原语——§01-05 §1.4 的活体展览）：
-| 异步的事 | 配套同步 |
+先立一张**同步器件清单**——模块 01 第 5 节"每种异步配一把锁"在这份代码里的完整展览：
+
+| 异步的事 | 配套的等待原语 |
 | --- | --- |
-| TMA 搬运（DMA 引擎） | `full[s]` mbarrier + **expect_tx 字节计数** |
-| 缓冲格回收 | `empty[s]` mbarrier |
-| wgmma（Tensor Core 异步） | `wgmma.commit_group / wait_group` |
-| 两个消费者错拍 | **命名屏障** `bar.sync 8/9, 256` |
+| TMA 引擎搬数据（不占线程） | full 屏障 + 期待字节数 |
+| 缓冲格的回收 | empty 屏障 |
+| 矩阵指令异步执行（发了不等） | wgmma 的提交组/等待组指令 |
+| 两组消费者错拍轮舞 | 命名屏障（编号 8 和 9） |
 
-## 1. Host 侧：TMA 描述符（§01-04 §2.4-4 的代码形态）
+## 3. 逐段精读
+
+### 3.1 Host 侧：TMA 订单在启动前就编译好了
 
 ```cpp
-// CuTe 写法：把"怎么搬"编译成一个 128B 的描述符对象，kernel 里一个线程即可触发
 auto tma_load_K = make_tma_copy(
-    SM90_TMA_LOAD{},                     // 拷贝原子：TMA 加载
-    gK,                                  // global 张量（含 shape/stride）
-    sK_layout,                           // shared 目标布局 ← 内含 Swizzle<3,4,3>！
-    select<1,2>(TileShape{}),            // 每次搬的 box：BLOCK_N × HEAD_DIM
-    _1{});                               // 无多播（cluster>1 时可改多播省边缘流量）
+    SM90_TMA_LOAD{},              // 拷贝原子：TMA 整块加载
+    gK,                           // 显存里的 K 张量（含形状和步长）
+    sK_layout,                    // shared memory 目标布局——内含 swizzle 说明！
+    tile_shape_KV, ...);          // 每单搬运的块尺寸
 ```
 
-- **【映射】** ②ordering 的搬运粒度 + ③placement 的目的地，**在 host 侧就编译定型**——TMA 把"32 线程算地址"变成"一个描述符"（§01-04）。
-- **【硬件】** 生成 `CUtensorMap`（128B 常量对象，经 `__grid_constant__` 传入）；`sK_layout` 里的 **swizzle atom**（如 `GMMA::Layout_K_SW128_Atom<bf16>`）同时约束 TMA 写入模式与 wgmma 读取模式——**B1 里"编译器代管的 swizzle"，就是这一行的显式版**（三方协同：TMA 写 / ldmatrix·wgmma 读，§01-04 §2.4-2）。
-- **【反事实】** swizzle 选错或 shared 基址非 128B 对齐 → 描述符创建失败或 bank 冲突复现；行 stride 非 16B 对齐 → 直接 launch 报错（TMA 的硬约束）。
+**【映射】** 搬运的粒度（切分）和目的地布局（放置）在 **CPU 上就编译定型**，生成一张 128 字节的"订单模板"传给 kernel。
+**【硬件】** `sK_layout` 里绑定的 swizzle（防 bank 冲突的换座位布局，模块 01 第 4 节）在这里显式指定——**B1 里编译器代管的那个 swizzle，就是这一行的手动版**。它必须同时满足三方：TMA 按它写入、矩阵指令按它读取——**写读两端布局不一致会静默算错**。
+**【反事实】** swizzle 选错或 shared memory 基址没对齐 128 字节：订单创建失败或 bank 冲突复现；张量步长不满足 16 字节对齐：启动直接报错——TMA 的对齐要求是硬的。
 
-## 2. Kernel 开场：角色分派与寄存器"劫富济贫"
+### 3.2 开场：按 warpgroup 分工，寄存器"劫富济贫"
 
 ```cpp
-__global__ void fa3_fwd(__grid_constant__ const CUtensorMap tma_K, ...) {
-  int wg = threadIdx.x / 128;                    // 我是哪个 warpgroup
-  if (wg == 0) {                                 // ---- 生产者 ----
-    cutlass::arch::warpgroup_reg_dealloc<24>();  // PTX: setmaxnreg.dec.sync.aligned.u32 24
+int wg = threadIdx.x / 128;                     // 我是哪个 warpgroup
+if (wg == 0) {                                  // —— 生产者 ——
+    warpgroup_reg_dealloc<24>();                // 交出寄存器：我只发订单，用不着
     producer_loop(...);
-  } else {                                       // ---- 消费者 A/B ----
-    cutlass::arch::warpgroup_reg_alloc<240>();   // PTX: setmaxnreg.inc...240
+} else {                                        // —— 消费者甲/乙 ——
+    warpgroup_reg_alloc<240>();                 // 扩容：我要装大累加器
     consumer_loop(wg, ...);
-  }
 }
 ```
 
-- **【映射】** ④binding 的进化：B1 里所有线程同构；这里**按 warpgroup 分工种**——SIMT 的"锁步大军"被组织成流水线工厂（00 光谱右移的代码实体）。
-- **【硬件】** `setmaxnreg`（§02 §2.6b）：**寄存器堆是按 warpgroup 动态再分配的**——生产者只发 TMA 不算数，24 个寄存器够了；省下的配额给消费者装 fp32 累加器（B1 §2.4 那 1.6 万个寄存器的来源）。CTA 总寄存器不变，**内部劫富济贫**。
-- **【反事实】** 不做 reg 再分配 → 消费者装不下大累加器 → 只能缩 tile 或 spill；生产者白占几千寄存器 → 占用率/驻留白白吃亏。
+**【映射】** 绑定决策的进化：B1 里所有线程同构（都又搬又算）；这里**按 warpgroup 划分工种**——一组专职搬运、两组专职计算。这是模块 04 第 3 节 §5.3 讲的"手排流水第三档"：不再改写一个循环，而是改组织结构。
+**【硬件】** setmaxnreg 让寄存器堆在块内**转移**：生产者只发订单，24 个寄存器足够；省出的配额给消费者装输出累加器（B1 §3.4 算过的那 1.6 万个寄存器有了着落）。总量不变，穷帮富——不，是富济贫的反向：闲人把资源让给干重活的。
+**【反事实】** 不做重分配：消费者装不下大累加器，只能缩小块尺寸（性能降）或溢出到显存（性能崩）；生产者白白抱着几千个用不上的寄存器。
 
-## 3. 生产者循环：TMA + expect_tx（"同步对象是引擎+字节数"）
+### 3.3 生产者循环：发订单，向屏障声明"这次到货多少字节"
 
 ```cpp
 void producer_loop(...) {
-  if (elect_one_sync()) {                        // PTX: elect.sync —— 128 线程里选 1 个代表
-    for (int k = 0; k < n_blocks; ++k) {
-      int s = k % S;                             // 环形缓冲格号
-      // 等"第 s 格已被消费者用完"（首轮 empty 初始为已到达）
-      empty[s].wait(phase_empty[s]);             // mbarrier.try_wait + 相位票
-      // 关键一行：告诉屏障"这次要等 KV_BYTES 字节到齐"，然后发射 TMA
-      full[s].arrive_and_expect_tx(KV_BYTES);    // PTX: mbarrier.arrive.expect_tx
-      tma_load(tma_K, sK[s], coord_k(k), full[s]);  // PTX: cp.async.bulk.tensor.2d
-      tma_load(tma_V, sV[s], coord_v(k), full[s]);  //      （完成时由硬件向 full[s] 报字节）
+  if (elect_one_sync()) {                     // 128 个线程里选 1 个代表干活
+    for (int k = 0; k < 块数; ++k) {
+      int s = k % S;                          // 环形缓冲的格号
+      empty[s].wait(phase_empty[s]);          // 等"第 s 格已被用完"才敢覆盖
+      full[s].arrive_and_expect_tx(KV字节数);  // ★ 声明：这轮要等这么多字节到货
+      tma_load(tma_load_K, sK[s], 第k块坐标);  // 发 K 的搬运订单（引擎自己去搬）
+      tma_load(tma_load_V, sV[s], 第k块坐标);  // 发 V 的订单；完成时引擎向 full[s] 汇报字节
     }
   }
 }
 ```
 
-- **【映射】** ②ordering 的搬运侧：永远超前消费者 S-1 块（B1 的 num_stages，这里是手写的环形缓冲）。
-- **【硬件】** 三个 §01-05 概念同框：**`elect.sync`**（TMA 只需一个线程发,选代表）；**`expect_tx`**（同步对象从"线程"扩展到"**引擎+字节数**"——TMA 引擎搬完自动向 mbarrier 报账,凑齐 KV_BYTES 才翻相位）；**相位票 `phase[s]`**（环形复用同一屏障,每绕一圈软件翻一位——§01-05 §2.3-1 的 ABA 解法,在代码里就是一个 `phase ^= 1`）。
-- **【反事实】** expect_tx 字节数写错 → 屏障永不翻相位（少报）或提前翻（多报,消费者读到半成品数据,**静默算错**）；忘等 empty → 覆盖消费者还在用的格子,同样静默算错——**这类 bug ncu 查不出来,只能 racecheck/对拍**,这就是 Triton 代管的价值。
+**【映射】** 顺序维度的搬运侧：永远超前消费者 S-1 块——就是模块 04 第 3 节 §5.2 那个三段式的"序幕+补发"，只是从"同一批线程自己交替"改成了"专人负责"。
+**【硬件】** 三个器件同框亮相。**选代表**（elect_one_sync）：TMA 订单一个线程发就够，没必要 128 个都发。**期待字节数**（arrive_and_expect_tx）：这是模块 01 第 5 节说"同步对象从线程扩展到引擎"的那一行——生产者向屏障声明总量后就不管了，**TMA 引擎每搬完一段自动向屏障汇报字节**，凑满才翻相位放行消费者。**相位票**（phase_empty[s]）：环形缓冲每绕一圈，软件把本地相位翻一位——同一个屏障对象无限复用的钥匙。
+**【反事实】** 期待字节数写小了：屏障提前翻面，消费者**读到搬了一半的数据**，静默算错；写大了：永远凑不满，死等。忘了先等 empty：覆盖消费者还在用的格子，同样静默算错。**这两类 bug 性能工具查不出来，只能靠竞争检测工具或对拍**——这就是 Triton 代管这一切的价值，也是显式流水的代价。
 
-## 4. 消费者循环：wgmma 异步组 + softmax + 流水消费
+### 3.4 消费者循环：异步矩阵指令的"发了不等"
 
 ```cpp
 void consumer_loop(int wg, ...) {
-  for (int k = 0; k < n_blocks; ++k) {
+  for (int k = 0; k < 块数; ++k) {
     int s = k % S;
-    full[s].wait(phase_full[s]);                 // 等第 s 格的 KV 字节到齐
-    // ---- GEMM0: S_blk = Q·K^T ----
-    warpgroup_arrive();                          // PTX: wgmma.fence —— 保护寄存器操作数
-    gemm(tiled_mma0, sQ, sK[s], tSrS);           // PTX: wgmma.mma_async.sync... ×N 条
-    warpgroup_commit_batch();                    // PTX: wgmma.commit_group
-    warpgroup_wait<0>();                         // PTX: wgmma.wait_group 0 —— 等这批出结果
-    // ---- softmax（SFU/MUFU + FFMA）----
-    online_softmax_rescale(tSrS, m, l, acc);     // B1 §2.5 那 7 行，此处在寄存器 fragment 上做
-    // ---- GEMM1: O += P·V ----
-    convert_and_layout(tSrS -> tSrP /*bf16*/);   // fp32→bf16 + 摆成 wgmma 的 A-fragment
+    full[s].wait(phase_full[s]);            // 等第 s 格的 K/V 字节到齐
+    // —— 第一个矩阵乘：S 块 = Q·Kᵀ ——
+    warpgroup_arrive();                     // 栅栏：保护即将被读的寄存器操作数
+    gemm(mma0, sQ, sK[s], 分数块寄存器);      // wgmma：异步矩阵指令，发了不等
+    warpgroup_commit_batch();               // 把上面几条打包成一组
+    warpgroup_wait<0>();                    // 等这组出结果（0 = 不允许悬空）
+    在线softmax与重缩放(分数块, m, l, acc);   // B1 §3.6 的那几行，此处在寄存器上做
+    // —— 第二个矩阵乘：acc += P·V ——
+    转精度并重排(分数块 → P块_16位);
     warpgroup_arrive();
-    gemm(tiled_mma1, tSrP, sV[s], acc);          // 第二组 wgmma
-    warpgroup_commit_batch();
-    warpgroup_wait<0>();
-    empty[s].arrive();                           // 报告"第 s 格我用完了" → 生产者可重灌
+    gemm(mma1, P块, sV[s], acc);
+    warpgroup_commit_batch();  warpgroup_wait<0>();
+    empty[s].arrive();                      // 报告"这格用完了"，生产者可以重装
   }
-  epilogue(acc, l);                              // 归一化 + TMA store 写回
+  收尾(acc, l);                              // 归一化 + 写回
 }
 ```
 
-- **【映射】** 与 B1 的循环逐行对应——**数学一个字没变**（online softmax 原样），变的全是"等谁、谁算、何时放行"的④binding/②ordering 细节。
-- **【硬件】** wgmma 的**异步三件套**（§01-05 §1.3 表里的"wgmma 组"）：`fence`（寄存器操作数保护）→ 发一批 `mma_async` → `commit_group` → `wait_group`。**wgmma 直接以 shared memory 为 B 操作数**（sK/sV 不经寄存器,§03-01 演化表 Hopper 行）——对照 B1:Triton 里 K/V 还要过寄存器 fragment。
-- **【反事实】** 漏 `wgmma.fence` → 异步 MMA 还在读寄存器时 softmax 已改写它,静默错;`wait_group<0>` 换成 `<1>`（允许一批悬空）是更深的重叠,但寄存器要多养一批 fragment——**又是那道"重叠深度 vs 寄存器"的账**（§01-02 §2.6c）。
+**【映射】** 与 B1 的主循环逐行对应——**数学一个字没变**（同一套在线 softmax），变的全是"等谁、谁算、何时放行"。
+**【硬件】** wgmma 的**异步四件套**：栅栏（arrive，防止矩阵指令还在读的寄存器被后面的代码改写）→ 发射若干条异步矩阵指令 → 打包成组（commit）→ 按组等待（wait）。注意 wgmma 的 **B 操作数直接从 shared memory 读**（sK/sV 没有先装进寄存器）——这是 Hopper 矩阵指令的新能力（模块 03 第 1 节演化表），对比 B1 里 Triton 版 K/V 还要过一道寄存器。
+**【反事实】** 漏写栅栏：异步矩阵指令还在读寄存器时，softmax 已经改写了它——静默错。`wait<0>` 改成 `wait<1>`（允许一组悬空）：更深的重叠、更高性能，但寄存器要同时养两组操作数——**又是"重叠深度换寄存器"的老账**（模块 04 第 3 节 §5.4）。
 
-## 5. Ping-pong：两个消费者错拍（命名屏障的用法）
+### 3.5 乒乓轮舞：两个消费者错拍，治好 B1 的遗留瓶颈
+
+B1 验收时留的病根：softmax 走特殊函数单元（吞吐低），它和矩阵乘在关键路径上**串行**——矩阵单元每算完一块就得干等 softmax。FA-3 的解法：**两组消费者错开半拍，用两个命名屏障强制"你算矩阵时我做 softmax，你做 softmax 时我算矩阵"**：
 
 ```cpp
-// 消费者 A/B 相同代码，靠两个命名屏障强制错开半拍：
-// 屏障 8 = "轮到谁用 Tensor Core（GEMM 段）"，屏障 9 = "轮到谁用 SFU（softmax 段）"
-if (wg == 2) named_barrier_wait(8);        // B 先让 A 起跑（错拍的初始相位差）
-...
-named_barrier_wait(8);                     // PTX: bar.sync 8, 256（两个 WG 共 256 线程）
-gemm(...); commit; wait;                   // ← 我占 Tensor Core 的时段
-named_barrier_arrive(8);                   // 交出 Tensor Core → 对方的 GEMM 可以开始
-softmax_rescale(...);                      // ← 同时对方在做 GEMM，我在用 SFU
-named_barrier_arrive(9); named_barrier_wait(9);  // softmax 段的交接
+// 屏障 8 = "矩阵单元使用权"的交接棒；屏障 9 = "特殊函数单元"的交接棒
+if (wg == 2) named_barrier_wait(8);   // 乙先让甲起跑——错出半拍的初始相位差
+...每轮：
+named_barrier_wait(8);                // 拿到矩阵单元使用权
+gemm(...); commit; wait;
+named_barrier_arrive(8);              // 交棒：对方的矩阵乘可以开始了
+softmax与重缩放(...);                  // 我做 softmax 时，对方正在做矩阵乘
+named_barrier_arrive(9); named_barrier_wait(9);   // softmax 段同理交接
 ```
 
-- **【映射】** ④binding 的最后一块拼图：**A2 §1.7 那张 "Tensor: A B A B / SFU: — A B A" 时序图,物理上就是这几个 `bar.sync 8/9` 在指挥**。
-- **【硬件】** 命名屏障（§01-05 §1.3:每 CTA 16 个,各带参与线程数 256）——比 `__syncthreads` 细,只同步两个消费者 WG,生产者不受影响。**Tensor Core 是子分区共享资源,两个 WG 靠屏障轮流独占它,SFU 段与对方的 GEMM 段天然重叠**——MUFU 序列化(B1 验收第 3 条的遗留瓶颈)就此藏进 Tensor 的影子。
-- **【反事实】** 去掉 ping-pong（两 WG 自由跑）→ 两者的 GEMM 段随机撞车、softmax 段也撞车 → Tensor pipe 出现空洞,实测 util 明显掉——**"多加两次同步反而更快"**:因为它买到的是**资源时分复用的秩序**（§01-05 "少同步"原则的著名反例,秩序>次数）。
+时间线（甲乙两组、两种硬件单元）：
 
-## 6. 总账：B1 vs B2（Triton 代管 ↔ 显式摊开）
+| 时间段 | t0 | t1 | t2 | t3 |
+| --- | --- | --- | --- | --- |
+| 消费者甲 | 矩阵乘(块0) | softmax(块0) | 矩阵乘(块1) | softmax(块1) |
+| 消费者乙 | （等） | 矩阵乘(块0) | softmax(块0) | 矩阵乘(块1) |
+| 矩阵单元 | 甲在用 | 乙在用 | 甲在用 | 乙在用 —— **从不空闲** |
+| 特殊函数单元 | — | 甲在用 | 乙在用 | 甲在用 —— 与矩阵乘全程重叠 |
 
-| B1 里的一个参数/一行 | B2 里的显式形态 | 概念出处 |
+**【映射】** 绑定决策的最后一块拼图：两组线程共享的硬件管道（矩阵单元、特殊函数单元）被屏障排成**时分复用**。
+**【硬件】** 命名屏障只同步两个消费者组（256 线程），生产者不受打扰——这正是它比全块屏障细的价值。加上底层还在跑的 TMA，此刻**三种引擎同时在忙**：搬运引擎搬第 k+2 块、一组消费者在矩阵单元算第 k+1 块、另一组在特殊函数单元处理第 k 块。
+**【反事实】** 去掉这对屏障让两组自由跑：两组的矩阵乘段随机撞车抢同一个矩阵单元、softmax 段也撞——实测利用率明显下降。**"多加两次同步反而更快"**：这两个屏障买到的不是安全（去掉也不会算错），而是**错峰用资源的秩序**——模块 01 第 5 节"每个同步都要说得出买到了什么"的最佳注脚。FA-3 靠这套把 H100 上的矩阵单元利用率从 FA-2 的约三成拉到七成以上。
+
+## 4. 总账：B1 ↔ B2 对照（Triton 一个参数 ↔ 显式一套机器）
+
+| B1 里的写法 | B2 里的显式形态 | 机制出处 |
 | --- | --- | --- |
-| `num_stages=3` | sK/sV[3] 环形缓冲 + full/empty mbarrier×3 + 相位票 | §01-02 §2.6 |
-| `make_block_ptr` | host 侧 `make_tma_copy` + CUtensorMap + swizzle atom | §01-04 §2.4 |
-| `tl.dot` | `wgmma.fence/mma_async/commit/wait` 四件套,B 操作数直读 shared | §03-01 |
-| 线程同构 | 3 warpgroup 分工 + `setmaxnreg` 劫富济贫 + `elect.sync` | §02 §2.6b |
-| （无对应,Triton 难表达） | **ping-pong 命名屏障**——SOTA 与"良好"的差距所在 | A2 §1.7 |
+| num_stages=3 | sK/sV 环形缓冲×3 + full/empty 屏障×3 + 相位票 | 模块 01 第 5 节、04 第 3 节 §5 |
+| make_block_ptr | Host 侧 TMA 订单模板 + 显式 swizzle 布局 | 模块 01 第 4 节 |
+| tl.dot | wgmma 异步四件套，B 操作数直读 shared | 模块 03 第 1 节 |
+| 线程同构 | 三组分工 + 寄存器重分配 + 选代表 | 模块 04 第 3 节 §5.3 |
+| （Triton 表达不了） | **乒乓命名屏障** —— SOTA 与"良好"的差距所在 | 模块 01 第 5 节 |
 
-> 🔑 **读后感一句话**:Triton 让你用 1 个参数买到 80 分的流水;最后 20 分（ping-pong、寄存器再分配、wait_group<1> 级重叠）需要显式操纵同步原语——**而每一个显式原语都在 §01-05 的全家桶清单里**。硬件知识在这一层不再是"背景",是"操作对象"。
+一句读后感：**Triton 用一个参数买到八十分的流水；最后二十分（乒乓、寄存器重分配、允许悬空的深等待）需要显式操纵同步原语——而每一个原语都在模块 01 第 5 节的全家桶清单里。硬件知识到这一层，不再是背景知识，是直接的操作对象。**
 
-## 7. 验收（真代码上）
+## 5. 验收
 
-- flash-attention repo `hopper/` 目录:搜 `pipeline_tma_async / setmaxnreg / NamedBarrier / cutlass::arch`,以上每个机制都能对号入座。
-- `cuobjdump -sass`:应看到 `UTMALDG`（TMA load）、`HGMMA`（wgmma 的 SASS）、`BAR.SYNC.DEFER` 系、`ELECT`。
-- `ncu`:对照 A2 §1.6——Tensor util 应从 FA2 型的 ~35% 升到 ~70%+;stall 里 mbarrier/命名屏障等待应短而规律（流水节拍）,若某一项长 → 对应哪级缓冲饿了/堵了,回 §2.6c 的三方预算。
+- **对照真码**：flash-attention 仓库 hopper 目录，搜 `pipeline`、`setmaxnreg`、`NamedBarrier` 等关键词，本篇每个机制都能对号入座。
+- **机器码**：反汇编应见 TMA 加载指令（UTMALDG 字样）、warpgroup 矩阵指令（HGMMA）、屏障指令。
+- **性能画像**：矩阵管道活跃度应达七成上下（对照 B1 的三成）；停顿分布应呈短而规律的屏障等待（流水线的节拍），若某项等待异常长——对应哪级缓冲饿了或堵了，回模块 04 第 3 节 §5.4 的三方预算查。
 
-## 8. 我的困惑 / 待深挖
+## 6. 术语卡
 
-- （待填）wait_group<1> 级深重叠在 FA-3 real code 里用于哪段？寄存器代价实测？
-- （待填）causal 时两个消费者 WG 的负载不均（对角块 vs 满块）怎么平衡？
-- （待填）cluster>1 + TMA 多播在 FA-3 上省多少 L2 流量？
-- （待填）B3 预告:DeepGEMM 用同样的 TMA+mbarrier 骨架跑 FP8 grouped GEMM,persistent 调度器怎么接进来？
+### 生产者-消费者分工（warp specialization）
+**定义**：把线程块内的 warpgroup 按角色划分：一组专发搬运订单（生产者），其余专做计算（消费者），用屏障交接。手排流水的组织形态升级版。
+**为什么存在**：交替式流水（一批线程又搬又算）里，两种活的资源需求互相牵制；分工后搬运方几乎不占寄存器、计算方满配寄存器，各自全速。
+**语境例句**："这个 kernel 是 warp specialized 的，一组 DMA warp 带两组 MMA warpgroup。" —— 意思是：采用了分工组织——读代码先找"threadIdx 除以 128 的分支"，那里是全部角色分配。
+
+### arrive_and_expect_tx（到达并声明字节数）
+**定义**：mbarrier 的特殊到达动作：声明"本轮共需收到 N 字节"，搬运引擎每完成一段自动向屏障汇报，字节凑满屏障才翻相位放行等待者。
+**为什么存在**：等待的对象是硬件引擎而非线程——引擎不会执行"到达"指令，只会汇报搬运量；以字节计数是让"线程等引擎"成立的桥。
+**语境例句**："expect-tx 的字节数和实际 TMA 搬的对不上，卡死了。" —— 意思是：声明量大于实际到货，屏障永远凑不满——显式流水的第一类事故，检查每单搬运的字节数合计。
+
+### 相位票（phase）
+**定义**：mbarrier 自带的 0/1 交替标志：每完成一轮自动翻面；等待者持有本地相位副本，等"屏障相位 ≠ 我手里的票"。环形缓冲每绕一圈，软件把本地票翻一位。
+**为什么存在**：让同一个屏障对象在循环中免重置复用——若靠计数归零判断完成，上一轮的完成和下一轮的进行会混淆（经典的复用竞争）；奇偶相位把两轮隔开。
+**语境例句**："wait 传错了 phase，第二圈开始全乱了。" —— 意思是：本地相位没有随缓冲绕圈翻面，等待条件失效——环形流水的标配 bug，检查相位翻转是否与格号回绕同步。
+
+### 命名屏障（named barrier）
+**定义**：带编号（每块最多 16 个）、可指定参与线程数的屏障——比全块屏障更细粒度：只同步指定的组，不惊动其他线程。
+**为什么存在**：分工之后，"两个消费者组之间的交接"不该拖上生产者；乒乓轮舞需要两根独立的交接棒（矩阵段一根、softmax 段一根），全块屏障给不了。
+**语境例句**："这两组 warpgroup 用 barrier 8 和 9 做 ping-pong。" —— 意思是：两组计算线程被两个命名屏障强制错拍，让矩阵单元和特殊函数单元时分复用、双双不空——FA-3 性能的点睛之笔。
+
+## 7. 我的困惑 / 待深挖
+
+- `wait<1>` 级的深重叠在真实 FA-3 代码里用于哪段？寄存器代价实测？
+- 因果掩码下两组消费者的负载天然不均（对角块轻、满块重），乒乓怎么保持节拍？
+- 线程块簇 + TMA 多播在 FA-3 上省多少二级缓存流量？
 
 ---
 
-*最后更新：2026-07-06（第一版）*
+*最后更新：2026-07-06（第二版：按含自检的写作规范重写；新增基础词汇节、乒乓时间线表、四张术语卡，全部注解改为完整句）*

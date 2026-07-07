@@ -1,36 +1,42 @@
 # B1 · 代码精读：Triton 版 FlashAttention-2 前向
 
-> **所属系列**：模块 04 · 代码精读 B 系列（B1 Triton FA2 → B2 Hopper FA-3/CUTLASS → B3 DeepSeek 栈）
-> **状态**：🟨 学习中（第一版，知识截至 2026-01。代码为 Triton 官方 fused-attention 教程的简化重写，保留全部关键结构，省略 backward 与部分边界处理）
-> **一句话主旨**：一个 ~60 行的 Triton kernel，把全库概念全部串起来——**每段代码都回答三问：它是映射四维（04-04）里的哪一维决策？编译后在硬件上变成什么（SASS/部件）？改错了会付什么代价？** 读完你应该能对任何 Triton kernel 做同样的"三问精读"。
+> **所属系列**：模块 04 · 代码精读 B 系列（B1 → B2 FA-3 → B3 DeepSeek 栈）
+> **状态**：🟨 学习中（第二版：按《写作规范》重写。代码是 Triton 官方 fused-attention 教程的简化重写，保留全部关键结构；知识截至 2026-01）
+> **本篇主旨**：用一个约 60 行的真实 kernel，把全库概念第一次**在代码里**串起来。精读方法是对每段代码问三个问题：**它是映射四维（模块 04 第 4 节）里哪一维的决策？编译之后在硬件上变成什么？如果写错了会发生什么？** 读完本篇，你应该能对任何 Triton kernel 做同样的"三问精读"。
 
 ---
 
-## 0. 精读方法（B 系列的固定范式）
+## 0. 这一篇要回答的问题
 
-每段代码配三行注解：
-- **【映射】** 这是 tiling/ordering/placement/binding 哪一维的决策（04-04）？
-- **【硬件】** 编译后落到什么（哪条 SASS 指令 / 哪个部件 / 哪级存储）？
-- **【反事实】** 如果改错/不这么写，会发生什么（哪个 profiler 指标会告状）？
+- FlashAttention 的映射方案（四维决策）在代码里分别长什么样？
+- Triton 的几个关键写法（program_id、块指针、tl.dot）各自背后是哪些硬件机制？
+- 代码里哪几行是"性能命门"——改错会掉一个数量级？
+- 写完一个 Triton kernel，怎么验证它真的按预期跑在硬件上？
 
-## 1. 先摆全景：这个 kernel 的映射方案
+## 1. 基础词汇：先把 Triton 的编程模型讲清楚
 
-计算：`O = softmax(QKᵀ·scale)·V`，形状 `[Z=batch, H=heads, N_CTX, HEAD_DIM]`，causal。
-映射方案（先看清骨架再读代码）：
+读代码前，四个 Triton 概念需要先建立（都能在模块 04 第 1、3 节找到上下文）：
 
-```
-④binding   : 每个 program(=CTA/block) 负责一个 (batch,head) 里的一条 Q 行块 [BLOCK_M × HEAD_DIM]
-①tiling    : Q 切 BLOCK_M 行；K/V 沿序列切 BLOCK_N 列，循环流过
-②ordering  : 外层沿 K/V 块顺序扫（causal 时只扫下三角）；online softmax 边扫边归一
-③placement : Q tile 常驻(整个循环复用)、O/m/l 累加器驻寄存器(fp32)=OS 数据流；
-             K/V tile 流经 shared(编译器自动 + num_stages 流水)；S=QKᵀ 永不落 HBM ← FA 的灵魂
-```
+**program（程序实例）**。Triton 的基本执行单位：你写的 kernel 函数会被启动成一个二维或三维网格的许多份"实例"，每份处理数据的一小块。一个 program 编译后对应 GPU 的一个线程块——但 Triton 刻意向你隐藏线程，**你面对的最小单位就是"一块数据"**，块内怎么分线程由编译器决定。
 
-> 对照 A2 §1.1：S 不落 HBM → AI 从 O(1) 抬到 O(N) → Tensor-bound。**下面每段代码都是在实现这四行映射。**
+**块指针（block pointer）**。用 `tl.make_block_ptr` 声明的"我要按某个形状的块访问这个张量"的对象。它比裸指针多携带了形状、步长、边界信息——这些信息让编译器能生成整块的高效搬运（在新硬件上直接用 TMA 搬运引擎，模块 01 第 4 节）、自动处理越界、自动安排防 bank 冲突的存放格式（swizzle，同节）。
 
-## 2. 逐段精读
+**`tl.dot`**。Triton 的矩阵乘原语：两个块相乘。它是**通往 Tensor Core 的唯一大门**（模块 03 第 1 节）——编译器把它下沉成矩阵指令；反过来说，自己写乘加循环**永远不会**被升级成矩阵指令。
 
-### 2.1 Autotune 装饰器：调度空间的入口
+**在线 softmax（online softmax）**。FlashAttention 的数学核心：softmax 本需先看到整行才能归一化（分母是整行的和），在线版改成"逐块处理、维护运行中的最大值和分母、来了新块就把旧累加值重新缩放"——让归一化可以分块进行，中间矩阵因此不必完整存在。这是模块 04 第 4 节说的"反向映射"（为了放置目标改写数学）的那次改写。
+
+## 2. 先看全景：这个 kernel 的映射方案
+
+计算目标：`O = softmax(Q·Kᵀ×缩放)·V`，输入形状是[批量, 头数, 序列长, 头维]，带因果掩码（每个位置只能看见自己和之前的位置）。用映射四维的语言，方案是：
+
+- **绑定**：每个 program 负责"某个（批量,头）里的一条 Q 行块"——即输出矩阵的 BLOCK_M 行。
+- **切分**：Q 按 BLOCK_M 行切；K/V 沿序列方向按 BLOCK_N 列切，在循环中逐块流过。
+- **顺序**：外层循环沿 K/V 块扫描（因果场景只扫下三角部分）；在线 softmax 边扫边归一。
+- **放置**（灵魂所在）：Q 的块**装载一次、整个循环反复用**；输出累加器和 softmax 的运行统计量**全程驻留寄存器**；K/V 块流经 shared memory；**而那个"序列长×序列长"的中间分数矩阵，从头到尾没有变量与之对应——它只以小块形式在寄存器里生灭，从不落显存**。这最后一条就是 FlashAttention 的全部秘密在代码里的形态。
+
+## 3. 逐段精读
+
+### 3.1 调优装饰器：调度空间的入口
 
 ```python
 @triton.autotune(
@@ -38,150 +44,151 @@
         triton.Config({'BLOCK_M': 128, 'BLOCK_N': 64},  num_warps=4, num_stages=3),
         triton.Config({'BLOCK_M': 128, 'BLOCK_N': 128}, num_warps=8, num_stages=3),
         triton.Config({'BLOCK_M': 64,  'BLOCK_N': 64},  num_warps=4, num_stages=4),
-        # ... 实际库里有十几个候选
     ],
-    key=['N_CTX', 'HEAD_DIM'],   # 形状变了才重新搜
+    key=['N_CTX', 'HEAD_DIM'],    # 这两个形状参数变了，才重新搜索
 )
 @triton.jit
 def _attn_fwd(...):
 ```
 
-- **【映射】** 这就是 04-03 的**调度空间**本体：①tiling（BLOCK_M/N）× 占用相关（num_warps）× 流水深度（num_stages）的候选集。`key` 定义"形状桶"——同桶复用搜索结果。
-- **【硬件】** `num_warps=4` → 这个 CTA 有 128 线程（占用率的分子，§01-02）；`num_stages=3` → 编译器生成 **3 级 cp.async/TMA 软件流水**（§01-02 §2.6 的 N 级多缓冲，N=3）。
-- **【反事实】** 只留一个 config → 换个形状/换张卡就掉到次优点；`key` 少写 `HEAD_DIM` → d=64 和 d=128 共用一个"最优"config，必有一个吃亏。**动态 shape 会让形状桶爆炸（04-03 的 autotune 天敌）。**
+**【映射】** 这就是模块 04 第 3 节讲的"调度空间"的入口：候选配置列出了切分尺寸（BLOCK_M/N）、并行宽度（num_warps，决定占用率）、流水深度（num_stages）的组合，自动调优逐个实测选最快。`key` 定义"形状桶"：桶内复用搜索结果。
+**【硬件】** `num_warps=4` 意味着这个线程块有 128 个线程；`num_stages=3` 让编译器自动做三级软件流水（模块 04 第 3 节 §5 的三段式改写——你写的同步循环会被改写成"预取两块、边算边补"）。
+**【反事实】** 只留一个配置：换个形状或换张卡就掉到次优点。`key` 里漏掉 HEAD_DIM：头维 64 和 128 会共用同一个"最优"配置，必有一个吃亏。
 
-### 2.2 program_id：④binding 的全部内容
+### 3.2 program_id：绑定决策的全部内容
 
 ```python
-    start_m = tl.program_id(0)      # 我负责第几条 Q 行块
-    off_hz  = tl.program_id(1)      # 我负责哪个 (batch*head)
+    start_m = tl.program_id(0)     # 我负责第几条 Q 行块
+    off_hz  = tl.program_id(1)     # 我负责哪个（批量×头）
 ```
 
-- **【映射】** ④binding：grid 是二维 `(cdiv(N_CTX, BLOCK_M), Z*H)`——**FA2 对 FA1 的关键改进就在这一行**：FA1 只按 (batch,head) 分（grid=Z*H），小 batch 长序列时 CTA 数 < SM 数、机器半空；FA2 把**序列维也切进 grid**，CTA 数 ×(N/BLOCK_M)，SM 全喂满（A1(04) 演化表第二行的代码实体）。
-- **【硬件】** 每个 program → 一个 CTA → 被 GPU 的 block 分发器扔给某个 SM（§01-02）。
-- **【反事实】** batch=1、N=8k、只按 head 分 → 32 个 CTA 对 132 个 SM → **75% 的机器在看戏**（`ncu` 里 waves=0.24、`Achieved Occupancy` 惨白——A1 的尾部/wave 量化）。
+**【映射】** 绑定维度：启动网格是二维的——(序列块数, 批量×头数)。这两行值得多看一眼，因为**FlashAttention-2 对第一代最重要的改进就浓缩在这里**：第一代只按（批量×头）分工，网格大小 = 批量×头数；当批量小、序列长时（比如批量 1、序列 8192），只有几十个 program，一百多个 SM 大半闲置。第二代把**序列维也切进网格**，program 数量乘上"序列长÷BLOCK_M"，机器重新坐满。
+**【硬件】** 每个 program 成为一个线程块，由芯片级分发器按"谁有空位给谁"发往 SM（模块 01 第 7 节）。
+**【反事实】** 用一代的分工方式跑"批量 1、序列 8192"：32 个 program 对 132 个 SM——四分之三的机器在看戏，性能工具里 waves 读数惨白（模块 01 第 7 节的尾效应）。
 
-### 2.3 block_ptr：把"访存模式"声明给编译器
+### 3.3 块指针：把访问模式声明给编译器
 
 ```python
     Q_block_ptr = tl.make_block_ptr(
-        base=Q + off_hz * stride_qh,
+        base=Q + off_hz * stride_qh,          # 本（批量,头）的起始地址
         shape=(N_CTX, HEAD_DIM), strides=(stride_qm, stride_qk),
-        offsets=(start_m * BLOCK_M, 0),
+        offsets=(start_m * BLOCK_M, 0),       # 我这块从第几行开始
         block_shape=(BLOCK_M, HEAD_DIM), order=(1, 0),
-    )   # K/V 各建一个，offsets 初始指向第 0 个 K/V 块
+    )   # K/V 各建一个，初始指向第 0 块，循环中用 tl.advance 步进
 ```
 
-- **【映射】** ①tiling 的边界声明 + ③placement 的入口："我要按 [BLOCK_M×HEAD_DIM] 的块访问这个张量"。
-- **【硬件】** 这是 Triton 通往 **TMA/cp.async 的门票**：块状访问声明让编译器能生成整块异步拷贝（Hopper 上可下沉为 TMA 描述符，§01-04 §2.4-4）、自动处理边界（OOB 填充）和 **swizzle**（§01-04 §1.3+，编译器代管——你从没写过 swizzle，但它就在生成的代码里）。`order=(1,0)` 声明内维连续 → coalescing 友好（§01-04）。
-- **【反事实】** 用裸指针 `Q + offs_m[:,None]*stride + offs_k[None,:]` 也能工作（老写法），但编译器难以证明块状性 → 可能退化为逐元素 load、失去 TMA 路径；stride 传错 → 访存不合并，`ncu` 的 `Sectors/Request` 从 4 飙到 32（§01-04 那张表）。
+**【映射】** 切分维度的边界声明加放置的入口："我要按 BLOCK_M×HEAD_DIM 的块访问这个张量"。
+**【硬件】** 这是通往搬运引擎的门票：块状声明让编译器能生成整块异步拷贝（Hopper 上下沉为 TMA 订单）、自动做越界填充、自动安排防 bank 冲突的存放（模块 01 第 4 节的 swizzle——**你从没写过 swizzle，但它就在生成的代码里**）。`order=(1,0)` 声明最内维连续，保住访存合并。
+**【反事实】** 用老式裸指针加手算偏移也能跑，但编译器难以证明"这是整块访问"，可能退化成逐元素搬运、失去 TMA 路径；步长参数传错一个，访存合并全失，`Sectors/Request` 指标从 4 飙到 32（模块 01 第 4 节的账）。
 
-### 2.4 累加器初始化：③placement 的灵魂三行
+### 3.4 累加器初始化：放置决策的灵魂四行
 
 ```python
-    m_i = tl.full([BLOCK_M], float('-inf'), tl.float32)   # running max
-    l_i = tl.zeros([BLOCK_M], tl.float32)                 # running 分母
-    acc = tl.zeros([BLOCK_M, HEAD_DIM], tl.float32)       # O 的累加器
-    q = tl.load(Q_block_ptr)                              # Q tile 装进来，整个循环不再动
+    m_i = tl.full([BLOCK_M], float('-inf'), tl.float32)   # 运行中的最大值
+    l_i = tl.zeros([BLOCK_M], tl.float32)                 # 运行中的分母
+    acc = tl.zeros([BLOCK_M, HEAD_DIM], tl.float32)       # 输出累加器
+    q   = tl.load(Q_block_ptr)                            # Q 块装载一次，循环内不再动
 ```
 
-- **【映射】** ③placement 的核心决策全在这四行：**acc/m/l 驻留寄存器 = output-stationary**（02-03——psum 原地累加 K 次不动）；**q 装载一次、循环内复用 = Q 的 weight-stationary**（一份数据被所有 K/V 块反复用）。**S 呢？没有 S 的变量——它以 `qk` 的形式每轮生灭于寄存器，这就是"S 永不落 HBM"的代码形态。**
-- **【硬件】** acc 是 `BLOCK_M×HEAD_DIM` 个 **fp32 寄存器**——128×128 时每 CTA 1.6 万个 fp32，寄存器压力的大头（§01-02 例 2 的"刻意低占用"就这么来的；Blackwell 的 TMEM 正是给这块卸压，§03-01）。
-- **【反事实】** acc 用 bf16 → 长序列累加精度烂掉（02-03 OS 的"精度友好"反面教材）；m/l 不用 fp32 → exp 域下溢。**BLOCK_M 开太大 → 寄存器爆 → spill 到 local memory**，`-Xptxas -v` 报 spill、性能崩（§01-02 §2.2）。
+**【映射】** 全 kernel 最重要的放置决策都在这四行：`acc` 和两个统计量**驻留寄存器**、原地累加——这正是模块 02 第 3 节的"输出驻留"数据流，用软件在 GPU 上实现；`q` 装载一次、被所有 K/V 块反复使用——是 Q 的"权重驻留"。**注意没有任何变量对应完整的分数矩阵 S**——它每轮以一小块的形式在寄存器里出生和死亡，这就是"S 永不落显存"的代码形态。
+**【硬件】** `acc` 是 BLOCK_M×HEAD_DIM 个 32 位寄存器——取 128×128 时**每个线程块 1.6 万个寄存器**，是寄存器堆的第一大户（模块 01 第 2 节：这就是这类 kernel 占用率天生不高、要靠流水线而非驻留数量藏延迟的原因）。
+**【反事实】** `acc` 改用 16 位累加：长序列上千次累加后精度烂掉（模块 02 第 3 节输出驻留"高精度累加"好处的反面教材）。BLOCK_M 贪大：寄存器装不下、编译器把变量溢出到显存，`-Xptxas -v` 报 spill，性能崩（模块 01 第 2 节）。
 
-### 2.5 主循环：②ordering + online softmax（FA 的数学心脏）
-
-```python
-    lo = 0
-    hi = (start_m + 1) * BLOCK_M if IS_CAUSAL else N_CTX   # causal: 只扫下三角
-    for start_n in range(lo, hi, BLOCK_N):
-        # ---- 第一个 GEMM ----
-        k  = tl.load(K_block_ptr)                    # [HEAD_DIM, BLOCK_N]
-        qk = tl.dot(q, k)                            # [BLOCK_M, BLOCK_N] = 一块 S
-```
-
-- **【映射】** ②ordering：沿 K/V 块流式扫描；**causal 的处理是"少扫"而不是"扫了再扔"**——`hi` 直接截断到对角线，上三角的块**根本不进循环**（02-05：把浪费挡在 tile 粒度外）。
-- **【硬件】** `tl.dot` → Triton 下沉为 **mma（Ampere）/ wgmma（Hopper）**，SASS 里是 `HMMA`（§01-06 的验证点：dump asm 搜它）；`tl.load(K_block_ptr)` 在 num_stages=3 下被编译器改写成**超前 2 块的异步预取**——你写的是同步语义，编译器排成了 §01-02 §2.6 的流水。
-- **【反事实】** BLOCK 不是 16 的倍数 → `tl.dot` 无法下沉到 MMA，退化为 FFMA 循环 → **Tensor pipe util = 0，慢一个数量级**（A1 的"白买"判据）；causal 用"扫全部+mask"代替截断 → 白算一半的块（浪费 2×）。
+### 3.5 主循环上半：第一个矩阵乘与因果掩码
 
 ```python
-        # ---- causal 对角块的掩码：谓词化，不是分支 ----
+    hi = (start_m + 1) * BLOCK_M if IS_CAUSAL else N_CTX   # 因果：只扫到对角线
+    for start_n in range(0, hi, BLOCK_N):
+        k  = tl.load(K_block_ptr)                # 编译器在此生成异步预取流水
+        qk = tl.dot(q, k)                        # 一块分数矩阵 S，只活在寄存器
         if IS_CAUSAL and start_n + BLOCK_N > start_m * BLOCK_M:
             mask = offs_m[:, None] >= (start_n + offs_n)[None, :]
-            qk = tl.where(mask, qk, float('-inf'))
+            qk = tl.where(mask, qk, float('-inf'))   # 谓词化，不是分支
 ```
 
-- **【映射】** 只有**跨对角线的边界块**才做元素级 mask（②ordering 的收尾细节）。
-- **【硬件】** `tl.where` → **谓词化指令**（`@P` 前缀，§01-03 §1.3）——32 条 lane 全执行、按谓词写回，**零分支发散**。注意外层 `if` 是 `constexpr`/块级条件（编译期/块粒度），不产生 warp 内分歧。
-- **【反事实】** 若写成逐元素 `if` 的真分支 → warp 内下三角/上三角 lane 分家 → `Warp Execution Efficiency` 跳水（§01-03 的体温计）。**这一段是"发散控制"教科书：块级截断 + 元素级谓词，两层各司其职。**
+**【映射】** 顺序维度的两个决策：K/V 块流式扫描；**因果掩码用"少扫"实现**——上三角的块直接不进循环（`hi` 截断），只有横跨对角线的边界块才做逐元素掩码。
+**【硬件】** `tl.dot` 下沉为 Tensor Core 矩阵指令（机器码里的 HMMA，模块 01 第 6 节）；`tl.load` 在 num_stages=3 下被编译器改写成超前两块的异步预取——你写的是同步语义，编译器排成了流水（模块 04 第 3 节 §5.3 第一档）。`tl.where` 编译成**带条件位的指令**而非跳转——32 个线程全执行、按条件写回，零分支发散（模块 01 第 3 节的谓词化）。
+**【反事实】** BLOCK 尺寸不是 16 的倍数：`tl.dot` 下沉失败，退化成普通乘加循环——Tensor 管道活跃度归零，慢一个数量级（模块 03 第 1 节三层检查的"形状"关）。因果处理改成"全扫+掩码"：白算一倍的块。掩码写成真 if 分支：warp 内下三角上三角的线程分家，执行效率跳水（模块 01 第 3 节）。
+
+### 3.6 主循环下半：在线 softmax 与第二个矩阵乘
 
 ```python
-        # ---- online softmax：边扫边归一 ----
-        m_ij  = tl.maximum(m_i, tl.max(qk, 1) * sm_scale)      # 新的 running max
-        qk    = qk * sm_scale - m_ij[:, None]
-        p     = tl.math.exp2(qk * 1.44269504)                  # exp(x) = exp2(x·log2e)
-        alpha = tl.math.exp2((m_i - m_ij) * 1.44269504)        # 旧块的修正因子
-        acc   = acc * alpha[:, None]                           # ← correction：重缩放旧累加
-        l_i   = l_i * alpha + tl.sum(p, 1)
+        m_ij  = tl.maximum(m_i, tl.max(qk, 1) * sm_scale)     # 更新运行最大值
+        p     = tl.math.exp2((qk * sm_scale - m_ij[:,None]) * 1.44269504)
+        alpha = tl.math.exp2((m_i - m_ij) * 1.44269504)       # 旧累加的修正系数
+        acc   = acc * alpha[:, None]                          # 重新缩放旧结果
+        l_i   = l_i * alpha + tl.sum(p, 1)                    # 更新运行分母
         m_i   = m_ij
-```
-
-- **【映射】** 这就是**让"归约分界"可融合的数学改写**（04-02：归约本是融合的天然分界；online 化让它能分块）——FA 之所以是"反向映射"（04-04：给定 S 不落 HBM 的目标，改写数学来配合）的全部秘密就这 7 行。每块只维护 `m_i`（running max）和 `l_i`（running 分母），来了新块就用 `alpha` 把**旧的 acc 整体重缩放**。
-- **【硬件】** `exp2` → **MUFU pipe**（A2 §1.3：吞吐只有 FMA 零头的那条管子）。用 `exp2` 而非 `exp` 是因为硬件 MUFU 原生是 exp2，`exp` 要多一次乘法。**这里就是 FA-3 ping-pong 要藏、FA-4 用多项式绕开的那个瓶颈的代码位置**（A1(04)）。`acc*alpha` 是每块一次的 `BLOCK_M×HEAD_DIM` 次 FMA——**FA-4 的 lazy rescale 跳的就是这一行**（max 没怎么变时 alpha≈1，乘了白乘）。
-- **【反事实】** 不减 max 直接 exp → fp 上溢，数值 NaN（这不是优化是正确性）；把 softmax 拆成独立 kernel → S 落 HBM，AI 塌回 memory-bound（A2 naive 行）。
-
-```python
-        # ---- 第二个 GEMM ----
-        v    = tl.load(V_block_ptr)                    # [BLOCK_N, HEAD_DIM]
-        acc += tl.dot(p.to(v.dtype), v)                # O += P·V
+        v    = tl.load(V_block_ptr)
+        acc += tl.dot(p.to(v.dtype), v)                       # 第二个矩阵乘
         K_block_ptr = tl.advance(K_block_ptr, (0, BLOCK_N))
         V_block_ptr = tl.advance(V_block_ptr, (BLOCK_N, 0))
 ```
 
-- **【映射】** 第二个 GEMM 就地消费 p——**p（即 P=softmax(S) 的块）同样只活在寄存器**，从生到死没碰过 HBM。
-- **【硬件】** `p.to(v.dtype)`：p 是 fp32，**降回 bf16 再喂 MMA**（Tensor Core 输入低精度、累加高精度——§03-01 的精度阶梯与 OS 累加）。`tl.advance` 让编译器静态知道步进模式 → 流水预取地址可提前算。
-- **【反事实】** p 保持 fp32 进 dot → 走不了 bf16 Tensor pipe（吞吐减半或更多）；忘了 advance 写手动指针算术 → 编译器难分析,流水质量下降。
+**【映射】** 这七八行就是"在线 softmax"——让归约可分块的数学改写（第 1 节词汇），FlashAttention 反向映射的全部秘密。每块只维护最大值和分母两个统计量，新块到来时用系数 alpha 把旧累加**整体重缩放**一次，数学上与一次性 softmax 严格等价。
+**【硬件】** 指数函数用 `exp2`（2 的幂）而非 `exp`——因为硬件的特殊函数单元原生算的就是 exp2，用 exp 反而多一步转换。指数走的是**特殊函数单元**（吞吐只有主算术管道的零头，模块 01 附录 A2 的分析）——**这里就是后来 FA-3 用乒乓调度去藏、FA-4 用多项式去绕的那个瓶颈的代码位置**。`p.to(v.dtype)`：分数块从 32 位降回 16 位再喂矩阵指令——输入低精度、累加高精度的标准姿势（模块 03 第 1 节）。
+**【反事实】** 不减最大值直接算指数：数值上溢出 NaN（这行不是优化是正确性）。把 softmax 拆成独立 kernel：分数矩阵被迫落显存，整个计算退回访存受限（模块 01 附录 A2 里"朴素注意力"那一行的命运）。
 
-### 2.6 收尾：归一化 + 写回
+### 3.7 收尾：一次性归一化与写回
 
 ```python
-    acc = acc / l_i[:, None]                 # 最终归一化（分母到齐了）
+    acc = acc / l_i[:, None]              # 分母到齐了，最后归一化一次
     tl.store(O_block_ptr, acc.to(O.dtype.element_ty))
 ```
 
-- **【映射】** ②ordering 的终点：扫完所有 K/V 块，running 分母 `l_i` 才是真分母，一次性归一。写回是本 kernel **唯一一次 O 尺寸的 HBM 写**——对照 naive 的"S 写 + S 读 + P 写 + P 读 + O 写"五趟。
-- **【硬件】** `tl.store` 块状写回 → 合并写事务（§01-04）；`.to(bf16)` 在写回时降精度。
-- **【反事实】** 每轮循环内除 l_i → 数学等价但每块多一次除法（除法也走 MUFU！），FA2 论文明确把它挪出循环（A1(04) 演化表"减非 matmul FLOPs"的代码实体）。
+**【映射】** 顺序维度的终点：扫完全部 K/V 块，运行分母才是真分母，归一化一次完成。这是本 kernel **唯一**一次输出尺寸的显存写入——对照不融合的实现要写读分数矩阵、写读概率矩阵、再写输出共五趟。
+**【硬件】** 块状写回走合并访存；写回时顺路降精度。
+**【反事实】** 把除法放进循环每轮做：数学等价，但除法也走特殊函数单元、每块多付一次——FA-2 论文专门把它挪出循环（"减少非矩阵计算"那项改进的实体）。
 
-## 3. 一张总账：60 行代码 ↔ 全库概念
+## 4. 一张总账：60 行代码 ↔ 全库概念
 
 | 代码位置 | 概念 | 出处 |
 | --- | --- | --- |
-| autotune configs | 调度空间、形状桶 | 04-03 |
-| grid 二维化 | FA2 的序列维并行、wave 量化 | A1(04)/A1 |
-| block_ptr | TMA 门票、swizzle 代管、coalescing | §01-04 |
-| acc/m/l 驻寄存器 | output-stationary、寄存器压力、TMEM 伏笔 | 02-03/§01-02/§03-01 |
-| q 常驻 | Q 的 weight-stationary | 02-03 |
-| 没有 S 变量 | S 不落 HBM = FA 灵魂 = 反向映射 | A2/04-04 |
-| causal 截断 vs tl.where | 块级少扫 + 元素级谓词化，零发散 | §01-03/02-05 |
-| tl.dot | →MMA/wgmma/HMMA；16 倍数硬约束 | §03-01/§01-06 |
-| num_stages | cp.async/TMA 软件流水 | §01-02 §2.6 |
-| exp2/MUFU | FA3 要藏、FA4 要绕的瓶颈 | A2 §1.3/A1(04) |
-| acc*alpha | FA4 lazy rescale 跳过的对象 | A1(04) |
-| 除法挪出循环 | 减非 matmul FLOPs | A1(04) FA2 行 |
+| autotune 配置组 | 调度空间、形状桶 | 模块 04 第 3 节 |
+| 二维 program_id | FA-2 的序列维并行、尾效应 | 模块 01 第 7 节 |
+| make_block_ptr | 搬运引擎门票、swizzle 代管、访存合并 | 模块 01 第 4 节 |
+| acc/m/l 驻留寄存器 | 输出驻留数据流、寄存器压力 | 模块 02 第 3 节、01 第 2 节 |
+| 没有 S 的变量 | 中间矩阵永不落显存 = 反向映射 | 模块 04 第 4 节 |
+| hi 截断 + tl.where | 块级少扫 + 谓词化，零发散 | 模块 01 第 3 节 |
+| tl.dot | 下沉为矩阵指令；16 倍数硬约束 | 模块 03 第 1 节 |
+| num_stages | 三段式软件流水 | 模块 04 第 3 节 §5 |
+| exp2 与特殊函数单元 | FA-3/4 要藏要绕的瓶颈 | 模块 01 附录 A2 |
+| 除法挪出循环 | 减少非矩阵计算 | FA-2 论文 |
 
-## 4. 验收：跑起来该看什么（profiler 三证）
+## 5. 验收：跑起来该看什么
 
-1. `triton.compile(...).asm['ptx'/'sass']` 搜 **HMMA/wgmma**（Tensor Core 吃到没，§01-06 第一招）与 `cp.async/LDGSTS`（流水生成没）。
-2. `ncu`：**SOL** 应为 Compute 高 Memory 不满（Tensor-bound，A1）；`Achieved Occupancy` **不高是正常的**（寄存器重、靠流水藏延迟——§01-02 §2.3 的活例）；stall 主项应是 `Wait`/MUFU 相关而非 `Long Scoreboard`（若是后者 → 流水没盖住访存，调 num_stages）。
-3. 对照 A2 §1.6 的表：本 kernel 相当于"FA-2 行"——Tensor util 中等、被 softmax(MUFU) 序列化拖住。**下一篇 B2 讲 FA-3 怎么在 CUTLASS 层把这个瓶颈藏掉。**
+1. **机器码证据**：导出编译产物（`编译对象.asm`），搜矩阵指令（HMMA 字样）确认 Tensor Core 生效、搜异步拷贝指令确认流水生成（模块 01 第 6 节的方法）。
+2. **性能画像**：ncu 看总览——计算侧利用率高、访存不满（计算受限 ✅）；**占用率不高是正常的**（寄存器重、靠流水藏延迟——模块 01 第 2 节"低占用率是刻意设计"的活例）；停顿主项应是等待算术依赖或特殊函数，而非等显存（若是后者说明流水没盖住，调 num_stages）。
+3. **和下一篇的接口**：本 kernel 相当于 FA-2 的水平——矩阵单元利用率中等、被 softmax（特殊函数单元）拖着。**B2 讲 FA-3 怎么在更低的层把这个瓶颈藏掉。**
 
-## 5. 我的困惑 / 待深挖
+## 6. 术语卡
 
-- （待填）Triton 在 Hopper 上对这个 kernel 实际生成 TMA 还是 cp.async？何时选择 warp 专化路径？
-- （待填）BLOCK_M=128 时的精确寄存器账（acc 16K + q/p/临时）vs 每 SM 64K 上限 → 理论占用率手算验证
-- （待填）backward 的映射方案（重计算 S vs 存 logsumexp）——另一场 placement 权衡
+### program（Triton 的执行单位）
+**定义**：Triton kernel 的一份实例，处理数据的一块；编译后对应一个 GPU 线程块。Triton 向你隐藏线程——你面对的最小单位就是块。
+**为什么存在**：块级抽象砍掉了 CUDA 最难的部分（手管线程分工、shared memory、同步），把写 kernel 的门槛降到 Python 水平，同时保留切块、驻留这些关键调度决策。
+**语境例句**："这个 kernel 的 grid 是二维的，序列维也切进去了。" —— 意思是：program 的分工同时按数据位置和（批量,头）划分——FA-2 式的绑定，保证小批量长序列也能坐满机器。
+
+### make_block_ptr（块指针）
+**定义**：向编译器声明"按某形状的块访问张量"的对象，携带形状、步长、边界信息。
+**为什么存在**：只有让编译器**知道**这是整块访问，它才能生成整块搬运（TMA）、自动越界填充和防冲突布局——裸指针给不了这些信息。
+**语境例句**："改成 block_ptr 之后这个 load 走 TMA 了。" —— 意思是：访问模式从"编译器猜不透"变成"明确声明"，搬运路径升级成硬件引擎——同样的数据，搬法完全不同。
+
+### tl.dot
+**定义**：Triton 的块级矩阵乘原语，编译器把它下沉为 Tensor Core 矩阵指令。触发条件：操作数块尺寸满足 16 的倍数、数据类型受支持。
+**为什么存在**：它是 Triton 世界通往矩阵引擎的唯一大门——手写乘加循环永远只会用普通算术管道，差一个数量级。
+**语境例句**："检查一下 tl.dot 有没有真的下沉成 HMMA。" —— 意思是：条件不满足时它会**静默**退化成普通乘加、结果照样正确——必须用机器码或 Tensor 管道活跃度验证，不能靠"结果对"来安心。
+
+### 在线 softmax（online softmax）
+**定义**：softmax 的分块计算形式：维护运行中的最大值与分母，逐块处理、每块到来时把旧累加整体重缩放，最终结果与一次性计算严格等价。
+**为什么存在**：标准 softmax 的归约（求整行最大值与和）挡住了两个矩阵乘的融合；在线化让归约可分块，中间矩阵从此不必完整存在——FlashAttention 的数学地基。
+**语境例句**："这个变体的归一化没法在线化，融合不了。" —— 意思是：它的数学结构不允许分块维护统计量——放置目标（中间结果驻留片上）实现不了，性能上限被数学卡死。
+
+## 7. 我的困惑 / 待深挖
+
+- Triton 在 Hopper 上对本 kernel 实际生成 TMA 还是老式异步拷贝？由什么触发？
+- BLOCK_M=128 时的精确寄存器账（累加器 + Q 块 + 临时量）与占用率的手算验证？
+- 反向传播的映射方案（重算分数矩阵 vs 存储对数和）是另一场放置权衡，值得单独精读。
 
 ---
 
-*最后更新：2026-07-06（第一版）*
+*最后更新：2026-07-06（第二版：按含自检的写作规范重写；新增基础词汇节与四张术语卡，全部注解改为完整句）*
