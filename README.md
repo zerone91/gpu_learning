@@ -63,8 +63,9 @@
 - 🟨 [A1(04) · 业界高质量 kernel 技术图谱](./04-软件优化栈/A1-业界高质量kernel技术图谱.md)
 
 **代码精读 B 系列**
-- 🟨 [B1 · Triton 版 FlashAttention-2 前向精读](./04-软件优化栈/B1-代码精读·Triton-FlashAttention.md)
-- ⬜ B2 · FA-3 Hopper 流水（CUTLASS/CuTe） · ⬜ B3 · DeepSeek 栈（DeepGEMM/DeepEP）
+- ✅ [B1 · Triton 版 FlashAttention-2 前向精读](./04-软件优化栈/B1-代码精读·Triton-FlashAttention.md)
+- 🟨 [B2 · FA-3 Hopper 流水精读（CUTLASS/CuTe）](./04-软件优化栈/B2-代码精读·FA3-Hopper流水.md)
+- ⬜ B3 · DeepSeek 栈（DeepGEMM/DeepEP）
 
 ### 模块 05 · 收敛
 - 🟨 [术语表（贯穿全程，持续生长的活文档）](./05-收敛-术语表与真实芯片/术语表.md)
