@@ -103,6 +103,7 @@ cuBLAS/cuDNN ─── CUTLASS/CuTe ─── Triton ─── Inductor codegen 
 - autotune 的天敌=动态 shape ↔ §02-05 bucket、04-02 graph break
 - 光谱"谁来搜" ↔ 00 光谱"谁排时刻表"的③层重演（人/模板/编译器 ≈ 静态程度递增）
 - 下一节 04-04：把"调度"上升为"映射"，收束全库
+- 业界最强 kernel 的技术谱系（FA1→FA4、DeepSeek 栈、TBO/SBO）→ **本模块附录 A1**
 
 ## 5. 一句话黑话卡
 
