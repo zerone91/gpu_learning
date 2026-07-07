@@ -4,5 +4,5 @@
 
 ## 小节
 
-- 🟨 [01 · Tensor Core = 塞进 SIMT 核的小脉动引擎](./01-TensorCore.md)
-- ⬜ [02 · 片上 NoC、多核、多芯片扩展](./02-NoC多核多芯片.md)
+- ✅ [01 · Tensor Core = 塞进 SIMT 核的小脉动引擎](./01-TensorCore.md)
+- ✅ [02 · 片上 NoC、多核、多芯片扩展](./02-NoC多核多芯片.md)
