@@ -10,10 +10,10 @@
 - ✅ [04 · 访存通路：寄存器 → shared → L1/L2 → HBM](./04-访存通路.md)
 - ✅ [05 · 同步全家桶](./05-同步全家桶.md)
 - ✅ [06 · PTX vs SASS](./06-PTX与SASS.md)
-- 🟨 [07 · 调度全景：从线程块分发到指令发射](./07-调度全景.md) —— GigaThread/wave/GTO/操作数收集器/stream/抢占/MPS·MIG
+- ✅ [07 · 调度全景：从线程块分发到指令发射](./07-调度全景.md) —— GigaThread/wave/GTO/操作数收集器/stream/抢占/MPS·MIG
 
 > 🎉 **模块 01 主线全部完成**（01–06 + 附录 A1/A2）。
 
 **附录（方法论 / 可复用工具）**
-- 🟨 [A1 · 占用率算例 与「受限于哪个位置」的定位方法](./A1-算例·占用率与瓶颈定位.md) —— 各架构参数速查 + 手算占用率 + Nsight 三级下钻定位瓶颈
+- ✅ [A1 · 占用率算例 与「受限于哪个位置」的定位方法](./A1-算例·占用率与瓶颈定位.md) —— 各架构参数速查 + 手算占用率 + Nsight 三级下钻定位瓶颈
 - 🟨 [A2 · 案例：FlashAttention 与 MoE Group GEMM 的瓶颈剖析](./A2-案例·FlashAttention与MoE-GroupGEMM瓶颈剖析.md) —— 用 A1 方法实剖两个真实算子（prefill/decode 的 bound 分家）
