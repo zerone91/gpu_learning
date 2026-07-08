@@ -9,6 +9,7 @@
 - ✅ [03 · kernel 层（tiling / 手写 vs 自动调优）](./03-kernel层.md)
 - ✅ [04 · 核心的映射问题 —— **收束点**](./04-核心映射问题.md)
 - ✅ [05 · 与算法侧的接口](./05-与算法侧的接口.md)
+- ✅ [06 · 并行编程语言与算子库（CUDA / Triton / TileLang / CuTe）](./06-并行编程语言与算子库.md) —— 一条海拔轴：四维决策权的转让清单
 
 **附录**
 - ✅ [A1 · 业界高质量 kernel 技术图谱（FA 全系 / DeepSeek 栈 / TBO·SBO）](./A1-业界高质量kernel技术图谱.md)
@@ -17,3 +18,4 @@
 - ✅ [B1 · Triton 版 FlashAttention-2 前向](./B1-代码精读·Triton-FlashAttention.md)
 - ✅ [B2 · FA-3 的 Hopper warp 专化流水（CUTLASS/CuTe）](./B2-代码精读·FA3-Hopper流水.md)
 - ✅ [B3 · DeepSeek 栈（DeepGEMM 两级累加 + DeepEP 通信骨架）](./B3-代码精读·DeepSeek栈.md)
+- ✅ [B4 · 同一个 GEMM 的四种写法（CUDA / Triton / TileLang / CuTe）+ FA 对照](./B4-代码精读·同一个GEMM四种写法.md)
