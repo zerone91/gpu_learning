@@ -11,6 +11,7 @@
 - ✅ [05 · 同步全家桶](./05-同步全家桶.md)
 - ✅ [06 · PTX vs SASS](./06-PTX与SASS.md)
 - ✅ [07 · 调度全景：从线程块分发到指令发射](./07-调度全景.md) —— GigaThread/wave/GTO/操作数收集器/stream/抢占/MPS·MIG
+- ✅ [08 · 读懂 PTX 与 SASS](./08-读懂PTX与SASS.md) —— 指令名槽位拆解法 + 常用指令家族 + 异步器件（cp.async/TMA/mbarrier/wgmma）的汇编形态与"发射/记账/等待"三件套
 
 > 🎉 **模块 01 主线全部完成**（01–06 + 附录 A1/A2）。
 
