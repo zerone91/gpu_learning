@@ -11,7 +11,7 @@
 - ✅ [05 · 与算法侧的接口](./05-与算法侧的接口.md)
 
 **附录**
-- 🟨 [A1 · 业界高质量 kernel 技术图谱（FA 全系 / DeepSeek 栈 / TBO·SBO）](./A1-业界高质量kernel技术图谱.md)
+- ✅ [A1 · 业界高质量 kernel 技术图谱（FA 全系 / DeepSeek 栈 / TBO·SBO）](./A1-业界高质量kernel技术图谱.md)
 
 **代码精读 B 系列**（逐段三问：映射哪一维 / 硬件变成什么 / 改错会怎样）
 - ✅ [B1 · Triton 版 FlashAttention-2 前向](./B1-代码精读·Triton-FlashAttention.md)

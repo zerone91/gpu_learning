@@ -1,129 +1,205 @@
 # 附录 A1（模块04）· 业界高质量 kernel 技术图谱：FA 全系 与 DeepSeek 开源栈
 
-> **所属模块**：模块 04 · 软件优化栈（kernel 层的案例延伸）
-> **状态**：🟨 学习中（第一版，知识截至 2026-01；FA4 细节据公开演讲/分析，可能不完整，已标注）
-> **一句话主旨**：两条线看业界最强 kernel 的技术谱系——**FA1→FA4 是"单 kernel 调度"随硬件代际的演化史**（每代 GPU 出新异步器件，FA 就重写一次调度）；**DeepSeek 开源栈（DeepGEMM/FlashMLA/DeepEP + TBO/SBO）是"通信-计算重叠"把藏延迟哲学推上系统层**。两条线合起来印证全库总纲：**藏延迟这一个思想，在栈的每一层各现一次身**。
+> **所属模块**：模块 04 · 软件优化栈（kernel 层的案例延伸；三篇代码精读 B1/B2/B3 的总地图）
+> **状态**：✅ 已按写作规范重写（第二版。知识截至 2026-01。FA-4 细节据公开演讲与第三方分析，可能不完整，文中已标注）
+> **本节主旨**：用两条线把业界最强的 kernel 串成谱系。第一条线是 **FlashAttention 的四代演化**：数学从第一代之后就没变过，变的全是调度——每当 NVIDIA 给出一批新的异步硬件器件，FA 就重写一次流水线，所以"追 FA 的版本号，等于追 NVIDIA 异步器件的版本号"。第二条线是 **DeepSeek 的开源栈**（DeepGEMM、FlashMLA、DeepEP，以及架在它们之上的 TBO/SBO 调度策略）：它把"藏延迟"这个思想从单个 kernel 内部推到了多卡通信的系统层。两条线最后汇进同一张总表——**藏延迟这一个配方，在栈的每一层各出现一次**。
 
 ---
 
 ## 0. 这一节要回答的问题
 
-- [x] FA1→FA2→FA3→FA4 每一代到底改了什么？各绑定哪代硬件的什么器件？
-- [x] FA4 的两个招牌算法技巧（软件 exp / lazy rescale）是什么原理？
-- [x] DeepEP 是什么？normal vs low-latency 两套 kernel 差在哪？IBGDA 是什么？
-- [x] TBO / SBO 分别指什么、站在栈的哪一层、解决什么问题？
-- [x] "藏延迟"在栈的各层怎么逐层重现？（统一视角）
+- FA1 → FA2 → FA3 → FA4，每一代到底改了什么？各自绑定哪代硬件的什么器件？
+- FA-4 的两个招牌技巧——软件 exp 和 lazy rescale——分别是什么原理？
+- DeepSeek 三件套各自站在栈的什么位置？DeepEP 的两套 kernel 差在哪？
+- TBO 和 SBO 是什么、站在哪一层、各自的代价是什么？
+- "藏延迟"怎么在栈的每一层重现一次？（全库总纲的最终收束）
 
 ---
 
-## 1. FA 全系：一部"调度追着硬件跑"的演化史
+## 1. 基础词汇：先把本节要用的词讲清楚
 
-**计算（数学）自 FA1 后基本没变**（tiling + online softmax，A2 §1.1），**变的全是调度**——每代硬件给出新的异步器件，FA 就把流水重排一次。这是 04-03"计算/调度分离"最好的活教材：
+**计算与调度的分离**。第 3 节的核心概念，本节全程要用：一个 kernel 的"计算"是它算什么（数学），"调度"是它怎么算（谁搬数据、什么顺序、怎么重叠）。同一份数学可以配无数种调度，性能差几十倍。FA 四代史就是这个概念最长的实例。
 
-| 代 | 年份/硬件 | 核心变化（调度层面） | 对应本库知识点 |
-| --- | --- | --- | --- |
-| **FA1** | 2022 / A100 | 开创：tiling + online softmax，S 矩阵不落 HBM——**跨层走私的原型** | A2 §1.1、04-02 融合边界 |
-| **FA2** | 2023 / A100 | ① 并行度重组：从"batch×head"扩到**序列维切块**（小 batch 长序列也能喂满 SM）② 减非 matmul FLOPs（rescale 挪到循环外）③ warp 间分工重排，减 shared 往返 | §01-02 占用率、A1 wave 量化 |
-| **FA3** | 2024 / **Hopper** | 吃透新器件：**TMA 异步搬运 + wgmma 异步 MMA + warp 专化（生产者/消费者）+ ping-pong 调度**（softmax 藏进 GEMM）+ FP8 路径。H100 上 35%→75% 峰值 | A2 §1.4/§1.7、§01-02 §2.6 |
-| **FA4** | 2025 / **Blackwell**（据 Hot Chips 2025 等公开资料，细节可能不全）| ① 改用 **CuTe-DSL（Python）**编写——③层工具本身的代际换代 ② **tcgen05 MMA + TMEM 累加**（§03-01 的落地）③ warp 专化角色更细（load/MMA/softmax/correction/epilogue 多角色深流水）④ **软件 exp**：用三次多项式在 **FFMA pipe 上近似 exp2**，绕开 MUFU 吞吐瓶颈 ⑤ **lazy softmax rescale**：running max 变化不大就跳过 correction。B200 上报 ~1.2 PFLOP/s，超 cuDNN ~20% | §03-01 tcgen05/TMEM、A2 §1.3 MUFU 瓶颈 |
+**异步器件**。硬件里"发出命令就可以走开、稍后再来收货"的部件：Ampere 的异步拷贝（`cp.async`）、Hopper 的 TMA（专职搬运的 DMA 引擎）和 wgmma（发了不等的矩阵乘指令）、Blackwell 的 tcgen05 与 TMEM（矩阵累加器搬进专用存储）。每多一种异步器件，软件就多一段可以拿来重叠的延迟——这是历代 kernel 重写的全部驱动力。
 
-**FA4 两个招牌技巧拆解**（都直指 A2 §1.3 那个"MUFU 卡在两个 matmul 之间"的老瓶颈）：
+**EP 与 all-to-all**。EP（expert parallelism，专家并行）把 MoE 的专家分散到多张卡上，于是每层出现两次全员通信：dispatch（每张卡把自己的 token 按路由结果发给持有对应专家的卡）和 combine（算完发回来）。这种"每张卡都要给每张卡发一份"的通信模式叫 all-to-all。它发生在 decode 的关键路径上，微秒级都嫌慢——这就是 DeepEP 存在的理由。
 
-1. **软件 exp（多项式近似）**：exp2 用三次多项式算 → 跑在**FFMA pipe**（Blackwell 上极其充裕）而非 MUFU（吞吐只有 FMA 的零头，A1 表）。**本质：把负载从"贵且挤的 pipe"搬到"便宜且闲的 pipe"**——A1"搬瓶颈"思想的指令级版本。精度靠值域缩减 + 多项式阶数控制。
-2. **lazy rescale**：online softmax 每块本要用新 max 重缩放累加器（correction）；实际上 **max 很少剧烈变化**——不到阈值就跳过 rescale，correction 工作量大减。**本质：把"每块必做"的保守同步变成"按需做"**——数学不变（最终仍精确归一化），只是延迟了修正时机。⚠️ 这是**改算法执行策略**而非改调度——又一次"编译器做不到、人能做到"（04-02 边界）。
-
-> 🔑 **FA 系读法**：把四代放一起看，"**一份数学 × 四代调度**"——每代重写的驱动力都是硬件新器件（异步拷贝→TMA/wgmma→tcgen05/TMEM）。**追 FA 的版本号 = 追 NVIDIA 异步器件的版本号。**
+**micro-batch（微批）**。把一个批次的数据切成几份小批，让它们错开阶段执行。是"用一份工作的计算盖住另一份工作的通信"的前提——本节 TBO 的核心操作。
 
 ---
 
-## 2. DeepSeek 开源栈：通信-计算重叠登场
+## 2. 第一条线：FA 四代，一份数学 × 四代调度
 
-2025 年 DeepSeek 开源周放出的三件套 + 两个系统级策略，代表"极限工程"的另一条线——**MoE 时代，瓶颈从单卡算力转向 EP 通信（A2 §2 + 03-02）**：
+### 2.1 不变的部分：数学在 2022 年就定型了
 
-### 2.1 三件套速览（各站在③层的什么位置）
+FlashAttention 的数学核心两句话：按块扫描 K/V 让 N×N 分数矩阵不落显存；用 online softmax（边扫边维护 running max/sum 并重缩放）保证结果精确。这套数学从 FA-1 到 FA-4 **一个字没改**。四代之间全部的差异都在调度层——这正是"计算与调度分离"的最佳活教材：数学定型之后，性能还能再翻十倍，全靠重排"谁在什么时候干什么"。
 
-| 组件 | 是什么 | 招牌技术 |
+### 2.2 四代走读：每代绑定一批硬件器件
+
+**FA-1（2022，A100）**：开创者。确立 tiling + online softmax 的数学，把 attention 从"HBM 上搬 N×N 三趟"救成"只搬 Q/K/V/O"（这笔账在 01 模块附录 A2 §2.1 手算过：N=4096 时省掉 97% 的搬运）。调度上还很朴素，按 batch×head 分线程块。
+
+**FA-2（2023，A100）**：调度大扫除，三处改进都能落到本库的概念上。第一，**并行度重组**：FA-1 只按 batch×head 切块，算一个例子就知道问题——batch=1、序列 32K、32 个头，总共只有 32 个线程块，而 H100 有 132 个 SM，机器四分之三是空的；FA-2 把序列维也切进并行（每个线程块管一段 query 行），线程块数乘上几十倍，SM 坐满了。第二，**减少非矩阵乘的计算**：把 online softmax 的重缩放从"每块都做"挪到循环外攒着做，少除好几遍。第三，**warp 间分工重排**，减少 shared memory 的中转往返。
+
+**FA-3（2024，Hopper）**：为新器件重写。TMA 管搬运、wgmma 管矩阵乘、warp 分成生产者/消费者、两个消费者 warpgroup 打 ping-pong 把 softmax（MUFU 管线）藏进矩阵乘（Tensor 管线）的影子里。成果：H100 上 Tensor 利用率从 FA-2 的约 35% 提到约 75%。精确时间线在 01 模块附录 A2 §2.5，逐行代码在 B2 精读。
+
+**FA-4（2025，Blackwell；据 Hot Chips 2025 等公开资料，细节可能不全）**：五处变化。① 编写工具换代：改用 CuTe-DSL（Python 写 kernel，元编程生成 CUTLASS 级代码）——注意这是**工具链本身**在换代，不只是 kernel；② 矩阵乘走 tcgen05 指令，累加器进 TMEM（模块 03 第 1 节讲过的新存储，把累加器从寄存器堆里解放出来）；③ warp 分工更细（搬运、矩阵乘、softmax、修正、收尾各设专职角色，流水更深）；④ **软件 exp**；⑤ **lazy rescale**。后两个是算法层面的招牌，下面拆开讲。B200 上报约 1.2 PFLOP/s，比 cuDNN 快约 20%。
+
+四代放在一起读出的规律：**每代重写的驱动力都是硬件新器件**（异步拷贝 → TMA/wgmma → tcgen05/TMEM）。所以读 FA 的 release note，等于免费上一堂"本代 GPU 新器件怎么用"的课。
+
+### 2.3 FA-4 招牌技巧一：软件 exp——用多项式绕开 MUFU
+
+**问题**：01 模块附录 A2 §2.4 讲过，softmax 的 exp 走 MUFU 管线，吞吐只有 FMA 的零头，是卡在两个矩阵乘之间的老瓶颈。FA-3 用 ping-pong 把它**藏**起来；FA-4 更进一步，把它**搬走**。
+
+**做法**：exp 不用硬件超越函数单元算，改用三次多项式近似，跑在 FFMA 管线上（Blackwell 上 FP32 算力极其充裕）。具体分三步走：
+
+1. **值域缩减**：要算 2^x，把 x 拆成整数部分 n 和小数部分 f（x = n + f，f ∈ [0,1)），于是 2^x = 2^n × 2^f。2^n 不用算——直接把 n 加到浮点数的指数位上，一条整数指令。
+2. **多项式近似**：剩下的 2^f 定义域只有 [0,1)，用一个三次多项式拟合，2^f ≈ c₀ + c₁f + c₂f² + c₃f³——霍纳法则展开就是 **3 条 FMA 指令**。
+3. **合并**：多项式结果乘上 2^n（指数位操作），完事。
+
+账本：一次 exp ≈ 3 条 FMA + 零星整数操作，全走 FFMA 管线；而 MUFU 版一次 exp 占用吞吐紧张的专用单元。**本质是 01 模块附录 A1"搬瓶颈"思想的指令级版本：把负载从贵且挤的管线（MUFU）搬到便宜且闲的管线（FFMA）**。精度由值域缩减和多项式阶数控制，attention 场景下足够。
+
+### 2.4 FA-4 招牌技巧二：lazy rescale——把"每块必做"变成"按需做"
+
+**问题**：online softmax 每扫一个新块，如果新块里出现了更大的最大值，就要用它重缩放已累计的输出（correction，一轮乘法过一遍累加器）。教科书写法是每块都做。
+
+**观察**：实际的 attention 分数里，running max 很少剧烈变化——扫过几块之后最大值基本稳定。**举个走查**：某行扫 4 块，各块局部最大值依次是 8.0、8.1、8.05、8.12。严格算法要在第 2、4 块后各做一轮 correction（max 变大了）；但 8.0 和 8.1 差多少？缩放因子是 e^(8.0−8.1) ≈ 0.90——累加器只差 10%，而后续归一化反正会除以总和。FA-4 设一个阈值：max 的变化不超过阈值就**跳过这轮 correction，把修正债务攒着**，等变化真正大了（或最后收尾时）一次算清。上面的例子里 4 轮 correction 可能只剩 1 轮。
+
+**边界必须说清**：最终结果仍然精确归一化（数学不变，只是延迟了修正时机），但这是**人在改算法的执行策略**，不是改调度——编译器永远做不出这种优化，因为它需要"max 通常变化不大"这个只有算法作者知道的领域知识。第 2 节"编译器只能重排、不能改写算法"的又一枚例证。
+
+---
+
+## 3. 第二条线：DeepSeek 开源栈——藏延迟爬上系统层
+
+2025 年 DeepSeek 开源周放出的三件套加两个系统级策略，代表极限工程的另一条线。背景是 MoE 时代的瓶颈迁移：模型的专家分散在几十张卡上，**每层两次 all-to-all 通信挤在 decode 的关键路径上**——单卡 kernel 再快，卡在网络上照样白搭。
+
+### 3.1 三件套速览：各站在栈的什么位置
+
+| 组件 | 是什么 | 招牌技术（逐个就地解释） |
 | --- | --- | --- |
-| **DeepGEMM** | FP8 GEMM 库（含 Grouped GEMM，直指 A2 §2 的 MoE 场景） | **JIT 生成**（形状已知后现编，吃尽编译期信息——04-01 信息衰减的反向操作）；**细粒度 FP8 缩放**（per-128-block scale，两级累加保精度）；TMA 重度使用；代码刻意极简（~300 行核心） |
-| **FlashMLA** | MLA（DeepSeek 的 attention 变体）decode kernel | paged KV、变长序列调度、针对 decode 的 seq 维并行——FA 思想在 MLA 结构上的重做 |
-| **DeepEP** | **EP all-to-all 通信库**（dispatch/combine） | 见下 |
+| **DeepGEMM** | FP8 矩阵乘库，含 MoE 用的 Grouped GEMM | **JIT 现编**：等运行时形状已知才编译 kernel，把"编译期不知道形状"这个信息衰减（第 1 节的题眼）反过来用；**细粒度 FP8 缩放**：每 128 个数配一个缩放因子，配合两级累加保精度；核心刻意精简到几百行 |
+| **FlashMLA** | MLA（DeepSeek 的低 KV 占用 attention 变体）的 decode kernel | paged KV cache、变长序列调度、decode 侧的序列维并行——FlashAttention 的思想在 MLA 结构上重做一遍 |
+| **DeepEP** | EP 专用的 all-to-all 通信库（dispatch 与 combine 两个原语） | 见 §3.2 |
 
-### 2.2 DeepEP：通信 kernel 也是 kernel
+三件套的代码级精读在 B3；本节只负责把它们钉到地图上。
 
-**通信也要 kernel**——把数据从本卡显存搬到别卡，本身就是在 SM 上跑的程序（或绕开 SM 的 RDMA）。DeepEP 提供两套：
+### 3.2 DeepEP：通信也是 kernel
 
-| | **normal kernel**（prefill/训练） | **low-latency kernel**（decode） |
+先立住一个观念：**把数据从本卡显存发到别卡，本身就是一段跑在 SM 上的程序**（打包、算目的地、发起传输），或者干脆绕开 SM 让网卡直接搬（RDMA）。通信库不是黑盒子，它的 kernel 和计算 kernel 用同一套武器。DeepEP 按场景提供两套：
+
+| | **normal kernel**（prefill / 训练） | **low-latency kernel**（decode） |
 | --- | --- | --- |
-| 目标 | 高吞吐 | 低延迟 |
-| 路径 | **NVLink + RDMA 转发**（节点内 NVLink 中转跨节点流量，榨双层带宽——03-02 四层地图的实战） | **纯 RDMA**（跳过转发省 hop） |
-| SM 占用 | **占用一部分 SM** 跑通信 kernel（warp 专化：不同 warp 管不同目标 rank/通道） | **零 SM 占用**：**IBGDA**（GPU 直接发起 RDMA、GPU 写 NIC 门铃，不劳驾 CPU 也不占 SM） |
-| 重叠方式 | 与计算 kernel 分 SM 并行 | **hook 式**：发出后立刻返回，计算随后"钩"一下收尾——通信全程藏在计算背后 |
-| 名场面 | 用了 `ld.global.nc.L1::no_allocate`（技术上未定义行为的 PTX 提示，实测更快）——**③层压榨到 ISA 边缘的例子**（§01-06） | FP8 dispatch 省带宽 |
+| 优化目标 | 吞吐最大 | 延迟最小 |
+| 传输路径 | **NVLink 与 RDMA 接力**：跨节点数据先走 RDMA 到对面节点的某张卡，再由它经 NVLink 分发给最终目的卡——两层带宽都榨到（模块 03 第 2 节四层地图的实战） | **纯 RDMA 直达**：跳过接力省转发延迟 |
+| SM 占用 | 占用一部分 SM 跑通信 kernel，不同 warp 分管不同目标卡 | **零 SM 占用**：靠 IBGDA——GPU 直接写网卡的门铃寄存器发起 RDMA，不劳驾 CPU、也不占计算资源 |
+| 与计算的重叠方式 | 和计算 kernel 分 SM 并排跑 | **hook 式**：发送调用立即返回，计算跑完后"钩"一下收尾——通信全程躲在计算背后 |
+| 一个名场面 | 用了 `ld.global.nc.L1::no_allocate`（读一次性数据时提示不要污染 L1——技术上越出文档保证的 PTX 用法，实测更快），把栈压榨到 ISA 边缘 | dispatch 直接发 FP8，带宽减半 |
 
-### 2.3 TBO / SBO：重叠策略爬上系统层
+这两套的代码走查（fence 的位置、门铃怎么按、hook 怎么收尾）在 B3 §3。
 
-**注意站位**：TBO/SBO **不是 DeepEP 里的 kernel 技术**，而是**架在 DeepEP 之上的调度策略**（系统/运行时层，⑤层往上）——这是听方案时最容易挂错位置的点：
+### 3.3 TBO 与 SBO：架在 DeepEP 之上的调度策略
 
-- **TBO（Two-Batch Overlap，双批重叠）**：把一个 batch 切成两个 micro-batch，**A 算 attention 时，B 在做 MoE 的 all-to-all dispatch**——用一份计算盖住另一份通信。训练侧的 DualPipe（DeepSeek-V3）同思想；推理侧用于 prefill。**代价：两份激活并存，显存 ×~2；batch 要够大才能切。**
-- **SBO（Single-Batch Overlap，单批重叠）**：不复制 batch，在**单个 batch 内部按算子阶段**做更细的重叠——比如 dispatch 通信与 shared-expert 计算重叠（SGLang 的 DeepSeek 部署用它）。**省掉 TBO 的显存翻倍，但重叠窗口更碎、对 kernel 拆分粒度要求更高**（DeepEP 的 hook 式接口正是为这种细粒度准备的）。
+**先把站位钉死，这是听方案时最容易挂错的点**：TBO 和 SBO **不是 DeepEP 里的 kernel 技术**，而是推理引擎/运行时层面的调度策略——DeepEP 只是提供了"可以被重叠的通信原语"这种原料，怎么重叠是上层的事。
 
-> 🔑 **统一视角（本附录的收束）——"藏延迟"在栈的每层各现一次身**：
->
-> | 层 | 藏什么延迟 | 手段 |
-> | --- | --- | --- |
-> | 指令级 | 算术 4–6 拍 | ILP、控制位（§01-02） |
-> | warp 级 | 访存几百拍 | occupancy 切换（§01-02） |
-> | kernel 内 | HBM→shared 搬运 | num_stages 软件流水、warp 专化（§01-02 §2.6） |
-> | kernel 间 | launch/依赖空隙 | 多流、CUDA Graph（04-01） |
-> | **系统级** | **EP all-to-all 通信（μs–ms 级）** | **TBO/SBO、hook 式通信、DualPipe** |
->
-> **每一层的配方都一样：找到两件独立的事，让一件的等待藏进另一件的忙碌。** 从 §01 的车轮战到 TBO，同一个思想爬完了整条栈。
+**TBO（Two-Batch Overlap，双批重叠）**：把一个批切成两个微批，错开半个相位执行——**A 在算 attention 的时候，B 正在做 MoE 的 all-to-all**。画出时间线（一层之内）：
 
-## 3. 开发者视角
+| 时刻 → | t0 | t1 | t2 | t3 |
+| --- | --- | --- | --- | --- |
+| 微批 A | attention 计算 | **dispatch 通信** | 专家 FFN 计算 | **combine 通信** |
+| 微批 B | — | attention 计算 | **dispatch 通信** | 专家 FFN 计算 |
+| GPU 计算单元在干嘛 | A | B | A | B ← 通信时段始终有人在算 |
 
-- **FA 系**：用户只管调库（`flash_attn`/cuDNN/FlexAttention）；**读它们的 release note = 免费的硬件新特性教材**。
-- **DeepSeek 栈**：vLLM/SGLang 已集成（DeepEP+DeepGEMM 后端）；部署 MoE 时的关键旋钮就是 **TBO/SBO 模式选择**（prefill 大 batch→TBO，decode 显存紧→SBO/low-latency）。
-- **判词训练**（收 00 判词法）：听到 wgmma/TMEM/ping-pong → 单 kernel 调度（③层）；听到 dispatch/combine/IBGDA → 通信 kernel（③层但对象是网络）；听到 TBO/SBO/DualPipe → 系统级重叠调度（⑤层以上）。
+每个时刻都有一个微批在用计算单元、另一个在走网络——**通信被完全盖住**。眼熟吗？这张表和 FA-3 的 ping-pong 时间线（01 模块附录 A2 §2.5）结构一模一样，只是"两个 warpgroup 重叠 Tensor 和 MUFU"换成了"两个微批重叠计算和网络"。训练侧同一思想叫 DualPipe（DeepSeek-V3 论文）。**代价**：两份微批的激活同时驻留，显存约翻倍；批要够大才切得动。
 
-## 4. 最新架构落点（时效锚点 · 知识截至 2026-01）
+**SBO（Single-Batch Overlap，单批重叠）**：不切批，在单个批内部找更细的重叠缝——比如 dispatch 通信进行时，让不需要等路由结果的**共享专家**（每个 token 都要过的那部分 FFN）先算着。省掉 TBO 的显存翻倍，代价是重叠窗口更碎、要求 kernel 拆得更细——DeepEP 的 hook 式接口（发出即返回、事后钩收尾）正是为这种细粒度准备的。SGLang 的 DeepSeek 部署走这条路。
 
-- **FA4**：Blackwell 专属（tcgen05/TMEM/CuTe-DSL）；细节以 Tri Dao 团队后续论文/代码为准（撰写时以公开演讲与第三方分析为据，**标注：可能不完整**）。
-- **DeepEP**：面向 H800/受限带宽环境设计（NVLink+IB 混合），在全带宽 NVL72 域上的形态可能演化；IBGDA 依赖 NVSHMEM 生态。
-- **通信-计算融合**是活跃前沿：NCCL 的 kernel 融合、Triton-distributed、各推理引擎的 overlap 调度——**"通信成为 kernel 层公民"是趋势**。
+**选择逻辑**：prefill 批大显存松 → TBO；decode 显存紧、批切不动 → SBO 加 low-latency kernel。
 
-## 5. 和其它模块的挂钩
+### 3.4 收束：藏延迟在栈的每层各现一次身
 
-- FA1–3 细节 → **A2**（本篇只补 FA4 与谱系视角）；MUFU 瓶颈/搬瓶颈 → **A1、A2 §1.3**
-- tcgen05/TMEM → **03-01**；NVLink/RDMA 四层地图 → **03-02**；EP 的 all-to-all 之痛 → **A2 §2**
-- JIT 吃编译期信息 → **04-01 信息衰减**；lazy rescale=改算法非改调度 → **04-02 边界**
-- "藏延迟爬全栈"总表 → 00 定盘星的最终延伸
+把全库讲过的"藏延迟"案例按层排开：
 
-## 6. 一句话黑话卡
-
-| 术语 | 英文 / 别名 | 一句话解释 | 挂在哪个模块 |
+| 层 | 藏的是什么延迟 | 手段 | 讲在哪 |
 | --- | --- | --- | --- |
-| FA4 | FlashAttention-4 | Blackwell 代：CuTe-DSL+tcgen05/TMEM+软件exp+lazy rescale | 04 |
-| 软件 exp | polynomial exp2 | 多项式在 FFMA pipe 近似 exp，绕开 MUFU——指令级搬瓶颈 | 04 |
-| lazy rescale | | max 变化不大就跳过 softmax correction——按需修正 | 04 |
-| DeepGEMM | | FP8 JIT GEMM：形状已知后现编+细粒度缩放+两级累加 | 04 |
-| FlashMLA | | MLA decode kernel：paged KV+变长调度 | 04 |
-| DeepEP | | EP all-to-all 通信库：normal(NVLink+RDMA转发) / low-latency(纯RDMA) | 04 |
-| IBGDA | GPU-initiated RDMA | GPU 直接写 NIC 门铃发 RDMA，零 CPU 零 SM 占用 | 04 |
-| hook 式重叠 | | 通信发出即返回、计算随后钩收尾——细粒度重叠接口 | 04 |
-| TBO | Two-Batch Overlap | 双 micro-batch 互相盖通信；显存×2 换重叠（DualPipe 同源） | 04 |
-| SBO | Single-Batch Overlap | 单批内按算子阶段细粒度重叠；省显存但窗口碎 | 04 |
-| 通信 kernel | | 通信也是 SM 上的程序（或 IBGDA 绕开 SM）——kernel 层新公民 | 04 |
+| 指令级 | 算术指令 4–6 拍 | 多累加器 ILP、编译器控制位 | 01 模块第 2 节 |
+| warp 级 | 访存几百拍 | 占用率、warp 车轮战 | 01 模块第 2 节 |
+| kernel 内 | HBM→shared 的搬运 | 软件流水（num_stages）、warp 分工、ping-pong | 第 3 节 §5、B2 |
+| kernel 间 | 启动与依赖的空隙 | 多 stream、CUDA Graph | 第 1 节 |
+| **系统级** | **跨卡 all-to-all（微秒到毫秒）** | **TBO/SBO、hook 式通信、DualPipe** | 本节 |
 
-> ✅ 待同步登记到 [术语表](../05-收敛-术语表与真实芯片/术语表.md)
+五层的配方一字不差：**找到两件相互独立的事，让一件的等待藏进另一件的忙碌**。区别只是"事"的粒度——从两条指令，到两个 warp，到两级缓冲，到两条 stream，到两个微批。从 01 模块第 2 节的 warp 车轮战读到这里的 TBO，同一个思想爬完了整条栈——这张表就是全库的最后一块拼图。
+
+---
+
+## 4. 开发者视角
+
+- **FA 系**：绝大多数人只需要调库（`flash_attn`、cuDNN、FlexAttention），但**读它们的 release note 是免费的硬件新特性教材**——FA-3 的 note 教你 Hopper 的器件，FA-4 的 note 教你 Blackwell 的。
+- **DeepSeek 栈**：vLLM 和 SGLang 都已集成（DeepEP + DeepGEMM 后端）。部署 MoE 时你真正拨的旋钮是**重叠模式的选择**（TBO 还是 SBO），判断依据就是 §3.3 结尾那两行。
+- **判词训练**（模块 00 判词法的实战）：听到 wgmma / TMEM / ping-pong——单 kernel 内的调度，kernel 层；听到 dispatch / combine / IBGDA——通信 kernel，还是 kernel 层，只是对象换成网络；听到 TBO / SBO / DualPipe——系统级调度策略，运行时层往上。三组词分家，会议上挂错层会闹笑话。
+
+## 5. 最新架构落点（时效锚点 · 知识截至 2026-01）
+
+- **FA-4** 是 Blackwell 专属（tcgen05 / TMEM / CuTe-DSL 缺一不可）；撰写时以公开演讲和第三方分析为据，细节以 Tri Dao 团队后续论文与代码为准。
+- **DeepEP** 是为 H800（NVLink 带宽受限的出口版）加 InfiniBand 的环境设计的；在全带宽 NVL72 域上"NVLink 接力"的价值会变化，形态可能演化。IBGDA 依赖 NVSHMEM 生态。
+- **通信-计算融合是活跃前沿**：NCCL 的 kernel 融合、Triton-distributed、各推理引擎的 overlap 调度都在往同一个方向走——**通信成为 kernel 层的一等公民**。
+
+## 6. 术语卡
+
+### 软件 exp（多项式指数近似）
+
+**定义**：不用硬件超越函数单元（MUFU）算 exp，而是值域缩减后用三次多项式在 FMA 管线上近似——一次 exp 摊约 3 条 FMA 指令。FA-4 的招牌技巧之一。
+
+**为什么存在**：MUFU 吞吐只有 FMA 的零头，attention 里 O(N²) 次 exp 足以拖慢 Tensor Core；FA-3 用重叠"藏"这个瓶颈，软件 exp 直接把负载"搬"到充裕的 FMA 管线上——搬瓶颈思想做到了指令级。
+
+**语境例句**："FA-4 连 exp 都不走 SFU 了，多项式直接在 FFMA 上算，MUFU 那条管线彻底闲下来。"——意思是：超越函数被改写成乘加序列，瓶颈管线换人。
+
+### lazy rescale（惰性重缩放）
+
+**定义**：online softmax 中，running max 变化不超过阈值就跳过对累加器的重缩放，把修正攒到必要时一次做。最终归一化仍然精确。
+
+**为什么存在**：教科书版每块都要过一遍累加器做 correction，但实际分数的最大值很快稳定、多数 correction 的缩放因子接近 1——是可以赖掉的活。这是"人改算法执行策略"的典型：依赖编译器不可能知道的领域知识（max 通常稳定）。
+
+**语境例句**："correction 开销砍掉大半，靠的是 lazy rescale——max 没怎么动就先欠着账。"——意思是：修正被按需化，数学不变，工作量大减。
+
+### 通信 kernel
+
+**定义**：完成跨卡数据搬运的 GPU 程序。它或者跑在 SM 上（打包、寻址、发起传输），或者通过 IBGDA 让 GPU 直接指挥网卡搬运而不占 SM。DeepEP 的 dispatch/combine 就是两个通信 kernel。
+
+**为什么存在**：把"通信"当黑盒会漏掉一整层优化空间——通信 kernel 和计算 kernel 用同一套武器（warp 分工、fence、异步接口），也抢同一批资源（SM、显存带宽）。承认"通信也是 kernel"，才谈得上通信-计算重叠的精细设计。
+
+**语境例句**："normal 模式的 dispatch 要吃 20 个 SM，你的 GEMM 得给它让位。"——意思是：通信 kernel 占用计算资源，容量规划要把它算进去。
+
+### TBO（Two-Batch Overlap，双批重叠）
+
+**定义**：把一个批切成两个微批、错开半个相位，让 A 的计算时段盖住 B 的 all-to-all 通信时段，反之亦然。训练侧的同思想叫 DualPipe。
+
+**为什么存在**：MoE 的 all-to-all 挤在关键路径上，单批执行时通信时段计算单元干等；两个微批的"计算/通信"天然互补，拼起来就把网络时间完全藏掉。代价是两份激活并存、显存约翻倍。
+
+**语境例句**："prefill 上了 TBO 之后 all-to-all 基本免费，就是显存水位得盯着。"——意思是：通信被另一微批的计算盖住，换来的是激活占用翻倍。
+
+### SBO（Single-Batch Overlap，单批重叠）
+
+**定义**：不切批，在单个批内部按算子阶段找重叠——如 dispatch 通信与共享专家计算并行。依赖 hook 式的细粒度通信接口。
+
+**为什么存在**：decode 阶段显存紧、批小，TBO 的"显存翻倍"和"批要够大"两个前提都不成立；SBO 用更碎的重叠窗口换来零额外显存，适配 decode 的约束。
+
+**语境例句**："decode 走 SBO，dispatch 藏在 shared expert 后面，显存一点不多吃。"——意思是：单批内部找到了不依赖路由结果的计算来盖通信。
+
+### FlashMLA
+
+**定义**：DeepSeek 开源的 MLA attention 的 decode kernel，支持 paged KV cache 和变长序列调度。MLA 是 DeepSeek 的低 KV 占用 attention 变体（KV 压缩成低秩隐向量）。
+
+**为什么存在**：MLA 改变了 attention 的数学结构（04 模块第 5 节的"结构"传导链），FA 系 kernel 的布局假设不再适用，必须为新结构重做一份"FlashAttention 式"的 kernel——算法与 kernel 协同设计的又一例。
+
+**语境例句**："换 MLA 不是改个配置就完了，得有 FlashMLA 这种配套 kernel，不然省下的 KV 全被慢 kernel 吐回去。"——意思是：算法结构变了，kernel 层必须跟着重写才能兑现收益。
 
 ## 7. 我的困惑 / 待深挖
 
-- （待填）FA4 软件 exp 的精度账：多项式阶数 vs ULP 误差 vs 吞吐的实测曲线？
-- （待填）lazy rescale 的阈值怎么定？对数值稳定性的极端 case（长尾 logits）影响？
-- （待填）IBGDA 的门铃机制细节；NVSHMEM 的对称堆在多租户下的约束？
-- （待填）TBO 与 SBO 的收益边界：什么 batch/形状下 SBO 反超 TBO？重叠率实测怎么量？
-- （待填）DeepGEMM 的 JIT 编译延迟怎么摊（缓存策略）？与 Triton autotune 缓存的对比？
+- FA-4 软件 exp 的精度账：多项式阶数、ULP 误差、吞吐三者的实测曲线？
+- lazy rescale 的阈值怎么定？对长尾 logits 这类极端数值分布的稳定性影响？
+- IBGDA 门铃机制的细节；NVSHMEM 对称堆在多租户环境下的约束？
+- TBO 与 SBO 的收益边界：什么 batch 和形状下 SBO 反超 TBO？重叠率在 profile 里怎么量？
+- DeepGEMM 的 JIT 编译延迟怎么摊销（缓存策略）？与 Triton autotune 缓存的异同？
 
 ---
 
-*最后更新：2026-07-06（第一版）*
+*最后更新：2026-07-07（第二版，按写作规范重写）*

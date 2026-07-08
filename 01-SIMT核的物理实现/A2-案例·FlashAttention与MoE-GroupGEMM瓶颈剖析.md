@@ -1,249 +1,276 @@
 # 附录 A2 · 案例：FlashAttention 与 MoE Group GEMM 的瓶颈剖析
 
-> **所属模块**：模块 01 · SIMT（A1 方法论的实战案例）
-> **状态**：🟨 学习中（第一版，知识截至 2026-01；性能数字为公开资料量级）
-> **一句话主旨**：用 A1 的框架（算 AI → 分到具体 pipe/级 → Nsight 三级下钻）剖两个真实算子——**FlashAttention**（融合把瓶颈从 HBM 搬到 Tensor+MUFU；FA-3 再把 MUFU 藏进 Tensor）与 **MoE Group GEMM**（变长小 M 使 decode 落到权重带宽 bound，外加 tile/wave 量化与调度不均）。贯穿结论：**"复用度决定 AI，AI 决定 bound 在哪"，而 prefill vs decode 是同一算子的两种 bound。**
+> **所属模块**：模块 01 · SIMT 核的物理实现（附录 A1 方法论的两个实战案例）
+> **状态**：✅ 已按写作规范重写（第三版。知识截至 2026-01，性能数字为公开资料量级）
+> **本节主旨**：附录 A1 给了方法——先手算算术强度、再钉到具体部件；这一节把方法用在两个真实算子上。案例一是 **FlashAttention**：融合把它从 HBM 受限救成 Tensor Core 受限，FA-3 再把残余的超越函数瓶颈藏进 Tensor Core 的影子里。案例二是 **MoE 的 Group GEMM**：每个专家分到的 token 数决定它的算术强度，于是 decode 阶段几乎注定卡在权重带宽上，我们会推导出一个值得背下来的翻转阈值——**每个专家攒够约 300 个 token，才喂得饱 Tensor Core**。两个案例共同印证同一条主线：**复用度决定算术强度，算术强度决定卡在哪；而 prefill 和 decode 是同一个算子的两种命运**。
 
 ---
 
 ## 0. 这一节要回答的问题
 
-- [x] FlashAttention 的瓶颈到底在哪？为什么 prefill 与 decode 完全不同？
-- [x] softmax（exp）在里面扮演什么角色，为什么它能拖慢 Tensor Core？
-- [x] FA-2 → FA-3 到底改了哪个 bound？（用 §02 §2.6 的异步流水解释）
-- [x] MoE Group GEMM 为什么典型地"权重带宽 bound"？tile/wave 量化怎么伤害它？
-- [x] 这两个案例怎么共同印证 A1 的"复用→AI→bound"主线？
+- FlashAttention 的瓶颈到底在哪？为什么 prefill 和 decode 的答案完全不同？
+- softmax 里的 exp 为什么能拖慢 Tensor Core？FA-3 是怎么把它藏掉的（精确到时间线）？
+- MoE 的 Group GEMM 为什么在 decode 阶段几乎总是权重带宽受限？
+- "每专家约 300 个 token"这个翻转阈值是怎么推出来的？为什么换成 FP8 它几乎不变？
+- 变长小矩阵会带来哪两种"量化浪费"？persistent kernel 怎么救？
 
 ---
 
-## 1. FlashAttention（FA-2 / FA-3）
+## 1. 基础词汇：先把本节要用的词讲清楚
 
-### 1.1 算子结构与形状
+**attention 的形状**。attention 的计算是 `O = softmax(QKᵀ/√d)·V`：拿查询矩阵 Q 和键矩阵 K 做一次矩阵乘得到 N×N 的分数矩阵 S，对每行做 softmax 归一化，再和值矩阵 V 乘一次得到输出。N 是序列长度（几千到几十万），d 是每个注意力头的维度（常见 64 或 128）。要记住的比例关系：**两次矩阵乘的计算量是 O(N²·d)，但输入输出 Q/K/V/O 只有 O(N·d)——中间那个 N×N 的 S 才是大头**。
 
-Attention：`O = softmax(QKᵀ / √d) · V`。形状 `Q,K,V ∈ [B, H, N, d]`（N=序列长，d=head dim，常见 64/128）。
+**prefill 与 decode**。大模型推理的两个阶段。prefill 是处理输入提示词：几千个 token 一起进来，矩阵是"胖"的；decode 是逐个生成输出：每步只有 1 个新 token，矩阵是"一行"的。**同一个模型、同一套算子，这两个阶段的矩阵形状差三四个数量级**——本节两个案例都会算出：这个形状差异直接翻转瓶颈的位置。
 
-FlashAttention 的核心：**不落 N×N 的分数矩阵**——按 K/V 分块，边扫边做 online softmax（维护 running max/sum 并重缩放），S 的 tile 只活在 shared/寄存器里。
+**KV cache**。decode 阶段每生成一个新 token，它都要对**全部历史 token** 的 K 和 V 做 attention。历史的 K/V 不必重算，缓存在显存里，这份缓存就是 KV cache。它随序列变长线性膨胀，decode 每步都要把它完整读一遍——这个"每步读一遍"就是 decode 阶段 attention 的带宽账本。
 
-### 1.2 AI 分析：prefill 为何 Tensor-bound、decode 为何 HBM-bound
+**online softmax（在线 softmax）**。softmax 需要全行的最大值和总和才能归一化，看起来必须先算完整行。online softmax 打破这个依赖：边分块扫描边维护"到目前为止的最大值和总和"（running max / running sum），来了新块就更新这两个量、并对已累计的结果做一次重缩放（correction）。数学结果完全精确，代价是每块多一点修正计算。**它是 FlashAttention 能"不落 N×N 矩阵"的数学前提**（B1 精读里有逐行代码）。
 
-**Prefill（长序列，N 大）**，每 head：
-- FLOPs ≈ **4·N²·d**（两个 matmul：QKᵀ 与 PV，各 ~2N²d）。
-- HBM 字节 ≈ **4·N·d·2**（bf16 读 Q/K/V + 写 O，都是 O(N·d) 而非 O(N²)——这正是 FA 的意义）。
-- **AI ≈ 4N²d / (8Nd) = N/2**。N=4096 → AI≈2048 FLOP/byte ≫ 300（H100 FP16 Tensor 平衡点）→ **Tensor-pipe bound**。✅ 长序列 attention 的 matmul 部分是计算受限。
+**MoE 与 Group GEMM**。MoE（Mixture of Experts，专家混合）把 FFN 层复制成 E 份"专家"，每个 token 由路由器送去其中 top-k 个。路由之后，每个专家 i 分到 M_i 个 token，要算一个 `[M_i×K]·[K×N]` 的矩阵乘——**E 个矩阵乘，K、N 都相同，只有 M_i 各不相同且不均衡**。把这一批变长矩阵乘塞进一次 kernel 启动里算完，就叫 Group GEMM（分组矩阵乘）。
 
-**Decode（自回归，query 只有 1 个 token，N_q=1）**：
-- 每步读**整个 KV cache**（长度 N 的 K、V），FLOPs≈2·N·d，字节≈2·N·d·2。
-- **AI ≈ 0.5 FLOP/byte → 深度 HBM-bound**（读 KV cache 的带宽封顶）。这就是 FlashDecoding / 分块并行 KV 的战场。
+---
 
-> 🔑 同一个 attention，**prefill 是 Tensor-bound、decode 是 HBM(KV cache)-bound**——和 A1 里"GEMM vs GEMV"是同一个道理。优化手段因此完全分家。
+## 2. 案例一：FlashAttention
 
-### 1.3 真正的难点：softmax(MUFU) 卡在两个 matmul 之间
+### 2.1 它解决的原始问题：别让 N×N 落显存
 
-即便 prefill 是"Tensor-bound"，也有个隐藏的第二瓶颈：**数据流是 `QKᵀ(Tensor) → softmax(MUFU/exp) → PV(Tensor)`，三者在关键路径上串行**。softmax 的 exp 走 **MUFU/SFU pipe**（吞吐远低于 Tensor）。于是：
+先算一笔 naive 实现的账，看看问题多大。N=4096、d=128、bf16（每数 2 字节），单个注意力头：
 
-- 每 head 的 exp 次数 ~ O(N²)，而 MUFU 峰值只有 Tensor 的零头。
-- **naive/未重叠实现里，Tensor Core 在做 softmax 的那段时间是空转的** → 实测 Tensor 利用率被 softmax 拉低。
-- 这不是"compute vs memory"，而是 **pipe 间序列化**——A1 清单里的一种"具体位置"。
+1. 分数矩阵 S 的大小 = 4096 × 4096 × 2 字节 = **32 MB**——比整个 SM 的 shared memory 大一百多倍，只能写回 HBM。
+2. naive 流程要让它在 HBM 上走三趟：QKᵀ 算完写出 32 MB，softmax 读入 32 MB 再写出 32 MB，最后和 V 乘时再读入 32 MB——**单是中间结果就搬了 128 MB**。
+3. 对比真正的输入输出：Q/K/V/O 加起来 4 × 4096 × 128 × 2 ≈ 4 MB。**97% 的搬运量花在一个"本可以不存在"的中间矩阵上**。
 
-### 1.4 FA-2 → FA-3：改的是这个 bound
+FlashAttention 的全部思想就是消灭这三趟：把 K/V 切成小块，逐块扫描，每块的分数只活在 shared memory 和寄存器里，用 online softmax 保证边扫边归一化数学不变。N×N 从头到尾不落 HBM。
 
-- **FA-2**：相对 FA-1 减少了非 matmul FLOPs、把并行度从 batch·head 扩到序列维、优化 warp 间分工减少 shared 往返。但它**没有把 softmax 和 GEMM 重叠**，也没吃透 Hopper 的异步器件 → 在 **H100 上 Tensor 利用率仅 ~35%**（tensor 在等 softmax）。
-- **FA-3（Hopper 专门优化）**：正是 §02 §2.6 那套——
-  - **TMA** 异步搬 Q/K/V tile，**wgmma** 异步 Tensor Core；
-  - **warp 专化**：生产者 warp 管 TMA，消费者 warpgroup 管 MMA+softmax；
-  - **ping-pong 调度**：让 block A 的 **softmax(MUFU)** 与 block B 的 **GEMM(Tensor)** 重叠——**把 MUFU 藏进 Tensor 的影子里**；
-  - （FP8 路径 + incoherent processing 处理精度）。
-  - 结果：**回到贴近 Tensor-pipe bound，H100 FP16 达 ~75% 峰值（~740 TFLOP/s），FP8 ~1.2 PFLOP/s。**
+### 2.2 prefill 的算术强度：一道除法算出 Tensor-bound
 
-> 🔑 **FA-3 的本质**：瓶颈从"Tensor 与 MUFU 序列化"搬回"纯 Tensor-bound"。手段不是减少计算，而是**用异步流水把便宜 pipe(MUFU) 的延迟塞进贵 pipe(Tensor) 的空隙**。这是 A1 结尾"把瓶颈搬到最贵的 pipe 并贴着它的峰值"的教科书案例。
+用 A1 的方法给 FlashAttention 的 prefill 算 AI（每注意力头）：
 
-### 1.5 占用率画像：低占用，靠异步流水而非 occupancy
+1. 计算量：两次矩阵乘（QKᵀ 和 PV）各约 2·N²·d，共 **4·N²·d** FLOP。
+2. 搬运量：既然 N×N 不落 HBM，剩下的就只有读 Q/K/V、写 O，共 4 × N × d × 2 字节 = **8·N·d** byte。
+3. AI = 4N²d ÷ 8Nd = **N/2**。
+4. 代入 N=4096：AI ≈ **2048 FLOP/byte**，远超 H100 FP16 Tensor Core 的平衡点 300。
 
-FA kernel 的 tile 大（如 Br=Bc=128，d=128）：
-- **shared**：Q/K/V tile 各 128×128×2B≈32KB，加 S/P、双缓冲 K/V → 轻松上百 KB → **shared-bound，1~2 block/SM**。
-- **寄存器**：online softmax 的 O 累加器 + running max/sum → 高寄存器占用。
-- → **刻意低占用率**，延迟靠 §2.6 的 warp 专化 + 深流水藏，不靠堆 warp。正是 §02 §2.3/2.5 的活体标本。
+结论：**长序列 attention 经 FlashAttention 融合后是 Tensor-pipe bound**。注意这个 AI 里 d 消掉了、只剩 N——序列越长复用越足，这就是"复用度决定 AI"在 attention 上的具体形态：每个 K/V 块被 N 个 query 行复用。
 
-### 1.6 Nsight 定位与一句话结论
+### 2.3 decode 的算术强度：同一个算子的另一种命运
 
-| 场景 | 主导信号 | bound 位置 |
+decode 阶段每步只有 1 个 query token，对着长度为 N 的 KV cache 算：
+
+1. 计算量：约 2 次矩阵-向量乘，共约 **4·N·d** FLOP。
+2. 搬运量：KV cache 整个读一遍，2 × N × d × 2 字节 = **4·N·d** byte。
+3. AI ≈ **1 FLOP/byte**——连 FP32 平衡点 20 都远远不到。
+
+**深度 HBM-bound，上限就是读 KV cache 的带宽**。这和 A1 里"GEMM 对 GEMV"是同一个故事：prefill 是 GEMM 型（Tensor-bound），decode 是 GEMV 型（带宽-bound），优化手段从此分家——decode 侧的战场是 FlashDecoding（把 KV 按块切给多个 SM 并行读）、GQA/MLA（直接砍 KV cache 体积，04 模块第 5 节的账）。
+
+### 2.4 隐藏的第二瓶颈：softmax 卡在两个矩阵乘中间
+
+§2.2 说 prefill 是 Tensor-bound，但有个隐藏问题。每个 K/V 块的处理链是三段：
+
+```
+S = Q·K_jᵀ      （Tensor Core 干）
+softmax(S)       （exp 走 MUFU，行归约走普通 ALU）
+O += P·V_j       （Tensor Core 干）
+```
+
+三段在**关键路径上串行**：softmax 没算完，下一段矩阵乘的输入 P 就不存在。而 exp 的量不小——每头 O(N²) 次——走的却是吞吐只有 Tensor Core 零头的 MUFU 管线。后果：**Tensor Core 每处理完一块就要停下来等 softmax**。这不是"计算对访存"的老二分法，而是 A1 清单里"管线间序列化"那一行。实测证据：FA-2（没做重叠）在 H100 上的 Tensor Core 利用率只有约 **35%**——三分之二的时间，最贵的硬件在等一个便宜单元干活。
+
+### 2.5 FA-3 的解法：把 MUFU 藏进 Tensor Core 的影子里
+
+FA-3 是为 Hopper 重写的调度（数学没变），用两层重叠消掉序列化。先交代三个角色：Hopper 上 4 个 warp 组成一个 warpgroup（128 线程，异步矩阵指令 wgmma 的操作单位）；FA-3 的一个线程块里有 **1 个生产者 warpgroup**（只发 TMA 搬运指令，用 `setmaxnreg` 让出自己的寄存器）和 **2 个消费者 warpgroup**（拿到大寄存器堆放输出累加器，轮流干矩阵乘和 softmax）。
+
+**第一层：warpgroup 内部的两级流水**。靠 wgmma 的"发了不必等"性质，把下一块的矩阵乘提前发出去，让它和当前块的 softmax 同时进行：
+
+```
+发出 S_0 = Q·K_0ᵀ；等它完成
+对每个块 j：
+    发出 S_{j+1} = Q·K_{j+1}ᵀ    ← Tensor Core 开始在后台算下一块
+    算 softmax(S_j)              ← MUFU 干活，与上一行重叠 ✅
+    发出 O += P_j·V_j
+    等 S_{j+1} 完成
+```
+
+softmax 的耗时被塞进了下一块矩阵乘的执行时间里。
+
+**第二层：两个消费者 warpgroup 的 ping-pong**。单个 warpgroup 内的重叠还不够严丝合缝，FA-3 再让两个消费者错开半个相位——用命名屏障（带编号的 `bar.sync`，第 5 节讲过）强制"A 在做矩阵乘时 B 必须在做 softmax"，反过来亦然。时间线：
+
+| 时刻 → | t0 | t1 | t2 | t3 |
+| --- | --- | --- | --- | --- |
+| warpgroup A | 矩阵乘(块0) | softmax(块0) | 矩阵乘(块1) | softmax(块1) |
+| warpgroup B | — | 矩阵乘(块0) | softmax(块0) | 矩阵乘(块1) |
+| **Tensor Core 在给谁干活** | A | B | A | B ← 从不空闲 |
+| **MUFU 在给谁干活** | — | A | B | A ← 藏进影子 |
+
+两个 warpgroup 处理各自独立的数据块，但共享同一套 Tensor Core——ping-pong 保证这套最贵的硬件**永远被其中一个占着**。底下还垫着生产者的 TMA 在持续搬下一块 K/V，于是三种引擎（DMA 搬运、Tensor Core、MUFU）同时都在忙。同步骨架各司其职：TMA 完成靠 mbarrier 通知消费者，ping-pong 交接靠命名屏障，wgmma 完成靠 `wgmma.wait_group`（这套器件的逐行代码在 B2 精读）。
+
+结果：H100 上 FP16 达到约 **75% 峰值（约 740 TFLOP/s）**，比 FA-2 的 35% 翻了一倍多。**手段不是减少任何计算，而是把便宜管线（MUFU）的工作塞进贵管线（Tensor Core）的空隙**——A1 结尾"把瓶颈搬到最贵的管线并贴着峰值跑"的教科书案例。
+
+### 2.6 占用率画像：又一个"低占用是故意的"
+
+FA kernel 的 tile 很大（典型 128×128、d=128），算一下驻留账：Q、K、V 各一个 tile 就是 3 × 128 × 128 × 2 ≈ 96 KB，加上 K/V 双缓冲，shared memory 用量轻松过百 KB——**每个 SM 只坐得下 1 到 2 个线程块**。寄存器同样紧张（输出累加器加 running max/sum 全在寄存器里）。所以 FA 的占用率极低，延迟全靠上面那套 warp 分工加深流水来藏，不靠堆 warp——它和 A1 例 2 的分块 GEMM 一样，是第 2 节"占用率是手段不是目标"的活体标本。
+
+### 2.7 Nsight 读数对照
+
+| 场景 | 主导信号 | 结论 |
 | --- | --- | --- |
-| Prefill · FA-2 | Tensor pipe util 中等(~35%)、stall 含 MUFU/`Short Scoreboard` | Tensor↔MUFU **序列化** |
-| Prefill · FA-3 | Tensor pipe util 高(~75%)、Memory 不满 | **Tensor pipe** |
-| Decode | `DRAM Throughput`≈峰值、Tensor util 低 | **HBM（KV cache 带宽）** |
-
-> **一句话**：FlashAttention 把 attention 从"HBM-bound（naive 落 N×N）"救到"Tensor-bound"，FA-3 再把残余的 MUFU 序列化藏掉；但 decode 阶段绕不开 KV cache 的 HBM 带宽。
-
-### 1.7 深挖：FA-3 的 ping-pong 精确时序
-
-**三个角色**（Hopper 上 warpgroup = 4 warp = 128 线程，是 WGMMA 的操作单位）：
-- **1 个生产者 warp(group)**：只发 TMA，把 K_j/V_j tile 灌进 SMEM 环形缓冲；`setmaxnreg.dec` 释放自己的寄存器。
-- **2 个消费者 warpgroup（WG_A, WG_B）**：`setmaxnreg.inc` 拿到大寄存器堆放 O 累加器，跑 WGMMA + softmax。
-
-**单个 K/V 块 j 的关键路径**（三段，用两种不同引擎）：
-```
-G1_j : S_j = Q·K_jᵀ         (Tensor / WGMMA)
-SM_j : softmax(S_j)          (SFU/MUFU 的 exp + 行归约)
-G2_j : O += P_j·V_j          (Tensor / WGMMA)
-```
-痛点：`SM_j`(SFU) 夹在两个 Tensor 段之间，**串行则 Tensor Core 空转**。FA-3 用两层重叠消掉它：
-
-**(a) warpgroup 内 2-stage 流水（GEMM–softmax pipelining）**——靠 WGMMA 异步（发了不等）：
-```
-发 G1_0; 等 G1_0
-for j:
-    发 G1_{j+1}      # 下一块 QKᵀ，Tensor 后台跑
-    SM_j             # 当前块 softmax（SFU）——与 G1_{j+1} 重叠 ✅
-    发 G2_j          # P_j·V_j（Tensor）
-    等 G1_{j+1}
-```
-→ `SM_j` 的 SFU 工作藏进 `G1_{j+1}` 的 Tensor 工作里。
-
-**(b) warpgroup 间 ping-pong**——两个 WG 相位错开半拍，用**命名屏障（`bar.sync` id）**强制"一个在 GEMM 时另一个在 softmax"，让共享的 Tensor 管道永远被某个 WG 占着：
-```
-time →     t0        t1        t2        t3
-WG_A:    GEMM(0)   SFTMX(0)  GEMM(1)   SFTMX(1)
-WG_B:      —       GEMM(0)   SFTMX(0)  GEMM(1)
-──────────────────────────────────────────────
-Tensor:    A         B         A         B     ← 从不空闲
-SFU:       —         A         B         A     ← 与 Tensor 重叠
-```
-底下还叠着生产者 TMA，于是 **TMA(DMA 引擎) ‖ WGMMA(Tensor) ‖ softmax(SFU) 三重重叠**。
-**同步骨架**：TMA 完成 → `mbarrier`（生产者→消费者）；ping-pong 交接 → **命名屏障**（WG_A↔WG_B）；WGMMA 完成 → `wgmma.wait_group`。
-
-> 🔑 **本质**：FA-3 把三种不同"引擎"（DMA / Tensor Core / SFU）的活儿在时间轴上**交叠填满**，让每个引擎都尽量不空——这是 §02 §2.6"warp 专化 + 多缓冲 + ping-pong"在 attention 上的完整落地。同步语义细节 → **§05**。
+| prefill，FA-2 | Tensor 利用率中等（约 35%），stall 里有 MUFU 相关的 Short Scoreboard | Tensor 与 MUFU **序列化** |
+| prefill，FA-3 | Tensor 利用率高（约 75%），Memory SOL 不满 | 贴近 **Tensor pipe** 上限 |
+| decode | DRAM 吞吐贴峰值，Tensor 利用率很低 | **HBM（KV cache 带宽）** |
 
 ---
 
-## 2. MoE Group GEMM（Grouped GEMM）
+## 3. 案例二：MoE Group GEMM
 
-### 2.1 算子结构：一批"变长、小 M、不均衡"的 GEMM
+### 3.1 每个专家的算术强度就约等于它分到的 token 数
 
-MoE：每个 token 经路由送到 top-k 个专家，每个专家是一个 FFN（两个 GEMM）。路由后，**每个专家分到的 token 数 M_i 不等**（负载不均）。Group GEMM = 在**一次 kernel 启动**里，算许多个**独立、N/K 相同但 M_i 不同**的 GEMM（每专家一个）。
+单个专家的矩阵乘是 `[M_i×K]·[K×N]`：K×N 的权重从 HBM 读**一次**，被 M_i 个 token 复用。M_i 小的时候，搬运量里权重占绝对大头，于是：
 
-### 2.2 AI 分析：per-expert AI ≈ 每专家 token 数 M_i
+- 计算量 ≈ 2·M_i·K·N，权重搬运量 ≈ K·N·2 字节（bf16）。
+- AI ≈ 2·M_i·K·N ÷ 2·K·N = **M_i**——干干净净，**每专家的算术强度在数值上就约等于它分到的 token 数**。
 
-单个专家的 GEMM：`[M_i × K] · [K × N] = [M_i × N]`，权重 `[K×N]` 从 HBM 读一次、被 M_i 个 token 复用。
-- 权重字节主导（M_i 小时），**复用度 = M_i** → **AI ≈ M_i**（量级）。
-- **M_i > ~300（bf16 Tensor 平衡点）→ Tensor-bound；M_i 小 → 读权重的 HBM-bound。**
+对照平衡点立刻得出分界：M_i 超过约 300（H100 bf16 Tensor 平衡点）就是 Tensor-bound，不到就是读权重的 HBM-bound。
 
-**Mixtral 量级手算**（d=4096，FFN 中间 14336，top-2/8 专家，bf16）：
-- **Decode**（1 token/step，batch B=32）：每专家 token ≈ B·2/8 = **8**。
-  - up-proj：M=8, K=4096, N=14336。权重字节≈4096·14336·2≈**117 MB/专家**；FLOPs≈2·8·4096·14336≈9.4e8。
-  - **AI ≈ 9.4e8 / 1.17e8 ≈ 8 ≪ 300 → 深度权重-带宽 bound。**
-- **Prefill**（seq=4096，B=1）：每专家 token ≈ 4096·2/8 = **1024**。
-  - **AI ≈ 1024 ≫ 300 → Tensor-bound**（和普通大 GEMM 一样）。
+**用 Mixtral 的真实尺寸手算一遍**（隐藏维 4096，FFN 中间维 14336，8 个专家选 2，bf16）：
 
-> 🔑 同一个 MoE 层：**decode 卡在权重 HBM 带宽，prefill 卡在 Tensor pipe。** 这就是"MoE 推理 decode 是 memory-bound"的微架构根因——你为极少 token 反复把整批激活专家的权重从 HBM 拉进来。
+- **decode，批大小 32**：每步 32 个 token、每个去 2 个专家、摊到 8 个专家 → 每专家 M_i ≈ 32×2÷8 = **8**。up 投影的权重 4096×14336×2 ≈ 117 MB，计算量 2×8×4096×14336 ≈ 9.4×10⁸ FLOP，AI ≈ 9.4×10⁸ ÷ 1.17×10⁸ ≈ **8**。8 ≪ 300 → **深度权重带宽受限**：GPU 在为区区 8 个 token 把 117 MB 的权重从 HBM 完整拉一遍。
+- **prefill，一条 4096 token 的序列**：每专家 M_i ≈ 4096×2÷8 = **1024** ≫ 300 → **Tensor-bound**，跟普通大 GEMM 无异。
 
-### 2.3 tile 量化 & wave 量化：变长小 M 的两种浪费
+同一个 MoE 层，decode 卡权重带宽、prefill 卡 Tensor 管线——这就是"MoE 推理 decode 是 memory-bound"这句行话的微架构根因。
 
-- **tile 量化（tile quantization）**：tile 固定 BM=128，某专家 M_i=8 → 仍起一个 128 行的 tile，只用 8 行 → **算力/搬运按 128 行摊，浪费**。M_i=130 → 2 个 tile，第二个只用 2 行。**变长小 M 让 tile 边界浪费极严重。**
-- **wave 量化（wave quantization）**：各专家 tile 总数未必是 SM 数的整数倍 → 最后一波只占部分 SM → 尾部半空，实测占用率 ≪ 理论。
-- 负载不均（有的专家 token 多、有的少）进一步加剧 SM 间不平衡。
+### 3.2 翻转阈值 M*：一个值得背下来的数
 
-### 2.4 调度：persistent kernel + stream-K/grouped 调度把不均摊平
+把上面的分界算精确些。完整的搬运量除了权重还有输入激活（M·K）和输出（M·N），但 M 小时权重项主导，可以简化为 AI ≈ 2M ÷ b_w（b_w 是权重每个数的字节数）。令 AI 等于机器平衡点 β，解出翻转点：
 
-朴素 Group GEMM 把每个专家静态分给一段 grid → 专家大小悬殊时 **SM 负载严重不均、尾部空转**。现代实现（CUTLASS Grouped GEMM、Triton grouped GEMM，用于 vLLM/SGLang 的 fused MoE）用：
-- **persistent kernel**：常驻一批 CTA，配一个**全局 tile 调度器**动态领取 tile（grouped / stream-K 思路），把"变长不均的一堆问题"**摊成均衡的 tile 流**，喂满所有 SM。
-- Hopper 上再叠 TMA + wgmma + warp 专化。
+**M\* ≈ β × b_w ÷ 2**
 
-### 2.5 Nsight 定位与一句话结论
+代入 H100 的两种精度，逐步算：
 
-| 场景 | 主导信号 | bound 位置 |
+1. **bf16**：β ≈ 990 TFLOP/s ÷ 3.35 TB/s ≈ 295 FLOP/byte，b_w = 2 → M\* ≈ 295 × 2 ÷ 2 = **约 295**。
+2. **FP8**：β ≈ 1979 ÷ 3.35 ≈ 590，b_w = 1 → M\* ≈ 590 × 1 ÷ 2 = **约 295**。
+
+两种精度算出同一个数——这不是巧合：**降精度同时把算力抬一倍、把权重字节砍一半，两个效果在 token 阈值上正好抵消**。所以这个结论跨精度成立，值得背下来：**每个专家攒够约 256–300 个 token，Tensor Core 才吃得饱**。
+
+换算成需要多大的并发批：decode 时每专家 M_i = B×top_k÷E（B 是并发序列数），反解 B\* = M\*×E÷top_k：
+
+| 模型配置 | decode 时每专家 token 数 | 翻转所需并发批 B\* |
 | --- | --- | --- |
-| Decode（小 M_i） | `DRAM Throughput`≈峰值、Tensor util 低 | **HBM（权重带宽）** |
-| Prefill（大 M_i） | Tensor pipe util 高 | **Tensor pipe**（但注意 tile 量化侵蚀有效 FLOP） |
-| 不均/小 grid | `Achieved`≪`Theoretical` occupancy、波数少、部分 SM 空 | **调度/尾部（wave 量化）** |
+| Mixtral（8 专家选 2） | B ÷ 4 | **约 1200** |
+| DeepSeek 型细粒度 MoE（256 专家选 8） | B ÷ 32 | **约 9400** |
 
-> **一句话**：MoE Group GEMM 的 bound 强依赖 M_i——decode 权重带宽 bound、prefill Tensor bound；变长小 M 额外带来 tile/wave 量化浪费，必须靠 persistent + 动态 tile 调度救回 SM 利用率。
+真实服务的并发批通常是几十到几百——离 1200 和 9400 都很远，所以 **MoE 的 decode 在实践中几乎总是权重带宽受限**；专家切得越细，每个专家越"饿"，阈值越高。
 
-### 2.6 深挖：batch / M 到多大，专家 GEMM 才翻转成 compute-bound？
+这笔账还有一个运营推论，解释了"为什么推理系统拼命攒批"：在带宽受限区，算 M 个 token 的耗时 ≈ 读一遍权重的耗时，**几乎与 M 无关**——于是每 token 的成本正比于 1/M，往专家里多塞 token 在越过 M\* 之前**近乎免费**。这就是 continuous batching 和专家并行（把更多 token 汇聚到同一份专家权重上）的第一动机。
 
-一个专家 GEMM `[M×K]·[K×N]`，完整 AI（权重读一次、激活读一次、输出写一次）：
+### 3.3 两种"量化浪费"：tile 量化与 wave 量化
 
-$$AI(M) = \frac{2MKN}{\underbrace{K\!N\,b_w}_{权重} + \underbrace{MK\,b_a}_{输入} + \underbrace{MN\,b_a}_{输出}}$$
+变长小 M 还带来两笔额外的浪费，名字里都有"量化"（quantization，这里指"只能取整数份"的浪费，与数值精度的量化无关）：
 
-小 M 时**权重项主导** → `AI ≈ 2M / b_w`。令它等于机器平衡点 β（峰值算力÷带宽）：
+**tile 量化**。kernel 的 tile 尺寸是编译期定死的，比如输出按 128 行一个 tile 切。某专家 M_i = 8：照样要起一个 128 行的 tile，其中 120 行算的全是填充零——**搬运和计算都按 128 行付费，有效产出只有 8 行，效率 6%**。再看 M_i = 130：要起 2 个 tile，第二个只用 2 行——刚跨过边界一点点，浪费接近一整个 tile。这和模块 02 第 5 节脉动阵列的"形状税"是同一个数学，只是这里的"阵列尺寸"换成了软件选的 tile 尺寸。
 
-> **翻转阈值 M\* ≈ β · b_w / 2**
+**wave 量化**。全部专家的 tile 总数未必是"SM 能同时坐下的块数"的整数倍，最后一波只有零星几个 tile 在跑、其余 SM 空转——第 7 节的尾效应，在变长 Group GEMM 上因为块数难以凑整而更常发。
 
-代入 H100：
-- **bf16**：β≈295 FLOP/byte，b_w=2 → **M\*≈295**
-- **FP8**：β≈590，b_w=1 → **M\*≈295**
+**加上负载不均**（路由可能把 token 集中到少数热门专家），三个问题叠在一起：有的 SM 分到大专家忙到最后，有的早早算完干等。
 
-> 🔑 **不论精度，翻转阈值都落在 ~256–300 tokens/专家**——因为低精度同时"抬算力、降权重字节"，token 阈值近似抵消不变。**记死这个数：每个专家攒够约 256–300 个 token，才喂得饱 Tensor Core。**
+### 3.4 解法：persistent kernel 把不均摊平
 
-换算成 batch（`M = B·S·top_k / E`，S=每序列本步 token 数）：**B\* ≈ M\* · E / (top_k · S)**
+朴素做法是把每个专家静态切给一段 grid，专家大小悬殊时上面三个问题全部爆发。现代实现（CUTLASS Grouped GEMM、vLLM/SGLang 的 fused MoE kernel）换成 **persistent kernel（常驻 kernel）**：只启动"刚好坐满机器"数量的线程块，每个块干完一个 tile 就去全局计数器上 `atomicAdd` 领下一个（B3 精读里有这段代码），把 E 个变长问题拆成一条均匀的 tile 流。
 
-| 配置 | 阶段 | 每专家 M_i | 翻转所需 batch B* |
-| --- | --- | --- | --- |
-| Mixtral (E=8, k=2) | **decode** (S=1) | B/4 | **~1200** |
-| Mixtral | prefill (S=4096) | 巨大 | 极小（早已 compute-bound） |
-| DeepSeek 型 (E=256, k=8) | **decode** (S=1) | B/32 | **~9400** |
+**一个对照例子**。三个专家的 tile 数是 12、2、2，机器能同时跑 8 个块。静态划分按专家切：分到专家 1 的块要连算多轮，分到专家 2、3 的块很快闲下来——尾部只有一半机器在干活。动态领活：16 个 tile 排成一个队列，8 个常驻块谁闲谁领，最后一波也只差 2 个 tile 的零头。**专家之间的不均衡被 tile 粒度的动态分配磨平了**。Hopper 上这套调度还会再叠上 TMA、wgmma、warp 分工——单 kernel 的技术全家桶都用上。
 
-→ decode 要 **batch ~1200（Mixtral）/ ~9400（细粒度 MoE）** 并发序列才 compute-bound，而真实服务 batch 通常几十~几百 → **MoE decode 实践中几乎总是权重带宽 bound**；专家越细（越多），每专家越"饿"，阈值越高。
+### 3.5 Nsight 读数对照
 
-**运营洞察（为什么要拼命 batch）**：memory-bound 区，处理 M 个 token 的耗时 ≈ 读权重耗时（几乎与 M 无关）→ **per-token 成本 ∝ 1/M**，一路降到 M\*；越过 M\* 后 time∝M、per-token 成本走平。**所以"往每个专家里攒 token"在 ~300 之前近乎免费**——这是 MoE 服务做 continuous batching / expert parallelism 的第一动机。
-
-> ⚠️ 不均衡的后果：路由不均时，有的专家已越过 M\*（compute-bound）、有的还没（memory-bound），**同一个 kernel 里两种 regime 并存**——这正是 §2.4 persistent + stream-K 调度要摊平的对象。
-
----
-
-## 3. 横向对照：把 A1 主线钉牢
-
-| | Prefill（M 大 / 长序列） | Decode（M 小 / 单 token） |
+| 场景 | 主导信号 | 结论 |
 | --- | --- | --- |
-| **FlashAttention** | Tensor-bound（残余 MUFU 序列化，FA-3 藏掉） | HBM-bound（KV cache 带宽） |
-| **MoE Group GEMM** | Tensor-bound（+tile 量化侵蚀） | HBM-bound（专家权重带宽） |
-
-**共同本质（= A1 的核心）**：
-1. **复用度决定 AI，AI 决定 bound**。FA 的复用 ~ N（序列长），MoE 的复用 ~ M_i（每专家 token 数）。复用大 → 抬 AI → Tensor-bound；复用小 → AI 塌 → HBM-bound。
-2. **decode/生成阶段几乎注定 memory-bound**（KV cache 或权重带宽），因为"每步 token 太少、复用太低"——这是 LLM 推理系统的第一性约束。
-3. **优化=搬瓶颈**：融合（FA）、批处理/加大 M、persistent 调度，本质都是**抬 AI 或喂满 pipe，把瓶颈推向最贵的 Tensor pipe 并贴着它的峰值**。
+| decode（每专家 token 少） | DRAM 吞吐贴峰值，Tensor 利用率低 | **HBM（专家权重带宽）** |
+| prefill（每专家 token 多） | Tensor 利用率高 | **Tensor pipe**（注意 tile 量化在侵蚀有效 FLOP） |
+| 负载不均 / grid 太小 | 实测占用率 ≪ 理论，波数是零头 | **调度与尾部（wave 量化）** |
 
 ---
 
-## 4. 最新架构落点（时效锚点 · 知识截至 2026-01）
+## 4. 横向对照：两个案例钉死一条主线
 
-- **FA-3 是 Hopper 专属**：强依赖 TMA / wgmma / warp 专化 / ping-pong（§02 §2.6）。Blackwell 上进一步吃 **FP4 + TMEM**，Tensor 平衡点更高 → 更逼融合与更大 batch 才 compute-bound。
-- **MoE**：Blackwell 的 FP4 + 更大 HBM（B300 288GB）缓解权重带宽压力；DeepSeek 等的**分组/共享专家 + 更细粒度专家**改变 M_i 分布，直接改 bound。生产实现（vLLM/SGLang/TensorRT-LLM）普遍用 Triton/CUTLASS grouped GEMM + persistent 调度。
-- **AMD MI300X**：192GB HBM3 + Infinity Cache 对 MoE 权重带宽友好；用 rocprof/Omniperf 做同样的 SOL 下钻。
+| | prefill（M 大 / 序列长） | decode（M 小 / 单 token） |
+| --- | --- | --- |
+| **FlashAttention** | Tensor-bound（残余 MUFU 序列化由 FA-3 藏掉） | HBM-bound（KV cache 带宽） |
+| **MoE Group GEMM** | Tensor-bound（tile 量化在边缘收税） | HBM-bound（专家权重带宽） |
 
-## 5. 和其它模块的挂钩
+三条共同结论，每条都能从上面的手算里直接读出来：
 
-- 异步流水 / warp 专化 / ping-pong → **§02 §2.6**、**§05 同步**
-- AI / SOL / pipe 定位方法 → **附录 A1**
-- KV cache、权重带宽是系统级约束 → **模块 04 §05 与算法侧接口**
-- Tensor Core / wgmma / TMEM → **模块 03**
-- grouped GEMM 的图层/kernel 实现与调度 → **模块 04 kernel 层 + 映射问题**
-
-## 6. 一句话黑话卡
-
-| 术语 | 英文 / 别名 | 一句话解释 | 挂在哪个模块 |
-| --- | --- | --- | --- |
-| online softmax | | 边扫 K/V 边维护 running max/sum 重缩放，免落 N×N | 01/04 |
-| prefill / decode | | 长序列并行 vs 单 token 自回归；bound 完全不同 | 01/04 |
-| KV cache | | 缓存历史 K/V；decode 阶段读它，HBM-bound 之源 | 01/04 |
-| Group/Grouped GEMM | | 一次算多个 N/K 相同、M 不同的独立 GEMM（MoE 用） | 01/04 |
-| tile 量化 | tile quantization | 固定 tile 对不整除的 M 浪费边界行 | 01 |
-| wave 量化 | wave quantization | tile 总数非 SM 整数倍，尾部半空 | 01 |
-| persistent kernel | | 常驻 CTA + 全局 tile 调度器，摊平不均、喂满 SM | 01/04 |
-| stream-K | | 沿 K 维切分 + 全局归约的均衡调度策略 | 04 |
-| warpgroup | | 4 warp=128 线程，Hopper WGMMA 的操作单位 | 01/03 |
-| WGMMA | wgmma | Hopper 异步 warpgroup 级 MMA，发了不等 | 03 |
-| 命名屏障 | named barrier / `bar.sync id` | ping-pong 里两 warpgroup 的交接同步 | 01/05 |
-| 翻转阈值 | crossover M* | 约 256–300 token/专家喂饱 Tensor（跨精度近似不变） | 01/04 |
-
-> ✅ 待同步登记到 [术语表](../05-收敛-术语表与真实芯片/术语表.md)
-
-## 7. 我的困惑 / 待深挖
-
-- ✅（已答，§1.7）FA-3 ping-pong 精确时序：2 warpgroup 用命名屏障错相位、生产者 setmaxnreg 让寄存器、TMA‖Tensor‖SFU 三重重叠。**遗留**：不同 head dim / 因果掩码下相位如何调整？
-- ✅（已答，§2.6）翻转阈值 M\*≈256–300 token/专家（跨精度近似不变），Mixtral decode 需 batch~1200。**遗留**：expert 并行（EP）把 token 集中到本卡后 M 实际怎么变？和 TP/DP 的联合影响？
-- （待填）tile 量化 vs wave 量化在 Nsight 里如何各自量化其损失（有效 FLOP 效率 vs 占用率缺口）？
-- （待填）stream-K 在变长 Group GEMM 上的归约开销 vs 负载均衡收益的权衡点？
+1. **复用度决定 AI，AI 决定卡在哪**。FlashAttention 的复用度是序列长 N（每个 K/V 块被 N 行 query 复用），MoE 的复用度是每专家 token 数 M_i（每份权重被 M_i 个 token 复用）。复用大则 AI 高、贴 Tensor 的墙；复用小则 AI 塌、贴 HBM 的墙。
+2. **decode 阶段几乎注定 memory-bound**——每步 token 太少，无论复用的对象是 KV cache 还是专家权重，都摊不开。这是大模型推理系统的第一性约束，GQA、MLA、投机解码、攒批，全是围着它转的（04 模块第 5 节）。
+3. **优化等于搬瓶颈**：融合抬 AI（FA）、攒批加大 M（MoE）、动态调度喂满 SM（persistent），终点都是把瓶颈推到最贵的 Tensor 管线上并贴着它的峰值跑。
 
 ---
 
-*最后更新：2026-07-05（第二版：+§1.7 FA-3 ping-pong 时序、+§2.6 MoE 翻转阈值推导）*
+## 5. 开发者视角
+
+- **先分阶段再 profile**：prefill 和 decode 的瓶颈不同，混在一起 profile 会互相稀释信号。用 `torch.profiler` 分别抓两个阶段的热点 kernel，再按 A1 的三级流程各钻各的。
+- **FA 版本就是硬件版本**：调 `flash_attn` 库时版本号对应硬件代际（FA-2 通吃、FA-3 要 Hopper、FA-4 要 Blackwell），装错版本不报错、只是默默跑慢一代的调度。
+- **MoE 部署的第一个数**：先算你的每专家 M_i（并发批 × top_k ÷ 专家数），对照 300 的阈值就知道自己在哪个 regime，再决定优化方向是攒批/专家并行（带宽侧）还是调 kernel（计算侧）。
+
+## 6. 最新架构落点（时效锚点 · 知识截至 2026-01）
+
+- **FA-3 是 Hopper 专属**（TMA、wgmma、warp 分工、ping-pong 缺一不可）；Blackwell 上的 FA-4 换到 tcgen05 与 TMEM，Tensor 平衡点更高，"必须融合、必须攒批"的压力更大（04 模块附录 A1 有 FA-4 的技术拆解）。
+- **MoE 侧**：Blackwell 的 FP4 和更大的 HBM（B300 到 288 GB）缓解权重带宽压力；DeepSeek 式细粒度专家 + 共享专家改变 M_i 的分布，等于直接改瓶颈位置。生产实现普遍是 Triton/CUTLASS 的 grouped GEMM 加 persistent 调度。
+- **AMD MI300X**：192 GB HBM3 加 Infinity Cache 对 MoE 权重带宽友好；同样的 SOL 下钻用 rocprof/Omniperf 做。
+
+## 7. 术语卡
+
+### prefill 与 decode
+
+**定义**：大模型推理的两个阶段。prefill 并行处理整段输入提示词（一次几千 token），decode 逐个生成输出 token（一次 1 个）。同一套算子在两个阶段的矩阵形状差三四个数量级。
+
+**为什么存在**：作为一对词存在，是因为它们的瓶颈类型系统性地不同——prefill 的复用度足、通常计算受限，decode 的复用度塌、几乎注定带宽受限。不区分阶段谈"这个 kernel 快不快"是没有意义的。
+
+**语境例句**："这个优化 prefill 提了 40%，decode 一点没动——废话，decode 卡的是 KV cache 带宽，你优化的是 Tensor 利用率。"——意思是：两个阶段瓶颈不同，优化收益不迁移。
+
+### KV cache
+
+**定义**：decode 阶段缓存在显存里的全部历史 token 的 K、V 矩阵。每生成一个新 token 都要把它完整读一遍，体积随上下文长度线性增长。
+
+**为什么存在**：不缓存就要每步重算全部历史的 K/V，计算量平方级爆炸；缓存之后计算省了，代价是"每步读一遍"变成 decode 的带宽账本、且显存占用限制并发数——它是推理系统一切"省 KV"设计（GQA、MLA、paged attention、量化 KV）的靶子。
+
+**语境例句**："上下文拉到 128K 之后瓶颈全在 KV cache 上，算力再多也白搭。"——意思是：decode 每步读的 KV 体积太大，HBM 带宽封顶。
+
+### Grouped GEMM（分组矩阵乘）
+
+**定义**：在一次 kernel 启动里算完一批独立的矩阵乘，它们的 K、N 相同、只有 M 各不相同（每个 MoE 专家一个）。区别于 batched GEMM（所有矩阵形状完全相同）。
+
+**为什么存在**：MoE 路由天然产出"一堆变长小矩阵乘"，逐个启动 kernel 的开销和尾效应都不可接受；Grouped GEMM 把它们合并成一次启动，再配合动态 tile 调度摊平专家间的不均衡。
+
+**语境例句**："fused MoE 那个 kernel 就是个 persistent 的 grouped GEMM，专家不均衡它也能吃。"——意思是：常驻块动态领 tile，负载不均在 tile 粒度被磨平。
+
+### tile 量化（tile quantization）
+
+**定义**：矩阵尺寸不是 tile 尺寸整数倍时，边缘 tile 里填充部分照常消耗计算和搬运的浪费。M=8 撞上 128 行的 tile，有效率只有 6%。
+
+**为什么存在**：tile 尺寸必须编译期定死（寄存器和 shared memory 的分配依赖它），运行期的真实 M 却千变万化——静态决策撞上动态形状，就在边界上收税。它是模块 02"形状税"的 GPU 软件版。
+
+**语境例句**："M=130 比 M=128 慢了快一倍，tile 量化，第二个 tile 就用两行。"——意思是：刚跨过 tile 边界，为 2 行数据付了 128 行的钱。
+
+### persistent kernel（常驻 kernel）
+
+**定义**：只启动恰好坐满 GPU 的线程块数，每个块循环地从全局队列领取工作项（tile），直到全部干完——而不是"一个块干一份活就退休"。
+
+**为什么存在**：静态划分在负载不均时必然有人忙死有人闲死；常驻块 + 动态领活把不均衡拆成 tile 粒度磨平，同时消掉海量小块的启动开销和尾效应。代价是 kernel 内要自建调度逻辑（原子计数器领活）。
+
+**语境例句**："专家大小差 50 倍没关系，persistent 调度下 SM 利用率照样打满。"——意思是：动态领活让快手多领、慢工少领，机器不空转。
+
+### 翻转阈值 M\*（每专家喂饱 Tensor Core 的 token 数）
+
+**定义**：MoE 专家的矩阵乘从带宽受限翻转为计算受限所需的每专家 token 数，M\* ≈ 机器平衡点 × 权重字节数 ÷ 2。H100 上无论 bf16 还是 FP8 都约等于 **300**。
+
+**为什么存在**：它把"MoE decode 为什么慢、攒批为什么有效"变成一个可以口算的判断：拿并发批算出 M_i，和 300 一比，regime 立判。跨精度不变这个性质让它特别好记——降精度抬算力和砍字节两个效应正好抵消。
+
+**语境例句**："256 个专家选 8，你要 batch 九千多才够翻转——别指望了，按带宽受限做设计。"——意思是：细粒度 MoE 的 decode 在现实并发下永远在 M\* 左侧。
+
+## 8. 我的困惑 / 待深挖
+
+- FA-3 的 ping-pong 相位在不同 head dim、因果掩码（每块工作量不等）下怎么调整？
+- 专家并行（EP）把 token 汇聚到本卡后，实际的 M_i 分布怎么变？与 TP/DP 的联合影响？
+- tile 量化和 wave 量化的损失在 Nsight 里如何分别量化（有效 FLOP 效率对占用率缺口）？
+- stream-K（沿 K 维切分再全局归约的均衡策略）在变长 Group GEMM 上，归约开销和均衡收益的平衡点在哪？
+
+---
+
+*最后更新：2026-07-07（第三版，按写作规范重写）*
