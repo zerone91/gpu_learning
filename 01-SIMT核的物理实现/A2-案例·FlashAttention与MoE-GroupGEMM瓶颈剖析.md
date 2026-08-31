@@ -208,11 +208,13 @@ FA kernel 的 tile 很大（典型 128×128、d=128），算一下驻留账：Q�
 - **FA 版本就是硬件版本**：调 `flash_attn` 库时版本号对应硬件代际（FA-2 通吃、FA-3 要 Hopper、FA-4 要 Blackwell），装错版本不报错、只是默默跑慢一代的调度。
 - **MoE 部署的第一个数**：先算你的每专家 M_i（并发批 × top_k ÷ 专家数），对照 300 的阈值就知道自己在哪个 regime，再决定优化方向是攒批/专家并行（带宽侧）还是调 kernel（计算侧）。
 
-## 6. 最新架构落点（时效锚点 · 知识截至 2026-01）
+## 6. 最新架构落点（时效锚点 · 知识截至 2026-08）
 
-- **FA-3 是 Hopper 专属**（TMA、wgmma、warp 分工、ping-pong 缺一不可）；Blackwell 上的 FA-4 换到 tcgen05 与 TMEM，Tensor 平衡点更高，"必须融合、必须攒批"的压力更大（04 模块附录 A1 有 FA-4 的技术拆解）。
-- **MoE 侧**：Blackwell 的 FP4 和更大的 HBM（B300 到 288 GB）缓解权重带宽压力；DeepSeek 式细粒度专家 + 共享专家改变 M_i 的分布，等于直接改瓶颈位置。生产实现普遍是 Triton/CUTLASS 的 grouped GEMM 加 persistent 调度。
-- **AMD MI300X**：192 GB HBM3 加 Infinity Cache 对 MoE 权重带宽友好；同样的 SOL 下钻用 rocprof/Omniperf 做。
+- **FA-3 是 Hopper 专属**（TMA、wgmma、warp 分工、ping-pong 缺一不可）；Blackwell 上的 **FA-4 论文已于 2026-03 发表**，换到 tcgen05、TMEM 与 2-CTA 配对，B200 上 BF16 达 1613 TFLOPS、约 71% 利用率（04 模块附录 A1 有完整技术拆解）。Tensor 平衡点更高，"必须融合、必须攒批"的压力更大。
+- **🔥 decode 的带宽墙催生了硬件层的回应：Rubin CPX。** §4 那张表的结论是"decode 阶段几乎注定 memory-bound，这是推理系统的第一性约束"。NVIDIA 2026 年的答案不是让 decode 变快，而是**把 prefill 拆出去用另一种芯片**：Rubin CPX 单 die、**128 GB GDDR7 而非 HBM**、30 PFLOPS NVFP4，只干 prefill；decode 留给配 HBM4 的 Rubin 本体。**为什么这样分是对的，用本节的账就能说明**——prefill 的 AI ≈ N/2（§2.2 算过，N=4096 时约 2048），根本用不上 HBM 的带宽，给它配 HBM 是浪费；decode 的 AI ≈ 1，除了带宽什么都不需要。**同一个模型的两个阶段，对硬件的需求正交到可以用两种硅片分别满足——这是本节全部手算的最终归宿。**
+- **对 §3 那个翻转阈值 M\* 的影响**：新硬件的平衡点更高（附录 A1 §7 有跨代际的平衡点表），而 M\* ≈ 平衡点 × 权重字节数 ÷ 2。**FP4 时代重算一遍**：Blackwell 的 NVFP4 平衡点约 1875、权重 0.5 字节/个 → M\* ≈ 1875 × 0.5 ÷ 2 ≈ **470**。比 H100 时代的 295 高了六成。**注意"降精度不改变阈值"这个漂亮的抵消关系在这里失效了**——因为 Blackwell 的算力涨幅超过了位宽降幅（15 PF 相对 H100 FP8 的 2 PF 涨了七倍多，而位宽只减半）。**结论要更新：M\* 跨精度近似不变这条规律只在"算力涨幅恰好等于位宽降幅"时成立，新代际打破了这个前提，MoE decode 的攒批压力比过去更大。**
+- **MoE 侧**：Blackwell 的 FP4 和更大的 HBM（B300 到 288 GB、Rubin 到 288 GB HBM4）缓解权重带宽压力；DeepSeek 式细粒度专家加共享专家改变 M_i 的分布，等于直接改瓶颈位置。生产实现普遍是 Triton/CUTLASS 的 grouped GEMM 加 persistent 调度。
+- **AMD**：MI300X 的 192 GB HBM3 加 Infinity Cache 对 MoE 权重带宽友好；当前代际 MI455X 为 432 GB HBM4、约 23 TB/s，容量优势在 MoE 上尤其明显（专家权重能多驻留一批）。同样的 SOL 下钻用 rocprof/Omniperf 做。
 
 ## 7. 术语卡
 
@@ -273,4 +275,4 @@ FA kernel 的 tile 很大（典型 128×128、d=128），算一下驻留账：Q�
 
 ---
 
-*最后更新：2026-07-07（第三版，按写作规范重写）*
+*最后更新：2026-08-31（第四版：§6 更新到 2026-08——FA-4 论文数字定稿、补入 Rubin CPX 作为"decode 带宽墙"的硬件级回应，并按 NVFP4 重算了翻转阈值 M*（约 470），指出"跨精度不变"这条规律在新代际失效。第三版：按写作规范重写）*
