@@ -68,7 +68,7 @@ auto tma_load_K = make_tma_copy(
 **【硬件】** `sK_layout` 里绑定的 swizzle（防 bank 冲突的换座位布局，模块 01 第 4 节）在这里显式指定——**B1 里编译器代管的那个 swizzle，就是这一行的手动版**。它必须同时满足三方：TMA 按它写入、矩阵指令按它读取——**写读两端布局不一致会静默算错**。
 **【反事实】** swizzle 选错或 shared memory 基址没对齐 128 字节：订单创建失败或 bank 冲突复现；张量步长不满足 16 字节对齐：启动直接报错——TMA 的对齐要求是硬的。
 
-### 3.2 开场：按 warpgroup 分工，寄存器"劫富济贫"
+### 3.2 开场：按 warpgroup 分工，重新分配寄存器配额
 
 ```cpp
 int wg = threadIdx.x / 128;                     // 我是哪个 warpgroup

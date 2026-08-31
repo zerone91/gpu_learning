@@ -231,7 +231,7 @@ for kb in T.Pipelined(T.ceildiv(N_CTX, block_N), num_stages=2):
     T.gemm(S_cast, V_s, O)                                     # O += P·V
 ```
 
-**CuTe（B2 精读的对象）**：FA-3 只有这层写得出来——warp 专化（生产者只发 TMA、消费者跑 wgmma+softmax）、`setmaxnreg` 寄存器劫富济贫、命名屏障 ping-pong，全是"给不同 warp 群派不同程序 + 精确控制谁持有什么"的需求，恰好是 CuTe/裸 CUDA 海拔独有的词汇。
+**CuTe（B2 精读的对象）**：FA-3 只有这层写得出来——warp 专化（生产者只发 TMA、消费者跑 wgmma+softmax）、`setmaxnreg` 在 warpgroup 之间重新分配寄存器配额、命名屏障 ping-pong，全是"给不同 warp 群派不同程序 + 精确控制谁持有什么"的需求，恰好是 CuTe/裸 CUDA 海拔独有的词汇。
 
 **CUDA 裸写**：理论上全能，实际上 FA 官方从 v1 起就构建在 CUTLASS/CuTe 之上——"能表达"和"值得表达"是两回事。
 

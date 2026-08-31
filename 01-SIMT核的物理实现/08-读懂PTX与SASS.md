@@ -230,7 +230,7 @@ wgmma.wait_group.sync.aligned 1;                           // 等待：在途 �
 
 ## 8. 最新架构落点（时效锚点 · 知识截至 2026-01）
 
-- **Hopper（PTX 8.x）**是异步指令族的大爆发：`cp.async.bulk.tensor`（TMA）、`wgmma`、`mbarrier` 的 expect_tx、`setmaxnreg`（B2 里寄存器劫富济贫的那条）、簇级 `barrier.cluster`。读 Hopper kernel 的 SASS，一半功课在这几族上。
+- **Hopper（PTX 8.x）**是异步指令族的大爆发：`cp.async.bulk.tensor`（TMA）、`wgmma`、`mbarrier` 的 expect_tx、`setmaxnreg`（B2 里在 warpgroup 之间重新分配寄存器配额的那条）、簇级 `barrier.cluster`。读 Hopper kernel 的 SASS，一半功课在这几族上。
 - **Blackwell** 的 `tcgen05` 一族接棒 wgmma（形状更大、累加器进 TMEM），PTX 文档已公开，SASS 层命名以 nvdisasm 实际输出为准。
 - **SASS 无官方语义手册**是常态：NVIDIA 只公开指令列表（CUDA Binary Utilities 文档），语义靠 PTX 对照与社区逆向（如 GPGPU-Sim、各微基准论文）。本节 SASS 描述均属"据公开资料"级置信，读者应以自己机器上 `cuobjdump` 的实际输出为准——**这也是为什么方法（槽位拆解）比背指令表重要**。
 - **AMD 对照**：CDNA 的 GCN ISA 有完整官方手册（这点比 NVIDIA 开放），指令风格如 `s_waitcnt vmcnt(0)`——一条显式的"等 N 个访存在途"，和 `wait_group N` 的思想一模一样，模块 05 撞名表之外又一个"同思想不同拼写"。
