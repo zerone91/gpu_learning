@@ -77,7 +77,7 @@
 <text x="656.0" y="288.0" font-family="sans-serif" font-size="15" fill="#222" text-anchor="start" font-weight="bold">读字线</text>
 <polyline points="450.0,330.0 450.0,400.0 720.0,400.0" fill="none" stroke="#c0392b" stroke-width="2.5" stroke-linejoin="round"/>
 <circle cx="450.0" cy="330.0" r="4" fill="#222" stroke="#222" stroke-width="2"/>
-<text x="590.0" y="420.0" font-family="sans-serif" font-size="14" fill="#c0392b" text-anchor="middle">QB 只接到栅极</text>
+<text x="666.0" y="420.0" font-family="sans-serif" font-size="14" fill="#c0392b" text-anchor="middle">QB 只接到栅极</text>
 <line x1="800.0" y1="250.0" x2="800.0" y2="440.0" stroke="#1f5fa8" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#ab)"/>
 <text x="808.0" y="350.0" font-family="sans-serif" font-size="14" fill="#1f5fa8" text-anchor="start">读电流</text>
 <text x="480.0" y="520.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">读电流从读位线经过两个新增的晶体管流到地，不经过 Q 和 QB，所以读操作不会抬高存储节点的电压。</text>

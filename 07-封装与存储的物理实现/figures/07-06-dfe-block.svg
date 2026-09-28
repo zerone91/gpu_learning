@@ -1,66 +1,50 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 430" width="980" height="430" font-family="sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 470" width="980" height="470" font-family="sans-serif">
 <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b5451b"/></marker><pattern id="hz" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" stroke="#999" stroke-width="2"/></pattern></defs>
-<rect x="0" y="0" width="980" height="430" fill="#ffffff"/>
-<text x="490" y="30" font-size="17" text-anchor="middle" fill="#111" font-weight="bold" >判决反馈均衡器（四抽头）：把已判决比特造成的干扰从输入里减掉</text>
-<line x1="30" y1="120" x2="118" y2="120" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
-<text x="30" y="105" font-size="14" text-anchor="start" fill="#111" font-weight="normal" >输入电压</text>
-<text x="30" y="145" font-size="14" text-anchor="start" fill="#b5451b" font-weight="normal" >−25 mV</text>
-<circle cx="145" cy="120" r="26" fill="#fdf3e3" stroke="#222" stroke-width="1.5"/>
-<text x="145" y="127" font-size="22" text-anchor="middle" fill="#111" font-weight="normal" >Σ</text>
-<line x1="171" y1="120" x2="250" y2="120" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
-<text x="210" y="105" font-size="14" text-anchor="middle" fill="#1f5fa8" font-weight="normal" >−80 mV</text>
-<polyline points="250,80 250,160 330,120 250,80" stroke="#222" stroke-width="2" fill="#eef3fb" stroke-linejoin="round"/>
-<text x="278" y="125" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >判决</text>
-<line x1="330" y1="120" x2="390" y2="120" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
-<rect x="390" y="90" width="90" height="60" rx="4" fill="#f1f1f1" stroke="#222" stroke-width="1.8" />
-<text x="435.0" y="115.54" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >延迟</text>
-<text x="435.0" y="134.54000000000002" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >1 个 UI</text>
-<line x1="480" y1="120" x2="520" y2="120" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
-<circle cx="500" cy="120" r="4" fill="#222" stroke="#222" stroke-width="1.5"/>
-<line x1="500" y1="120" x2="500" y2="200" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
-<text x="508" y="180" font-size="14" text-anchor="start" fill="#111" font-weight="normal" >比特 1</text>
-<rect x="450" y="200" width="100" height="50" rx="4" fill="#eaf5e9" stroke="#222" stroke-width="1.8" />
-<text x="500.0" y="230.04" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >× c1 = 30</text>
-<line x1="500" y1="250" x2="500" y2="320" stroke="#222" stroke-width="1.8"/>
-<text x="508" y="290" font-size="14" text-anchor="start" fill="#b5451b" font-weight="normal" >+30 mV</text>
-<rect x="520" y="90" width="90" height="60" rx="4" fill="#f1f1f1" stroke="#222" stroke-width="1.8" />
-<text x="565.0" y="115.54" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >延迟</text>
-<text x="565.0" y="134.54000000000002" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >1 个 UI</text>
-<line x1="610" y1="120" x2="650" y2="120" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
-<circle cx="630" cy="120" r="4" fill="#222" stroke="#222" stroke-width="1.5"/>
-<line x1="630" y1="120" x2="630" y2="200" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
-<text x="638" y="180" font-size="14" text-anchor="start" fill="#111" font-weight="normal" >比特 1</text>
-<rect x="580" y="200" width="100" height="50" rx="4" fill="#eaf5e9" stroke="#222" stroke-width="1.8" />
-<text x="630.0" y="230.04" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >× c2 = 12</text>
-<line x1="630" y1="250" x2="630" y2="320" stroke="#222" stroke-width="1.8"/>
-<text x="638" y="290" font-size="14" text-anchor="start" fill="#b5451b" font-weight="normal" >+12 mV</text>
-<rect x="650" y="90" width="90" height="60" rx="4" fill="#f1f1f1" stroke="#222" stroke-width="1.8" />
-<text x="695.0" y="115.54" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >延迟</text>
-<text x="695.0" y="134.54000000000002" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >1 个 UI</text>
-<line x1="740" y1="120" x2="780" y2="120" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
-<circle cx="760" cy="120" r="4" fill="#222" stroke="#222" stroke-width="1.5"/>
-<line x1="760" y1="120" x2="760" y2="200" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
-<text x="768" y="180" font-size="14" text-anchor="start" fill="#111" font-weight="normal" >比特 0</text>
-<rect x="710" y="200" width="100" height="50" rx="4" fill="#eaf5e9" stroke="#222" stroke-width="1.8" />
-<text x="760.0" y="230.04" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >× c3 = −8</text>
-<line x1="760" y1="250" x2="760" y2="320" stroke="#222" stroke-width="1.8"/>
-<text x="768" y="290" font-size="14" text-anchor="start" fill="#b5451b" font-weight="normal" >+8 mV</text>
-<rect x="780" y="90" width="90" height="60" rx="4" fill="#f1f1f1" stroke="#222" stroke-width="1.8" />
-<text x="825.0" y="115.54" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >延迟</text>
-<text x="825.0" y="134.54000000000002" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >1 个 UI</text>
-<circle cx="890" cy="120" r="4" fill="#222" stroke="#222" stroke-width="1.5"/>
-<line x1="890" y1="120" x2="890" y2="200" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
-<text x="898" y="180" font-size="14" text-anchor="start" fill="#111" font-weight="normal" >比特 1</text>
-<rect x="840" y="200" width="100" height="50" rx="4" fill="#eaf5e9" stroke="#222" stroke-width="1.8" />
-<text x="890.0" y="230.04" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >× c4 = 5</text>
-<line x1="890" y1="250" x2="890" y2="320" stroke="#222" stroke-width="1.8"/>
-<text x="898" y="290" font-size="14" text-anchor="start" fill="#b5451b" font-weight="normal" >+5 mV</text>
-<line x1="870" y1="120" x2="890" y2="120" stroke="#222" stroke-width="1.8"/>
-<text x="360" y="105" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >输出</text>
-<line x1="890" y1="320" x2="145" y2="320" stroke="#222" stroke-width="1.8"/>
-<polyline points="145,320 145,146" stroke="#222" stroke-width="2" fill="none" marker-end="url(#a)" stroke-linejoin="round"/>
-<text x="160" y="300" font-size="14" text-anchor="start" fill="#b5451b" font-weight="normal" >合计 +55 mV，在 Σ 处减掉</text>
-<text x="160" y="172" font-size="22" text-anchor="start" fill="#111" font-weight="normal" >−</text>
-<text x="490" y="370" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >各延迟单元里存的是前 1、前 2、前 3、前 4 个已判决的比特；比特为 1 取 +系数，为 0 取 −系数</text>
-<text x="490" y="396" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >例：−25 −（+55）= −80 mV，判决余量从 25 mV 恢复到 80 mV</text>
+<rect x="0" y="0" width="980" height="470" fill="#ffffff"/>
+<text x="490" y="30" font-size="17" text-anchor="middle" fill="#111" font-weight="bold" >判决反馈均衡器：用刚判出的前 4 个比特算出干扰，再从输入里减掉</text>
+<line x1="20" y1="110" x2="122" y2="110" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<text x="20" y="82" font-size="14" text-anchor="start" fill="#111" font-weight="normal" >收到的电压</text>
+<text x="20" y="102" font-size="14" text-anchor="start" fill="#b5451b" font-weight="bold" >−25 mV</text>
+<circle cx="150" cy="110" r="26" fill="#fdf3e3" stroke="#222" stroke-width="1.5"/>
+<text x="150" y="118" font-size="22" text-anchor="middle" fill="#111" font-weight="normal" >Σ</text>
+<text x="150" y="74" font-size="13" text-anchor="middle" fill="#111" font-weight="normal" >求和点</text>
+<line x1="176" y1="110" x2="560" y2="110" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<text x="368" y="98" font-size="14" text-anchor="middle" fill="#1f5fa8" font-weight="bold" >减掉干扰后：−80 mV</text>
+<polyline points="560,70 560,150 650,110 560,70" stroke="#222" stroke-width="2" fill="#eef3fb" stroke-linejoin="round"/>
+<text x="588" y="116" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >判决器</text>
+<text x="605" y="172" font-size="13" text-anchor="middle" fill="#111" font-weight="normal" >高于 0 判 1，低于 0 判 0</text>
+<line x1="650" y1="110" x2="900" y2="110" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<text x="900" y="98" font-size="14" text-anchor="end" fill="#111" font-weight="normal" >判出的比特</text>
+<circle cx="760" cy="110" r="4" fill="#222" stroke="#222" stroke-width="1.5"/>
+<line x1="760" y1="110" x2="760" y2="196" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<rect x="690" y="198" width="140" height="96" rx="4" fill="#eaf5e9" stroke="#222" stroke-width="1.8" />
+<text x="760" y="224" font-size="14" text-anchor="middle" fill="#111" font-weight="bold" >前 1 个比特 = 1</text>
+<text x="760" y="250" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >× 系数 30</text>
+<text x="760" y="278" font-size="14" text-anchor="middle" fill="#b5451b" font-weight="bold" >= +30 mV</text>
+<line x1="760" y1="294" x2="760" y2="340" stroke="#222" stroke-width="1.8"/>
+<rect x="520" y="198" width="140" height="96" rx="4" fill="#eaf5e9" stroke="#222" stroke-width="1.8" />
+<text x="590" y="224" font-size="14" text-anchor="middle" fill="#111" font-weight="bold" >前 2 个比特 = 1</text>
+<text x="590" y="250" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >× 系数 12</text>
+<text x="590" y="278" font-size="14" text-anchor="middle" fill="#b5451b" font-weight="bold" >= +12 mV</text>
+<line x1="590" y1="294" x2="590" y2="340" stroke="#222" stroke-width="1.8"/>
+<rect x="350" y="198" width="140" height="96" rx="4" fill="#eaf5e9" stroke="#222" stroke-width="1.8" />
+<text x="420" y="224" font-size="14" text-anchor="middle" fill="#111" font-weight="bold" >前 3 个比特 = 0</text>
+<text x="420" y="250" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >× 系数 −8</text>
+<text x="420" y="278" font-size="14" text-anchor="middle" fill="#b5451b" font-weight="bold" >= +8 mV</text>
+<line x1="420" y1="294" x2="420" y2="340" stroke="#222" stroke-width="1.8"/>
+<rect x="180" y="198" width="140" height="96" rx="4" fill="#eaf5e9" stroke="#222" stroke-width="1.8" />
+<text x="250" y="224" font-size="14" text-anchor="middle" fill="#111" font-weight="bold" >前 4 个比特 = 1</text>
+<text x="250" y="250" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >× 系数 5</text>
+<text x="250" y="278" font-size="14" text-anchor="middle" fill="#b5451b" font-weight="bold" >= +5 mV</text>
+<line x1="250" y1="294" x2="250" y2="340" stroke="#222" stroke-width="1.8"/>
+<line x1="690" y1="246" x2="662" y2="246" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<line x1="520" y1="246" x2="492" y2="246" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<line x1="350" y1="246" x2="322" y2="246" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<text x="180" y="186" font-size="13" text-anchor="start" fill="#555" font-weight="normal" >← 每过一个比特时间，记录向左移一格</text>
+<line x1="760" y1="340" x2="150" y2="340" stroke="#222" stroke-width="2"/>
+<line x1="150" y1="340" x2="150" y2="138" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<text x="162" y="160" font-size="14" text-anchor="start" fill="#111" font-weight="bold" >−（减去）</text>
+<text x="250" y="365" font-size="14" text-anchor="start" fill="#b5451b" font-weight="normal" >四项相加：+55 mV，这就是前面几个比特留下的干扰</text>
+<text x="490" y="410" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >比特为 1 时取 +系数，为 0 时取 −系数（前 3 个比特是 0，所以 −(−8) = +8）</text>
+<text x="490" y="438" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >从判决器出来、经“前 1 个比特”回到 Σ 的这一圈，必须在一个比特的时间（DDR5-6400 下 156 皮秒）内走完</text>
 </svg>

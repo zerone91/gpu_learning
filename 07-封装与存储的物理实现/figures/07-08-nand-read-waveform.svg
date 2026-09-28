@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" width="1000" height="560" font-family="sans-serif" font-size="15">
-  <rect x="0" y="0" width="1000" height="560" fill="#ffffff"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="1000" height="600" font-family="sans-serif" font-size="15">
+  <rect x="0" y="0" width="1000" height="600" fill="#ffffff"/>
   <g font-size="16" font-weight="bold">
     <text x="20" y="76">CLE</text><text x="20" y="146">ALE</text><text x="20" y="216">WE#</text><text x="20" y="286">RE#</text><text x="20" y="356">DQ[7:0]</text><text x="20" y="426">R/B#</text>
   </g>
@@ -44,9 +44,11 @@
   <g text-anchor="middle" font-size="15" font-weight="bold">
     <text x="150" y="24">命令</text><text x="340" y="24">5 个地址字节</text><text x="530" y="24">确认</text><text x="650" y="24">阵列内部读</text><text x="855" y="24">数据输出</text>
   </g>
+  <line x1="110" y1="484" x2="960" y2="484" stroke="#222" stroke-width="1.5"/><polygon points="970,484 958,478 958,490" fill="#222"/><text x="960" y="474" font-size="14" text-anchor="end">时间 →</text>
+  <text x="20" y="46" font-size="13" fill="#555">每条线：上＝高电平，下＝低电平</text>
   <g font-size="14">
-    <text x="20" y="505">读图要点：CLE 为高时 DQ 上是命令（蓝色），ALE 为高时是地址（灰色）；每个字节在 WE# 的上升沿被 NAND 锁存。</text>
-    <text x="20" y="528">收到确认字节 30h 后 R/B# 拉低，NAND 在阵列里读一页；R/B# 回高后控制器翻转 RE#，每翻一次取一个数据字节（橙色）。</text>
-    <text x="20" y="551">本图按异步模式画，未按比例：tR 实际远长于命令和地址阶段。高速模式下数据阶段还有 DQS 随数据翻转，图中未画。</text>
+    <text x="20" y="535">读图要点：CLE 为高时 DQ 上是命令（蓝色），ALE 为高时是地址（灰色）；每个字节在 WE# 的上升沿被 NAND 锁存。</text>
+    <text x="20" y="558">收到确认字节 30h 后 R/B# 拉低，NAND 在阵列里读一页；R/B# 回高后控制器翻转 RE#，每翻一次取一个数据字节（橙色）。</text>
+    <text x="20" y="581">本图按异步模式画，未按比例：tR 实际远长于命令和地址阶段。高速模式下数据阶段还有 DQS 随数据翻转，图中未画。</text>
   </g>
 </svg>
