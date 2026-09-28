@@ -1,0 +1,155 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" font-family="sans-serif" font-size="16">
+<rect width="960" height="560" fill="#ffffff"/>
+<defs><marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="r" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker></defs>
+<text x="165.0" y="30.0" text-anchor="middle" font-size="18" fill="#000" font-weight="bold">（a）HBM</text>
+<text x="165.0" y="54.0" text-anchor="middle" font-size="14" fill="#000">多片 DRAM 裸片叠在一起</text>
+<text x="165.0" y="530.0" text-anchor="middle" font-size="14" fill="#555">封装层面 · 量产 · 见 07-02</text>
+<text x="480.0" y="30.0" text-anchor="middle" font-size="18" fill="#000" font-weight="bold">（b）封装级 3D-DRAM</text>
+<text x="480.0" y="54.0" text-anchor="middle" font-size="14" fill="#000">DRAM 裸片叠在逻辑裸片上</text>
+<text x="480.0" y="530.0" text-anchor="middle" font-size="14" fill="#555">封装层面 · 少量产品 · 见 07-03</text>
+<text x="795.0" y="30.0" text-anchor="middle" font-size="18" fill="#000" font-weight="bold">（c）单片 3D DRAM</text>
+<text x="795.0" y="54.0" text-anchor="middle" font-size="14" fill="#000">一片裸片内部，单元分成多层</text>
+<text x="795.0" y="530.0" text-anchor="middle" font-size="14" fill="#555">晶圆制造层面 · 研发阶段 · 本节</text>
+<line x1="325.0" y1="15.0" x2="325.0" y2="545.0" stroke="#999" stroke-width="1.5" stroke-dasharray="6 5"/>
+<line x1="640.0" y1="15.0" x2="640.0" y2="545.0" stroke="#999" stroke-width="1.5" stroke-dasharray="6 5"/>
+<rect x="60.0" y="90.0" width="150.0" height="32.0" fill="#9ec3e6" stroke="#000" stroke-width="1.5"/>
+<text x="135.0" y="111.0" text-anchor="middle" font-size="13" fill="#000">DRAM 裸片</text>
+<rect x="60.0" y="130.0" width="150.0" height="32.0" fill="#9ec3e6" stroke="#000" stroke-width="1.5"/>
+<text x="135.0" y="151.0" text-anchor="middle" font-size="13" fill="#000">DRAM 裸片</text>
+<rect x="60.0" y="170.0" width="150.0" height="32.0" fill="#9ec3e6" stroke="#000" stroke-width="1.5"/>
+<text x="135.0" y="191.0" text-anchor="middle" font-size="13" fill="#000">DRAM 裸片</text>
+<rect x="60.0" y="210.0" width="150.0" height="32.0" fill="#9ec3e6" stroke="#000" stroke-width="1.5"/>
+<text x="135.0" y="231.0" text-anchor="middle" font-size="13" fill="#000">DRAM 裸片</text>
+<rect x="60.0" y="250.0" width="150.0" height="32.0" fill="#9ec3e6" stroke="#000" stroke-width="1.5"/>
+<text x="135.0" y="271.0" text-anchor="middle" font-size="13" fill="#000">DRAM 裸片</text>
+<rect x="60.0" y="290.0" width="150.0" height="32.0" fill="#9ec3e6" stroke="#000" stroke-width="1.5"/>
+<text x="135.0" y="311.0" text-anchor="middle" font-size="13" fill="#000">DRAM 裸片</text>
+<rect x="60.0" y="330.0" width="150.0" height="36.0" fill="#f4c7a1" stroke="#000" stroke-width="1.5"/>
+<text x="135.0" y="353.0" text-anchor="middle" font-size="13" fill="#000">基底裸片</text>
+<line x1="70" y1="90" x2="70" y2="366" stroke="#b8860b" stroke-width="2.5" stroke-dasharray="4 3"/>
+<line x1="82" y1="90" x2="82" y2="366" stroke="#b8860b" stroke-width="2.5" stroke-dasharray="4 3"/>
+<line x1="188" y1="90" x2="188" y2="366" stroke="#b8860b" stroke-width="2.5" stroke-dasharray="4 3"/>
+<line x1="200" y1="90" x2="200" y2="366" stroke="#b8860b" stroke-width="2.5" stroke-dasharray="4 3"/>
+<rect x="230.0" y="290.0" width="80.0" height="76.0" fill="#c8e6c9" stroke="#000" stroke-width="1.5"/>
+<text x="270.0" y="325.0" text-anchor="middle" font-size="13" fill="#000">计算</text>
+<text x="270.0" y="343.0" text-anchor="middle" font-size="13" fill="#000">芯片</text>
+<rect x="40.0" y="380.0" width="280.0" height="28.0" fill="#d9d9d9" stroke="#000" stroke-width="1.5"/>
+<text x="180.0" y="399.0" text-anchor="middle" font-size="13" fill="#000">硅中介层</text>
+<text x="165.0" y="440.0" text-anchor="middle" font-size="14" fill="#000">每片裸片内部仍是平面阵列；</text>
+<text x="165.0" y="460.0" text-anchor="middle" font-size="14" fill="#000">竖虚线是硅通孔，把各片连起来</text>
+<text x="165.0" y="480.0" text-anchor="middle" font-size="14" fill="#000" font-weight="bold">堆叠的是"做好的裸片"</text>
+<rect x="385.0" y="200.0" width="200.0" height="50.0" fill="#9ec3e6" stroke="#000" stroke-width="1.5"/>
+<text x="485.0" y="230.0" text-anchor="middle" font-size="14" fill="#000">DRAM 裸片</text>
+<circle cx="401" cy="262" r="7" fill="#b8860b" stroke="#000" stroke-width="1"/>
+<circle cx="422" cy="262" r="7" fill="#b8860b" stroke="#000" stroke-width="1"/>
+<circle cx="443" cy="262" r="7" fill="#b8860b" stroke="#000" stroke-width="1"/>
+<circle cx="464" cy="262" r="7" fill="#b8860b" stroke="#000" stroke-width="1"/>
+<circle cx="485" cy="262" r="7" fill="#b8860b" stroke="#000" stroke-width="1"/>
+<circle cx="506" cy="262" r="7" fill="#b8860b" stroke="#000" stroke-width="1"/>
+<circle cx="527" cy="262" r="7" fill="#b8860b" stroke="#000" stroke-width="1"/>
+<circle cx="548" cy="262" r="7" fill="#b8860b" stroke="#000" stroke-width="1"/>
+<circle cx="569" cy="262" r="7" fill="#b8860b" stroke="#000" stroke-width="1"/>
+<rect x="365.0" y="274.0" width="240.0" height="70.0" fill="#c8e6c9" stroke="#000" stroke-width="1.5"/>
+<text x="485.0" y="314.0" text-anchor="middle" font-size="14" fill="#000">逻辑裸片（计算芯片）</text>
+<rect x="355.0" y="360.0" width="260.0" height="28.0" fill="#d9d9d9" stroke="#000" stroke-width="1.5"/>
+<text x="485.0" y="379.0" text-anchor="middle" font-size="13" fill="#000">封装基板</text>
+<text x="485.0" y="440.0" text-anchor="middle" font-size="14" fill="#000">两片裸片面对面，用微凸块</text>
+<text x="485.0" y="460.0" text-anchor="middle" font-size="14" fill="#000">或混合键合按面积连接</text>
+<text x="485.0" y="480.0" text-anchor="middle" font-size="14" fill="#000" font-weight="bold">堆叠的是"做好的裸片"</text>
+<rect x="690.0" y="110.0" width="220.0" height="260.0" fill="#ffffff" stroke="#000" stroke-width="2"/>
+<rect x="700.0" y="122.0" width="200.0" height="14.0" fill="#9ec3e6" stroke="#000" stroke-width="1"/>
+<rect x="704.0" y="124.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="724.0" y="124.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="744.0" y="124.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="764.0" y="124.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="784.0" y="124.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="804.0" y="124.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="824.0" y="124.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="844.0" y="124.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="864.0" y="124.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="884.0" y="124.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="700.0" y="148.0" width="200.0" height="14.0" fill="#9ec3e6" stroke="#000" stroke-width="1"/>
+<rect x="704.0" y="150.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="724.0" y="150.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="744.0" y="150.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="764.0" y="150.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="784.0" y="150.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="804.0" y="150.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="824.0" y="150.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="844.0" y="150.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="864.0" y="150.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="884.0" y="150.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="700.0" y="174.0" width="200.0" height="14.0" fill="#9ec3e6" stroke="#000" stroke-width="1"/>
+<rect x="704.0" y="176.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="724.0" y="176.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="744.0" y="176.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="764.0" y="176.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="784.0" y="176.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="804.0" y="176.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="824.0" y="176.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="844.0" y="176.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="864.0" y="176.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="884.0" y="176.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="700.0" y="200.0" width="200.0" height="14.0" fill="#9ec3e6" stroke="#000" stroke-width="1"/>
+<rect x="704.0" y="202.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="724.0" y="202.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="744.0" y="202.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="764.0" y="202.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="784.0" y="202.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="804.0" y="202.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="824.0" y="202.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="844.0" y="202.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="864.0" y="202.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="884.0" y="202.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="700.0" y="226.0" width="200.0" height="14.0" fill="#9ec3e6" stroke="#000" stroke-width="1"/>
+<rect x="704.0" y="228.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="724.0" y="228.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="744.0" y="228.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="764.0" y="228.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="784.0" y="228.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="804.0" y="228.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="824.0" y="228.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="844.0" y="228.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="864.0" y="228.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="884.0" y="228.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="700.0" y="252.0" width="200.0" height="14.0" fill="#9ec3e6" stroke="#000" stroke-width="1"/>
+<rect x="704.0" y="254.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="724.0" y="254.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="744.0" y="254.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="764.0" y="254.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="784.0" y="254.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="804.0" y="254.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="824.0" y="254.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="844.0" y="254.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="864.0" y="254.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="884.0" y="254.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="700.0" y="278.0" width="200.0" height="14.0" fill="#9ec3e6" stroke="#000" stroke-width="1"/>
+<rect x="704.0" y="280.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="724.0" y="280.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="744.0" y="280.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="764.0" y="280.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="784.0" y="280.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="804.0" y="280.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="824.0" y="280.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="844.0" y="280.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="864.0" y="280.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="884.0" y="280.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="700.0" y="304.0" width="200.0" height="14.0" fill="#9ec3e6" stroke="#000" stroke-width="1"/>
+<rect x="704.0" y="306.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="724.0" y="306.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="744.0" y="306.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="764.0" y="306.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="784.0" y="306.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="804.0" y="306.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="824.0" y="306.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="844.0" y="306.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="864.0" y="306.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="884.0" y="306.0" width="12.0" height="10.0" fill="#c0392b" stroke="#000" stroke-width="0.5"/>
+<rect x="690.0" y="340.0" width="220.0" height="30.0" fill="#d9d9d9" stroke="#000" stroke-width="1.5"/>
+<text x="800.0" y="360.0" text-anchor="middle" font-size="13" fill="#000">硅衬底与外围电路</text>
+
+<text x="800.0" y="400.0" text-anchor="middle" font-size="13" fill="#000">一片裸片（外框）</text>
+<text x="800.0" y="440.0" text-anchor="middle" font-size="14" fill="#000">每个红色小块是一个存储单元；</text>
+<text x="800.0" y="460.0" text-anchor="middle" font-size="14" fill="#000">各层靠沉积薄膜、刻蚀一次做出</text>
+<text x="800.0" y="480.0" text-anchor="middle" font-size="14" fill="#000" font-weight="bold">分层的是"存储单元本身"</text>
+</svg>

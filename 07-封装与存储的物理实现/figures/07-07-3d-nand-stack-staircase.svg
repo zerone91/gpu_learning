@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="600" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker></defs>
+<text x="480" y="28" font-size="17" text-anchor="middle" fill="#222" font-weight="bold">3D NAND 的侧视剖面：两段堆叠与字线台阶（示意，只画 8 层存储字线）</text>
+<rect x="170" y="492" width="730" height="26" fill="#9a9a9a" stroke="#222" stroke-width="2"/>
+<text x="535" y="511" font-size="14" text-anchor="middle" fill="#fff">公共源极层</text>
+<rect x="170" y="470" width="700" height="18" fill="#e3e3e3" stroke="#222" stroke-width="1.5"/>
+<text x="162" y="484" font-size="13" text-anchor="end" fill="#222">源端选择管</text>
+<line x1="855" y1="70" x2="855" y2="470" stroke="#555" stroke-width="3"/>
+<rect x="170" y="436" width="670" height="18" fill="#c9d9ee" stroke="#222" stroke-width="1.5"/>
+<text x="162" y="450" font-size="13" text-anchor="end" fill="#222">字线 1</text>
+<line x1="825" y1="70" x2="825" y2="436" stroke="#555" stroke-width="3"/>
+<rect x="170" y="402" width="640" height="18" fill="#c9d9ee" stroke="#222" stroke-width="1.5"/>
+<text x="162" y="416" font-size="13" text-anchor="end" fill="#222">字线 2</text>
+<line x1="795" y1="70" x2="795" y2="402" stroke="#555" stroke-width="3"/>
+<rect x="170" y="368" width="610" height="18" fill="#c9d9ee" stroke="#222" stroke-width="1.5"/>
+<text x="162" y="382" font-size="13" text-anchor="end" fill="#222">字线 3</text>
+<line x1="765" y1="70" x2="765" y2="368" stroke="#555" stroke-width="3"/>
+<rect x="170" y="334" width="580" height="18" fill="#c9d9ee" stroke="#222" stroke-width="1.5"/>
+<text x="162" y="348" font-size="13" text-anchor="end" fill="#222">字线 4</text>
+<line x1="735" y1="70" x2="735" y2="334" stroke="#555" stroke-width="3"/>
+<rect x="170" y="300" width="550" height="18" fill="#f4d9a8" stroke="#222" stroke-width="1.5"/>
+<text x="162" y="314" font-size="13" text-anchor="end" fill="#222">虚设字线（接合处）</text>
+<line x1="705" y1="70" x2="705" y2="300" stroke="#555" stroke-width="3"/>
+<rect x="170" y="266" width="520" height="18" fill="#c9d9ee" stroke="#222" stroke-width="1.5"/>
+<text x="162" y="280" font-size="13" text-anchor="end" fill="#222">字线 5</text>
+<line x1="675" y1="70" x2="675" y2="266" stroke="#555" stroke-width="3"/>
+<rect x="170" y="232" width="490" height="18" fill="#c9d9ee" stroke="#222" stroke-width="1.5"/>
+<text x="162" y="246" font-size="13" text-anchor="end" fill="#222">字线 6</text>
+<line x1="645" y1="70" x2="645" y2="232" stroke="#555" stroke-width="3"/>
+<rect x="170" y="198" width="460" height="18" fill="#c9d9ee" stroke="#222" stroke-width="1.5"/>
+<text x="162" y="212" font-size="13" text-anchor="end" fill="#222">字线 7</text>
+<line x1="615" y1="70" x2="615" y2="198" stroke="#555" stroke-width="3"/>
+<rect x="170" y="164" width="430" height="18" fill="#c9d9ee" stroke="#222" stroke-width="1.5"/>
+<text x="162" y="178" font-size="13" text-anchor="end" fill="#222">字线 8</text>
+<line x1="585" y1="70" x2="585" y2="164" stroke="#555" stroke-width="3"/>
+<rect x="170" y="130" width="400" height="18" fill="#e3e3e3" stroke="#222" stroke-width="1.5"/>
+<text x="162" y="144" font-size="13" text-anchor="end" fill="#222">漏端选择管</text>
+<line x1="555" y1="70" x2="555" y2="130" stroke="#555" stroke-width="3"/>
+<rect x="210" y="318" width="26" height="174" fill="#d9ead3" stroke="#222" stroke-width="1.5"/>
+<rect x="218" y="309" width="26" height="9" fill="#d9ead3" stroke="#222" stroke-width="1.5"/>
+<rect x="218" y="120" width="26" height="189" fill="#d9ead3" stroke="#222" stroke-width="1.5"/>
+<line x1="231" y1="120" x2="231" y2="82" stroke="#222" stroke-width="2"/>
+<rect x="300" y="318" width="26" height="174" fill="#d9ead3" stroke="#222" stroke-width="1.5"/>
+<rect x="308" y="309" width="26" height="9" fill="#d9ead3" stroke="#222" stroke-width="1.5"/>
+<rect x="308" y="120" width="26" height="189" fill="#d9ead3" stroke="#222" stroke-width="1.5"/>
+<line x1="321" y1="120" x2="321" y2="82" stroke="#222" stroke-width="2"/>
+<rect x="390" y="318" width="26" height="174" fill="#d9ead3" stroke="#222" stroke-width="1.5"/>
+<rect x="398" y="309" width="26" height="9" fill="#d9ead3" stroke="#222" stroke-width="1.5"/>
+<rect x="398" y="120" width="26" height="189" fill="#d9ead3" stroke="#222" stroke-width="1.5"/>
+<line x1="411" y1="120" x2="411" y2="82" stroke="#222" stroke-width="2"/>
+<rect x="480" y="318" width="26" height="174" fill="#d9ead3" stroke="#222" stroke-width="1.5"/>
+<rect x="488" y="309" width="26" height="9" fill="#d9ead3" stroke="#222" stroke-width="1.5"/>
+<rect x="488" y="120" width="26" height="189" fill="#d9ead3" stroke="#222" stroke-width="1.5"/>
+<line x1="501" y1="120" x2="501" y2="82" stroke="#222" stroke-width="2"/>
+<line x1="200" y1="82" x2="540" y2="82" stroke="#222" stroke-width="4"/>
+<text x="370" y="72" font-size="14" text-anchor="middle" fill="#222">位线</text>
+<text x="790" y="62" font-size="14" text-anchor="middle" fill="#222">字线接触孔（每层一个，通往行译码器）</text>
+<path d="M555,66 L855,66" stroke="#555" stroke-width="1.5" fill="none"/>
+<line x1="880" y1="488" x2="880" y2="334" stroke="#222" stroke-width="1.5"/>
+<line x1="872" y1="488" x2="880" y2="488" stroke="#222" stroke-width="1.5"/>
+<line x1="872" y1="334" x2="880" y2="334" stroke="#222" stroke-width="1.5"/>
+<text x="888" y="414" font-size="14" text-anchor="start" fill="#222">下段</text>
+<line x1="880" y1="284" x2="880" y2="130" stroke="#222" stroke-width="1.5"/>
+<line x1="872" y1="284" x2="880" y2="284" stroke="#222" stroke-width="1.5"/>
+<line x1="872" y1="130" x2="880" y2="130" stroke="#222" stroke-width="1.5"/>
+<text x="888" y="210" font-size="14" text-anchor="start" fill="#222">上段</text>
+<text x="190" y="560" font-size="13" text-anchor="start" fill="#222">绿色竖条是沟道孔（孔壁上有电荷陷阱层和沟道）。上下两段分两次刻蚀，接合处有错位，那一层不存数据。</text>
+<text x="190" y="582" font-size="13" text-anchor="start" fill="#222">越靠下的字线伸得越长，在右侧形成台阶，每一级台阶上落一个接触孔。</text>
+<line x1="200" y1="343" x2="200" y2="343" stroke="#222" stroke-width="0"/>
+</svg>

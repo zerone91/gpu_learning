@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" width="960" height="420" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="420" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker></defs>
+<text x="250" y="32" font-size="17" text-anchor="middle" fill="#222" font-weight="bold">浮栅：存储层是导体</text>
+<text x="250" y="56" font-size="14" text-anchor="middle" fill="#222">电子可以在层内自由移动</text>
+<rect x="40" y="80" width="420" height="40" fill="#9a9a9a" stroke="#222" stroke-width="2"/>
+<text x="250" y="106" font-size="15" text-anchor="middle" fill="#fff">控制栅极</text>
+<rect x="40" y="120" width="420" height="40" fill="#e8e8e8" stroke="#222" stroke-width="2"/>
+<text x="250" y="146" font-size="15" text-anchor="middle" fill="#222">阻挡层</text>
+<rect x="40" y="160" width="420" height="60" fill="#f4d9a8" stroke="#222" stroke-width="2"/>
+<rect x="40" y="220" width="420" height="40" fill="#e8e8e8" stroke="#222" stroke-width="2"/>
+<text x="130" y="246" font-size="15" text-anchor="middle" fill="#222">隧穿氧化层</text>
+<rect x="40" y="260" width="420" height="50" fill="#c9d9ee" stroke="#222" stroke-width="2"/>
+<text x="250" y="291" font-size="15" text-anchor="middle" fill="#222">沟道</text>
+<text x="340" y="247" font-size="20" text-anchor="middle" fill="#c0392b" font-weight="bold">✕</text>
+<text x="402" y="246" font-size="14" text-anchor="middle" fill="#c0392b">缺陷点</text>
+<circle cx="80" cy="190" r="6" fill="#1f5fa8"/>
+<circle cx="128" cy="190" r="6" fill="#1f5fa8"/>
+<circle cx="176" cy="190" r="6" fill="#1f5fa8"/>
+<circle cx="224" cy="190" r="6" fill="#1f5fa8"/>
+<circle cx="272" cy="190" r="6" fill="#1f5fa8"/>
+<circle cx="320" cy="190" r="6" fill="#1f5fa8"/>
+<circle cx="368" cy="190" r="6" fill="#1f5fa8"/>
+<circle cx="416" cy="190" r="6" fill="#1f5fa8"/>
+<line x1="90" y1="205" x2="326" y2="212" stroke="#c0392b" stroke-width="2" marker-end="url(#r)"/>
+<line x1="440" y1="205" x2="354" y2="212" stroke="#c0392b" stroke-width="2" marker-end="url(#r)"/>
+<line x1="340" y1="222" x2="340" y2="282" stroke="#c0392b" stroke-width="2.5" marker-end="url(#r)"/>
+<text x="250" y="345" font-size="15" text-anchor="middle" fill="#222">整层的电子都会流向缺陷点并漏走</text>
+<text x="250" y="368" font-size="15" text-anchor="middle" fill="#222">一个缺陷使整个单元的数据丢失</text>
+<text x="710" y="32" font-size="17" text-anchor="middle" fill="#222" font-weight="bold">电荷陷阱：存储层是绝缘的氮化硅</text>
+<text x="710" y="56" font-size="14" text-anchor="middle" fill="#222">电子被固定在各自的陷阱里</text>
+<rect x="500" y="80" width="420" height="40" fill="#9a9a9a" stroke="#222" stroke-width="2"/>
+<text x="710" y="106" font-size="15" text-anchor="middle" fill="#fff">控制栅极</text>
+<rect x="500" y="120" width="420" height="40" fill="#e8e8e8" stroke="#222" stroke-width="2"/>
+<text x="710" y="146" font-size="15" text-anchor="middle" fill="#222">阻挡层</text>
+<rect x="500" y="160" width="420" height="60" fill="#d9ead3" stroke="#222" stroke-width="2"/>
+<rect x="500" y="220" width="420" height="40" fill="#e8e8e8" stroke="#222" stroke-width="2"/>
+<text x="590" y="246" font-size="15" text-anchor="middle" fill="#222">隧穿氧化层</text>
+<rect x="500" y="260" width="420" height="50" fill="#c9d9ee" stroke="#222" stroke-width="2"/>
+<text x="710" y="291" font-size="15" text-anchor="middle" fill="#222">沟道</text>
+<text x="800" y="247" font-size="20" text-anchor="middle" fill="#c0392b" font-weight="bold">✕</text>
+<text x="862" y="246" font-size="14" text-anchor="middle" fill="#c0392b">缺陷点</text>
+<circle cx="540" cy="190" r="6" fill="#1f5fa8" stroke="#1f5fa8" stroke-width="2"/>
+<rect x="529" y="178" width="22" height="24" fill="none" stroke="#555" stroke-width="1.5" stroke-dasharray="3,3"/>
+<circle cx="588" cy="190" r="6" fill="#1f5fa8" stroke="#1f5fa8" stroke-width="2"/>
+<rect x="577" y="178" width="22" height="24" fill="none" stroke="#555" stroke-width="1.5" stroke-dasharray="3,3"/>
+<circle cx="636" cy="190" r="6" fill="#1f5fa8" stroke="#1f5fa8" stroke-width="2"/>
+<rect x="625" y="178" width="22" height="24" fill="none" stroke="#555" stroke-width="1.5" stroke-dasharray="3,3"/>
+<circle cx="684" cy="190" r="6" fill="#1f5fa8" stroke="#1f5fa8" stroke-width="2"/>
+<rect x="673" y="178" width="22" height="24" fill="none" stroke="#555" stroke-width="1.5" stroke-dasharray="3,3"/>
+<circle cx="732" cy="190" r="6" fill="#1f5fa8" stroke="#1f5fa8" stroke-width="2"/>
+<rect x="721" y="178" width="22" height="24" fill="none" stroke="#555" stroke-width="1.5" stroke-dasharray="3,3"/>
+<circle cx="780" cy="190" r="6" fill="#fff" stroke="#1f5fa8" stroke-width="2"/>
+<rect x="769" y="178" width="22" height="24" fill="none" stroke="#555" stroke-width="1.5" stroke-dasharray="3,3"/>
+<circle cx="828" cy="190" r="6" fill="#fff" stroke="#1f5fa8" stroke-width="2"/>
+<rect x="817" y="178" width="22" height="24" fill="none" stroke="#555" stroke-width="1.5" stroke-dasharray="3,3"/>
+<circle cx="876" cy="190" r="6" fill="#1f5fa8" stroke="#1f5fa8" stroke-width="2"/>
+<rect x="865" y="178" width="22" height="24" fill="none" stroke="#555" stroke-width="1.5" stroke-dasharray="3,3"/>
+<line x1="790" y1="200" x2="798" y2="282" stroke="#c0392b" stroke-width="2.5" marker-end="url(#r)"/>
+<text x="710" y="345" font-size="15" text-anchor="middle" fill="#222">只有缺陷点正上方的电子漏走（空心圆）</text>
+<text x="710" y="368" font-size="15" text-anchor="middle" fill="#222">其余电子留在原处，阈值电压只降低一点</text>
+<circle cx="60" cy="400" r="6" fill="#1f5fa8"/>
+<text x="74" y="405" font-size="14" text-anchor="start" fill="#222">电子</text>
+<rect x="130" y="388" width="22" height="24" fill="none" stroke="#555" stroke-width="1.5" stroke-dasharray="3,3"/>
+<text x="160" y="405" font-size="14" text-anchor="start" fill="#222">陷阱</text>
+</svg>

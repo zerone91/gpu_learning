@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 470" width="1040" height="470" font-family="sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b5451b"/></marker><pattern id="hz" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" stroke="#999" stroke-width="2"/></pattern></defs>
+<rect x="0" y="0" width="1040" height="470" fill="#ffffff"/>
+<text x="520" y="30" font-size="17" text-anchor="middle" fill="#111" font-weight="bold" >POD 端接：端接电阻接到电源，所以高低电平的中点不在电源的一半</text>
+<line x1="60" y1="80" x2="330" y2="80" stroke="#222" stroke-width="2"/>
+<text x="60" y="70" font-size="14" text-anchor="start" fill="#111" font-weight="normal" >VDDQ = 1.1 V</text>
+<line x1="60" y1="400" x2="330" y2="400" stroke="#222" stroke-width="2"/>
+<text x="60" y="422" font-size="14" text-anchor="start" fill="#111" font-weight="normal" >地（0 V）</text>
+<rect x="90" y="100" width="200" height="280" rx="4" fill="#fafafa" stroke="#666" stroke-width="1.8" stroke-dasharray="6 4" />
+<text x="190" y="122" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >驱动器（发低电平时）</text>
+<line x1="190" y1="80" x2="190" y2="150" stroke="#222" stroke-width="1.8"/>
+<rect x="182.0" y="150" width="16" height="44" rx="2" fill="#fff" stroke="#222" stroke-width="1.8" />
+<text x="176.0" y="177.0" font-size="14" text-anchor="end" fill="#111" font-weight="normal" >上拉 34 Ω</text>
+<text x="212" y="178" font-size="14" text-anchor="start" fill="#777" font-weight="normal" >断开</text>
+<line x1="190" y1="194" x2="190" y2="240" stroke="#222" stroke-width="1.8"/>
+<line x1="190" y1="240" x2="190" y2="290" stroke="#222" stroke-width="1.8"/>
+<rect x="182.0" y="290" width="16" height="44" rx="2" fill="#fff" stroke="#222" stroke-width="1.8" />
+<text x="176.0" y="317.0" font-size="14" text-anchor="end" fill="#111" font-weight="normal" >下拉 34 Ω</text>
+<text x="212" y="318" font-size="14" text-anchor="start" fill="#b5451b" font-weight="normal" >导通</text>
+<line x1="190" y1="334" x2="190" y2="400" stroke="#222" stroke-width="1.8"/>
+<circle cx="190" cy="240" r="4" fill="#222" stroke="#222" stroke-width="1.5"/>
+<line x1="190" y1="240" x2="640" y2="240" stroke="#222" stroke-width="2.4"/>
+<rect x="320" y="226" width="190" height="28" rx="4" fill="#fff" stroke="#222" stroke-width="1.8" />
+<text x="415" y="245" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >走线，特征阻抗 50 Ω</text>
+<line x1="580" y1="80" x2="760" y2="80" stroke="#222" stroke-width="2"/>
+<text x="760" y="70" font-size="14" text-anchor="end" fill="#111" font-weight="normal" >VDDQ = 1.1 V</text>
+<rect x="540" y="100" width="230" height="280" rx="4" fill="#fafafa" stroke="#666" stroke-width="1.8" stroke-dasharray="6 4" />
+<text x="700" y="122" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >接收端</text>
+<line x1="640" y1="80" x2="640" y2="150" stroke="#222" stroke-width="1.8"/>
+<rect x="632.0" y="150" width="16" height="44" rx="2" fill="#fff" stroke="#222" stroke-width="1.8" />
+<text x="626.0" y="177.0" font-size="14" text-anchor="end" fill="#111" font-weight="normal" >ODT 48 Ω</text>
+<line x1="640" y1="194" x2="640" y2="240" stroke="#222" stroke-width="1.8"/>
+<circle cx="640" cy="240" r="4" fill="#222" stroke="#222" stroke-width="1.5"/>
+<polyline points="670,270 670,350 740,310 670,270" stroke="#222" stroke-width="2" fill="#eef3fb" stroke-linejoin="round"/>
+<polyline points="640,240 640,290 670,290" stroke="#222" stroke-width="2" fill="none" stroke-linejoin="round"/>
+<line x1="610" y1="330" x2="670" y2="330" stroke="#222" stroke-width="1.8"/>
+<text x="606" y="335" font-size="14" text-anchor="end" fill="#111" font-weight="normal" >Vref</text>
+<text x="694" y="315" font-size="13" text-anchor="middle" fill="#111" font-weight="normal" >比较</text>
+<line x1="740" y1="310" x2="760" y2="310" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<polyline points="665,135 665,222 262,222 262,360" stroke="#b5451b" stroke-width="1.6" fill="none" stroke-dasharray="5 4" marker-end="url(#ar)" stroke-linejoin="round"/>
+<text x="330" y="212" font-size="14" text-anchor="start" fill="#b5451b" font-weight="normal" >低电平时电流 ≈ 13.4 mA</text>
+<line x1="840" y1="80" x2="840" y2="400" stroke="#222" stroke-width="2"/>
+<line x1="832" y1="90.0" x2="880" y2="90.0" stroke="#111" stroke-width="2"/>
+<text x="886" y="95.0" font-size="14" text-anchor="start" fill="#111" font-weight="normal" >高电平 1.10 V</text>
+<line x1="832" y1="180.1818181818182" x2="880" y2="180.1818181818182" stroke="#b5451b" stroke-width="1.8" stroke-dasharray="6 4"/>
+<text x="886" y="185.1818181818182" font-size="14" text-anchor="start" fill="#b5451b" font-weight="normal" >Vref ≈ 0.78 V</text>
+<line x1="832" y1="245.0" x2="880" y2="245.0" stroke="#777" stroke-width="1.8" stroke-dasharray="2 4"/>
+<text x="886" y="250.0" font-size="14" text-anchor="start" fill="#777" font-weight="normal" >电源一半 0.55 V</text>
+<line x1="832" y1="270.3636363636364" x2="880" y2="270.3636363636364" stroke="#111" stroke-width="2"/>
+<text x="886" y="284.3636363636364" font-size="14" text-anchor="start" fill="#111" font-weight="normal" >低电平 ≈ 0.46 V</text>
+<line x1="832" y1="400.0" x2="880" y2="400.0" stroke="#777" stroke-width="2"/>
+<text x="886" y="405.0" font-size="14" text-anchor="start" fill="#777" font-weight="normal" >0 V</text>
+<rect x="846" y="90.0" width="22" height="180.36363636363637" rx="4" fill="#e8f0fa" stroke="#1f5fa8" stroke-width="1.2" />
+<text x="886" y="132.2727272727273" font-size="14" text-anchor="start" fill="#1f5fa8" font-weight="normal" >摆幅 0.64 V</text>
+<text x="520" y="455" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >高电平时两端都是 1.1 V，没有电流；低电平由 34 Ω 与 48 Ω 分压得到 1.1 × 34 ÷ 82 ≈ 0.46 V</text>
+</svg>

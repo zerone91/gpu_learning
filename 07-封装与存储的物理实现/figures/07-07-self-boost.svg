@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 585" width="960" height="585" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="585" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker></defs>
+<text x="480" y="28" font-size="17" text-anchor="middle" fill="#222" font-weight="bold">编程一根字线时，同一根字线上两条串的电压</text>
+<text x="400" y="62" font-size="16" text-anchor="middle" fill="#222" font-weight="bold">要编程的串</text>
+<text x="690" y="62" font-size="16" text-anchor="middle" fill="#222" font-weight="bold">要禁止的串</text>
+<text x="400" y="90" font-size="15" text-anchor="middle" fill="#222">位线 0 V</text>
+<text x="690" y="90" font-size="15" text-anchor="middle" fill="#222">位线 2.5 V</text>
+<line x1="400" y1="98" x2="400" y2="118" stroke="#222" stroke-width="2"/>
+<line x1="690" y1="98" x2="690" y2="118" stroke="#222" stroke-width="2"/>
+<rect x="386" y="165" width="28" height="210" fill="#ffffff" stroke="#222" stroke-width="2"/>
+<rect x="676" y="165" width="28" height="210" fill="#f4d9a8" stroke="#222" stroke-width="2"/>
+<text x="40" y="135" font-size="15" text-anchor="start" fill="#222">漏端选择管</text>
+<text x="200" y="135" font-size="15" text-anchor="end" fill="#222" font-weight="bold">2.5 V</text>
+<line x1="215" y1="130" x2="735" y2="130" stroke="#777" stroke-width="2"/>
+<rect x="355" y="114" width="90" height="32" fill="#e3e3e3" stroke="#222" stroke-width="2"/>
+<rect x="645" y="114" width="90" height="32" fill="#e3e3e3" stroke="#222" stroke-width="2"/>
+<text x="40" y="205" font-size="15" text-anchor="start" fill="#222">未选中字线</text>
+<text x="200" y="205" font-size="15" text-anchor="end" fill="#222" font-weight="bold">10 V</text>
+<line x1="215" y1="200" x2="735" y2="200" stroke="#777" stroke-width="2"/>
+<rect x="355" y="184" width="90" height="32" fill="#c9d9ee" stroke="#222" stroke-width="2"/>
+<rect x="645" y="184" width="90" height="32" fill="#c9d9ee" stroke="#222" stroke-width="2"/>
+<text x="40" y="275" font-size="15" text-anchor="start" fill="#222">选中字线</text>
+<text x="200" y="275" font-size="15" text-anchor="end" fill="#222" font-weight="bold">19.5 V</text>
+<line x1="215" y1="270" x2="735" y2="270" stroke="#777" stroke-width="2"/>
+<rect x="355" y="254" width="90" height="32" fill="#e79a8f" stroke="#222" stroke-width="2"/>
+<rect x="645" y="254" width="90" height="32" fill="#e79a8f" stroke="#222" stroke-width="2"/>
+<text x="40" y="345" font-size="15" text-anchor="start" fill="#222">未选中字线</text>
+<text x="200" y="345" font-size="15" text-anchor="end" fill="#222" font-weight="bold">10 V</text>
+<line x1="215" y1="340" x2="735" y2="340" stroke="#777" stroke-width="2"/>
+<rect x="355" y="324" width="90" height="32" fill="#c9d9ee" stroke="#222" stroke-width="2"/>
+<rect x="645" y="324" width="90" height="32" fill="#c9d9ee" stroke="#222" stroke-width="2"/>
+<text x="40" y="415" font-size="15" text-anchor="start" fill="#222">源端选择管</text>
+<text x="200" y="415" font-size="15" text-anchor="end" fill="#222" font-weight="bold">0 V</text>
+<line x1="215" y1="410" x2="735" y2="410" stroke="#777" stroke-width="2"/>
+<rect x="355" y="394" width="90" height="32" fill="#e3e3e3" stroke="#222" stroke-width="2"/>
+<rect x="645" y="394" width="90" height="32" fill="#e3e3e3" stroke="#222" stroke-width="2"/>
+<line x1="400" y1="146" x2="400" y2="165" stroke="#222" stroke-width="2"/>
+<line x1="400" y1="375" x2="400" y2="394" stroke="#222" stroke-width="2"/>
+<line x1="400" y1="426" x2="400" y2="450" stroke="#222" stroke-width="2"/>
+<line x1="690" y1="146" x2="690" y2="165" stroke="#222" stroke-width="2"/>
+<line x1="690" y1="375" x2="690" y2="394" stroke="#222" stroke-width="2"/>
+<line x1="690" y1="426" x2="690" y2="450" stroke="#222" stroke-width="2"/>
+<text x="400" y="135" font-size="14" text-anchor="middle" fill="#222">导通</text>
+<text x="690" y="135" font-size="14" text-anchor="middle" fill="#222">关断</text>
+<text x="745" y="128" font-size="13" text-anchor="start" fill="#222">沟道充到 1.5 V 后</text>
+<text x="745" y="146" font-size="13" text-anchor="start" fill="#222">自行关断</text>
+<text x="400" y="415" font-size="14" text-anchor="middle" fill="#222">关断</text>
+<text x="690" y="415" font-size="14" text-anchor="middle" fill="#222">关断</text>
+<text x="480" y="470" font-size="14" text-anchor="middle" fill="#222">公共源线</text>
+<line x1="400" y1="450" x2="690" y2="450" stroke="#222" stroke-width="2"/>
+<text x="455" y="236" font-size="14" text-anchor="start" fill="#222">沟道 0 V</text>
+<text x="455" y="254" font-size="13" text-anchor="start" fill="#222">（被位线钳住）</text>
+<text x="745" y="236" font-size="14" text-anchor="start" fill="#a0522d" font-weight="bold">沟道约 8 V</text>
+<text x="745" y="254" font-size="13" text-anchor="start" fill="#222">（悬空，被字线带高）</text>
+<text x="400" y="275" font-size="14" text-anchor="middle" fill="#222" font-weight="bold">压差 19.5 V</text>
+<text x="690" y="275" font-size="14" text-anchor="middle" fill="#222" font-weight="bold">压差 11.5 V</text>
+<text x="400" y="205" font-size="14" text-anchor="middle" fill="#222">压差 10 V</text>
+<text x="690" y="205" font-size="14" text-anchor="middle" fill="#222">压差 2 V</text>
+<text x="400" y="345" font-size="14" text-anchor="middle" fill="#222">压差 10 V</text>
+<text x="690" y="345" font-size="14" text-anchor="middle" fill="#222">压差 2 V</text>
+<text x="400" y="510" font-size="14" text-anchor="middle" fill="#222">选中单元被正常编程</text>
+<text x="400" y="530" font-size="14" text-anchor="middle" fill="#c0392b">未选中单元受 10 V：通过电压干扰</text>
+<text x="690" y="510" font-size="14" text-anchor="middle" fill="#222">选中字线处的单元不应被编程</text>
+<text x="690" y="530" font-size="14" text-anchor="middle" fill="#c0392b">但仍受 11.5 V：同字线的编程干扰</text>
+<text x="40" y="565" font-size="13" text-anchor="start" fill="#222">“压差”指该处单元的栅极电压减去沟道电压。横线是字线，两条串共用；方框是各串在这根线上的晶体管。</text>
+</svg>

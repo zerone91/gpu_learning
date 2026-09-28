@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 580" width="900" height="580" font-family="sans-serif" font-size="15">
+  <rect x="0" y="0" width="900" height="580" fill="#ffffff"/>
+  <text x="20" y="30" font-size="17" font-weight="bold">封装内部侧视图：阶梯式堆叠与引线键合（示意，未按比例）</text>
+  <!-- mold outline -->
+  <rect x="60" y="60" width="700" height="300" fill="#f7f7f7" stroke="#888" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="70" y="82" font-size="14" fill="#555">塑封料</text>
+  <!-- substrate -->
+  <rect x="60" y="360" width="700" height="34" fill="#d9ead3" stroke="#222" stroke-width="2"/>
+  <text x="80" y="383">封装基板</text>
+  <!-- solder balls -->
+  <g fill="#bbbbbb" stroke="#222" stroke-width="1.5">
+    <circle cx="140" cy="408" r="13"/><circle cx="240" cy="408" r="13"/><circle cx="340" cy="408" r="13"/><circle cx="440" cy="408" r="13"/><circle cx="540" cy="408" r="13"/><circle cx="640" cy="408" r="13"/><circle cx="720" cy="408" r="13"/>
+  </g>
+  <!-- dies: staircase shifting left as going up; pads on right edge exposed -->
+  <g fill="#cfe3f7" stroke="#222" stroke-width="2">
+    <rect x="240" y="320" width="360" height="38"/>
+    <rect x="200" y="280" width="360" height="38"/>
+    <rect x="160" y="240" width="360" height="38"/>
+    <rect x="120" y="200" width="360" height="38"/>
+  </g>
+  <g font-size="15"><text x="260" y="345">裸片 1</text><text x="220" y="305">裸片 2</text><text x="180" y="265">裸片 3</text><text x="140" y="225">裸片 4</text></g>
+  <!-- pads -->
+  <g fill="#b35a00" stroke="#222" stroke-width="1">
+    <rect x="574" y="316" width="20" height="6"/><rect x="534" y="276" width="20" height="6"/><rect x="494" y="236" width="20" height="6"/><rect x="454" y="196" width="20" height="6"/>
+    <rect x="660" y="356" width="26" height="6"/>
+  </g>
+  <!-- bond wires cascading -->
+  <g fill="none" stroke="#b35a00" stroke-width="2.5">
+    <path d="M464,196 C472,160 500,170 504,236"/>
+    <path d="M504,236 C512,200 540,210 544,276"/>
+    <path d="M544,276 C552,240 580,250 584,316"/>
+    <path d="M584,316 C610,270 655,300 673,356"/>
+  </g>
+  <!-- annotations -->
+  <line x1="673" y1="362" x2="673" y2="394" stroke="#222" stroke-width="2"/>
+  <text x="775" y="345" font-size="14">基板上的</text>
+  <text x="775" y="365" font-size="14">DQ0 焊点</text><line x1="690" y1="358" x2="770" y2="352" stroke="#555" stroke-width="1.5"/>
+  <line x1="600" y1="150" x2="520" y2="205" stroke="#555" stroke-width="1.5"/>
+  <text x="560" y="130" font-size="14">键合线（金属细线，约 20 微米粗）</text>
+  <text x="560" y="148" font-size="14">逐级把各裸片的同名焊盘串起来</text>
+  <line x1="300" y1="175" x2="455" y2="194" stroke="#555" stroke-width="1.5"/>
+  <text x="80" y="150" font-size="14">焊盘：每颗裸片只在一条边上有，</text>
+  <text x="80" y="168" font-size="14">错开堆叠使这条边露出</text>
+  <!-- electrical equivalent -->
+  <text x="20" y="465" font-size="16" font-weight="bold">电气上的后果：四颗裸片的 DQ0 引脚并联在同一根线上</text>
+  <line x1="60" y1="540" x2="700" y2="540" stroke="#222" stroke-width="2.5"/>
+  <rect x="20" y="524" width="70" height="32" fill="#eeeeee" stroke="#222" stroke-width="2"/><text x="55" y="545" text-anchor="middle" font-size="14">控制器</text>
+  <g stroke="#222" stroke-width="2" fill="none">
+    <line x1="250" y1="540" x2="250" y2="526"/><line x1="400" y1="540" x2="400" y2="526"/><line x1="550" y1="540" x2="550" y2="526"/><line x1="700" y1="540" x2="700" y2="526"/>
+  </g>
+  <g font-size="14" text-anchor="middle"><text x="250" y="520">裸片 1 输入电容</text><text x="400" y="520">裸片 2 输入电容</text><text x="550" y="520">裸片 3 输入电容</text><text x="700" y="520">裸片 4 输入电容</text></g>
+  <text x="730" y="545" font-size="14">驱动器要同时给</text><text x="730" y="563" font-size="14">所有这些电容充放电</text>
+</svg>

@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 520" width="940" height="520" font-family="sans-serif" font-size="16">
+<rect width="940" height="520" fill="#ffffff"/>
+<defs><marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker></defs>
+<text x="30.0" y="40.0" text-anchor="start" font-size="17" fill="#000" font-weight="bold">串行：请求 A 做完再做请求 B，共 105.2 ns</text>
+<text x="98.0" y="88.0" text-anchor="end" font-size="14" fill="#000">bank 0</text>
+<text x="98.0" y="138.0" text-anchor="end" font-size="14" fill="#000">bank 1</text>
+<rect x="110.0" y="65.0" width="110.8" height="36.0" fill="#c8e6c9" stroke="#000" stroke-width="1.5"/>
+<text x="165.4" y="88.0" text-anchor="middle" font-size="14" fill="#000">预充电</text>
+<rect x="220.8" y="65.0" width="110.8" height="36.0" fill="#d9d9d9" stroke="#000" stroke-width="1.5"/>
+<text x="276.3" y="88.0" text-anchor="middle" font-size="14" fill="#000">激活</text>
+<rect x="331.7" y="65.0" width="113.6" height="36.0" fill="#bbdefb" stroke="#000" stroke-width="1.5"/>
+<text x="388.4" y="88.0" text-anchor="middle" font-size="14" fill="#000">等待 CL</text>
+<rect x="445.2" y="65.0" width="22.4" height="36.0" fill="#c0392b" stroke="#000" stroke-width="1.5"/>
+<text x="473.3" y="88.0" text-anchor="start" font-size="14" fill="#c0392b" font-weight="bold">52.6 ns</text>
+<rect x="467.7" y="115.0" width="110.8" height="36.0" fill="#c8e6c9" stroke="#000" stroke-width="1.5"/>
+<text x="523.1" y="138.0" text-anchor="middle" font-size="14" fill="#000">预充电</text>
+<rect x="578.5" y="115.0" width="110.8" height="36.0" fill="#d9d9d9" stroke="#000" stroke-width="1.5"/>
+<text x="634.0" y="138.0" text-anchor="middle" font-size="14" fill="#000">激活</text>
+<rect x="689.4" y="115.0" width="113.6" height="36.0" fill="#bbdefb" stroke="#000" stroke-width="1.5"/>
+<text x="746.1" y="138.0" text-anchor="middle" font-size="14" fill="#000">等待 CL</text>
+<rect x="802.9" y="115.0" width="22.4" height="36.0" fill="#c0392b" stroke="#000" stroke-width="1.5"/>
+<text x="831.0" y="138.0" text-anchor="start" font-size="14" fill="#c0392b" font-weight="bold">105.2 ns</text>
+<line x1="110.0" y1="170.0" x2="858.0" y2="170.0" stroke="#000" stroke-width="2" marker-end="url(#a)"/>
+<line x1="110.0" y1="166.0" x2="110.0" y2="174.0" stroke="#000" stroke-width="1.5"/>
+<text x="110.0" y="192.0" text-anchor="middle" font-size="14" fill="#000">0 ns</text>
+<line x1="246.0" y1="166.0" x2="246.0" y2="174.0" stroke="#000" stroke-width="1.5"/>
+<text x="246.0" y="192.0" text-anchor="middle" font-size="14" fill="#000">20 ns</text>
+<line x1="382.0" y1="166.0" x2="382.0" y2="174.0" stroke="#000" stroke-width="1.5"/>
+<text x="382.0" y="192.0" text-anchor="middle" font-size="14" fill="#000">40 ns</text>
+<line x1="518.0" y1="166.0" x2="518.0" y2="174.0" stroke="#000" stroke-width="1.5"/>
+<text x="518.0" y="192.0" text-anchor="middle" font-size="14" fill="#000">60 ns</text>
+<line x1="654.0" y1="166.0" x2="654.0" y2="174.0" stroke="#000" stroke-width="1.5"/>
+<text x="654.0" y="192.0" text-anchor="middle" font-size="14" fill="#000">80 ns</text>
+<line x1="790.0" y1="166.0" x2="790.0" y2="174.0" stroke="#000" stroke-width="1.5"/>
+<text x="790.0" y="192.0" text-anchor="middle" font-size="14" fill="#000">100 ns</text>
+<text x="30.0" y="260.0" text-anchor="start" font-size="17" fill="#000" font-weight="bold">交错：两个 bank 同时进行，共 55.9 ns</text>
+<text x="98.0" y="308.0" text-anchor="end" font-size="14" fill="#000">bank 0</text>
+<text x="98.0" y="358.0" text-anchor="end" font-size="14" fill="#000">bank 1</text>
+<rect x="110.0" y="285.0" width="110.8" height="36.0" fill="#c8e6c9" stroke="#000" stroke-width="1.5"/>
+<text x="165.4" y="308.0" text-anchor="middle" font-size="14" fill="#000">预充电</text>
+<rect x="220.8" y="285.0" width="110.8" height="36.0" fill="#d9d9d9" stroke="#000" stroke-width="1.5"/>
+<text x="276.3" y="308.0" text-anchor="middle" font-size="14" fill="#000">激活</text>
+<rect x="331.7" y="285.0" width="113.6" height="36.0" fill="#bbdefb" stroke="#000" stroke-width="1.5"/>
+<text x="388.4" y="308.0" text-anchor="middle" font-size="14" fill="#000">等待 CL</text>
+<rect x="445.2" y="285.0" width="22.4" height="36.0" fill="#c0392b" stroke="#000" stroke-width="1.5"/>
+<text x="473.3" y="308.0" text-anchor="start" font-size="14" fill="#c0392b" font-weight="bold">52.6 ns</text>
+<rect x="132.4" y="335.0" width="110.8" height="36.0" fill="#c8e6c9" stroke="#000" stroke-width="1.5"/>
+<text x="187.9" y="358.0" text-anchor="middle" font-size="14" fill="#000">预充电</text>
+<rect x="243.3" y="335.0" width="110.8" height="36.0" fill="#d9d9d9" stroke="#000" stroke-width="1.5"/>
+<text x="298.7" y="358.0" text-anchor="middle" font-size="14" fill="#000">激活</text>
+<rect x="354.1" y="335.0" width="113.6" height="36.0" fill="#bbdefb" stroke="#000" stroke-width="1.5"/>
+<text x="410.9" y="358.0" text-anchor="middle" font-size="14" fill="#000">等待 CL</text>
+<rect x="467.7" y="335.0" width="22.4" height="36.0" fill="#c0392b" stroke="#000" stroke-width="1.5"/>
+<text x="495.7" y="358.0" text-anchor="start" font-size="14" fill="#c0392b" font-weight="bold">55.9 ns</text>
+<line x1="110.0" y1="390.0" x2="858.0" y2="390.0" stroke="#000" stroke-width="2" marker-end="url(#a)"/>
+<line x1="110.0" y1="386.0" x2="110.0" y2="394.0" stroke="#000" stroke-width="1.5"/>
+<text x="110.0" y="412.0" text-anchor="middle" font-size="14" fill="#000">0 ns</text>
+<line x1="246.0" y1="386.0" x2="246.0" y2="394.0" stroke="#000" stroke-width="1.5"/>
+<text x="246.0" y="412.0" text-anchor="middle" font-size="14" fill="#000">20 ns</text>
+<line x1="382.0" y1="386.0" x2="382.0" y2="394.0" stroke="#000" stroke-width="1.5"/>
+<text x="382.0" y="412.0" text-anchor="middle" font-size="14" fill="#000">40 ns</text>
+<line x1="518.0" y1="386.0" x2="518.0" y2="394.0" stroke="#000" stroke-width="1.5"/>
+<text x="518.0" y="412.0" text-anchor="middle" font-size="14" fill="#000">60 ns</text>
+<line x1="654.0" y1="386.0" x2="654.0" y2="394.0" stroke="#000" stroke-width="1.5"/>
+<text x="654.0" y="412.0" text-anchor="middle" font-size="14" fill="#000">80 ns</text>
+<line x1="790.0" y1="386.0" x2="790.0" y2="394.0" stroke="#000" stroke-width="1.5"/>
+<text x="790.0" y="412.0" text-anchor="middle" font-size="14" fill="#000">100 ns</text>
+<rect x="120.0" y="466.0" width="28.0" height="18.0" fill="#c8e6c9" stroke="#000" stroke-width="1.5"/>
+<text x="156.0" y="480.0" text-anchor="start" font-size="14" fill="#000">预充电（tRP）</text>
+<rect x="280.0" y="466.0" width="28.0" height="18.0" fill="#d9d9d9" stroke="#000" stroke-width="1.5"/>
+<text x="316.0" y="480.0" text-anchor="start" font-size="14" fill="#000">激活（tRCD）</text>
+<rect x="440.0" y="466.0" width="28.0" height="18.0" fill="#bbdefb" stroke="#000" stroke-width="1.5"/>
+<text x="476.0" y="480.0" text-anchor="start" font-size="14" fill="#000">读命令发出后等待（CL）</text>
+<rect x="680.0" y="466.0" width="28.0" height="18.0" fill="#c0392b" stroke="#000" stroke-width="1.5"/>
+<text x="716.0" y="480.0" text-anchor="start" font-size="14" fill="#000">数据送出（3.3 ns）</text>
+</svg>

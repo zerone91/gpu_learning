@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" width="960" height="640">
+<rect x="0" y="0" width="960" height="640" fill="#ffffff"/>
+<defs><marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777"/></marker><marker id="an" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e7d32"/></marker></defs>
+<text x="480.0" y="30.0" font-family="sans-serif" font-size="16" fill="#222" text-anchor="middle" font-weight="bold">读一位（单元里存的是 1：Q = 0.75 伏，QB = 0 伏）</text>
+<rect x="150.0" y="60.0" width="760.0" height="90.0" rx="0" fill="none" stroke="#777" stroke-width="1"/>
+<text x="88.0" y="110.0" font-family="sans-serif" font-size="15" fill="#222" text-anchor="end" font-weight="bold">字线 WL</text>
+<line x1="145.0" y1="141.0" x2="150.0" y2="141.0" stroke="#777" stroke-width="1.5"/>
+<text x="141.0" y="146.0" font-family="sans-serif" font-size="14" fill="#777" text-anchor="end">0</text>
+<line x1="145.0" y1="73.5" x2="150.0" y2="73.5" stroke="#777" stroke-width="1.5"/>
+<text x="141.0" y="78.5" font-family="sans-serif" font-size="14" fill="#777" text-anchor="end">0.75</text>
+<polyline points="150.0,141.0 428.7,141.0 466.7,73.5 720.0,73.5 758.0,141.0 910.0,141.0" fill="none" stroke="#222" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="150.0" y="176.0" width="760.0" height="90.0" rx="0" fill="none" stroke="#777" stroke-width="1"/>
+<text x="88.0" y="226.0" font-family="sans-serif" font-size="15" fill="#222" text-anchor="end" font-weight="bold">位线</text>
+<line x1="145.0" y1="243.5" x2="150.0" y2="243.5" stroke="#777" stroke-width="1.5"/>
+<text x="141.0" y="248.5" font-family="sans-serif" font-size="14" fill="#777" text-anchor="end">0.65</text>
+<line x1="145.0" y1="198.5" x2="150.0" y2="198.5" stroke="#777" stroke-width="1.5"/>
+<text x="141.0" y="203.5" font-family="sans-serif" font-size="14" fill="#777" text-anchor="end">0.75</text>
+<polyline points="150.0,198.5 910.0,198.5" fill="none" stroke="#1f5fa8" stroke-width="2.5" stroke-linejoin="round"/>
+<polyline points="150.0,198.5 466.7,198.5 669.3,243.5 720.0,245.8 770.7,198.5 910.0,198.5" fill="none" stroke="#c0392b" stroke-width="2.5" stroke-linejoin="round" stroke-dasharray="8 4"/>
+<text x="251.3" y="190.5" font-family="sans-serif" font-size="14" fill="#1f5fa8" text-anchor="start">BL（实线）保持 0.75</text>
+<text x="175.3" y="218.5" font-family="sans-serif" font-size="14" fill="#c0392b" text-anchor="start">BLB（虚线）</text>
+<line x1="687.1" y1="198.5" x2="687.1" y2="243.5" stroke="#777" stroke-width="1.5" marker-end="url(#ag)" marker-start="url(#ag)"/>
+<text x="568.0" y="257.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">③ 80 皮秒放电 0.1 伏</text>
+<text x="783.3" y="230.0" font-family="sans-serif" font-size="14" fill="#777" text-anchor="start">预充电恢复</text>
+<rect x="150.0" y="292.0" width="760.0" height="90.0" rx="0" fill="none" stroke="#777" stroke-width="1"/>
+<text x="88.0" y="342.0" font-family="sans-serif" font-size="15" fill="#222" text-anchor="end" font-weight="bold">存储节点</text>
+<line x1="145.0" y1="373.0" x2="150.0" y2="373.0" stroke="#777" stroke-width="1.5"/>
+<text x="141.0" y="378.0" font-family="sans-serif" font-size="14" fill="#777" text-anchor="end">0</text>
+<line x1="145.0" y1="346.0" x2="150.0" y2="346.0" stroke="#777" stroke-width="1.5"/>
+<text x="141.0" y="351.0" font-family="sans-serif" font-size="14" fill="#777" text-anchor="end">0.3</text>
+<line x1="145.0" y1="305.5" x2="150.0" y2="305.5" stroke="#777" stroke-width="1.5"/>
+<text x="141.0" y="310.5" font-family="sans-serif" font-size="14" fill="#777" text-anchor="end">0.75</text>
+<polyline points="150.0,305.5 910.0,305.5" fill="none" stroke="#1f5fa8" stroke-width="2.5" stroke-linejoin="round"/>
+<polyline points="150.0,373.0 441.3,373.0 492.0,362.2 720.0,362.2 770.7,373.0 910.0,373.0" fill="none" stroke="#c0392b" stroke-width="2.5" stroke-linejoin="round" stroke-dasharray="8 4"/>
+<text x="175.3" y="325.5" font-family="sans-serif" font-size="14" fill="#1f5fa8" text-anchor="start">Q（实线）</text>
+<text x="904.9" y="328.0" font-family="sans-serif" font-size="14" fill="#c0392b" text-anchor="end">QB（虚线）被访问管抬到约 0.12 伏，低于翻转点（点线，0.3 伏）</text>
+<line x1="150.0" y1="346.0" x2="910.0" y2="346.0" stroke="#777" stroke-width="1.5" stroke-dasharray="3 4"/>
+<rect x="150.0" y="408.0" width="760.0" height="60.0" rx="0" fill="none" stroke="#777" stroke-width="1"/>
+<text x="88.0" y="443.0" font-family="sans-serif" font-size="15" fill="#222" text-anchor="end" font-weight="bold">放大器使能</text>
+<line x1="145.0" y1="462.0" x2="150.0" y2="462.0" stroke="#777" stroke-width="1.5"/>
+<text x="141.0" y="467.0" font-family="sans-serif" font-size="14" fill="#777" text-anchor="end">0</text>
+<line x1="145.0" y1="417.0" x2="150.0" y2="417.0" stroke="#777" stroke-width="1.5"/>
+<text x="141.0" y="422.0" font-family="sans-serif" font-size="14" fill="#777" text-anchor="end">0.75</text>
+<polyline points="150.0,462.0 656.7,462.0 674.4,417.0 808.7,417.0 826.4,462.0 910.0,462.0" fill="none" stroke="#222" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="150.0" y="494.0" width="760.0" height="90.0" rx="0" fill="none" stroke="#777" stroke-width="1"/>
+<text x="88.0" y="544.0" font-family="sans-serif" font-size="15" fill="#222" text-anchor="end" font-weight="bold">放大器内部</text>
+<line x1="145.0" y1="575.0" x2="150.0" y2="575.0" stroke="#777" stroke-width="1.5"/>
+<text x="141.0" y="580.0" font-family="sans-serif" font-size="14" fill="#777" text-anchor="end">0</text>
+<line x1="145.0" y1="507.5" x2="150.0" y2="507.5" stroke="#777" stroke-width="1.5"/>
+<text x="141.0" y="512.5" font-family="sans-serif" font-size="14" fill="#777" text-anchor="end">0.75</text>
+<polyline points="150.0,507.5 669.3,507.5 687.1,512.0 720.0,507.5 910.0,507.5" fill="none" stroke="#1f5fa8" stroke-width="2.5" stroke-linejoin="round"/>
+<polyline points="150.0,507.5 466.7,507.5 669.3,516.5 694.7,534.5 720.0,575.0 808.7,575.0 846.7,507.5 910.0,507.5" fill="none" stroke="#c0392b" stroke-width="2.5" stroke-linejoin="round" stroke-dasharray="8 4"/>
+<text x="175.3" y="527.5" font-family="sans-serif" font-size="14" fill="#1f5fa8" text-anchor="start">S（实线）</text>
+<text x="175.3" y="552.5" font-family="sans-serif" font-size="14" fill="#c0392b" text-anchor="start">SB（虚线）：先跟随 BLB，使能后约 20 皮秒放大到满幅</text>
+<line x1="466.7" y1="60.0" x2="466.7" y2="584.0" stroke="#777" stroke-width="1.5" stroke-dasharray="2 5"/>
+<text x="466.7" y="54.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">② 开字线</text>
+<line x1="669.3" y1="60.0" x2="669.3" y2="584.0" stroke="#777" stroke-width="1.5" stroke-dasharray="2 5"/>
+<text x="669.3" y="54.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">④ 灵敏放大</text>
+<line x1="720.0" y1="60.0" x2="720.0" y2="584.0" stroke="#777" stroke-width="1.5" stroke-dasharray="2 5"/>
+<text x="720.0" y="54.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="start">⑤ 关字线</text>
+<line x1="150.0" y1="584.0" x2="150.0" y2="590.0" stroke="#777" stroke-width="1.5"/>
+<text x="150.0" y="608.0" font-family="sans-serif" font-size="14" fill="#777" text-anchor="middle">0</text>
+<line x1="276.7" y1="584.0" x2="276.7" y2="590.0" stroke="#777" stroke-width="1.5"/>
+<text x="276.7" y="608.0" font-family="sans-serif" font-size="14" fill="#777" text-anchor="middle">50</text>
+<line x1="403.3" y1="584.0" x2="403.3" y2="590.0" stroke="#777" stroke-width="1.5"/>
+<text x="403.3" y="608.0" font-family="sans-serif" font-size="14" fill="#777" text-anchor="middle">100</text>
+<line x1="530.0" y1="584.0" x2="530.0" y2="590.0" stroke="#777" stroke-width="1.5"/>
+<text x="530.0" y="608.0" font-family="sans-serif" font-size="14" fill="#777" text-anchor="middle">150</text>
+<line x1="656.7" y1="584.0" x2="656.7" y2="590.0" stroke="#777" stroke-width="1.5"/>
+<text x="656.7" y="608.0" font-family="sans-serif" font-size="14" fill="#777" text-anchor="middle">200</text>
+<line x1="783.3" y1="584.0" x2="783.3" y2="590.0" stroke="#777" stroke-width="1.5"/>
+<text x="783.3" y="608.0" font-family="sans-serif" font-size="14" fill="#777" text-anchor="middle">250</text>
+<line x1="910.0" y1="584.0" x2="910.0" y2="590.0" stroke="#777" stroke-width="1.5"/>
+<text x="910.0" y="608.0" font-family="sans-serif" font-size="14" fill="#777" text-anchor="middle">300</text>
+<text x="530.0" y="630.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">时间（皮秒，从时钟上升沿算起；数值为量级估计）</text>
+<text x="141.0" y="55.0" font-family="sans-serif" font-size="14" fill="#777" text-anchor="end">伏</text>
+</svg>

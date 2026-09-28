@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 500" width="980" height="500" font-family="sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b5451b"/></marker><pattern id="hz" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" stroke="#999" stroke-width="2"/></pattern></defs>
+<rect x="0" y="0" width="980" height="500" fill="#ffffff"/>
+<text x="490" y="30" font-size="18" text-anchor="middle" fill="#111" font-weight="bold" >ZQ 校准：用外接 240 Ω 精密电阻把片内支路调准</text>
+<rect x="30" y="60" width="640" height="325" rx="4" fill="#fafafa" stroke="#666" stroke-width="1.8" stroke-dasharray="7 5" />
+<text x="50" y="84" font-size="15" text-anchor="start" fill="#444" font-weight="normal" >芯片内部</text>
+<line x1="130" y1="108" x2="330" y2="108" stroke="#222" stroke-width="2"/>
+<text x="135" y="100" font-size="14" text-anchor="start" fill="#111" font-weight="normal" >VDDQ = 1.1 V</text>
+<line x1="230" y1="108" x2="230" y2="135" stroke="#222" stroke-width="1.8"/>
+<rect x="140" y="135" width="180" height="110" rx="4" fill="#eef3fb" stroke="#222" stroke-width="1.8" />
+<text x="230" y="162" font-size="14" text-anchor="middle" fill="#111" font-weight="bold" >上拉支路复制品</text>
+<text x="230" y="186" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >固定电阻 +</text>
+<text x="230" y="208" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >5 个微调晶体管</text>
+<text x="230" y="230" font-size="13" text-anchor="middle" fill="#111" font-weight="normal" >权重 1、2、4、8、16</text>
+<line x1="230" y1="245" x2="230" y2="385" stroke="#222" stroke-width="1.8"/>
+<circle cx="230" cy="290" r="4" fill="#222" stroke="#222" stroke-width="1.5"/>
+<rect x="222" y="377" width="16" height="16" rx="1" fill="#222" stroke="#222" stroke-width="1.8" />
+<text x="212" y="372" font-size="14" text-anchor="end" fill="#111" font-weight="normal" >ZQ 引脚</text>
+<line x1="230" y1="393" x2="230" y2="408" stroke="#222" stroke-width="1.8"/>
+<rect x="222.0" y="408" width="16" height="44" rx="2" fill="#fff" stroke="#222" stroke-width="1.8" />
+<text x="244.0" y="435.0" font-size="14" text-anchor="start" fill="#111" font-weight="normal" >外接 240 Ω，精度 1%</text>
+<line x1="230" y1="452" x2="230" y2="472" stroke="#222" stroke-width="1.8"/>
+<line x1="200" y1="472" x2="260" y2="472" stroke="#222" stroke-width="2.4"/>
+<text x="270" y="478" font-size="14" text-anchor="start" fill="#111" font-weight="normal" >地</text>
+<polyline points="400,265 400,355 480,310 400,265" stroke="#222" stroke-width="2" fill="#fdf3e3" stroke-linejoin="round"/>
+<line x1="230" y1="290" x2="400" y2="290" stroke="#222" stroke-width="1.8"/>
+<text x="318" y="282" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >引脚电压</text>
+<line x1="345" y1="332" x2="400" y2="332" stroke="#222" stroke-width="1.8"/>
+<text x="340" y="337" font-size="14" text-anchor="end" fill="#111" font-weight="normal" >0.55 V</text>
+<text x="340" y="357" font-size="13" text-anchor="end" fill="#555" font-weight="normal" >（电源的一半）</text>
+<text x="428" y="315" font-size="13" text-anchor="middle" fill="#111" font-weight="normal" >比较</text>
+<line x1="480" y1="310" x2="520" y2="310" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<rect x="520" y="268" width="130" height="84" rx="4" fill="#eaf5e9" stroke="#222" stroke-width="1.8" />
+<text x="585.0" y="305.4" font-size="15" text-anchor="middle" fill="#111" font-weight="bold" >逐位逼近</text>
+<text x="585.0" y="325.4" font-size="15" text-anchor="middle" fill="#111" font-weight="normal" >逻辑</text>
+<polyline points="585,268 585,190 320,190" stroke="#222" stroke-width="2" fill="none" marker-end="url(#a)" stroke-linejoin="round"/>
+<text x="455" y="180" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >5 位微调码</text>
+<polyline points="585,190 585,125 700,125" stroke="#222" stroke-width="2" fill="none" marker-end="url(#a)" stroke-linejoin="round"/>
+<circle cx="585" cy="190" r="4" fill="#222" stroke="#222" stroke-width="1.5"/>
+<rect x="700" y="85" width="250" height="80" rx="4" fill="#f1f1f1" stroke="#222" stroke-width="1.8" />
+<text x="825.0" y="120.54" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >微调码复制给所有驱动器</text>
+<text x="825.0" y="139.54000000000002" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >和 ODT 的每一条支路</text>
+<rect x="700" y="225" width="250" height="150" rx="4" fill="#fff" stroke="#666" stroke-width="1.8" stroke-dasharray="3 3" />
+<text x="825" y="250" font-size="14" text-anchor="middle" fill="#111" font-weight="bold" >判断规则</text>
+<text x="712" y="278" font-size="14" text-anchor="start" fill="#111" font-weight="normal" >引脚电压 > 0.55 V：</text>
+<text x="712" y="300" font-size="14" text-anchor="start" fill="#111" font-weight="normal" >支路阻值低于 240 Ω，该位清零</text>
+<text x="712" y="330" font-size="14" text-anchor="start" fill="#111" font-weight="normal" >引脚电压 &lt; 0.55 V：</text>
+<text x="712" y="352" font-size="14" text-anchor="start" fill="#111" font-weight="normal" >支路阻值高于 240 Ω，该位保留</text>
+<text x="815" y="420" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >引脚电压 = 1.1 × 240 ÷（支路阻值 + 240）</text>
+<text x="815" y="444" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >支路阻值 = 240 Ω 时正好 0.55 V</text>
+</svg>

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 500" width="920" height="500">
+<rect x="0" y="0" width="920" height="500" fill="#ffffff"/>
+<defs><marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777"/></marker><marker id="an" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e7d32"/></marker></defs>
+<text x="460.0" y="32.0" font-family="sans-serif" font-size="16" fill="#222" text-anchor="middle" font-weight="bold">一台 8 卡 AI 服务器里的三种存储器：从计算单元向外逐级变大、变慢、变便宜</text>
+<rect x="430.0" y="52.0" width="140.0" height="36.0" rx="0" fill="#fff3cd" stroke="#222" stroke-width="2"/>
+<text x="500.0" y="76.0" font-family="sans-serif" font-size="15" fill="#222" text-anchor="middle" font-weight="bold">计算单元</text>
+<line x1="500.0" y1="88.0" x2="500.0" y2="108.0" stroke="#222" stroke-width="2" marker-end="url(#ak)" marker-start="url(#ak)"/>
+<rect x="310.0" y="110.0" width="380.0" height="74.0" rx="0" fill="#f8ddd8" stroke="#222" stroke-width="2"/>
+<text x="500.0" y="134.0" font-family="sans-serif" font-size="16" fill="#222" text-anchor="middle" font-weight="bold">SRAM</text>
+<text x="500.0" y="155.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">GPU / CPU 裸片内部</text>
+<text x="500.0" y="175.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">容量：每颗 GPU 约 100 MB　　读延迟：0.3～2 纳秒</text>
+<line x1="500.0" y1="184.0" x2="500.0" y2="204.0" stroke="#222" stroke-width="2" marker-end="url(#ak)" marker-start="url(#ak)"/>
+<rect x="250.0" y="206.0" width="500.0" height="74.0" rx="0" fill="#dbe9f7" stroke="#222" stroke-width="2"/>
+<text x="500.0" y="230.0" font-family="sans-serif" font-size="16" fill="#222" text-anchor="middle" font-weight="bold">DRAM（HBM 形态）</text>
+<text x="500.0" y="251.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">GPU 封装内，与计算裸片并排</text>
+<text x="500.0" y="271.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">容量：每张卡 80 GB　　读延迟：约 30 纳秒</text>
+<line x1="500.0" y1="280.0" x2="500.0" y2="300.0" stroke="#222" stroke-width="2" marker-end="url(#ak)" marker-start="url(#ak)"/>
+<rect x="190.0" y="302.0" width="620.0" height="74.0" rx="0" fill="#dbe9f7" stroke="#222" stroke-width="2"/>
+<text x="500.0" y="326.0" font-family="sans-serif" font-size="16" fill="#222" text-anchor="middle" font-weight="bold">DRAM（DDR5 内存条）</text>
+<text x="500.0" y="347.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">主板内存插槽</text>
+<text x="500.0" y="367.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">容量：整机 1～2 TB　　读延迟：约 30 纳秒</text>
+<line x1="500.0" y1="376.0" x2="500.0" y2="396.0" stroke="#222" stroke-width="2" marker-end="url(#ak)" marker-start="url(#ak)"/>
+<rect x="110.0" y="398.0" width="780.0" height="74.0" rx="0" fill="#dcefdc" stroke="#222" stroke-width="2"/>
+<text x="500.0" y="422.0" font-family="sans-serif" font-size="16" fill="#222" text-anchor="middle" font-weight="bold">NAND 闪存（NVMe 固态盘）</text>
+<text x="500.0" y="443.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">机箱前部盘位</text>
+<text x="500.0" y="463.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">容量：整机几十 TB　　读延迟：约 50 微秒</text>
+<line x1="50.0" y1="120.0" x2="50.0" y2="460.0" stroke="#777" stroke-width="2" marker-end="url(#ag)"/>
+<text x="38.0" y="290.0" font-family="sans-serif" font-size="14" fill="#777" text-anchor="middle" transform="rotate(-90 38.0 290.0)">容量增大、延迟增大、每 GB 成本降低</text>
+</svg>

@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 480" width="920" height="480" font-family="sans-serif" font-size="16">
+<rect width="920" height="480" fill="#ffffff"/>
+<text x="200" y="30" text-anchor="middle" font-size="18" font-weight="bold">（a）电路</text>
+<text x="670" y="30" text-anchor="middle" font-size="18" font-weight="bold">（b）物理结构剖面（示意，不按比例）</text>
+<line x1="440" y1="20" x2="440" y2="460" stroke="#999" stroke-width="1.5" stroke-dasharray="6 5"/>
+<!-- circuit -->
+<g stroke="#000" stroke-width="2.5" fill="none">
+<line x1="90" y1="70" x2="90" y2="430"/>
+<line x1="30" y1="120" x2="400" y2="120"/>
+<line x1="90" y1="240" x2="170" y2="240"/>
+<line x1="170" y1="240" x2="230" y2="240" stroke-width="5"/>
+<line x1="170" y1="224" x2="230" y2="224"/>
+<line x1="200" y1="224" x2="200" y2="120"/>
+<line x1="230" y1="240" x2="310" y2="240"/>
+<line x1="310" y1="240" x2="310" y2="300"/>
+<line x1="275" y1="300" x2="345" y2="300"/>
+<line x1="275" y1="316" x2="345" y2="316"/>
+<line x1="310" y1="316" x2="310" y2="380"/>
+<line x1="265" y1="380" x2="355" y2="380"/>
+</g>
+<circle cx="200" cy="120" r="5"/><circle cx="90" cy="240" r="5"/><circle cx="310" cy="240" r="6" fill="#c0392b"/>
+<text x="90" y="60" text-anchor="middle">位线 BL</text>
+<text x="395" y="110" text-anchor="end">字线 WL</text>
+<text x="200" y="275" text-anchor="middle">访问晶体管</text>
+<text x="322" y="232" fill="#c0392b">存储节点</text>
+<text x="355" y="304">存储电容</text>
+<text x="355" y="326" font-size="14">Cs 约 10 fF</text>
+<text x="310" y="404" text-anchor="middle">极板（固定在 0.5 V）</text>
+<text x="200" y="450" text-anchor="middle" font-size="14">存储节点 = 1.0 V 表示 1，= 0 V 表示 0</text>
+<!-- cross-section -->
+<rect x="470" y="340" width="420" height="100" fill="#d9d9d9" stroke="#000" stroke-width="1.5"/>
+<text x="500" y="425">硅衬底</text>
+<rect x="560" y="340" width="80" height="34" fill="#9ec3e6" stroke="#000" stroke-width="1.5"/>
+<rect x="690" y="340" width="80" height="34" fill="#9ec3e6" stroke="#000" stroke-width="1.5"/>
+<text x="600" y="363" text-anchor="middle" font-size="14">源极</text>
+<text x="730" y="363" text-anchor="middle" font-size="14">漏极</text>
+<rect x="640" y="340" width="50" height="80" fill="#ffffff" stroke="#000" stroke-width="1.5"/>
+<rect x="648" y="372" width="34" height="42" fill="#555" stroke="#000" stroke-width="1.5"/>
+<line x1="665" y1="414" x2="665" y2="455" stroke="#000" stroke-width="1.5"/>
+<text x="665" y="472" text-anchor="middle" font-size="14">字线（埋在沟槽里，垂直于纸面延伸）</text>
+<rect x="590" y="300" width="20" height="40" fill="#b8860b" stroke="#000" stroke-width="1.5"/>
+<rect x="500" y="272" width="150" height="28" fill="#e0a526" stroke="#000" stroke-width="1.5"/>
+<text x="575" y="292" text-anchor="middle" font-size="14">位线</text>
+<rect x="720" y="250" width="20" height="90" fill="#c0392b" stroke="#000" stroke-width="1.5"/>
+<rect x="700" y="60" width="60" height="190" fill="#f4c7a1" stroke="#000" stroke-width="1.5"/>
+<rect x="716" y="76" width="28" height="174" fill="#c0392b" stroke="#000" stroke-width="1.5"/>
+<line x1="744" y1="120" x2="790" y2="100" stroke="#000" stroke-width="1.5"/>
+<text x="794" y="96" font-size="14">存储节点电极</text>
+<text x="794" y="114" font-size="14">（柱状，内层）</text>
+<line x1="758" y1="180" x2="790" y2="170" stroke="#000" stroke-width="1.5"/>
+<text x="794" y="166" font-size="14">介质与极板</text>
+<text x="794" y="184" font-size="14">（包在柱子外面）</text>
+<line x1="740" y1="300" x2="790" y2="290" stroke="#000" stroke-width="1.5"/>
+<text x="794" y="288" font-size="14">存储节点接触</text>
+<text x="600" y="150" text-anchor="middle" font-size="14">电容立在晶体管上方，</text>
+<text x="600" y="170" text-anchor="middle" font-size="14">硅表面只占一个晶体管的面积</text>
+</svg>

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560">
+<rect x="0" y="0" width="960" height="560" fill="#ffffff"/>
+<defs><marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777"/></marker><marker id="an" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e7d32"/></marker></defs>
+<text x="480.0" y="30.0" font-family="sans-serif" font-size="16" fill="#222" text-anchor="middle" font-weight="bold">存储宏的同步时序：第 1 拍写地址 5，第 2 拍读地址 5（周期 500 皮秒）</text>
+<text x="136.0" y="102.0" font-family="sans-serif" font-size="15" fill="#222" text-anchor="end" font-weight="bold">CLK</text>
+<text x="136.0" y="162.0" font-family="sans-serif" font-size="15" fill="#222" text-anchor="end" font-weight="bold">CEN</text>
+<text x="136.0" y="222.0" font-family="sans-serif" font-size="15" fill="#222" text-anchor="end" font-weight="bold">WEN</text>
+<text x="136.0" y="282.0" font-family="sans-serif" font-size="15" fill="#222" text-anchor="end" font-weight="bold">A[11:0]</text>
+<text x="136.0" y="342.0" font-family="sans-serif" font-size="15" fill="#222" text-anchor="end" font-weight="bold">D[31:0]</text>
+<text x="136.0" y="402.0" font-family="sans-serif" font-size="15" fill="#222" text-anchor="end" font-weight="bold">Q[31:0]</text>
+<polyline points="150.0,114.0 260.0,114.0 260.0,80.0 370.0,80.0 370.0,114.0 480.0,114.0 480.0,80.0 590.0,80.0 590.0,114.0 700.0,114.0 700.0,80.0 810.0,80.0 810.0,114.0 920.0,114.0" fill="none" stroke="#222" stroke-width="2.5" stroke-linejoin="round"/>
+<line x1="260.0" y1="68.0" x2="260.0" y2="424.0" stroke="#777" stroke-width="1.5" stroke-dasharray="3 5"/>
+<text x="260.0" y="62.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">第 1 拍上升沿</text>
+<line x1="480.0" y1="68.0" x2="480.0" y2="424.0" stroke="#777" stroke-width="1.5" stroke-dasharray="3 5"/>
+<text x="480.0" y="62.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">第 2 拍上升沿</text>
+<line x1="700.0" y1="68.0" x2="700.0" y2="424.0" stroke="#777" stroke-width="1.5" stroke-dasharray="3 5"/>
+<text x="700.0" y="62.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">第 3 拍上升沿</text>
+<polyline points="150.0,140.0 194.0,140.0 199.3,174.0 634.0,174.0 639.3,140.0 920.0,140.0" fill="none" stroke="#222" stroke-width="2.5" stroke-linejoin="round"/>
+<text x="414.0" y="166.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">低电平：这两拍都有操作</text>
+<polyline points="150.0,200.0 194.0,200.0 199.3,234.0 409.6,234.0 414.9,200.0 920.0,200.0" fill="none" stroke="#222" stroke-width="2.5" stroke-linejoin="round"/>
+<text x="304.0" y="226.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">低：写</text>
+<text x="524.0" y="222.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">高：读</text>
+<polyline points="150.0,277.0 156.0,260.0 188.0,260.0 194.0,277.0 188.0,294.0 156.0,294.0 150.0,277.0" fill="#eeeeee" stroke="#222" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="194.0,277.0 200.0,260.0 408.0,260.0 414.0,277.0 408.0,294.0 200.0,294.0 194.0,277.0" fill="#dbe9f7" stroke="#222" stroke-width="2" stroke-linejoin="round"/>
+<text x="304.0" y="282.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">地址 5</text>
+<polyline points="414.0,277.0 420.0,260.0 628.0,260.0 634.0,277.0 628.0,294.0 420.0,294.0 414.0,277.0" fill="#dbe9f7" stroke="#222" stroke-width="2" stroke-linejoin="round"/>
+<text x="524.0" y="282.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">地址 5</text>
+<polyline points="634.0,277.0 640.0,260.0 914.0,260.0 920.0,277.0 914.0,294.0 640.0,294.0 634.0,277.0" fill="#eeeeee" stroke="#222" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="150.0,337.0 156.0,320.0 188.0,320.0 194.0,337.0 188.0,354.0 156.0,354.0 150.0,337.0" fill="#eeeeee" stroke="#222" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="194.0,337.0 200.0,320.0 408.0,320.0 414.0,337.0 408.0,354.0 200.0,354.0 194.0,337.0" fill="#dcefdc" stroke="#222" stroke-width="2" stroke-linejoin="round"/>
+<text x="304.0" y="342.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">0xAB</text>
+<polyline points="414.0,337.0 420.0,320.0 914.0,320.0 920.0,337.0 914.0,354.0 420.0,354.0 414.0,337.0" fill="#eeeeee" stroke="#222" stroke-width="2" stroke-linejoin="round"/>
+<text x="667.0" y="342.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">（读操作不看 D）</text>
+<polyline points="150.0,397.0 156.0,380.0 606.0,380.0 612.0,397.0 606.0,414.0 156.0,414.0 150.0,397.0" fill="#eeeeee" stroke="#222" stroke-width="2" stroke-linejoin="round"/>
+<text x="381.0" y="402.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">尚无有效数据</text>
+<polyline points="612.0,397.0 618.0,380.0 914.0,380.0 920.0,397.0 914.0,414.0 618.0,414.0 612.0,397.0" fill="#fff3cd" stroke="#222" stroke-width="2" stroke-linejoin="round"/>
+<text x="766.0" y="402.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">0xAB</text>
+<line x1="480.0" y1="444.0" x2="612.0" y2="444.0" stroke="#c0392b" stroke-width="2" marker-end="url(#ar)" marker-start="url(#ar)"/>
+<text x="546.0" y="464.0" font-family="sans-serif" font-size="14" fill="#c0392b" text-anchor="middle">访问时间 300</text>
+<line x1="612.0" y1="444.0" x2="678.0" y2="444.0" stroke="#1f5fa8" stroke-width="2" marker-end="url(#ab)" marker-start="url(#ab)"/>
+<text x="645.0" y="436.0" font-family="sans-serif" font-size="14" fill="#1f5fa8" text-anchor="middle">下游逻辑可用 150</text>
+<line x1="678.0" y1="444.0" x2="700.0" y2="444.0" stroke="#2e7d32" stroke-width="2" marker-end="url(#an)" marker-start="url(#an)"/>
+<text x="705.3" y="464.0" font-family="sans-serif" font-size="14" fill="#2e7d32" text-anchor="start">下游寄存器建立 50</text>
+<line x1="238.0" y1="252.0" x2="260.0" y2="252.0" stroke="#2e7d32" stroke-width="2" marker-end="url(#an)" marker-start="url(#an)"/>
+<text x="236.2" y="256.0" font-family="sans-serif" font-size="14" fill="#2e7d32" text-anchor="end">建立 50</text>
+<line x1="260.0" y1="252.0" x2="273.2" y2="252.0" stroke="#1f5fa8" stroke-width="2" marker-end="url(#ab)" marker-start="url(#ab)"/>
+<text x="275.8" y="256.0" font-family="sans-serif" font-size="14" fill="#1f5fa8" text-anchor="start">保持 30</text>
+<text x="480.0" y="500.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">第 3 拍上升沿：下游寄存器采样 Q，读出的数据从这里起才能被使用。</text>
+<text x="480.0" y="526.0" font-family="sans-serif" font-size="14" fill="#777" text-anchor="middle">时间单位：皮秒。灰色表示该信号此时的取值无关紧要。</text>
+</svg>

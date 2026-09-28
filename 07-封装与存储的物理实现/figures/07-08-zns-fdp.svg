@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 640" width="980" height="640" font-family="sans-serif" font-size="15">
+<rect x="0" y="0" width="980" height="640" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#b00020"/></marker></defs>
+<text x="20" y="30" font-size="17" font-weight="bold">上：ZNS——每个区只能从写指针处顺序写入</text>
+<text x="20" y="92">区 0</text>
+<rect x="80" y="66" width="50" height="40" fill="#fbe3c6" stroke="#222" stroke-width="2"/>
+<text x="105.0" y="91.0" text-anchor="middle">A</text>
+<rect x="130" y="66" width="50" height="40" fill="#fbe3c6" stroke="#222" stroke-width="2"/>
+<text x="155.0" y="91.0" text-anchor="middle">A</text>
+<rect x="180" y="66" width="50" height="40" fill="#fbe3c6" stroke="#222" stroke-width="2"/>
+<text x="205.0" y="91.0" text-anchor="middle">A</text>
+<rect x="230" y="66" width="50" height="40" fill="#fbe3c6" stroke="#222" stroke-width="2"/>
+<text x="255.0" y="91.0" text-anchor="middle">A</text>
+<rect x="280" y="66" width="50" height="40" fill="#fbe3c6" stroke="#222" stroke-width="2"/>
+<text x="305.0" y="91.0" text-anchor="middle">B</text>
+<rect x="330" y="66" width="50" height="40" fill="#fbe3c6" stroke="#222" stroke-width="2"/>
+<text x="355.0" y="91.0" text-anchor="middle">B</text>
+<rect x="380" y="66" width="50" height="40" fill="#fbe3c6" stroke="#222" stroke-width="2"/>
+<text x="405.0" y="91.0" text-anchor="middle">B</text>
+<rect x="430" y="66" width="50" height="40" fill="#fbe3c6" stroke="#222" stroke-width="2"/>
+<text x="455.0" y="91.0" text-anchor="middle">B</text>
+<text x="500" y="84" font-size="14">状态：已满。写指针在末尾（位置 8）</text>
+<text x="500" y="104" font-size="14" fill="#b00020">想改写位置 1：被设备拒绝，因为它不等于写指针</text>
+<line x1="155" y1="140" x2="155" y2="110" stroke="#b00020" stroke-width="2.5" marker-end="url(#a)"/><text x="155" y="158" text-anchor="middle" fill="#b00020" font-size="14" font-weight="bold">✗ 写位置 1</text>
+<text x="20" y="212">区 1</text>
+<rect x="80" y="186" width="50" height="40" fill="#fbe3c6" stroke="#222" stroke-width="2"/>
+<text x="105.0" y="211.0" text-anchor="middle">A′</text>
+<rect x="130" y="186" width="50" height="40" fill="#fbe3c6" stroke="#222" stroke-width="2"/>
+<text x="155.0" y="211.0" text-anchor="middle">A′</text>
+<rect x="180" y="186" width="50" height="40" fill="#fbe3c6" stroke="#222" stroke-width="2"/>
+<text x="205.0" y="211.0" text-anchor="middle">A′</text>
+<rect x="230" y="186" width="50" height="40" fill="#fbe3c6" stroke="#222" stroke-width="2"/>
+<text x="255.0" y="211.0" text-anchor="middle">A′</text>
+<rect x="280" y="186" width="50" height="40" fill="#ffffff" stroke="#222" stroke-width="2" stroke-dasharray="5 4"/>
+<rect x="330" y="186" width="50" height="40" fill="#ffffff" stroke="#222" stroke-width="2" stroke-dasharray="5 4"/>
+<rect x="380" y="186" width="50" height="40" fill="#ffffff" stroke="#222" stroke-width="2" stroke-dasharray="5 4"/>
+<rect x="430" y="186" width="50" height="40" fill="#ffffff" stroke="#222" stroke-width="2" stroke-dasharray="5 4"/>
+<line x1="280" y1="262" x2="280" y2="230" stroke="#222" stroke-width="2.5"/><polygon points="280,228 273,240 287,240" fill="#222"/><text x="280" y="280" text-anchor="middle" font-size="14" font-weight="bold">写指针（位置 4）</text>
+<text x="500" y="204" font-size="14">状态：打开。A 的新版本只能整体写到这里，</text><text x="500" y="224" font-size="14">由主机自己记录“A 现在在区 1”</text>
+<text x="500" y="256" font-size="14">区 0 里的 A 全部作废后，主机对区 0 发“复位”，</text><text x="500" y="276" font-size="14">设备整区擦除，不需要搬运任何数据</text>
+<line x1="20" y1="310" x2="960" y2="310" stroke="#bbb" stroke-width="1.5" stroke-dasharray="6 5"/>
+<text x="20" y="344" font-size="17" font-weight="bold">下：FDP——同样的写入顺序 L1 D1 L2 D2 L3 D3 L4 D4，删除全部日志 L 之后</text>
+<text x="20" y="384" font-weight="bold">不用 FDP：按到达顺序混放</text>
+<text x="20" y="424">块 P</text>
+<rect x="80" y="398" width="50" height="40" fill="#dddddd" stroke="#222" stroke-width="2"/>
+<line x1="80" y1="398" x2="130" y2="438" stroke="#222" stroke-width="1.5"/><line x1="130" y1="398" x2="80" y2="438" stroke="#222" stroke-width="1.5"/>
+<rect x="130" y="398" width="50" height="40" fill="#fbe3c6" stroke="#222" stroke-width="2"/>
+<text x="155.0" y="423.0" text-anchor="middle">D1</text>
+<rect x="180" y="398" width="50" height="40" fill="#dddddd" stroke="#222" stroke-width="2"/>
+<line x1="180" y1="398" x2="230" y2="438" stroke="#222" stroke-width="1.5"/><line x1="230" y1="398" x2="180" y2="438" stroke="#222" stroke-width="1.5"/>
+<rect x="230" y="398" width="50" height="40" fill="#fbe3c6" stroke="#222" stroke-width="2"/>
+<text x="255.0" y="423.0" text-anchor="middle">D2</text>
+<text x="20" y="474">块 Q</text>
+<rect x="80" y="448" width="50" height="40" fill="#dddddd" stroke="#222" stroke-width="2"/>
+<line x1="80" y1="448" x2="130" y2="488" stroke="#222" stroke-width="1.5"/><line x1="130" y1="448" x2="80" y2="488" stroke="#222" stroke-width="1.5"/>
+<rect x="130" y="448" width="50" height="40" fill="#fbe3c6" stroke="#222" stroke-width="2"/>
+<text x="155.0" y="473.0" text-anchor="middle">D3</text>
+<rect x="180" y="448" width="50" height="40" fill="#dddddd" stroke="#222" stroke-width="2"/>
+<line x1="180" y1="448" x2="230" y2="488" stroke="#222" stroke-width="1.5"/><line x1="230" y1="448" x2="180" y2="488" stroke="#222" stroke-width="1.5"/>
+<rect x="230" y="448" width="50" height="40" fill="#fbe3c6" stroke="#222" stroke-width="2"/>
+<text x="255.0" y="473.0" text-anchor="middle">D4</text>
+<text x="20" y="520" font-size="14">每个块一半无效、一半有效：u = 0.5</text><text x="20" y="542" font-size="14">回收任何一块都要搬 2 页，WAF = 2</text>
+<text x="500" y="384" font-weight="bold">用 FDP：按摆放句柄分开放</text>
+<text x="500" y="424">块 P</text>
+<rect x="560" y="398" width="50" height="40" fill="#dddddd" stroke="#222" stroke-width="2"/>
+<line x1="560" y1="398" x2="610" y2="438" stroke="#222" stroke-width="1.5"/><line x1="610" y1="398" x2="560" y2="438" stroke="#222" stroke-width="1.5"/>
+<rect x="610" y="398" width="50" height="40" fill="#dddddd" stroke="#222" stroke-width="2"/>
+<line x1="610" y1="398" x2="660" y2="438" stroke="#222" stroke-width="1.5"/><line x1="660" y1="398" x2="610" y2="438" stroke="#222" stroke-width="1.5"/>
+<rect x="660" y="398" width="50" height="40" fill="#dddddd" stroke="#222" stroke-width="2"/>
+<line x1="660" y1="398" x2="710" y2="438" stroke="#222" stroke-width="1.5"/><line x1="710" y1="398" x2="660" y2="438" stroke="#222" stroke-width="1.5"/>
+<rect x="710" y="398" width="50" height="40" fill="#dddddd" stroke="#222" stroke-width="2"/>
+<line x1="710" y1="398" x2="760" y2="438" stroke="#222" stroke-width="1.5"/><line x1="760" y1="398" x2="710" y2="438" stroke="#222" stroke-width="1.5"/>
+<text x="770" y="424" font-size="14">句柄 1（日志）</text>
+<text x="500" y="474">块 Q</text>
+<rect x="560" y="448" width="50" height="40" fill="#fbe3c6" stroke="#222" stroke-width="2"/>
+<text x="585.0" y="473.0" text-anchor="middle">D1</text>
+<rect x="610" y="448" width="50" height="40" fill="#fbe3c6" stroke="#222" stroke-width="2"/>
+<text x="635.0" y="473.0" text-anchor="middle">D2</text>
+<rect x="660" y="448" width="50" height="40" fill="#fbe3c6" stroke="#222" stroke-width="2"/>
+<text x="685.0" y="473.0" text-anchor="middle">D3</text>
+<rect x="710" y="448" width="50" height="40" fill="#fbe3c6" stroke="#222" stroke-width="2"/>
+<text x="735.0" y="473.0" text-anchor="middle">D4</text>
+<text x="770" y="474" font-size="14">句柄 2（数据文件）</text>
+<text x="500" y="520" font-size="14">块 P 全部无效：u = 0，直接擦除，不搬运</text><text x="500" y="542" font-size="14">块 Q 全部有效：不需要回收。WAF = 1</text>
+<text x="20" y="590" font-size="14" fill="#555">图例：橙色为有效数据；打叉的灰色格为已无效的页（下半部分即被删除的日志 L）；虚线格为空白页。</text>
+<text x="20" y="612" font-size="14" fill="#555">ZNS 把“只能顺序写”的约束交给主机处理；FDP 保留随机读写接口，主机只需在写命令里多带一个句柄。</text>
+</svg>

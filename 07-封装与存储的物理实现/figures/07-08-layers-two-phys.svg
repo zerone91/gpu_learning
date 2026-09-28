@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 640" width="900" height="640" font-family="sans-serif" font-size="16">
+  <rect x="0" y="0" width="900" height="640" fill="#ffffff"/>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker>
+  </defs>
+  <!-- host -->
+  <rect x="200" y="20" width="400" height="56" fill="#eeeeee" stroke="#222" stroke-width="2"/>
+  <text x="400" y="54" text-anchor="middle" font-size="18">主机（手机 SoC / 服务器 CPU）</text>
+  <line x1="400" y1="76" x2="400" y2="168" stroke="#222" stroke-width="2.5" marker-start="url(#a)" marker-end="url(#a)"/>
+  <text x="416" y="108" font-weight="bold">① 主机侧接口：高速串行差分链路，点对点</text>
+  <text x="416" y="132" font-size="15">UFS 用 M-PHY；NVMe 用 PCIe PHY；SATA 用 SATA PHY</text>
+  <!-- controller -->
+  <rect x="160" y="170" width="480" height="300" fill="none" stroke="#222" stroke-width="2.5"/>
+  <text x="172" y="194" font-weight="bold" font-size="17">控制器芯片</text>
+  <rect x="200" y="206" width="400" height="52" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="2.5"/>
+  <text x="400" y="238" text-anchor="middle">主机侧 PHY</text>
+  <rect x="200" y="270" width="400" height="52" fill="#f5f5f5" stroke="#222" stroke-width="1.5"/>
+  <text x="400" y="302" text-anchor="middle">主机协议处理（解析 SCSI / NVMe 命令）</text>
+  <rect x="200" y="334" width="400" height="52" fill="#f5f5f5" stroke="#222" stroke-width="1.5"/>
+  <text x="400" y="366" text-anchor="middle">FTL 与纠错引擎（地址翻译、垃圾回收、LDPC）</text>
+  <rect x="200" y="398" width="400" height="52" fill="#fbe3c6" stroke="#b35a00" stroke-width="2.5" stroke-dasharray="8 4"/>
+  <text x="400" y="430" text-anchor="middle">NAND 侧 PHY</text>
+  <!-- side notes -->
+  <line x1="600" y1="232" x2="668" y2="232" stroke="#1f5fa8" stroke-width="2"/>
+  <text x="674" y="228" fill="#1f5fa8" font-weight="bold">“闪存的 PHY”之一</text>
+  <text x="674" y="250" font-size="14">（蓝色实线框）</text>
+  <line x1="600" y1="424" x2="668" y2="424" stroke="#b35a00" stroke-width="2"/>
+  <text x="674" y="420" fill="#b35a00" font-weight="bold">“闪存的 PHY”之二</text>
+  <text x="674" y="442" font-size="14">（橙色虚线框）</text>
+  <!-- nand side -->
+  <line x1="400" y1="472" x2="400" y2="548" stroke="#222" stroke-width="2.5" marker-start="url(#a)" marker-end="url(#a)"/>
+  <text x="416" y="500" font-weight="bold">② NAND 侧接口：8 位并行总线，一对多</text>
+  <text x="416" y="524" font-size="15">ONFI 或 Toggle 规范（JEDEC JESD230）</text>
+  <line x1="150" y1="550" x2="650" y2="550" stroke="#222" stroke-width="2.5"/>
+  <g stroke="#222" stroke-width="2">
+    <line x1="200" y1="550" x2="200" y2="572"/><line x1="333" y1="550" x2="333" y2="572"/><line x1="467" y1="550" x2="467" y2="572"/><line x1="600" y1="550" x2="600" y2="572"/>
+    <rect x="150" y="572" width="100" height="44" fill="#eeeeee"/><rect x="283" y="572" width="100" height="44" fill="#eeeeee"/><rect x="417" y="572" width="100" height="44" fill="#eeeeee"/><rect x="550" y="572" width="100" height="44" fill="#eeeeee"/>
+  </g>
+  <g text-anchor="middle" font-size="15"><text x="200" y="600">NAND 裸片</text><text x="333" y="600">NAND 裸片</text><text x="467" y="600">NAND 裸片</text><text x="600" y="600">NAND 裸片</text></g>
+  <text x="664" y="600" font-size="15">一条通道上挂多颗</text>
+</svg>

@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 430" width="980" height="430" font-family="sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b5451b"/></marker><pattern id="hz" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" stroke="#999" stroke-width="2"/></pattern></defs>
+<rect x="0" y="0" width="980" height="430" fill="#ffffff"/>
+<text x="490" y="30" font-size="18" text-anchor="middle" fill="#111" font-weight="bold" >DRAM 接口的五层：从读写请求到引脚上的波形</text>
+<rect x="20" y="60" width="520" height="250" rx="4" fill="#fafafa" stroke="#666" stroke-width="1.8" stroke-dasharray="7 5" />
+<text x="280" y="84" font-size="15" text-anchor="middle" fill="#444" font-weight="normal" >计算芯片（CPU / SoC）内部</text>
+<rect x="40" y="120" width="170" height="110" rx="4" fill="#e8f0fa" stroke="#222" stroke-width="1.8" />
+<text x="125.0" y="170.4" font-size="15" text-anchor="middle" fill="#111" font-weight="bold" >内存控制器 MC</text>
+<text x="125.0" y="190.4" font-size="15" text-anchor="middle" fill="#111" font-weight="normal" >纯数字逻辑</text>
+<rect x="350" y="120" width="170" height="110" rx="4" fill="#fdeee6" stroke="#222" stroke-width="1.8" />
+<text x="435.0" y="170.4" font-size="15" text-anchor="middle" fill="#111" font-weight="bold" >PHY</text>
+<text x="435.0" y="190.4" font-size="15" text-anchor="middle" fill="#111" font-weight="normal" >混合信号电路</text>
+<rect x="590" y="120" width="170" height="110" rx="4" fill="#f1f1f1" stroke="#222" stroke-width="1.8" />
+<text x="675.0" y="170.4" font-size="15" text-anchor="middle" fill="#111" font-weight="bold" >封装与 PCB 通道</text>
+<text x="675.0" y="190.4" font-size="15" text-anchor="middle" fill="#111" font-weight="normal" >走线、过孔、插槽</text>
+<rect x="810" y="120" width="150" height="110" rx="4" fill="#eaf5e9" stroke="#222" stroke-width="1.8" />
+<text x="885.0" y="170.54" font-size="14" text-anchor="middle" fill="#111" font-weight="bold" >DRAM 颗粒</text>
+<text x="885.0" y="189.54" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >接收器/驱动器/ODT</text>
+<line x1="210" y1="160" x2="350" y2="160" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<line x1="350" y1="192" x2="210" y2="192" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<text x="280" y="148" font-size="16" text-anchor="middle" fill="#111" font-weight="bold" >DFI</text>
+<text x="280" y="216" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >并行、低速</text>
+<line x1="520" y1="160" x2="590" y2="160" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<line x1="590" y1="192" x2="520" y2="192" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<text x="567" y="148" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >引脚</text>
+<line x1="760" y1="160" x2="810" y2="160" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<line x1="810" y1="192" x2="760" y2="192" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<text x="785" y="148" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >焊球</text>
+<text x="125" y="258" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >管“第几拍发什么”</text>
+<text x="125" y="280" font-size="14" text-anchor="middle" fill="#444" font-weight="normal" >例：800 MHz</text>
+<text x="435" y="258" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >管“哪一皮秒翻转”</text>
+<text x="435" y="280" font-size="14" text-anchor="middle" fill="#444" font-weight="normal" >例：3200 MHz</text>
+<text x="675" y="258" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >管“波形传过去还剩多少”</text>
+<text x="885" y="258" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >少量可配置旋钮</text>
+<line x1="280" y1="330" x2="280" y2="350" stroke="#1f5fa8" stroke-width="1.8"/>
+<text x="280" y="372" font-size="14" text-anchor="middle" fill="#1f5fa8" font-weight="normal" >每拍并行给出 8 个 UI 的内容</text>
+<text x="280" y="394" font-size="14" text-anchor="middle" fill="#1f5fa8" font-weight="normal" >（频率比 1:4）</text>
+<line x1="555" y1="330" x2="555" y2="350" stroke="#b5451b" stroke-width="1.8"/>
+<text x="640" y="372" font-size="14" text-anchor="middle" fill="#b5451b" font-weight="normal" >每根线串行发出，一个比特宽 156 皮秒</text>
+<text x="640" y="394" font-size="14" text-anchor="middle" fill="#b5451b" font-weight="normal" >（DDR5-6400）</text>
+</svg>

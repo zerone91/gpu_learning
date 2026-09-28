@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 470" width="920" height="470" font-family="sans-serif" font-size="16">
+<rect width="920" height="470" fill="#ffffff"/>
+<text x="230" y="30" text-anchor="middle" font-size="18" font-weight="bold">连接之前（字线为低）</text>
+<text x="690" y="30" text-anchor="middle" font-size="18" font-weight="bold">连接之后（字线拉高）</text>
+<line x1="460" y1="15" x2="460" y2="455" stroke="#999" stroke-width="1.5" stroke-dasharray="6 5"/>
+<!-- axis labels: voltage scale 1.0V at y=90, 0V at y=390 => 300px per volt -->
+<g font-size="14" fill="#333">
+<text x="40" y="95" text-anchor="end">1.0 V</text><text x="40" y="245" text-anchor="end">0.5 V</text><text x="40" y="395" text-anchor="end">0 V</text>
+<text x="500" y="95" text-anchor="end">1.0 V</text><text x="500" y="245" text-anchor="end">0.5 V</text><text x="500" y="395" text-anchor="end">0 V</text>
+</g>
+<g stroke="#bbb" stroke-width="1" stroke-dasharray="3 4">
+<line x1="45" y1="90" x2="440" y2="90"/><line x1="45" y1="240" x2="440" y2="240"/>
+<line x1="505" y1="90" x2="900" y2="90"/><line x1="505" y1="240" x2="900" y2="240"/>
+</g>
+<!-- before: Cs width 60 (10fF), Cbl width 240 (40fF) -->
+<rect x="70" y="90" width="60" height="300" fill="#c0392b" stroke="#000" stroke-width="2"/>
+<rect x="170" y="240" width="240" height="150" fill="#9ec3e6" stroke="#000" stroke-width="2"/>
+<rect x="170" y="90" width="240" height="150" fill="none" stroke="#000" stroke-width="2"/>
+<line x1="130" y1="390" x2="170" y2="390" stroke="#000" stroke-width="2"/>
+<line x1="150" y1="375" x2="150" y2="405" stroke="#000" stroke-width="4"/>
+<text x="150" y="425" text-anchor="middle" font-size="14">开关断开</text>
+<text x="100" y="80" text-anchor="middle" font-size="14">存储电容</text>
+<text x="100" y="445" text-anchor="middle" font-size="14">10 fF，1.0 V</text>
+<text x="100" y="462" text-anchor="middle" font-size="14">电荷 10 fC</text>
+<text x="290" y="80" text-anchor="middle" font-size="14">位线</text>
+<text x="290" y="445" text-anchor="middle" font-size="14">40 fF，0.5 V</text>
+<text x="290" y="462" text-anchor="middle" font-size="14">电荷 20 fC</text>
+<!-- after: both at 0.6V => y = 390-180 = 210 -->
+<rect x="530" y="210" width="60" height="180" fill="#c0392b" stroke="#000" stroke-width="2"/>
+<rect x="530" y="90" width="60" height="120" fill="none" stroke="#000" stroke-width="2"/>
+<rect x="630" y="210" width="240" height="180" fill="#9ec3e6" stroke="#000" stroke-width="2"/>
+<rect x="630" y="90" width="240" height="120" fill="none" stroke="#000" stroke-width="2"/>
+<line x1="590" y1="390" x2="630" y2="390" stroke="#000" stroke-width="4"/>
+<text x="610" y="425" text-anchor="middle" font-size="14">开关导通</text>
+<text x="560" y="80" text-anchor="middle" font-size="14">存储电容</text>
+<text x="750" y="80" text-anchor="middle" font-size="14">位线</text>
+<line x1="505" y1="210" x2="900" y2="210" stroke="#000" stroke-width="1.5" stroke-dasharray="8 4"/>
+<text x="750" y="180" text-anchor="middle" font-weight="bold">两边都是 0.6 V</text>
+<text x="750" y="232" text-anchor="middle" font-size="14">位线只升高了 0.1 V</text>
+<text x="560" y="445" text-anchor="middle" font-size="14">1.0 → 0.6 V</text>
+<text x="560" y="462" text-anchor="middle" font-size="14">电荷 6 fC</text>
+<text x="750" y="445" text-anchor="middle" font-size="14">0.5 → 0.6 V</text>
+<text x="750" y="462" text-anchor="middle" font-size="14">电荷 24 fC</text>
+</svg>

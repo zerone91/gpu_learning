@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 580" width="900" height="580" font-family="sans-serif" font-size="16">
+<rect width="900" height="580" fill="#ffffff"/>
+<defs><marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="r" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker></defs>
+<text x="450.0" y="28.0" text-anchor="middle" font-size="17" fill="#000" font-weight="bold">埋入式字线晶体管的剖面（沿垂直于字线的方向切开；示意，不按比例）</text>
+<rect x="100.0" y="200.0" width="700.0" height="260.0" fill="#d9d9d9" stroke="#000" stroke-width="1.5"/>
+<text x="130.0" y="440.0" text-anchor="start" font-size="14" fill="#000">硅衬底</text>
+<rect x="180.0" y="200.0" width="200.0" height="60.0" fill="#9ec3e6" stroke="#000" stroke-width="1.5"/>
+<rect x="520.0" y="200.0" width="200.0" height="60.0" fill="#9ec3e6" stroke="#000" stroke-width="1.5"/>
+<text x="280.0" y="236.0" text-anchor="middle" font-size="15" fill="#000">源极</text>
+<text x="620.0" y="236.0" text-anchor="middle" font-size="15" fill="#000">漏极</text>
+<rect x="380.0" y="200.0" width="140.0" height="220.0" fill="#ffffff" stroke="#000" stroke-width="1.5"/>
+<rect x="392.0" y="200.0" width="116.0" height="80.0" fill="#eeeeee" stroke="#000" stroke-width="1"/>
+<text x="450.0" y="246.0" text-anchor="middle" font-size="14" fill="#000">绝缘填充</text>
+<rect x="392.0" y="280.0" width="116.0" height="128.0" fill="#555" stroke="#000" stroke-width="1.5"/>
+<text x="450.0" y="340.0" text-anchor="middle" font-size="15" fill="#fff" font-weight="bold">字线</text>
+<text x="450.0" y="362.0" text-anchor="middle" font-size="14" fill="#fff">（栅极）</text>
+<text x="450.0" y="560.0" text-anchor="middle" font-size="14" fill="#000">沟槽内壁与字线之间的白色窄缝代表很薄的栅极绝缘层</text>
+<rect x="265.0" y="120.0" width="30.0" height="80.0" fill="#b8860b" stroke="#000" stroke-width="1.5"/>
+<rect x="605.0" y="120.0" width="30.0" height="80.0" fill="#c0392b" stroke="#000" stroke-width="1.5"/>
+<text x="280.0" y="108.0" text-anchor="middle" font-size="15" fill="#000">接位线</text>
+<text x="620.0" y="108.0" text-anchor="middle" font-size="15" fill="#000">接存储电容（向上）</text>
+<line x1="60.0" y1="200.0" x2="100.0" y2="200.0" stroke="#000" stroke-width="1.5"/>
+<text x="56.0" y="205.0" text-anchor="end" font-size="14" fill="#000">硅表面</text>
+<path d="M 340 250 L 366 250 L 366 434 L 534 434 L 534 250 L 560 250" fill="none" stroke="#c0392b" stroke-width="3" stroke-dasharray="8 5" marker-end="url(#r)"/>
+<text x="352.0" y="300.0" text-anchor="end" font-size="14" fill="#c0392b" font-weight="bold">电流路径（沟道）：</text>
+<text x="352.0" y="320.0" text-anchor="end" font-size="14" fill="#c0392b">沿侧壁向下</text>
+<text x="548.0" y="300.0" text-anchor="start" font-size="14" fill="#c0392b">再沿另一侧</text>
+<text x="548.0" y="320.0" text-anchor="start" font-size="14" fill="#c0392b">侧壁向上</text>
+<text x="450.0" y="456.0" text-anchor="middle" font-size="14" fill="#000"></text>
+<line x1="380.0" y1="500.0" x2="520.0" y2="500.0" stroke="#000" stroke-width="2" marker-start="url(#a)" marker-end="url(#a)"/>
+<text x="450.0" y="526.0" text-anchor="middle" font-size="14" fill="#000">沟槽占地宽度约 15 nm；沟道总长约 135 nm</text>
+</svg>

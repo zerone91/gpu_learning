@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 430" width="960" height="430" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="430" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker></defs>
+<text x="480" y="28" font-size="17" text-anchor="middle" fill="#222" font-weight="bold">外围电路的三种放法（侧视示意）</text>
+<text x="170" y="64" font-size="16" text-anchor="middle" fill="#222" font-weight="bold">① 并排</text>
+<rect x="40" y="150" width="170" height="120" fill="#c9d9ee" stroke="#222" stroke-width="2"/>
+<line x1="40" y1="170.0" x2="210" y2="170.0" stroke="#5b7fae" stroke-width="1.5"/>
+<line x1="40" y1="190.0" x2="210" y2="190.0" stroke="#5b7fae" stroke-width="1.5"/>
+<line x1="40" y1="210.0" x2="210" y2="210.0" stroke="#5b7fae" stroke-width="1.5"/>
+<line x1="40" y1="230.0" x2="210" y2="230.0" stroke="#5b7fae" stroke-width="1.5"/>
+<line x1="40" y1="250.0" x2="210" y2="250.0" stroke="#5b7fae" stroke-width="1.5"/>
+<rect x="83.0" y="197.0" width="84" height="24" fill="#c9d9ee"/>
+<text x="125.0" y="215.0" font-size="14" text-anchor="middle" fill="#222">存储阵列</text>
+<rect x="220" y="230" width="80" height="40" fill="#f4d9a8" stroke="#222" stroke-width="2"/>
+<text x="260" y="255" font-size="14" text-anchor="middle" fill="#222">外围</text>
+<rect x="30" y="270" width="280" height="40" fill="#e3e3e3" stroke="#222" stroke-width="2"/>
+<text x="170" y="295" font-size="14" text-anchor="middle" fill="#222">硅衬底（同一片晶圆）</text>
+<text x="170" y="340" font-size="14" text-anchor="middle" fill="#222">外围占两到三成平面面积</text>
+<text x="170" y="362" font-size="14" text-anchor="middle" fill="#222">外围晶体管经受阵列的高温工序</text>
+<text x="480" y="64" font-size="16" text-anchor="middle" fill="#222" font-weight="bold">② 阵列在外围之上</text>
+<rect x="350" y="110" width="260" height="120" fill="#c9d9ee" stroke="#222" stroke-width="2"/>
+<line x1="350" y1="130.0" x2="610" y2="130.0" stroke="#5b7fae" stroke-width="1.5"/>
+<line x1="350" y1="150.0" x2="610" y2="150.0" stroke="#5b7fae" stroke-width="1.5"/>
+<line x1="350" y1="170.0" x2="610" y2="170.0" stroke="#5b7fae" stroke-width="1.5"/>
+<line x1="350" y1="190.0" x2="610" y2="190.0" stroke="#5b7fae" stroke-width="1.5"/>
+<line x1="350" y1="210.0" x2="610" y2="210.0" stroke="#5b7fae" stroke-width="1.5"/>
+<rect x="438.0" y="157.0" width="84" height="24" fill="#c9d9ee"/>
+<text x="480.0" y="175.0" font-size="14" text-anchor="middle" fill="#222">存储阵列</text>
+<rect x="350" y="230" width="260" height="40" fill="#f4d9a8" stroke="#222" stroke-width="2"/>
+<text x="480" y="255" font-size="14" text-anchor="middle" fill="#222">外围电路</text>
+<rect x="340" y="270" width="280" height="40" fill="#e3e3e3" stroke="#222" stroke-width="2"/>
+<text x="480" y="295" font-size="14" text-anchor="middle" fill="#222">硅衬底（同一片晶圆）</text>
+<text x="480" y="340" font-size="14" text-anchor="middle" fill="#222">外围基本不占平面面积</text>
+<text x="480" y="362" font-size="14" text-anchor="middle" fill="#222">外围先做，仍要经受高温工序</text>
+<text x="790" y="64" font-size="16" text-anchor="middle" fill="#222" font-weight="bold">③ 两片晶圆分别制造后键合</text>
+<rect x="650" y="80" width="280" height="30" fill="#e3e3e3" stroke="#222" stroke-width="2"/>
+<text x="790" y="101" font-size="13" text-anchor="middle" fill="#222">阵列晶圆的衬底（减薄）</text>
+<rect x="660" y="110" width="260" height="100" fill="#c9d9ee" stroke="#222" stroke-width="2"/>
+<line x1="660" y1="126.66666666666667" x2="920" y2="126.66666666666667" stroke="#5b7fae" stroke-width="1.5"/>
+<line x1="660" y1="143.33333333333334" x2="920" y2="143.33333333333334" stroke="#5b7fae" stroke-width="1.5"/>
+<line x1="660" y1="160.0" x2="920" y2="160.0" stroke="#5b7fae" stroke-width="1.5"/>
+<line x1="660" y1="176.66666666666669" x2="920" y2="176.66666666666669" stroke="#5b7fae" stroke-width="1.5"/>
+<line x1="660" y1="193.33333333333331" x2="920" y2="193.33333333333331" stroke="#5b7fae" stroke-width="1.5"/>
+<rect x="748.0" y="147.0" width="84" height="24" fill="#c9d9ee"/>
+<text x="790.0" y="165.0" font-size="14" text-anchor="middle" fill="#222">存储阵列</text>
+<line x1="645" y1="220" x2="935" y2="220" stroke="#c0392b" stroke-width="2" stroke-dasharray="7,4"/>
+<rect x="672" y="212" width="14" height="16" fill="#d98b2b" stroke="#222" stroke-width="1"/>
+<rect x="700" y="212" width="14" height="16" fill="#d98b2b" stroke="#222" stroke-width="1"/>
+<rect x="728" y="212" width="14" height="16" fill="#d98b2b" stroke="#222" stroke-width="1"/>
+<rect x="756" y="212" width="14" height="16" fill="#d98b2b" stroke="#222" stroke-width="1"/>
+<rect x="784" y="212" width="14" height="16" fill="#d98b2b" stroke="#222" stroke-width="1"/>
+<rect x="812" y="212" width="14" height="16" fill="#d98b2b" stroke="#222" stroke-width="1"/>
+<rect x="840" y="212" width="14" height="16" fill="#d98b2b" stroke="#222" stroke-width="1"/>
+<rect x="868" y="212" width="14" height="16" fill="#d98b2b" stroke="#222" stroke-width="1"/>
+<rect x="896" y="212" width="14" height="16" fill="#d98b2b" stroke="#222" stroke-width="1"/>
+<rect x="660" y="230" width="260" height="40" fill="#f4d9a8" stroke="#222" stroke-width="2"/>
+<text x="790" y="255" font-size="14" text-anchor="middle" fill="#222">外围电路</text>
+<rect x="650" y="270" width="280" height="40" fill="#e3e3e3" stroke="#222" stroke-width="2"/>
+<text x="790" y="295" font-size="14" text-anchor="middle" fill="#222">外围晶圆的衬底</text>
+<text x="790" y="340" font-size="14" text-anchor="middle" fill="#222">红色虚线是键合面，橙色小块是铜焊盘</text>
+<text x="790" y="362" font-size="14" text-anchor="middle" fill="#222">外围不经受阵列的高温工序</text>
+<text x="480" y="410" font-size="13" text-anchor="middle" fill="#222">厂商叫法：② CuA（美光）、PUC（SK 海力士）、COP（三星）；③ Xtacking（长江存储）、CBA（铠侠与闪迪）、BV-NAND（三星 V10）</text>
+</svg>

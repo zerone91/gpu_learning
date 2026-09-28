@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" width="1000" height="700" font-family="sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b5451b"/></marker><pattern id="hz" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" stroke="#999" stroke-width="2"/></pattern></defs>
+<rect x="0" y="0" width="1000" height="700" fill="#ffffff"/>
+<text x="500" y="30" font-size="18" text-anchor="middle" fill="#111" font-weight="bold" >四种内存条：哪些信号经过缓冲芯片</text>
+<rect x="20" y="50" width="470" height="290" rx="4" fill="#fbfbfb" stroke="#999" stroke-width="1.5" />
+<text x="34" y="76" font-size="16" text-anchor="start" fill="#111" font-weight="bold" >UDIMM</text>
+<text x="476" y="76" font-size="13" text-anchor="end" fill="#555" font-weight="normal" >无缓冲，台式机</text>
+<rect x="34" y="110" width="80" height="200" rx="4" fill="#fdeee6" stroke="#222" stroke-width="1.8" />
+<text x="74.0" y="196.04" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >计算</text>
+<text x="74.0" y="215.04" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >芯片</text>
+<text x="74.0" y="234.04" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >PHY</text>
+<rect x="140" y="94" width="336" height="232" rx="4" fill="#f3f8f1" stroke="#3d7a3a" stroke-width="1.6" />
+<text x="150" y="318" font-size="13" text-anchor="start" fill="#3d7a3a" font-weight="normal" >内存条</text>
+<text x="308" y="145" font-size="13" text-anchor="middle" fill="#1f5fa8" font-weight="normal" >CK/CA</text>
+<line x1="114" y1="155" x2="350" y2="155" stroke="#1f5fa8" stroke-width="2.4" marker-end="url(#ab)"/>
+<text x="308" y="255" font-size="13" text-anchor="middle" fill="#b5451b" font-weight="normal" >DQ/DQS</text>
+<line x1="114" y1="265" x2="350" y2="265" stroke="#b5451b" stroke-width="2.4" marker-end="url(#ar)" marker-start="url(#ar)"/>
+<rect x="350" y="130" width="110" height="160" rx="4" fill="#fff" stroke="#222" stroke-width="1.8" />
+<text x="405.0" y="205.54" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >DRAM</text>
+<text x="405.0" y="224.54" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >颗粒</text>
+<rect x="510" y="50" width="470" height="290" rx="4" fill="#fbfbfb" stroke="#999" stroke-width="1.5" />
+<text x="524" y="76" font-size="16" text-anchor="start" fill="#111" font-weight="bold" >RDIMM</text>
+<text x="966" y="76" font-size="13" text-anchor="end" fill="#555" font-weight="normal" >缓冲时钟与命令，主流服务器</text>
+<rect x="524" y="110" width="80" height="200" rx="4" fill="#fdeee6" stroke="#222" stroke-width="1.8" />
+<text x="564.0" y="196.04" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >计算</text>
+<text x="564.0" y="215.04" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >芯片</text>
+<text x="564.0" y="234.04" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >PHY</text>
+<rect x="630" y="94" width="336" height="232" rx="4" fill="#f3f8f1" stroke="#3d7a3a" stroke-width="1.6" />
+<text x="640" y="318" font-size="13" text-anchor="start" fill="#3d7a3a" font-weight="normal" >内存条</text>
+<text x="798" y="145" font-size="13" text-anchor="middle" fill="#1f5fa8" font-weight="normal" >CK/CA</text>
+<line x1="604" y1="155" x2="660" y2="155" stroke="#1f5fa8" stroke-width="2.4" marker-end="url(#ab)"/>
+<rect x="660" y="127" width="96" height="56" rx="4" fill="#e8f0fa" stroke="#222" stroke-width="1.8" />
+<text x="708.0" y="150.54" font-size="14" text-anchor="middle" fill="#111" font-weight="bold" >RCD</text>
+<text x="708.0" y="169.54" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >寄存一拍</text>
+<line x1="756" y1="155" x2="840" y2="155" stroke="#1f5fa8" stroke-width="2.4" marker-end="url(#ab)"/>
+<text x="798" y="255" font-size="13" text-anchor="middle" fill="#b5451b" font-weight="normal" >DQ/DQS</text>
+<line x1="604" y1="265" x2="840" y2="265" stroke="#b5451b" stroke-width="2.4" marker-end="url(#ar)" marker-start="url(#ar)"/>
+<rect x="854" y="118" width="104" height="160" rx="4" fill="#fff" stroke="#222" stroke-width="1.8" />
+<text x="906.0" y="193.54" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" ></text>
+<text x="906.0" y="212.54" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" ></text>
+<rect x="840" y="134" width="104" height="160" rx="4" fill="#fff" stroke="#222" stroke-width="1.8" />
+<text x="892.0" y="200.04" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >DRAM</text>
+<text x="892.0" y="219.04" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >rank A</text>
+<text x="892.0" y="238.04" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >与 rank B</text>
+<rect x="20" y="360" width="470" height="290" rx="4" fill="#fbfbfb" stroke="#999" stroke-width="1.5" />
+<text x="34" y="386" font-size="16" text-anchor="start" fill="#111" font-weight="bold" >LRDIMM</text>
+<text x="476" y="386" font-size="13" text-anchor="end" fill="#555" font-weight="normal" >数据也缓冲，大容量</text>
+<rect x="34" y="420" width="80" height="200" rx="4" fill="#fdeee6" stroke="#222" stroke-width="1.8" />
+<text x="74.0" y="506.04" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >计算</text>
+<text x="74.0" y="525.04" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >芯片</text>
+<text x="74.0" y="544.04" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >PHY</text>
+<rect x="140" y="404" width="336" height="232" rx="4" fill="#f3f8f1" stroke="#3d7a3a" stroke-width="1.6" />
+<text x="150" y="628" font-size="13" text-anchor="start" fill="#3d7a3a" font-weight="normal" >内存条</text>
+<text x="308" y="455" font-size="13" text-anchor="middle" fill="#1f5fa8" font-weight="normal" >CK/CA</text>
+<line x1="114" y1="465" x2="170" y2="465" stroke="#1f5fa8" stroke-width="2.4" marker-end="url(#ab)"/>
+<rect x="170" y="437" width="96" height="56" rx="4" fill="#e8f0fa" stroke="#222" stroke-width="1.8" />
+<text x="218.0" y="470.04" font-size="14" text-anchor="middle" fill="#111" font-weight="bold" >RCD</text>
+<line x1="266" y1="465" x2="350" y2="465" stroke="#1f5fa8" stroke-width="2.4" marker-end="url(#ab)"/>
+<text x="308" y="565" font-size="13" text-anchor="middle" fill="#b5451b" font-weight="normal" >DQ/DQS</text>
+<line x1="114" y1="575" x2="170" y2="575" stroke="#b5451b" stroke-width="2.4" marker-end="url(#ar)" marker-start="url(#ar)"/>
+<rect x="170" y="547" width="96" height="56" rx="4" fill="#fdf3e3" stroke="#222" stroke-width="1.8" />
+<text x="218.0" y="570.54" font-size="14" text-anchor="middle" fill="#111" font-weight="bold" >数据缓冲</text>
+<text x="218.0" y="589.54" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >DB</text>
+<line x1="266" y1="575" x2="350" y2="575" stroke="#b5451b" stroke-width="2.4" marker-end="url(#ar)" marker-start="url(#ar)"/>
+<rect x="364" y="428" width="104" height="160" rx="4" fill="#fff" stroke="#222" stroke-width="1.8" />
+<text x="416.0" y="503.54" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" ></text>
+<text x="416.0" y="522.54" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" ></text>
+<rect x="350" y="444" width="104" height="160" rx="4" fill="#fff" stroke="#222" stroke-width="1.8" />
+<text x="402.0" y="510.04" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >DRAM</text>
+<text x="402.0" y="529.04" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >rank A</text>
+<text x="402.0" y="548.04" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >与 rank B</text>
+<rect x="510" y="360" width="470" height="290" rx="4" fill="#fbfbfb" stroke="#999" stroke-width="1.5" />
+<text x="524" y="386" font-size="16" text-anchor="start" fill="#111" font-weight="bold" >MRDIMM</text>
+<text x="966" y="386" font-size="13" text-anchor="end" fill="#555" font-weight="normal" >数据 2:1 复用，高带宽</text>
+<rect x="524" y="420" width="80" height="200" rx="4" fill="#fdeee6" stroke="#222" stroke-width="1.8" />
+<text x="564.0" y="506.04" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >计算</text>
+<text x="564.0" y="525.04" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >芯片</text>
+<text x="564.0" y="544.04" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >PHY</text>
+<rect x="630" y="404" width="336" height="232" rx="4" fill="#f3f8f1" stroke="#3d7a3a" stroke-width="1.6" />
+<text x="640" y="628" font-size="13" text-anchor="start" fill="#3d7a3a" font-weight="normal" >内存条</text>
+<text x="798" y="455" font-size="13" text-anchor="middle" fill="#1f5fa8" font-weight="normal" >CK/CA</text>
+<line x1="604" y1="465" x2="660" y2="465" stroke="#1f5fa8" stroke-width="2.4" marker-end="url(#ab)"/>
+<rect x="660" y="437" width="96" height="56" rx="4" fill="#e8f0fa" stroke="#222" stroke-width="1.8" />
+<text x="708.0" y="470.04" font-size="14" text-anchor="middle" fill="#111" font-weight="bold" >RCD</text>
+<line x1="756" y1="465" x2="840" y2="465" stroke="#1f5fa8" stroke-width="2.4" marker-end="url(#ab)"/>
+<text x="798" y="565" font-size="13" text-anchor="middle" fill="#b5451b" font-weight="normal" >DQ/DQS</text>
+<line x1="604" y1="575" x2="660" y2="575" stroke="#b5451b" stroke-width="2.4" marker-end="url(#ar)" marker-start="url(#ar)"/>
+<rect x="660" y="547" width="96" height="56" rx="4" fill="#fdf3e3" stroke="#222" stroke-width="1.8" />
+<text x="708.0" y="570.54" font-size="14" text-anchor="middle" fill="#111" font-weight="bold" >复用缓冲</text>
+<text x="708.0" y="589.54" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >MDB 2:1</text>
+<line x1="756" y1="575" x2="840" y2="575" stroke="#b5451b" stroke-width="2.4" marker-end="url(#ar)" marker-start="url(#ar)"/>
+<rect x="854" y="428" width="104" height="160" rx="4" fill="#fff" stroke="#222" stroke-width="1.8" />
+<text x="906.0" y="503.54" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" ></text>
+<text x="906.0" y="522.54" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" ></text>
+<rect x="840" y="444" width="104" height="160" rx="4" fill="#fff" stroke="#222" stroke-width="1.8" />
+<text x="892.0" y="510.04" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >DRAM</text>
+<text x="892.0" y="529.04" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >rank A</text>
+<text x="892.0" y="548.04" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >与 rank B</text>
+<text x="500" y="680" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >蓝色：时钟与命令地址（单向）；红色：数据与选通（双向）。CUDIMM 与 UDIMM 相同，只是时钟线上多一颗时钟驱动器 CKD</text>
+</svg>

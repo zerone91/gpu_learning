@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 510" width="960" height="510" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="510" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker></defs>
+<text x="225" y="32" font-size="17" text-anchor="middle" fill="#222" font-weight="bold">不加电压：势垒又高又厚</text>
+<text x="680" y="32" font-size="17" text-anchor="middle" fill="#222" font-weight="bold">编程时：栅极加约 18 V，势垒被拉斜</text>
+<line x1="50" y1="230" x2="160" y2="230" stroke="#222" stroke-width="3"/>
+<text x="105" y="255" font-size="15" text-anchor="middle" fill="#222">沟道</text>
+<rect x="160" y="100" width="140" height="130" fill="#e8e8e8" stroke="#222" stroke-width="2"/>
+<text x="230" y="160" font-size="15" text-anchor="middle" fill="#222">隧穿氧化层</text>
+<text x="230" y="182" font-size="15" text-anchor="middle" fill="#222">约 8 nm</text>
+<line x1="300" y1="230" x2="410" y2="230" stroke="#222" stroke-width="3"/>
+<text x="355" y="255" font-size="15" text-anchor="middle" fill="#222">电荷存储层</text>
+<circle cx="100" cy="220" r="5" fill="#1f5fa8"/>
+<line x1="112" y1="220" x2="155" y2="220" stroke="#c0392b" stroke-width="2" marker-end="url(#r)"/>
+<text x="100" y="200" font-size="14" text-anchor="middle" fill="#1f5fa8">电子</text>
+<text x="230" y="290" font-size="14" text-anchor="middle" fill="#222">电子的能量低于势垒顶部，</text>
+<text x="230" y="310" font-size="14" text-anchor="middle" fill="#222">要穿过的厚度是完整的 8 nm，</text>
+<text x="230" y="330" font-size="14" text-anchor="middle" fill="#222">穿过的概率极小</text>
+<line x1="160" y1="85" x2="300" y2="85" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<line x1="300" y1="85" x2="160" y2="85" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<text x="230" y="75" font-size="14" text-anchor="middle" fill="#222">要穿过的厚度</text>
+<line x1="520" y1="230" x2="630" y2="230" stroke="#222" stroke-width="3"/>
+<text x="570" y="255" font-size="15" text-anchor="middle" fill="#222">沟道（0 V）</text>
+<polygon points="630,110 770,280 770,410 630,240" fill="#e8e8e8" stroke="#222" stroke-width="2"/>
+<text x="720" y="340" font-size="14" text-anchor="middle" fill="#222">隧穿氧化层</text>
+<line x1="770" y1="410" x2="900" y2="410" stroke="#222" stroke-width="3"/>
+<text x="840" y="435" font-size="15" text-anchor="middle" fill="#222">电荷存储层</text>
+<circle cx="615" cy="220" r="5" fill="#1f5fa8"/>
+<line x1="630" y1="220" x2="720.5882352941177" y2="220" stroke="#c0392b" stroke-width="2.5" marker-end="url(#r)"/>
+<line x1="720.5882352941177" y1="220" x2="820" y2="390" stroke="#c0392b" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#r)"/>
+<line x1="630" y1="95" x2="720.5882352941177" y2="95" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<line x1="720.5882352941177" y1="95" x2="630" y2="95" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<text x="732.5882352941177" y="100" font-size="14" text-anchor="start" fill="#222">实际要穿过的厚度变薄</text>
+<line x1="720.5882352941177" y1="100" x2="720.5882352941177" y2="220" stroke="#555" stroke-width="1.5" stroke-dasharray="4,4"/>
+<text x="480" y="470" font-size="14" text-anchor="middle" fill="#222">右图：势垒顶部被电场拉成斜坡，电子在同一能量高度上只需穿过斜坡左上角那一小段。</text>
+<text x="480" y="492" font-size="14" text-anchor="middle" fill="#222">电场越强，斜坡越陡，这一段越薄，隧穿电流按指数增长。</text>
+<line x1="470" y1="50" x2="470" y2="440" stroke="#aaa" stroke-width="1.5" stroke-dasharray="5,5"/>
+<text x="30" y="140" font-size="14" text-anchor="middle" fill="#222">能量</text>
+<line x1="30" y1="260" x2="30" y2="150" stroke="#222" stroke-width="1.5" marker-end="url(#a)"/>
+</svg>

@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 560" width="920" height="560" font-family="sans-serif" font-size="16">
+<rect width="920" height="560" fill="#ffffff"/>
+<rect x="110.0" y="60" width="110.0" height="400" fill="#f3f3f3"/>
+<text x="165.0" y="50" text-anchor="middle" font-size="14">① 预充电完成</text>
+<rect x="220.0" y="60" width="132.0" height="400" fill="#ffffff"/>
+<text x="286.0" y="50" text-anchor="middle" font-size="14">② 激活：电荷共享</text>
+<line x1="220.0" y1="60" x2="220.0" y2="460" stroke="#999" stroke-width="1" stroke-dasharray="4 4"/>
+<rect x="352.0" y="60" width="154.0" height="400" fill="#f3f3f3"/>
+<text x="429.0" y="50" text-anchor="middle" font-size="14">③ 感应放大</text>
+<line x1="352.0" y1="60" x2="352.0" y2="460" stroke="#999" stroke-width="1" stroke-dasharray="4 4"/>
+<rect x="506.0" y="60" width="209.0" height="400" fill="#ffffff"/>
+<text x="610.5" y="50" text-anchor="middle" font-size="14">④ 恢复完成</text>
+<line x1="506.0" y1="60" x2="506.0" y2="460" stroke="#999" stroke-width="1" stroke-dasharray="4 4"/>
+<rect x="715.0" y="60" width="165.0" height="400" fill="#f3f3f3"/>
+<text x="797.5" y="50" text-anchor="middle" font-size="14">⑤ 预充电</text>
+<line x1="715.0" y1="60" x2="715.0" y2="460" stroke="#999" stroke-width="1" stroke-dasharray="4 4"/>
+<line x1="110" y1="60" x2="110" y2="460" stroke="#000" stroke-width="2"/><line x1="110" y1="450" x2="890" y2="450" stroke="#000" stroke-width="2"/>
+<line x1="104" y1="450.0" x2="110" y2="450.0" stroke="#000" stroke-width="1.5"/><text x="98" y="455.0" text-anchor="end" font-size="14">0.0 V</text>
+<line x1="104" y1="380.0" x2="110" y2="380.0" stroke="#000" stroke-width="1.5"/><text x="98" y="385.0" text-anchor="end" font-size="14">0.5 V</text>
+<line x1="104" y1="310.0" x2="110" y2="310.0" stroke="#000" stroke-width="1.5"/><text x="98" y="315.0" text-anchor="end" font-size="14">1.0 V</text>
+<line x1="104" y1="240.0" x2="110" y2="240.0" stroke="#000" stroke-width="1.5"/><text x="98" y="245.0" text-anchor="end" font-size="14">1.5 V</text>
+<line x1="104" y1="170.0" x2="110" y2="170.0" stroke="#000" stroke-width="1.5"/><text x="98" y="175.0" text-anchor="end" font-size="14">2.0 V</text>
+<line x1="104" y1="100.0" x2="110" y2="100.0" stroke="#000" stroke-width="1.5"/><text x="98" y="105.0" text-anchor="end" font-size="14">2.5 V</text>
+<text x="885" y="478" text-anchor="end" font-size="14">时间（示意，不按比例）</text>
+<path d="M 110.0 450.0 L 220.0 450.0 L 253.0 100.0 L 715.0 100.0 L 748.0 450.0 L 880.0 450.0" fill="none" stroke="#555" stroke-width="3"/>
+<path d="M 110.0 380.0 L 236.5 380.0 L 330.0 366.0 L 352.0 366.0 L 495.0 310.0 L 737.0 310.0 L 836.0 380.0 L 880.0 380.0" fill="none" stroke="#1f5fa8" stroke-width="3"/>
+<path d="M 110.0 380.0 L 352.0 380.0 L 495.0 450.0 L 737.0 450.0 L 836.0 380.0 L 880.0 380.0" fill="none" stroke="#1f5fa8" stroke-width="3" stroke-dasharray="10 6"/>
+<path d="M 110.0 310.0 L 236.5 310.0 L 330.0 366.0 L 352.0 366.0 L 517.0 310.0 L 880.0 310.0" fill="none" stroke="#c0392b" stroke-width="3" stroke-dasharray="3 5"/>
+<text x="440.0" y="90.0" fill="#555" font-weight="bold">字线 WL（约 2.5 V）</text>
+<text x="583.0" y="334.0" fill="#1f5fa8" font-weight="bold">位线 BL</text>
+<text x="550.0" y="438.0" fill="#1f5fa8" font-weight="bold">参考位线 BLB</text>
+<text x="115.5" y="300.0" fill="#c0392b" font-weight="bold">存储节点</text>
+<line x1="341.0" y1="373.0" x2="385.0" y2="233.0" stroke="#000" stroke-width="1.5"/>
+<text x="363.0" y="191.0" font-size="14">电荷共享后 BL 比 BLB</text><text x="363.0" y="209.0" font-size="14">只高 0.1 V</text>
+<text x="225.5" y="414.0" font-size="14" fill="#c0392b">存储节点被</text><text x="225.5" y="432.0" font-size="14" fill="#c0392b">拉低到 0.6 V</text>
+<line x1="120" y1="510" x2="170" y2="510" stroke="#555" stroke-width="3"/><text x="178" y="515" font-size="14">字线（灰色实线）</text>
+<line x1="310" y1="510" x2="360" y2="510" stroke="#1f5fa8" stroke-width="3"/><text x="368" y="515" font-size="14">位线（蓝色实线）</text>
+<line x1="500" y1="510" x2="550" y2="510" stroke="#1f5fa8" stroke-width="3" stroke-dasharray="10 6"/><text x="558" y="515" font-size="14">参考位线（蓝色虚线）</text>
+<line x1="720" y1="510" x2="770" y2="510" stroke="#c0392b" stroke-width="3" stroke-dasharray="3 5"/><text x="778" y="515" font-size="14">存储节点（红色点线）</text>
+<text x="460" y="545" text-anchor="middle" font-size="14">读一个存 1 的单元：五个步骤对应 §3.2 走查表的 ①～⑤</text>
+</svg>

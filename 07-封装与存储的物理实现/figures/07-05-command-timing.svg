@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 430" width="940" height="430" font-family="sans-serif" font-size="16">
+<rect width="940" height="430" fill="#ffffff"/>
+<defs><marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker></defs>
+<text x="470.0" y="28.0" text-anchor="middle" font-size="16" fill="#000" font-weight="bold">DDR5-4800 CL40-39-39：对同一个 bank 的一次"激活 → 读 → 预充电 → 再激活"</text>
+<line x1="80.0" y1="200.0" x2="890.0" y2="200.0" stroke="#000" stroke-width="2" marker-end="url(#a)"/>
+<text x="890.0" y="222.0" text-anchor="end" font-size="14" fill="#000">时间</text>
+<line x1="80.0" y1="196.0" x2="80.0" y2="204.0" stroke="#000" stroke-width="1.5"/>
+<text x="80.0" y="222.0" text-anchor="middle" font-size="14" fill="#000">0 ns</text>
+<line x1="215.0" y1="196.0" x2="215.0" y2="204.0" stroke="#000" stroke-width="1.5"/>
+<text x="215.0" y="222.0" text-anchor="middle" font-size="14" fill="#000">10 ns</text>
+<line x1="350.0" y1="196.0" x2="350.0" y2="204.0" stroke="#000" stroke-width="1.5"/>
+<text x="350.0" y="222.0" text-anchor="middle" font-size="14" fill="#000">20 ns</text>
+<line x1="485.0" y1="196.0" x2="485.0" y2="204.0" stroke="#000" stroke-width="1.5"/>
+<text x="485.0" y="222.0" text-anchor="middle" font-size="14" fill="#000">30 ns</text>
+<line x1="620.0" y1="196.0" x2="620.0" y2="204.0" stroke="#000" stroke-width="1.5"/>
+<text x="620.0" y="222.0" text-anchor="middle" font-size="14" fill="#000">40 ns</text>
+<line x1="755.0" y1="196.0" x2="755.0" y2="204.0" stroke="#000" stroke-width="1.5"/>
+<text x="755.0" y="222.0" text-anchor="middle" font-size="14" fill="#000">50 ns</text>
+<line x1="80.0" y1="80.0" x2="80.0" y2="198.0" stroke="#555" stroke-width="2.5" marker-end="url(#a)"/>
+<text x="80.0" y="70.0" text-anchor="middle" font-size="16" fill="#555" font-weight="bold">激活</text>
+<text x="80.0" y="50.0" text-anchor="middle" font-size="14" fill="#555">0 ns</text>
+<line x1="300.1" y1="80.0" x2="300.1" y2="198.0" stroke="#1f5fa8" stroke-width="2.5" marker-end="url(#a)"/>
+<text x="300.1" y="70.0" text-anchor="middle" font-size="16" fill="#1f5fa8" font-weight="bold">读</text>
+<text x="300.1" y="50.0" text-anchor="middle" font-size="14" fill="#1f5fa8">16.3 ns</text>
+<line x1="570.0" y1="80.0" x2="570.0" y2="198.0" stroke="#2e7d32" stroke-width="2.5" marker-end="url(#a)"/>
+<text x="570.0" y="70.0" text-anchor="middle" font-size="16" fill="#2e7d32" font-weight="bold">预充电</text>
+<text x="570.0" y="50.0" text-anchor="middle" font-size="14" fill="#2e7d32">36.3 ns</text>
+<line x1="790.1" y1="80.0" x2="790.1" y2="198.0" stroke="#555" stroke-width="2.5" marker-end="url(#a)"/>
+<text x="790.1" y="70.0" text-anchor="middle" font-size="16" fill="#555" font-weight="bold">激活</text>
+<text x="790.1" y="50.0" text-anchor="middle" font-size="14" fill="#555">52.6 ns</text>
+<rect x="525.5" y="150.0" width="44.5" height="40.0" fill="#9ec3e6" stroke="#000" stroke-width="1.5"/>
+<text x="518.0" y="166.0" text-anchor="end" font-size="14" fill="#1f5fa8">数据送出</text>
+<text x="518.0" y="184.0" text-anchor="end" font-size="14" fill="#1f5fa8">33.0～36.3 ns</text>
+<line x1="80.0" y1="260.0" x2="300.1" y2="260.0" stroke="#000" stroke-width="2" marker-start="url(#a)" marker-end="url(#a)"/>
+<line x1="80.0" y1="252.0" x2="80.0" y2="268.0" stroke="#000" stroke-width="1.5"/>
+<line x1="300.1" y1="252.0" x2="300.1" y2="268.0" stroke="#000" stroke-width="1.5"/>
+<text x="190.0" y="282.0" text-anchor="middle" font-size="14" fill="#000">tRCD = 16.3 ns</text>
+<line x1="300.1" y1="260.0" x2="525.5" y2="260.0" stroke="#1f5fa8" stroke-width="2" marker-start="url(#a)" marker-end="url(#a)"/>
+<line x1="300.1" y1="252.0" x2="300.1" y2="268.0" stroke="#1f5fa8" stroke-width="1.5"/>
+<line x1="525.5" y1="252.0" x2="525.5" y2="268.0" stroke="#1f5fa8" stroke-width="1.5"/>
+<text x="412.8" y="282.0" text-anchor="middle" font-size="14" fill="#1f5fa8">CL = 16.7 ns</text>
+<line x1="570.0" y1="260.0" x2="790.1" y2="260.0" stroke="#2e7d32" stroke-width="2" marker-start="url(#a)" marker-end="url(#a)"/>
+<line x1="570.0" y1="252.0" x2="570.0" y2="268.0" stroke="#2e7d32" stroke-width="1.5"/>
+<line x1="790.1" y1="252.0" x2="790.1" y2="268.0" stroke="#2e7d32" stroke-width="1.5"/>
+<text x="680.1" y="282.0" text-anchor="middle" font-size="14" fill="#2e7d32">tRP = 16.3 ns</text>
+<line x1="80.0" y1="320.0" x2="512.0" y2="320.0" stroke="#000" stroke-width="2" marker-start="url(#a)" marker-end="url(#a)"/>
+<line x1="80.0" y1="312.0" x2="80.0" y2="328.0" stroke="#000" stroke-width="1.5"/>
+<line x1="512.0" y1="312.0" x2="512.0" y2="328.0" stroke="#000" stroke-width="1.5"/>
+<text x="296.0" y="342.0" text-anchor="middle" font-size="14" fill="#000">tRAS ≈ 32 ns（这段时间内不允许预充电）</text>
+<line x1="80.0" y1="380.0" x2="790.1" y2="380.0" stroke="#000" stroke-width="2" marker-start="url(#a)" marker-end="url(#a)"/>
+<line x1="80.0" y1="372.0" x2="80.0" y2="388.0" stroke="#000" stroke-width="1.5"/>
+<line x1="790.1" y1="372.0" x2="790.1" y2="388.0" stroke="#000" stroke-width="1.5"/>
+<text x="435.1" y="402.0" text-anchor="middle" font-size="14" fill="#000">本例中同一 bank 相邻两次激活相隔 52.6 ns</text>
+<text x="190.0" y="410.0" text-anchor="middle" font-size="14" fill="#000"></text>
+</svg>

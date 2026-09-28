@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 570" width="960" height="570" font-family="sans-serif" font-size="15">
+<rect x="0" y="0" width="960" height="570" fill="#ffffff"/>
+<text x="20" y="30" font-size="17" font-weight="bold">磨损均衡：四个块的擦除次数（块 A 存冷数据，寿命上限 3000 次）</text>
+<text x="220" y="66" text-anchor="middle" font-size="16" font-weight="bold">只有动态均衡</text>
+<line x1="60" y1="400" x2="420" y2="400" stroke="#222" stroke-width="2"/>
+<line x1="60" y1="90" x2="60" y2="400" stroke="#222" stroke-width="2"/>
+<line x1="60" y1="118.18181818181819" x2="420" y2="118.18181818181819" stroke="#b00020" stroke-width="2" stroke-dasharray="8 5"/>
+<text x="66" y="110.18181818181819" text-anchor="start" fill="#b00020" font-size="14">寿命上限 3000</text>
+<rect x="90" y="397" width="56" height="3" fill="#cfe3f7" stroke="#222" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="118" y="389" text-anchor="middle" font-weight="bold">2</text>
+<text x="118" y="422" text-anchor="middle">块 A</text>
+<text x="118" y="442" text-anchor="middle" font-size="13">冷数据</text>
+<rect x="172" y="118.18181818181819" width="56" height="281.8181818181818" fill="#fbe3c6" stroke="#222" stroke-width="2"/>
+<text x="200" y="110.18181818181819" text-anchor="middle" font-weight="bold">3000</text>
+<text x="200" y="422" text-anchor="middle">块 B</text>
+<text x="200" y="442" text-anchor="middle" font-size="13">热数据</text>
+<rect x="254" y="118.18181818181819" width="56" height="281.8181818181818" fill="#fbe3c6" stroke="#222" stroke-width="2"/>
+<text x="282" y="110.18181818181819" text-anchor="middle" font-weight="bold">3000</text>
+<text x="282" y="422" text-anchor="middle">块 C</text>
+<text x="282" y="442" text-anchor="middle" font-size="13">热数据</text>
+<rect x="336" y="118.18181818181819" width="56" height="281.8181818181818" fill="#fbe3c6" stroke="#222" stroke-width="2"/>
+<text x="364" y="110.18181818181819" text-anchor="middle" font-weight="bold">3000</text>
+<text x="364" y="422" text-anchor="middle">块 D</text>
+<text x="364" y="442" text-anchor="middle" font-size="13">热数据</text>
+<text x="60" y="472" font-size="14">B、C、D 同时到寿，盘报废；</text>
+<text x="60" y="494" font-size="14">块 A 还剩 2998 次没有用上。</text>
+<text x="690" y="66" text-anchor="middle" font-size="16" font-weight="bold">加上静态均衡</text>
+<line x1="530" y1="400" x2="890" y2="400" stroke="#222" stroke-width="2"/>
+<line x1="530" y1="90" x2="530" y2="400" stroke="#222" stroke-width="2"/>
+<line x1="530" y1="118.18181818181819" x2="890" y2="118.18181818181819" stroke="#b00020" stroke-width="2" stroke-dasharray="8 5"/>
+<text x="886" y="110.18181818181819" text-anchor="end" fill="#b00020" font-size="14">寿命上限 3000</text>
+<rect x="560" y="188.54242424242423" width="56" height="211.45757575757577" fill="#fbe3c6" stroke="#222" stroke-width="2"/>
+<text x="588" y="180.54242424242423" text-anchor="middle" font-weight="bold">2251</text>
+<text x="588" y="422" text-anchor="middle">块 A</text>
+<text x="588" y="442" text-anchor="middle" font-size="13">热数据</text>
+<rect x="642" y="188.63636363636363" width="56" height="211.36363636363637" fill="#fbe3c6" stroke="#222" stroke-width="2"/>
+<text x="670" y="180.63636363636363" text-anchor="middle" font-weight="bold">2250</text>
+<text x="670" y="422" text-anchor="middle">块 B</text>
+<text x="670" y="442" text-anchor="middle" font-size="13">热数据</text>
+<rect x="724" y="188.44848484848484" width="56" height="211.55151515151516" fill="#cfe3f7" stroke="#222" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="752" y="180.44848484848484" text-anchor="middle" font-weight="bold">2252</text>
+<text x="752" y="422" text-anchor="middle">块 C</text>
+<text x="752" y="442" text-anchor="middle" font-size="13">冷数据</text>
+<rect x="806" y="188.73030303030302" width="56" height="211.26969696969698" fill="#fbe3c6" stroke="#222" stroke-width="2"/>
+<text x="834" y="180.73030303030302" text-anchor="middle" font-weight="bold">2249</text>
+<text x="834" y="422" text-anchor="middle">块 D</text>
+<text x="834" y="442" text-anchor="middle" font-size="13">热数据</text>
+<text x="530" y="472" font-size="14">冷数据被定期搬到磨损较重的块上，</text>
+<text x="530" y="494" font-size="14">盘能承受的总擦除次数从约 9000 升到约 12000。</text>
+<text x="20" y="528" font-size="14" fill="#555">图例：蓝色虚线框为当前存放冷数据的块，橙色实线框为承担日常写入的块。</text>
+<text x="20" y="550" font-size="14" fill="#555">右图画的是与左图同一时刻（数字为示意）：累计擦除同为约 9000 次，但分摊到四个块上，离寿命上限还有余量。</text>
+</svg>

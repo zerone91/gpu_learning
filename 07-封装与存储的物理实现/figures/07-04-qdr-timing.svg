@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520">
+<rect x="0" y="0" width="960" height="520" fill="#ffffff"/>
+<defs><marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777"/></marker><marker id="an" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e7d32"/></marker></defs>
+<text x="480.0" y="30.0" font-family="sans-serif" font-size="16" fill="#222" text-anchor="middle" font-weight="bold">QDR SRAM 的时序（每次访问传 2 个字，读延迟 1.5 个周期，周期 3 纳秒）</text>
+<text x="136.0" y="112.0" font-family="sans-serif" font-size="15" fill="#222" text-anchor="end" font-weight="bold">K</text>
+<text x="136.0" y="182.0" font-family="sans-serif" font-size="15" fill="#222" text-anchor="end" font-weight="bold">地址</text>
+<text x="136.0" y="252.0" font-family="sans-serif" font-size="15" fill="#222" text-anchor="end" font-weight="bold">写数据 D</text>
+<text x="136.0" y="322.0" font-family="sans-serif" font-size="15" fill="#222" text-anchor="end" font-weight="bold">读数据 Q</text>
+<text x="136.0" y="392.0" font-family="sans-serif" font-size="15" fill="#222" text-anchor="end" font-weight="bold">回送时钟 CQ</text>
+<polyline points="150.0,124.0 224.5,124.0 224.5,90.0 348.7,90.0 348.7,124.0 472.9,124.0 472.9,90.0 597.1,90.0 597.1,124.0 721.3,124.0 721.3,90.0 845.5,90.0 845.5,124.0 920.0,124.0" fill="none" stroke="#222" stroke-width="2.5" stroke-linejoin="round"/>
+<line x1="224.5" y1="80.0" x2="224.5" y2="412.0" stroke="#777" stroke-width="1.5" stroke-dasharray="3 5"/>
+<text x="224.5" y="74.0" font-family="sans-serif" font-size="14" fill="#777" text-anchor="middle">0</text>
+<line x1="348.7" y1="80.0" x2="348.7" y2="412.0" stroke="#777" stroke-width="1.5" stroke-dasharray="3 5"/>
+<text x="348.7" y="74.0" font-family="sans-serif" font-size="14" fill="#777" text-anchor="middle">1.5</text>
+<line x1="472.9" y1="80.0" x2="472.9" y2="412.0" stroke="#777" stroke-width="1.5" stroke-dasharray="3 5"/>
+<text x="472.9" y="74.0" font-family="sans-serif" font-size="14" fill="#777" text-anchor="middle">3</text>
+<line x1="597.1" y1="80.0" x2="597.1" y2="412.0" stroke="#777" stroke-width="1.5" stroke-dasharray="3 5"/>
+<text x="597.1" y="74.0" font-family="sans-serif" font-size="14" fill="#777" text-anchor="middle">4.5</text>
+<line x1="721.3" y1="80.0" x2="721.3" y2="412.0" stroke="#777" stroke-width="1.5" stroke-dasharray="3 5"/>
+<text x="721.3" y="74.0" font-family="sans-serif" font-size="14" fill="#777" text-anchor="middle">6</text>
+<line x1="845.5" y1="80.0" x2="845.5" y2="412.0" stroke="#777" stroke-width="1.5" stroke-dasharray="3 5"/>
+<text x="845.5" y="74.0" font-family="sans-serif" font-size="14" fill="#777" text-anchor="middle">7.5</text>
+<text x="886.9" y="74.0" font-family="sans-serif" font-size="14" fill="#777" text-anchor="middle">纳秒</text>
+<text x="224.5" y="54.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">K 上升沿</text>
+<text x="348.7" y="54.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">K# 上升沿</text>
+<polyline points="162.4,177.0 168.4,160.0 280.6,160.0 286.6,177.0 280.6,194.0 168.4,194.0 162.4,177.0" fill="#dbe9f7" stroke="#222" stroke-width="2" stroke-linejoin="round"/>
+<text x="224.5" y="182.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">读 A0</text>
+<polyline points="286.6,177.0 292.6,160.0 404.8,160.0 410.8,177.0 404.8,194.0 292.6,194.0 286.6,177.0" fill="#dcefdc" stroke="#222" stroke-width="2" stroke-linejoin="round"/>
+<text x="348.7" y="182.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">写 B0</text>
+<polyline points="410.8,177.0 416.8,160.0 529.0,160.0 535.0,177.0 529.0,194.0 416.8,194.0 410.8,177.0" fill="#dbe9f7" stroke="#222" stroke-width="2" stroke-linejoin="round"/>
+<text x="472.9" y="182.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">读 A1</text>
+<polyline points="535.0,177.0 541.0,160.0 653.2,160.0 659.2,177.0 653.2,194.0 541.0,194.0 535.0,177.0" fill="#dcefdc" stroke="#222" stroke-width="2" stroke-linejoin="round"/>
+<text x="597.1" y="182.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">写 B1</text>
+<polyline points="659.2,177.0 665.2,160.0 777.4,160.0 783.4,177.0 777.4,194.0 665.2,194.0 659.2,177.0" fill="#dbe9f7" stroke="#222" stroke-width="2" stroke-linejoin="round"/>
+<text x="721.3" y="182.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">读 A2</text>
+<polyline points="783.4,177.0 789.4,160.0 914.0,160.0 920.0,177.0 914.0,194.0 789.4,194.0 783.4,177.0" fill="#eeeeee" stroke="#222" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="162.4,247.0 168.4,230.0 280.6,230.0 286.6,247.0 280.6,264.0 168.4,264.0 162.4,247.0" fill="#dcefdc" stroke="#222" stroke-width="2" stroke-linejoin="round"/>
+<text x="224.5" y="252.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">B0 字1</text>
+<polyline points="286.6,247.0 292.6,230.0 404.8,230.0 410.8,247.0 404.8,264.0 292.6,264.0 286.6,247.0" fill="#dcefdc" stroke="#222" stroke-width="2" stroke-linejoin="round"/>
+<text x="348.7" y="252.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">B0 字2</text>
+<polyline points="410.8,247.0 416.8,230.0 529.0,230.0 535.0,247.0 529.0,264.0 416.8,264.0 410.8,247.0" fill="#dcefdc" stroke="#222" stroke-width="2" stroke-linejoin="round"/>
+<text x="472.9" y="252.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">B1 字1</text>
+<polyline points="535.0,247.0 541.0,230.0 653.2,230.0 659.2,247.0 653.2,264.0 541.0,264.0 535.0,247.0" fill="#dcefdc" stroke="#222" stroke-width="2" stroke-linejoin="round"/>
+<text x="597.1" y="252.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">B1 字2</text>
+<polyline points="659.2,247.0 665.2,230.0 914.0,230.0 920.0,247.0 914.0,264.0 665.2,264.0 659.2,247.0" fill="#eeeeee" stroke="#222" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="150.0,317.0 156.0,300.0 607.7,300.0 613.7,317.0 607.7,334.0 156.0,334.0 150.0,317.0" fill="#eeeeee" stroke="#222" stroke-width="2" stroke-linejoin="round"/>
+<text x="381.8" y="322.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">尚无有效数据</text>
+<polyline points="613.7,317.0 619.7,300.0 731.8,300.0 737.8,317.0 731.8,334.0 619.7,334.0 613.7,317.0" fill="#fff3cd" stroke="#222" stroke-width="2" stroke-linejoin="round"/>
+<text x="675.8" y="322.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">A0 字1</text>
+<polyline points="737.8,317.0 743.8,300.0 856.0,300.0 862.0,317.0 856.0,334.0 743.8,334.0 737.8,317.0" fill="#fff3cd" stroke="#222" stroke-width="2" stroke-linejoin="round"/>
+<text x="799.9" y="322.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">A0 字2</text>
+<polyline points="862.0,317.0 868.0,300.0 914.0,300.0 920.0,317.0 914.0,334.0 868.0,334.0 862.0,317.0" fill="#fff3cd" stroke="#222" stroke-width="2" stroke-linejoin="round"/>
+<text x="891.0" y="322.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">A1</text>
+<polyline points="150.0,404.0 241.1,404.0 241.1,370.0 365.3,370.0 365.3,404.0 489.5,404.0 489.5,370.0 613.7,370.0 613.7,404.0 737.8,404.0 737.8,370.0 862.0,370.0 862.0,404.0 920.0,404.0" fill="none" stroke="#c0392b" stroke-width="2.5" stroke-linejoin="round"/>
+<line x1="224.5" y1="438.0" x2="597.1" y2="438.0" stroke="#1f5fa8" stroke-width="2" marker-end="url(#ab)" marker-start="url(#ab)"/>
+<text x="410.8" y="458.0" font-family="sans-serif" font-size="14" fill="#1f5fa8" text-anchor="middle">读延迟 1.5 个周期 = 4.5 纳秒</text>
+<text x="480.0" y="490.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">CQ（红色）与 Q 由存储芯片从同一组输出电路送出，二者一起延迟、一起漂移；接收方用 CQ 的边沿去采样 Q。</text>
+<text x="480.0" y="514.0" font-family="sans-serif" font-size="14" fill="#777" text-anchor="middle">各边沿的具体分配以器件手册为准，这里是这一类器件的典型安排。</text>
+</svg>

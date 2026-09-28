@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540">
+<rect x="0" y="0" width="960" height="540" fill="#ffffff"/>
+<defs><marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777"/></marker><marker id="an" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e7d32"/></marker></defs>
+<text x="480.0" y="30.0" font-family="sans-serif" font-size="16" fill="#222" text-anchor="middle" font-weight="bold">一个粒子打翻相邻 3 个单元：列复用使它们分属 3 个不同的字</text>
+<text x="70.0" y="78.0" font-family="sans-serif" font-size="15" fill="#222" text-anchor="start" font-weight="bold">有列复用（复用比 8）：一行存 8 个字，字母表示这个单元属于哪个字</text>
+<rect x="70.0" y="130.0" width="34.0" height="44.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.5"/>
+<text x="87.0" y="158.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">A</text>
+<rect x="104.0" y="130.0" width="34.0" height="44.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.5"/>
+<text x="121.0" y="158.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">B</text>
+<rect x="138.0" y="130.0" width="34.0" height="44.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.5"/>
+<text x="155.0" y="158.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">C</text>
+<rect x="172.0" y="130.0" width="34.0" height="44.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.5"/>
+<text x="189.0" y="158.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">D</text>
+<rect x="206.0" y="130.0" width="34.0" height="44.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.5"/>
+<text x="223.0" y="158.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">E</text>
+<rect x="240.0" y="130.0" width="34.0" height="44.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.5"/>
+<text x="257.0" y="158.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">F</text>
+<rect x="274.0" y="130.0" width="34.0" height="44.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.5"/>
+<text x="291.0" y="158.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">G</text>
+<rect x="308.0" y="130.0" width="34.0" height="44.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.5"/>
+<text x="325.0" y="158.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">H</text>
+<rect x="342.0" y="130.0" width="34.0" height="44.0" rx="0" fill="#eeeeee" stroke="#222" stroke-width="1.5"/>
+<text x="359.0" y="158.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">A</text>
+<rect x="376.0" y="130.0" width="34.0" height="44.0" rx="0" fill="#eeeeee" stroke="#222" stroke-width="1.5"/>
+<text x="393.0" y="158.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">B</text>
+<rect x="410.0" y="130.0" width="34.0" height="44.0" rx="0" fill="#f2a79c" stroke="#222" stroke-width="1.5"/>
+<text x="427.0" y="158.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">C</text>
+<rect x="444.0" y="130.0" width="34.0" height="44.0" rx="0" fill="#f2a79c" stroke="#222" stroke-width="1.5"/>
+<text x="461.0" y="158.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">D</text>
+<rect x="478.0" y="130.0" width="34.0" height="44.0" rx="0" fill="#f2a79c" stroke="#222" stroke-width="1.5"/>
+<text x="495.0" y="158.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">E</text>
+<rect x="512.0" y="130.0" width="34.0" height="44.0" rx="0" fill="#eeeeee" stroke="#222" stroke-width="1.5"/>
+<text x="529.0" y="158.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">F</text>
+<rect x="546.0" y="130.0" width="34.0" height="44.0" rx="0" fill="#eeeeee" stroke="#222" stroke-width="1.5"/>
+<text x="563.0" y="158.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">G</text>
+<rect x="580.0" y="130.0" width="34.0" height="44.0" rx="0" fill="#eeeeee" stroke="#222" stroke-width="1.5"/>
+<text x="597.0" y="158.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">H</text>
+<rect x="614.0" y="130.0" width="34.0" height="44.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.5"/>
+<text x="631.0" y="158.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">A</text>
+<rect x="648.0" y="130.0" width="34.0" height="44.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.5"/>
+<text x="665.0" y="158.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">B</text>
+<rect x="682.0" y="130.0" width="34.0" height="44.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.5"/>
+<text x="699.0" y="158.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">C</text>
+<rect x="716.0" y="130.0" width="34.0" height="44.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.5"/>
+<text x="733.0" y="158.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">D</text>
+<rect x="750.0" y="130.0" width="34.0" height="44.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.5"/>
+<text x="767.0" y="158.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">E</text>
+<rect x="784.0" y="130.0" width="34.0" height="44.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.5"/>
+<text x="801.0" y="158.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">F</text>
+<rect x="818.0" y="130.0" width="34.0" height="44.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.5"/>
+<text x="835.0" y="158.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">G</text>
+<rect x="852.0" y="130.0" width="34.0" height="44.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.5"/>
+<text x="869.0" y="158.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">H</text>
+<line x1="517.0" y1="100.0" x2="409.0" y2="200.0" stroke="#c0392b" stroke-width="2.5" marker-end="url(#ar)"/>
+<text x="525.0" y="110.0" font-family="sans-serif" font-size="14" fill="#c0392b" text-anchor="start">粒子径迹</text>
+<text x="70.0" y="236.0" font-family="sans-serif" font-size="14" fill="#2e7d32" text-anchor="start">被打翻的 3 个单元属于字 C、D、E，每个字只错 1 位，纠错码全部能纠正。</text>
+<line x1="73.0" y1="184.0" x2="339.0" y2="184.0" stroke="#777" stroke-width="1.5"/>
+<text x="206.0" y="204.0" font-family="sans-serif" font-size="14" fill="#777" text-anchor="middle">各字的第 0 位</text>
+<line x1="345.0" y1="184.0" x2="611.0" y2="184.0" stroke="#777" stroke-width="1.5"/>
+<text x="478.0" y="204.0" font-family="sans-serif" font-size="14" fill="#777" text-anchor="middle">各字的第 1 位</text>
+<line x1="617.0" y1="184.0" x2="883.0" y2="184.0" stroke="#777" stroke-width="1.5"/>
+<text x="750.0" y="204.0" font-family="sans-serif" font-size="14" fill="#777" text-anchor="middle">各字的第 2 位</text>
+<text x="70.0" y="308.0" font-family="sans-serif" font-size="15" fill="#222" text-anchor="start" font-weight="bold">没有列复用：一行只存 1 个字，同一个字的各位相邻排列（A10 表示字 A 的第 10 位）</text>
+<rect x="70.0" y="360.0" width="34.0" height="44.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.5"/>
+<text x="87.0" y="388.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">A0</text>
+<rect x="104.0" y="360.0" width="34.0" height="44.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.5"/>
+<text x="121.0" y="388.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">A1</text>
+<rect x="138.0" y="360.0" width="34.0" height="44.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.5"/>
+<text x="155.0" y="388.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">A2</text>
+<rect x="172.0" y="360.0" width="34.0" height="44.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.5"/>
+<text x="189.0" y="388.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">A3</text>
+<rect x="206.0" y="360.0" width="34.0" height="44.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.5"/>
+<text x="223.0" y="388.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">A4</text>
+<rect x="240.0" y="360.0" width="34.0" height="44.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.5"/>
+<text x="257.0" y="388.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">A5</text>
+<rect x="274.0" y="360.0" width="34.0" height="44.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.5"/>
+<text x="291.0" y="388.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">A6</text>
+<rect x="308.0" y="360.0" width="34.0" height="44.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.5"/>
+<text x="325.0" y="388.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">A7</text>
+<rect x="342.0" y="360.0" width="34.0" height="44.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.5"/>
+<text x="359.0" y="388.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">A8</text>
+<rect x="376.0" y="360.0" width="34.0" height="44.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.5"/>
+<text x="393.0" y="388.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">A9</text>
+<rect x="410.0" y="360.0" width="34.0" height="44.0" rx="0" fill="#f2a79c" stroke="#222" stroke-width="1.5"/>
+<text x="427.0" y="388.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">A10</text>
+<rect x="444.0" y="360.0" width="34.0" height="44.0" rx="0" fill="#f2a79c" stroke="#222" stroke-width="1.5"/>
+<text x="461.0" y="388.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">A11</text>
+<rect x="478.0" y="360.0" width="34.0" height="44.0" rx="0" fill="#f2a79c" stroke="#222" stroke-width="1.5"/>
+<text x="495.0" y="388.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">A12</text>
+<rect x="512.0" y="360.0" width="34.0" height="44.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.5"/>
+<text x="529.0" y="388.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">A13</text>
+<rect x="546.0" y="360.0" width="34.0" height="44.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.5"/>
+<text x="563.0" y="388.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">A14</text>
+<rect x="580.0" y="360.0" width="34.0" height="44.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.5"/>
+<text x="597.0" y="388.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">A15</text>
+<rect x="614.0" y="360.0" width="34.0" height="44.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.5"/>
+<text x="631.0" y="388.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">A16</text>
+<rect x="648.0" y="360.0" width="34.0" height="44.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.5"/>
+<text x="665.0" y="388.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">A17</text>
+<rect x="682.0" y="360.0" width="34.0" height="44.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.5"/>
+<text x="699.0" y="388.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">A18</text>
+<rect x="716.0" y="360.0" width="34.0" height="44.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.5"/>
+<text x="733.0" y="388.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">A19</text>
+<rect x="750.0" y="360.0" width="34.0" height="44.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.5"/>
+<text x="767.0" y="388.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">A20</text>
+<rect x="784.0" y="360.0" width="34.0" height="44.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.5"/>
+<text x="801.0" y="388.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">A21</text>
+<rect x="818.0" y="360.0" width="34.0" height="44.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.5"/>
+<text x="835.0" y="388.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">A22</text>
+<rect x="852.0" y="360.0" width="34.0" height="44.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.5"/>
+<text x="869.0" y="388.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">A23</text>
+<line x1="517.0" y1="330.0" x2="409.0" y2="430.0" stroke="#c0392b" stroke-width="2.5" marker-end="url(#ar)"/>
+<text x="525.0" y="340.0" font-family="sans-serif" font-size="14" fill="#c0392b" text-anchor="start">粒子径迹</text>
+<text x="70.0" y="444.0" font-family="sans-serif" font-size="14" fill="#c0392b" text-anchor="start">被打翻的 3 个单元都属于字 A，这个字错了 3 位，只能纠 1 位的纠错码无法纠正。</text>
+</svg>

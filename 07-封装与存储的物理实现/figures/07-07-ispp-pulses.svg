@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="540" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker></defs>
+<text x="480" y="28" font-size="17" text-anchor="middle" fill="#222" font-weight="bold">ISPP：脉冲逐级升高，每个脉冲之后校验一次</text>
+<line x1="60" y1="250" x2="920" y2="250" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<text x="905" y="272" font-size="14" text-anchor="middle" fill="#222">时间</text>
+<line x1="60" y1="250" x2="60" y2="50" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<text x="64" y="44" font-size="14" text-anchor="start" fill="#222">选中字线上的电压</text>
+<rect x="85" y="155" width="38" height="95" fill="#c9d9ee" stroke="#222" stroke-width="2"/>
+<text x="104" y="147" font-size="13" text-anchor="middle" fill="#222">16.0 V</text>
+<rect x="137" y="222" width="22" height="28" fill="#f4d9a8" stroke="#222" stroke-width="2"/>
+<rect x="185" y="143" width="38" height="107" fill="#c9d9ee" stroke="#222" stroke-width="2"/>
+<text x="204" y="135" font-size="13" text-anchor="middle" fill="#222">16.5 V</text>
+<rect x="237" y="222" width="22" height="28" fill="#f4d9a8" stroke="#222" stroke-width="2"/>
+<rect x="285" y="131" width="38" height="119" fill="#c9d9ee" stroke="#222" stroke-width="2"/>
+<text x="304" y="123" font-size="13" text-anchor="middle" fill="#222">17.0 V</text>
+<rect x="337" y="222" width="22" height="28" fill="#f4d9a8" stroke="#222" stroke-width="2"/>
+<rect x="385" y="119" width="38" height="131" fill="#c9d9ee" stroke="#222" stroke-width="2"/>
+<text x="404" y="111" font-size="13" text-anchor="middle" fill="#222">17.5 V</text>
+<rect x="437" y="222" width="22" height="28" fill="#f4d9a8" stroke="#222" stroke-width="2"/>
+<rect x="485" y="107" width="38" height="143" fill="#c9d9ee" stroke="#222" stroke-width="2"/>
+<text x="504" y="99" font-size="13" text-anchor="middle" fill="#222">18.0 V</text>
+<rect x="537" y="222" width="22" height="28" fill="#f4d9a8" stroke="#222" stroke-width="2"/>
+<rect x="585" y="95" width="38" height="155" fill="#c9d9ee" stroke="#222" stroke-width="2"/>
+<text x="604" y="87" font-size="13" text-anchor="middle" fill="#222">18.5 V</text>
+<rect x="637" y="222" width="22" height="28" fill="#f4d9a8" stroke="#222" stroke-width="2"/>
+<rect x="685" y="83" width="38" height="167" fill="#c9d9ee" stroke="#222" stroke-width="2"/>
+<text x="704" y="75" font-size="13" text-anchor="middle" fill="#222">19.0 V</text>
+<rect x="737" y="222" width="22" height="28" fill="#f4d9a8" stroke="#222" stroke-width="2"/>
+<rect x="785" y="71" width="38" height="179" fill="#c9d9ee" stroke="#222" stroke-width="2"/>
+<text x="804" y="63" font-size="13" text-anchor="middle" fill="#222">19.5 V</text>
+<rect x="837" y="222" width="22" height="28" fill="#f4d9a8" stroke="#222" stroke-width="2"/>
+<rect x="240" y="52" width="38" height="16" fill="#c9d9ee" stroke="#222" stroke-width="2"/>
+<text x="286" y="66" font-size="14" text-anchor="start" fill="#222">编程脉冲</text>
+<rect x="380" y="52" width="22" height="16" fill="#f4d9a8" stroke="#222" stroke-width="2"/>
+<text x="410" y="66" font-size="14" text-anchor="start" fill="#222">校验（一次读）</text>
+<line x1="104" y1="149" x2="804" y2="65" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="6,4"/>
+<text x="250" y="105" font-size="14" text-anchor="middle" fill="#c0392b">每次升高一个步长（0.5 V）</text>
+<text x="250" y="300" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">一个大脉冲写完：分布很宽</text>
+<line x1="60" y1="470" x2="440" y2="470" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<text x="430" y="492" font-size="14" text-anchor="middle" fill="#222">Vth</text>
+<path d="M100,470 C190.0,470 196.0,350 250.0,350 S310.0,470 400,470 Z" fill="#e3e3e3" stroke="#222" stroke-width="2"/>
+<line x1="130" y1="500" x2="370" y2="500" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<line x1="370" y1="500" x2="130" y2="500" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<text x="250" y="522" font-size="14" text-anchor="middle" fill="#222">宽度约 2 V（快慢单元相差很大）</text>
+<text x="720" y="300" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">ISPP 之后：分布宽度约等于步长</text>
+<line x1="530" y1="470" x2="910" y2="470" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<text x="900" y="492" font-size="14" text-anchor="middle" fill="#222">Vth</text>
+<path d="M690,470 C714.0,470 715.6,330 730.0,330 S746.0,470 770,470 Z" fill="#c9d9ee" stroke="#222" stroke-width="2"/>
+<line x1="690" y1="320" x2="690" y2="478" stroke="#c0392b" stroke-width="2" stroke-dasharray="5,4"/>
+<text x="680" y="360" font-size="14" text-anchor="end" fill="#c0392b">校验电平 2.0 V</text>
+<line x1="690" y1="500" x2="770" y2="500" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<line x1="770" y1="500" x2="690" y2="500" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<text x="730" y="522" font-size="14" text-anchor="middle" fill="#222">约 0.5 V</text>
+</svg>

@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560">
+<rect x="0" y="0" width="960" height="560" fill="#ffffff"/>
+<defs><marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777"/></marker><marker id="an" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e7d32"/></marker></defs>
+<text x="480.0" y="30.0" font-family="sans-serif" font-size="16" fill="#222" text-anchor="middle" font-weight="bold">8T 单元（一读一写两端口）：左边是原来的 6T，右边两个晶体管是独立的读通路</text>
+<line x1="60.0" y1="90.0" x2="640.0" y2="90.0" stroke="#222" stroke-width="2.5"/>
+<text x="646.0" y="95.0" font-family="sans-serif" font-size="15" fill="#222" text-anchor="start" font-weight="bold">写字线</text>
+<line x1="90.0" y1="70.0" x2="90.0" y2="440.0" stroke="#222" stroke-width="2.5"/>
+<text x="90.0" y="462.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">写位线</text>
+<text x="90.0" y="482.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">WBL</text>
+<line x1="610.0" y1="70.0" x2="610.0" y2="440.0" stroke="#222" stroke-width="2.5"/>
+<text x="610.0" y="462.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">写位线</text>
+<text x="610.0" y="482.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">WBLB</text>
+<line x1="170.0" y1="210.0" x2="170.0" y2="234.0" stroke="#222" stroke-width="2"/>
+<line x1="152.0" y1="234.0" x2="188.0" y2="234.0" stroke="#222" stroke-width="2.5"/>
+<line x1="152.0" y1="241.0" x2="188.0" y2="241.0" stroke="#222" stroke-width="2.5"/>
+<polyline points="158.0,241.0 158.0,250.0 130.0,250.0" fill="none" stroke="#222" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="182.0,241.0 182.0,250.0 210.0,250.0" fill="none" stroke="#222" stroke-width="2" stroke-linejoin="round"/>
+<text x="170.0" y="274.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">写访问管</text>
+<line x1="170.0" y1="90.0" x2="170.0" y2="210.0" stroke="#222" stroke-width="2"/>
+<circle cx="170.0" cy="90.0" r="4" fill="#222" stroke="#222" stroke-width="2"/>
+<line x1="90.0" y1="250.0" x2="130.0" y2="250.0" stroke="#222" stroke-width="2"/>
+<circle cx="90.0" cy="250.0" r="4" fill="#222" stroke="#222" stroke-width="2"/>
+<line x1="210.0" y1="250.0" x2="250.0" y2="250.0" stroke="#222" stroke-width="2"/>
+<line x1="530.0" y1="210.0" x2="530.0" y2="234.0" stroke="#222" stroke-width="2"/>
+<line x1="512.0" y1="234.0" x2="548.0" y2="234.0" stroke="#222" stroke-width="2.5"/>
+<line x1="512.0" y1="241.0" x2="548.0" y2="241.0" stroke="#222" stroke-width="2.5"/>
+<polyline points="518.0,241.0 518.0,250.0 490.0,250.0" fill="none" stroke="#222" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="542.0,241.0 542.0,250.0 570.0,250.0" fill="none" stroke="#222" stroke-width="2" stroke-linejoin="round"/>
+<text x="530.0" y="274.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">写访问管</text>
+<line x1="530.0" y1="90.0" x2="530.0" y2="210.0" stroke="#222" stroke-width="2"/>
+<circle cx="530.0" cy="90.0" r="4" fill="#222" stroke="#222" stroke-width="2"/>
+<line x1="610.0" y1="250.0" x2="570.0" y2="250.0" stroke="#222" stroke-width="2"/>
+<circle cx="610.0" cy="250.0" r="4" fill="#222" stroke="#222" stroke-width="2"/>
+<line x1="490.0" y1="250.0" x2="450.0" y2="250.0" stroke="#222" stroke-width="2"/>
+<line x1="250.0" y1="170.0" x2="250.0" y2="330.0" stroke="#222" stroke-width="2"/>
+<line x1="450.0" y1="170.0" x2="450.0" y2="330.0" stroke="#222" stroke-width="2"/>
+<circle cx="250.0" cy="250.0" r="4" fill="#222" stroke="#222" stroke-width="2"/>
+<circle cx="450.0" cy="250.0" r="4" fill="#222" stroke="#222" stroke-width="2"/>
+<polyline points="322.0,148.0 322.0,192.0 362.0,170.0 322.0,148.0" fill="#eeeeee" stroke="#222" stroke-width="2" stroke-linejoin="round"/>
+<circle cx="368.0" cy="170.0" r="6" fill="#fff" stroke="#222" stroke-width="2"/>
+<line x1="250.0" y1="170.0" x2="322.0" y2="170.0" stroke="#222" stroke-width="2"/>
+<line x1="374.0" y1="170.0" x2="450.0" y2="170.0" stroke="#222" stroke-width="2"/>
+<polyline points="378.0,308.0 378.0,352.0 338.0,330.0 378.0,308.0" fill="#eeeeee" stroke="#222" stroke-width="2" stroke-linejoin="round"/>
+<circle cx="332.0" cy="330.0" r="6" fill="#fff" stroke="#222" stroke-width="2"/>
+<line x1="450.0" y1="330.0" x2="378.0" y2="330.0" stroke="#222" stroke-width="2"/>
+<line x1="326.0" y1="330.0" x2="250.0" y2="330.0" stroke="#222" stroke-width="2"/>
+<text x="240.0" y="238.0" font-family="sans-serif" font-size="15" fill="#222" text-anchor="end" font-weight="bold">Q</text>
+<text x="460.0" y="238.0" font-family="sans-serif" font-size="15" fill="#222" text-anchor="start" font-weight="bold">QB</text>
+<text x="350.0" y="255.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">两个反相器</text>
+<text x="350.0" y="275.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">（4 个晶体管）</text>
+<rect x="120.0" y="120.0" width="460.0" height="260.0" rx="0" fill="none" stroke="#777" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text x="130.0" y="372.0" font-family="sans-serif" font-size="14" fill="#777" text-anchor="start">原来的 6T 部分：只用于写</text>
+<line x1="720.0" y1="300.0" x2="744.0" y2="300.0" stroke="#222" stroke-width="2"/>
+<line x1="744.0" y1="282.0" x2="744.0" y2="318.0" stroke="#222" stroke-width="2.5"/>
+<line x1="751.0" y1="282.0" x2="751.0" y2="318.0" stroke="#222" stroke-width="2.5"/>
+<polyline points="751.0,288.0 760.0,288.0 760.0,260.0" fill="none" stroke="#222" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="751.0,312.0 760.0,312.0 760.0,340.0" fill="none" stroke="#222" stroke-width="2" stroke-linejoin="round"/>
+<text x="770.0" y="305.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="start">读访问管</text>
+<line x1="720.0" y1="400.0" x2="744.0" y2="400.0" stroke="#222" stroke-width="2"/>
+<line x1="744.0" y1="382.0" x2="744.0" y2="418.0" stroke="#222" stroke-width="2.5"/>
+<line x1="751.0" y1="382.0" x2="751.0" y2="418.0" stroke="#222" stroke-width="2.5"/>
+<polyline points="751.0,388.0 760.0,388.0 760.0,360.0" fill="none" stroke="#222" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="751.0,412.0 760.0,412.0 760.0,440.0" fill="none" stroke="#222" stroke-width="2" stroke-linejoin="round"/>
+<text x="770.0" y="405.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="start">读驱动管</text>
+<line x1="760.0" y1="340.0" x2="760.0" y2="360.0" stroke="#222" stroke-width="2"/>
+<line x1="760.0" y1="440.0" x2="760.0" y2="470.0" stroke="#222" stroke-width="2"/>
+<line x1="744.0" y1="470.0" x2="776.0" y2="470.0" stroke="#222" stroke-width="2.5"/>
+<line x1="750.0" y1="477.0" x2="770.0" y2="477.0" stroke="#222" stroke-width="2.5"/>
+<line x1="756.0" y1="484.0" x2="764.0" y2="484.0" stroke="#222" stroke-width="2.5"/>
+<text x="784.0" y="476.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="start">地</text>
+<line x1="860.0" y1="70.0" x2="860.0" y2="440.0" stroke="#1f5fa8" stroke-width="2.5"/>
+<text x="860.0" y="462.0" font-family="sans-serif" font-size="14" fill="#1f5fa8" text-anchor="middle">读位线</text>
+<text x="860.0" y="482.0" font-family="sans-serif" font-size="14" fill="#1f5fa8" text-anchor="middle">RBL</text>
+<polyline points="760.0,260.0 760.0,230.0 860.0,230.0" fill="none" stroke="#1f5fa8" stroke-width="2" stroke-linejoin="round"/>
+<circle cx="860.0" cy="230.0" r="4" fill="#1f5fa8" stroke="#1f5fa8" stroke-width="2"/>
+<line x1="660.0" y1="300.0" x2="720.0" y2="300.0" stroke="#222" stroke-width="2.5"/>
+<text x="656.0" y="288.0" font-family="sans-serif" font-size="15" fill="#222" text-anchor="start" font-weight="bold">读字线</text>
+<polyline points="450.0,330.0 450.0,400.0 720.0,400.0" fill="none" stroke="#c0392b" stroke-width="2.5" stroke-linejoin="round"/>
+<circle cx="450.0" cy="330.0" r="4" fill="#222" stroke="#222" stroke-width="2"/>
+<text x="590.0" y="420.0" font-family="sans-serif" font-size="14" fill="#c0392b" text-anchor="middle">QB 只接到栅极</text>
+<line x1="800.0" y1="250.0" x2="800.0" y2="440.0" stroke="#1f5fa8" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#ab)"/>
+<text x="808.0" y="350.0" font-family="sans-serif" font-size="14" fill="#1f5fa8" text-anchor="start">读电流</text>
+<text x="480.0" y="520.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">读电流从读位线经过两个新增的晶体管流到地，不经过 Q 和 QB，所以读操作不会抬高存储节点的电压。</text>
+<text x="480.0" y="544.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">QB 为高时读驱动管导通，读位线被放电；QB 为低时读驱动管关断，读位线保持高电平。</text>
+</svg>

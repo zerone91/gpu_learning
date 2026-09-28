@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 640" width="1000" height="640" font-family="sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b5451b"/></marker><pattern id="hz" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" stroke="#999" stroke-width="2"/></pattern></defs>
+<rect x="0" y="0" width="1000" height="640" fill="#ffffff"/>
+<text x="500" y="30" font-size="18" text-anchor="middle" fill="#111" font-weight="bold" >写均衡：用 DQS 上升沿去采样，找 0 变 1 的位置</text>
+<text x="30" y="70" font-size="15" text-anchor="start" fill="#111" font-weight="bold" >（上）早期做法：被采样的是时钟 CK 本身，它每 312.5 皮秒重复一次</text>
+<text x="135" y="140" font-size="14" text-anchor="end" fill="#111" font-weight="normal" >颗粒处的 CK</text>
+<polyline points="150.0,160 281.25,160 281.25,110 515.625,110 515.625,160 750.0,160 750.0,110 930.0,110" stroke="#1f5fa8" stroke-width="2.6" fill="none" stroke-linejoin="round"/>
+<text x="281.25" y="100" font-size="13" text-anchor="middle" fill="#1f5fa8" font-weight="normal" >87.5</text>
+<text x="750.0" y="100" font-size="13" text-anchor="middle" fill="#1f5fa8" font-weight="normal" >400（应对齐的沿）</text>
+<line x1="150.0" y1="235" x2="150.0" y2="168" stroke="#b5451b" stroke-width="1.8" marker-end="url(#ar)"/>
+<text x="150.0" y="252" font-size="15" text-anchor="middle" fill="#b5451b" font-weight="bold" >0</text>
+<line x1="187.5" y1="235" x2="187.5" y2="168" stroke="#b5451b" stroke-width="1.8" marker-end="url(#ar)"/>
+<text x="187.5" y="252" font-size="15" text-anchor="middle" fill="#b5451b" font-weight="bold" >0</text>
+<line x1="225.0" y1="235" x2="225.0" y2="168" stroke="#b5451b" stroke-width="1.8" marker-end="url(#ar)"/>
+<text x="225.0" y="252" font-size="15" text-anchor="middle" fill="#b5451b" font-weight="bold" >0</text>
+<line x1="262.5" y1="235" x2="262.5" y2="168" stroke="#b5451b" stroke-width="1.8" marker-end="url(#ar)"/>
+<text x="262.5" y="252" font-size="15" text-anchor="middle" fill="#b5451b" font-weight="bold" >0</text>
+<line x1="300.0" y1="235" x2="300.0" y2="168" stroke="#b5451b" stroke-width="1.8" marker-end="url(#ar)"/>
+<text x="300.0" y="252" font-size="15" text-anchor="middle" fill="#b5451b" font-weight="bold" >1</text>
+<text x="135" y="225" font-size="14" text-anchor="end" fill="#111" font-weight="normal" >DQS 上升沿</text>
+<text x="135" y="245" font-size="14" text-anchor="end" fill="#111" font-weight="normal" >采到的值</text>
+<line x1="150.0" y1="275" x2="930.0" y2="275" stroke="#222" stroke-width="1.5" marker-end="url(#a)"/>
+<line x1="150.0" y1="270" x2="150.0" y2="280" stroke="#222" stroke-width="1.5"/>
+<text x="150.0" y="297" font-size="13" text-anchor="middle" fill="#111" font-weight="normal" >0</text>
+<line x1="300.0" y1="270" x2="300.0" y2="280" stroke="#222" stroke-width="1.5"/>
+<text x="300.0" y="297" font-size="13" text-anchor="middle" fill="#111" font-weight="normal" >100</text>
+<line x1="450.0" y1="270" x2="450.0" y2="280" stroke="#222" stroke-width="1.5"/>
+<text x="450.0" y="297" font-size="13" text-anchor="middle" fill="#111" font-weight="normal" >200</text>
+<line x1="600.0" y1="270" x2="600.0" y2="280" stroke="#222" stroke-width="1.5"/>
+<text x="600.0" y="297" font-size="13" text-anchor="middle" fill="#111" font-weight="normal" >300</text>
+<line x1="750.0" y1="270" x2="750.0" y2="280" stroke="#222" stroke-width="1.5"/>
+<text x="750.0" y="297" font-size="13" text-anchor="middle" fill="#111" font-weight="normal" >400</text>
+<line x1="900.0" y1="270" x2="900.0" y2="280" stroke="#222" stroke-width="1.5"/>
+<text x="900.0" y="297" font-size="13" text-anchor="middle" fill="#111" font-weight="normal" >500</text>
+<text x="938.0" y="297" font-size="13" text-anchor="start" fill="#111" font-weight="normal" >皮秒</text>
+<text x="345.0" y="215" font-size="14" text-anchor="start" fill="#b5451b" font-weight="normal" >← 在 87.5 处就出现 0→1，PHY 被引到了早一个周期的沿上</text>
+<line x1="20" y1="325" x2="980" y2="325" stroke="#bbb" stroke-width="1.5"/>
+<text x="30" y="358" font-size="15" text-anchor="start" fill="#111" font-weight="bold" >（下）DDR5 的做法：被采样的是每条写命令只产生一次的内部脉冲</text>
+<text x="135" y="430" font-size="14" text-anchor="end" fill="#111" font-weight="normal" >内部脉冲</text>
+<polyline points="150.0,450 750.0,450 750.0,400 930.0,400" stroke="#1f5fa8" stroke-width="2.6" fill="none" stroke-linejoin="round"/>
+<text x="750.0" y="390" font-size="13" text-anchor="middle" fill="#1f5fa8" font-weight="normal" >400</text>
+<line x1="150.0" y1="525" x2="150.0" y2="458" stroke="#b5451b" stroke-width="1.8" marker-end="url(#ar)"/>
+<text x="150.0" y="542" font-size="15" text-anchor="middle" fill="#b5451b" font-weight="bold" >0</text>
+<line x1="384.375" y1="525" x2="384.375" y2="458" stroke="#b5451b" stroke-width="1.8" marker-end="url(#ar)"/>
+<text x="384.375" y="542" font-size="15" text-anchor="middle" fill="#b5451b" font-weight="bold" >0</text>
+<line x1="618.75" y1="525" x2="618.75" y2="458" stroke="#b5451b" stroke-width="1.8" marker-end="url(#ar)"/>
+<text x="618.75" y="542" font-size="15" text-anchor="middle" fill="#b5451b" font-weight="bold" >0</text>
+<line x1="853.125" y1="525" x2="853.125" y2="458" stroke="#b5451b" stroke-width="1.8" marker-end="url(#ar)"/>
+<text x="853.125" y="542" font-size="15" text-anchor="middle" fill="#b5451b" font-weight="bold" >1</text>
+<text x="135" y="515" font-size="14" text-anchor="end" fill="#111" font-weight="normal" >DQS 上升沿</text>
+<text x="135" y="535" font-size="14" text-anchor="end" fill="#111" font-weight="normal" >采到的值</text>
+<line x1="150.0" y1="565" x2="930.0" y2="565" stroke="#222" stroke-width="1.5" marker-end="url(#a)"/>
+<line x1="150.0" y1="560" x2="150.0" y2="570" stroke="#222" stroke-width="1.5"/>
+<text x="150.0" y="587" font-size="13" text-anchor="middle" fill="#111" font-weight="normal" >0</text>
+<line x1="300.0" y1="560" x2="300.0" y2="570" stroke="#222" stroke-width="1.5"/>
+<text x="300.0" y="587" font-size="13" text-anchor="middle" fill="#111" font-weight="normal" >100</text>
+<line x1="450.0" y1="560" x2="450.0" y2="570" stroke="#222" stroke-width="1.5"/>
+<text x="450.0" y="587" font-size="13" text-anchor="middle" fill="#111" font-weight="normal" >200</text>
+<line x1="600.0" y1="560" x2="600.0" y2="570" stroke="#222" stroke-width="1.5"/>
+<text x="600.0" y="587" font-size="13" text-anchor="middle" fill="#111" font-weight="normal" >300</text>
+<line x1="750.0" y1="560" x2="750.0" y2="570" stroke="#222" stroke-width="1.5"/>
+<text x="750.0" y="587" font-size="13" text-anchor="middle" fill="#111" font-weight="normal" >400</text>
+<line x1="900.0" y1="560" x2="900.0" y2="570" stroke="#222" stroke-width="1.5"/>
+<text x="900.0" y="587" font-size="13" text-anchor="middle" fill="#111" font-weight="normal" >500</text>
+<text x="938.0" y="587" font-size="13" text-anchor="start" fill="#111" font-weight="normal" >皮秒</text>
+<text x="180.0" y="425" font-size="14" text-anchor="start" fill="#b5451b" font-weight="normal" >87.5 附近仍采到 0；唯一的 0→1 在 400 处</text>
+<text x="500" y="620" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >横轴是 DQS 的发送延迟；每个红色箭头是一次试探，箭头下的数字是颗粒从 DQ 送回的值</text>
+</svg>

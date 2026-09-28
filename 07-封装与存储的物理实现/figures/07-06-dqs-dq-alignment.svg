@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 640" width="980" height="640" font-family="sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b5451b"/></marker><pattern id="hz" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" stroke="#999" stroke-width="2"/></pattern></defs>
+<rect x="0" y="0" width="980" height="640" fill="#ffffff"/>
+<text x="490" y="30" font-size="18" text-anchor="middle" fill="#111" font-weight="bold" >写与读：DQS 相对 DQ 的位置不同</text>
+<text x="30" y="70" font-size="16" text-anchor="start" fill="#111" font-weight="bold" >写（PHY 发出，颗粒直接用 DQS 边沿采样）</text>
+<text x="180" y="125" font-size="15" text-anchor="end" fill="#111" font-weight="normal" >DQ</text>
+<line x1="190" y1="118.0" x2="225.0" y2="118.0" stroke="#777" stroke-width="1.8" stroke-dasharray="4 3"/>
+<polyline points="225.0,118.0 235.0,100 335.0,100 345.0,118.0 335.0,136 235.0,136 225.0,118.0" stroke="#222" stroke-width="2" fill="#f3f3f3" stroke-linejoin="round"/>
+<text x="258" y="123.0" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >D0</text>
+<polyline points="335.0,118.0 345.0,100 445.0,100 455.0,118.0 445.0,136 345.0,136 335.0,118.0" stroke="#222" stroke-width="2" fill="#f3f3f3" stroke-linejoin="round"/>
+<text x="368" y="123.0" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >D1</text>
+<polyline points="445.0,118.0 455.0,100 555.0,100 565.0,118.0 555.0,136 455.0,136 445.0,118.0" stroke="#222" stroke-width="2" fill="#f3f3f3" stroke-linejoin="round"/>
+<text x="478" y="123.0" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >D2</text>
+<polyline points="555.0,118.0 565.0,100 665.0,100 675.0,118.0 665.0,136 565.0,136 555.0,118.0" stroke="#222" stroke-width="2" fill="#f3f3f3" stroke-linejoin="round"/>
+<text x="588" y="123.0" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >D3</text>
+<polyline points="665.0,118.0 675.0,100 775.0,100 785.0,118.0 775.0,136 675.0,136 665.0,118.0" stroke="#222" stroke-width="2" fill="#f3f3f3" stroke-linejoin="round"/>
+<text x="698" y="123.0" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >D4</text>
+<polyline points="775.0,118.0 785.0,100 885.0,100 895.0,118.0 885.0,136 785.0,136 775.0,118.0" stroke="#222" stroke-width="2" fill="#f3f3f3" stroke-linejoin="round"/>
+<text x="808" y="123.0" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >D5</text>
+<line x1="895.0" y1="118.0" x2="930" y2="118.0" stroke="#777" stroke-width="1.8" stroke-dasharray="4 3"/>
+<text x="180" y="195" font-size="15" text-anchor="end" fill="#111" font-weight="normal" >DQS</text>
+<polyline points="190,206 285.0,206 285.0,170 395.0,170 395.0,206 505.0,206 505.0,170 615.0,170 615.0,206 725.0,206 725.0,170 835.0,170 835.0,206 945.0,206" stroke="#1f5fa8" stroke-width="2.4" fill="none" stroke-linejoin="round"/>
+<line x1="285.0" y1="96" x2="285.0" y2="212" stroke="#b5451b" stroke-width="1.5" stroke-dasharray="5 4"/>
+<line x1="395.0" y1="96" x2="395.0" y2="212" stroke="#b5451b" stroke-width="1.5" stroke-dasharray="5 4"/>
+<line x1="505.0" y1="96" x2="505.0" y2="212" stroke="#b5451b" stroke-width="1.5" stroke-dasharray="5 4"/>
+<line x1="615.0" y1="96" x2="615.0" y2="212" stroke="#b5451b" stroke-width="1.5" stroke-dasharray="5 4"/>
+<line x1="725.0" y1="96" x2="725.0" y2="212" stroke="#b5451b" stroke-width="1.5" stroke-dasharray="5 4"/>
+<line x1="835.0" y1="96" x2="835.0" y2="212" stroke="#b5451b" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="285.0" y="232" font-size="14" text-anchor="start" fill="#b5451b" font-weight="normal" >↑ DQS 的每个边沿落在比特中央</text>
+<line x1="230" y1="250" x2="285.0" y2="250" stroke="#222" stroke-width="1.8" marker-end="url(#a)" marker-start="url(#a)"/>
+<text x="257.5" y="270" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >1/4 周期</text>
+<text x="257.5" y="288" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >（半个 UI，78 皮秒）</text>
+<line x1="340" y1="250" x2="450" y2="250" stroke="#222" stroke-width="1.8" marker-end="url(#a)" marker-start="url(#a)"/>
+<text x="395.0" y="270" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >1 个 UI = 156 皮秒</text>
+<line x1="20" y1="310" x2="960" y2="310" stroke="#bbb" stroke-width="1.5"/>
+<text x="30" y="345" font-size="16" text-anchor="start" fill="#111" font-weight="bold" >读（颗粒发出，DQS 与 DQ 同时翻转；PHY 自己把 DQS 推迟后再采样）</text>
+<text x="180" y="400" font-size="15" text-anchor="end" fill="#111" font-weight="normal" >DQ</text>
+<line x1="190" y1="393.0" x2="225.0" y2="393.0" stroke="#777" stroke-width="1.8" stroke-dasharray="4 3"/>
+<polyline points="225.0,393.0 235.0,375 335.0,375 345.0,393.0 335.0,411 235.0,411 225.0,393.0" stroke="#222" stroke-width="2" fill="#f3f3f3" stroke-linejoin="round"/>
+<text x="258" y="398.0" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >D0</text>
+<polyline points="335.0,393.0 345.0,375 445.0,375 455.0,393.0 445.0,411 345.0,411 335.0,393.0" stroke="#222" stroke-width="2" fill="#f3f3f3" stroke-linejoin="round"/>
+<text x="368" y="398.0" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >D1</text>
+<polyline points="445.0,393.0 455.0,375 555.0,375 565.0,393.0 555.0,411 455.0,411 445.0,393.0" stroke="#222" stroke-width="2" fill="#f3f3f3" stroke-linejoin="round"/>
+<text x="478" y="398.0" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >D2</text>
+<polyline points="555.0,393.0 565.0,375 665.0,375 675.0,393.0 665.0,411 565.0,411 555.0,393.0" stroke="#222" stroke-width="2" fill="#f3f3f3" stroke-linejoin="round"/>
+<text x="588" y="398.0" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >D3</text>
+<polyline points="665.0,393.0 675.0,375 775.0,375 785.0,393.0 775.0,411 675.0,411 665.0,393.0" stroke="#222" stroke-width="2" fill="#f3f3f3" stroke-linejoin="round"/>
+<text x="698" y="398.0" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >D4</text>
+<polyline points="775.0,393.0 785.0,375 885.0,375 895.0,393.0 885.0,411 785.0,411 775.0,393.0" stroke="#222" stroke-width="2" fill="#f3f3f3" stroke-linejoin="round"/>
+<text x="808" y="398.0" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >D5</text>
+<line x1="895.0" y1="393.0" x2="930" y2="393.0" stroke="#777" stroke-width="1.8" stroke-dasharray="4 3"/>
+<text x="180" y="462" font-size="15" text-anchor="end" fill="#111" font-weight="normal" >收到的 DQS</text>
+<polyline points="190,473 230,473 230,437 340,437 340,473 450,473 450,437 560,437 560,473 670,473 670,437 780,437 780,473 890,473" stroke="#1f5fa8" stroke-width="2.4" fill="none" stroke-linejoin="round"/>
+<text x="180" y="518" font-size="15" text-anchor="end" fill="#111" font-weight="normal" >PHY 推迟 1/4</text>
+<text x="180" y="538" font-size="15" text-anchor="end" fill="#111" font-weight="normal" >周期后的 DQS</text>
+<polyline points="190,538 285.0,538 285.0,502 395.0,502 395.0,538 505.0,538 505.0,502 615.0,502 615.0,538 725.0,538 725.0,502 835.0,502 835.0,538 945.0,538" stroke="#b5451b" stroke-width="2.4" fill="none" stroke-linejoin="round"/>
+<line x1="285.0" y1="371" x2="285.0" y2="545" stroke="#b5451b" stroke-width="1.5" stroke-dasharray="5 4"/>
+<line x1="395.0" y1="371" x2="395.0" y2="545" stroke="#b5451b" stroke-width="1.5" stroke-dasharray="5 4"/>
+<line x1="505.0" y1="371" x2="505.0" y2="545" stroke="#b5451b" stroke-width="1.5" stroke-dasharray="5 4"/>
+<line x1="615.0" y1="371" x2="615.0" y2="545" stroke="#b5451b" stroke-width="1.5" stroke-dasharray="5 4"/>
+<line x1="725.0" y1="371" x2="725.0" y2="545" stroke="#b5451b" stroke-width="1.5" stroke-dasharray="5 4"/>
+<line x1="835.0" y1="371" x2="835.0" y2="545" stroke="#b5451b" stroke-width="1.5" stroke-dasharray="5 4"/>
+<line x1="230" y1="415" x2="230" y2="480" stroke="#1f5fa8" stroke-width="1.2" stroke-dasharray="2 4"/>
+<line x1="340" y1="415" x2="340" y2="480" stroke="#1f5fa8" stroke-width="1.2" stroke-dasharray="2 4"/>
+<line x1="450" y1="415" x2="450" y2="480" stroke="#1f5fa8" stroke-width="1.2" stroke-dasharray="2 4"/>
+<line x1="560" y1="415" x2="560" y2="480" stroke="#1f5fa8" stroke-width="1.2" stroke-dasharray="2 4"/>
+<line x1="670" y1="415" x2="670" y2="480" stroke="#1f5fa8" stroke-width="1.2" stroke-dasharray="2 4"/>
+<line x1="780" y1="415" x2="780" y2="480" stroke="#1f5fa8" stroke-width="1.2" stroke-dasharray="2 4"/>
+<line x1="890" y1="415" x2="890" y2="480" stroke="#1f5fa8" stroke-width="1.2" stroke-dasharray="2 4"/>
+<text x="230" y="575" font-size="14" text-anchor="start" fill="#1f5fa8" font-weight="normal" >蓝色：收到的 DQS 边沿正对着 DQ 的跳变处，直接采样会采到不确定的值</text>
+<text x="230" y="598" font-size="14" text-anchor="start" fill="#b5451b" font-weight="normal" >红色：推迟 1/4 周期后，边沿落在比特中央</text>
+<text x="230" y="621" font-size="14" text-anchor="start" fill="#555" font-weight="normal" >（图中省略了前导码与后导码）</text>
+</svg>

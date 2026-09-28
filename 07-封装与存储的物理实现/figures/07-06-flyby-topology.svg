@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 470" width="1000" height="470" font-family="sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b5451b"/></marker><pattern id="hz" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" stroke="#999" stroke-width="2"/></pattern></defs>
+<rect x="0" y="0" width="1000" height="470" fill="#ffffff"/>
+<text x="500" y="30" font-size="18" text-anchor="middle" fill="#111" font-weight="bold" >fly-by 走线：时钟与命令线依次经过各颗粒，数据线各自直连</text>
+<rect x="40" y="110" width="920" height="190" rx="4" fill="#f3f8f1" stroke="#3d7a3a" stroke-width="2" />
+<text x="52" y="290" font-size="14" text-anchor="start" fill="#3d7a3a" font-weight="normal" >内存条</text>
+<polyline points="15,160 940,160" stroke="#1f5fa8" stroke-width="3" fill="none" stroke-linejoin="round"/>
+<text x="15" y="100" font-size="14" text-anchor="start" fill="#1f5fa8" font-weight="normal" >CK / CA</text>
+<line x1="30" y1="106" x2="30" y2="152" stroke="#1f5fa8" stroke-width="1.5" marker-end="url(#ab)"/>
+<rect x="933.0" y="160" width="14" height="36" rx="2" fill="#fff" stroke="#222" stroke-width="1.8" />
+<text x="940" y="214" font-size="13" text-anchor="middle" fill="#111" font-weight="normal" >末端</text>
+<text x="940" y="231" font-size="13" text-anchor="middle" fill="#111" font-weight="normal" >端接</text>
+<line x1="95" y1="160" x2="95" y2="190" stroke="#1f5fa8" stroke-width="2.4"/>
+<circle cx="95" cy="160" r="4" fill="#1f5fa8" stroke="#1f5fa8" stroke-width="1.5"/>
+<rect x="59" y="190" width="72" height="70" rx="4" fill="#fff" stroke="#222" stroke-width="1.8" />
+<text x="95.0" y="220.54" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >颗粒</text>
+<text x="95.0" y="239.54" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >1</text>
+<text x="95" y="90" font-size="14" text-anchor="middle" fill="#1f5fa8" font-weight="normal" >0 ps</text>
+<line x1="95" y1="260" x2="95" y2="370" stroke="#b5451b" stroke-width="2.2" stroke-dasharray="6 3"/>
+<line x1="193" y1="160" x2="193" y2="190" stroke="#1f5fa8" stroke-width="2.4"/>
+<circle cx="193" cy="160" r="4" fill="#1f5fa8" stroke="#1f5fa8" stroke-width="1.5"/>
+<rect x="157" y="190" width="72" height="70" rx="4" fill="#fff" stroke="#222" stroke-width="1.8" />
+<text x="193.0" y="220.54" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >颗粒</text>
+<text x="193.0" y="239.54" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >2</text>
+<text x="193" y="90" font-size="14" text-anchor="middle" fill="#1f5fa8" font-weight="normal" >80 ps</text>
+<line x1="193" y1="260" x2="193" y2="370" stroke="#b5451b" stroke-width="2.2" stroke-dasharray="6 3"/>
+<line x1="291" y1="160" x2="291" y2="190" stroke="#1f5fa8" stroke-width="2.4"/>
+<circle cx="291" cy="160" r="4" fill="#1f5fa8" stroke="#1f5fa8" stroke-width="1.5"/>
+<rect x="255" y="190" width="72" height="70" rx="4" fill="#fff" stroke="#222" stroke-width="1.8" />
+<text x="291.0" y="220.54" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >颗粒</text>
+<text x="291.0" y="239.54" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >3</text>
+<text x="291" y="90" font-size="14" text-anchor="middle" fill="#1f5fa8" font-weight="normal" >160 ps</text>
+<line x1="291" y1="260" x2="291" y2="370" stroke="#b5451b" stroke-width="2.2" stroke-dasharray="6 3"/>
+<line x1="389" y1="160" x2="389" y2="190" stroke="#1f5fa8" stroke-width="2.4"/>
+<circle cx="389" cy="160" r="4" fill="#1f5fa8" stroke="#1f5fa8" stroke-width="1.5"/>
+<rect x="353" y="190" width="72" height="70" rx="4" fill="#fff" stroke="#222" stroke-width="1.8" />
+<text x="389.0" y="220.54" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >颗粒</text>
+<text x="389.0" y="239.54" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >4</text>
+<text x="389" y="90" font-size="14" text-anchor="middle" fill="#1f5fa8" font-weight="normal" >240 ps</text>
+<line x1="389" y1="260" x2="389" y2="370" stroke="#b5451b" stroke-width="2.2" stroke-dasharray="6 3"/>
+<line x1="487" y1="160" x2="487" y2="190" stroke="#1f5fa8" stroke-width="2.4"/>
+<circle cx="487" cy="160" r="4" fill="#1f5fa8" stroke="#1f5fa8" stroke-width="1.5"/>
+<rect x="451" y="190" width="72" height="70" rx="4" fill="#fff" stroke="#222" stroke-width="1.8" />
+<text x="487.0" y="220.54" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >颗粒</text>
+<text x="487.0" y="239.54" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >5</text>
+<text x="487" y="90" font-size="14" text-anchor="middle" fill="#1f5fa8" font-weight="normal" >320 ps</text>
+<line x1="487" y1="260" x2="487" y2="370" stroke="#b5451b" stroke-width="2.2" stroke-dasharray="6 3"/>
+<line x1="585" y1="160" x2="585" y2="190" stroke="#1f5fa8" stroke-width="2.4"/>
+<circle cx="585" cy="160" r="4" fill="#1f5fa8" stroke="#1f5fa8" stroke-width="1.5"/>
+<rect x="549" y="190" width="72" height="70" rx="4" fill="#fff" stroke="#222" stroke-width="1.8" />
+<text x="585.0" y="220.54" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >颗粒</text>
+<text x="585.0" y="239.54" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >6</text>
+<text x="585" y="90" font-size="14" text-anchor="middle" fill="#1f5fa8" font-weight="normal" >400 ps</text>
+<line x1="585" y1="260" x2="585" y2="370" stroke="#b5451b" stroke-width="2.2" stroke-dasharray="6 3"/>
+<line x1="683" y1="160" x2="683" y2="190" stroke="#1f5fa8" stroke-width="2.4"/>
+<circle cx="683" cy="160" r="4" fill="#1f5fa8" stroke="#1f5fa8" stroke-width="1.5"/>
+<rect x="647" y="190" width="72" height="70" rx="4" fill="#fff" stroke="#222" stroke-width="1.8" />
+<text x="683.0" y="220.54" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >颗粒</text>
+<text x="683.0" y="239.54" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >7</text>
+<text x="683" y="90" font-size="14" text-anchor="middle" fill="#1f5fa8" font-weight="normal" >480 ps</text>
+<line x1="683" y1="260" x2="683" y2="370" stroke="#b5451b" stroke-width="2.2" stroke-dasharray="6 3"/>
+<line x1="781" y1="160" x2="781" y2="190" stroke="#1f5fa8" stroke-width="2.4"/>
+<circle cx="781" cy="160" r="4" fill="#1f5fa8" stroke="#1f5fa8" stroke-width="1.5"/>
+<rect x="745" y="190" width="72" height="70" rx="4" fill="#fff" stroke="#222" stroke-width="1.8" />
+<text x="781.0" y="220.54" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >颗粒</text>
+<text x="781.0" y="239.54" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >8</text>
+<text x="781" y="90" font-size="14" text-anchor="middle" fill="#1f5fa8" font-weight="normal" >560 ps</text>
+<line x1="781" y1="260" x2="781" y2="370" stroke="#b5451b" stroke-width="2.2" stroke-dasharray="6 3"/>
+<line x1="879" y1="160" x2="879" y2="190" stroke="#1f5fa8" stroke-width="2.4"/>
+<circle cx="879" cy="160" r="4" fill="#1f5fa8" stroke="#1f5fa8" stroke-width="1.5"/>
+<rect x="843" y="190" width="72" height="70" rx="4" fill="#fff" stroke="#222" stroke-width="1.8" />
+<text x="879.0" y="220.54" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >颗粒</text>
+<text x="879.0" y="239.54" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >9</text>
+<text x="879" y="90" font-size="14" text-anchor="middle" fill="#1f5fa8" font-weight="normal" >640 ps</text>
+<line x1="879" y1="260" x2="879" y2="370" stroke="#b5451b" stroke-width="2.2" stroke-dasharray="6 3"/>
+<text x="500" y="66" font-size="14" text-anchor="middle" fill="#1f5fa8" font-weight="normal" >时钟到达各颗粒的时刻（以第 1 颗为零点，相邻间距 12 mm ≈ 80 皮秒）</text>
+<rect x="60" y="370" width="880" height="40" rx="4" fill="#fdeee6" stroke="#b5451b" stroke-width="1.8" />
+<text x="500" y="395" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >计算芯片的 PHY：DQ / DQS 到每颗颗粒的走线长度大致相等（红色虚线）</text>
+<text x="500" y="440" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >首尾相差 640 皮秒 ≈ 4.1 个 UI（DDR5-6400）：远端颗粒看到的时钟比数据晚到，PHY 要逐个字节通道推迟 DQS 和 DQ</text>
+</svg>

@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 560" width="980" height="560" font-family="sans-serif" font-size="15">
+  <rect x="0" y="0" width="980" height="560" fill="#ffffff"/>
+  <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker></defs>
+  <!-- eMMC -->
+  <text x="230" y="24" text-anchor="middle" font-size="17" font-weight="bold">eMMC：并行线，半双工</text>
+  <rect x="40" y="60" width="120" height="300" fill="#eeeeee" stroke="#222" stroke-width="2"/><text x="100" y="215" text-anchor="middle">主机</text>
+  <rect x="300" y="60" width="120" height="300" fill="#eeeeee" stroke="#222" stroke-width="2"/><text x="360" y="205" text-anchor="middle">eMMC</text><text x="360" y="227" text-anchor="middle">设备</text>
+  <g stroke="#222" stroke-width="2"><line x1="160" y1="96" x2="300" y2="96"/><line x1="160" y1="140" x2="300" y2="140"/><line x1="160" y1="330" x2="300" y2="330"/></g>
+  <g stroke="#1f5fa8" stroke-width="2"><line x1="160" y1="186" x2="300" y2="186"/><line x1="160" y1="202" x2="300" y2="202"/><line x1="160" y1="218" x2="300" y2="218"/><line x1="160" y1="234" x2="300" y2="234"/><line x1="160" y1="250" x2="300" y2="250"/><line x1="160" y1="266" x2="300" y2="266"/><line x1="160" y1="282" x2="300" y2="282"/><line x1="160" y1="298" x2="300" y2="298"/></g>
+  <g font-size="13" text-anchor="middle"><text x="230" y="88">时钟 CLK →</text><text x="230" y="132">命令线 CMD ↔</text><text x="230" y="176" fill="#1f5fa8">8 根数据线 ↔</text><text x="230" y="322">← 数据选通 DS</text></g>
+  <text x="40" y="392" font-size="14">11 根单端信号线。数据线读写共用，</text><text x="40" y="412" font-size="14">同一时刻只能朝一个方向传。</text>
+  <text x="40" y="440" font-size="14">HS400：200 MHz 双沿 × 8 位 = 400 MB/s</text>
+  <!-- divider -->
+  <line x1="470" y1="20" x2="470" y2="500" stroke="#bbb" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <!-- UFS -->
+  <text x="725" y="24" text-anchor="middle" font-size="17" font-weight="bold">UFS：三层协议栈，串行差分，全双工</text>
+  <g stroke="#222" stroke-width="2">
+    <rect x="500" y="60" width="170" height="70" fill="#f5f5f5"/><rect x="500" y="130" width="170" height="70" fill="#f5f5f5"/><rect x="500" y="200" width="170" height="70" fill="#cfe3f7"/>
+    <rect x="780" y="60" width="170" height="70" fill="#f5f5f5"/><rect x="780" y="130" width="170" height="70" fill="#f5f5f5"/><rect x="780" y="200" width="170" height="70" fill="#cfe3f7"/>
+  </g>
+  <text x="585" y="54" text-anchor="middle" font-weight="bold">主机</text><text x="865" y="54" text-anchor="middle" font-weight="bold">UFS 设备</text>
+  <g text-anchor="middle">
+    <text x="585" y="90">SCSI 命令 + UTP</text><text x="585" y="112" font-size="13">打包成 UPIU</text>
+    <text x="585" y="160">UniPro</text><text x="585" y="182" font-size="13">分帧、校验、重传</text>
+    <text x="585" y="230">M-PHY</text><text x="585" y="252" font-size="13">串行化、差分驱动</text>
+    <text x="865" y="90">SCSI 命令 + UTP</text><text x="865" y="112" font-size="13">解出命令</text>
+    <text x="865" y="160">UniPro</text><text x="865" y="182" font-size="13">校验、确认</text>
+    <text x="865" y="230">M-PHY</text><text x="865" y="252" font-size="13">时钟恢复、接收</text>
+  </g>
+  <g font-size="13" text-anchor="middle" fill="#555"><text x="725" y="90">应用层（JEDEC）</text><text x="725" y="160">链路层（MIPI）</text><text x="725" y="224">物理层（MIPI）</text></g>
+  <g stroke="#555" stroke-width="1.5" stroke-dasharray="4 4"><line x1="670" y1="98" x2="780" y2="98"/><line x1="670" y1="168" x2="780" y2="168"/></g>
+  <!-- lanes -->
+  <defs><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/></marker>
+  <marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#b35a00"/></marker></defs>
+  <polyline points="560,270 560,320 840,320 840,274" fill="none" stroke="#1f5fa8" stroke-width="2.5" marker-end="url(#ab)"/>
+  <polyline points="900,270 900,370 610,370 610,274" fill="none" stroke="#b35a00" stroke-width="2.5" stroke-dasharray="8 4" marker-end="url(#ao)"/>
+  <text x="700" y="312" text-anchor="middle" font-size="14" fill="#1f5fa8">主机 → 设备：一对差分线</text>
+  <text x="755" y="362" text-anchor="middle" font-size="14" fill="#b35a00">设备 → 主机：一对差分线</text>
+  <text x="500" y="412" font-size="14" fill="#555">（蓝色实线与橙色虚线各代表一对差分线）</text>
+  <text x="500" y="440" font-size="14">图中画的是 1 条通路（lane）；UFS 通常用 2 条，即 4 对差分线。</text>
+  <text x="500" y="462" font-size="14">收发各走各的线，所以下发新命令和回传数据可以同时进行。</text>
+  <text x="500" y="490" font-size="14">UFS 4.0：每条通路 23.3 Gbps × 2 条 × 0.8 ÷ 8 ≈ 4.66 GB/s</text>
+  <text x="40" y="530" font-size="14" fill="#555">两侧的存储设备内部都另有控制器和 NAND 侧接口（见图 8-1），主机看不到。</text>
+</svg>

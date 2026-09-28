@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 520" width="1000" height="520" font-family="sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b5451b"/></marker><pattern id="hz" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" stroke="#999" stroke-width="2"/></pattern></defs>
+<rect x="0" y="0" width="1000" height="520" fill="#ffffff"/>
+<text x="500" y="30" font-size="18" text-anchor="middle" fill="#111" font-weight="bold" >读门控训练：门控要在前导码期间打开</text>
+<text x="155" y="120" font-size="14" text-anchor="end" fill="#111" font-weight="normal" >收到的 DQS</text>
+<rect x="170.0" y="90" width="208.0000000000001" height="50" rx="0" fill="url(#hz)" stroke="#999" stroke-width="1.2" />
+<text x="274.00000000000006" y="80" font-size="14" text-anchor="middle" fill="#555" font-weight="normal" >高阻，电平不确定</text>
+<polyline points="378.0000000000001,140 578.0000000000001,140 578.0000000000001,140 578.0000000000001,90 678.0000000000001,90 678.0000000000001,140 778.0000000000001,140 778.0000000000001,90 878.0000000000001,90 878.0000000000001,140 950.0,140" stroke="#1f5fa8" stroke-width="2.6" fill="none" stroke-linejoin="round"/>
+<text x="478.0000000000001" y="80" font-size="14" text-anchor="middle" fill="#1f5fa8" font-weight="normal" >前导码（1 个周期）</text>
+<text x="770.0000000000001" y="80" font-size="14" text-anchor="middle" fill="#1f5fa8" font-weight="normal" >数据段：共 8 个上升沿</text>
+<line x1="378.0000000000001" y1="150" x2="378.0000000000001" y2="175" stroke="#1f5fa8" stroke-width="1.5"/>
+<text x="378.0000000000001" y="192" font-size="13" text-anchor="middle" fill="#1f5fa8" font-weight="normal" >4.44</text>
+<line x1="578.0000000000001" y1="150" x2="578.0000000000001" y2="175" stroke="#1f5fa8" stroke-width="1.5"/>
+<text x="578.0000000000001" y="192" font-size="13" text-anchor="middle" fill="#1f5fa8" font-weight="normal" >5.44</text>
+<line x1="170.0" y1="300" x2="950.0" y2="300" stroke="#222" stroke-width="1.5" marker-end="url(#a)"/>
+<text x="956.0" y="305" font-size="13" text-anchor="start" fill="#111" font-weight="normal" >周期</text>
+<line x1="190.00000000000003" y1="295" x2="190.00000000000003" y2="305" stroke="#222" stroke-width="1.5"/>
+<text x="190.00000000000003" y="324" font-size="13" text-anchor="middle" fill="#111" font-weight="normal" >3.5</text>
+<line x1="290.0" y1="295" x2="290.0" y2="305" stroke="#222" stroke-width="1.5"/>
+<text x="290.0" y="324" font-size="13" text-anchor="middle" fill="#111" font-weight="normal" >4.0</text>
+<line x1="390.0" y1="295" x2="390.0" y2="305" stroke="#222" stroke-width="1.5"/>
+<text x="390.0" y="324" font-size="13" text-anchor="middle" fill="#111" font-weight="normal" >4.5</text>
+<line x1="490.0" y1="295" x2="490.0" y2="305" stroke="#222" stroke-width="1.5"/>
+<text x="490.0" y="324" font-size="13" text-anchor="middle" fill="#111" font-weight="normal" >5.0</text>
+<line x1="590.0" y1="295" x2="590.0" y2="305" stroke="#222" stroke-width="1.5"/>
+<text x="590.0" y="324" font-size="13" text-anchor="middle" fill="#111" font-weight="normal" >5.5</text>
+<line x1="690.0" y1="295" x2="690.0" y2="305" stroke="#222" stroke-width="1.5"/>
+<text x="690.0" y="324" font-size="13" text-anchor="middle" fill="#111" font-weight="normal" >6.0</text>
+<line x1="790.0" y1="295" x2="790.0" y2="305" stroke="#222" stroke-width="1.5"/>
+<text x="790.0" y="324" font-size="13" text-anchor="middle" fill="#111" font-weight="normal" >6.5</text>
+<line x1="890.0" y1="295" x2="890.0" y2="305" stroke="#222" stroke-width="1.5"/>
+<text x="890.0" y="324" font-size="13" text-anchor="middle" fill="#111" font-weight="normal" >7.0</text>
+<line x1="190.00000000000003" y1="292" x2="190.00000000000003" y2="215" stroke="#b5451b" stroke-width="2" stroke-dasharray="5 4"/>
+<text x="190.00000000000003" y="0" font-size="1" text-anchor="middle" fill="#111" font-weight="normal" ></text>
+<text x="190.00000000000003" y="348" font-size="13" text-anchor="middle" fill="#b5451b" font-weight="normal" >9~11 个</text>
+<text x="190.00000000000003" y="368" font-size="13" text-anchor="middle" fill="#b5451b" font-weight="bold" >开早了</text>
+<line x1="290.0" y1="292" x2="290.0" y2="215" stroke="#b5451b" stroke-width="2" stroke-dasharray="5 4"/>
+<text x="290.0" y="0" font-size="1" text-anchor="middle" fill="#111" font-weight="normal" ></text>
+<text x="290.0" y="348" font-size="13" text-anchor="middle" fill="#b5451b" font-weight="normal" >9 个</text>
+<text x="290.0" y="368" font-size="13" text-anchor="middle" fill="#b5451b" font-weight="bold" >开早了</text>
+<line x1="390.0" y1="292" x2="390.0" y2="215" stroke="#2e7d32" stroke-width="2"/>
+<text x="390.0" y="0" font-size="1" text-anchor="middle" fill="#111" font-weight="normal" ></text>
+<text x="390.0" y="348" font-size="13" text-anchor="middle" fill="#2e7d32" font-weight="normal" >8 个</text>
+<text x="390.0" y="368" font-size="13" text-anchor="middle" fill="#2e7d32" font-weight="bold" >通过</text>
+<line x1="490.0" y1="292" x2="490.0" y2="215" stroke="#2e7d32" stroke-width="2"/>
+<text x="490.0" y="0" font-size="1" text-anchor="middle" fill="#111" font-weight="normal" ></text>
+<text x="490.0" y="348" font-size="13" text-anchor="middle" fill="#2e7d32" font-weight="normal" >8 个</text>
+<text x="490.0" y="368" font-size="13" text-anchor="middle" fill="#2e7d32" font-weight="bold" >通过</text>
+<line x1="590.0" y1="292" x2="590.0" y2="215" stroke="#b5451b" stroke-width="2" stroke-dasharray="5 4"/>
+<text x="590.0" y="0" font-size="1" text-anchor="middle" fill="#111" font-weight="normal" ></text>
+<text x="590.0" y="348" font-size="13" text-anchor="middle" fill="#b5451b" font-weight="normal" >7 个</text>
+<text x="590.0" y="368" font-size="13" text-anchor="middle" fill="#b5451b" font-weight="bold" >开晚了</text>
+<line x1="690.0" y1="292" x2="690.0" y2="215" stroke="#b5451b" stroke-width="2" stroke-dasharray="5 4"/>
+<text x="690.0" y="0" font-size="1" text-anchor="middle" fill="#111" font-weight="normal" ></text>
+<text x="690.0" y="348" font-size="13" text-anchor="middle" fill="#b5451b" font-weight="normal" >7 个</text>
+<text x="690.0" y="368" font-size="13" text-anchor="middle" fill="#b5451b" font-weight="bold" >开晚了</text>
+<text x="155" y="348" font-size="14" text-anchor="end" fill="#111" font-weight="normal" >数到的上升沿</text>
+<text x="155" y="368" font-size="14" text-anchor="end" fill="#111" font-weight="normal" >判定</text>
+<text x="155" y="250" font-size="14" text-anchor="end" fill="#111" font-weight="normal" >试探的门控</text>
+<text x="155" y="270" font-size="14" text-anchor="end" fill="#111" font-weight="normal" >打开时刻</text>
+<rect x="378.0000000000001" y="400" width="200.0" height="30" rx="4" fill="#e6f3e6" stroke="#2e7d32" stroke-width="1.8" />
+<text x="423.0000000000001" y="420" font-size="14" text-anchor="middle" fill="#2e7d32" font-weight="normal" >可用窗口</text>
+<line x1="478.0000000000001" y1="396" x2="478.0000000000001" y2="434" stroke="#2e7d32" stroke-width="3.5"/>
+<text x="478.0000000000001" y="452" font-size="14" text-anchor="middle" fill="#2e7d32" font-weight="bold" >最终设定 4.94（窗口中点）</text>
+<text x="500" y="495" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >横轴以“读命令之后 CL 个周期”为零点；实线为通过的试探，虚线为失败的试探</text>
+</svg>

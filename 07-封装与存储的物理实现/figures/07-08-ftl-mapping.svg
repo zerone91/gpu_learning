@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470" width="960" height="470" font-family="sans-serif" font-size="15">
+  <rect x="0" y="0" width="960" height="470" fill="#ffffff"/>
+  <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/></marker>
+  <marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#999"/></marker></defs>
+  <text x="20" y="30" font-size="17" font-weight="bold">异地更新：改写 LBA 1 之后，映射表和 NAND 各自变成什么样（对应 §4.1 表中步骤 2）</text>
+  <!-- host view -->
+  <text x="40" y="80" font-weight="bold">主机看到的逻辑地址</text>
+  <g stroke="#222" stroke-width="2" fill="#f5f5f5">
+    <rect x="40" y="95" width="120" height="44"/><rect x="40" y="139" width="120" height="44" fill="#cfe3f7"/><rect x="40" y="183" width="120" height="44"/><rect x="40" y="227" width="120" height="44"/>
+  </g>
+  <g text-anchor="middle"><text x="100" y="122">LBA 0</text><text x="100" y="166">LBA 1（改写）</text><text x="100" y="210">LBA 2</text><text x="100" y="254">LBA 3</text></g>
+  <!-- mapping table -->
+  <text x="300" y="80" font-weight="bold">映射表（在 DRAM 里）</text>
+  <g stroke="#222" stroke-width="2" fill="#ffffff">
+    <rect x="300" y="95" width="80" height="44"/><rect x="380" y="95" width="120" height="44"/>
+    <rect x="300" y="139" width="80" height="44"/><rect x="380" y="139" width="120" height="44" fill="#cfe3f7"/>
+    <rect x="300" y="183" width="80" height="44"/><rect x="380" y="183" width="120" height="44"/>
+    <rect x="300" y="227" width="80" height="44"/><rect x="380" y="227" width="120" height="44"/>
+  </g>
+  <g text-anchor="middle"><text x="340" y="122">0</text><text x="340" y="166">1</text><text x="340" y="210">2</text><text x="340" y="254">3</text>
+  <text x="440" y="122">块 A 第 0 页</text><text x="440" y="158" font-size="13" fill="#777" text-decoration="line-through">块 A 第 1 页</text><text x="440" y="177" font-weight="bold">块 B 第 0 页</text><text x="440" y="210">块 A 第 2 页</text><text x="440" y="254">块 A 第 3 页</text></g>
+  <g stroke="#222" stroke-width="1.5" fill="none" marker-end="url(#g)" stroke-dasharray="none">
+    <line x1="160" y1="117" x2="296" y2="117" stroke="#999"/><line x1="160" y1="161" x2="296" y2="161" stroke="#999"/><line x1="160" y1="205" x2="296" y2="205" stroke="#999"/><line x1="160" y1="249" x2="296" y2="249" stroke="#999"/>
+  </g>
+  <!-- NAND blocks -->
+  <text x="640" y="80" font-weight="bold">NAND 上的物理页</text>
+  <text x="640" y="112">块 A</text>
+  <g stroke="#222" stroke-width="2">
+    <rect x="690" y="90" width="60" height="44" fill="#f5f5f5"/><rect x="750" y="90" width="60" height="44" fill="#dddddd"/><rect x="810" y="90" width="60" height="44" fill="#f5f5f5"/><rect x="870" y="90" width="60" height="44" fill="#f5f5f5"/>
+    <line x1="750" y1="90" x2="810" y2="134"/><line x1="810" y1="90" x2="750" y2="134"/>
+  </g>
+  <g text-anchor="middle"><text x="720" y="117">0</text><text x="840" y="117">2</text><text x="900" y="117">3</text></g>
+  <text x="780" y="154" text-anchor="middle" font-size="13">旧的 1：无效</text>
+  <text x="640" y="222">块 B</text>
+  <g stroke="#222" stroke-width="2">
+    <rect x="690" y="200" width="60" height="44" fill="#cfe3f7"/><rect x="750" y="200" width="60" height="44" fill="#ffffff" stroke-dasharray="5 4"/><rect x="810" y="200" width="60" height="44" fill="#ffffff" stroke-dasharray="5 4"/><rect x="870" y="200" width="60" height="44" fill="#ffffff" stroke-dasharray="5 4"/>
+  </g>
+  <g text-anchor="middle"><text x="720" y="227" font-weight="bold">1′</text><text x="780" y="227" font-size="13">空白</text><text x="840" y="227" font-size="13">空白</text><text x="900" y="227" font-size="13">空白</text></g>
+  <path d="M500,161 C580,161 600,260 700,246" fill="none" stroke="#1f5fa8" stroke-width="2.5" marker-end="url(#a)"/>
+  <text x="520" y="290" fill="#1f5fa8" font-weight="bold">表项改为指向新位置</text>
+  <!-- notes -->
+  <g font-size="15">
+    <text x="40" y="340">① 新数据写进块 B 的空白页，旧页只是被标记为无效，块 A 不擦。</text>
+    <text x="40" y="368">② 主机仍然读写“LBA 1”，它不知道数据的物理位置变了；位置变化只记录在映射表里。</text>
+    <text x="40" y="396">③ 无效页不能直接重用：它所在的块 A 里还有三个有效页，必须先搬走有效页再整块擦除（垃圾回收，见图 8-5）。</text>
+    <text x="40" y="432" fill="#555" font-size="14">图例：蓝色为本次改写涉及的内容；打叉的灰色页为无效页；虚线框为已擦除的空白页。</text>
+  </g>
+</svg>

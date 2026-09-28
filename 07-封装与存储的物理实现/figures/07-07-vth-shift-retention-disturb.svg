@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 650" width="960" height="650" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="650" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker></defs>
+<text x="480" y="28" font-size="17" text-anchor="middle" fill="#222" font-weight="bold">三种情况下相邻两个状态的阈值电压分布</text>
+<clipPath id="cl"><rect x="0" y="0" width="470" height="700"/></clipPath><clipPath id="cr"><rect x="470" y="0" width="600" height="700"/></clipPath>
+<text x="60" y="50" font-size="15" text-anchor="start" fill="#222" font-weight="bold">① 刚写入：参考电压正好在两个分布之间的谷底</text>
+<line x1="60" y1="190" x2="900" y2="190" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<text x="890" y="210" font-size="14" text-anchor="middle" fill="#222">Vth</text>
+<path d="M240,190 C300.0,190 304.0,90 340.0,90 S380.0,190 440,190 Z" fill="#c9d9ee" fill-opacity="0.85" stroke="#222" stroke-width="2"/>
+<path d="M500,190 C560.0,190 564.0,90 600.0,90 S640.0,190 700,190 Z" fill="#f4d9a8" fill-opacity="0.85" stroke="#222" stroke-width="2"/>
+<text x="340.0" y="160" font-size="14" text-anchor="middle" fill="#222">低状态</text>
+<text x="600.0" y="160" font-size="14" text-anchor="middle" fill="#222">高状态</text>
+<line x1="470" y1="72" x2="470" y2="198" stroke="#c0392b" stroke-width="2.5"/>
+<text x="476" y="216" font-size="14" text-anchor="start" fill="#c0392b">默认参考电压</text>
+<text x="60" y="235" font-size="15" text-anchor="start" fill="#222" font-weight="bold">② 存放很久之后（保持损失）：高状态整体向低偏</text>
+<line x1="60" y1="375" x2="900" y2="375" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<text x="890" y="395" font-size="14" text-anchor="middle" fill="#222">Vth</text>
+<path d="M240,375 C300.0,375 304.0,275 340.0,275 S380.0,375 440,375 Z" fill="none" stroke="#888" stroke-width="2" stroke-dasharray="5,4"/>
+<path d="M500,375 C560.0,375 564.0,275 600.0,275 S640.0,375 700,375 Z" fill="none" stroke="#888" stroke-width="2" stroke-dasharray="5,4"/>
+<path d="M240,375 C300.0,375 304.0,275 340.0,275 S380.0,375 440,375 Z" fill="#c9d9ee" fill-opacity="0.85" stroke="#222" stroke-width="2"/>
+<path d="M390,375 C450.0,375 454.0,275 490.0,275 S530.0,375 590,375 Z" fill="#f4d9a8" fill-opacity="0.85" stroke="#222" stroke-width="2"/>
+<path d="M390,375 C450.0,375 454.0,275 490.0,275 S530.0,375 590,375 Z" fill="#c0392b" stroke="#222" stroke-width="2" clip-path="url(#cl)"/>
+<text x="340.0" y="345" font-size="14" text-anchor="middle" fill="#222">低状态</text>
+<text x="520.0" y="345" font-size="14" text-anchor="middle" fill="#222">高状态</text>
+<line x1="470" y1="257" x2="470" y2="383" stroke="#c0392b" stroke-width="2.5"/>
+<text x="476" y="401" font-size="14" text-anchor="start" fill="#c0392b">默认参考电压</text>
+<line x1="690" y1="315" x2="620" y2="315" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<line x1="415" y1="257" x2="415" y2="383" stroke="#1e7a34" stroke-width="2.5" stroke-dasharray="7,4"/>
+<text x="409" y="401" font-size="14" text-anchor="end" fill="#1e7a34">读重试后的参考电压</text>
+<text x="905" y="280" font-size="13" text-anchor="end" fill="#222">红色部分：落在默认参考电压左侧</text>
+<text x="905" y="298" font-size="13" text-anchor="end" fill="#222">的高状态单元，被误读成低状态</text>
+<text x="60" y="420" font-size="15" text-anchor="start" fill="#222" font-weight="bold">③ 同块被读了很多次之后（读干扰）：低状态向高偏并变宽</text>
+<line x1="60" y1="560" x2="900" y2="560" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<text x="890" y="580" font-size="14" text-anchor="middle" fill="#222">Vth</text>
+<path d="M240,560 C300.0,560 304.0,460 340.0,460 S380.0,560 440,560 Z" fill="none" stroke="#888" stroke-width="2" stroke-dasharray="5,4"/>
+<path d="M500,560 C560.0,560 564.0,460 600.0,460 S640.0,560 700,560 Z" fill="none" stroke="#888" stroke-width="2" stroke-dasharray="5,4"/>
+<path d="M290,560 C377.0,560 382.8,485 435.0,485 S493.0,560 580,560 Z" fill="#c9d9ee" fill-opacity="0.85" stroke="#222" stroke-width="2"/>
+<path d="M500,560 C560.0,560 564.0,460 600.0,460 S640.0,560 700,560 Z" fill="#f4d9a8" fill-opacity="0.85" stroke="#222" stroke-width="2"/>
+<path d="M290,560 C377.0,560 382.8,485 435.0,485 S493.0,560 580,560 Z" fill="#c0392b" stroke="#222" stroke-width="2" clip-path="url(#cr)"/>
+<text x="435.0" y="530" font-size="14" text-anchor="middle" fill="#222">低状态</text>
+<text x="600.0" y="530" font-size="14" text-anchor="middle" fill="#222">高状态</text>
+<line x1="470" y1="442" x2="470" y2="568" stroke="#c0392b" stroke-width="2.5"/>
+<text x="476" y="586" font-size="14" text-anchor="start" fill="#c0392b">默认参考电压</text>
+<line x1="300" y1="500" x2="360" y2="500" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<text x="905" y="465" font-size="13" text-anchor="end" fill="#222">红色部分：越过参考电压的</text>
+<text x="905" y="483" font-size="13" text-anchor="end" fill="#222">低状态单元，被误读成高状态</text>
+<text x="60" y="610" font-size="14" text-anchor="start" fill="#222">虚线轮廓是刚写入时的位置。分布越过参考电压的部分（红色）就是误码。</text>
+<text x="60" y="632" font-size="14" text-anchor="start" fill="#222">②里把参考电压向左移到新的谷底（绿色虚线），红色部分就消失了，这就是读重试。</text>
+</svg>

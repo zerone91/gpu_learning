@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 380" width="900" height="380" font-family="sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b5451b"/></marker><pattern id="hz" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" stroke="#999" stroke-width="2"/></pattern></defs>
+<rect x="0" y="0" width="900" height="380" fill="#ffffff"/>
+<text x="450" y="30" font-size="18" text-anchor="middle" fill="#111" font-weight="bold" >锁相环：五个部件连成一个环</text>
+<rect x="80" y="90" width="140" height="90" rx="4" fill="#eef3fb" stroke="#222" stroke-width="1.8" />
+<text x="150.0" y="121.04" font-size="14" text-anchor="middle" fill="#111" font-weight="bold" >鉴相器</text>
+<text x="150.0" y="140.04000000000002" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >比较两个边沿</text>
+<text x="150.0" y="159.04000000000002" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >谁先到</text>
+<rect x="260" y="90" width="140" height="90" rx="4" fill="#eef3fb" stroke="#222" stroke-width="1.8" />
+<text x="330.0" y="121.04" font-size="14" text-anchor="middle" fill="#111" font-weight="bold" >电荷泵</text>
+<text x="330.0" y="140.04000000000002" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >落后就注入</text>
+<text x="330.0" y="159.04000000000002" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >超前就抽走</text>
+<rect x="440" y="90" width="140" height="90" rx="4" fill="#eef3fb" stroke="#222" stroke-width="1.8" />
+<text x="510.0" y="121.04" font-size="14" text-anchor="middle" fill="#111" font-weight="bold" >环路滤波器</text>
+<text x="510.0" y="140.04000000000002" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >电容上的电压</text>
+<text x="510.0" y="159.04000000000002" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >平缓变化</text>
+<rect x="620" y="90" width="140" height="90" rx="4" fill="#eef3fb" stroke="#222" stroke-width="1.8" />
+<text x="690.0" y="121.04" font-size="14" text-anchor="middle" fill="#111" font-weight="bold" >压控振荡器</text>
+<text x="690.0" y="140.04000000000002" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >VCO</text>
+<text x="690.0" y="159.04000000000002" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >电压越高越快</text>
+<line x1="220" y1="135" x2="260" y2="135" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<line x1="400" y1="135" x2="440" y2="135" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<line x1="580" y1="135" x2="620" y2="135" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<line x1="20" y1="115" x2="80" y2="115" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<text x="20" y="100" font-size="14" text-anchor="start" fill="#111" font-weight="normal" >参考时钟</text>
+<text x="20" y="140" font-size="14" text-anchor="start" fill="#1f5fa8" font-weight="normal" >100 MHz</text>
+<line x1="760" y1="135" x2="880" y2="135" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<text x="848" y="120" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >输出时钟</text>
+<text x="850" y="160" font-size="14" text-anchor="middle" fill="#b5451b" font-weight="normal" >3200 MHz</text>
+<circle cx="800" cy="135" r="4" fill="#222" stroke="#222" stroke-width="1.5"/>
+<polyline points="800,135 800,290 520,290" stroke="#222" stroke-width="2" fill="none" marker-end="url(#a)" stroke-linejoin="round"/>
+<rect x="380" y="250" width="140" height="80" rx="4" fill="#fdf3e3" stroke="#222" stroke-width="1.8" />
+<text x="450.0" y="285.4" font-size="15" text-anchor="middle" fill="#111" font-weight="bold" >分频器</text>
+<text x="450.0" y="305.4" font-size="15" text-anchor="middle" fill="#111" font-weight="normal" >÷ 32</text>
+<polyline points="380,290 50,290 50,160 80,160" stroke="#222" stroke-width="2" fill="none" marker-end="url(#a)" stroke-linejoin="round"/>
+<text x="215" y="280" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >分频后 100 MHz（锁定时）</text>
+<text x="660" y="280" font-size="14" text-anchor="middle" fill="#111" font-weight="normal" >3200 MHz</text>
+<text x="450" y="360" font-size="15" text-anchor="middle" fill="#111" font-weight="normal" >锁定条件：鉴相器的两个输入同频同相，此时输出频率 = 参考频率 × 32</text>
+</svg>

@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 540" width="820" height="540" font-family="sans-serif" font-size="16">
+<rect width="820" height="540" fill="#ffffff"/>
+<line x1="180" y1="60" x2="180" y2="500" stroke="#1f5fa8" stroke-width="3"/>
+<line x1="640" y1="60" x2="640" y2="500" stroke="#1f5fa8" stroke-width="3" stroke-dasharray="10 6"/>
+<text x="180" y="48" text-anchor="middle" font-size="16" fill="#1f5fa8" font-weight="bold">位线 BL</text>
+<text x="640" y="48" text-anchor="middle" font-size="16" fill="#1f5fa8" font-weight="bold">参考位线 BLB</text>
+<line x1="260" y1="110" x2="560" y2="110" stroke="#000" stroke-width="2.5"/>
+<line x1="260" y1="440" x2="560" y2="440" stroke="#000" stroke-width="2.5"/>
+<text x="410" y="98" text-anchor="middle" font-size="14" fill="#000">上拉公共线 SAP（不工作时 0.5 V，使能后 1.0 V）</text>
+<text x="410" y="464" text-anchor="middle" font-size="14" fill="#000">下拉公共线 SAN（不工作时 0.5 V，使能后 0 V）</text>
+<line x1="300" y1="110" x2="300" y2="150" stroke="#000" stroke-width="2.5"/>
+<line x1="300" y1="150" x2="300" y2="210" stroke="#000" stroke-width="6"/>
+<line x1="300" y1="210" x2="300" y2="250" stroke="#000" stroke-width="2.5"/>
+<line x1="314" y1="156" x2="314" y2="204" stroke="#000" stroke-width="2.5"/>
+<circle cx="320" cy="180" r="6" fill="#fff" stroke="#000" stroke-width="2"/>
+<line x1="326" y1="180" x2="360" y2="180" stroke="#000" stroke-width="2.5"/>
+<text x="286" y="186" text-anchor="end" font-size="16" fill="#000" font-weight="bold">P1</text>
+<line x1="300" y1="260" x2="300" y2="300" stroke="#000" stroke-width="2.5"/>
+<line x1="300" y1="300" x2="300" y2="360" stroke="#000" stroke-width="6"/>
+<line x1="300" y1="360" x2="300" y2="400" stroke="#000" stroke-width="2.5"/>
+<line x1="314" y1="306" x2="314" y2="354" stroke="#000" stroke-width="2.5"/>
+<line x1="314" y1="330" x2="360" y2="330" stroke="#000" stroke-width="2.5"/>
+<text x="286" y="336" text-anchor="end" font-size="16" fill="#000" font-weight="bold">N1</text>
+<line x1="520" y1="110" x2="520" y2="150" stroke="#000" stroke-width="2.5"/>
+<line x1="520" y1="150" x2="520" y2="210" stroke="#000" stroke-width="6"/>
+<line x1="520" y1="210" x2="520" y2="250" stroke="#000" stroke-width="2.5"/>
+<line x1="506" y1="156" x2="506" y2="204" stroke="#000" stroke-width="2.5"/>
+<circle cx="500" cy="180" r="6" fill="#fff" stroke="#000" stroke-width="2"/>
+<line x1="494" y1="180" x2="460" y2="180" stroke="#000" stroke-width="2.5"/>
+<text x="534" y="186" text-anchor="start" font-size="16" fill="#000" font-weight="bold">P2</text>
+<line x1="520" y1="260" x2="520" y2="300" stroke="#000" stroke-width="2.5"/>
+<line x1="520" y1="300" x2="520" y2="360" stroke="#000" stroke-width="6"/>
+<line x1="520" y1="360" x2="520" y2="400" stroke="#000" stroke-width="2.5"/>
+<line x1="506" y1="306" x2="506" y2="354" stroke="#000" stroke-width="2.5"/>
+<line x1="506" y1="330" x2="460" y2="330" stroke="#000" stroke-width="2.5"/>
+<text x="534" y="336" text-anchor="start" font-size="16" fill="#000" font-weight="bold">N2</text>
+<line x1="300" y1="250" x2="300" y2="260" stroke="#000" stroke-width="2.5"/>
+<line x1="520" y1="250" x2="520" y2="260" stroke="#000" stroke-width="2.5"/>
+<line x1="300" y1="400" x2="300" y2="440" stroke="#000" stroke-width="2.5"/>
+<line x1="520" y1="400" x2="520" y2="440" stroke="#000" stroke-width="2.5"/>
+<line x1="180" y1="255" x2="300" y2="255" stroke="#000" stroke-width="2.5"/>
+<line x1="520" y1="255" x2="640" y2="255" stroke="#000" stroke-width="2.5"/>
+<circle cx="180" cy="255" r="5"/>
+<circle cx="300" cy="255" r="5"/>
+<circle cx="520" cy="255" r="5"/>
+<circle cx="640" cy="255" r="5"/>
+<line x1="360" y1="180" x2="360" y2="330" stroke="#000" stroke-width="2.5"/>
+<line x1="460" y1="180" x2="460" y2="330" stroke="#000" stroke-width="2.5"/>
+<line x1="360" y1="225" x2="520" y2="225" stroke="#c0392b" stroke-width="2.5"/>
+<circle cx="520" cy="225" r="5" fill="#c0392b"/>
+<circle cx="360" cy="225" r="5" fill="#c0392b"/>
+<line x1="460" y1="285" x2="300" y2="285" stroke="#2e7d32" stroke-width="2.5"/>
+<circle cx="300" cy="285" r="5" fill="#2e7d32"/>
+<circle cx="460" cy="285" r="5" fill="#2e7d32"/>
+<text x="60" y="180" text-anchor="start" font-size="14" fill="#c0392b">P1、N1 的栅极</text>
+<text x="60" y="198" text-anchor="start" font-size="14" fill="#c0392b">接到对面的 BLB</text>
+<text x="60" y="216" text-anchor="start" font-size="14" fill="#c0392b">（红色连线）</text>
+<text x="660" y="300" text-anchor="start" font-size="14" fill="#2e7d32">P2、N2 的栅极</text>
+<text x="660" y="318" text-anchor="start" font-size="14" fill="#2e7d32">接到对面的 BL</text>
+<text x="660" y="336" text-anchor="start" font-size="14" fill="#2e7d32">（绿色连线）</text>
+<text x="410" y="500" text-anchor="middle" font-size="14" fill="#000">导线交叉处没有圆点表示不相连；栅极上带小圆圈的是 P 型晶体管</text>
+<text x="410" y="522" text-anchor="middle" font-size="14" fill="#000">P 型负责把节点拉向 SAP，N 型负责把节点拉向 SAN</text>
+</svg>

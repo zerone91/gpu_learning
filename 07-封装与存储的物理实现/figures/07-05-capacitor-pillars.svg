@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 640" width="900" height="640" font-family="sans-serif" font-size="16">
+<rect width="900" height="640" fill="#ffffff"/>
+<defs><marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker><marker id="r" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker></defs>
+<text x="450.0" y="28.0" text-anchor="middle" font-size="17" fill="#000" font-weight="bold">电容柱按真实比例画出：直径 30 nm，高 1.5 µm，深宽比 50 比 1</text>
+<rect x="60.0" y="520.0" width="560.0" height="60.0" fill="#d9d9d9" stroke="#000" stroke-width="1.5"/>
+<text x="340.0" y="556.0" text-anchor="middle" font-size="14" fill="#000">访问晶体管与字线、位线所在的层（未画细节）</text>
+<rect x="120.0" y="70.0" width="9.0" height="450.0" fill="#c0392b" stroke="#000" stroke-width="1"/>
+<rect x="147.0" y="70.0" width="9.0" height="450.0" fill="#c0392b" stroke="#000" stroke-width="1"/>
+<rect x="174.0" y="70.0" width="9.0" height="450.0" fill="#c0392b" stroke="#000" stroke-width="1"/>
+<rect x="201.0" y="70.0" width="9.0" height="450.0" fill="#c0392b" stroke="#000" stroke-width="1"/>
+<rect x="228.0" y="70.0" width="9.0" height="450.0" fill="#c0392b" stroke="#000" stroke-width="1"/>
+<rect x="255.0" y="70.0" width="9.0" height="450.0" fill="#c0392b" stroke="#000" stroke-width="1"/>
+<rect x="282.0" y="70.0" width="9.0" height="450.0" fill="#c0392b" stroke="#000" stroke-width="1"/>
+<rect x="309.0" y="70.0" width="9.0" height="450.0" fill="#c0392b" stroke="#000" stroke-width="1"/>
+<rect x="336.0" y="70.0" width="9.0" height="450.0" fill="#c0392b" stroke="#000" stroke-width="1"/>
+<rect x="363.0" y="70.0" width="9.0" height="450.0" fill="#c0392b" stroke="#000" stroke-width="1"/>
+<rect x="390.0" y="70.0" width="9.0" height="450.0" fill="#c0392b" stroke="#000" stroke-width="1"/>
+<rect x="417.0" y="70.0" width="9.0" height="450.0" fill="#c0392b" stroke="#000" stroke-width="1"/>
+<rect x="444.0" y="70.0" width="9.0" height="450.0" fill="#c0392b" stroke="#000" stroke-width="1"/>
+<rect x="471.0" y="70.0" width="9.0" height="450.0" fill="#c0392b" stroke="#000" stroke-width="1"/>
+<rect x="498.0" y="70.0" width="9.0" height="450.0" fill="#c0392b" stroke="#000" stroke-width="1"/>
+<rect x="525.0" y="70.0" width="9.0" height="450.0" fill="#c0392b" stroke="#000" stroke-width="1"/>
+<rect x="552.0" y="70.0" width="9.0" height="450.0" fill="#c0392b" stroke="#000" stroke-width="1"/>
+<rect x="579.0" y="70.0" width="9.0" height="450.0" fill="#c0392b" stroke="#000" stroke-width="1"/>
+<rect x="100.0" y="90.0" width="500.0" height="6.0" fill="#555" stroke="#000" stroke-width="1"/>
+<rect x="100.0" y="290.0" width="500.0" height="6.0" fill="#555" stroke="#000" stroke-width="1"/>
+<line x1="640.0" y1="93.0" x2="605.0" y2="93.0" stroke="#000" stroke-width="1.5" marker-end="url(#a)"/>
+<text x="646.0" y="98.0" text-anchor="start" font-size="14" fill="#000">横向支撑层：把相邻的柱子</text>
+<text x="646.0" y="116.0" text-anchor="start" font-size="14" fill="#000">连在一起，防止弯曲和倒伏</text>
+<line x1="640.0" y1="293.0" x2="605.0" y2="293.0" stroke="#000" stroke-width="1.5" marker-end="url(#a)"/>
+<text x="646.0" y="298.0" text-anchor="start" font-size="14" fill="#000">第二层支撑</text>
+<line x1="640.0" y1="420.0" x2="610.0" y2="420.0" stroke="#000" stroke-width="1.5" marker-end="url(#a)"/>
+<text x="646.0" y="408.0" text-anchor="start" font-size="14" fill="#000">每根红色柱子是一个单元的</text>
+<text x="646.0" y="426.0" text-anchor="start" font-size="14" fill="#000">存储节点电极；介质和极板</text>
+<text x="646.0" y="444.0" text-anchor="start" font-size="14" fill="#000">包在柱子外面（太薄，未画）</text>
+<line x1="40.0" y1="70.0" x2="40.0" y2="520.0" stroke="#000" stroke-width="2" marker-start="url(#a)" marker-end="url(#a)"/>
+<text x="26" y="295" text-anchor="middle" font-size="14" transform="rotate(-90 26 295)">1.5 µm（1500 nm）</text>
+<line x1="120.0" y1="58.0" x2="129.0" y2="58.0" stroke="#000" stroke-width="2"/>
+<text x="124.0" y="50.0" text-anchor="middle" font-size="14" fill="#000">30 nm</text>
+<text x="450.0" y="615.0" text-anchor="middle" font-size="14" fill="#555">柱子之间的间隔与柱子直径同一量级；图中柱间距为示意值</text>
+</svg>
