@@ -61,7 +61,7 @@ decode 阶段每步只有 1 个 query token，对着长度为 N 的 KV cache 算
 2. 搬运量：KV cache 整个读一遍，2 × N × d × 2 字节 = **4·N·d** byte。
 3. AI ≈ **1 FLOP/byte**——连 FP32 平衡点 20 都远远不到。
 
-**深度 HBM-bound，上限就是读 KV cache 的带宽**。这和 A1 里"GEMM 对 GEMV"是同一个故事：prefill 是 GEMM 型（Tensor-bound），decode 是 GEMV 型（带宽-bound），优化手段从此分家——decode 侧的战场是 FlashDecoding（把 KV 按块切给多个 SM 并行读）、GQA/MLA（直接砍 KV cache 体积，04 模块第 5 节的账）。
+**深度 HBM-bound，上限就是读 KV cache 的带宽**。这和 A1 里"GEMM 对 GEMV"是同一个故事：prefill 是 GEMM 型（Tensor-bound），decode 是 GEMV 型（带宽-bound），优化手段从此分家——decode 侧的战场是 FlashDecoding（把 KV 按块切给多个 SM 并行读）、GQA/MLA（直接砍 KV cache 体积，04 模块第 8 节的账）。
 
 ### 2.4 隐藏的第二瓶颈：softmax 卡在两个矩阵乘中间
 
@@ -197,7 +197,7 @@ FA kernel 的 tile 很大（典型 128×128、d=128），算一下驻留账：Q�
 三条共同结论，每条都能从上面的手算里直接读出来：
 
 1. **复用度决定 AI，AI 决定卡在哪**。FlashAttention 的复用度是序列长 N（每个 K/V 块被 N 行 query 复用），MoE 的复用度是每专家 token 数 M_i（每份权重被 M_i 个 token 复用）。复用大则 AI 高、贴 Tensor 的墙；复用小则 AI 塌、贴 HBM 的墙。
-2. **decode 阶段几乎注定 memory-bound**——每步 token 太少，无论复用的对象是 KV cache 还是专家权重，都摊不开。这是大模型推理系统的第一性约束，GQA、MLA、投机解码、攒批，全是围着它转的（04 模块第 5 节）。
+2. **decode 阶段几乎注定 memory-bound**——每步 token 太少，无论复用的对象是 KV cache 还是专家权重，都摊不开。这是大模型推理系统的第一性约束，GQA、MLA、投机解码、攒批，全是围着它转的（04 模块第 8 节）。
 3. **优化等于搬瓶颈**：融合抬 AI（FA）、攒批加大 M（MoE）、动态调度喂满 SM（persistent），终点都是把瓶颈推到最贵的 Tensor 管线上并贴着它的峰值跑。
 
 ---
