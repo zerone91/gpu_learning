@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="1000" height="600" font-family="sans-serif">
+  <rect x="0" y="0" width="1000" height="600" fill="#ffffff"/>
+  <text x="36" y="34" font-size="20" font-weight="bold" fill="#111">走查一：Hopper 上，一个 A 矩阵分块从显存走到矩阵单元</text>
+  <text x="36" y="58" font-size="14" fill="#555">分块取 128 行 × 64 列的 bf16，共 16 KB。这是 CUTLASS 风格 GEMM 主循环里最常见的一种走法。</text>
+
+  <!-- chain -->
+  <rect x="36" y="86" width="164" height="76" fill="#f2f2f2" stroke="#666" stroke-width="2"/>
+  <text x="118" y="112" font-size="15" font-weight="bold" fill="#111" text-anchor="middle">主机 CPU</text>
+  <text x="118" y="134" font-size="13" fill="#444" text-anchor="middle">编好 128 字节的</text>
+  <text x="118" y="152" font-size="13" fill="#444" text-anchor="middle">张量描述符</text>
+
+  <line x1="200" y1="124" x2="240" y2="124" stroke="#666" stroke-width="2.5" stroke-dasharray="6 4"/>
+  <polygon points="252,124 236,117 236,131" fill="#666"/>
+
+  <rect x="256" y="86" width="164" height="76" fill="#fdeaea" stroke="#a94442" stroke-width="2"/>
+  <text x="338" y="112" font-size="15" font-weight="bold" fill="#6b1f1f" text-anchor="middle">显存 HBM</text>
+  <text x="338" y="134" font-size="13" fill="#6b1f1f" text-anchor="middle">整个 A 矩阵</text>
+  <text x="338" y="152" font-size="13" fill="#6b1f1f" text-anchor="middle">按行连续存放</text>
+
+  <line x1="420" y1="124" x2="520" y2="124" stroke="#2c5aa0" stroke-width="3.5"/>
+  <polygon points="534,124 516,116 516,132" fill="#2c5aa0"/>
+  <text x="474" y="112" font-size="15" font-weight="bold" fill="#1a3a66" text-anchor="middle">跳 ①</text>
+  <text x="474" y="148" font-size="13" fill="#1a3a66" text-anchor="middle">TMA</text>
+
+  <rect x="540" y="86" width="180" height="76" fill="#eef4fb" stroke="#2c5aa0" stroke-width="2"/>
+  <text x="630" y="112" font-size="15" font-weight="bold" fill="#1a3a66" text-anchor="middle">shared memory</text>
+  <text x="630" y="134" font-size="13" fill="#1a3a66" text-anchor="middle">16 KB 的分块，</text>
+  <text x="630" y="152" font-size="13" fill="#1a3a66" text-anchor="middle">已按错位规则摆好</text>
+
+  <line x1="720" y1="124" x2="808" y2="124" stroke="#2f6b2f" stroke-width="3.5"/>
+  <polygon points="822,124 804,116 804,132" fill="#2f6b2f"/>
+  <text x="768" y="112" font-size="15" font-weight="bold" fill="#1b4620" text-anchor="middle">跳 ②</text>
+
+  <rect x="828" y="86" width="136" height="76" fill="#dff0d8" stroke="#2f6b2f" stroke-width="2"/>
+  <text x="896" y="118" font-size="15" font-weight="bold" fill="#1b4620" text-anchor="middle">Tensor Core</text>
+  <text x="896" y="142" font-size="13" fill="#1b4620" text-anchor="middle">矩阵单元</text>
+
+  <!-- cards -->
+  <rect x="36" y="192" width="300" height="286" fill="#fafafa" stroke="#666" stroke-width="2"/>
+  <text x="186" y="216" font-size="16" font-weight="bold" fill="#111" text-anchor="middle">准备：kernel 启动之前</text>
+  <line x1="52" y1="226" x2="320" y2="226" stroke="#999" stroke-width="1.5"/>
+  <text x="52" y="250" font-size="14" font-weight="bold" fill="#333">谁做</text>
+  <text x="52" y="270" font-size="13" fill="#333">主机上的 CUDA 运行时</text>
+  <text x="52" y="296" font-size="14" font-weight="bold" fill="#333">做了什么</text>
+  <text x="52" y="316" font-size="13" fill="#333">填一个 128 字节的结构体：</text>
+  <text x="52" y="334" font-size="13" fill="#333">基址、维度数、每维长度与步长、</text>
+  <text x="52" y="352" font-size="13" fill="#333">分块形状、元素类型、错位模式、</text>
+  <text x="52" y="370" font-size="13" fill="#333">越界时填什么</text>
+  <text x="52" y="396" font-size="14" font-weight="bold" fill="#333">为什么放在主机侧</text>
+  <text x="52" y="416" font-size="13" fill="#333">这些信息整个 kernel 期间都不变，</text>
+  <text x="52" y="434" font-size="13" fill="#333">填一次就够；放进 kernel 里反而</text>
+  <text x="52" y="452" font-size="13" fill="#333">要每个线程块重算一遍</text>
+
+  <rect x="350" y="192" width="300" height="286" fill="#eef4fb" stroke="#2c5aa0" stroke-width="2"/>
+  <text x="500" y="216" font-size="16" font-weight="bold" fill="#1a3a66" text-anchor="middle">跳 ①　显存 → shared memory</text>
+  <line x1="366" y1="226" x2="634" y2="226" stroke="#2c5aa0" stroke-width="1.5"/>
+  <text x="366" y="250" font-size="14" font-weight="bold" fill="#1a3a66">谁发起</text>
+  <text x="366" y="270" font-size="13" fill="#333">线程块里的 1 个线程，1 条指令</text>
+  <text x="366" y="288" font-size="13" fill="#333">cp.async.bulk.tensor.2d…</text>
+  <text x="366" y="314" font-size="14" font-weight="bold" fill="#1a3a66">地址怎么来</text>
+  <text x="366" y="334" font-size="13" fill="#333">描述符 ＋ 这次要第几块的两个坐标</text>
+  <text x="366" y="352" font-size="13" fill="#333">（第 m 行块、第 k 列块）</text>
+  <text x="366" y="378" font-size="14" font-weight="bold" fill="#1a3a66">完成怎么知道</text>
+  <text x="366" y="398" font-size="13" fill="#333">先在 mbarrier 上声明"本轮 16384 字节"，</text>
+  <text x="366" y="416" font-size="13" fill="#333">引擎每送到一批就记一笔，凑满放行</text>
+  <text x="366" y="442" font-size="14" font-weight="bold" fill="#1a3a66">途中变换</text>
+  <text x="366" y="462" font-size="13" fill="#333">按错位规则落位；边界块自动填零；</text>
+  <text x="366" y="474" font-size="13" fill="#333">还能一次读、投给簇内多个 SM</text>
+
+  <rect x="664" y="192" width="300" height="286" fill="#f4faf4" stroke="#2f6b2f" stroke-width="2"/>
+  <text x="814" y="216" font-size="16" font-weight="bold" fill="#1b4620" text-anchor="middle">跳 ②　shared → 矩阵单元</text>
+  <line x1="680" y1="226" x2="948" y2="226" stroke="#2f6b2f" stroke-width="1.5"/>
+  <text x="680" y="250" font-size="14" font-weight="bold" fill="#1b4620">谁发起</text>
+  <text x="680" y="270" font-size="13" fill="#333">一个 warpgroup（128 个线程）</text>
+  <text x="680" y="288" font-size="13" fill="#333">合发一条 wgmma.mma_async</text>
+  <text x="680" y="314" font-size="14" font-weight="bold" fill="#1b4620">地址怎么来</text>
+  <text x="680" y="334" font-size="13" fill="#333">指令的操作数是一个 64 位的</text>
+  <text x="680" y="352" font-size="13" fill="#333">矩阵描述符：起点、两个步长、错位模式</text>
+  <text x="680" y="378" font-size="14" font-weight="bold" fill="#1b4620">完成怎么知道</text>
+  <text x="680" y="398" font-size="13" fill="#333">攒组再等组：commit_group 之后</text>
+  <text x="680" y="416" font-size="13" fill="#333">wait_group(N)</text>
+  <text x="680" y="442" font-size="14" font-weight="bold" fill="#1b4620">途中变换</text>
+  <text x="680" y="462" font-size="13" fill="#333">没有新变换——跳 ① 摆好的错位规则</text>
+  <text x="680" y="474" font-size="13" fill="#333">写在描述符里，硬件照着读</text>
+
+  <!-- note -->
+  <rect x="36" y="494" width="928" height="86" fill="#fffdf2" stroke="#b8860b" stroke-width="2"/>
+  <text x="56" y="518" font-size="15" font-weight="bold" fill="#5a4400">另一条常见走法：跳 ② 也可以先落到寄存器再算。</text>
+  <text x="56" y="542" font-size="14" fill="#333">用 ldmatrix 把 shared 里的数按矩阵单元要的分布发到 32 个线程的寄存器，再发 mma 指令。多了一次"过寄存器"，</text>
+  <text x="56" y="564" font-size="14" fill="#333">但换来一个好处：数据在寄存器里，可以顺手做转置、类型转换这些 wgmma 走不通的事。选哪条，是第 07 节的题。</text>
+</svg>

@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 680" width="980" height="680">
+  <rect x="0" y="0" width="980" height="680" fill="#ffffff"/>
+  <defs>
+    <marker id="d1" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L9,3.5 L0,7 z" fill="#2a5c9a"/>
+    </marker>
+  </defs>
+
+  <text x="20" y="30" font-family="sans-serif" font-size="19" font-weight="bold" fill="#111">TMA 与 MTE：同一个思路，两种控制权安排</text>
+
+  <!-- 左：GPU -->
+  <rect x="20" y="52" width="450" height="270" rx="8" fill="#f4f8fc" stroke="#2a5c9a" stroke-width="2"/>
+  <text x="36" y="78" font-family="sans-serif" font-size="16" font-weight="bold" fill="#1b3f6b">NVIDIA GPU（Hopper 起）</text>
+
+  <rect x="36" y="94" width="110" height="52" rx="4" fill="#ffffff" stroke="#666" stroke-width="1.8"/>
+  <text x="91" y="116" font-family="sans-serif" font-size="14" fill="#333" text-anchor="middle">显存</text>
+  <text x="91" y="136" font-family="sans-serif" font-size="12.5" fill="#666" text-anchor="middle">HBM</text>
+
+  <rect x="196" y="94" width="110" height="52" rx="4" fill="#e8f4ea" stroke="#2c7a3f" stroke-width="2"/>
+  <text x="251" y="116" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1d5c2d" text-anchor="middle">TMA</text>
+  <text x="251" y="136" font-family="sans-serif" font-size="12.5" fill="#333" text-anchor="middle">每个 SM 一个</text>
+
+  <rect x="352" y="94" width="104" height="52" rx="4" fill="#ffffff" stroke="#2a5c9a" stroke-width="1.8"/>
+  <text x="404" y="116" font-family="sans-serif" font-size="14" fill="#333" text-anchor="middle">shared</text>
+  <text x="404" y="136" font-family="sans-serif" font-size="12.5" fill="#666" text-anchor="middle">memory</text>
+
+  <line x1="150" y1="120" x2="192" y2="120" stroke="#2a5c9a" stroke-width="2.5" marker-end="url(#d1)"/>
+  <line x1="310" y1="120" x2="348" y2="120" stroke="#2a5c9a" stroke-width="2.5" marker-end="url(#d1)"/>
+
+  <rect x="352" y="176" width="104" height="46" rx="4" fill="#ffffff" stroke="#2a5c9a" stroke-width="1.8"/>
+  <text x="404" y="204" font-family="sans-serif" font-size="14" fill="#333" text-anchor="middle">Tensor Core</text>
+  <line x1="404" y1="150" x2="404" y2="172" stroke="#2a5c9a" stroke-width="2.5" marker-end="url(#d1)"/>
+  <text x="410" y="166" font-family="sans-serif" font-size="12" fill="#666">操作数直读</text>
+
+  <text x="36" y="180" font-family="sans-serif" font-size="14" font-weight="bold" fill="#8a4a10">下单方：kernel 里任意一个线程</text>
+  <text x="36" y="204" font-family="sans-serif" font-size="13.5" fill="#333">坐标是运行时算出来的，随时可发</text>
+  <text x="36" y="236" font-family="sans-serif" font-size="14" font-weight="bold" fill="#8a4a10">回执：mbarrier，按字节记账</text>
+  <text x="36" y="260" font-family="sans-serif" font-size="13.5" fill="#333">"这一轮要收 8192 字节，收满放行"</text>
+  <text x="36" y="292" font-family="sans-serif" font-size="13.5" fill="#666">完成时刻不可预测，所以要运行时握手</text>
+  <text x="36" y="312" font-family="sans-serif" font-size="13.5" fill="#666">从显存到计算单元只有一跳</text>
+
+  <!-- 右：昇腾 -->
+  <rect x="510" y="52" width="450" height="270" rx="8" fill="#fdf8f2" stroke="#c2691a" stroke-width="2"/>
+  <text x="526" y="78" font-family="sans-serif" font-size="16" font-weight="bold" fill="#8a4a10">华为昇腾（达芬奇架构）</text>
+
+  <rect x="526" y="94" width="86" height="52" rx="4" fill="#ffffff" stroke="#666" stroke-width="1.8"/>
+  <text x="569" y="116" font-family="sans-serif" font-size="14" fill="#333" text-anchor="middle">GM</text>
+  <text x="569" y="136" font-family="sans-serif" font-size="12.5" fill="#666" text-anchor="middle">片外</text>
+
+  <rect x="646" y="94" width="72" height="52" rx="4" fill="#ffffff" stroke="#2a5c9a" stroke-width="1.8"/>
+  <text x="682" y="124" font-family="sans-serif" font-size="14" fill="#333" text-anchor="middle">L1</text>
+
+  <rect x="752" y="94" width="80" height="52" rx="4" fill="#ffffff" stroke="#2a5c9a" stroke-width="1.8"/>
+  <text x="792" y="116" font-family="sans-serif" font-size="13.5" fill="#333" text-anchor="middle">L0A</text>
+  <text x="792" y="136" font-family="sans-serif" font-size="13.5" fill="#333" text-anchor="middle">L0B</text>
+
+  <rect x="866" y="94" width="78" height="52" rx="4" fill="#ffffff" stroke="#2a5c9a" stroke-width="1.8"/>
+  <text x="905" y="124" font-family="sans-serif" font-size="13.5" fill="#333" text-anchor="middle">Cube</text>
+
+  <line x1="616" y1="120" x2="642" y2="120" stroke="#c2691a" stroke-width="2.5" marker-end="url(#d1)"/>
+  <text x="600" y="164" font-family="sans-serif" font-size="12.5" font-weight="bold" fill="#8a4a10">MTE2</text>
+  <line x1="722" y1="120" x2="748" y2="120" stroke="#c2691a" stroke-width="2.5" marker-end="url(#d1)"/>
+  <text x="706" y="164" font-family="sans-serif" font-size="12.5" font-weight="bold" fill="#8a4a10">MTE1</text>
+  <line x1="836" y1="120" x2="862" y2="120" stroke="#666" stroke-width="2" marker-end="url(#d1)"/>
+  <text x="820" y="164" font-family="sans-serif" font-size="12" fill="#666">读操作数</text>
+
+  <text x="526" y="196" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1b3f6b">下单方：Scalar 流水线</text>
+  <text x="526" y="220" font-family="sans-serif" font-size="13.5" fill="#333">节拍由编译器在编译期排定</text>
+  <text x="526" y="252" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1b3f6b">回执：标志位，二值</text>
+  <text x="526" y="276" font-family="sans-serif" font-size="13.5" fill="#333">"那一段做完了没有"</text>
+  <text x="526" y="300" font-family="sans-serif" font-size="13.5" fill="#666">完成时刻算得准，标志只是把顺序钉住</text>
+
+  <!-- 对照表 -->
+  <line x1="20" y1="344" x2="960" y2="344" stroke="#ccc" stroke-width="1.5"/>
+  <text x="20" y="372" font-family="sans-serif" font-size="16" font-weight="bold" fill="#111">相同的三件事（都是本质的）</text>
+  <text x="36" y="398" font-family="sans-serif" font-size="14" fill="#333">① 都是描述符驱动：搬运参数打包成说明书交给引擎，发起方不逐个地址地指挥。</text>
+  <text x="36" y="422" font-family="sans-serif" font-size="14" fill="#333">② 都是异步的：发起之后立刻回去干别的，搬运在后台进行——这是"把搬运时间藏进计算时间"的前提。</text>
+  <text x="36" y="446" font-family="sans-serif" font-size="14" fill="#333">③ 都需要显式同步，而且"数据到了"和"缓冲空了"两个方向缺一不可，缺了都是静默错误。</text>
+
+  <text x="20" y="484" font-family="sans-serif" font-size="16" font-weight="bold" fill="#111">不同的四件事</text>
+  <g font-family="sans-serif" font-size="14">
+    <text x="230" y="508" font-weight="bold" fill="#1b3f6b">NVIDIA TMA</text>
+    <text x="580" y="508" font-weight="bold" fill="#8a4a10">昇腾 MTE</text>
+    <text x="36" y="534" fill="#333">谁持有控制流</text>
+    <text x="230" y="534" fill="#1b3f6b">kernel 里任意线程，运行时决定</text>
+    <text x="580" y="534" fill="#8a4a10">Scalar 流水线，编译期排定</text>
+    <text x="36" y="560" fill="#333">同步的粒度</text>
+    <text x="230" y="560" fill="#1b3f6b">字节（mbarrier 的 tx-count）</text>
+    <text x="580" y="560" fill="#8a4a10">一个二值标志位</text>
+    <text x="36" y="586" fill="#333">引擎的数量与分工</text>
+    <text x="230" y="586" fill="#1b3f6b">每 SM 一个，一套指令覆盖各方向</text>
+    <text x="580" y="586" fill="#8a4a10">四个，按路段分工，写死在编号里</text>
+    <text x="36" y="612" fill="#333">任意线程能否随意发起</text>
+    <text x="230" y="612" fill="#1b3f6b">能（代价是重复搬浪费带宽）</text>
+    <text x="580" y="612" fill="#8a4a10">不能，属于特定流水线的指令队列</text>
+  </g>
+  <line x1="36" y1="518" x2="944" y2="518" stroke="#bbb" stroke-width="1.5"/>
+
+  <text x="20" y="646" font-family="sans-serif" font-size="14" fill="#666">四条差异共同指向一件事：控制权在谁手上。GPU 的完成时刻不可预测，所以要运行时握手；NPU 的时序编译期算得准，标志位只需把顺序钉住。</text>
+  <text x="20" y="668" font-family="sans-serif" font-size="14" fill="#666">代价与收益也对称：GPU 每次搬运都走一遍屏障，换来对各种形状和调度的适应力；NPU 的同步硬件几乎不花面积，换来"排错了不报错、只偶发算错"。</text>
+</svg>

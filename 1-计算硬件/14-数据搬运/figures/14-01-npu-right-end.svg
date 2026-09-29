@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="1000" height="600" font-family="sans-serif">
+  <rect x="0" y="0" width="1000" height="600" fill="#ffffff"/>
+  <text x="36" y="34" font-size="20" font-weight="bold" fill="#111">NPU 站在光谱最右端，不是选出来的，是三条硬件事实逼出来的</text>
+  <text x="36" y="58" font-size="14" fill="#555">左右两栏是同一组问题的两种硬件回答。注意左栏三条都是"没有"，右栏三条都是"有"。</text>
+
+  <!-- left panel -->
+  <rect x="36" y="76" width="440" height="36" fill="#fdeaea" stroke="#a94442" stroke-width="2"/>
+  <text x="256" y="101" font-size="16" font-weight="bold" fill="#6b1f1f" text-anchor="middle">NPU（以昇腾 AI Core 为例）</text>
+
+  <rect x="36" y="120" width="440" height="66" fill="#ffffff" stroke="#a94442" stroke-width="2"/>
+  <text x="50" y="144" font-size="14" font-weight="bold" fill="#6b1f1f">事实一：矩阵阵列根本不会访存</text>
+  <text x="50" y="165" font-size="13" fill="#333">它只有"从贴着它的 L0 缓冲读、往 L0C 写"这一条通路，</text>
+  <text x="50" y="181" font-size="13" fill="#333">显存那一侧够不着。没有 DMA，阵列一个数也拿不到。</text>
+
+  <rect x="36" y="194" width="440" height="66" fill="#ffffff" stroke="#a94442" stroke-width="2"/>
+  <text x="50" y="218" font-size="14" font-weight="bold" fill="#6b1f1f">事实二：地址只能来自嵌套计数器</text>
+  <text x="50" y="239" font-size="13" fill="#333">片上的地址生成单元只会"起始地址 + 每维长度 + 每维步长"，</text>
+  <text x="50" y="255" font-size="13" fill="#333">没有通用整数指令可以临时算一个任意地址出来。</text>
+
+  <rect x="36" y="268" width="440" height="66" fill="#ffffff" stroke="#a94442" stroke-width="2"/>
+  <text x="50" y="292" font-size="14" font-weight="bold" fill="#6b1f1f">事实三：没有记分牌</text>
+  <text x="50" y="313" font-size="13" fill="#333">硬件不检查"搬运流水线和计算流水线谁先谁后"。</text>
+  <text x="50" y="329" font-size="13" fill="#333">搬到一半就开始算，硬件不拦，只会算出错的结果。</text>
+
+  <line x1="256" y1="338" x2="256" y2="360" stroke="#a94442" stroke-width="3"/>
+  <polygon points="256,370 248,356 264,356" fill="#a94442"/>
+
+  <rect x="36" y="374" width="440" height="78" fill="#fdeaea" stroke="#a94442" stroke-width="2.5"/>
+  <text x="256" y="400" font-size="16" font-weight="bold" fill="#6b1f1f" text-anchor="middle">于是只剩一种形态：</text>
+  <text x="256" y="424" font-size="15" fill="#6b1f1f" text-anchor="middle">描述符 DMA 搬运（MTE1 / MTE2 / MTE3）</text>
+  <text x="256" y="444" font-size="15" fill="#6b1f1f" text-anchor="middle">＋ 软件手写的 set_flag / wait_flag</text>
+
+  <!-- right panel -->
+  <rect x="524" y="76" width="440" height="36" fill="#eaf5ea" stroke="#2f6b2f" stroke-width="2"/>
+  <text x="744" y="101" font-size="16" font-weight="bold" fill="#1b4620" text-anchor="middle">GPU（以 NVIDIA SM 为例）</text>
+
+  <rect x="524" y="120" width="440" height="66" fill="#ffffff" stroke="#2f6b2f" stroke-width="2"/>
+  <text x="538" y="144" font-size="14" font-weight="bold" fill="#1b4620">对应一：每个 SM 里都有访存单元</text>
+  <text x="538" y="165" font-size="13" fill="#333">每个线程都能自己发一条访存请求，想读显存哪个字节</text>
+  <text x="538" y="181" font-size="13" fill="#333">就读哪个字节，不需要任何引擎代劳。</text>
+
+  <rect x="524" y="194" width="440" height="66" fill="#ffffff" stroke="#2f6b2f" stroke-width="2"/>
+  <text x="538" y="218" font-size="14" font-weight="bold" fill="#1b4620">对应二：地址由通用整数指令算</text>
+  <text x="538" y="239" font-size="13" fill="#333">要查表、要按索引跳、要算个哈希都行——</text>
+  <text x="538" y="255" font-size="13" fill="#333">代价是这些指令要占发射槽和寄存器。</text>
+
+  <rect x="524" y="268" width="440" height="66" fill="#ffffff" stroke="#2f6b2f" stroke-width="2"/>
+  <text x="538" y="292" font-size="14" font-weight="bold" fill="#1b4620">对应三：有记分牌，还有 mbarrier</text>
+  <text x="538" y="313" font-size="13" fill="#333">简单情形硬件自动挡住；引擎搬运这种变长延迟的情形，</text>
+  <text x="538" y="329" font-size="13" fill="#333">有专门的按字节对账的屏障可用。</text>
+
+  <line x1="744" y1="338" x2="744" y2="360" stroke="#2f6b2f" stroke-width="3"/>
+  <polygon points="744,370 736,356 752,356" fill="#2f6b2f"/>
+
+  <rect x="524" y="374" width="440" height="78" fill="#eaf5ea" stroke="#2f6b2f" stroke-width="2.5"/>
+  <text x="744" y="400" font-size="16" font-weight="bold" fill="#1b4620" text-anchor="middle">于是四类机制可以并存：</text>
+  <text x="744" y="424" font-size="15" fill="#1b4620" text-anchor="middle">规整大块走 TMA，小块异步走 cp.async，</text>
+  <text x="744" y="444" font-size="15" fill="#1b4620" text-anchor="middle">零散读取走普通 load——同一个 kernel 里随便挑</text>
+
+  <!-- bottom band -->
+  <rect x="36" y="472" width="928" height="108" fill="#eef4fb" stroke="#2c5aa0" stroke-width="2.5"/>
+  <text x="56" y="498" font-size="16" font-weight="bold" fill="#1a3a66">再往深一层：这三条"没有"，都来自同一条设计决定——时序在设计期定死。</text>
+  <text x="56" y="524" font-size="14" fill="#222">编译器要把"第几拍做什么"排成一张固定的时刻表，就必须在编译期算出每次搬运要花多少拍。</text>
+  <text x="56" y="546" font-size="14" fill="#222">"一张描述符 + 固定步长"的搬运，字节数和访问模式都是已知的，时长算得出来；</text>
+  <text x="56" y="568" font-size="14" fill="#222">"每个线程临时算一个地址"的搬运，时长取决于运行时算出什么地址，编译期算不出来——所以它在这套体系里根本不能存在。</text>
+</svg>

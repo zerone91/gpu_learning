@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 510" width="960" height="510" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="510" fill="#ffffff"/>
+<text x="122.5" y="32" font-size="17" font-weight="bold" text-anchor="middle">NVIDIA</text>
+<rect x="15" y="46" width="215" height="232" rx="8" fill="#fbfbfb" stroke="#333" stroke-width="2"/>
+<text x="25" y="66" font-size="14" fill="#555">芯片</text>
+<rect x="30" y="74" width="185" height="78" rx="6" fill="#e6f4e8" stroke="#2e8b3e" stroke-width="1.5"/>
+<text x="122.5" y="96" font-size="15" text-anchor="middle">SM</text>
+<rect x="55" y="106" width="135" height="36" rx="4" fill="#c9e9cf" stroke="#2e8b3e" stroke-width="1.5"/>
+<text x="122.5" y="130" font-size="14" text-anchor="middle">TMA</text>
+<text x="122.5" y="170" font-size="14" text-anchor="middle" fill="#2e8b3e">芯片内搬运（第 04 节）</text>
+<rect x="30" y="180" width="185" height="40" rx="6" fill="#e3edfb" stroke="#1f5fbf" stroke-width="2"/>
+<text x="122.5" y="205" font-size="15" text-anchor="middle" fill="#1f5fbf" font-weight="bold">copy engine</text>
+<text x="122.5" y="252" font-size="14" text-anchor="middle" fill="#1f5fbf">片外搬运（本节）</text>
+<rect x="15" y="290" width="215" height="34" rx="4" fill="#e2e2e2"/>
+<text x="122.5" y="312" font-size="14" text-anchor="middle">卡间：NVLink / NVSwitch</text>
+<rect x="15" y="334" width="215" height="58" rx="4" fill="#f7f0fa" stroke="#7d3c98" stroke-width="1.2"/>
+<text x="122.5" y="357" font-size="14" text-anchor="middle">跨节点：外插网卡</text>
+<text x="122.5" y="379" font-size="14" text-anchor="middle">+ GPUDirect RDMA</text>
+<text x="122.5" y="418" font-size="14" text-anchor="middle" fill="#d9771e">卡间下单：主机驱动</text>
+<text x="122.5" y="440" font-size="14" text-anchor="middle" fill="#d9771e">或 SM 线程</text>
+<text x="357.5" y="32" font-size="17" font-weight="bold" text-anchor="middle">昇腾</text>
+<rect x="250" y="46" width="215" height="232" rx="8" fill="#fbfbfb" stroke="#333" stroke-width="2"/>
+<text x="260" y="66" font-size="14" fill="#555">芯片</text>
+<rect x="265" y="74" width="185" height="78" rx="6" fill="#e6f4e8" stroke="#2e8b3e" stroke-width="1.5"/>
+<text x="357.5" y="96" font-size="15" text-anchor="middle">AI Core</text>
+<rect x="290" y="106" width="135" height="36" rx="4" fill="#c9e9cf" stroke="#2e8b3e" stroke-width="1.5"/>
+<text x="357.5" y="130" font-size="14" text-anchor="middle">MTE</text>
+<text x="357.5" y="170" font-size="14" text-anchor="middle" fill="#2e8b3e">芯片内搬运（第 04 节）</text>
+<rect x="265" y="180" width="185" height="40" rx="6" fill="#e3edfb" stroke="#1f5fbf" stroke-width="2"/>
+<text x="357.5" y="205" font-size="15" text-anchor="middle" fill="#1f5fbf" font-weight="bold">SDMA</text>
+<rect x="265" y="228" width="185" height="40" rx="6" fill="#f4ecf7" stroke="#7d3c98" stroke-width="2"/>
+<text x="357.5" y="253" font-size="14" text-anchor="middle" fill="#7d3c98">RoCE 网口（片上）</text>
+<rect x="250" y="290" width="215" height="34" rx="4" fill="#e2e2e2"/>
+<text x="357.5" y="312" font-size="14" text-anchor="middle">卡间：HCCS</text>
+<rect x="250" y="334" width="215" height="58" rx="4" fill="#f7f0fa" stroke="#7d3c98" stroke-width="1.2"/>
+<text x="357.5" y="357" font-size="14" text-anchor="middle">跨节点：芯片自带</text>
+<text x="357.5" y="379" font-size="14" text-anchor="middle">RoCE，不经外插网卡</text>
+<text x="357.5" y="418" font-size="14" text-anchor="middle" fill="#d9771e">卡间下单：主机侧</text>
+<text x="357.5" y="440" font-size="14" text-anchor="middle" fill="#d9771e">运行时 / HCCL</text>
+<text x="592.5" y="32" font-size="17" font-weight="bold" text-anchor="middle">TPU</text>
+<rect x="485" y="46" width="215" height="232" rx="8" fill="#fbfbfb" stroke="#333" stroke-width="2"/>
+<text x="495" y="66" font-size="14" fill="#555">芯片</text>
+<rect x="500" y="74" width="185" height="78" rx="6" fill="#e6f4e8" stroke="#2e8b3e" stroke-width="1.5"/>
+<text x="592.5" y="96" font-size="15" text-anchor="middle">TPU 核</text>
+<rect x="525" y="106" width="135" height="36" rx="4" fill="#c9e9cf" stroke="#2e8b3e" stroke-width="1.5"/>
+<text x="592.5" y="130" font-size="14" text-anchor="middle">核内 DMA</text>
+<text x="592.5" y="170" font-size="14" text-anchor="middle" fill="#2e8b3e">芯片内搬运（第 04 节）</text>
+<rect x="500" y="180" width="185" height="40" rx="6" fill="#e3edfb" stroke="#1f5fbf" stroke-width="2"/>
+<text x="592.5" y="205" font-size="15" text-anchor="middle" fill="#1f5fbf" font-weight="bold">DMA 引擎（核下单）</text>
+<text x="592.5" y="252" font-size="14" text-anchor="middle" fill="#1f5fbf">片外搬运（本节）</text>
+<rect x="485" y="290" width="215" height="34" rx="4" fill="#e2e2e2"/>
+<text x="592.5" y="312" font-size="14" text-anchor="middle">卡间：ICI（多维环面）</text>
+<rect x="485" y="334" width="215" height="58" rx="4" fill="#f7f0fa" stroke="#7d3c98" stroke-width="1.2"/>
+<text x="592.5" y="357" font-size="14" text-anchor="middle">pod 内全靠 ICI；</text>
+<text x="592.5" y="379" font-size="14" text-anchor="middle">跨 pod 走数据中心网络</text>
+<text x="592.5" y="418" font-size="14" text-anchor="middle" fill="#d9771e">卡间下单：TPU 核</text>
+<text x="592.5" y="440" font-size="14" text-anchor="middle" fill="#d9771e">在 kernel 内，主机不参与</text>
+<text x="827.5" y="32" font-size="17" font-weight="bold" text-anchor="middle">AMD</text>
+<rect x="720" y="46" width="215" height="232" rx="8" fill="#fbfbfb" stroke="#333" stroke-width="2"/>
+<text x="730" y="66" font-size="14" fill="#555">芯片</text>
+<rect x="735" y="74" width="185" height="78" rx="6" fill="#e6f4e8" stroke="#2e8b3e" stroke-width="1.5"/>
+<text x="827.5" y="96" font-size="15" text-anchor="middle">CU（计算单元）</text>
+<rect x="760" y="106" width="135" height="36" rx="4" fill="#c9e9cf" stroke="#2e8b3e" stroke-width="1.5"/>
+<text x="827.5" y="130" font-size="14" text-anchor="middle">load/store</text>
+<text x="827.5" y="170" font-size="14" text-anchor="middle" fill="#2e8b3e">芯片内搬运（第 04 节）</text>
+<rect x="735" y="180" width="185" height="40" rx="6" fill="#e3edfb" stroke="#1f5fbf" stroke-width="2"/>
+<text x="827.5" y="205" font-size="15" text-anchor="middle" fill="#1f5fbf" font-weight="bold">SDMA</text>
+<text x="827.5" y="252" font-size="14" text-anchor="middle" fill="#1f5fbf">片外搬运（本节）</text>
+<rect x="720" y="290" width="215" height="34" rx="4" fill="#e2e2e2"/>
+<text x="827.5" y="312" font-size="14" text-anchor="middle">卡间：Infinity Fabric</text>
+<rect x="720" y="334" width="215" height="58" rx="4" fill="#f7f0fa" stroke="#7d3c98" stroke-width="1.2"/>
+<text x="827.5" y="357" font-size="14" text-anchor="middle">跨节点：外插网卡</text>
+<text x="827.5" y="379" font-size="14" text-anchor="middle">+ 网卡直读显存</text>
+<text x="827.5" y="418" font-size="14" text-anchor="middle" fill="#d9771e">卡间下单：主机运行时</text>
+<text x="827.5" y="440" font-size="14" text-anchor="middle" fill="#d9771e">或 CU 上的 blit kernel</text>
+<text x="15" y="472" font-size="14" fill="#555">绿：芯片内搬运引擎；蓝：片外（卡间）搬运引擎；灰条：卡间互连；紫：跨节点通路；橙：卡间搬运由谁下单。</text>
+<text x="15" y="494" font-size="14" fill="#555">昇腾、TPU、AMD 的细节按公开资料整理，部分待核实（见正文 §8）。</text>
+</svg>

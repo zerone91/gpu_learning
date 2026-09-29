@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 540" width="980" height="540" font-family="sans-serif">
+  <rect x="0" y="0" width="980" height="540" fill="#ffffff"/>
+  <text x="20" y="30" font-size="19" font-weight="bold">要把显存带宽喂满，同一时刻必须有多少字节"在路上"</text>
+  <text x="20" y="52" font-size="14" fill="#444">把显存通路看成一条管子：入口每秒能塞进 3.35 TB，数据从入口到出口要走约 500 纳秒。管子里装的货＝进货速度 × 在管里的时间。</text>
+
+  <defs>
+    <marker id="b1" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><polygon points="0 0, 10 4, 0 8" fill="#2a5d9f"/></marker>
+  </defs>
+
+  <!-- pipe -->
+  <rect x="150" y="96" width="680" height="76" fill="#eef4fb" stroke="#2a5d9f" stroke-width="2"/>
+  <g fill="#7fb2e5" stroke="#2a5d9f" stroke-width="1">
+    <rect x="166" y="110" width="26" height="48"/><rect x="208" y="110" width="26" height="48"/>
+    <rect x="250" y="110" width="26" height="48"/><rect x="292" y="110" width="26" height="48"/>
+    <rect x="334" y="110" width="26" height="48"/><rect x="376" y="110" width="26" height="48"/>
+    <rect x="418" y="110" width="26" height="48"/><rect x="460" y="110" width="26" height="48"/>
+    <rect x="502" y="110" width="26" height="48"/><rect x="544" y="110" width="26" height="48"/>
+    <rect x="586" y="110" width="26" height="48"/><rect x="628" y="110" width="26" height="48"/>
+    <rect x="670" y="110" width="26" height="48"/><rect x="712" y="110" width="26" height="48"/>
+    <rect x="754" y="110" width="26" height="48"/><rect x="796" y="110" width="26" height="48"/>
+  </g>
+  <line x1="60" y1="134" x2="146" y2="134" stroke="#2a5d9f" stroke-width="3" marker-end="url(#b1)"/>
+  <text x="20" y="128" font-size="13">请求进入</text>
+  <line x1="834" y1="134" x2="920" y2="134" stroke="#2a5d9f" stroke-width="3" marker-end="url(#b1)"/>
+  <text x="866" y="128" font-size="13">数据出来</text>
+  <text x="490" y="192" font-size="13" text-anchor="middle" fill="#2a5d9f">管子里每个方块是一笔已经发出、还没回来的读取</text>
+
+  <!-- formula -->
+  <rect x="150" y="212" width="680" height="54" fill="#f7f7f7" stroke="#333" stroke-width="1.5"/>
+  <text x="490" y="236" font-size="16" text-anchor="middle" font-weight="bold">在路上的字节 ＝ 带宽 × 延迟 ＝ 3.35 TB/s × 500 ns ≈ 1.7 MB</text>
+  <text x="490" y="258" font-size="13" text-anchor="middle" fill="#555">装不满这 1.7 MB，出口就吐不出 3.35 TB/s——带宽再高也用不上</text>
+
+  <!-- two columns -->
+  <rect x="60" y="292" width="420" height="180" fill="#fdf1e6" stroke="#b5651d" stroke-width="1.5"/>
+  <text x="76" y="316" font-size="15" font-weight="bold" fill="#b5651d">每个线程读 4 字节（普通 float）</text>
+  <text x="76" y="342" font-size="13">一个 warp 一次读取 ＝ 32 × 4 ＝ 128 字节</text>
+  <text x="76" y="366" font-size="13">1.7 MB ÷ 128 字节 ≈ <tspan font-weight="bold">13000 笔读取同时挂着</tspan></text>
+  <text x="76" y="390" font-size="13">摊到 132 个 SM：每个 SM 约 <tspan font-weight="bold">100 笔</tspan></text>
+  <text x="76" y="414" font-size="13">一个 SM 最多驻留 64 个 warp，</text>
+  <text x="76" y="438" font-size="13">所以每个 warp 平均要挂着 <tspan font-weight="bold" fill="#a33">1.5 笔以上</tspan></text>
+  <text x="76" y="460" font-size="12" fill="#a33">占用率稍低一点，这个条件就凑不齐了</text>
+
+  <rect x="500" y="292" width="420" height="180" fill="#eef4fb" stroke="#2a5d9f" stroke-width="1.5"/>
+  <text x="516" y="316" font-size="15" font-weight="bold" fill="#2a5d9f">每个线程读 16 字节（float4）</text>
+  <text x="516" y="342" font-size="13">一个 warp 一次读取 ＝ 32 × 16 ＝ 512 字节</text>
+  <text x="516" y="366" font-size="13">1.7 MB ÷ 512 字节 ≈ <tspan font-weight="bold">3300 笔读取</tspan></text>
+  <text x="516" y="390" font-size="13">摊到 132 个 SM：每个 SM 约 <tspan font-weight="bold">25 笔</tspan></text>
+  <text x="516" y="414" font-size="13">25 个 warp 各挂一笔就够了，</text>
+  <text x="516" y="438" font-size="13">对应占用率约 <tspan font-weight="bold" fill="#1a7a3c">40%</tspan></text>
+  <text x="516" y="460" font-size="12" fill="#1a7a3c">同样的带宽，对 warp 数量的要求降到四分之一</text>
+
+  <text x="20" y="504" font-size="13" fill="#444">结论的用法：访存受限的程序先做向量化（让每笔请求多搬点），再考虑提高占用率（多挂几笔）。顺序反了会很吃力。</text>
+  <text x="20" y="526" font-size="13" fill="#444">带宽越高，这条结论越重要：按 20 TB/s 重算，要在路上的字节变成约 10 MB，靠堆 warp 去凑笔数会越来越不现实。</text>
+</svg>

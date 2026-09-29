@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" font-family="sans-serif">
+<defs><marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#555"/></marker></defs>
+<rect x="0" y="0" width="960" height="520" fill="#ffffff"/>
+<text x="205" y="80" font-size="14" text-anchor="end">CPU：数据准备</text>
+<line x1="215" y1="90" x2="908.0" y2="90" stroke="#eee"/>
+<text x="205" y="132" font-size="14" text-anchor="end">copy engine：H2D 预取</text>
+<line x1="215" y1="142" x2="908.0" y2="142" stroke="#eee"/>
+<text x="205" y="184" font-size="14" text-anchor="end">SM：计算</text>
+<line x1="215" y1="194" x2="908.0" y2="194" stroke="#eee"/>
+<text x="205" y="236" font-size="14" text-anchor="end">NCCL 线程块（NVLink）</text>
+<line x1="215" y1="246" x2="908.0" y2="246" stroke="#eee"/>
+<text x="205" y="288" font-size="14" text-anchor="end">网卡：RDMA（机间）</text>
+<line x1="215" y1="298" x2="908.0" y2="298" stroke="#eee"/>
+<text x="205" y="340" font-size="14" text-anchor="end">copy engine：D2H 检查点</text>
+<line x1="215" y1="350" x2="908.0" y2="350" stroke="#eee"/>
+<text x="205" y="392" font-size="14" text-anchor="end">CPU：写存储</text>
+<line x1="215" y1="402" x2="908.0" y2="402" stroke="#eee"/>
+<rect x="215.0" y="60" width="270.0" height="28" fill="#f3f3f3" stroke="#999" stroke-width="1.3"/>
+<text x="350.0" y="79" font-size="14" text-anchor="middle" fill="#000">worker 准备后续批次</text>
+<rect x="217.7" y="112" width="6.0" height="28" fill="#cfe0f7" stroke="#1f5fbf" stroke-width="1.3"/>
+<text x="227.6" y="131" font-size="14" fill="#1f5fbf">预取第 k+1 批（128 KB，几微秒）</text>
+<rect x="215.0" y="164" width="198.0" height="28" fill="#cdebd2" stroke="#2e8b3e" stroke-width="1.3"/>
+<text x="314.0" y="183" font-size="14" text-anchor="middle" fill="#000">前向 220 ms</text>
+<rect x="413.0" y="164" width="396.0" height="28" fill="#9fd4a8" stroke="#2e8b3e" stroke-width="1.3"/>
+<text x="611.0" y="183" font-size="14" text-anchor="middle" fill="#000">反向 440 ms</text>
+<rect x="813.5" y="164" width="22.5" height="28" fill="#e4f2b8" stroke="#7a9a1e" stroke-width="1.3"/>
+<text x="824.3" y="158" font-size="14" text-anchor="middle" fill="#7a9a1e">优化器 25 ms</text>
+<rect x="836.0" y="164" width="72.0" height="28" fill="#eef8f0" stroke="#9fcca8" stroke-width="1.3"/>
+<text x="872.0" y="183" font-size="14" text-anchor="middle" fill="#888">下一步前向</text>
+<rect x="414.8" y="216" width="9.9" height="28" fill="#fbd9b5" stroke="#d9771e" stroke-width="1.3"/>
+<rect x="422.9" y="268" width="11.7" height="28" fill="#e8d6ef" stroke="#7d3c98" stroke-width="1.3"/>
+<rect x="438.2" y="216" width="9.9" height="28" fill="#fbd9b5" stroke="#d9771e" stroke-width="1.3"/>
+<rect x="446.3" y="268" width="11.7" height="28" fill="#e8d6ef" stroke="#7d3c98" stroke-width="1.3"/>
+<rect x="461.6" y="216" width="9.9" height="28" fill="#fbd9b5" stroke="#d9771e" stroke-width="1.3"/>
+<rect x="469.7" y="268" width="11.7" height="28" fill="#e8d6ef" stroke="#7d3c98" stroke-width="1.3"/>
+<rect x="485.0" y="216" width="9.9" height="28" fill="#fbd9b5" stroke="#d9771e" stroke-width="1.3"/>
+<rect x="493.1" y="268" width="11.7" height="28" fill="#e8d6ef" stroke="#7d3c98" stroke-width="1.3"/>
+<rect x="508.4" y="216" width="9.9" height="28" fill="#fbd9b5" stroke="#d9771e" stroke-width="1.3"/>
+<rect x="516.5" y="268" width="11.7" height="28" fill="#e8d6ef" stroke="#7d3c98" stroke-width="1.3"/>
+<rect x="531.8" y="216" width="9.9" height="28" fill="#fbd9b5" stroke="#d9771e" stroke-width="1.3"/>
+<rect x="539.9" y="268" width="11.7" height="28" fill="#e8d6ef" stroke="#7d3c98" stroke-width="1.3"/>
+<rect x="555.2" y="216" width="9.9" height="28" fill="#fbd9b5" stroke="#d9771e" stroke-width="1.3"/>
+<rect x="563.3" y="268" width="11.7" height="28" fill="#e8d6ef" stroke="#7d3c98" stroke-width="1.3"/>
+<rect x="578.6" y="216" width="9.9" height="28" fill="#fbd9b5" stroke="#d9771e" stroke-width="1.3"/>
+<rect x="586.7" y="268" width="11.7" height="28" fill="#e8d6ef" stroke="#7d3c98" stroke-width="1.3"/>
+<rect x="602.0" y="216" width="9.9" height="28" fill="#fbd9b5" stroke="#d9771e" stroke-width="1.3"/>
+<rect x="610.1" y="268" width="11.7" height="28" fill="#e8d6ef" stroke="#7d3c98" stroke-width="1.3"/>
+<rect x="625.4" y="216" width="9.9" height="28" fill="#fbd9b5" stroke="#d9771e" stroke-width="1.3"/>
+<rect x="633.5" y="268" width="11.7" height="28" fill="#e8d6ef" stroke="#7d3c98" stroke-width="1.3"/>
+<rect x="648.8" y="216" width="9.9" height="28" fill="#fbd9b5" stroke="#d9771e" stroke-width="1.3"/>
+<rect x="656.9" y="268" width="11.7" height="28" fill="#e8d6ef" stroke="#7d3c98" stroke-width="1.3"/>
+<rect x="672.2" y="216" width="9.9" height="28" fill="#fbd9b5" stroke="#d9771e" stroke-width="1.3"/>
+<rect x="680.3" y="268" width="11.7" height="28" fill="#e8d6ef" stroke="#7d3c98" stroke-width="1.3"/>
+<rect x="695.6" y="216" width="9.9" height="28" fill="#fbd9b5" stroke="#d9771e" stroke-width="1.3"/>
+<rect x="703.7" y="268" width="11.7" height="28" fill="#e8d6ef" stroke="#7d3c98" stroke-width="1.3"/>
+<rect x="719.0" y="216" width="9.9" height="28" fill="#fbd9b5" stroke="#d9771e" stroke-width="1.3"/>
+<rect x="727.1" y="268" width="11.7" height="28" fill="#e8d6ef" stroke="#7d3c98" stroke-width="1.3"/>
+<rect x="742.4" y="216" width="9.9" height="28" fill="#fbd9b5" stroke="#d9771e" stroke-width="1.3"/>
+<rect x="750.5" y="268" width="11.7" height="28" fill="#e8d6ef" stroke="#7d3c98" stroke-width="1.3"/>
+<rect x="765.8" y="216" width="9.9" height="28" fill="#fbd9b5" stroke="#d9771e" stroke-width="1.3"/>
+<rect x="773.9" y="268" width="11.7" height="28" fill="#e8d6ef" stroke="#7d3c98" stroke-width="1.3"/>
+<rect x="789.2" y="216" width="9.9" height="28" fill="#fbd9b5" stroke="#d9771e" stroke-width="1.3"/>
+<rect x="797.3" y="268" width="11.7" height="28" fill="#e8d6ef" stroke="#7d3c98" stroke-width="1.3"/>
+<rect x="804.5" y="216" width="9.0" height="28" fill="#fbd9b5" stroke="#d9771e" stroke-width="1.3"/>
+<rect x="807.2" y="268" width="6.3" height="28" fill="#e8d6ef" stroke="#7d3c98" stroke-width="1.3"/>
+<text x="611.0" y="212" font-size="14" text-anchor="middle" fill="#d9771e">约 240 个 25 MB 梯度桶，逐个 all-reduce（图中每块代表一批桶）</text>
+<text x="323.0" y="287" font-size="14" text-anchor="middle" fill="#7d3c98">CPU 代理下单，网卡直读显存</text>
+<rect x="215.0" y="320" width="13.5" height="28" fill="#cfe0f7" stroke="#1f5fbf" stroke-width="1.3"/>
+<text x="234.8" y="339" font-size="14" fill="#1f5fbf">检查点分片 0.75 GB → 主机锁页缓冲（约 15 ms，放在前向期间，避开网卡流量）</text>
+<rect x="228.5" y="372" width="679.5" height="28" fill="#f3f3f3" stroke="#999" stroke-width="1.3"/>
+<text x="557.0" y="391" font-size="14" text-anchor="middle">后台线程把锁页缓冲写到存储（每节点 6 GB，约 1.2 s，跨出本步）→</text>
+<line x1="813.5" y1="244" x2="813.5" y2="194" stroke="#555" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#ak)"/>
+<text x="804.5" y="315" font-size="14" fill="#555" text-anchor="end">最后一桶完成，优化器才能开始 ↗</text>
+<line x1="222.2" y1="112" x2="222.2" y2="88" stroke="#555" stroke-width="1.2" stroke-dasharray="3,3"/>
+<line x1="215" y1="420" x2="908.0" y2="420" stroke="#333" stroke-width="1.5"/>
+<line x1="215.0" y1="415" x2="215.0" y2="425" stroke="#333" stroke-width="1.5"/><text x="215.0" y="442" font-size="14" text-anchor="middle">0</text>
+<line x1="305.0" y1="415" x2="305.0" y2="425" stroke="#333" stroke-width="1.5"/><text x="305.0" y="442" font-size="14" text-anchor="middle">100</text>
+<line x1="395.0" y1="415" x2="395.0" y2="425" stroke="#333" stroke-width="1.5"/><text x="395.0" y="442" font-size="14" text-anchor="middle">200</text>
+<line x1="485.0" y1="415" x2="485.0" y2="425" stroke="#333" stroke-width="1.5"/><text x="485.0" y="442" font-size="14" text-anchor="middle">300</text>
+<line x1="575.0" y1="415" x2="575.0" y2="425" stroke="#333" stroke-width="1.5"/><text x="575.0" y="442" font-size="14" text-anchor="middle">400</text>
+<line x1="665.0" y1="415" x2="665.0" y2="425" stroke="#333" stroke-width="1.5"/><text x="665.0" y="442" font-size="14" text-anchor="middle">500</text>
+<line x1="755.0" y1="415" x2="755.0" y2="425" stroke="#333" stroke-width="1.5"/><text x="755.0" y="442" font-size="14" text-anchor="middle">600</text>
+<line x1="845.0" y1="415" x2="845.0" y2="425" stroke="#333" stroke-width="1.5"/><text x="845.0" y="442" font-size="14" text-anchor="middle">700</text>
+<text x="908.0" y="464" font-size="14" text-anchor="end">一个 step 内的时间（毫秒，示意算例）</text>
+<text x="20" y="464" font-size="14" fill="#555">3B 模型，64 × H100，DDP；检查点只在每 500 步中的一步出现。</text>
+</svg>

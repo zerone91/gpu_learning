@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 486" width="960" height="486" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="486" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2c6fb7"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f7a4d"/></marker><pattern id="hz" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="#f8d7d2"/><line x1="0" y1="0" x2="0" y2="8" stroke="#c0392b" stroke-width="1.6"/></pattern></defs>
+<text x="480" y="30" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold">多开一级流水的代价：走寄存器要吃寄存器预算，走 cp.async 只吃 shared memory</text>
+<text x="480" y="52" font-size="13" text-anchor="middle" fill="#666666">例子：128 线程的线程块，每块 tile 的 A + B 共 16 KB，每线程 128 个累加器（A100 口径）</text>
+<text x="30" y="90" font-size="15" text-anchor="start" fill="#c0392b" font-weight="bold">① 用寄存器预取：每多预取一块，每线程多 32 个寄存器</text>
+<text x="190" y="129" font-size="14" text-anchor="end" fill="#222222">预取 1 块</text>
+<rect x="190" y="108" width="470" height="26" fill="#f6f6f6" stroke="#666666" stroke-width="1.2" rx="2"/>
+<rect x="190" y="108" width="331.764705882353" height="26" fill="#dbe8f6" stroke="#2c6fb7" stroke-width="1.5" rx="2"/>
+<text x="674" y="127" font-size="13" text-anchor="start" fill="#222222">180 个</text>
+<text x="190" y="165" font-size="14" text-anchor="end" fill="#222222">预取 2 块</text>
+<rect x="190" y="144" width="470" height="26" fill="#f6f6f6" stroke="#666666" stroke-width="1.2" rx="2"/>
+<rect x="190" y="144" width="390.7450980392157" height="26" fill="#dbe8f6" stroke="#2c6fb7" stroke-width="1.5" rx="2"/>
+<text x="674" y="163" font-size="13" text-anchor="start" fill="#222222">212 个</text>
+<text x="190" y="201" font-size="14" text-anchor="end" fill="#222222">预取 3 块</text>
+<rect x="190" y="180" width="470" height="26" fill="#f6f6f6" stroke="#666666" stroke-width="1.2" rx="2"/>
+<rect x="190" y="180" width="449.72549019607845" height="26" fill="#dbe8f6" stroke="#2c6fb7" stroke-width="1.5" rx="2"/>
+<text x="674" y="199" font-size="13" text-anchor="start" fill="#222222">244 个</text>
+<text x="190" y="237" font-size="14" text-anchor="end" fill="#222222">预取 4 块</text>
+<rect x="190" y="216" width="470" height="26" fill="#f6f6f6" stroke="#666666" stroke-width="1.2" rx="2"/>
+<rect x="190" y="216" width="470.0" height="26" fill="#f8d7d2" stroke="#c0392b" stroke-width="1.5" rx="2"/>
+<text x="674" y="235" font-size="13" text-anchor="start" fill="#c0392b">276 个（超上限，要溢到显存）</text>
+<line x1="660" y1="100" x2="660" y2="256" stroke="#c0392b" stroke-width="2" stroke-dasharray="5 4"/>
+<text x="660" y="96" font-size="13" text-anchor="middle" fill="#c0392b">每线程 255 个寄存器的硬上限</text>
+<text x="30" y="284" font-size="15" text-anchor="start" fill="#1f7a4d" font-weight="bold">② 用 cp.async 预取：每多一级只多一份 16 KB 的 shared 缓冲，寄存器一个不加</text>
+<text x="190" y="337" font-size="14" text-anchor="end" fill="#222222">2 级</text>
+<rect x="190" y="316" width="470" height="26" fill="#f6f6f6" stroke="#666666" stroke-width="1.2" rx="2"/>
+<rect x="190" y="316" width="91.70731707317073" height="26" fill="#d7ede1" stroke="#1f7a4d" stroke-width="1.5" rx="2"/>
+<text x="293.7073170731707" y="335" font-size="13" text-anchor="start" fill="#222222">32 KB</text>
+<text x="190" y="373" font-size="14" text-anchor="end" fill="#222222">3 级</text>
+<rect x="190" y="352" width="470" height="26" fill="#f6f6f6" stroke="#666666" stroke-width="1.2" rx="2"/>
+<rect x="190" y="352" width="137.5609756097561" height="26" fill="#d7ede1" stroke="#1f7a4d" stroke-width="1.5" rx="2"/>
+<text x="339.5609756097561" y="371" font-size="13" text-anchor="start" fill="#222222">48 KB</text>
+<text x="190" y="409" font-size="14" text-anchor="end" fill="#222222">4 级</text>
+<rect x="190" y="388" width="470" height="26" fill="#f6f6f6" stroke="#666666" stroke-width="1.2" rx="2"/>
+<rect x="190" y="388" width="183.41463414634146" height="26" fill="#d7ede1" stroke="#1f7a4d" stroke-width="1.5" rx="2"/>
+<text x="385.4146341463414" y="407" font-size="13" text-anchor="start" fill="#222222">64 KB</text>
+<text x="190" y="445" font-size="14" text-anchor="end" fill="#222222">5 级</text>
+<rect x="190" y="424" width="470" height="26" fill="#f6f6f6" stroke="#666666" stroke-width="1.2" rx="2"/>
+<rect x="190" y="424" width="229.2682926829268" height="26" fill="#d7ede1" stroke="#1f7a4d" stroke-width="1.5" rx="2"/>
+<text x="431.2682926829268" y="443" font-size="13" text-anchor="start" fill="#222222">80 KB</text>
+<line x1="660" y1="308" x2="660" y2="470" stroke="#1f7a4d" stroke-width="2" stroke-dasharray="5 4"/>
+<text x="660" y="304" font-size="13" text-anchor="middle" fill="#1f7a4d">可配给 shared 的上限约 164 KB（A100）</text>
+</svg>

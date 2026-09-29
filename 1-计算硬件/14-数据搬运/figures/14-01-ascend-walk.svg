@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 620" width="1000" height="620" font-family="sans-serif">
+  <rect x="0" y="0" width="1000" height="620" fill="#ffffff"/>
+  <text x="36" y="34" font-size="20" font-weight="bold" fill="#111">走查二：昇腾上，同一个 A 矩阵分块从显存走到矩阵阵列</text>
+  <text x="36" y="58" font-size="14" fill="#555">跳数比 Hopper 多一跳，每一跳都有专职的搬运流水线，而且每一跳之间都要软件自己写一对通知。</text>
+
+  <!-- chain -->
+  <rect x="36" y="86" width="130" height="76" fill="#fdeaea" stroke="#a94442" stroke-width="2"/>
+  <text x="101" y="116" font-size="15" font-weight="bold" fill="#6b1f1f" text-anchor="middle">GM</text>
+  <text x="101" y="138" font-size="13" fill="#6b1f1f" text-anchor="middle">片外显存</text>
+  <text x="101" y="156" font-size="13" fill="#6b1f1f" text-anchor="middle">A 矩阵（ND 排布）</text>
+
+  <line x1="166" y1="124" x2="214" y2="124" stroke="#2c5aa0" stroke-width="3.5"/>
+  <polygon points="228,124 210,116 210,132" fill="#2c5aa0"/>
+  <text x="196" y="112" font-size="14" font-weight="bold" fill="#1a3a66" text-anchor="middle">跳①</text>
+  <text x="196" y="150" font-size="13" fill="#1a3a66" text-anchor="middle">MTE2</text>
+
+  <rect x="236" y="86" width="130" height="76" fill="#eef4fb" stroke="#2c5aa0" stroke-width="2"/>
+  <text x="301" y="116" font-size="15" font-weight="bold" fill="#1a3a66" text-anchor="middle">L1 Buffer</text>
+  <text x="301" y="138" font-size="13" fill="#1a3a66" text-anchor="middle">片上大缓冲</text>
+  <text x="301" y="156" font-size="13" fill="#1a3a66" text-anchor="middle">已转成 NZ 分形</text>
+
+  <line x1="366" y1="124" x2="414" y2="124" stroke="#2c5aa0" stroke-width="3.5"/>
+  <polygon points="428,124 410,116 410,132" fill="#2c5aa0"/>
+  <text x="396" y="112" font-size="14" font-weight="bold" fill="#1a3a66" text-anchor="middle">跳②</text>
+  <text x="396" y="150" font-size="13" fill="#1a3a66" text-anchor="middle">MTE1</text>
+
+  <rect x="436" y="86" width="130" height="76" fill="#eef4fb" stroke="#2c5aa0" stroke-width="2"/>
+  <text x="501" y="116" font-size="15" font-weight="bold" fill="#1a3a66" text-anchor="middle">L0A</text>
+  <text x="501" y="138" font-size="13" fill="#1a3a66" text-anchor="middle">贴着阵列的</text>
+  <text x="501" y="156" font-size="13" fill="#1a3a66" text-anchor="middle">左矩阵缓冲</text>
+
+  <line x1="566" y1="124" x2="614" y2="124" stroke="#2f6b2f" stroke-width="3.5"/>
+  <polygon points="628,124 610,116 610,132" fill="#2f6b2f"/>
+  <text x="596" y="112" font-size="14" font-weight="bold" fill="#1b4620" text-anchor="middle">跳③</text>
+
+  <rect x="636" y="86" width="130" height="76" fill="#dff0d8" stroke="#2f6b2f" stroke-width="2"/>
+  <text x="701" y="116" font-size="15" font-weight="bold" fill="#1b4620" text-anchor="middle">Cube 阵列</text>
+  <text x="701" y="138" font-size="13" fill="#1b4620" text-anchor="middle">16×16×16</text>
+  <text x="701" y="156" font-size="13" fill="#1b4620" text-anchor="middle">结果落 L0C</text>
+
+  <line x1="766" y1="124" x2="814" y2="124" stroke="#b8860b" stroke-width="3.5"/>
+  <polygon points="828,124 810,116 810,132" fill="#b8860b"/>
+  <text x="796" y="112" font-size="14" font-weight="bold" fill="#5a4400" text-anchor="middle">跳④</text>
+  <text x="796" y="150" font-size="13" fill="#5a4400" text-anchor="middle">FixPipe</text>
+
+  <rect x="836" y="86" width="130" height="76" fill="#fffdf2" stroke="#b8860b" stroke-width="2"/>
+  <text x="901" y="116" font-size="15" font-weight="bold" fill="#5a4400" text-anchor="middle">UB 或 GM</text>
+  <text x="901" y="138" font-size="13" fill="#5a4400" text-anchor="middle">转回 ND 排布</text>
+  <text x="901" y="156" font-size="13" fill="#5a4400" text-anchor="middle">顺带做量化</text>
+
+  <!-- cards -->
+  <rect x="36" y="188" width="300" height="252" fill="#eef4fb" stroke="#2c5aa0" stroke-width="2"/>
+  <text x="186" y="212" font-size="16" font-weight="bold" fill="#1a3a66" text-anchor="middle">跳 ①　GM → L1</text>
+  <line x1="52" y1="222" x2="320" y2="222" stroke="#2c5aa0" stroke-width="1.5"/>
+  <text x="52" y="246" font-size="14" font-weight="bold" fill="#1a3a66">谁发起</text>
+  <text x="52" y="266" font-size="13" fill="#333">标量流水线发一条搬运指令，</text>
+  <text x="52" y="284" font-size="13" fill="#333">MTE2 这条搬运流水线去执行</text>
+  <text x="52" y="310" font-size="14" font-weight="bold" fill="#1a3a66">地址怎么来</text>
+  <text x="52" y="330" font-size="13" fill="#333">描述符里的起点、每维长度、每维步长，</text>
+  <text x="52" y="348" font-size="13" fill="#333">交给引擎内的嵌套计数器</text>
+  <text x="52" y="374" font-size="14" font-weight="bold" fill="#1a3a66">完成怎么知道</text>
+  <text x="52" y="394" font-size="13" fill="#333">MTE2 搬完执行 set_flag，把一个</text>
+  <text x="52" y="412" font-size="13" fill="#333">标志位置 1；等的人自己写 wait_flag</text>
+  <text x="52" y="434" font-size="13" fill="#7a3d00">途中变换：ND 行主序 → NZ 分形块</text>
+
+  <rect x="350" y="188" width="300" height="252" fill="#eef4fb" stroke="#2c5aa0" stroke-width="2"/>
+  <text x="500" y="212" font-size="16" font-weight="bold" fill="#1a3a66" text-anchor="middle">跳 ②　L1 → L0A</text>
+  <line x1="366" y1="222" x2="634" y2="222" stroke="#2c5aa0" stroke-width="1.5"/>
+  <text x="366" y="246" font-size="14" font-weight="bold" fill="#1a3a66">谁发起</text>
+  <text x="366" y="266" font-size="13" fill="#333">同样是标量流水线下指令，</text>
+  <text x="366" y="284" font-size="13" fill="#333">由 MTE1 这条搬运流水线执行</text>
+  <text x="366" y="310" font-size="14" font-weight="bold" fill="#1a3a66">为什么要多这一跳</text>
+  <text x="366" y="330" font-size="13" fill="#333">L1 是通用的大缓冲，L0A 是直接接在</text>
+  <text x="366" y="348" font-size="13" fill="#333">阵列输入端的小缓冲，两者的摆法不同</text>
+  <text x="366" y="374" font-size="14" font-weight="bold" fill="#1a3a66">完成怎么知道</text>
+  <text x="366" y="394" font-size="13" fill="#333">又是一对 set_flag / wait_flag，</text>
+  <text x="366" y="412" font-size="13" fill="#333">这次在 MTE1 和 Cube 之间</text>
+  <text x="366" y="434" font-size="13" fill="#7a3d00">途中变换：转置；卷积场景做 img2col</text>
+
+  <rect x="664" y="188" width="300" height="252" fill="#f4faf4" stroke="#2f6b2f" stroke-width="2"/>
+  <text x="814" y="212" font-size="16" font-weight="bold" fill="#1b4620" text-anchor="middle">跳 ③　L0A → 阵列</text>
+  <line x1="680" y1="222" x2="948" y2="222" stroke="#2f6b2f" stroke-width="1.5"/>
+  <text x="680" y="246" font-size="14" font-weight="bold" fill="#1b4620">谁发起</text>
+  <text x="680" y="266" font-size="13" fill="#333">没有人。阵列每拍自己从 L0A 读一排数，</text>
+  <text x="680" y="284" font-size="13" fill="#333">读地址由阵列旁的计数器逐拍产生</text>
+  <text x="680" y="310" font-size="14" font-weight="bold" fill="#1b4620">这一跳算不算"搬运"</text>
+  <text x="680" y="330" font-size="13" fill="#333">不算。它是计算的一部分，没有独立的</text>
+  <text x="680" y="348" font-size="13" fill="#333">指令、没有完成信号，也不会失败</text>
+  <text x="680" y="374" font-size="14" font-weight="bold" fill="#1b4620">和 Hopper 的差别</text>
+  <text x="680" y="394" font-size="13" fill="#333">Hopper 的跳 ② 还要发一条 wgmma；</text>
+  <text x="680" y="412" font-size="13" fill="#333">这里连指令都没有，一切在时刻表里</text>
+  <text x="680" y="434" font-size="13" fill="#7a3d00">途中变换：无</text>
+
+  <!-- flag strip -->
+  <rect x="36" y="456" width="928" height="140" fill="#fdf5f5" stroke="#a94442" stroke-width="2"/>
+  <text x="56" y="480" font-size="16" font-weight="bold" fill="#6b1f1f">两跳之间的通知，是程序员自己写出来的（缺一个不报错，只是偶尔算错）：</text>
+  <text x="56" y="508" font-size="14" fill="#222" font-family="monospace">MTE2: 搬 A 块进 L1 → set_flag(MTE2, MTE1, 0)</text>
+  <text x="620" y="508" font-size="13" fill="#6b1f1f">← 告诉下一跳：L1 里的数到位了</text>
+  <text x="56" y="532" font-size="14" fill="#222" font-family="monospace">MTE1: wait_flag(MTE2, MTE1, 0) → 搬进 L0A → set_flag(MTE1, Cube, 0)</text>
+  <text x="620" y="532" font-size="13" fill="#6b1f1f">← 告诉阵列：L0A 里的数到位了</text>
+  <text x="56" y="556" font-size="14" fill="#222" font-family="monospace">Cube: wait_flag(MTE1, Cube, 0) → 算 → set_flag(Cube, MTE1, 1)</text>
+  <text x="56" y="582" font-size="14" fill="#222" font-family="monospace">MTE1: wait_flag(Cube, MTE1, 1) → 才能覆盖 L0A 的这一半</text>
+  <text x="620" y="582" font-size="13" fill="#6b1f1f">← 反方向：告诉搬运，缓冲空出来了</text>
+</svg>

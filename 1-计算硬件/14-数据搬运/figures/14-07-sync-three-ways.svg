@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 660" width="1000" height="660" font-family="sans-serif">
+<rect x="0" y="0" width="1000" height="660" fill="#ffffff"/>
+<defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker>
+</defs>
+
+<text x="500" y="30" font-size="19" text-anchor="middle" fill="#222" font-weight="bold">"搬完了怎么知道"的三种机制</text>
+<text x="500" y="54" font-size="14" text-anchor="middle" fill="#555">横轴是时间；橙色 = 搬运在路上，蓝色 = 线程在干活，红色虚框 = 线程停住不能往下走（各段长度为示意）</text>
+
+<!-- ROW A -->
+<text x="16" y="92" font-size="16" fill="#222" font-weight="bold">① load/store</text>
+<text x="16" y="114" font-size="13" fill="#666">硬件替你等</text>
+<line x1="150" y1="150" x2="960" y2="150" stroke="#ccc" stroke-width="1"/>
+<rect x="150" y="82" width="150" height="30" fill="#fbe3c4" stroke="#d35400" stroke-width="1.8"/>
+<text x="225" y="102" font-size="14" text-anchor="middle" fill="#222">LDG：读显存</text>
+<rect x="300" y="82" width="290" height="30" fill="#ffffff" stroke="#c0392b" stroke-width="2" stroke-dasharray="7 4"/>
+<text x="445" y="102" font-size="14" text-anchor="middle" fill="#c0392b">STS 停住：记分牌说这个值还没到</text>
+<rect x="590" y="82" width="120" height="30" fill="#dbe8f6" stroke="#2c6fb7" stroke-width="1.8"/>
+<text x="650" y="102" font-size="14" text-anchor="middle" fill="#222">STS：写 shared</text>
+<rect x="710" y="82" width="100" height="30" fill="#f4f4f4" stroke="#222" stroke-width="1.5"/>
+<text x="760" y="102" font-size="14" text-anchor="middle" fill="#222">BAR.SYNC</text>
+<text x="150" y="136" font-size="14" fill="#222">这个停顿不是你写的，也挪不走——它被钉在"第一次用到这个值"的那条指令上。</text>
+
+<!-- ROW B -->
+<text x="16" y="196" font-size="16" fill="#222" font-weight="bold">② cp.async</text>
+<text x="16" y="218" font-size="13" fill="#666">自己分组、</text>
+<text x="16" y="236" font-size="13" fill="#666">按组等</text>
+<rect x="150" y="180" width="140" height="28" fill="#fbe3c4" stroke="#d35400" stroke-width="1.8"/>
+<text x="220" y="199" font-size="14" text-anchor="middle" fill="#222">第 k 组搬运</text>
+<line x1="292" y1="172" x2="292" y2="216" stroke="#222" stroke-width="2"/>
+<text x="296" y="170" font-size="13" fill="#222">commit_group</text>
+<rect x="298" y="180" width="140" height="28" fill="#fbe3c4" stroke="#d35400" stroke-width="1.8"/>
+<text x="368" y="199" font-size="14" text-anchor="middle" fill="#222">第 k+1 组搬运</text>
+<line x1="440" y1="172" x2="440" y2="216" stroke="#222" stroke-width="2"/>
+<text x="444" y="170" font-size="13" fill="#222">commit_group</text>
+
+<rect x="450" y="180" width="60" height="28" fill="#ffffff" stroke="#c0392b" stroke-width="2" stroke-dasharray="7 4"/>
+<text x="480" y="199" font-size="13" text-anchor="middle" fill="#c0392b">等 k 组</text>
+<rect x="510" y="180" width="270" height="28" fill="#d8ecd8" stroke="#1f7a4d" stroke-width="1.8"/>
+<text x="645" y="199" font-size="14" text-anchor="middle" fill="#222">计算第 k 块（第 k+1 组还在飞）</text>
+<text x="450" y="234" font-size="14" fill="#1f7a4d">写 wait_group 1：只等最老的一组，刚发出的那组继续飞，绿色这段是省下来的时间</text>
+
+<rect x="450" y="248" width="200" height="26" fill="#ffffff" stroke="#c0392b" stroke-width="2" stroke-dasharray="7 4"/>
+<text x="550" y="266" font-size="13" text-anchor="middle" fill="#c0392b">两组都等到齐</text>
+<rect x="650" y="248" width="130" height="26" fill="#d8ecd8" stroke="#1f7a4d" stroke-width="1.8"/>
+<text x="715" y="266" font-size="13" text-anchor="middle" fill="#222">才轮到计算</text>
+<text x="150" y="266" font-size="14" fill="#c0392b" font-weight="bold">写成 0 会怎样 →</text>
+<text x="150" y="290" font-size="14" fill="#222">N 写成 0：退回"搬完再算"的串行；N 写太大：读到还没搬完的数据，静默算错。两种都不报错。</text>
+
+<!-- ROW C -->
+<text x="16" y="342" font-size="16" fill="#222" font-weight="bold">③ TMA</text>
+<text x="16" y="364" font-size="13" fill="#666">数够字节</text>
+<text x="16" y="382" font-size="13" fill="#666">才放行</text>
+<rect x="150" y="326" width="230" height="28" fill="#eaf5ee" stroke="#1f7a4d" stroke-width="1.8"/>
+<text x="265" y="345" font-size="14" text-anchor="middle" fill="#222">1 个线程声明：预期到货 16384 字节</text>
+<rect x="380" y="326" width="80" height="28" fill="#eaf5ee" stroke="#1f7a4d" stroke-width="1.8"/>
+<text x="420" y="345" font-size="14" text-anchor="middle" fill="#222">发订单</text>
+<line x1="464" y1="340" x2="500" y2="340" stroke="#222" stroke-width="2" marker-end="url(#ar)"/>
+<text x="506" y="345" font-size="14" fill="#2c6fb7">这个线程走开去干别的，不在这里等</text>
+
+<text x="150" y="386" font-size="14" fill="#222" font-weight="bold">TMA 单元分批送达，每批往屏障的账上记数：</text>
+<rect x="470" y="370" width="80" height="26" fill="#e8e8e8" stroke="#666" stroke-width="1.5"/>
+<text x="510" y="388" font-size="13" text-anchor="middle" fill="#222">4096</text>
+<rect x="556" y="370" width="80" height="26" fill="#d8d8d8" stroke="#666" stroke-width="1.5"/>
+<text x="596" y="388" font-size="13" text-anchor="middle" fill="#222">8192</text>
+<rect x="642" y="370" width="80" height="26" fill="#c8c8c8" stroke="#666" stroke-width="1.5"/>
+<text x="682" y="388" font-size="13" text-anchor="middle" fill="#222">12288</text>
+<rect x="728" y="370" width="80" height="26" fill="#b6b6b6" stroke="#333" stroke-width="2"/>
+<text x="768" y="388" font-size="13" text-anchor="middle" fill="#222">16384</text>
+<line x1="812" y1="383" x2="846" y2="383" stroke="#1f7a4d" stroke-width="2.5" marker-end="url(#ar)"/>
+<text x="850" y="388" font-size="14" fill="#1f7a4d" font-weight="bold">记满，放行</text>
+
+<rect x="150" y="410" width="660" height="28" fill="#ffffff" stroke="#c0392b" stroke-width="2" stroke-dasharray="7 4"/>
+<text x="480" y="429" font-size="14" text-anchor="middle" fill="#c0392b">要用这块数据的线程在屏障上等（只有真正要用的那一刻才停）</text>
+<rect x="810" y="410" width="150" height="28" fill="#d8ecd8" stroke="#1f7a4d" stroke-width="1.8"/>
+<text x="885" y="429" font-size="14" text-anchor="middle" fill="#222">全体一起继续</text>
+
+<line x1="16" y1="458" x2="984" y2="458" stroke="#bbb" stroke-width="1"/>
+<text x="16" y="484" font-size="15" fill="#222" font-weight="bold">为什么第三种要数"字节"，而不是像第二种那样数"完成了几笔"</text>
+<text x="16" y="510" font-size="14" fill="#222">一张订单在搬运单元内部会被拆成很多次实际传输，拆成几次由硬件决定、上层看不见。</text>
+<text x="16" y="534" font-size="14" fill="#222">所以对等待的一方来说，唯一可靠的完成标志是"到货的字节数对上了"——这就是先声明 16384、再由硬件逐批记账的原因。</text>
+
+<line x1="16" y1="556" x2="984" y2="556" stroke="#bbb" stroke-width="1"/>
+<text x="16" y="582" font-size="15" fill="#222" font-weight="bold">三种机制的等待点在哪</text>
+<text x="16" y="608" font-size="14" fill="#222">① 钉在"第一次用到这个值"的指令上，位置不可选；</text>
+<text x="16" y="632" font-size="14" fill="#222">② 位置由你写的 wait 深度 N 决定，写错不报错；③ 位置在真正要用数据的那一刻，而且发订单的线程早就走开了。</text>
+</svg>

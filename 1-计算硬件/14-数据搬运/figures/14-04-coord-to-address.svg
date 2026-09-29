@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 640" width="980" height="640">
+  <rect x="0" y="0" width="980" height="640" fill="#ffffff"/>
+  <defs>
+    <marker id="a3" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 z" fill="#333"/>
+    </marker>
+  </defs>
+
+  <text x="20" y="30" font-family="sans-serif" font-size="19" font-weight="bold" fill="#111">引擎内部：从一对坐标到一串地址，越界的部分自己裁掉</text>
+
+  <!-- 上半：地址生成 -->
+  <text x="20" y="60" font-family="sans-serif" font-size="16" font-weight="bold" fill="#1d5c2d">① 地址生成：一个行计数器 + 一个乘加器</text>
+
+  <rect x="20" y="74" width="230" height="86" rx="6" fill="#fdf0e2" stroke="#c2691a" stroke-width="1.8"/>
+  <text x="32" y="96" font-family="sans-serif" font-size="14" font-weight="bold" fill="#8a4a10">指令给的（每次都变）</text>
+  <text x="32" y="120" font-family="sans-serif" font-size="14" fill="#333">x = 128（列）</text>
+  <text x="32" y="142" font-family="sans-serif" font-size="14" fill="#333">y = 256（行）</text>
+
+  <rect x="20" y="172" width="230" height="108" rx="6" fill="#f0f0f0" stroke="#666" stroke-width="1.8"/>
+  <text x="32" y="194" font-family="sans-serif" font-size="14" font-weight="bold" fill="#333">描述符给的（一直不变）</text>
+  <text x="32" y="218" font-family="sans-serif" font-size="14" fill="#333">基址 base</text>
+  <text x="32" y="240" font-family="sans-serif" font-size="14" fill="#333">行步长 8192 字节</text>
+  <text x="32" y="262" font-family="sans-serif" font-size="14" fill="#333">box 64 × 64，元素 2 字节</text>
+
+  <rect x="290" y="88" width="270" height="180" rx="8" fill="#e8f4ea" stroke="#2c7a3f" stroke-width="2.2"/>
+  <text x="302" y="112" font-family="sans-serif" font-size="15" font-weight="bold" fill="#1d5c2d">循环计数器 r：0 → 63</text>
+  <text x="302" y="142" font-family="sans-serif" font-size="14" fill="#333">行首地址 =</text>
+  <text x="314" y="166" font-family="sans-serif" font-size="14" fill="#333">base + (y + r) × 8192</text>
+  <text x="314" y="188" font-family="sans-serif" font-size="14" fill="#333">　　 + x × 2</text>
+  <text x="302" y="218" font-family="sans-serif" font-size="14" fill="#333">从这里连续读 64 × 2 = 128 字节</text>
+  <text x="302" y="246" font-family="sans-serif" font-size="13.5" fill="#555">硬件只需一个小乘加器和几个计数器</text>
+
+  <line x1="254" y1="118" x2="286" y2="150" stroke="#333" stroke-width="1.8" marker-end="url(#a3)"/>
+  <line x1="254" y1="224" x2="286" y2="200" stroke="#333" stroke-width="1.8" marker-end="url(#a3)"/>
+
+  <!-- 地址表 -->
+  <rect x="600" y="88" width="360" height="180" rx="6" fill="#eef2f7" stroke="#2a5c9a" stroke-width="1.8"/>
+  <text x="612" y="112" font-family="sans-serif" font-size="15" font-weight="bold" fill="#1b3f6b">逐行发出的请求（相对基址的偏移）</text>
+  <text x="612" y="138" font-family="sans-serif" font-size="14" fill="#333">r = 0　行 256　偏移 2 097 408　读 128 字节</text>
+  <text x="612" y="160" font-family="sans-serif" font-size="14" fill="#333">r = 1　行 257　偏移 2 105 600　读 128 字节</text>
+  <text x="612" y="182" font-family="sans-serif" font-size="14" fill="#333">r = 2　行 258　偏移 2 113 792　读 128 字节</text>
+  <text x="612" y="204" font-family="sans-serif" font-size="14" fill="#555">…　每行加 8192　…</text>
+  <text x="612" y="226" font-family="sans-serif" font-size="14" fill="#333">r = 63　行 319　偏移 2 613 504　读 128 字节</text>
+  <text x="612" y="252" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1b3f6b">合计 64 × 128 = 8192 字节</text>
+
+  <line x1="20" y1="300" x2="960" y2="300" stroke="#ccc" stroke-width="1.5"/>
+
+  <!-- 下半：边界裁剪 -->
+  <text x="20" y="328" font-family="sans-serif" font-size="16" font-weight="bold" fill="#8a4a10">② 边界裁剪：张量换成 4000 × 4000，取右下角坐标 {3968, 3968}</text>
+
+  <!-- 张量方框 -->
+  <rect x="20" y="346" width="300" height="240" fill="#eef2f7" stroke="#2a5c9a" stroke-width="2"/>
+  <text x="26" y="366" font-family="sans-serif" font-size="13.5" fill="#1b3f6b">张量 4000 × 4000（fp16）</text>
+  <!-- 有效区域右下角 -->
+  <rect x="220" y="466" width="60" height="60" fill="#cfe3d3" stroke="#2c7a3f" stroke-width="2"/>
+  <rect x="280" y="466" width="60" height="60" fill="#f2f2f2" stroke="#999" stroke-width="2" stroke-dasharray="5,4"/>
+  <rect x="220" y="526" width="60" height="60" fill="#f2f2f2" stroke="#999" stroke-width="2" stroke-dasharray="5,4"/>
+  <rect x="280" y="526" width="60" height="60" fill="#f2f2f2" stroke="#999" stroke-width="2" stroke-dasharray="5,4"/>
+  <line x1="320" y1="346" x2="320" y2="590" stroke="#b34a4a" stroke-width="2.5"/>
+  <line x1="20" y1="586" x2="345" y2="586" stroke="#b34a4a" stroke-width="2.5"/>
+  <text x="346" y="470" font-family="sans-serif" font-size="13" fill="#b34a4a" transform="rotate(-90 346 470)">张量右边界（列 4000）</text>
+  <text x="26" y="606" font-family="sans-serif" font-size="13" fill="#b34a4a">张量下边界（行 4000）　　左图为示意，box 与张量的比例未按真实尺寸绘制</text>
+  <text x="228" y="502" font-family="sans-serif" font-size="13.5" font-weight="bold" fill="#1d5c2d">真数据</text>
+  <text x="228" y="520" font-family="sans-serif" font-size="12.5" fill="#1d5c2d">32×32</text>
+  <text x="290" y="502" font-family="sans-serif" font-size="13" fill="#666">填 0</text>
+  <text x="234" y="562" font-family="sans-serif" font-size="13" fill="#666">填 0</text>
+  <text x="294" y="562" font-family="sans-serif" font-size="13" fill="#666">填 0</text>
+  <text x="186" y="462" font-family="sans-serif" font-size="13" fill="#8a4a10">box 64 × 64</text>
+
+  <!-- 逐行动作表 -->
+  <rect x="370" y="346" width="590" height="240" rx="6" fill="#f7f7f7" stroke="#666" stroke-width="1.8"/>
+  <text x="382" y="370" font-family="sans-serif" font-size="15" font-weight="bold" fill="#333">引擎逐行的动作</text>
+  <text x="382" y="396" font-family="sans-serif" font-size="14" fill="#333">r = 0…31　行 3968…3999 在张量内</text>
+  <text x="382" y="418" font-family="sans-serif" font-size="14" fill="#555">　　→ 只读前 32 列（64 字节），后 32 列在 shared 里写 0</text>
+  <text x="382" y="446" font-family="sans-serif" font-size="14" fill="#333">r = 32…63　行 4000…4031 已出界</text>
+  <text x="382" y="468" font-family="sans-serif" font-size="14" fill="#555">　　→ 一个请求都不发，整行 128 字节写 0</text>
+  <line x1="382" y1="486" x2="948" y2="486" stroke="#bbb" stroke-width="1.5"/>
+  <text x="382" y="510" font-family="sans-serif" font-size="14" fill="#333">实际从显存读：32 × 32 × 2 = 2048 字节</text>
+  <text x="382" y="532" font-family="sans-serif" font-size="14" fill="#333">写进 shared：完整的 8192 字节（其中 6144 字节是 0）</text>
+  <text x="382" y="558" font-family="sans-serif" font-size="14" font-weight="bold" fill="#b34a4a">expect_tx 仍然写 8192 —— 按 box 整块算，不按有效数据算</text>
+  <text x="382" y="578" font-family="sans-serif" font-size="13" fill="#666">写成 2048 的话，字节计数会被多减，屏障行为出错</text>
+</svg>

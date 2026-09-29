@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 610" width="960" height="610" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="610" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2c6fb7"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f7a4d"/></marker><pattern id="hz" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="#f8d7d2"/><line x1="0" y1="0" x2="0" y2="8" stroke="#c0392b" stroke-width="1.6"/></pattern></defs>
+<text x="480" y="30" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold">同样把 8 KB 搬进 shared memory：左边绕道寄存器堆，右边不绕</text>
+<text x="250" y="60" font-size="16" text-anchor="middle" fill="#2c6fb7" font-weight="bold">① 两步搬运：ld.global 再 st.shared</text>
+<text x="710" y="60" font-size="16" text-anchor="middle" fill="#1f7a4d" font-weight="bold">② cp.async：一条指令走完全程</text>
+<rect x="120" y="82" width="260" height="46" fill="#e8e8e8" stroke="#222222" stroke-width="1.5" rx="3"/>
+<text x="250.0" y="110.04" font-size="14" text-anchor="middle" fill="#222222">显存（HBM，芯片外）</text>
+<rect x="120" y="158" width="260" height="46" fill="#e8e8e8" stroke="#222222" stroke-width="1.5" rx="3"/>
+<text x="250.0" y="186.04" font-size="14" text-anchor="middle" fill="#222222">L2 缓存（全芯片共享）</text>
+<rect x="120" y="234" width="260" height="46" fill="#e8e8e8" stroke="#222222" stroke-width="1.5" rx="3"/>
+<text x="250.0" y="262.04" font-size="14" text-anchor="middle" fill="#222222">L1（与 shared 同一块 SRAM）</text>
+<rect x="120" y="310" width="260" height="46" fill="#ffffff" stroke="#222222" stroke-width="1.5" rx="3"/>
+<text x="250.0" y="338.04" font-size="14" text-anchor="middle" fill="#222222">寄存器堆（每线程私有）</text>
+<rect x="120" y="386" width="260" height="46" fill="#d7ede1" stroke="#222222" stroke-width="1.5" rx="3"/>
+<text x="250.0" y="414.04" font-size="14" text-anchor="middle" fill="#222222">shared memory（线程块共用）</text>
+<line x1="250" y1="128" x2="250" y2="154" stroke="#2c6fb7" stroke-width="2.5" marker-end="url(#ab)"/>
+<line x1="250" y1="204" x2="250" y2="230" stroke="#2c6fb7" stroke-width="2.5" marker-end="url(#ab)"/>
+<line x1="250" y1="280" x2="250" y2="306" stroke="#2c6fb7" stroke-width="2.5" marker-end="url(#ab)"/>
+<line x1="250" y1="356" x2="250" y2="382" stroke="#2c6fb7" stroke-width="2.5" marker-end="url(#ab)"/>
+<rect x="580" y="82" width="260" height="46" fill="#e8e8e8" stroke="#222222" stroke-width="1.5" rx="3"/>
+<text x="710.0" y="110.04" font-size="14" text-anchor="middle" fill="#222222">显存（HBM，芯片外）</text>
+<rect x="580" y="158" width="260" height="46" fill="#e8e8e8" stroke="#222222" stroke-width="1.5" rx="3"/>
+<text x="710.0" y="186.04" font-size="14" text-anchor="middle" fill="#222222">L2 缓存（全芯片共享）</text>
+<rect x="580" y="234" width="260" height="46" fill="#e8e8e8" stroke="#222222" stroke-width="1.5" rx="3"/>
+<text x="710.0" y="262.04" font-size="14" text-anchor="middle" fill="#222222">L1（与 shared 同一块 SRAM）</text>
+<rect x="580" y="310" width="260" height="46" fill="#f4f4f4" stroke="#666666" stroke-width="1.5" rx="3" stroke-dasharray="6 4"/>
+<text x="710.0" y="338.04" font-size="14" text-anchor="middle" fill="#666666">寄存器堆（这条路不走）</text>
+<rect x="580" y="386" width="260" height="46" fill="#d7ede1" stroke="#222222" stroke-width="1.5" rx="3"/>
+<text x="710.0" y="414.04" font-size="14" text-anchor="middle" fill="#222222">shared memory（线程块共用）</text>
+<line x1="710" y1="128" x2="710" y2="154" stroke="#2c6fb7" stroke-width="2.5" marker-end="url(#ab)"/>
+<line x1="710" y1="204" x2="710" y2="230" stroke="#2c6fb7" stroke-width="2.5" marker-end="url(#ab)"/>
+<polyline points="840,257 890,257 890,409 846,409" fill="none" stroke="#1f7a4d" stroke-width="2.5" marker-end="url(#ag)"/>
+<text x="596" y="300" font-size="13" text-anchor="start" fill="#666666">（.cg 修饰符连 L1 也不留副本）</text>
+<text x="893" y="340" font-size="14" text-anchor="start" fill="#1f7a4d" font-weight="bold">直通</text>
+<text x="893" y="358" font-size="14" text-anchor="start" fill="#1f7a4d">不落</text>
+<text x="893" y="376" font-size="14" text-anchor="start" fill="#1f7a4d">寄存器</text>
+<text x="114" y="328" font-size="13" text-anchor="end" fill="#c0392b">数据在这里</text>
+<text x="114" y="346" font-size="13" text-anchor="end" fill="#c0392b">停留，占着</text>
+<text x="114" y="364" font-size="13" text-anchor="end" fill="#c0392b">寄存器</text>
+<rect x="30" y="452" width="440" height="132" fill="#fbfbfb" stroke="#666666" stroke-width="1.5" rx="4"/>
+<rect x="500" y="452" width="440" height="132" fill="#fbfbfb" stroke="#666666" stroke-width="1.5" rx="4"/>
+<text x="50" y="476" font-size="14" text-anchor="start" fill="#222222" font-weight="bold">每个线程搬 64 字节（4 次 × 16 字节）</text>
+<text x="520" y="476" font-size="14" text-anchor="start" fill="#222222" font-weight="bold">每个线程搬 64 字节（4 次 × 16 字节）</text>
+<text x="50" y="506" font-size="14" text-anchor="start" fill="#222222">· 访存指令：4 条 LDG.128 + 4 条 STS.128 = 8 条</text>
+<text x="520" y="506" font-size="14" text-anchor="start" fill="#222222">· 访存指令：4 条 cp.async + 1 条 commit = 5 条</text>
+<text x="50" y="532" font-size="14" text-anchor="start" fill="#222222">· 数据寄存器：16 个，从发出到写出一直占着</text>
+<text x="520" y="532" font-size="14" text-anchor="start" fill="#222222">· 数据寄存器：0 个</text>
+<text x="50" y="558" font-size="14" text-anchor="start" fill="#222222">· 线程要在 STS 处停下，等数据回到寄存器</text>
+<text x="520" y="558" font-size="14" text-anchor="start" fill="#222222">· 发出即返回，线程接着去算上一块</text>
+</svg>

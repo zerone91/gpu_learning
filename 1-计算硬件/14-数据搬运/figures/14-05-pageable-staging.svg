@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" font-family="sans-serif">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f5fbf"/></marker></defs>
+<rect x="0" y="0" width="960" height="540" fill="#ffffff"/>
+<rect x="40" y="40" width="200" height="70" rx="6" fill="#f3f3f3" stroke="#555" stroke-width="1.5"/>
+<text x="140" y="70" font-size="15" text-anchor="middle" font-weight="bold">你的可分页缓冲</text><text x="140" y="94" font-size="14" text-anchor="middle">（malloc 得到）</text>
+<rect x="380" y="40" width="220" height="70" rx="6" fill="#fff" stroke="#555" stroke-width="1.5"/>
+<rect x="380" y="40" width="110" height="70" fill="#fbe1de" stroke="#555" stroke-width="1.5"/><rect x="490" y="40" width="110" height="70" fill="#fdf0ee" stroke="#555" stroke-width="1.5"/>
+<text x="435" y="82" font-size="15" text-anchor="middle">半区 0</text><text x="545" y="82" font-size="15" text-anchor="middle">半区 1</text>
+<text x="490" y="30" font-size="14" text-anchor="middle">驱动的锁页中转缓冲</text>
+<rect x="740" y="40" width="180" height="70" rx="6" fill="#dbe8fa" stroke="#1f5fbf" stroke-width="1.5"/>
+<text x="830" y="82" font-size="15" text-anchor="middle" font-weight="bold">显存</text>
+<line x1="240" y1="75" x2="376" y2="75" stroke="#c0392b" stroke-width="3" marker-end="url(#ar)"/><text x="308" y="66" font-size="14" text-anchor="middle" fill="#c0392b">CPU 拷贝</text><text x="308" y="98" font-size="14" text-anchor="middle" fill="#c0392b">约 20 GB/s</text>
+<line x1="600" y1="75" x2="736" y2="75" stroke="#1f5fbf" stroke-width="3" marker-end="url(#ab)"/><text x="668" y="66" font-size="14" text-anchor="middle" fill="#1f5fbf">DMA（PCIe）</text><text x="668" y="98" font-size="14" text-anchor="middle" fill="#1f5fbf">约 50 GB/s</text>
+<text x="40" y="140" font-size="14" fill="#555">锁页内存时没有中间这一站：copy engine 直接从你的缓冲 DMA 到显存。下面三组时间线都是搬 1 GB，分 10 块画（示意）。</text>
+<text x="20" y="164" font-size="15" font-weight="bold">A 锁页</text>
+<text x="120" y="188" font-size="14" text-anchor="end">CPU</text>
+<text x="120" y="220" font-size="14" text-anchor="end">copy engine</text>
+<line x1="200" y1="194" x2="884.0" y2="194" stroke="#eee"/>
+<line x1="200" y1="226" x2="884.0" y2="226" stroke="#eee"/>
+<text x="20" y="256" font-size="15" font-weight="bold">B 可分页，有流水</text>
+<text x="120" y="280" font-size="14" text-anchor="end">CPU</text>
+<text x="120" y="312" font-size="14" text-anchor="end">copy engine</text>
+<line x1="200" y1="286" x2="884.0" y2="286" stroke="#eee"/>
+<line x1="200" y1="318" x2="884.0" y2="318" stroke="#eee"/>
+<text x="20" y="348" font-size="15" font-weight="bold">C 可分页，无流水</text>
+<text x="120" y="372" font-size="14" text-anchor="end">CPU</text>
+<text x="120" y="404" font-size="14" text-anchor="end">copy engine</text>
+<line x1="200" y1="378" x2="884.0" y2="378" stroke="#eee"/>
+<line x1="200" y1="410" x2="884.0" y2="410" stroke="#eee"/>
+<rect x="200.0" y="170" width="3" height="24" fill="#d9771e"/>
+<text x="210.0" y="187" font-size="14" fill="#555">下单后几微秒返回，之后空闲</text>
+<rect x="200.0" y="202" width="190.0" height="24" fill="#cfe0f7" stroke="#1f5fbf" stroke-width="1.2"/>
+<text x="295.0" y="219" font-size="14" text-anchor="middle">DMA 1 GB</text>
+<text x="398.0" y="219" font-size="14" font-weight="bold">约 20 ms</text>
+<rect x="200.0" y="262" width="47.5" height="24" fill="#f5b7b1" stroke="#c0392b" stroke-width="1.2"/>
+<text x="223.8" y="279" font-size="14" text-anchor="middle">0</text>
+<rect x="247.5" y="294" width="19.0" height="24" fill="#cfe0f7" stroke="#1f5fbf" stroke-width="1.2"/>
+<rect x="247.5" y="262" width="47.5" height="24" fill="#fadbd8" stroke="#c0392b" stroke-width="1.2"/>
+<text x="271.2" y="279" font-size="14" text-anchor="middle">1</text>
+<rect x="295.0" y="294" width="19.0" height="24" fill="#e3edfb" stroke="#1f5fbf" stroke-width="1.2"/>
+<rect x="295.0" y="262" width="47.5" height="24" fill="#f5b7b1" stroke="#c0392b" stroke-width="1.2"/>
+<text x="318.8" y="279" font-size="14" text-anchor="middle">0</text>
+<rect x="342.5" y="294" width="19.0" height="24" fill="#cfe0f7" stroke="#1f5fbf" stroke-width="1.2"/>
+<rect x="342.5" y="262" width="47.5" height="24" fill="#fadbd8" stroke="#c0392b" stroke-width="1.2"/>
+<text x="366.2" y="279" font-size="14" text-anchor="middle">1</text>
+<rect x="390.0" y="294" width="19.0" height="24" fill="#e3edfb" stroke="#1f5fbf" stroke-width="1.2"/>
+<rect x="390.0" y="262" width="47.5" height="24" fill="#f5b7b1" stroke="#c0392b" stroke-width="1.2"/>
+<text x="413.8" y="279" font-size="14" text-anchor="middle">0</text>
+<rect x="437.5" y="294" width="19.0" height="24" fill="#cfe0f7" stroke="#1f5fbf" stroke-width="1.2"/>
+<rect x="437.5" y="262" width="47.5" height="24" fill="#fadbd8" stroke="#c0392b" stroke-width="1.2"/>
+<text x="461.2" y="279" font-size="14" text-anchor="middle">1</text>
+<rect x="485.0" y="294" width="19.0" height="24" fill="#e3edfb" stroke="#1f5fbf" stroke-width="1.2"/>
+<rect x="485.0" y="262" width="47.5" height="24" fill="#f5b7b1" stroke="#c0392b" stroke-width="1.2"/>
+<text x="508.8" y="279" font-size="14" text-anchor="middle">0</text>
+<rect x="532.5" y="294" width="19.0" height="24" fill="#cfe0f7" stroke="#1f5fbf" stroke-width="1.2"/>
+<rect x="532.5" y="262" width="47.5" height="24" fill="#fadbd8" stroke="#c0392b" stroke-width="1.2"/>
+<text x="556.2" y="279" font-size="14" text-anchor="middle">1</text>
+<rect x="580.0" y="294" width="19.0" height="24" fill="#e3edfb" stroke="#1f5fbf" stroke-width="1.2"/>
+<rect x="580.0" y="262" width="47.5" height="24" fill="#f5b7b1" stroke="#c0392b" stroke-width="1.2"/>
+<text x="603.8" y="279" font-size="14" text-anchor="middle">0</text>
+<rect x="627.5" y="294" width="19.0" height="24" fill="#cfe0f7" stroke="#1f5fbf" stroke-width="1.2"/>
+<rect x="627.5" y="262" width="47.5" height="24" fill="#fadbd8" stroke="#c0392b" stroke-width="1.2"/>
+<text x="651.2" y="279" font-size="14" text-anchor="middle">1</text>
+<rect x="675.0" y="294" width="19.0" height="24" fill="#e3edfb" stroke="#1f5fbf" stroke-width="1.2"/>
+<text x="702.0" y="311" font-size="14" font-weight="bold">约 50 ms</text>
+<rect x="200.0" y="354" width="47.5" height="24" fill="#f5b7b1" stroke="#c0392b" stroke-width="1.2"/>
+<text x="223.8" y="371" font-size="14" text-anchor="middle">0</text>
+<rect x="247.5" y="386" width="19.0" height="24" fill="#cfe0f7" stroke="#1f5fbf" stroke-width="1.2"/>
+<rect x="266.5" y="354" width="47.5" height="24" fill="#fadbd8" stroke="#c0392b" stroke-width="1.2"/>
+<text x="290.2" y="371" font-size="14" text-anchor="middle">1</text>
+<rect x="314.0" y="386" width="19.0" height="24" fill="#e3edfb" stroke="#1f5fbf" stroke-width="1.2"/>
+<rect x="333.0" y="354" width="47.5" height="24" fill="#f5b7b1" stroke="#c0392b" stroke-width="1.2"/>
+<text x="356.8" y="371" font-size="14" text-anchor="middle">0</text>
+<rect x="380.5" y="386" width="19.0" height="24" fill="#cfe0f7" stroke="#1f5fbf" stroke-width="1.2"/>
+<rect x="399.5" y="354" width="47.5" height="24" fill="#fadbd8" stroke="#c0392b" stroke-width="1.2"/>
+<text x="423.2" y="371" font-size="14" text-anchor="middle">1</text>
+<rect x="447.0" y="386" width="19.0" height="24" fill="#e3edfb" stroke="#1f5fbf" stroke-width="1.2"/>
+<rect x="466.0" y="354" width="47.5" height="24" fill="#f5b7b1" stroke="#c0392b" stroke-width="1.2"/>
+<text x="489.8" y="371" font-size="14" text-anchor="middle">0</text>
+<rect x="513.5" y="386" width="19.0" height="24" fill="#cfe0f7" stroke="#1f5fbf" stroke-width="1.2"/>
+<rect x="532.5" y="354" width="47.5" height="24" fill="#fadbd8" stroke="#c0392b" stroke-width="1.2"/>
+<text x="556.2" y="371" font-size="14" text-anchor="middle">1</text>
+<rect x="580.0" y="386" width="19.0" height="24" fill="#e3edfb" stroke="#1f5fbf" stroke-width="1.2"/>
+<rect x="599.0" y="354" width="47.5" height="24" fill="#f5b7b1" stroke="#c0392b" stroke-width="1.2"/>
+<text x="622.8" y="371" font-size="14" text-anchor="middle">0</text>
+<rect x="646.5" y="386" width="19.0" height="24" fill="#cfe0f7" stroke="#1f5fbf" stroke-width="1.2"/>
+<rect x="665.5" y="354" width="47.5" height="24" fill="#fadbd8" stroke="#c0392b" stroke-width="1.2"/>
+<text x="689.2" y="371" font-size="14" text-anchor="middle">1</text>
+<rect x="713.0" y="386" width="19.0" height="24" fill="#e3edfb" stroke="#1f5fbf" stroke-width="1.2"/>
+<rect x="732.0" y="354" width="47.5" height="24" fill="#f5b7b1" stroke="#c0392b" stroke-width="1.2"/>
+<text x="755.8" y="371" font-size="14" text-anchor="middle">0</text>
+<rect x="779.5" y="386" width="19.0" height="24" fill="#cfe0f7" stroke="#1f5fbf" stroke-width="1.2"/>
+<rect x="798.5" y="354" width="47.5" height="24" fill="#fadbd8" stroke="#c0392b" stroke-width="1.2"/>
+<text x="822.2" y="371" font-size="14" text-anchor="middle">1</text>
+<rect x="846.0" y="386" width="19.0" height="24" fill="#e3edfb" stroke="#1f5fbf" stroke-width="1.2"/>
+<text x="861.0" y="430" font-size="14" font-weight="bold" text-anchor="end">约 70 ms</text>
+<line x1="200" y1="452" x2="884.0" y2="452" stroke="#333" stroke-width="1.5"/>
+<line x1="200.0" y1="447" x2="200.0" y2="457" stroke="#333" stroke-width="1.5"/><text x="200.0" y="474" font-size="14" text-anchor="middle">0</text>
+<line x1="295.0" y1="447" x2="295.0" y2="457" stroke="#333" stroke-width="1.5"/><text x="295.0" y="474" font-size="14" text-anchor="middle">10</text>
+<line x1="390.0" y1="447" x2="390.0" y2="457" stroke="#333" stroke-width="1.5"/><text x="390.0" y="474" font-size="14" text-anchor="middle">20</text>
+<line x1="485.0" y1="447" x2="485.0" y2="457" stroke="#333" stroke-width="1.5"/><text x="485.0" y="474" font-size="14" text-anchor="middle">30</text>
+<line x1="580.0" y1="447" x2="580.0" y2="457" stroke="#333" stroke-width="1.5"/><text x="580.0" y="474" font-size="14" text-anchor="middle">40</text>
+<line x1="675.0" y1="447" x2="675.0" y2="457" stroke="#333" stroke-width="1.5"/><text x="675.0" y="474" font-size="14" text-anchor="middle">50</text>
+<line x1="770.0" y1="447" x2="770.0" y2="457" stroke="#333" stroke-width="1.5"/><text x="770.0" y="474" font-size="14" text-anchor="middle">60</text>
+<line x1="865.0" y1="447" x2="865.0" y2="457" stroke="#333" stroke-width="1.5"/><text x="865.0" y="474" font-size="14" text-anchor="middle">70</text>
+<text x="884.0" y="496" font-size="14" text-anchor="end">时间（毫秒）</text>
+<text x="20" y="518" font-size="14" fill="#555">红块里的 0、1 表示这一块被 CPU 拷进中转缓冲的哪个半区；蓝块是 copy engine 把刚拷好的那一块经 PCIe 搬进显存。</text>
+</svg>

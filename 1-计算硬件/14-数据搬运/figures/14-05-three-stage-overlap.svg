@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="520" fill="#ffffff"/>
+<g font-size="14">
+<rect x="210" y="16" width="30" height="18" fill="#cfe0f7" stroke="#1f5fbf" stroke-width="1.5"/><text x="248" y="30">H2D 拷贝</text>
+<rect x="380" y="16" width="30" height="18" fill="#cdebd2" stroke="#2e8b3e" stroke-width="1.5"/><text x="418" y="30">计算 kernel</text>
+<rect x="550" y="16" width="30" height="18" fill="#fbd9b5" stroke="#d9771e" stroke-width="1.5"/><text x="588" y="30">D2H 拷贝</text>
+<text x="720" y="30" fill="#555">块内数字 = 数据块编号</text></g>
+<text x="20" y="62" font-size="15" font-weight="bold">做法一：一条 stream 串行</text>
+<text x="200" y="89" font-size="14" text-anchor="end">stream</text>
+<line x1="210" y1="98" x2="891.5999999999999" y2="98" stroke="#eee"/>
+<rect x="210.0" y="70" width="56.8" height="28" fill="#cfe0f7" stroke="#1f5fbf" stroke-width="1.5"/>
+<text x="238.4" y="89" font-size="14" text-anchor="middle">0</text>
+<rect x="266.8" y="70" width="56.8" height="28" fill="#cdebd2" stroke="#2e8b3e" stroke-width="1.5"/>
+<text x="295.2" y="89" font-size="14" text-anchor="middle">0</text>
+<rect x="323.6" y="70" width="56.8" height="28" fill="#fbd9b5" stroke="#d9771e" stroke-width="1.5"/>
+<text x="352.0" y="89" font-size="14" text-anchor="middle">0</text>
+<rect x="380.4" y="70" width="56.8" height="28" fill="#cfe0f7" stroke="#1f5fbf" stroke-width="1.5"/>
+<text x="408.8" y="89" font-size="14" text-anchor="middle">1</text>
+<rect x="437.2" y="70" width="56.8" height="28" fill="#cdebd2" stroke="#2e8b3e" stroke-width="1.5"/>
+<text x="465.6" y="89" font-size="14" text-anchor="middle">1</text>
+<rect x="494.0" y="70" width="56.8" height="28" fill="#fbd9b5" stroke="#d9771e" stroke-width="1.5"/>
+<text x="522.4" y="89" font-size="14" text-anchor="middle">1</text>
+<rect x="550.8" y="70" width="56.8" height="28" fill="#cfe0f7" stroke="#1f5fbf" stroke-width="1.5"/>
+<text x="579.2" y="89" font-size="14" text-anchor="middle">2</text>
+<rect x="607.6" y="70" width="56.8" height="28" fill="#cdebd2" stroke="#2e8b3e" stroke-width="1.5"/>
+<text x="636.0" y="89" font-size="14" text-anchor="middle">2</text>
+<rect x="664.4" y="70" width="56.8" height="28" fill="#fbd9b5" stroke="#d9771e" stroke-width="1.5"/>
+<text x="692.8" y="89" font-size="14" text-anchor="middle">2</text>
+<rect x="721.2" y="70" width="56.8" height="28" fill="#cfe0f7" stroke="#1f5fbf" stroke-width="1.5"/>
+<text x="749.6" y="89" font-size="14" text-anchor="middle">3</text>
+<rect x="778.0" y="70" width="56.8" height="28" fill="#cdebd2" stroke="#2e8b3e" stroke-width="1.5"/>
+<text x="806.4" y="89" font-size="14" text-anchor="middle">3</text>
+<rect x="834.8" y="70" width="56.8" height="28" fill="#fbd9b5" stroke="#d9771e" stroke-width="1.5"/>
+<text x="863.2" y="89" font-size="14" text-anchor="middle">3</text>
+<text x="889.6" y="120" font-size="14" font-weight="bold" text-anchor="end">48 ms</text>
+<text x="20" y="142" font-size="15" font-weight="bold">做法二：多条 stream，2 个 copy engine</text>
+<text x="200" y="169" font-size="14" text-anchor="end">copy engine 甲</text>
+<line x1="210" y1="178" x2="891.5999999999999" y2="178" stroke="#eee"/>
+<text x="200" y="205" font-size="14" text-anchor="end">SM</text>
+<line x1="210" y1="214" x2="891.5999999999999" y2="214" stroke="#eee"/>
+<text x="200" y="241" font-size="14" text-anchor="end">copy engine 乙</text>
+<line x1="210" y1="250" x2="891.5999999999999" y2="250" stroke="#eee"/>
+<rect x="210.0" y="150" width="56.8" height="28" fill="#cfe0f7" stroke="#1f5fbf" stroke-width="1.5"/>
+<text x="238.4" y="169" font-size="14" text-anchor="middle">0</text>
+<rect x="266.8" y="186" width="56.8" height="28" fill="#cdebd2" stroke="#2e8b3e" stroke-width="1.5"/>
+<text x="295.2" y="205" font-size="14" text-anchor="middle">0</text>
+<rect x="323.6" y="222" width="56.8" height="28" fill="#fbd9b5" stroke="#d9771e" stroke-width="1.5"/>
+<text x="352.0" y="241" font-size="14" text-anchor="middle">0</text>
+<rect x="266.8" y="150" width="56.8" height="28" fill="#cfe0f7" stroke="#1f5fbf" stroke-width="1.5"/>
+<text x="295.2" y="169" font-size="14" text-anchor="middle">1</text>
+<rect x="323.6" y="186" width="56.8" height="28" fill="#cdebd2" stroke="#2e8b3e" stroke-width="1.5"/>
+<text x="352.0" y="205" font-size="14" text-anchor="middle">1</text>
+<rect x="380.4" y="222" width="56.8" height="28" fill="#fbd9b5" stroke="#d9771e" stroke-width="1.5"/>
+<text x="408.8" y="241" font-size="14" text-anchor="middle">1</text>
+<rect x="323.6" y="150" width="56.8" height="28" fill="#cfe0f7" stroke="#1f5fbf" stroke-width="1.5"/>
+<text x="352.0" y="169" font-size="14" text-anchor="middle">2</text>
+<rect x="380.4" y="186" width="56.8" height="28" fill="#cdebd2" stroke="#2e8b3e" stroke-width="1.5"/>
+<text x="408.8" y="205" font-size="14" text-anchor="middle">2</text>
+<rect x="437.2" y="222" width="56.8" height="28" fill="#fbd9b5" stroke="#d9771e" stroke-width="1.5"/>
+<text x="465.6" y="241" font-size="14" text-anchor="middle">2</text>
+<rect x="380.4" y="150" width="56.8" height="28" fill="#cfe0f7" stroke="#1f5fbf" stroke-width="1.5"/>
+<text x="408.8" y="169" font-size="14" text-anchor="middle">3</text>
+<rect x="437.2" y="186" width="56.8" height="28" fill="#cdebd2" stroke="#2e8b3e" stroke-width="1.5"/>
+<text x="465.6" y="205" font-size="14" text-anchor="middle">3</text>
+<rect x="494.0" y="222" width="56.8" height="28" fill="#fbd9b5" stroke="#d9771e" stroke-width="1.5"/>
+<text x="522.4" y="241" font-size="14" text-anchor="middle">3</text>
+<text x="558.8" y="241" font-size="14" font-weight="bold">24 ms</text>
+<rect x="323.6" y="146" width="113.6" height="108" fill="none" stroke="#555" stroke-width="1.5" stroke-dasharray="5,4"/>
+<text x="380.4" y="272" font-size="14" text-anchor="middle" fill="#555">稳态：三件事同时进行</text>
+<text x="20" y="312" font-size="15" font-weight="bold">做法三：多条 stream，只有 1 个 copy engine</text>
+<text x="200" y="339" font-size="14" text-anchor="end">copy engine</text>
+<line x1="210" y1="348" x2="891.5999999999999" y2="348" stroke="#eee"/>
+<text x="200" y="375" font-size="14" text-anchor="end">SM</text>
+<line x1="210" y1="384" x2="891.5999999999999" y2="384" stroke="#eee"/>
+<rect x="210.0" y="320" width="56.8" height="28" fill="#cfe0f7" stroke="#1f5fbf" stroke-width="1.5"/>
+<text x="238.4" y="339" font-size="14" text-anchor="middle">0</text>
+<rect x="437.2" y="320" width="56.8" height="28" fill="#fbd9b5" stroke="#d9771e" stroke-width="1.5"/>
+<text x="465.6" y="339" font-size="14" text-anchor="middle">0</text>
+<rect x="266.8" y="356" width="56.8" height="28" fill="#cdebd2" stroke="#2e8b3e" stroke-width="1.5"/>
+<text x="295.2" y="375" font-size="14" text-anchor="middle">0</text>
+<rect x="266.8" y="320" width="56.8" height="28" fill="#cfe0f7" stroke="#1f5fbf" stroke-width="1.5"/>
+<text x="295.2" y="339" font-size="14" text-anchor="middle">1</text>
+<rect x="494.0" y="320" width="56.8" height="28" fill="#fbd9b5" stroke="#d9771e" stroke-width="1.5"/>
+<text x="522.4" y="339" font-size="14" text-anchor="middle">1</text>
+<rect x="323.6" y="356" width="56.8" height="28" fill="#cdebd2" stroke="#2e8b3e" stroke-width="1.5"/>
+<text x="352.0" y="375" font-size="14" text-anchor="middle">1</text>
+<rect x="323.6" y="320" width="56.8" height="28" fill="#cfe0f7" stroke="#1f5fbf" stroke-width="1.5"/>
+<text x="352.0" y="339" font-size="14" text-anchor="middle">2</text>
+<rect x="550.8" y="320" width="56.8" height="28" fill="#fbd9b5" stroke="#d9771e" stroke-width="1.5"/>
+<text x="579.2" y="339" font-size="14" text-anchor="middle">2</text>
+<rect x="380.4" y="356" width="56.8" height="28" fill="#cdebd2" stroke="#2e8b3e" stroke-width="1.5"/>
+<text x="408.8" y="375" font-size="14" text-anchor="middle">2</text>
+<rect x="380.4" y="320" width="56.8" height="28" fill="#cfe0f7" stroke="#1f5fbf" stroke-width="1.5"/>
+<text x="408.8" y="339" font-size="14" text-anchor="middle">3</text>
+<rect x="607.6" y="320" width="56.8" height="28" fill="#fbd9b5" stroke="#d9771e" stroke-width="1.5"/>
+<text x="636.0" y="339" font-size="14" text-anchor="middle">3</text>
+<rect x="437.2" y="356" width="56.8" height="28" fill="#cdebd2" stroke="#2e8b3e" stroke-width="1.5"/>
+<text x="465.6" y="375" font-size="14" text-anchor="middle">3</text>
+<text x="672.4" y="339" font-size="14" font-weight="bold">32 ms</text>
+<text x="579.2" y="375" font-size="14" text-anchor="middle" fill="#555">SM 空等最后几块 D2H</text>
+<line x1="210" y1="420" x2="891.5999999999999" y2="420" stroke="#333" stroke-width="1.5"/>
+<line x1="210.0" y1="415" x2="210.0" y2="425" stroke="#333" stroke-width="1.5"/><text x="210.0" y="442" font-size="14" text-anchor="middle">0</text>
+<line x1="266.8" y1="415" x2="266.8" y2="425" stroke="#333" stroke-width="1.5"/><text x="266.8" y="442" font-size="14" text-anchor="middle">4</text>
+<line x1="323.6" y1="415" x2="323.6" y2="425" stroke="#333" stroke-width="1.5"/><text x="323.6" y="442" font-size="14" text-anchor="middle">8</text>
+<line x1="380.4" y1="415" x2="380.4" y2="425" stroke="#333" stroke-width="1.5"/><text x="380.4" y="442" font-size="14" text-anchor="middle">12</text>
+<line x1="437.2" y1="415" x2="437.2" y2="425" stroke="#333" stroke-width="1.5"/><text x="437.2" y="442" font-size="14" text-anchor="middle">16</text>
+<line x1="494.0" y1="415" x2="494.0" y2="425" stroke="#333" stroke-width="1.5"/><text x="494.0" y="442" font-size="14" text-anchor="middle">20</text>
+<line x1="550.8" y1="415" x2="550.8" y2="425" stroke="#333" stroke-width="1.5"/><text x="550.8" y="442" font-size="14" text-anchor="middle">24</text>
+<line x1="607.6" y1="415" x2="607.6" y2="425" stroke="#333" stroke-width="1.5"/><text x="607.6" y="442" font-size="14" text-anchor="middle">28</text>
+<line x1="664.4" y1="415" x2="664.4" y2="425" stroke="#333" stroke-width="1.5"/><text x="664.4" y="442" font-size="14" text-anchor="middle">32</text>
+<line x1="721.2" y1="415" x2="721.2" y2="425" stroke="#333" stroke-width="1.5"/><text x="721.2" y="442" font-size="14" text-anchor="middle">36</text>
+<line x1="778.0" y1="415" x2="778.0" y2="425" stroke="#333" stroke-width="1.5"/><text x="778.0" y="442" font-size="14" text-anchor="middle">40</text>
+<line x1="834.8" y1="415" x2="834.8" y2="425" stroke="#333" stroke-width="1.5"/><text x="834.8" y="442" font-size="14" text-anchor="middle">44</text>
+<line x1="891.6" y1="415" x2="891.6" y2="425" stroke="#333" stroke-width="1.5"/><text x="891.6" y="442" font-size="14" text-anchor="middle">48</text>
+<text x="891.6" y="464" font-size="14" text-anchor="end">时间（毫秒）</text>
+<text x="20" y="492" font-size="14" fill="#555">每块：H2D 4 ms（200 MB ÷ 50 GB/s）、计算 4 ms、D2H 4 ms；kernel 占满全部 SM，两个 kernel 不能同时跑。</text>
+</svg>

@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 760" width="1280" height="760" font-family="sans-serif">
+<rect x="0" y="0" width="1280" height="760" fill="#ffffff"/>
+<defs>
+<marker id="bk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker>
+</defs>
+
+<text x="640" y="30" font-size="19" text-anchor="middle" fill="#222" font-weight="bold">选哪种搬法：一串按顺序问下去的是非题</text>
+<text x="640" y="54" font-size="14" text-anchor="middle" fill="#555">排序原则：先问"会让某种搬法根本用不了"的，再问"会让它不划算"的</text>
+
+<!-- Q1 -->
+<rect x="40" y="76" width="380" height="54" rx="8" fill="#f4f4f4" stroke="#222" stroke-width="2"/>
+<text x="230" y="98" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">① 每个元素的位置要先查一张运行时的表吗？</text>
+<text x="230" y="120" font-size="13" text-anchor="middle" fill="#555">（按 id 取 embedding 行、按页表取 KV 页 = 是）</text>
+<line x1="420" y1="103" x2="600" y2="103" stroke="#c0392b" stroke-width="2.5" marker-end="url(#bk)"/>
+<text x="500" y="96" font-size="14" text-anchor="middle" fill="#c0392b" font-weight="bold">是</text>
+<line x1="230" y1="130" x2="230" y2="160" stroke="#222" stroke-width="2" marker-end="url(#bk)"/>
+<text x="248" y="150" font-size="14" fill="#222">否</text>
+
+<!-- Q2 -->
+<rect x="40" y="162" width="380" height="54" rx="8" fill="#f4f4f4" stroke="#222" stroke-width="2"/>
+<text x="230" y="184" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">② 一次搬的量小于 512 字节吗？</text>
+<text x="230" y="206" font-size="13" text-anchor="middle" fill="#555">（订单的固定开销比搬运本身还大）</text>
+<line x1="420" y1="189" x2="600" y2="189" stroke="#c0392b" stroke-width="2.5" marker-end="url(#bk)"/>
+<text x="500" y="182" font-size="14" text-anchor="middle" fill="#c0392b" font-weight="bold">是</text>
+<line x1="230" y1="216" x2="230" y2="246" stroke="#222" stroke-width="2" marker-end="url(#bk)"/>
+<text x="248" y="236" font-size="14" fill="#222">否</text>
+
+<!-- Q3 -->
+<rect x="40" y="248" width="380" height="54" rx="8" fill="#f4f4f4" stroke="#222" stroke-width="2"/>
+<text x="230" y="270" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">③ 搬进来马上逐元素算，不在片上反复取用？</text>
+<text x="230" y="292" font-size="13" text-anchor="middle" fill="#555">（数据终归要进寄存器，绕道片上存储反而多一趟）</text>
+<line x1="420" y1="275" x2="600" y2="275" stroke="#c0392b" stroke-width="2.5" marker-end="url(#bk)"/>
+<text x="500" y="268" font-size="14" text-anchor="middle" fill="#c0392b" font-weight="bold">是</text>
+<line x1="230" y1="302" x2="230" y2="332" stroke="#222" stroke-width="2" marker-end="url(#bk)"/>
+<text x="248" y="322" font-size="14" fill="#222">否</text>
+
+<!-- Q4 -->
+<rect x="40" y="334" width="380" height="54" rx="8" fill="#eef2f7" stroke="#222" stroke-width="2"/>
+<text x="230" y="356" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">④ 硬件有搬运引擎吗（Hopper 及以后）？</text>
+<text x="230" y="378" font-size="13" text-anchor="middle" fill="#555">（异步拷贝指令从 Ampere 起就有）</text>
+<line x1="420" y1="361" x2="600" y2="361" stroke="#2c6fb7" stroke-width="2.5" marker-end="url(#bk)"/>
+<text x="500" y="354" font-size="14" text-anchor="middle" fill="#2c6fb7" font-weight="bold">否</text>
+<line x1="230" y1="388" x2="230" y2="418" stroke="#222" stroke-width="2" marker-end="url(#bk)"/>
+<text x="248" y="408" font-size="14" fill="#222">是</text>
+
+<!-- Q5 -->
+<rect x="40" y="420" width="380" height="72" rx="8" fill="#eef2f7" stroke="#222" stroke-width="2"/>
+<text x="230" y="442" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">⑤ 形状满足描述符的约束吗？</text>
+<text x="230" y="463" font-size="13" text-anchor="middle" fill="#555">2～5 维规则块；每维一次 ≤ 256 个元素；</text>
+<text x="230" y="483" font-size="13" text-anchor="middle" fill="#555">最内层一块折成字节 ≤ 所选换座位模式的宽度（如 128 B）</text>
+<line x1="420" y1="456" x2="600" y2="456" stroke="#2c6fb7" stroke-width="2.5" marker-end="url(#bk)"/>
+<text x="500" y="449" font-size="14" text-anchor="middle" fill="#2c6fb7" font-weight="bold">否</text>
+<line x1="230" y1="492" x2="230" y2="524" stroke="#222" stroke-width="2" marker-end="url(#bk)"/>
+<text x="248" y="514" font-size="14" fill="#222">是</text>
+
+<!-- leaf C -->
+<rect x="40" y="526" width="380" height="50" rx="10" fill="#e6f2ea" stroke="#1f7a4d" stroke-width="2.5"/>
+<text x="230" y="557" font-size="18" text-anchor="middle" fill="#1f7a4d" font-weight="bold">用 TMA（一人下单，引擎代办）</text>
+<line x1="230" y1="576" x2="230" y2="604" stroke="#1f7a4d" stroke-width="2" marker-end="url(#bk)"/>
+
+<rect x="40" y="606" width="380" height="50" rx="8" fill="#ffffff" stroke="#1f7a4d" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="230" y="628" font-size="14" text-anchor="middle" fill="#222">追加问题一：要不要把"发订单"单独交给一组线程？</text>
+<text x="230" y="648" font-size="13" text-anchor="middle" fill="#555">（warp 专化。只有搬运几乎不占资源时才划算）</text>
+<rect x="40" y="666" width="380" height="50" rx="8" fill="#ffffff" stroke="#1f7a4d" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="230" y="688" font-size="14" text-anchor="middle" fill="#222">追加问题二：同一份数据会被相邻几个 SM 同时用吗？</text>
+<text x="230" y="708" font-size="13" text-anchor="middle" fill="#555">（是则开多播：一次读、多处投递，省重复读取流量）</text>
+
+<!-- leaf A -->
+<rect x="600" y="76" width="300" height="226" rx="10" fill="#fdecea" stroke="#c0392b" stroke-width="2.5"/>
+<text x="750" y="112" font-size="18" text-anchor="middle" fill="#c0392b" font-weight="bold">用 load/store</text>
+<text x="750" y="140" font-size="14" text-anchor="middle" fill="#222">每个线程自己算地址、</text>
+<text x="750" y="162" font-size="14" text-anchor="middle" fill="#222">自己把数据读进寄存器</text>
+<text x="620" y="196" font-size="13" fill="#555">前三问的共同点：让订单式搬运</text>
+<text x="620" y="218" font-size="13" fill="#555">要么表达不出来（①），</text>
+<text x="620" y="240" font-size="13" fill="#555">要么不划算（②③）。</text>
+<text x="620" y="270" font-size="13" fill="#c0392b">①是唯一会"卡死"的一问：</text>
+<text x="620" y="292" font-size="13" fill="#c0392b">不是慢，是下不了这张订单。</text>
+
+<!-- leaf B -->
+<rect x="600" y="334" width="300" height="158" rx="10" fill="#eaf0f7" stroke="#2c6fb7" stroke-width="2.5"/>
+<text x="750" y="370" font-size="18" text-anchor="middle" fill="#2c6fb7" font-weight="bold">用 cp.async</text>
+<text x="750" y="396" font-size="14" text-anchor="middle" fill="#222">每线程一条指令，</text>
+<text x="750" y="418" font-size="14" text-anchor="middle" fill="#222">数据从显存直达片上存储</text>
+<text x="620" y="448" font-size="13" fill="#555">Ampere 起可用；地址仍是每个</text>
+<text x="620" y="470" font-size="13" fill="#555">线程自己算，所以指令数降不下来。</text>
+
+<!-- scenario labels -->
+<line x1="900" y1="120" x2="936" y2="120" stroke="#888" stroke-width="1.5"/>
+<text x="942" y="112" font-size="14" fill="#222" font-weight="bold">场景：embedding 查表</text>
+<text x="942" y="132" font-size="13" fill="#555">行号由 token id 决定</text>
+
+<line x1="900" y1="180" x2="936" y2="180" stroke="#888" stroke-width="1.5"/>
+<text x="942" y="172" font-size="14" fill="#222" font-weight="bold">场景：MoE 的 token 重排</text>
+<text x="942" y="192" font-size="13" fill="#555">去哪由路由结果决定；</text>
+<text x="942" y="212" font-size="13" fill="#555">重排完成后的专家 GEMM 段</text>
+<text x="942" y="232" font-size="13" fill="#555">又回到最下面那个叶子</text>
+
+<line x1="900" y1="266" x2="936" y2="266" stroke="#888" stroke-width="1.5"/>
+<text x="942" y="266" font-size="14" fill="#222" font-weight="bold">场景：KV cache 分页读取</text>
+<text x="942" y="286" font-size="13" fill="#555">页内规则、页号查表——</text>
+<text x="942" y="306" font-size="13" fill="#b86a0c">Blackwell 的 gather 载入模式</text>
+<text x="942" y="326" font-size="13" fill="#b86a0c">让这条边界松动了一格</text>
+
+<line x1="900" y1="400" x2="936" y2="400" stroke="#888" stroke-width="1.5"/>
+<text x="942" y="400" font-size="14" fill="#222" font-weight="bold">场景：A100 上的 GEMM</text>
+<text x="942" y="420" font-size="13" fill="#555">同一份代码在第④问止步，</text>
+<text x="942" y="440" font-size="13" fill="#555">配三级流水（num_stages=3）</text>
+
+<line x1="420" y1="551" x2="936" y2="551" stroke="#888" stroke-width="1.5"/>
+<text x="942" y="545" font-size="14" fill="#222" font-weight="bold">场景：Hopper 上的 GEMM 主循环</text>
+<text x="942" y="565" font-size="13" fill="#555">16 KB 规则大块、片上反复取用、</text>
+<text x="942" y="585" font-size="13" fill="#555">形状合规 → 两个追加问题都答"是"</text>
+</svg>

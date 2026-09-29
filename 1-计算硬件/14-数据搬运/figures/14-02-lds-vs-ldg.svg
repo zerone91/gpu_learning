@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 520" width="980" height="520" font-family="sans-serif">
+  <rect x="0" y="0" width="980" height="520" fill="#ffffff"/>
+  <text x="20" y="30" font-size="19" font-weight="bold">同样是"读一个数进寄存器"：LDS 走片上便签，LDG 走显存通路</text>
+  <text x="20" y="52" font-size="14" fill="#444">两条路的差别不在指令长相，而在中间要经过几个部件。经过得越少，等得越短，也越可预测。</text>
+
+  <defs>
+    <marker id="c1" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0 0, 9 3.5, 0 7" fill="#333"/></marker>
+  </defs>
+
+  <!-- LDS lane -->
+  <rect x="20" y="76" width="940" height="106" fill="#eef7ee" stroke="#1a7a3c" stroke-width="1.5"/>
+  <text x="34" y="100" font-size="16" font-weight="bold" fill="#1a7a3c">LDS：从 shared memory（片上便签）读</text>
+  <g font-size="12">
+    <rect x="34" y="112" width="110" height="52" fill="#ffffff" stroke="#1a7a3c" stroke-width="1.5"/>
+    <text x="89" y="132" text-anchor="middle" font-weight="bold">① 发射</text>
+    <text x="89" y="152" text-anchor="middle">调度器交给 LSU</text>
+
+    <rect x="174" y="112" width="130" height="52" fill="#ffffff" stroke="#1a7a3c" stroke-width="1.5"/>
+    <text x="239" y="132" text-anchor="middle" font-weight="bold">② 算地址</text>
+    <text x="239" y="152" text-anchor="middle">32 个块内偏移</text>
+
+    <rect x="334" y="112" width="170" height="52" fill="#ffffff" stroke="#1a7a3c" stroke-width="1.5"/>
+    <text x="419" y="132" text-anchor="middle" font-weight="bold">③ 分给 32 个 bank</text>
+    <text x="419" y="152" text-anchor="middle">撞车了就多排几拍</text>
+
+    <rect x="534" y="112" width="150" height="52" fill="#ffffff" stroke="#1a7a3c" stroke-width="1.5"/>
+    <text x="609" y="132" text-anchor="middle" font-weight="bold">④ 读片上 SRAM</text>
+    <text x="609" y="152" text-anchor="middle">没有"在不在"的问题</text>
+
+    <rect x="714" y="112" width="150" height="52" fill="#ffffff" stroke="#1a7a3c" stroke-width="1.5"/>
+    <text x="789" y="132" text-anchor="middle" font-weight="bold">⑤ 写回寄存器</text>
+    <text x="789" y="152" text-anchor="middle">屏障销账</text>
+  </g>
+  <text x="878" y="144" font-size="15" font-weight="bold" fill="#1a7a3c">约 29 拍</text>
+  <g stroke="#1a7a3c" stroke-width="2" marker-end="url(#c1)">
+    <line x1="144" y1="138" x2="170" y2="138"/><line x1="304" y1="138" x2="330" y2="138"/>
+    <line x1="504" y1="138" x2="530" y2="138"/><line x1="684" y1="138" x2="710" y2="138"/>
+  </g>
+
+  <!-- LDG lane -->
+  <rect x="20" y="196" width="940" height="140" fill="#fdecec" stroke="#a33" stroke-width="1.5"/>
+  <text x="34" y="220" font-size="16" font-weight="bold" fill="#a33">LDG：从 global memory（显存）读</text>
+  <g font-size="12">
+    <rect x="34" y="232" width="92" height="52" fill="#ffffff" stroke="#a33" stroke-width="1.5"/>
+    <text x="80" y="252" text-anchor="middle" font-weight="bold">① 发射</text>
+    <text x="80" y="272" text-anchor="middle">交给 LSU</text>
+
+    <rect x="136" y="232" width="110" height="52" fill="#ffffff" stroke="#a33" stroke-width="1.5"/>
+    <text x="191" y="252" text-anchor="middle" font-weight="bold">② 算地址</text>
+    <text x="191" y="272" text-anchor="middle">32 个 64 位地址</text>
+
+    <rect x="256" y="232" width="110" height="52" fill="#ffffff" stroke="#a33" stroke-width="1.5"/>
+    <text x="311" y="252" text-anchor="middle" font-weight="bold">③ 合并</text>
+    <text x="311" y="272" text-anchor="middle">归成 N 个段</text>
+
+    <rect x="376" y="232" width="120" height="52" fill="#ffffff" stroke="#a33" stroke-width="1.5"/>
+    <text x="436" y="252" text-anchor="middle" font-weight="bold">④ 查 L1 标签</text>
+    <text x="436" y="272" text-anchor="middle">在不在？</text>
+
+    <rect x="506" y="232" width="120" height="52" fill="#ffffff" stroke="#a33" stroke-width="1.5"/>
+    <text x="566" y="252" text-anchor="middle" font-weight="bold">⑤ 缺失登记表</text>
+    <text x="566" y="272" text-anchor="middle">记一笔，往下走</text>
+
+    <rect x="636" y="232" width="120" height="52" fill="#ffffff" stroke="#a33" stroke-width="1.5"/>
+    <text x="696" y="252" text-anchor="middle" font-weight="bold">⑥ 网络 + L2</text>
+    <text x="696" y="272" text-anchor="middle">跨半个芯片</text>
+
+    <rect x="766" y="232" width="110" height="52" fill="#ffffff" stroke="#a33" stroke-width="1.5"/>
+    <text x="821" y="252" text-anchor="middle" font-weight="bold">⑦ 显存</text>
+    <text x="821" y="272" text-anchor="middle">排队、开行、读</text>
+  </g>
+  <text x="886" y="262" font-size="15" font-weight="bold" fill="#a33">40～480 拍</text>
+  <g stroke="#a33" stroke-width="2" marker-end="url(#c1)">
+    <line x1="126" y1="258" x2="132" y2="258"/><line x1="246" y1="258" x2="252" y2="258"/>
+    <line x1="366" y1="258" x2="372" y2="258"/><line x1="496" y1="258" x2="502" y2="258"/>
+    <line x1="626" y1="258" x2="632" y2="258"/><line x1="756" y1="258" x2="762" y2="258"/>
+  </g>
+  <text x="34" y="306" font-size="12" fill="#a33">④ 之后的每一步都是"可能发生"：L1 命中就在 ④ 结束，L2 命中在 ⑥ 结束。所以同一条指令每次的等待时间都不一样，</text>
+  <text x="34" y="324" font-size="12" fill="#a33">编译器无法把等待时长写死在指令里，只能登记一个屏障、让硬件在运行时判断——这就是访存和算术在依赖跟踪上的分水岭。</text>
+
+  <!-- compare table -->
+  <g font-size="13">
+    <rect x="20" y="356" width="300" height="30" fill="#ddd" stroke="#666"/><text x="32" y="376" font-weight="bold">比较项</text>
+    <rect x="320" y="356" width="320" height="30" fill="#ddd" stroke="#666"/><text x="332" y="376" font-weight="bold">LDS（shared memory）</text>
+    <rect x="640" y="356" width="320" height="30" fill="#ddd" stroke="#666"/><text x="652" y="376" font-weight="bold">LDG（global memory）</text>
+
+    <rect x="20" y="386" width="300" height="28" fill="#fff" stroke="#666"/><text x="32" y="405">硬件一次服务的粒度</text>
+    <rect x="320" y="386" width="320" height="28" fill="#fff" stroke="#666"/><text x="332" y="405">每个 bank 4 字节，32 个 bank 并排</text>
+    <rect x="640" y="386" width="320" height="28" fill="#fff" stroke="#666"/><text x="652" y="405">32 字节一段，段是最小搬运单位</text>
+
+    <rect x="20" y="414" width="300" height="28" fill="#fff" stroke="#666"/><text x="32" y="433">地址排得不好会怎样</text>
+    <rect x="320" y="414" width="320" height="28" fill="#fff" stroke="#666"/><text x="332" y="433">bank 冲突：同一个 bank 排队，N 倍拍数</text>
+    <rect x="640" y="414" width="320" height="28" fill="#fff" stroke="#666"/><text x="652" y="433">合并失败：段数变多，白搬七八倍数据</text>
+
+    <rect x="20" y="442" width="300" height="28" fill="#fff" stroke="#666"/><text x="32" y="461">等待时长可预测吗</text>
+    <rect x="320" y="442" width="320" height="28" fill="#fff" stroke="#666"/><text x="332" y="461">基本可预测，只受冲突影响</text>
+    <rect x="640" y="442" width="320" height="28" fill="#fff" stroke="#666"/><text x="652" y="461">不可预测，差 12 倍（命中哪一级）</text>
+  </g>
+  <text x="20" y="494" font-size="13" fill="#444">这也解释了 shared memory 存在的理由：把要反复用的数据先搬到便签上，之后每次只付 29 拍，而不是几百拍。</text>
+</svg>

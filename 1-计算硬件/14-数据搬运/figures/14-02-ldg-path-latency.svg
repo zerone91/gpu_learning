@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 560" width="980" height="560" font-family="sans-serif">
+  <rect x="0" y="0" width="980" height="560" fill="#ffffff"/>
+  <text x="20" y="30" font-size="19" font-weight="bold">一条 LDG（从显存读一个数）从发射到数据回到寄存器，中途停几站</text>
+  <text x="20" y="52" font-size="14" fill="#444">横轴是从发射算起的累计拍数（H800 实测量级，非线性刻度）。三条出口：在 L1 结束、在 L2 结束、走到显存。</text>
+
+  <!-- axis -->
+  <line x1="60" y1="500" x2="940" y2="500" stroke="#333" stroke-width="2"/>
+  <g font-size="13" fill="#333" text-anchor="middle">
+    <line x1="60" y1="495" x2="60" y2="505" stroke="#333" stroke-width="2"/><text x="60" y="522">0</text>
+    <line x1="215" y1="495" x2="215" y2="505" stroke="#333" stroke-width="2"/><text x="215" y="522">约 10</text>
+    <line x1="370" y1="495" x2="370" y2="505" stroke="#333" stroke-width="2"/><text x="370" y="522">约 40</text>
+    <line x1="640" y1="495" x2="640" y2="505" stroke="#333" stroke-width="2"/><text x="640" y="522">约 260</text>
+    <line x1="900" y1="495" x2="900" y2="505" stroke="#333" stroke-width="2"/><text x="900" y="522">约 480</text>
+  </g>
+  <text x="940" y="490" font-size="13" fill="#333" text-anchor="end">累计拍数（GPU 时钟周期）</text>
+
+  <!-- stage boxes row 1 : in SM -->
+  <rect x="60" y="80" width="310" height="120" fill="#eef4fb" stroke="#2a5d9f" stroke-width="1.5"/>
+  <text x="70" y="100" font-size="14" font-weight="bold" fill="#2a5d9f">SM 内部（每个 SM 一份）</text>
+
+  <rect x="72" y="112" width="86" height="72" fill="#ffffff" stroke="#2a5d9f" stroke-width="1.5"/>
+  <text x="115" y="132" font-size="13" text-anchor="middle" font-weight="bold">① 发射</text>
+  <text x="115" y="150" font-size="12" text-anchor="middle">调度器把这条</text>
+  <text x="115" y="166" font-size="12" text-anchor="middle">指令交给 LSU</text>
+  <text x="115" y="180" font-size="12" text-anchor="middle" fill="#a33">1 拍</text>
+
+  <rect x="166" y="112" width="92" height="72" fill="#ffffff" stroke="#2a5d9f" stroke-width="1.5"/>
+  <text x="212" y="132" font-size="13" text-anchor="middle" font-weight="bold">② 算地址</text>
+  <text x="212" y="150" font-size="12" text-anchor="middle">32 个线程各出</text>
+  <text x="212" y="166" font-size="12" text-anchor="middle">一个 64 位地址</text>
+  <text x="212" y="180" font-size="12" text-anchor="middle" fill="#a33">约 2～4 拍</text>
+
+  <rect x="266" y="112" width="96" height="72" fill="#ffffff" stroke="#2a5d9f" stroke-width="1.5"/>
+  <text x="314" y="132" font-size="13" text-anchor="middle" font-weight="bold">③ 合并</text>
+  <text x="314" y="150" font-size="12" text-anchor="middle">归成 N 个 32 字</text>
+  <text x="314" y="166" font-size="12" text-anchor="middle">节段请求</text>
+  <text x="314" y="180" font-size="12" text-anchor="middle" fill="#a33">N 拍（4～32）</text>
+
+  <!-- L1 -->
+  <rect x="380" y="80" width="150" height="120" fill="#eef4fb" stroke="#2a5d9f" stroke-width="1.5"/>
+  <text x="390" y="100" font-size="14" font-weight="bold" fill="#2a5d9f">L1 缓存（SM 内）</text>
+  <rect x="392" y="112" width="126" height="72" fill="#ffffff" stroke="#2a5d9f" stroke-width="1.5"/>
+  <text x="455" y="132" font-size="13" text-anchor="middle" font-weight="bold">④ 查标签 + MSHR</text>
+  <text x="455" y="150" font-size="12" text-anchor="middle">在不在？不在就</text>
+  <text x="455" y="166" font-size="12" text-anchor="middle">登记一张缺失单</text>
+  <text x="455" y="180" font-size="12" text-anchor="middle" fill="#a33">命中约 40 拍返回</text>
+
+  <!-- L2 -->
+  <rect x="546" y="80" width="200" height="120" fill="#fdf1e6" stroke="#b5651d" stroke-width="1.5"/>
+  <text x="556" y="100" font-size="14" font-weight="bold" fill="#b5651d">L2 缓存（全芯片共用）</text>
+  <rect x="558" y="112" width="86" height="72" fill="#ffffff" stroke="#b5651d" stroke-width="1.5"/>
+  <text x="601" y="132" font-size="13" text-anchor="middle" font-weight="bold">⑤ 片上网络</text>
+  <text x="601" y="150" font-size="12" text-anchor="middle">按地址散列选</text>
+  <text x="601" y="166" font-size="12" text-anchor="middle">一片 L2</text>
+  <text x="601" y="180" font-size="12" text-anchor="middle" fill="#a33">来回 30～60 拍</text>
+  <rect x="652" y="112" width="86" height="72" fill="#ffffff" stroke="#b5651d" stroke-width="1.5"/>
+  <text x="695" y="132" font-size="13" text-anchor="middle" font-weight="bold">⑥ 查 L2</text>
+  <text x="695" y="150" font-size="12" text-anchor="middle">tag 比较 +</text>
+  <text x="695" y="166" font-size="12" text-anchor="middle">读 SRAM</text>
+  <text x="695" y="180" font-size="12" text-anchor="middle" fill="#a33">约 20～40 拍</text>
+
+  <!-- HBM -->
+  <rect x="762" y="80" width="178" height="120" fill="#fdecec" stroke="#a33" stroke-width="1.5"/>
+  <text x="772" y="100" font-size="14" font-weight="bold" fill="#a33">显存（HBM）</text>
+  <rect x="774" y="112" width="154" height="72" fill="#ffffff" stroke="#a33" stroke-width="1.5"/>
+  <text x="851" y="132" font-size="13" text-anchor="middle" font-weight="bold">⑦ 显存控制器 + HBM</text>
+  <text x="851" y="150" font-size="12" text-anchor="middle">排队、开行、读列</text>
+  <text x="851" y="166" font-size="12" text-anchor="middle">再走回来</text>
+  <text x="851" y="180" font-size="12" text-anchor="middle" fill="#a33">约 200 拍以上</text>
+
+  <!-- arrows between -->
+  <defs>
+    <marker id="ar" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0 0, 9 3.5, 0 7" fill="#333"/>
+    </marker>
+    <marker id="arg" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0 0, 9 3.5, 0 7" fill="#1a7a3c"/>
+    </marker>
+  </defs>
+  <line x1="370" y1="148" x2="390" y2="148" stroke="#333" stroke-width="2" marker-end="url(#ar)"/>
+  <line x1="530" y1="148" x2="556" y2="148" stroke="#333" stroke-width="2" marker-end="url(#ar)"/>
+  <line x1="746" y1="148" x2="772" y2="148" stroke="#333" stroke-width="2" marker-end="url(#ar)"/>
+  <line x1="543" y1="160" x2="543" y2="212" stroke="#a33" stroke-width="1"/>
+  <text x="543" y="226" font-size="12" fill="#a33" text-anchor="middle">L1 没命中</text>
+  <line x1="759" y1="160" x2="759" y2="212" stroke="#a33" stroke-width="1"/>
+  <text x="759" y="226" font-size="12" fill="#a33" text-anchor="middle">L2 也没命中</text>
+  <g stroke="#bbb" stroke-width="1" stroke-dasharray="4 4">
+    <line x1="370" y1="262" x2="370" y2="498"/>
+    <line x1="640" y1="332" x2="640" y2="498"/>
+    <line x1="900" y1="402" x2="900" y2="498"/>
+  </g>
+
+  <!-- return paths -->
+  <path d="M 370 230 L 370 260 L 120 260 L 120 205" fill="none" stroke="#1a7a3c" stroke-width="2" marker-end="url(#arg)"/>
+  <path d="M 640 300 L 640 330 L 120 330 L 120 205" fill="none" stroke="#1a7a3c" stroke-width="2" marker-end="url(#arg)"/>
+  <path d="M 900 370 L 900 400 L 120 400 L 120 205" fill="none" stroke="#1a7a3c" stroke-width="2" marker-end="url(#arg)"/>
+  <line x1="370" y1="200" x2="370" y2="232" stroke="#1a7a3c" stroke-width="2"/>
+  <line x1="640" y1="200" x2="640" y2="302" stroke="#1a7a3c" stroke-width="2"/>
+  <line x1="900" y1="200" x2="900" y2="372" stroke="#1a7a3c" stroke-width="2"/>
+
+  <text x="380" y="252" font-size="13" fill="#1a7a3c">出口甲：L1 命中，约 40 拍数据回到寄存器</text>
+  <text x="650" y="322" font-size="13" fill="#1a7a3c">出口乙：L2 命中，约 260 拍</text>
+  <text x="640" y="392" font-size="13" fill="#1a7a3c" text-anchor="end">出口丙：一路走到显存，约 480 拍；回程顺路在 L2、L1 各留一份</text>
+
+  <!-- register / scoreboard -->
+  <rect x="62" y="420" width="240" height="56" fill="#f2f2f2" stroke="#333" stroke-width="1.5"/>
+  <text x="182" y="441" font-size="13" text-anchor="middle" font-weight="bold">⑧ 写进目标寄存器，屏障计数减 1</text>
+  <text x="182" y="462" font-size="12" text-anchor="middle">这个 warp 才重新可以执行</text>
+
+  <text x="330" y="443" font-size="13" fill="#444">出口甲和出口丙差 12 倍：同一条指令，等多久取决于数据在哪一站被找到。</text>
+  <text x="330" y="463" font-size="13" fill="#444">这段时间里这个 warp 一条指令也发不出，只能靠别的 warp 把执行单元填满。</text>
+</svg>

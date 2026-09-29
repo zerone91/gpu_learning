@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" font-family="sans-serif">
+  <defs>
+    <marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f5fbf"/></marker>
+    <marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#d9771e"/></marker>
+    <marker id="ap" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#7d3c98"/></marker>
+  </defs>
+  <rect x="0" y="0" width="960" height="580" fill="#ffffff"/>
+
+  <!-- node boxes -->
+  <rect x="20" y="20" width="420" height="440" rx="8" fill="#fbfbfb" stroke="#333" stroke-width="2"/>
+  <text x="36" y="44" font-size="16" font-weight="bold">节点 1（发送方）</text>
+  <rect x="520" y="20" width="420" height="440" rx="8" fill="#fbfbfb" stroke="#333" stroke-width="2"/>
+  <text x="536" y="44" font-size="16" font-weight="bold">节点 2（接收方）</text>
+  <rect x="440" y="300" width="80" height="140" fill="#e2e2e2"/>
+  <text x="480" y="470" font-size="14" text-anchor="middle">网络</text>
+  <text x="480" y="488" font-size="14" text-anchor="middle">IB / RoCE</text>
+
+  <!-- node1 CPU + host mem -->
+  <rect x="40" y="56" width="380" height="96" rx="6" fill="#fdf2e6" stroke="#d9771e" stroke-width="1.5"/>
+  <text x="56" y="82" font-size="15" font-weight="bold">CPU 代理线程 + 主机内存</text>
+  <rect x="200" y="94" width="96" height="44" fill="#fff" stroke="#d9771e" stroke-width="1.5"/>
+  <text x="248" y="114" font-size="14" text-anchor="middle">发送队列</text>
+  <text x="248" y="132" font-size="14" text-anchor="middle">WQE</text>
+  <rect x="310" y="94" width="96" height="44" fill="#fff" stroke="#7d3c98" stroke-width="1.5"/>
+  <text x="358" y="114" font-size="14" text-anchor="middle">完成队列</text>
+  <text x="358" y="132" font-size="14" text-anchor="middle">CQE</text>
+  <text x="56" y="108" font-size="14" fill="#d9771e">② 写 WQE</text>
+  <text x="56" y="132" font-size="14" fill="#7d3c98">⑨ 轮询 CQ</text>
+
+  <!-- node1 switch, GPU, NIC -->
+  <rect x="120" y="222" width="200" height="46" rx="6" fill="#eeeeee" stroke="#555" stroke-width="1.5"/>
+  <text x="220" y="251" font-size="15" text-anchor="middle">PCIe 交换芯片</text>
+  <line x1="220" y1="152" x2="220" y2="222" stroke="#999" stroke-width="4"/>
+  <rect x="40" y="340" width="170" height="96" rx="6" fill="#e6f4e8" stroke="#2e8b3e" stroke-width="2"/>
+  <text x="125" y="368" font-size="15" text-anchor="middle" font-weight="bold">GPU A</text>
+  <rect x="58" y="380" width="134" height="42" fill="#dbe8fa" stroke="#1f5fbf" stroke-width="1.5"/>
+  <text x="125" y="406" font-size="14" text-anchor="middle">显存：梯度 1 MB</text>
+  <rect x="250" y="340" width="170" height="96" rx="6" fill="#f4ecf7" stroke="#7d3c98" stroke-width="2"/>
+  <text x="335" y="368" font-size="15" text-anchor="middle" font-weight="bold">网卡 1</text>
+  <text x="335" y="392" font-size="14" text-anchor="middle">DMA 引擎</text>
+  <text x="335" y="414" font-size="14" text-anchor="middle">门铃寄存器</text>
+
+  <!-- node2 -->
+  <rect x="540" y="56" width="380" height="96" rx="6" fill="#f4f4f4" stroke="#aaa" stroke-width="1.5"/>
+  <text x="556" y="82" font-size="15" font-weight="bold" fill="#888">CPU + 主机内存</text>
+  <text x="556" y="108" font-size="14" fill="#888">不参与这次写入</text>
+  <rect x="640" y="222" width="200" height="46" rx="6" fill="#eeeeee" stroke="#555" stroke-width="1.5"/>
+  <text x="740" y="251" font-size="15" text-anchor="middle">PCIe 交换芯片</text>
+  <line x1="740" y1="152" x2="740" y2="222" stroke="#ccc" stroke-width="4"/>
+  <rect x="540" y="340" width="170" height="96" rx="6" fill="#f4ecf7" stroke="#7d3c98" stroke-width="2"/>
+  <text x="625" y="368" font-size="15" text-anchor="middle" font-weight="bold">网卡 2</text>
+  <text x="625" y="392" font-size="14" text-anchor="middle">DMA 引擎</text>
+  <rect x="750" y="340" width="170" height="96" rx="6" fill="#e6f4e8" stroke="#2e8b3e" stroke-width="2"/>
+  <text x="835" y="368" font-size="15" text-anchor="middle" font-weight="bold">GPU B</text>
+  <rect x="768" y="380" width="134" height="42" fill="#dbe8fa" stroke="#1f5fbf" stroke-width="1.5"/>
+  <text x="835" y="406" font-size="14" text-anchor="middle">显存：目的缓冲</text>
+
+  <!-- ① GPU A ready -> CPU -->
+  <line x1="80" y1="338" x2="80" y2="156" stroke="#d9771e" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#ao)"/>
+  <text x="88" y="200" font-size="14" fill="#d9771e">① 梯度就绪</text>
+  <!-- ③ doorbell -->
+  <line x1="352" y1="152" x2="352" y2="336" stroke="#d9771e" stroke-width="2" marker-end="url(#ao)"/>
+  <text x="346" y="200" font-size="14" fill="#d9771e" text-anchor="end">③ 按门铃</text>
+  <!-- ④ NIC reads GPU A via switch -->
+  <path d="M170,340 L170,268" stroke="#1f5fbf" stroke-width="5" fill="none"/>
+  <path d="M290,268 L290,336" stroke="#1f5fbf" stroke-width="5" fill="none" marker-end="url(#ab)"/>
+  <line x1="170" y1="270" x2="290" y2="270" stroke="#1f5fbf" stroke-width="5"/>
+  <text x="170" y="298" font-size="14" fill="#1f5fbf" text-anchor="end">④ 读显存</text>
+  <!-- ⑤ wire -->
+  <line x1="420" y1="370" x2="536" y2="370" stroke="#1f5fbf" stroke-width="5" marker-end="url(#ab)"/>
+  <text x="480" y="354" font-size="14" fill="#1f5fbf" text-anchor="middle">⑤ 1 MB</text>
+  <!-- ⑥ NIC2 writes GPU B -->
+  <path d="M670,340 L670,270 L800,270" stroke="#1f5fbf" stroke-width="5" fill="none"/>
+  <line x1="800" y1="268" x2="800" y2="336" stroke="#1f5fbf" stroke-width="5" marker-end="url(#ab)"/>
+  <text x="808" y="300" font-size="14" fill="#1f5fbf">⑥ 写显存</text>
+  <!-- ⑦ ack -->
+  <line x1="538" y1="418" x2="424" y2="418" stroke="#7d3c98" stroke-width="2" marker-end="url(#ap)"/>
+  <text x="480" y="436" font-size="14" fill="#7d3c98" text-anchor="middle">⑦ 确认</text>
+  <!-- ⑧ CQE -->
+  <line x1="400" y1="338" x2="400" y2="142" stroke="#7d3c98" stroke-width="2" marker-end="url(#ap)"/>
+  <text x="408" y="200" font-size="14" fill="#7d3c98">⑧</text>
+  <text x="408" y="218" font-size="14" fill="#7d3c98">写 CQE</text>
+
+  <!-- node2 note -->
+  <text x="556" y="186" font-size="14" fill="#555">RDMA 写对节点 2 是静默的：</text>
+  <text x="556" y="206" font-size="14" fill="#555">要靠带立即数的写或标志位通知</text>
+
+  <!-- legend -->
+  <g font-size="14">
+    <line x1="30" y1="524" x2="80" y2="524" stroke="#1f5fbf" stroke-width="5"/><text x="88" y="529">数据（不经过两端的主机内存）</text>
+    <line x1="340" y1="524" x2="390" y2="524" stroke="#d9771e" stroke-width="2"/><text x="398" y="529">下单</text>
+    <line x1="470" y1="524" x2="520" y2="524" stroke="#7d3c98" stroke-width="2"/><text x="528" y="529">确认与完成通知</text>
+    <text x="30" y="560" fill="#555">灰色竖条是 PCIe 链路。1 MB 按 400 Gb/s（约 50 GB/s）约 20 μs；从门铃到 CQE 约二十几微秒。</text>
+  </g>
+</svg>

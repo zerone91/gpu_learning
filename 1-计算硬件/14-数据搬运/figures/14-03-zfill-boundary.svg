@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="520" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2c6fb7"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f7a4d"/></marker><pattern id="hz" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="#f8d7d2"/><line x1="0" y1="0" x2="0" y2="8" stroke="#c0392b" stroke-width="1.6"/></pattern></defs>
+<text x="480" y="30" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold">边界块：一次 16 字节的拷贝有一半落在矩阵外面，三种写法结果完全不同</text>
+<text x="480" y="52" font-size="13" text-anchor="middle" fill="#666666">例子：K = 36，每块取 32 列，第二块要取第 32～63 列，只有 32～35 列真实存在</text>
+<text x="180" y="112" font-size="14" text-anchor="end" fill="#222222" font-weight="bold">显存里的 A 矩阵</text>
+<text x="180" y="130" font-size="13" text-anchor="end" fill="#666666">（这一行）</text>
+<rect x="200" y="84" width="31" height="44" fill="#d7ede1" stroke="#1f7a4d" stroke-width="1.5" rx="3"/>
+<text x="215.5" y="110.68" font-size="13" text-anchor="middle" fill="#222222">32</text>
+<rect x="234" y="84" width="31" height="44" fill="#d7ede1" stroke="#1f7a4d" stroke-width="1.5" rx="3"/>
+<text x="249.5" y="110.68" font-size="13" text-anchor="middle" fill="#222222">33</text>
+<rect x="268" y="84" width="31" height="44" fill="#d7ede1" stroke="#1f7a4d" stroke-width="1.5" rx="3"/>
+<text x="283.5" y="110.68" font-size="13" text-anchor="middle" fill="#222222">34</text>
+<rect x="302" y="84" width="31" height="44" fill="#d7ede1" stroke="#1f7a4d" stroke-width="1.5" rx="3"/>
+<text x="317.5" y="110.68" font-size="13" text-anchor="middle" fill="#222222">35</text>
+<rect x="336" y="84" width="31" height="44" fill="#f4f4f4" stroke="#666666" stroke-width="1.2" rx="2" stroke-dasharray="4 3"/>
+<text x="351.5" y="110.68" font-size="13" text-anchor="middle" fill="#666666">36</text>
+<rect x="370" y="84" width="31" height="44" fill="#f4f4f4" stroke="#666666" stroke-width="1.2" rx="2" stroke-dasharray="4 3"/>
+<text x="385.5" y="110.68" font-size="13" text-anchor="middle" fill="#666666">37</text>
+<rect x="404" y="84" width="31" height="44" fill="#f4f4f4" stroke="#666666" stroke-width="1.2" rx="2" stroke-dasharray="4 3"/>
+<text x="419.5" y="110.68" font-size="13" text-anchor="middle" fill="#666666">38</text>
+<rect x="438" y="84" width="31" height="44" fill="#f4f4f4" stroke="#666666" stroke-width="1.2" rx="2" stroke-dasharray="4 3"/>
+<text x="453.5" y="110.68" font-size="13" text-anchor="middle" fill="#666666">39</text>
+<rect x="472" y="84" width="31" height="44" fill="#f4f4f4" stroke="#666666" stroke-width="1.2" rx="2" stroke-dasharray="4 3"/>
+<text x="487.5" y="110.68" font-size="13" text-anchor="middle" fill="#666666">40</text>
+<rect x="506" y="84" width="31" height="44" fill="#f4f4f4" stroke="#666666" stroke-width="1.2" rx="2" stroke-dasharray="4 3"/>
+<text x="521.5" y="110.68" font-size="13" text-anchor="middle" fill="#666666">41</text>
+<rect x="540" y="84" width="31" height="44" fill="#f4f4f4" stroke="#666666" stroke-width="1.2" rx="2" stroke-dasharray="4 3"/>
+<text x="555.5" y="110.68" font-size="13" text-anchor="middle" fill="#666666">42</text>
+<rect x="574" y="84" width="31" height="44" fill="#f4f4f4" stroke="#666666" stroke-width="1.2" rx="2" stroke-dasharray="4 3"/>
+<text x="589.5" y="110.68" font-size="13" text-anchor="middle" fill="#666666">43</text>
+<text x="618" y="104" font-size="13" text-anchor="start" fill="#1f7a4d">绿色：真实存在的列</text>
+<text x="618" y="124" font-size="13" text-anchor="start" fill="#666666">灰色：矩阵外面</text>
+<polyline points="200,138 200,148 469,148 469,138" fill="none" stroke="#2c6fb7" stroke-width="2"/>
+<text x="336.0" y="168" font-size="13" text-anchor="middle" fill="#2c6fb7">一个线程的一次访问：16 字节 = 8 个 fp16（第 32～39 列）</text>
+<rect x="20" y="214" width="920" height="84" fill="#f8d7d2" stroke="#c0392b" stroke-width="1.5" rx="4"/>
+<text x="38" y="240" font-size="15" text-anchor="start" fill="#c0392b" font-weight="bold">写法一：@p 谓词跳过</text>
+<text x="38" y="264" font-size="13" text-anchor="start" fill="#222222">做法：cp.async 前面加谓词，越界就不发这条指令</text>
+<text x="38" y="286" font-size="13" text-anchor="start" fill="#222222">结果：shared 里这 16 字节保持原样，是上一轮块留下的旧数据，结果静默错</text>
+<text x="700" y="236" font-size="12.5" text-anchor="start" fill="#c0392b">shared 里这 8 个 fp16 槽位</text>
+<rect x="700" y="248" width="26" height="30" fill="#ffffff" stroke="#c0392b" stroke-width="1.2" rx="2"/>
+<text x="713.0" y="267.5" font-size="12.5" text-anchor="middle" fill="#c0392b">旧</text>
+<rect x="728" y="248" width="26" height="30" fill="#ffffff" stroke="#c0392b" stroke-width="1.2" rx="2"/>
+<text x="741.0" y="267.5" font-size="12.5" text-anchor="middle" fill="#c0392b">旧</text>
+<rect x="756" y="248" width="26" height="30" fill="#ffffff" stroke="#c0392b" stroke-width="1.2" rx="2"/>
+<text x="769.0" y="267.5" font-size="12.5" text-anchor="middle" fill="#c0392b">旧</text>
+<rect x="784" y="248" width="26" height="30" fill="#ffffff" stroke="#c0392b" stroke-width="1.2" rx="2"/>
+<text x="797.0" y="267.5" font-size="12.5" text-anchor="middle" fill="#c0392b">旧</text>
+<rect x="812" y="248" width="26" height="30" fill="#ffffff" stroke="#c0392b" stroke-width="1.2" rx="2"/>
+<text x="825.0" y="267.5" font-size="12.5" text-anchor="middle" fill="#c0392b">旧</text>
+<rect x="840" y="248" width="26" height="30" fill="#ffffff" stroke="#c0392b" stroke-width="1.2" rx="2"/>
+<text x="853.0" y="267.5" font-size="12.5" text-anchor="middle" fill="#c0392b">旧</text>
+<rect x="868" y="248" width="26" height="30" fill="#ffffff" stroke="#c0392b" stroke-width="1.2" rx="2"/>
+<text x="881.0" y="267.5" font-size="12.5" text-anchor="middle" fill="#c0392b">旧</text>
+<rect x="896" y="248" width="26" height="30" fill="#ffffff" stroke="#c0392b" stroke-width="1.2" rx="2"/>
+<text x="909.0" y="267.5" font-size="12.5" text-anchor="middle" fill="#c0392b">旧</text>
+<rect x="20" y="310" width="920" height="84" fill="#fbe6cc" stroke="#b86a0c" stroke-width="1.5" rx="4"/>
+<text x="38" y="336" font-size="15" text-anchor="start" fill="#b86a0c" font-weight="bold">写法二：ignore-src = true</text>
+<text x="38" y="360" font-size="13" text-anchor="start" fill="#222222">做法：指令照发，但告诉硬件“源数据不要了”</text>
+<text x="38" y="382" font-size="13" text-anchor="start" fill="#222222">结果：整 16 字节全写零。安全，但第 32～35 列的真实数据也丢了</text>
+<text x="700" y="332" font-size="12.5" text-anchor="start" fill="#b86a0c">shared 里这 8 个 fp16 槽位</text>
+<rect x="700" y="344" width="26" height="30" fill="#f2f2f2" stroke="#b86a0c" stroke-width="1.2" rx="2"/>
+<text x="713.0" y="363.5" font-size="12.5" text-anchor="middle" fill="#b86a0c">0</text>
+<rect x="728" y="344" width="26" height="30" fill="#f2f2f2" stroke="#b86a0c" stroke-width="1.2" rx="2"/>
+<text x="741.0" y="363.5" font-size="12.5" text-anchor="middle" fill="#b86a0c">0</text>
+<rect x="756" y="344" width="26" height="30" fill="#f2f2f2" stroke="#b86a0c" stroke-width="1.2" rx="2"/>
+<text x="769.0" y="363.5" font-size="12.5" text-anchor="middle" fill="#b86a0c">0</text>
+<rect x="784" y="344" width="26" height="30" fill="#f2f2f2" stroke="#b86a0c" stroke-width="1.2" rx="2"/>
+<text x="797.0" y="363.5" font-size="12.5" text-anchor="middle" fill="#b86a0c">0</text>
+<rect x="812" y="344" width="26" height="30" fill="#f2f2f2" stroke="#b86a0c" stroke-width="1.2" rx="2"/>
+<text x="825.0" y="363.5" font-size="12.5" text-anchor="middle" fill="#b86a0c">0</text>
+<rect x="840" y="344" width="26" height="30" fill="#f2f2f2" stroke="#b86a0c" stroke-width="1.2" rx="2"/>
+<text x="853.0" y="363.5" font-size="12.5" text-anchor="middle" fill="#b86a0c">0</text>
+<rect x="868" y="344" width="26" height="30" fill="#f2f2f2" stroke="#b86a0c" stroke-width="1.2" rx="2"/>
+<text x="881.0" y="363.5" font-size="12.5" text-anchor="middle" fill="#b86a0c">0</text>
+<rect x="896" y="344" width="26" height="30" fill="#f2f2f2" stroke="#b86a0c" stroke-width="1.2" rx="2"/>
+<text x="909.0" y="363.5" font-size="12.5" text-anchor="middle" fill="#b86a0c">0</text>
+<rect x="20" y="406" width="920" height="84" fill="#d7ede1" stroke="#1f7a4d" stroke-width="1.5" rx="4"/>
+<text x="38" y="432" font-size="15" text-anchor="start" fill="#1f7a4d" font-weight="bold">写法三：src-size = 8</text>
+<text x="38" y="456" font-size="13" text-anchor="start" fill="#222222">做法：cp-size 仍是 16，另给一个 src-size 说明“真正要搬的只有 8 字节”</text>
+<text x="38" y="478" font-size="13" text-anchor="start" fill="#222222">结果：前 8 字节照搬，后 8 字节由硬件补零 —— 边界块要的正是这个</text>
+<text x="700" y="428" font-size="12.5" text-anchor="start" fill="#1f7a4d">shared 里这 8 个 fp16 槽位</text>
+<rect x="700" y="440" width="26" height="30" fill="#ffffff" stroke="#1f7a4d" stroke-width="1.2" rx="2"/>
+<text x="713.0" y="459.5" font-size="12.5" text-anchor="middle" fill="#1f7a4d">32</text>
+<rect x="728" y="440" width="26" height="30" fill="#ffffff" stroke="#1f7a4d" stroke-width="1.2" rx="2"/>
+<text x="741.0" y="459.5" font-size="12.5" text-anchor="middle" fill="#1f7a4d">33</text>
+<rect x="756" y="440" width="26" height="30" fill="#ffffff" stroke="#1f7a4d" stroke-width="1.2" rx="2"/>
+<text x="769.0" y="459.5" font-size="12.5" text-anchor="middle" fill="#1f7a4d">34</text>
+<rect x="784" y="440" width="26" height="30" fill="#ffffff" stroke="#1f7a4d" stroke-width="1.2" rx="2"/>
+<text x="797.0" y="459.5" font-size="12.5" text-anchor="middle" fill="#1f7a4d">35</text>
+<rect x="812" y="440" width="26" height="30" fill="#f2f2f2" stroke="#1f7a4d" stroke-width="1.2" rx="2"/>
+<text x="825.0" y="459.5" font-size="12.5" text-anchor="middle" fill="#1f7a4d">0</text>
+<rect x="840" y="440" width="26" height="30" fill="#f2f2f2" stroke="#1f7a4d" stroke-width="1.2" rx="2"/>
+<text x="853.0" y="459.5" font-size="12.5" text-anchor="middle" fill="#1f7a4d">0</text>
+<rect x="868" y="440" width="26" height="30" fill="#f2f2f2" stroke="#1f7a4d" stroke-width="1.2" rx="2"/>
+<text x="881.0" y="459.5" font-size="12.5" text-anchor="middle" fill="#1f7a4d">0</text>
+<rect x="896" y="440" width="26" height="30" fill="#f2f2f2" stroke="#1f7a4d" stroke-width="1.2" rx="2"/>
+<text x="909.0" y="459.5" font-size="12.5" text-anchor="middle" fill="#1f7a4d">0</text>
+</svg>

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1020 600" width="1020" height="600" font-family="sans-serif">
+  <rect width="1020" height="600" fill="#ffffff"/>
+  <defs><marker id="ar" markerWidth="9" markerHeight="9" refX="8" refY="3.2" orient="auto"><path d="M0,0 L8,3.2 L0,6.4 z" fill="#555"/></marker></defs>
+  <text x="20" y="30" font-size="19" font-weight="bold" fill="#111">copy engine 的 2D 带步长拷贝：它唯一会的「变形」是从大矩阵里抠一块出来</text>
+  <text x="20" y="52" font-size="14" fill="#444">例子：从一个 4096×4096 的 bf16 矩阵里，取左上角坐标为 (行 1024, 列 2048) 的一个 1024×1024 子矩阵。</text>
+  <text x="60" y="96" font-size="14.5" font-weight="bold" fill="#111">源：显存里的 4096×4096 矩阵</text>
+  <rect x="60" y="110" width="254" height="254" fill="#f2f2f2" stroke="#555" stroke-width="1.5"/>
+  <rect x="187.0" y="173.5" width="63" height="63" fill="#ffd9a0" stroke="#c0392b" stroke-width="2"/>
+  <text x="218.7" y="209.2" font-size="12" fill="#7a1f1f" text-anchor="middle">1024×1024</text>
+  <line x1="60" y1="380.0" x2="314.0" y2="380.0" stroke="#1565c0" stroke-width="1.6" marker-end="url(#ar)"/>
+  <text x="187.0" y="398.0" font-size="12" fill="#1565c0" text-anchor="middle">源每行跨度 spitch = 4096 × 2 = 8192 字节</text>
+  <line x1="187.0" y1="149.5" x2="250.5" y2="149.5" stroke="#c0392b" stroke-width="1.6" marker-end="url(#ar)"/>
+  <text x="218.7" y="143.5" font-size="12" fill="#c0392b" text-anchor="middle">width = 1024 × 2 = 2048 字节</text>
+  <line x1="260.5" y1="173.5" x2="260.5" y2="237.0" stroke="#c0392b" stroke-width="1.6" marker-end="url(#ar)"/>
+  <text x="266.5" y="205.2" font-size="12" fill="#c0392b">height = 1024 行</text>
+  <line x1="444.0" y1="237.0" x2="514.0" y2="237.0" stroke="#555" stroke-width="2.4" marker-end="url(#ar)"/>
+  <text x="479.0" y="227.0" font-size="12.5" fill="#555" text-anchor="middle">copy engine</text>
+  <text x="529.0" y="96" font-size="14.5" font-weight="bold" fill="#111">目的：一段紧凑的 2 MB</text>
+  <rect x="529.0" y="110" width="63" height="63" fill="#ffd9a0" stroke="#c0392b" stroke-width="2"/>
+  <text x="560.7" y="145.7" font-size="12" fill="#7a1f1f" text-anchor="middle">1024×1024</text>
+  <text x="529.0" y="193.5" font-size="12" fill="#1565c0">目的每行跨度 dpitch = 2048 字节（行行相接）</text>
+  <rect x="525.0" y="226" width="420" height="120" fill="#eef4ff" stroke="#1565c0" stroke-width="1.4"/>
+  <text x="541.0" y="250" font-size="13.5" font-weight="bold" fill="#0d3c6e">引擎收到订单后做的事</text>
+  <text x="541.0" y="274" font-size="12.5" fill="#333">循环 1024 次：读 2048 字节、写 2048 字节；</text>
+  <text x="541.0" y="294" font-size="12.5" fill="#333">每轮源地址加 8192，目的地址加 2048。</text>
+  <text x="541.0" y="314" font-size="12.5" fill="#333">字节在一行内的先后顺序一个都不动——</text>
+  <text x="541.0" y="334" font-size="12.5" fill="#333">所以它抠得出子矩阵，转不了置。</text>
+  <rect x="20" y="412" width="490" height="152" fill="#eef7ee" stroke="#2e7d32" stroke-width="1.4"/>
+  <text x="38" y="436" font-size="14" font-weight="bold" fill="#14431a">能做</text>
+  <text x="38" y="460" font-size="12.5" fill="#333">· 按行距抽子矩阵（cudaMemcpy2DAsync）</text>
+  <text x="38" y="480" font-size="12.5" fill="#333">· 按面距抽子长方体（cudaMemcpy3DAsync）</text>
+  <text x="38" y="500" font-size="12.5" fill="#333">· 源和目的的行跨度可以不同（把稀疏的抠成紧凑的）</text>
+  <text x="38" y="520" font-size="12.5" fill="#333">· 主机↔显存、显存↔显存、卡↔卡都走同一套参数</text>
+  <text x="38" y="540" font-size="12.5" fill="#333">· 整个过程不占一个 SM，和 kernel 完全并行</text>
+  <rect x="530" y="412" width="470" height="152" fill="#fdeaea" stroke="#c0392b" stroke-width="1.4"/>
+  <text x="548" y="436" font-size="14" font-weight="bold" fill="#7a1f1f">不能做</text>
+  <text x="548" y="460" font-size="12.5" fill="#333">· 转置（行列互换）</text>
+  <text x="548" y="480" font-size="12.5" fill="#333">· 任意元素级重排、gather / scatter</text>
+  <text x="548" y="500" font-size="12.5" fill="#333">· 改数据类型、量化、补零填充</text>
+  <text x="548" y="520" font-size="12.5" fill="#333">· swizzle 这类地址置换</text>
+  <text x="548" y="540" font-size="12.5" fill="#333">· 一句话：它只会「按固定步长复制整段」</text>
+</svg>

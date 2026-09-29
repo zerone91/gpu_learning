@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 450" width="960" height="450" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="450" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2c6fb7"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f7a4d"/></marker><pattern id="hz" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="#f8d7d2"/><line x1="0" y1="0" x2="0" y2="8" stroke="#c0392b" stroke-width="1.6"/></pattern></defs>
+<text x="480" y="30" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold">同一个 warp 的指令流：两步搬运卡在中间，cp.async 一路走到计算</text>
+<text x="480" y="52" font-size="13" text-anchor="middle" fill="#666666">（方块宽度是示意，不按拍数成比例）</text>
+<text x="20" y="78" font-size="16" text-anchor="start" fill="#2c6fb7" font-weight="bold">① 两步搬运</text>
+<rect x="20" y="90" width="120" height="52" fill="#e8e8e8" stroke="#666666" stroke-width="1.5" rx="3"/>
+<text x="80.0" y="121.04" font-size="14" text-anchor="middle" fill="#222222"></text>
+<text x="80.0" y="112" font-size="13" text-anchor="middle" fill="#222222">IMAD ×10</text>
+<text x="80.0" y="130" font-size="13" text-anchor="middle" fill="#222222">算地址</text>
+<rect x="146" y="90" width="86" height="52" fill="#dbe8f6" stroke="#2c6fb7" stroke-width="1.5" rx="3"/>
+<text x="189.0" y="121.04" font-size="14" text-anchor="middle" fill="#222222"></text>
+<text x="189.0" y="112" font-size="13" text-anchor="middle" fill="#222222">LDG.128</text>
+<text x="189.0" y="130" font-size="13" text-anchor="middle" fill="#222222">→R4</text>
+<rect x="238" y="90" width="86" height="52" fill="#dbe8f6" stroke="#2c6fb7" stroke-width="1.5" rx="3"/>
+<text x="281.0" y="121.04" font-size="14" text-anchor="middle" fill="#222222"></text>
+<text x="281.0" y="112" font-size="13" text-anchor="middle" fill="#222222">LDG.128</text>
+<text x="281.0" y="130" font-size="13" text-anchor="middle" fill="#222222">→R8</text>
+<rect x="330" y="90" width="86" height="52" fill="#dbe8f6" stroke="#2c6fb7" stroke-width="1.5" rx="3"/>
+<text x="373.0" y="121.04" font-size="14" text-anchor="middle" fill="#222222"></text>
+<text x="373.0" y="112" font-size="13" text-anchor="middle" fill="#222222">LDG.128</text>
+<text x="373.0" y="130" font-size="13" text-anchor="middle" fill="#222222">→R12</text>
+<rect x="422" y="90" width="86" height="52" fill="#dbe8f6" stroke="#2c6fb7" stroke-width="1.5" rx="3"/>
+<text x="465.0" y="121.04" font-size="14" text-anchor="middle" fill="#222222"></text>
+<text x="465.0" y="112" font-size="13" text-anchor="middle" fill="#222222">LDG.128</text>
+<text x="465.0" y="130" font-size="13" text-anchor="middle" fill="#222222">→R16</text>
+<rect x="514" y="90" width="250" height="52" fill="url(#hz)" stroke="#c0392b" stroke-width="1.5" rx="3"/>
+<text x="639.0" y="121.04" font-size="14" text-anchor="middle" fill="#222222"></text>
+<text x="639.0" y="112" font-size="13" text-anchor="middle" fill="#222222">warp 停在这里：STS 要用 R4，</text>
+<text x="639.0" y="130" font-size="13" text-anchor="middle" fill="#222222">记分牌未销账，约 400～600 拍</text>
+<rect x="770" y="90" width="100" height="52" fill="#dbe8f6" stroke="#2c6fb7" stroke-width="1.5" rx="3"/>
+<text x="820.0" y="121.04" font-size="14" text-anchor="middle" fill="#222222"></text>
+<text x="820.0" y="112" font-size="13" text-anchor="middle" fill="#222222">STS.128 ×4</text>
+<text x="820.0" y="130" font-size="13" text-anchor="middle" fill="#222222">写进 shared</text>
+<rect x="876" y="90" width="100" height="52" fill="#fbe6cc" stroke="#b86a0c" stroke-width="1.5" rx="3"/>
+<text x="926.0" y="121.04" font-size="14" text-anchor="middle" fill="#222222"></text>
+<text x="926.0" y="112" font-size="13" text-anchor="middle" fill="#222222">HMMA …</text>
+<text x="926.0" y="130" font-size="13" text-anchor="middle" fill="#222222">才开始算</text>
+<text x="20" y="168" font-size="14" text-anchor="start" fill="#c0392b">16 个数据寄存器（R4～R19）在整段红色区间里被占着，谁也不能用。</text>
+<text x="20" y="218" font-size="16" text-anchor="start" fill="#1f7a4d" font-weight="bold">② cp.async</text>
+<rect x="20" y="230" width="120" height="52" fill="#e8e8e8" stroke="#666666" stroke-width="1.5" rx="3"/>
+<text x="80.0" y="261.04" font-size="14" text-anchor="middle" fill="#222222"></text>
+<text x="80.0" y="252" font-size="13" text-anchor="middle" fill="#222222">IMAD ×10</text>
+<text x="80.0" y="270" font-size="13" text-anchor="middle" fill="#222222">算地址</text>
+<rect x="146" y="230" width="74" height="52" fill="#dbe8f6" stroke="#2c6fb7" stroke-width="1.5" rx="3"/>
+<text x="183.0" y="261.04" font-size="14" text-anchor="middle" fill="#222222"></text>
+<text x="183.0" y="261" font-size="13" text-anchor="middle" fill="#222222">LDGSTS</text>
+<rect x="226" y="230" width="74" height="52" fill="#dbe8f6" stroke="#2c6fb7" stroke-width="1.5" rx="3"/>
+<text x="263.0" y="261.04" font-size="14" text-anchor="middle" fill="#222222"></text>
+<text x="263.0" y="261" font-size="13" text-anchor="middle" fill="#222222">LDGSTS</text>
+<rect x="306" y="230" width="74" height="52" fill="#dbe8f6" stroke="#2c6fb7" stroke-width="1.5" rx="3"/>
+<text x="343.0" y="261.04" font-size="14" text-anchor="middle" fill="#222222"></text>
+<text x="343.0" y="261" font-size="13" text-anchor="middle" fill="#222222">LDGSTS</text>
+<rect x="386" y="230" width="74" height="52" fill="#dbe8f6" stroke="#2c6fb7" stroke-width="1.5" rx="3"/>
+<text x="423.0" y="261.04" font-size="14" text-anchor="middle" fill="#222222"></text>
+<text x="423.0" y="261" font-size="13" text-anchor="middle" fill="#222222">LDGSTS</text>
+<rect x="466" y="230" width="96" height="52" fill="#d7ede1" stroke="#1f7a4d" stroke-width="1.5" rx="3"/>
+<text x="514.0" y="261.04" font-size="14" text-anchor="middle" fill="#222222"></text>
+<text x="514.0" y="252" font-size="13" text-anchor="middle" fill="#222222">commit_</text>
+<text x="514.0" y="270" font-size="13" text-anchor="middle" fill="#222222">group</text>
+<rect x="568" y="230" width="204" height="52" fill="#fbe6cc" stroke="#b86a0c" stroke-width="1.5" rx="3"/>
+<text x="670.0" y="261.04" font-size="14" text-anchor="middle" fill="#222222"></text>
+<text x="670.0" y="252" font-size="13" text-anchor="middle" fill="#222222">HMMA ×N：算上一块</text>
+<text x="670.0" y="270" font-size="13" text-anchor="middle" fill="#222222">（几百拍，寄存器全给累加器）</text>
+<rect x="778" y="230" width="96" height="52" fill="#d7ede1" stroke="#1f7a4d" stroke-width="1.5" rx="3"/>
+<text x="826.0" y="261.04" font-size="14" text-anchor="middle" fill="#222222"></text>
+<text x="826.0" y="252" font-size="13" text-anchor="middle" fill="#222222">wait_group 1</text>
+<text x="826.0" y="270" font-size="13" text-anchor="middle" fill="#222222">+ 同步</text>
+<rect x="146" y="292" width="632" height="20" fill="#dbe8f6" stroke="#2c6fb7" stroke-width="1.5" rx="3"/>
+<text x="462" y="307" font-size="13" text-anchor="middle" fill="#2c6fb7">这 4 笔拷贝在后台走，线程不看着它，直到 wait_group 才回头查收</text>
+<line x1="146" y1="292" x2="146" y2="282" stroke="#2c6fb7" stroke-width="1.5"/>
+<line x1="778" y1="292" x2="778" y2="282" stroke="#2c6fb7" stroke-width="1.5"/>
+<text x="20" y="344" font-size="14" text-anchor="start" fill="#1f7a4d">数据寄存器占用 0 个；拷贝的几百拍被“算上一块”盖住，不是被别的 warp 盖住。</text>
+<rect x="20" y="366" width="920" height="66" fill="#fbfbfb" stroke="#666666" stroke-width="1.5" rx="4"/>
+<text x="36" y="390" font-size="14" text-anchor="start" fill="#222222">关键差别：两步搬运里，“等”这个动作发生在搬运的中间（STS 必须等 LDG 的结果）；</text>
+<text x="36" y="414" font-size="14" text-anchor="start" fill="#222222">cp.async 把“等”推迟到了 wait_group，中间那段时间归线程自己支配。</text>
+</svg>

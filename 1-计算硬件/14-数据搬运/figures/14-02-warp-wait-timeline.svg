@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 560" width="980" height="560" font-family="sans-serif">
+<rect x="0" y="0" width="980" height="560" fill="#ffffff"/>
+<text x="20" y="30" font-size="19" font-weight="bold">一个 warp 执行 y = a·x + b：发出读取之后的那 480 拍，它什么也做不了</text>
+<text x="20" y="52" font-size="14" fill="#444">横轴是时钟拍数，三段的比例不同（中间那段等待按十分之一画）。发射时刻按真实 SASS 里编译器写的停顿计数推出来。</text>
+<line x1="330" y1="86" x2="330" y2="455" stroke="#bbb" stroke-width="1" stroke-dasharray="5 5"/>
+<line x1="760" y1="86" x2="760" y2="455" stroke="#bbb" stroke-width="1" stroke-dasharray="5 5"/>
+<text x="336" y="100" font-size="12" fill="#888">↓ 以下这一段被压扁了：实际有 480 拍 ↓</text>
+<line x1="140" y1="450" x2="960" y2="450" stroke="#333" stroke-width="2"/>
+<line x1="150" y1="445" x2="150" y2="455" stroke="#333" stroke-width="2"/>
+<text x="150" y="470" font-size="12" text-anchor="middle">0</text>
+<line x1="195" y1="445" x2="195" y2="455" stroke="#333" stroke-width="2"/>
+<text x="195" y="470" font-size="12" text-anchor="middle">18</text>
+<line x1="240" y1="445" x2="240" y2="455" stroke="#333" stroke-width="2"/>
+<text x="240" y="470" font-size="12" text-anchor="middle">36</text>
+<line x1="310" y1="445" x2="310" y2="455" stroke="#333" stroke-width="2"/>
+<text x="310" y="470" font-size="12" text-anchor="middle">64</text>
+<line x1="841" y1="445" x2="841" y2="455" stroke="#333" stroke-width="2"/>
+<text x="841" y="470" font-size="12" text-anchor="middle">544</text>
+<line x1="936" y1="445" x2="936" y2="455" stroke="#333" stroke-width="2"/>
+<text x="936" y="470" font-size="12" text-anchor="middle">551</text>
+<text x="960" y="440" font-size="12" text-anchor="end" fill="#333">拍</text>
+<text x="20" y="128" font-size="13" font-weight="bold">本 warp 发射了什么</text>
+<text x="20" y="268" font-size="13" font-weight="bold">屏障 2 的计数</text>
+<text x="20" y="338" font-size="13" font-weight="bold">本 warp 的状态</text>
+<text x="20" y="408" font-size="13" font-weight="bold">别的 warp</text>
+<line x1="150" y1="152" x2="150" y2="190" stroke="#2a5d9f" stroke-width="2"/>
+<circle cx="150" cy="152" r="4" fill="#2a5d9f"/>
+<text x="150" y="147" font-size="12" fill="#2a5d9f" transform="rotate(-40 150 147)">LDC</text>
+<line x1="195" y1="152" x2="195" y2="190" stroke="#2a5d9f" stroke-width="2"/>
+<circle cx="195" cy="152" r="4" fill="#2a5d9f"/>
+<text x="195" y="147" font-size="12" fill="#2a5d9f" transform="rotate(-40 195 147)">IMAD</text>
+<line x1="240" y1="152" x2="240" y2="190" stroke="#2a5d9f" stroke-width="2"/>
+<circle cx="240" cy="152" r="4" fill="#2a5d9f"/>
+<text x="240" y="147" font-size="12" fill="#2a5d9f" transform="rotate(-40 240 147)">@P0 EXIT</text>
+<line x1="295" y1="152" x2="295" y2="190" stroke="#2a5d9f" stroke-width="2"/>
+<circle cx="295" cy="152" r="4" fill="#2a5d9f"/>
+<text x="295" y="147" font-size="12" fill="#2a5d9f" transform="rotate(-40 295 147)">IMAD.WIDE</text>
+<line x1="310" y1="152" x2="310" y2="190" stroke="#a33" stroke-width="2"/>
+<circle cx="310" cy="152" r="4" fill="#a33"/>
+<text x="310" y="147" font-size="12" fill="#a33" transform="rotate(-40 310 147)">LDG.E</text>
+<line x1="855" y1="152" x2="855" y2="190" stroke="#1a7a3c" stroke-width="2"/>
+<circle cx="855" cy="152" r="4" fill="#1a7a3c"/>
+<text x="855" y="147" font-size="12" fill="#1a7a3c" transform="rotate(-40 855 147)">FFMA</text>
+<line x1="923" y1="152" x2="923" y2="190" stroke="#2a5d9f" stroke-width="2"/>
+<circle cx="923" cy="152" r="4" fill="#2a5d9f"/>
+<text x="923" y="147" font-size="12" fill="#2a5d9f" transform="rotate(-40 923 147)">STG.E</text>
+<line x1="936" y1="152" x2="936" y2="190" stroke="#2a5d9f" stroke-width="2"/>
+<circle cx="936" cy="152" r="4" fill="#2a5d9f"/>
+<text x="936" y="147" font-size="12" fill="#2a5d9f" transform="rotate(-40 936 147)">EXIT</text>
+<text x="152" y="212" font-size="12" fill="#555">算下标、算地址、判越界</text>
+<text x="310" y="230" font-size="12" fill="#a33" text-anchor="middle">↑ 读取发出</text>
+<text x="896" y="212" font-size="12" fill="#1a7a3c" text-anchor="middle">↑ 数据到了才算得了</text>
+<rect x="150" y="255" width="160" height="26" fill="#f0f0f0" stroke="#999"/>
+<text x="230" y="273" font-size="13" text-anchor="middle" fill="#555">0</text>
+<rect x="310" y="255" width="531" height="26" fill="#f6d9d9" stroke="#a33"/>
+<text x="576" y="273" font-size="13" text-anchor="middle" fill="#a33">1 —— 有一笔读取发出去了、还没回来</text>
+<rect x="841" y="255" width="119" height="26" fill="#f0f0f0" stroke="#999"/>
+<text x="901" y="273" font-size="13" text-anchor="middle" fill="#555">0</text>
+<rect x="150" y="325" width="160" height="26" fill="#cfe6cf" stroke="#666"/>
+<text x="230" y="343" font-size="12" text-anchor="middle" fill="#1a5c1a">在发指令</text>
+<rect x="310" y="325" width="531" height="26" fill="#f2c2c2" stroke="#666"/>
+<text x="576" y="343" font-size="12" text-anchor="middle" fill="#a33">挂起：等屏障 2 归零，这期间一条指令也发不出</text>
+<rect x="841" y="325" width="119" height="26" fill="#cfe6cf" stroke="#666"/>
+<text x="901" y="343" font-size="12" text-anchor="middle" fill="#1a5c1a">又能发了</text>
+<rect x="310" y="395" width="531" height="26" fill="#e6eefc" stroke="#2a5d9f"/>
+<text x="576" y="413" font-size="12" text-anchor="middle" fill="#2a5d9f">调度器把这 480 拍全用来发别的 warp 的指令——驻留的 warp 够多，执行单元才不空转</text>
+<text x="20" y="500" font-size="13" fill="#444">读出三件事：① 这段 SASS 一共 18 条指令，只有 1 条 FFMA 在真正算数；② 这个 warp 一生中最长的一段是干等；</text>
+<text x="20" y="522" font-size="13" fill="#444">③ 提速的办法不是让这一次等待变短（它由物理距离决定），而是让这 480 拍里有别的 warp 在干活。</text>
+</svg>

@@ -1,0 +1,165 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1020 700" width="1020" height="700" font-family="sans-serif">
+<rect x="0" y="0" width="1020" height="700" fill="#ffffff"/>
+
+<text x="510" y="30" font-size="19" text-anchor="middle" fill="#222" font-weight="bold">同一块 128×64 的 bf16 数据（16 KB）搬进片上存储：四种搬法的代价</text>
+<text x="510" y="54" font-size="14" text-anchor="middle" fill="#555">执行配置：128 个线程的块（4 个 warp）；数字取自正文逐项计算</text>
+
+<!-- column headers -->
+<rect x="130" y="66" width="215" height="34" fill="#eef2f7" stroke="#222" stroke-width="1.5"/>
+<rect x="350" y="66" width="215" height="34" fill="#eef2f7" stroke="#222" stroke-width="1.5"/>
+<rect x="570" y="66" width="215" height="34" fill="#e6f2ea" stroke="#222" stroke-width="1.5"/>
+<rect x="790" y="66" width="215" height="34" fill="#f7f0e6" stroke="#222" stroke-width="1.5"/>
+<text x="237" y="89" font-size="16" text-anchor="middle" fill="#222" font-weight="bold">load/store</text>
+<text x="457" y="89" font-size="16" text-anchor="middle" fill="#222" font-weight="bold">cp.async</text>
+<text x="677" y="89" font-size="16" text-anchor="middle" fill="#222" font-weight="bold">TMA</text>
+<text x="897" y="89" font-size="16" text-anchor="middle" fill="#222" font-weight="bold">昇腾 MTE2（对照）</text>
+<text x="237" y="112" font-size="13" text-anchor="middle" fill="#555">线程亲自搬，数据过寄存器</text>
+<text x="457" y="112" font-size="13" text-anchor="middle" fill="#555">线程发指令，数据直达</text>
+<text x="677" y="112" font-size="13" text-anchor="middle" fill="#555">一人下单，引擎代办</text>
+<text x="897" y="112" font-size="13" text-anchor="middle" fill="#555">搬运流水上的一条指令</text>
+
+<!-- ROW 1: who moves -->
+<line x1="15" y1="124" x2="1005" y2="124" stroke="#bbb" stroke-width="1"/>
+<text x="20" y="150" font-size="15" fill="#222" font-weight="bold">谁在搬</text>
+<text x="20" y="172" font-size="13" fill="#666">一个小方块</text>
+<text x="20" y="190" font-size="13" fill="#666">= 一个线程</text>
+
+<g fill="#c0392b" stroke="#8c2a1e" stroke-width="0.5">
+<rect x="140" y="138" width="9" height="9"/><rect x="152" y="138" width="9" height="9"/><rect x="164" y="138" width="9" height="9"/><rect x="176" y="138" width="9" height="9"/><rect x="188" y="138" width="9" height="9"/><rect x="200" y="138" width="9" height="9"/><rect x="212" y="138" width="9" height="9"/><rect x="224" y="138" width="9" height="9"/><rect x="236" y="138" width="9" height="9"/><rect x="248" y="138" width="9" height="9"/><rect x="260" y="138" width="9" height="9"/><rect x="272" y="138" width="9" height="9"/><rect x="284" y="138" width="9" height="9"/><rect x="296" y="138" width="9" height="9"/><rect x="308" y="138" width="9" height="9"/><rect x="320" y="138" width="9" height="9"/>
+<rect x="140" y="150" width="9" height="9"/><rect x="152" y="150" width="9" height="9"/><rect x="164" y="150" width="9" height="9"/><rect x="176" y="150" width="9" height="9"/><rect x="188" y="150" width="9" height="9"/><rect x="200" y="150" width="9" height="9"/><rect x="212" y="150" width="9" height="9"/><rect x="224" y="150" width="9" height="9"/><rect x="236" y="150" width="9" height="9"/><rect x="248" y="150" width="9" height="9"/><rect x="260" y="150" width="9" height="9"/><rect x="272" y="150" width="9" height="9"/><rect x="284" y="150" width="9" height="9"/><rect x="296" y="150" width="9" height="9"/><rect x="308" y="150" width="9" height="9"/><rect x="320" y="150" width="9" height="9"/>
+<rect x="140" y="162" width="9" height="9"/><rect x="152" y="162" width="9" height="9"/><rect x="164" y="162" width="9" height="9"/><rect x="176" y="162" width="9" height="9"/><rect x="188" y="162" width="9" height="9"/><rect x="200" y="162" width="9" height="9"/><rect x="212" y="162" width="9" height="9"/><rect x="224" y="162" width="9" height="9"/><rect x="236" y="162" width="9" height="9"/><rect x="248" y="162" width="9" height="9"/><rect x="260" y="162" width="9" height="9"/><rect x="272" y="162" width="9" height="9"/><rect x="284" y="162" width="9" height="9"/><rect x="296" y="162" width="9" height="9"/><rect x="308" y="162" width="9" height="9"/><rect x="320" y="162" width="9" height="9"/>
+<rect x="140" y="174" width="9" height="9"/><rect x="152" y="174" width="9" height="9"/><rect x="164" y="174" width="9" height="9"/><rect x="176" y="174" width="9" height="9"/><rect x="188" y="174" width="9" height="9"/><rect x="200" y="174" width="9" height="9"/><rect x="212" y="174" width="9" height="9"/><rect x="224" y="174" width="9" height="9"/><rect x="236" y="174" width="9" height="9"/><rect x="248" y="174" width="9" height="9"/><rect x="260" y="174" width="9" height="9"/><rect x="272" y="174" width="9" height="9"/><rect x="284" y="174" width="9" height="9"/><rect x="296" y="174" width="9" height="9"/><rect x="308" y="174" width="9" height="9"/><rect x="320" y="174" width="9" height="9"/>
+<rect x="140" y="186" width="9" height="9"/><rect x="152" y="186" width="9" height="9"/><rect x="164" y="186" width="9" height="9"/><rect x="176" y="186" width="9" height="9"/><rect x="188" y="186" width="9" height="9"/><rect x="200" y="186" width="9" height="9"/><rect x="212" y="186" width="9" height="9"/><rect x="224" y="186" width="9" height="9"/><rect x="236" y="186" width="9" height="9"/><rect x="248" y="186" width="9" height="9"/><rect x="260" y="186" width="9" height="9"/><rect x="272" y="186" width="9" height="9"/><rect x="284" y="186" width="9" height="9"/><rect x="296" y="186" width="9" height="9"/><rect x="308" y="186" width="9" height="9"/><rect x="320" y="186" width="9" height="9"/>
+<rect x="140" y="198" width="9" height="9"/><rect x="152" y="198" width="9" height="9"/><rect x="164" y="198" width="9" height="9"/><rect x="176" y="198" width="9" height="9"/><rect x="188" y="198" width="9" height="9"/><rect x="200" y="198" width="9" height="9"/><rect x="212" y="198" width="9" height="9"/><rect x="224" y="198" width="9" height="9"/><rect x="236" y="198" width="9" height="9"/><rect x="248" y="198" width="9" height="9"/><rect x="260" y="198" width="9" height="9"/><rect x="272" y="198" width="9" height="9"/><rect x="284" y="198" width="9" height="9"/><rect x="296" y="198" width="9" height="9"/><rect x="308" y="198" width="9" height="9"/><rect x="320" y="198" width="9" height="9"/>
+<rect x="140" y="210" width="9" height="9"/><rect x="152" y="210" width="9" height="9"/><rect x="164" y="210" width="9" height="9"/><rect x="176" y="210" width="9" height="9"/><rect x="188" y="210" width="9" height="9"/><rect x="200" y="210" width="9" height="9"/><rect x="212" y="210" width="9" height="9"/><rect x="224" y="210" width="9" height="9"/><rect x="236" y="210" width="9" height="9"/><rect x="248" y="210" width="9" height="9"/><rect x="260" y="210" width="9" height="9"/><rect x="272" y="210" width="9" height="9"/><rect x="284" y="210" width="9" height="9"/><rect x="296" y="210" width="9" height="9"/><rect x="308" y="210" width="9" height="9"/><rect x="320" y="210" width="9" height="9"/>
+<rect x="140" y="222" width="9" height="9"/><rect x="152" y="222" width="9" height="9"/><rect x="164" y="222" width="9" height="9"/><rect x="176" y="222" width="9" height="9"/><rect x="188" y="222" width="9" height="9"/><rect x="200" y="222" width="9" height="9"/><rect x="212" y="222" width="9" height="9"/><rect x="224" y="222" width="9" height="9"/><rect x="236" y="222" width="9" height="9"/><rect x="248" y="222" width="9" height="9"/><rect x="260" y="222" width="9" height="9"/><rect x="272" y="222" width="9" height="9"/><rect x="284" y="222" width="9" height="9"/><rect x="296" y="222" width="9" height="9"/><rect x="308" y="222" width="9" height="9"/><rect x="320" y="222" width="9" height="9"/>
+</g>
+<text x="237" y="248" font-size="14" text-anchor="middle" fill="#c0392b" font-weight="bold">128 个全员出动</text>
+
+<g fill="#c0392b" stroke="#8c2a1e" stroke-width="0.5">
+<rect x="360" y="138" width="9" height="9"/><rect x="372" y="138" width="9" height="9"/><rect x="384" y="138" width="9" height="9"/><rect x="396" y="138" width="9" height="9"/><rect x="408" y="138" width="9" height="9"/><rect x="420" y="138" width="9" height="9"/><rect x="432" y="138" width="9" height="9"/><rect x="444" y="138" width="9" height="9"/><rect x="456" y="138" width="9" height="9"/><rect x="468" y="138" width="9" height="9"/><rect x="480" y="138" width="9" height="9"/><rect x="492" y="138" width="9" height="9"/><rect x="504" y="138" width="9" height="9"/><rect x="516" y="138" width="9" height="9"/><rect x="528" y="138" width="9" height="9"/><rect x="540" y="138" width="9" height="9"/>
+<rect x="360" y="150" width="9" height="9"/><rect x="372" y="150" width="9" height="9"/><rect x="384" y="150" width="9" height="9"/><rect x="396" y="150" width="9" height="9"/><rect x="408" y="150" width="9" height="9"/><rect x="420" y="150" width="9" height="9"/><rect x="432" y="150" width="9" height="9"/><rect x="444" y="150" width="9" height="9"/><rect x="456" y="150" width="9" height="9"/><rect x="468" y="150" width="9" height="9"/><rect x="480" y="150" width="9" height="9"/><rect x="492" y="150" width="9" height="9"/><rect x="504" y="150" width="9" height="9"/><rect x="516" y="150" width="9" height="9"/><rect x="528" y="150" width="9" height="9"/><rect x="540" y="150" width="9" height="9"/>
+<rect x="360" y="162" width="9" height="9"/><rect x="372" y="162" width="9" height="9"/><rect x="384" y="162" width="9" height="9"/><rect x="396" y="162" width="9" height="9"/><rect x="408" y="162" width="9" height="9"/><rect x="420" y="162" width="9" height="9"/><rect x="432" y="162" width="9" height="9"/><rect x="444" y="162" width="9" height="9"/><rect x="456" y="162" width="9" height="9"/><rect x="468" y="162" width="9" height="9"/><rect x="480" y="162" width="9" height="9"/><rect x="492" y="162" width="9" height="9"/><rect x="504" y="162" width="9" height="9"/><rect x="516" y="162" width="9" height="9"/><rect x="528" y="162" width="9" height="9"/><rect x="540" y="162" width="9" height="9"/>
+<rect x="360" y="174" width="9" height="9"/><rect x="372" y="174" width="9" height="9"/><rect x="384" y="174" width="9" height="9"/><rect x="396" y="174" width="9" height="9"/><rect x="408" y="174" width="9" height="9"/><rect x="420" y="174" width="9" height="9"/><rect x="432" y="174" width="9" height="9"/><rect x="444" y="174" width="9" height="9"/><rect x="456" y="174" width="9" height="9"/><rect x="468" y="174" width="9" height="9"/><rect x="480" y="174" width="9" height="9"/><rect x="492" y="174" width="9" height="9"/><rect x="504" y="174" width="9" height="9"/><rect x="516" y="174" width="9" height="9"/><rect x="528" y="174" width="9" height="9"/><rect x="540" y="174" width="9" height="9"/>
+<rect x="360" y="186" width="9" height="9"/><rect x="372" y="186" width="9" height="9"/><rect x="384" y="186" width="9" height="9"/><rect x="396" y="186" width="9" height="9"/><rect x="408" y="186" width="9" height="9"/><rect x="420" y="186" width="9" height="9"/><rect x="432" y="186" width="9" height="9"/><rect x="444" y="186" width="9" height="9"/><rect x="456" y="186" width="9" height="9"/><rect x="468" y="186" width="9" height="9"/><rect x="480" y="186" width="9" height="9"/><rect x="492" y="186" width="9" height="9"/><rect x="504" y="186" width="9" height="9"/><rect x="516" y="186" width="9" height="9"/><rect x="528" y="186" width="9" height="9"/><rect x="540" y="186" width="9" height="9"/>
+<rect x="360" y="198" width="9" height="9"/><rect x="372" y="198" width="9" height="9"/><rect x="384" y="198" width="9" height="9"/><rect x="396" y="198" width="9" height="9"/><rect x="408" y="198" width="9" height="9"/><rect x="420" y="198" width="9" height="9"/><rect x="432" y="198" width="9" height="9"/><rect x="444" y="198" width="9" height="9"/><rect x="456" y="198" width="9" height="9"/><rect x="468" y="198" width="9" height="9"/><rect x="480" y="198" width="9" height="9"/><rect x="492" y="198" width="9" height="9"/><rect x="504" y="198" width="9" height="9"/><rect x="516" y="198" width="9" height="9"/><rect x="528" y="198" width="9" height="9"/><rect x="540" y="198" width="9" height="9"/>
+<rect x="360" y="210" width="9" height="9"/><rect x="372" y="210" width="9" height="9"/><rect x="384" y="210" width="9" height="9"/><rect x="396" y="210" width="9" height="9"/><rect x="408" y="210" width="9" height="9"/><rect x="420" y="210" width="9" height="9"/><rect x="432" y="210" width="9" height="9"/><rect x="444" y="210" width="9" height="9"/><rect x="456" y="210" width="9" height="9"/><rect x="468" y="210" width="9" height="9"/><rect x="480" y="210" width="9" height="9"/><rect x="492" y="210" width="9" height="9"/><rect x="504" y="210" width="9" height="9"/><rect x="516" y="210" width="9" height="9"/><rect x="528" y="210" width="9" height="9"/><rect x="540" y="210" width="9" height="9"/>
+<rect x="360" y="222" width="9" height="9"/><rect x="372" y="222" width="9" height="9"/><rect x="384" y="222" width="9" height="9"/><rect x="396" y="222" width="9" height="9"/><rect x="408" y="222" width="9" height="9"/><rect x="420" y="222" width="9" height="9"/><rect x="432" y="222" width="9" height="9"/><rect x="444" y="222" width="9" height="9"/><rect x="456" y="222" width="9" height="9"/><rect x="468" y="222" width="9" height="9"/><rect x="480" y="222" width="9" height="9"/><rect x="492" y="222" width="9" height="9"/><rect x="504" y="222" width="9" height="9"/><rect x="516" y="222" width="9" height="9"/><rect x="528" y="222" width="9" height="9"/><rect x="540" y="222" width="9" height="9"/>
+</g>
+<text x="457" y="248" font-size="14" text-anchor="middle" fill="#c0392b" font-weight="bold">128 个全员出动</text>
+
+<g fill="#dddddd" stroke="#bbbbbb" stroke-width="0.5">
+<rect x="580" y="138" width="9" height="9"/><rect x="592" y="138" width="9" height="9"/><rect x="604" y="138" width="9" height="9"/><rect x="616" y="138" width="9" height="9"/><rect x="628" y="138" width="9" height="9"/><rect x="640" y="138" width="9" height="9"/><rect x="652" y="138" width="9" height="9"/><rect x="664" y="138" width="9" height="9"/><rect x="676" y="138" width="9" height="9"/><rect x="688" y="138" width="9" height="9"/><rect x="700" y="138" width="9" height="9"/><rect x="712" y="138" width="9" height="9"/><rect x="724" y="138" width="9" height="9"/><rect x="736" y="138" width="9" height="9"/><rect x="748" y="138" width="9" height="9"/><rect x="760" y="138" width="9" height="9"/>
+<rect x="580" y="150" width="9" height="9"/><rect x="592" y="150" width="9" height="9"/><rect x="604" y="150" width="9" height="9"/><rect x="616" y="150" width="9" height="9"/><rect x="628" y="150" width="9" height="9"/><rect x="640" y="150" width="9" height="9"/><rect x="652" y="150" width="9" height="9"/><rect x="664" y="150" width="9" height="9"/><rect x="676" y="150" width="9" height="9"/><rect x="688" y="150" width="9" height="9"/><rect x="700" y="150" width="9" height="9"/><rect x="712" y="150" width="9" height="9"/><rect x="724" y="150" width="9" height="9"/><rect x="736" y="150" width="9" height="9"/><rect x="748" y="150" width="9" height="9"/><rect x="760" y="150" width="9" height="9"/>
+<rect x="580" y="162" width="9" height="9"/><rect x="592" y="162" width="9" height="9"/><rect x="604" y="162" width="9" height="9"/><rect x="616" y="162" width="9" height="9"/><rect x="628" y="162" width="9" height="9"/><rect x="640" y="162" width="9" height="9"/><rect x="652" y="162" width="9" height="9"/><rect x="664" y="162" width="9" height="9"/><rect x="676" y="162" width="9" height="9"/><rect x="688" y="162" width="9" height="9"/><rect x="700" y="162" width="9" height="9"/><rect x="712" y="162" width="9" height="9"/><rect x="724" y="162" width="9" height="9"/><rect x="736" y="162" width="9" height="9"/><rect x="748" y="162" width="9" height="9"/><rect x="760" y="162" width="9" height="9"/>
+<rect x="580" y="174" width="9" height="9"/><rect x="592" y="174" width="9" height="9"/><rect x="604" y="174" width="9" height="9"/><rect x="616" y="174" width="9" height="9"/><rect x="628" y="174" width="9" height="9"/><rect x="640" y="174" width="9" height="9"/><rect x="652" y="174" width="9" height="9"/><rect x="664" y="174" width="9" height="9"/><rect x="676" y="174" width="9" height="9"/><rect x="688" y="174" width="9" height="9"/><rect x="700" y="174" width="9" height="9"/><rect x="712" y="174" width="9" height="9"/><rect x="724" y="174" width="9" height="9"/><rect x="736" y="174" width="9" height="9"/><rect x="748" y="174" width="9" height="9"/><rect x="760" y="174" width="9" height="9"/>
+<rect x="580" y="186" width="9" height="9"/><rect x="592" y="186" width="9" height="9"/><rect x="604" y="186" width="9" height="9"/><rect x="616" y="186" width="9" height="9"/><rect x="628" y="186" width="9" height="9"/><rect x="640" y="186" width="9" height="9"/><rect x="652" y="186" width="9" height="9"/><rect x="664" y="186" width="9" height="9"/><rect x="676" y="186" width="9" height="9"/><rect x="688" y="186" width="9" height="9"/><rect x="700" y="186" width="9" height="9"/><rect x="712" y="186" width="9" height="9"/><rect x="724" y="186" width="9" height="9"/><rect x="736" y="186" width="9" height="9"/><rect x="748" y="186" width="9" height="9"/><rect x="760" y="186" width="9" height="9"/>
+<rect x="580" y="198" width="9" height="9"/><rect x="592" y="198" width="9" height="9"/><rect x="604" y="198" width="9" height="9"/><rect x="616" y="198" width="9" height="9"/><rect x="628" y="198" width="9" height="9"/><rect x="640" y="198" width="9" height="9"/><rect x="652" y="198" width="9" height="9"/><rect x="664" y="198" width="9" height="9"/><rect x="676" y="198" width="9" height="9"/><rect x="688" y="198" width="9" height="9"/><rect x="700" y="198" width="9" height="9"/><rect x="712" y="198" width="9" height="9"/><rect x="724" y="198" width="9" height="9"/><rect x="736" y="198" width="9" height="9"/><rect x="748" y="198" width="9" height="9"/><rect x="760" y="198" width="9" height="9"/>
+<rect x="580" y="210" width="9" height="9"/><rect x="592" y="210" width="9" height="9"/><rect x="604" y="210" width="9" height="9"/><rect x="616" y="210" width="9" height="9"/><rect x="628" y="210" width="9" height="9"/><rect x="640" y="210" width="9" height="9"/><rect x="652" y="210" width="9" height="9"/><rect x="664" y="210" width="9" height="9"/><rect x="676" y="210" width="9" height="9"/><rect x="688" y="210" width="9" height="9"/><rect x="700" y="210" width="9" height="9"/><rect x="712" y="210" width="9" height="9"/><rect x="724" y="210" width="9" height="9"/><rect x="736" y="210" width="9" height="9"/><rect x="748" y="210" width="9" height="9"/><rect x="760" y="210" width="9" height="9"/>
+<rect x="580" y="222" width="9" height="9"/><rect x="592" y="222" width="9" height="9"/><rect x="604" y="222" width="9" height="9"/><rect x="616" y="222" width="9" height="9"/><rect x="628" y="222" width="9" height="9"/><rect x="640" y="222" width="9" height="9"/><rect x="652" y="222" width="9" height="9"/><rect x="664" y="222" width="9" height="9"/><rect x="676" y="222" width="9" height="9"/><rect x="688" y="222" width="9" height="9"/><rect x="700" y="222" width="9" height="9"/><rect x="712" y="222" width="9" height="9"/><rect x="724" y="222" width="9" height="9"/><rect x="736" y="222" width="9" height="9"/><rect x="748" y="222" width="9" height="9"/><rect x="760" y="222" width="9" height="9"/>
+</g>
+<rect x="580" y="138" width="9" height="9" fill="#c0392b" stroke="#8c2a1e" stroke-width="0.5"/>
+<text x="598" y="134" font-size="13" fill="#c0392b">红方块＝唯一在发指令的线程</text>
+<text x="677" y="248" font-size="14" text-anchor="middle" fill="#1f7a4d" font-weight="bold">1 个，其余 127 个只等</text>
+
+<rect x="810" y="150" width="170" height="60" rx="6" fill="#f7f0e6" stroke="#b86a0c" stroke-width="2"/>
+<text x="895" y="174" font-size="14" text-anchor="middle" fill="#222">没有线程这个概念</text>
+<text x="895" y="196" font-size="14" text-anchor="middle" fill="#222">一条指令流水 MTE2</text>
+<text x="897" y="248" font-size="14" text-anchor="middle" fill="#b86a0c" font-weight="bold">1 条 DataCopy 指令</text>
+
+<!-- ROW 2: instructions -->
+<line x1="15" y1="262" x2="1005" y2="262" stroke="#bbb" stroke-width="1"/>
+<text x="20" y="288" font-size="15" fill="#222" font-weight="bold">发出多少条</text>
+<text x="20" y="308" font-size="15" fill="#222" font-weight="bold">指令</text>
+<text x="20" y="330" font-size="13" fill="#666">按发射槽数</text>
+<text x="20" y="348" font-size="13" fill="#666">（整个 warp</text>
+<text x="20" y="366" font-size="13" fill="#666">算一条）</text>
+
+<rect x="140" y="278" width="53" height="26" fill="#d35400" stroke="#222" stroke-width="1.5"/>
+<rect x="193" y="278" width="106" height="26" fill="#fbe3c4" stroke="#222" stroke-width="1.5"/>
+<text x="166" y="322" font-size="13" text-anchor="middle" fill="#222">搬运 64</text>
+<text x="246" y="322" font-size="13" text-anchor="middle" fill="#222">算地址 128</text>
+<text x="237" y="348" font-size="15" text-anchor="middle" fill="#c0392b" font-weight="bold">合计约 192 个发射槽</text>
+<text x="237" y="370" font-size="13" text-anchor="middle" fill="#555">线程级约 6144 条</text>
+
+<rect x="360" y="278" width="27" height="26" fill="#d35400" stroke="#222" stroke-width="1.5"/>
+<rect x="387" y="278" width="106" height="26" fill="#fbe3c4" stroke="#222" stroke-width="1.5"/>
+<text x="371" y="322" font-size="13" text-anchor="middle" fill="#222">32</text>
+<text x="472" y="322" font-size="13" text-anchor="middle" fill="#222">算地址 128（一条没少）</text>
+<text x="457" y="348" font-size="15" text-anchor="middle" fill="#c0392b" font-weight="bold">合计约 160 个发射槽</text>
+<text x="457" y="370" font-size="13" text-anchor="middle" fill="#555">线程级约 5120 条</text>
+
+<rect x="580" y="278" width="5" height="26" fill="#d35400" stroke="#222" stroke-width="1.5"/>
+<text x="600" y="297" font-size="13" fill="#222">← 短到几乎看不见</text>
+<text x="677" y="348" font-size="15" text-anchor="middle" fill="#1f7a4d" font-weight="bold">个位数</text>
+<text x="677" y="370" font-size="13" text-anchor="middle" fill="#555">地址由搬运单元自己算</text>
+
+<rect x="800" y="278" width="4" height="26" fill="#b86a0c" stroke="#222" stroke-width="1.5"/>
+<text x="897" y="348" font-size="15" text-anchor="middle" fill="#b86a0c" font-weight="bold">个位数</text>
+<text x="897" y="370" font-size="13" text-anchor="middle" fill="#555">地址写在参数结构里</text>
+
+<!-- ROW 3: registers -->
+<line x1="15" y1="382" x2="1005" y2="382" stroke="#bbb" stroke-width="1"/>
+<text x="20" y="408" font-size="15" fill="#222" font-weight="bold">每线程为</text>
+<text x="20" y="428" font-size="15" fill="#222" font-weight="bold">搬运多占</text>
+<text x="20" y="448" font-size="15" fill="#222" font-weight="bold">的寄存器</text>
+<text x="20" y="472" font-size="13" fill="#666">深蓝 = 数据</text>
+<text x="20" y="490" font-size="13" fill="#666">路过的落脚点</text>
+<text x="20" y="508" font-size="13" fill="#666">浅蓝 = 存地址</text>
+
+<g fill="#2c6fb7" stroke="#1b4a7a" stroke-width="0.8">
+<rect x="140" y="396" width="13" height="13"/><rect x="157" y="396" width="13" height="13"/><rect x="174" y="396" width="13" height="13"/><rect x="191" y="396" width="13" height="13"/><rect x="208" y="396" width="13" height="13"/><rect x="225" y="396" width="13" height="13"/><rect x="242" y="396" width="13" height="13"/><rect x="259" y="396" width="13" height="13"/>
+<rect x="140" y="413" width="13" height="13"/><rect x="157" y="413" width="13" height="13"/><rect x="174" y="413" width="13" height="13"/><rect x="191" y="413" width="13" height="13"/><rect x="208" y="413" width="13" height="13"/><rect x="225" y="413" width="13" height="13"/><rect x="242" y="413" width="13" height="13"/><rect x="259" y="413" width="13" height="13"/>
+<rect x="140" y="430" width="13" height="13"/><rect x="157" y="430" width="13" height="13"/><rect x="174" y="430" width="13" height="13"/><rect x="191" y="430" width="13" height="13"/><rect x="208" y="430" width="13" height="13"/><rect x="225" y="430" width="13" height="13"/><rect x="242" y="430" width="13" height="13"/><rect x="259" y="430" width="13" height="13"/>
+<rect x="140" y="447" width="13" height="13"/><rect x="157" y="447" width="13" height="13"/><rect x="174" y="447" width="13" height="13"/><rect x="191" y="447" width="13" height="13"/><rect x="208" y="447" width="13" height="13"/><rect x="225" y="447" width="13" height="13"/><rect x="242" y="447" width="13" height="13"/><rect x="259" y="447" width="13" height="13"/>
+</g>
+<g fill="#cfe0f2" stroke="#2c6fb7" stroke-width="0.8">
+<rect x="140" y="464" width="13" height="13"/><rect x="157" y="464" width="13" height="13"/><rect x="174" y="464" width="13" height="13"/><rect x="191" y="464" width="13" height="13"/><rect x="208" y="464" width="13" height="13"/><rect x="225" y="464" width="13" height="13"/>
+</g>
+<text x="237" y="500" font-size="15" text-anchor="middle" fill="#c0392b" font-weight="bold">32 + 6 = 38 个</text>
+
+<g fill="#cfe0f2" stroke="#2c6fb7" stroke-width="0.8">
+<rect x="360" y="396" width="13" height="13"/><rect x="377" y="396" width="13" height="13"/><rect x="394" y="396" width="13" height="13"/><rect x="411" y="396" width="13" height="13"/><rect x="428" y="396" width="13" height="13"/><rect x="445" y="396" width="13" height="13"/>
+</g>
+<text x="470" y="407" font-size="13" fill="#1f7a4d">数据不再路过寄存器</text>
+<text x="457" y="500" font-size="15" text-anchor="middle" fill="#1f7a4d" font-weight="bold">0 + 6 = 6 个</text>
+
+<text x="677" y="430" font-size="34" text-anchor="middle" fill="#1f7a4d" font-weight="bold">0</text>
+<text x="677" y="460" font-size="13" text-anchor="middle" fill="#555">地址在引擎内部生成</text>
+<text x="677" y="500" font-size="15" text-anchor="middle" fill="#1f7a4d" font-weight="bold">一个都不占</text>
+
+<text x="897" y="430" font-size="34" text-anchor="middle" fill="#b86a0c" font-weight="bold">0</text>
+<text x="897" y="460" font-size="13" text-anchor="middle" fill="#555">占的是 L1 / UB 缓冲预算</text>
+<text x="897" y="500" font-size="15" text-anchor="middle" fill="#b86a0c" font-weight="bold">不占向量寄存器</text>
+
+<!-- ROW 4: completion -->
+<line x1="15" y1="516" x2="1005" y2="516" stroke="#bbb" stroke-width="1"/>
+<text x="20" y="544" font-size="15" fill="#222" font-weight="bold">搬完了</text>
+<text x="20" y="564" font-size="15" fill="#222" font-weight="bold">怎么知道</text>
+
+<rect x="140" y="530" width="180" height="76" rx="6" fill="#f4f4f4" stroke="#222" stroke-width="1.5"/>
+<text x="230" y="552" font-size="14" text-anchor="middle" fill="#222">硬件记分牌自动等</text>
+<text x="230" y="572" font-size="13" text-anchor="middle" fill="#555">用到这个值时挂起</text>
+<text x="230" y="594" font-size="13" text-anchor="middle" fill="#c0392b">等待点挪不走</text>
+
+<rect x="360" y="530" width="180" height="76" rx="6" fill="#f4f4f4" stroke="#222" stroke-width="1.5"/>
+<text x="450" y="552" font-size="14" text-anchor="middle" fill="#222">自己登记组、按组等</text>
+<text x="450" y="572" font-size="13" text-anchor="middle" fill="#555">commit_group / wait_group N</text>
+<text x="450" y="594" font-size="13" text-anchor="middle" fill="#c0392b">N 写错不报错</text>
+
+<rect x="580" y="530" width="180" height="76" rx="6" fill="#eaf5ee" stroke="#222" stroke-width="1.5"/>
+<text x="670" y="552" font-size="14" text-anchor="middle" fill="#222">会数字节的屏障</text>
+<text x="670" y="572" font-size="13" text-anchor="middle" fill="#555">先声明预期 16384 字节</text>
+<text x="670" y="594" font-size="13" text-anchor="middle" fill="#1f7a4d">记满才放行</text>
+
+<rect x="800" y="530" width="180" height="76" rx="6" fill="#faf3e8" stroke="#222" stroke-width="1.5"/>
+<text x="890" y="552" font-size="14" text-anchor="middle" fill="#222">流水线之间一对信号</text>
+<text x="890" y="572" font-size="13" text-anchor="middle" fill="#555">SetFlag / WaitFlag</text>
+<text x="890" y="594" font-size="13" text-anchor="middle" fill="#b86a0c">数的是事件不是字节</text>
+
+<line x1="15" y1="618" x2="1005" y2="618" stroke="#bbb" stroke-width="1"/>
+<text x="20" y="642" font-size="14" fill="#222" font-weight="bold">一句话读法：</text>
+<text x="128" y="642" font-size="14" fill="#222">从左到右，发起搬运的人越来越少、离计算单元越来越远；</text>
+<text x="20" y="666" font-size="14" fill="#c0392b">cp.async 省的是寄存器和等待（指令数只降六分之一，因为地址还是每个线程自己算）；</text>
+<text x="20" y="688" font-size="14" fill="#1f7a4d">TMA 省的是地址生成与发射槽——指令数这才真正降下来。</text>
+</svg>
