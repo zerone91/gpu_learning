@@ -3,7 +3,7 @@
 
   python3 _模板/figtools.py search "NAND flash cell" [-n 20]
       在 Wikimedia Commons 检索图片，列出标题、许可、作者、尺寸、来源页。
-  python3 _模板/figtools.py get "File:NAND_levels.png" <模块目录>/figures/07-07-vth-levels.png [--width 1400]
+  python3 _模板/figtools.py get "File:NAND_levels.png" <模块目录>/figures/20-04-vth-levels.png [--width 1400]
       下载 Commons 图片（位图按宽度取缩略图），透明背景填白、SVG 加白底，
       并打印一行可直接粘进图注的“来源：”。
   python3 _模板/figtools.py render <svg 或 png> [--out 目录]
@@ -127,7 +127,7 @@ def cmd_render(a):
 
 
 def cmd_check(a):
-    dirs = a.dirs or sorted(d for d in glob.glob("[0-9][0-9]-*") if os.path.isdir(d))
+    dirs = a.dirs or sorted(d for d in glob.glob("[0-9]-*/[0-9][0-9]-*") if os.path.isdir(d))
     problems = 0
     for d in dirs:
         mds = sorted(glob.glob(os.path.join(d, "*.md")))

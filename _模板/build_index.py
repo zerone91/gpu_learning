@@ -1,10 +1,8 @@
 #!/usr/bin/env python3
-"""从各节「术语卡」自动生成 05/术语表.md 索引。在仓库根目录运行: python3 _模板/build_index.py"""
+"""从各节「术语卡」自动生成 0-导览/01-真实芯片与术语表/术语表.md 索引。在仓库根目录运行: python3 _模板/build_index.py"""
 import re, glob
 
-files = []
-for pat in ["00-*/[0-9]*.md","01-*/[0-9A]*.md","02-*/[0-9]*.md","03-*/[0-9]*.md","04-*/[0-9AB]*.md","05-*/01*.md","06-*/[0-9]*.md","07-*/[0-9]*.md","08-*/[0-9]*.md","09-*/[0-9]*.md"]:
-    files += sorted(glob.glob(pat))
+files = sorted(glob.glob("[0-9]-*/[0-9][0-9]-*/[0-9AB]*.md"))
 
 index = {}
 for f in files:
@@ -24,12 +22,12 @@ out = ["# 术语索引\n",
 "> 本文件由脚本从各节的「术语卡」自动生成（`_模板/build_index.py`），**不要手工编辑**。每个词条的完整卡片（定义 / 为什么存在 / 语境例句）在对应章节末尾。用编辑器的搜索功能查词即可。\n"]
 cur = None
 for f,(title,cards) in index.items():
-    mod = f.split('/')[0]
+    mod = f.split('/')[1]
     if mod != cur:
         out.append(f"\n## {mod}\n"); cur = mod
-    out.append(f"\n**[{title}](../{f})**")
+    out.append(f"\n**[{title}](../../{f})**")
     out += [f"- {c}" for c in cards]
 total = sum(len(c) for _,c in index.values())
 out.append(f"\n---\n\n*共 {total} 张术语卡，覆盖 {len(index)} 节。生成时间见 git 记录。*")
-open("05-收敛-术语表与真实芯片/术语表.md","w").write("\n".join(out)+"\n")
+open("0-导览/01-真实芯片与术语表/术语表.md","w").write("\n".join(out)+"\n")
 print(f"{total} cards / {len(index)} files")
