@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" font-family="sans-serif" font-size="15">
+<rect x="0" y="0" width="960" height="520" fill="#ffffff"/>
+<defs><pattern id="st" width="15" height="10" patternUnits="userSpaceOnUse"><rect width="15" height="10" fill="#ffffff"/><rect width="8" height="10" fill="#9fc3ea"/></pattern></defs>
+<text x="20" y="30" font-size="17" font-weight="bold">解码一步（500 个小 kernel）：逐个启动与 CUDA Graph 重放的整步时间线</text>
+<text x="20" y="70" font-weight="bold">逐个启动</text>
+<text x="120" y="110" text-anchor="end">CPU</text>
+<rect x="130.0" y="85" width="703.1" height="40" fill="#fde2c4" stroke="#d9822b" stroke-width="1.5"/>
+<text x="481.6" y="110.0" text-anchor="middle" font-size="14" fill="#222">逐个准备并提交 500 个 kernel，每个 15 微秒</text>
+<text x="120" y="165" text-anchor="end">GPU</text>
+<rect x="130.0" y="140" width="703.1" height="40" fill="url(#st)" stroke="#1f5fa8" stroke-width="1.5"/>
+<rect x="291.6" y="148" width="380" height="24" fill="#ffffff" opacity="0.92"/>
+<text x="481.6" y="165" text-anchor="middle" font-size="14">算 8 微秒、空等 7 微秒，交替 500 次</text>
+<text x="843.1" y="165" font-weight="bold">7.5 毫秒</text>
+<text x="843.1" y="185" font-size="13" fill="#555">GPU 忙 53%</text>
+<rect x="20" y="213" width="920" height="34" fill="#f5f5f5" stroke="#999" stroke-width="1.5" rx="4"/>
+<text x="34" y="235" font-size="14">录制（只做一次，不计入每步时间）：CPU 照常走一遍前向计算，运行时只记下每次启动、不提交，得到一张含 500 个节点的图</text>
+<text x="20" y="300" font-weight="bold">CUDA Graph 重放</text>
+<text x="120" y="340" text-anchor="end">CPU</text>
+<rect x="130.0" y="315" width="4.7" height="40" fill="#fde2c4" stroke="#d9822b" stroke-width="1.5"/>
+<text x="144.7" y="340" font-size="14">提交整张图（约 0.05 毫秒），之后空闲，可以去准备下一步</text>
+<text x="120" y="395" text-anchor="end">GPU</text>
+<rect x="134.7" y="370" width="375.0" height="40" fill="#9fc3ea" stroke="#1f5fa8" stroke-width="1.5"/>
+<text x="322.2" y="395.0" text-anchor="middle" font-size="14" fill="#222">连续执行 500 个 kernel，中间没有空隙</text>
+<text x="519.7" y="395" font-weight="bold">约 4.05 毫秒</text>
+<text x="519.7" y="415" font-size="13" fill="#555">GPU 忙约 99%</text>
+<line x1="130" y1="450" x2="880" y2="450" stroke="#333" stroke-width="1.5"/>
+<line x1="130.0" y1="450" x2="130.0" y2="456" stroke="#333" stroke-width="1.5"/>
+<text x="130.0" y="472" text-anchor="middle" font-size="13">0</text>
+<line x1="223.8" y1="450" x2="223.8" y2="456" stroke="#333" stroke-width="1.5"/>
+<text x="223.8" y="472" text-anchor="middle" font-size="13">1</text>
+<line x1="317.5" y1="450" x2="317.5" y2="456" stroke="#333" stroke-width="1.5"/>
+<text x="317.5" y="472" text-anchor="middle" font-size="13">2</text>
+<line x1="411.2" y1="450" x2="411.2" y2="456" stroke="#333" stroke-width="1.5"/>
+<text x="411.2" y="472" text-anchor="middle" font-size="13">3</text>
+<line x1="505.0" y1="450" x2="505.0" y2="456" stroke="#333" stroke-width="1.5"/>
+<text x="505.0" y="472" text-anchor="middle" font-size="13">4</text>
+<line x1="598.8" y1="450" x2="598.8" y2="456" stroke="#333" stroke-width="1.5"/>
+<text x="598.8" y="472" text-anchor="middle" font-size="13">5</text>
+<line x1="692.5" y1="450" x2="692.5" y2="456" stroke="#333" stroke-width="1.5"/>
+<text x="692.5" y="472" text-anchor="middle" font-size="13">6</text>
+<line x1="786.2" y1="450" x2="786.2" y2="456" stroke="#333" stroke-width="1.5"/>
+<text x="786.2" y="472" text-anchor="middle" font-size="13">7</text>
+<line x1="880.0" y1="450" x2="880.0" y2="456" stroke="#333" stroke-width="1.5"/>
+<text x="880.0" y="472" text-anchor="middle" font-size="13">8</text>
+<text x="880" y="494" text-anchor="end" font-size="14">时间（毫秒）</text>
+<text x="130" y="494" font-size="13" fill="#555">上方 GPU 条的条纹只表示"忙闲交替"，真实的 500 个周期太密，条纹间距是放大的示意</text>
+</svg>

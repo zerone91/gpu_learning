@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="600" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker></defs>
+<text x="480" y="28" font-size="18" text-anchor="middle" fill="#222" font-weight="bold">Nsight Compute 的下钻顺序：从两个百分比，一路追到具体部件</text>
+<rect x="280" y="48" width="400" height="62" fill="#f6f6f6" stroke="#222" stroke-width="1.5" rx="6"/>
+<text x="480.0" y="74.0" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">第一级：Speed of Light（SOL）</text>
+<text x="480.0" y="94.0" font-size="14" text-anchor="middle" fill="#222">看 Compute 和 Memory 两个吞吐百分比</text>
+<line x1="480" y1="110" x2="165.0" y2="150" stroke="#222" stroke-width="1.5" marker-end="url(#a)"/>
+<text x="165.0" y="166" font-size="15" text-anchor="middle" fill="#2c6fb7" font-weight="bold">Memory 高（如 &gt; 70%）</text>
+<text x="165.0" y="184" font-size="14" text-anchor="middle" fill="#555">贴着访存的墙</text>
+<line x1="165.0" y1="190" x2="165.0" y2="206" stroke="#222" stroke-width="1.5" marker-end="url(#a)"/>
+<line x1="480" y1="110" x2="480.0" y2="150" stroke="#222" stroke-width="1.5" marker-end="url(#a)"/>
+<text x="480.0" y="166" font-size="15" text-anchor="middle" fill="#b86a0c" font-weight="bold">Compute 高</text>
+<text x="480.0" y="184" font-size="14" text-anchor="middle" fill="#555">贴着计算的墙</text>
+<line x1="480.0" y1="190" x2="480.0" y2="206" stroke="#222" stroke-width="1.5" marker-end="url(#a)"/>
+<line x1="480" y1="110" x2="795.0" y2="150" stroke="#222" stroke-width="1.5" marker-end="url(#a)"/>
+<text x="795.0" y="166" font-size="15" text-anchor="middle" fill="#555" font-weight="bold">两个都低（如都 &lt; 60%）</text>
+<text x="795.0" y="184" font-size="14" text-anchor="middle" fill="#555">哪面墙都没碰到：在等</text>
+<line x1="795.0" y1="190" x2="795.0" y2="206" stroke="#222" stroke-width="1.5" marker-end="url(#a)"/>
+<rect x="20" y="208" width="290" height="56" fill="#dbe8f6" stroke="#2c6fb7" stroke-width="1.5" rx="6"/>
+<text x="165.0" y="231.0" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">第二级：Memory Workload</text>
+<text x="165.0" y="251.0" font-size="14" text-anchor="middle" fill="#222">哪一级存储最先贴近峰值？</text>
+<rect x="335" y="208" width="290" height="56" fill="#fbe3c4" stroke="#b86a0c" stroke-width="1.5" rx="6"/>
+<text x="480.0" y="231.0" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">第二级：Compute Workload</text>
+<text x="480.0" y="251.0" font-size="14" text-anchor="middle" fill="#222">哪一条管线的柱子贴顶？</text>
+<rect x="650" y="208" width="290" height="56" fill="#eeeeee" stroke="#555" stroke-width="1.5" rx="6"/>
+<text x="795.0" y="231.0" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">第三级：Warp State Statistics</text>
+<text x="795.0" y="251.0" font-size="14" text-anchor="middle" fill="#222">warp 的时间耗在哪种等待上？</text>
+<rect x="20" y="284" width="290" height="50" fill="#ffffff" stroke="#2c6fb7" stroke-width="1.5" rx="4"/>
+<text x="30" y="305" font-size="14" fill="#222">DRAM 91%，L2 只有 45%</text>
+<text x="30" y="325" font-size="14" fill="#2c6fb7" font-weight="bold">→ HBM 带宽受限</text>
+<rect x="20" y="342" width="290" height="50" fill="#ffffff" stroke="#2c6fb7" stroke-width="1.5" rx="4"/>
+<text x="30" y="363" font-size="14" fill="#222">L2 90%，DRAM 只有 30%</text>
+<text x="30" y="383" font-size="14" fill="#2c6fb7" font-weight="bold">→ L2 带宽受限</text>
+<rect x="20" y="400" width="290" height="50" fill="#ffffff" stroke="#2c6fb7" stroke-width="1.5" rx="4"/>
+<text x="30" y="421" font-size="14" fill="#222">L1/shared 高，bank 冲突计数不为 0</text>
+<text x="30" y="441" font-size="14" fill="#2c6fb7" font-weight="bold">→ shared 的 bank 冲突</text>
+<rect x="20" y="458" width="290" height="50" fill="#ffffff" stroke="#2c6fb7" stroke-width="1.5" rx="4"/>
+<text x="30" y="479" font-size="14" fill="#222">处方方向</text>
+<text x="30" y="499" font-size="14" fill="#2c6fb7" font-weight="bold">融合、复用、padding / swizzle</text>
+<line x1="165" y1="264" x2="165" y2="284" stroke="#222" stroke-width="1.5"/>
+<rect x="335" y="284" width="290" height="50" fill="#ffffff" stroke="#b86a0c" stroke-width="1.5" rx="4"/>
+<text x="345" y="305" font-size="14" fill="#222">FMA 管线贴顶（普通 FP32 乘加）</text>
+<text x="345" y="325" font-size="14" fill="#b86a0c" font-weight="bold">→ FP32 管线受限</text>
+<rect x="335" y="342" width="290" height="50" fill="#ffffff" stroke="#b86a0c" stroke-width="1.5" rx="4"/>
+<text x="345" y="363" font-size="14" fill="#222">Tensor 管线贴顶（矩阵乘单元）</text>
+<text x="345" y="383" font-size="14" fill="#b86a0c" font-weight="bold">→ 已贴近上限，改算法</text>
+<rect x="335" y="400" width="290" height="50" fill="#ffffff" stroke="#b86a0c" stroke-width="1.5" rx="4"/>
+<text x="345" y="421" font-size="14" fill="#222">XU 贴顶（exp、rsqrt 等超越函数）</text>
+<text x="345" y="441" font-size="14" fill="#b86a0c" font-weight="bold">→ MUFU 受限，峰值本来就低</text>
+<rect x="335" y="458" width="290" height="50" fill="#ffffff" stroke="#b86a0c" stroke-width="1.5" rx="4"/>
+<text x="345" y="479" font-size="14" fill="#222">发射槽高，但没有哪条管线满</text>
+<text x="345" y="499" font-size="14" fill="#b86a0c" font-weight="bold">→ 指令发射受限</text>
+<line x1="480" y1="264" x2="480" y2="284" stroke="#222" stroke-width="1.5"/>
+<rect x="650" y="284" width="290" height="50" fill="#ffffff" stroke="#555" stroke-width="1.5" rx="4"/>
+<text x="660" y="305" font-size="14" fill="#222">Long Scoreboard：等显存读回</text>
+<text x="660" y="325" font-size="14" fill="#555" font-weight="bold">→ 提占用率或预取</text>
+<rect x="650" y="342" width="290" height="50" fill="#ffffff" stroke="#555" stroke-width="1.5" rx="4"/>
+<text x="660" y="363" font-size="14" fill="#222">Short Scoreboard：等 shared / MUFU</text>
+<text x="660" y="383" font-size="14" fill="#555" font-weight="bold">→ 错开使用，加独立指令</text>
+<rect x="650" y="400" width="290" height="50" fill="#ffffff" stroke="#555" stroke-width="1.5" rx="4"/>
+<text x="660" y="421" font-size="14" fill="#222">Wait：等上一条算术的结果</text>
+<text x="660" y="441" font-size="14" fill="#555" font-weight="bold">→ 多累加器、循环展开</text>
+<rect x="650" y="458" width="290" height="50" fill="#ffffff" stroke="#555" stroke-width="1.5" rx="4"/>
+<text x="660" y="479" font-size="14" fill="#222">Barrier：等 __syncthreads()</text>
+<text x="660" y="499" font-size="14" fill="#555" font-weight="bold">→ 减少同步次数</text>
+<line x1="795" y1="264" x2="795" y2="284" stroke="#222" stroke-width="1.5"/>
+<rect x="650" y="522" width="290" height="56" fill="#f6f6f6" stroke="#555" stroke-width="1.5" rx="4"/>
+<text x="660" y="545" font-size="14" fill="#222">交叉验证：Eligible Warps Per Scheduler</text>
+<text x="660" y="566" font-size="14" fill="#222">长期 &lt; 1 = 每拍凑不齐一个可发射的 warp</text>
+<text x="20" y="545" font-size="14" fill="#555">数字取自 §5.2 的典型读数；分界线 70%、60% 是经验值，</text>
+<text x="20" y="566" font-size="14" fill="#555">不是工具规定的阈值。</text>
+</svg>

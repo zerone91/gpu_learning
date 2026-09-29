@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" width="960" height="420" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="420" fill="#ffffff"/>
+<defs><marker id="mk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e6fb7"/></marker><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f8a4a"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d9822b"/></marker><marker id="my" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777"/></marker><marker id="mp" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7b4fa0"/></marker></defs>
+<text x="480" y="31.9" font-size="17" text-anchor="middle" fill="#222" font-weight="bold">搬一个数要花多少能量：以“从本地寄存器取一次”为 1（Eyeriss 团队的测量比例）</text>
+<text x="256" y="79.2" font-size="15" text-anchor="end" fill="#222">做一次乘加</text>
+<text x="256" y="98.9" font-size="14" text-anchor="end" fill="#777">计算本身</text>
+<rect x="270" y="64" width="3.0" height="30" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.8" />
+<text x="283.0" y="84.6" font-size="16" text-anchor="start" fill="#2f8a4a" font-weight="bold">1</text>
+<text x="256" y="137.2" font-size="15" text-anchor="end" fill="#222">从 PE 本地寄存器取</text>
+<text x="256" y="156.9" font-size="14" text-anchor="end" fill="#777">就在 PE 里</text>
+<rect x="270" y="122" width="3.0" height="30" rx="0" fill="#e8e8e8" stroke="#222" stroke-width="1.8" />
+<text x="283.0" y="142.6" font-size="16" text-anchor="start" fill="#222" font-weight="bold">1</text>
+<text x="256" y="195.2" font-size="15" text-anchor="end" fill="#222">从邻居 PE 传过来</text>
+<text x="256" y="214.9" font-size="14" text-anchor="end" fill="#777">隔一格</text>
+<rect x="270" y="180" width="6.0" height="30" rx="0" fill="#e8e8e8" stroke="#222" stroke-width="1.8" />
+<text x="286.0" y="200.6" font-size="16" text-anchor="start" fill="#222" font-weight="bold">2</text>
+<text x="256" y="253.2" font-size="15" text-anchor="end" fill="#222">从阵列边缘的缓冲存储取</text>
+<text x="256" y="272.9" font-size="14" text-anchor="end" fill="#777">片上，但在阵列外</text>
+<rect x="270" y="238" width="18.0" height="30" rx="0" fill="#fbe3c8" stroke="#d9822b" stroke-width="1.8" />
+<text x="298.0" y="258.6" font-size="16" text-anchor="start" fill="#d9822b" font-weight="bold">6</text>
+<text x="256" y="311.2" font-size="15" text-anchor="end" fill="#222">从片外 DRAM 取</text>
+<text x="256" y="330.9" font-size="14" text-anchor="end" fill="#777">芯片外的内存</text>
+<rect x="270" y="296" width="600.0" height="30" rx="0" fill="#f6d5d1" stroke="#c0392b" stroke-width="1.8" />
+<text x="880.0" y="316.6" font-size="16" text-anchor="start" fill="#c0392b" font-weight="bold">200</text>
+<line x1="270" y1="55" x2="270" y2="360" stroke="#222" stroke-width="1.5"/>
+<text x="480" y="383.2" font-size="15" text-anchor="middle" fill="#222">条的长度按同一比例画：从 DRAM 搬一次的能量，够在本地做约 200 次乘加</text>
+<text x="480" y="408.9" font-size="14" text-anchor="middle" fill="#777">数值是相对比例，来自 Eyeriss 团队（MIT，2016）的分析；后续工艺上比例大致保持</text>
+</svg>

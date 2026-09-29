@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" width="960" height="640" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="640" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker></defs>
+<text x="480" y="28" font-size="18" text-anchor="middle" fill="#222" font-weight="bold">俯视一个“计算裸片 + 8 颗 HBM”的封装：两道墙在哪里（按比例，1 毫米 = 11 像素）</text>
+<rect x="30" y="70" width="561.0" height="467.5" fill="#e6ecf2" stroke="#222" stroke-width="2"/>
+<rect x="167.5" y="122.25" width="286.0" height="363.0" fill="#9bb7d4" stroke="#222" stroke-width="2"/>
+<text x="310.5" y="293.75" font-size="16" text-anchor="middle" fill="#111" font-weight="bold">计算裸片</text>
+<text x="310.5" y="315.75" font-size="14" text-anchor="middle" fill="#111">按光罩极限画：26 × 33 毫米</text>
+<text x="310.5" y="144.25" font-size="13" text-anchor="middle" fill="#333">短边：片间互连、PCIe</text>
+<text x="310.5" y="473.25" font-size="13" text-anchor="middle" fill="#333">短边：片间互连、PCIe</text>
+<rect x="35.5" y="75.5" width="121.0" height="110.0" fill="#c9b3dd" stroke="#555" stroke-width="1.5"/>
+<text x="96.0" y="135.5" font-size="14" text-anchor="middle">HBM</text>
+<rect x="167.5" y="128.75" width="44.0" height="86.0" fill="#e79a8f" stroke="#8b2f24" stroke-width="1.2"/>
+<line x1="156.5" y1="114.5" x2="167.5" y2="155.75" stroke="#8b2f24" stroke-width="1.3"/>
+<line x1="156.5" y1="122.5" x2="167.5" y2="163.75" stroke="#8b2f24" stroke-width="1.3"/>
+<line x1="156.5" y1="130.5" x2="167.5" y2="171.75" stroke="#8b2f24" stroke-width="1.3"/>
+<line x1="156.5" y1="138.5" x2="167.5" y2="179.75" stroke="#8b2f24" stroke-width="1.3"/>
+<line x1="156.5" y1="146.5" x2="167.5" y2="187.75" stroke="#8b2f24" stroke-width="1.3"/>
+<rect x="35.5" y="191.0" width="121.0" height="110.0" fill="#c9b3dd" stroke="#555" stroke-width="1.5"/>
+<text x="96.0" y="251.0" font-size="14" text-anchor="middle">HBM</text>
+<rect x="167.5" y="216.75" width="44.0" height="86.0" fill="#e79a8f" stroke="#8b2f24" stroke-width="1.2"/>
+<line x1="156.5" y1="230.0" x2="167.5" y2="243.75" stroke="#8b2f24" stroke-width="1.3"/>
+<line x1="156.5" y1="238.0" x2="167.5" y2="251.75" stroke="#8b2f24" stroke-width="1.3"/>
+<line x1="156.5" y1="246.0" x2="167.5" y2="259.75" stroke="#8b2f24" stroke-width="1.3"/>
+<line x1="156.5" y1="254.0" x2="167.5" y2="267.75" stroke="#8b2f24" stroke-width="1.3"/>
+<line x1="156.5" y1="262.0" x2="167.5" y2="275.75" stroke="#8b2f24" stroke-width="1.3"/>
+<rect x="35.5" y="306.5" width="121.0" height="110.0" fill="#c9b3dd" stroke="#555" stroke-width="1.5"/>
+<text x="96.0" y="366.5" font-size="14" text-anchor="middle">HBM</text>
+<rect x="167.5" y="304.75" width="44.0" height="86.0" fill="#e79a8f" stroke="#8b2f24" stroke-width="1.2"/>
+<line x1="156.5" y1="345.5" x2="167.5" y2="331.75" stroke="#8b2f24" stroke-width="1.3"/>
+<line x1="156.5" y1="353.5" x2="167.5" y2="339.75" stroke="#8b2f24" stroke-width="1.3"/>
+<line x1="156.5" y1="361.5" x2="167.5" y2="347.75" stroke="#8b2f24" stroke-width="1.3"/>
+<line x1="156.5" y1="369.5" x2="167.5" y2="355.75" stroke="#8b2f24" stroke-width="1.3"/>
+<line x1="156.5" y1="377.5" x2="167.5" y2="363.75" stroke="#8b2f24" stroke-width="1.3"/>
+<rect x="35.5" y="422.0" width="121.0" height="110.0" fill="#c9b3dd" stroke="#555" stroke-width="1.5"/>
+<text x="96.0" y="482.0" font-size="14" text-anchor="middle">HBM</text>
+<rect x="167.5" y="392.75" width="44.0" height="86.0" fill="#e79a8f" stroke="#8b2f24" stroke-width="1.2"/>
+<line x1="156.5" y1="461.0" x2="167.5" y2="419.75" stroke="#8b2f24" stroke-width="1.3"/>
+<line x1="156.5" y1="469.0" x2="167.5" y2="427.75" stroke="#8b2f24" stroke-width="1.3"/>
+<line x1="156.5" y1="477.0" x2="167.5" y2="435.75" stroke="#8b2f24" stroke-width="1.3"/>
+<line x1="156.5" y1="485.0" x2="167.5" y2="443.75" stroke="#8b2f24" stroke-width="1.3"/>
+<line x1="156.5" y1="493.0" x2="167.5" y2="451.75" stroke="#8b2f24" stroke-width="1.3"/>
+<rect x="464.5" y="75.5" width="121.0" height="110.0" fill="#c9b3dd" stroke="#555" stroke-width="1.5"/>
+<text x="525.0" y="135.5" font-size="14" text-anchor="middle">HBM</text>
+<rect x="409.5" y="128.75" width="44.0" height="86.0" fill="#e79a8f" stroke="#8b2f24" stroke-width="1.2"/>
+<line x1="453.5" y1="155.75" x2="464.5" y2="114.5" stroke="#8b2f24" stroke-width="1.3"/>
+<line x1="453.5" y1="163.75" x2="464.5" y2="122.5" stroke="#8b2f24" stroke-width="1.3"/>
+<line x1="453.5" y1="171.75" x2="464.5" y2="130.5" stroke="#8b2f24" stroke-width="1.3"/>
+<line x1="453.5" y1="179.75" x2="464.5" y2="138.5" stroke="#8b2f24" stroke-width="1.3"/>
+<line x1="453.5" y1="187.75" x2="464.5" y2="146.5" stroke="#8b2f24" stroke-width="1.3"/>
+<rect x="464.5" y="191.0" width="121.0" height="110.0" fill="#c9b3dd" stroke="#555" stroke-width="1.5"/>
+<text x="525.0" y="251.0" font-size="14" text-anchor="middle">HBM</text>
+<rect x="409.5" y="216.75" width="44.0" height="86.0" fill="#e79a8f" stroke="#8b2f24" stroke-width="1.2"/>
+<line x1="453.5" y1="243.75" x2="464.5" y2="230.0" stroke="#8b2f24" stroke-width="1.3"/>
+<line x1="453.5" y1="251.75" x2="464.5" y2="238.0" stroke="#8b2f24" stroke-width="1.3"/>
+<line x1="453.5" y1="259.75" x2="464.5" y2="246.0" stroke="#8b2f24" stroke-width="1.3"/>
+<line x1="453.5" y1="267.75" x2="464.5" y2="254.0" stroke="#8b2f24" stroke-width="1.3"/>
+<line x1="453.5" y1="275.75" x2="464.5" y2="262.0" stroke="#8b2f24" stroke-width="1.3"/>
+<rect x="464.5" y="306.5" width="121.0" height="110.0" fill="#c9b3dd" stroke="#555" stroke-width="1.5"/>
+<text x="525.0" y="366.5" font-size="14" text-anchor="middle">HBM</text>
+<rect x="409.5" y="304.75" width="44.0" height="86.0" fill="#e79a8f" stroke="#8b2f24" stroke-width="1.2"/>
+<line x1="453.5" y1="331.75" x2="464.5" y2="345.5" stroke="#8b2f24" stroke-width="1.3"/>
+<line x1="453.5" y1="339.75" x2="464.5" y2="353.5" stroke="#8b2f24" stroke-width="1.3"/>
+<line x1="453.5" y1="347.75" x2="464.5" y2="361.5" stroke="#8b2f24" stroke-width="1.3"/>
+<line x1="453.5" y1="355.75" x2="464.5" y2="369.5" stroke="#8b2f24" stroke-width="1.3"/>
+<line x1="453.5" y1="363.75" x2="464.5" y2="377.5" stroke="#8b2f24" stroke-width="1.3"/>
+<rect x="464.5" y="422.0" width="121.0" height="110.0" fill="#c9b3dd" stroke="#555" stroke-width="1.5"/>
+<text x="525.0" y="482.0" font-size="14" text-anchor="middle">HBM</text>
+<rect x="409.5" y="392.75" width="44.0" height="86.0" fill="#e79a8f" stroke="#8b2f24" stroke-width="1.2"/>
+<line x1="453.5" y1="419.75" x2="464.5" y2="461.0" stroke="#8b2f24" stroke-width="1.3"/>
+<line x1="453.5" y1="427.75" x2="464.5" y2="469.0" stroke="#8b2f24" stroke-width="1.3"/>
+<line x1="453.5" y1="435.75" x2="464.5" y2="477.0" stroke="#8b2f24" stroke-width="1.3"/>
+<line x1="453.5" y1="443.75" x2="464.5" y2="485.0" stroke="#8b2f24" stroke-width="1.3"/>
+<line x1="453.5" y1="451.75" x2="464.5" y2="493.0" stroke="#8b2f24" stroke-width="1.3"/>
+<text x="189.5" y="363.75" font-size="13" text-anchor="middle" fill="#8b2f24" transform="rotate(-90 189.5 363.75)">PHY</text>
+<line x1="457.5" y1="122.25" x2="457.5" y2="485.25" stroke="#222" stroke-width="1" />
+<line x1="30" y1="555.5" x2="591.0" y2="555.5" stroke="#222" stroke-width="1.5" marker-start="url(#a)" marker-end="url(#a)"/>
+<text x="310.5" y="575.5" font-size="14" text-anchor="middle" fill="#222">中介层（浅灰底）约 51 毫米宽 × 43 毫米高 ≈ 2200 平方毫米</text>
+<rect x="640" y="70" width="286.0" height="363.0" fill="none" stroke="#c0392b" stroke-width="2.5" stroke-dasharray="8,5"/>
+<text x="783.0" y="241.5" font-size="15" text-anchor="middle" fill="#c0392b" font-weight="bold">一次曝光的上限</text>
+<text x="783.0" y="263.5" font-size="14" text-anchor="middle" fill="#c0392b">26 × 33 ≈ 858 平方毫米</text>
+<text x="783.0" y="285.5" font-size="13" text-anchor="middle" fill="#555">（同一比例）</text>
+<text x="620" y="475.0" font-size="14" fill="#c0392b" font-weight="bold">墙一：光罩极限（面积）</text>
+<text x="620" y="496.0" font-size="14" fill="#222">中介层约为这个框的 2.5 倍，一次印不出来：</text>
+<text x="620" y="517.0" font-size="14" fill="#222">只能拼接曝光，或换 RDL / 局部硅桥</text>
+<text x="620" y="544.0" font-size="14" fill="#8b2f24" font-weight="bold">墙二：岸线（边长）</text>
+<text x="620" y="565.0" font-size="14" fill="#222">每套 HBM 的 PHY（红块）沿边占 8 毫米，</text>
+<text x="620" y="586.0" font-size="14" fill="#222">一条 33 毫米长边排 33 ÷ 8 ≈ 4 套，</text>
+<text x="620" y="607.0" font-size="14" fill="#222">两条长边共 8 套：所以是 8 颗 HBM</text>
+</svg>

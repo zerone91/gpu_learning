@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 636" width="960" height="636" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="636" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222222"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f6db5"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777777"/></marker><marker id="o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c77a12"/></marker><marker id="n" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e8b57"/></marker><marker id="p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7a4fb0"/></marker></defs>
+<text x="480" y="32" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold">展开与向量化：一个让等待重叠，一个让一条指令搬更多</text>
+<text x="30" y="70" font-size="15" text-anchor="start" fill="#222222" font-weight="bold">① 展开：y[i] = 2·x[i]，4 次迭代，一个线程的指令发射时间线（示意，读显存的等待记为 L）</text>
+<text x="30" y="116" font-size="15" text-anchor="start" fill="#c0392b" font-weight="bold">不展开</text>
+<rect x="150.0" y="96" width="7.6" height="28" rx="0" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<rect x="157.6" y="96" width="152.0" height="28" rx="0" fill="#eeeeee" stroke="#bbbbbb" stroke-width="1.5"/>
+<text x="233.6" y="115.0" font-size="12" text-anchor="middle" fill="#222222">等 x[0]</text>
+<rect x="309.6" y="96" width="7.6" height="28" rx="0" fill="#f8e8cf" stroke="#c77a12" stroke-width="1.5"/>
+<rect x="317.2" y="96" width="7.6" height="28" rx="0" fill="#d9efe2" stroke="#2e8b57" stroke-width="1.5"/>
+<rect x="324.79999999999995" y="96" width="7.6" height="28" rx="0" fill="#e9e0f4" stroke="#7a4fb0" stroke-width="1.5"/>
+<rect x="332.4" y="96" width="7.6" height="28" rx="0" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<rect x="340.0" y="96" width="152.0" height="28" rx="0" fill="#eeeeee" stroke="#bbbbbb" stroke-width="1.5"/>
+<text x="416.0" y="115.0" font-size="12" text-anchor="middle" fill="#222222">等 x[1]</text>
+<rect x="492.0" y="96" width="7.6" height="28" rx="0" fill="#f8e8cf" stroke="#c77a12" stroke-width="1.5"/>
+<rect x="499.59999999999997" y="96" width="7.6" height="28" rx="0" fill="#d9efe2" stroke="#2e8b57" stroke-width="1.5"/>
+<rect x="507.2" y="96" width="7.6" height="28" rx="0" fill="#e9e0f4" stroke="#7a4fb0" stroke-width="1.5"/>
+<rect x="514.8" y="96" width="7.6" height="28" rx="0" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<rect x="522.4" y="96" width="152.0" height="28" rx="0" fill="#eeeeee" stroke="#bbbbbb" stroke-width="1.5"/>
+<text x="598.4" y="115.0" font-size="12" text-anchor="middle" fill="#222222">等 x[2]</text>
+<rect x="674.4" y="96" width="7.6" height="28" rx="0" fill="#f8e8cf" stroke="#c77a12" stroke-width="1.5"/>
+<rect x="682.0" y="96" width="7.6" height="28" rx="0" fill="#d9efe2" stroke="#2e8b57" stroke-width="1.5"/>
+<rect x="689.6" y="96" width="7.6" height="28" rx="0" fill="#e9e0f4" stroke="#7a4fb0" stroke-width="1.5"/>
+<rect x="697.1999999999999" y="96" width="7.6" height="28" rx="0" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<rect x="704.8" y="96" width="152.0" height="28" rx="0" fill="#eeeeee" stroke="#bbbbbb" stroke-width="1.5"/>
+<text x="780.8" y="115.0" font-size="12" text-anchor="middle" fill="#222222">等 x[3]</text>
+<rect x="856.8" y="96" width="7.6" height="28" rx="0" fill="#f8e8cf" stroke="#c77a12" stroke-width="1.5"/>
+<rect x="864.4" y="96" width="7.6" height="28" rx="0" fill="#d9efe2" stroke="#2e8b57" stroke-width="1.5"/>
+<rect x="872.0" y="96" width="7.6" height="28" rx="0" fill="#e9e0f4" stroke="#7a4fb0" stroke-width="1.5"/>
+<text x="885.5999999999999" y="116" font-size="14" text-anchor="start" fill="#c0392b" font-weight="bold">96</text>
+<text x="30" y="170" font-size="15" text-anchor="start" fill="#2e8b57" font-weight="bold">展开 4 次</text>
+<rect x="150.0" y="150" width="7.6" height="28" rx="0" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<rect x="157.6" y="150" width="7.6" height="28" rx="0" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<rect x="165.2" y="150" width="7.6" height="28" rx="0" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<rect x="172.8" y="150" width="7.6" height="28" rx="0" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<rect x="180.4" y="150" width="129.2" height="28" rx="0" fill="#eeeeee" stroke="#bbbbbb" stroke-width="1.5"/>
+<text x="245.0" y="169.0" font-size="12" text-anchor="middle" fill="#222222">4 个读同时在路上</text>
+<rect x="309.6" y="150" width="7.6" height="28" rx="0" fill="#f8e8cf" stroke="#c77a12" stroke-width="1.5"/>
+<rect x="317.2" y="150" width="7.6" height="28" rx="0" fill="#f8e8cf" stroke="#c77a12" stroke-width="1.5"/>
+<rect x="324.79999999999995" y="150" width="7.6" height="28" rx="0" fill="#f8e8cf" stroke="#c77a12" stroke-width="1.5"/>
+<rect x="332.4" y="150" width="7.6" height="28" rx="0" fill="#f8e8cf" stroke="#c77a12" stroke-width="1.5"/>
+<rect x="340.0" y="150" width="7.6" height="28" rx="0" fill="#d9efe2" stroke="#2e8b57" stroke-width="1.5"/>
+<rect x="347.6" y="150" width="7.6" height="28" rx="0" fill="#d9efe2" stroke="#2e8b57" stroke-width="1.5"/>
+<rect x="355.2" y="150" width="7.6" height="28" rx="0" fill="#d9efe2" stroke="#2e8b57" stroke-width="1.5"/>
+<rect x="362.79999999999995" y="150" width="7.6" height="28" rx="0" fill="#d9efe2" stroke="#2e8b57" stroke-width="1.5"/>
+<rect x="370.4" y="150" width="7.6" height="28" rx="0" fill="#e9e0f4" stroke="#7a4fb0" stroke-width="1.5"/>
+<text x="384.0" y="170" font-size="14" text-anchor="start" fill="#2e8b57" font-weight="bold">30</text>
+<line x1="150" y1="196" x2="879.5999999999999" y2="196" stroke="#444444" stroke-width="1.5" marker-end="url(#a)"/>
+<text x="879.5999999999999" y="214" font-size="13" text-anchor="end" fill="#444444">时间（单位：发一条指令的时间）</text>
+<rect x="150" y="228" width="18" height="18" rx="0" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="174" y="242" font-size="13" text-anchor="start" fill="#222222">读 x（发出）</text>
+<rect x="295" y="228" width="18" height="18" rx="0" fill="#f8e8cf" stroke="#c77a12" stroke-width="1.5"/>
+<text x="319" y="242" font-size="13" text-anchor="start" fill="#222222">乘 2</text>
+<rect x="388" y="228" width="18" height="18" rx="0" fill="#d9efe2" stroke="#2e8b57" stroke-width="1.5"/>
+<text x="412" y="242" font-size="13" text-anchor="start" fill="#222222">写 y</text>
+<rect x="481" y="228" width="18" height="18" rx="0" fill="#e9e0f4" stroke="#7a4fb0" stroke-width="1.5"/>
+<text x="505" y="242" font-size="13" text-anchor="start" fill="#222222">计数加 1 + 判断跳转</text>
+<rect x="691" y="228" width="18" height="18" rx="0" fill="#eeeeee" stroke="#bbbbbb" stroke-width="1.5"/>
+<text x="715" y="242" font-size="13" text-anchor="start" fill="#222222">等数据回来</text>
+<text x="30" y="276" font-size="14" text-anchor="start" fill="#444444">不展开：每次迭代都要从头等一遍 L，4 次共 96 个单位。展开后 4 个读背靠背发出，一起等一次，共 30 个单位；</text>
+<text x="30" y="298" font-size="14" text-anchor="start" fill="#444444">判断跳转也从 4 次减到 1 次。前提是这 4 次迭代之间没有依赖——第 2 个读不需要等第 1 个的结果。</text>
+<line x1="20" y1="322" x2="940" y2="322" stroke="#eeeeee" stroke-width="2"/>
+<text x="30" y="356" font-size="15" text-anchor="start" fill="#222222" font-weight="bold">② 向量化：相邻 4 个 fp32 共 16 字节，用一条宽指令读完</text>
+<text x="250" y="392" font-size="15" text-anchor="middle" fill="#c0392b" font-weight="bold">向量化前：4 条 LDG.E.32</text>
+<rect x="40" y="410" width="95" height="32" rx="6" fill="#f6dcd8" stroke="#c0392b" stroke-width="2"/>
+<text x="87.5" y="430.55" font-size="13" text-anchor="middle" fill="#222222">LDG.E.32</text>
+<line x1="87" y1="442" x2="145" y2="514" stroke="#c0392b" stroke-width="1.5" marker-end="url(#r)"/>
+<rect x="145" y="410" width="95" height="32" rx="6" fill="#f6dcd8" stroke="#c0392b" stroke-width="2"/>
+<text x="192.5" y="430.55" font-size="13" text-anchor="middle" fill="#222222">LDG.E.32</text>
+<line x1="192" y1="442" x2="215" y2="514" stroke="#c0392b" stroke-width="1.5" marker-end="url(#r)"/>
+<rect x="250" y="410" width="95" height="32" rx="6" fill="#f6dcd8" stroke="#c0392b" stroke-width="2"/>
+<text x="297.5" y="430.55" font-size="13" text-anchor="middle" fill="#222222">LDG.E.32</text>
+<line x1="297" y1="442" x2="285" y2="514" stroke="#c0392b" stroke-width="1.5" marker-end="url(#r)"/>
+<rect x="355" y="410" width="95" height="32" rx="6" fill="#f6dcd8" stroke="#c0392b" stroke-width="2"/>
+<text x="402.5" y="430.55" font-size="13" text-anchor="middle" fill="#222222">LDG.E.32</text>
+<line x1="402" y1="442" x2="355" y2="514" stroke="#c0392b" stroke-width="1.5" marker-end="url(#r)"/>
+<rect x="110" y="516" width="70" height="36" rx="0" fill="#ffffff" stroke="#444444" stroke-width="1.5"/>
+<text x="145" y="540" font-size="14" text-anchor="middle" fill="#222222" font-family="monospace">x[0]</text>
+<rect x="180" y="516" width="70" height="36" rx="0" fill="#ffffff" stroke="#444444" stroke-width="1.5"/>
+<text x="215" y="540" font-size="14" text-anchor="middle" fill="#222222" font-family="monospace">x[1]</text>
+<rect x="250" y="516" width="70" height="36" rx="0" fill="#ffffff" stroke="#444444" stroke-width="1.5"/>
+<text x="285" y="540" font-size="14" text-anchor="middle" fill="#222222" font-family="monospace">x[2]</text>
+<rect x="320" y="516" width="70" height="36" rx="0" fill="#ffffff" stroke="#444444" stroke-width="1.5"/>
+<text x="355" y="540" font-size="14" text-anchor="middle" fill="#222222" font-family="monospace">x[3]</text>
+<text x="250" y="574" font-size="13" text-anchor="middle" fill="#444444">地址 0x100～0x10F（按 16 字节对齐）</text>
+<text x="250" y="610" font-size="14" text-anchor="middle" fill="#c0392b">每条搬 4 字节，4 条指令、4 个地址计算</text>
+<text x="720" y="392" font-size="15" text-anchor="middle" fill="#2e8b57" font-weight="bold">向量化后：1 条 LDG.E.128</text>
+<rect x="640" y="410" width="160" height="32" rx="6" fill="#d9efe2" stroke="#2e8b57" stroke-width="2"/>
+<text x="720.0" y="430.9" font-size="14" text-anchor="middle" fill="#222222">LDG.E.128</text>
+<line x1="720" y1="442" x2="615" y2="514" stroke="#2e8b57" stroke-width="1.5" marker-end="url(#n)"/>
+<line x1="720" y1="442" x2="685" y2="514" stroke="#2e8b57" stroke-width="1.5" marker-end="url(#n)"/>
+<line x1="720" y1="442" x2="755" y2="514" stroke="#2e8b57" stroke-width="1.5" marker-end="url(#n)"/>
+<line x1="720" y1="442" x2="825" y2="514" stroke="#2e8b57" stroke-width="1.5" marker-end="url(#n)"/>
+<rect x="580" y="516" width="70" height="36" rx="0" fill="#ffffff" stroke="#444444" stroke-width="1.5"/>
+<text x="615" y="540" font-size="14" text-anchor="middle" fill="#222222" font-family="monospace">x[0]</text>
+<rect x="650" y="516" width="70" height="36" rx="0" fill="#ffffff" stroke="#444444" stroke-width="1.5"/>
+<text x="685" y="540" font-size="14" text-anchor="middle" fill="#222222" font-family="monospace">x[1]</text>
+<rect x="720" y="516" width="70" height="36" rx="0" fill="#ffffff" stroke="#444444" stroke-width="1.5"/>
+<text x="755" y="540" font-size="14" text-anchor="middle" fill="#222222" font-family="monospace">x[2]</text>
+<rect x="790" y="516" width="70" height="36" rx="0" fill="#ffffff" stroke="#444444" stroke-width="1.5"/>
+<text x="825" y="540" font-size="14" text-anchor="middle" fill="#222222" font-family="monospace">x[3]</text>
+<text x="720" y="574" font-size="13" text-anchor="middle" fill="#444444">地址 0x100～0x10F（按 16 字节对齐）</text>
+<text x="720" y="610" font-size="14" text-anchor="middle" fill="#2e8b57">一条指令搬 16 字节；要求地址 16 字节对齐、4 个元素连续</text>
+</svg>

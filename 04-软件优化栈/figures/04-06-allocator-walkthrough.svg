@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 590" width="960" height="590" font-family="sans-serif" font-size="15">
+<rect x="0" y="0" width="960" height="590" fill="#ffffff"/>
+<text x="20" y="30" font-size="17" font-weight="bold">六次操作之后分配器手里的显存：已保留 228 MB，真正在用的只有 100 MB</text>
+<text x="800" y="62" font-size="14" font-weight="bold" text-anchor="middle">已分配</text>
+<text x="885" y="62" font-size="14" font-weight="bold" text-anchor="middle">已保留</text>
+<text x="40" y="62" font-size="14" fill="#555">每个方框是向驱动申请来的一整段；段与段之间的空隙表示它们不一定相邻</text>
+<text x="40" y="92" font-size="14" font-weight="bold">1. 申请 A（64 MB）</text>
+<rect x="40.0" y="100" width="166.4" height="36" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="2"/>
+<text x="123.2" y="123" text-anchor="middle" font-size="14">A 64</text>
+<text x="800" y="124" text-anchor="middle">64 MB</text>
+<text x="885" y="124" text-anchor="middle">64 MB</text>
+<text x="218.4" y="124" font-size="13" fill="#c0392b">进入驱动</text>
+<text x="40" y="172" font-size="14" font-weight="bold">2. 申请 B（64 MB）</text>
+<rect x="40.0" y="180" width="166.4" height="36" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="2"/>
+<text x="123.2" y="203" text-anchor="middle" font-size="14">A 64</text>
+<rect x="228.4" y="180" width="166.4" height="36" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="2"/>
+<text x="311.6" y="203" text-anchor="middle" font-size="14">B 64</text>
+<text x="800" y="204" text-anchor="middle">128 MB</text>
+<text x="885" y="204" text-anchor="middle">128 MB</text>
+<text x="406.8" y="204" font-size="13" fill="#c0392b">进入驱动</text>
+<text x="40" y="252" font-size="14" font-weight="bold">3. 释放 A</text>
+<rect x="40.0" y="260" width="166.4" height="36" fill="#ffffff" stroke="#888" stroke-width="2" stroke-dasharray="5,3"/>
+<text x="123.2" y="283" text-anchor="middle" font-size="14" fill="#777">空闲 64</text>
+<rect x="228.4" y="260" width="166.4" height="36" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="2"/>
+<text x="311.6" y="283" text-anchor="middle" font-size="14">B 64</text>
+<text x="800" y="284" text-anchor="middle">64 MB</text>
+<text x="885" y="284" text-anchor="middle">128 MB</text>
+<text x="406.8" y="284" font-size="13" fill="#555">A 的块留在分配器手里</text>
+<text x="40" y="332" font-size="14" font-weight="bold">4. 申请 C（64 MB）</text>
+<rect x="40.0" y="340" width="166.4" height="36" fill="#d8efd8" stroke="#2e8b57" stroke-width="2"/>
+<text x="123.2" y="363" text-anchor="middle" font-size="14">C 64</text>
+<rect x="228.4" y="340" width="166.4" height="36" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="2"/>
+<text x="311.6" y="363" text-anchor="middle" font-size="14">B 64</text>
+<text x="800" y="364" text-anchor="middle">128 MB</text>
+<text x="885" y="364" text-anchor="middle">128 MB</text>
+<text x="406.8" y="364" font-size="13" fill="#2e8b57">直接用 A 留下的块</text>
+<text x="40" y="412" font-size="14" font-weight="bold">5. 释放 B 和 C</text>
+<rect x="40.0" y="420" width="166.4" height="36" fill="#ffffff" stroke="#888" stroke-width="2" stroke-dasharray="5,3"/>
+<text x="123.2" y="443" text-anchor="middle" font-size="14" fill="#777">空闲 64</text>
+<rect x="228.4" y="420" width="166.4" height="36" fill="#ffffff" stroke="#888" stroke-width="2" stroke-dasharray="5,3"/>
+<text x="311.6" y="443" text-anchor="middle" font-size="14" fill="#777">空闲 64</text>
+<text x="800" y="444" text-anchor="middle">0 MB</text>
+<text x="885" y="444" text-anchor="middle">128 MB</text>
+<text x="40" y="492" font-size="14" font-weight="bold">6. 申请 D（100 MB）</text>
+<rect x="40.0" y="500" width="166.4" height="36" fill="#ffffff" stroke="#888" stroke-width="2" stroke-dasharray="5,3"/>
+<text x="123.2" y="523" text-anchor="middle" font-size="14" fill="#777">空闲 64</text>
+<rect x="228.4" y="500" width="166.4" height="36" fill="#ffffff" stroke="#888" stroke-width="2" stroke-dasharray="5,3"/>
+<text x="311.6" y="523" text-anchor="middle" font-size="14" fill="#777">空闲 64</text>
+<rect x="416.8" y="500" width="260.0" height="36" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="2"/>
+<text x="546.8" y="523" text-anchor="middle" font-size="14">D 100</text>
+<text x="800" y="524" text-anchor="middle">100 MB</text>
+<text x="885" y="524" text-anchor="middle">228 MB</text>
+<text x="688.8" y="524" font-size="13" fill="#c0392b">进入驱动</text>
+<text x="40" y="566" font-size="14" fill="#c0392b">第 6 步：两块 64 MB 的空闲显存合计 128 MB，但每一块都不够 100 MB；它们来自两次申请，不能拼起来。这就是碎片。</text>
+</svg>

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 720" width="960" height="720" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="720" fill="#ffffff"/>
+<defs><marker id="ah-666666" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#666666"/></marker><marker id="ahs-666666" viewBox="0 0 10 10" refX="1" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#666666"/></marker><marker id="ah-c0392b" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="ahs-c0392b" viewBox="0 0 10 10" refX="1" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker></defs>
+<text x="480" y="30" font-size="19" text-anchor="middle" fill="#222222" font-weight="bold" >约束传导链：数据从上往下搬，摆法的要求却从下往上定</text>
+<text x="290" y="70" font-size="15" text-anchor="middle" fill="#666666" font-weight="normal" >数据流向：从显存一路搬到 Tensor Core ↓</text>
+<text x="720" y="70" font-size="15" text-anchor="middle" fill="#c0392b" font-weight="normal" >约束方向：下一站的要求决定上一站怎么摆 ↑</text>
+<rect x="150" y="90" width="280" height="72" rx="4" fill="#f0f0f0" stroke="#444444" stroke-width="1.5" />
+<text x="290" y="120" font-size="16" text-anchor="middle" fill="#222222" font-weight="bold" >全局内存（显存）</text>
+<text x="290" y="144" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >矩阵的主序：K-major / MN-major</text>
+<text x="140" y="132" font-size="14" text-anchor="end" fill="#c0392b" font-weight="bold" >第 4 环</text>
+<text x="520" y="120" font-size="15" text-anchor="start" fill="#222222" font-weight="normal" >要求：TMA 要取的 box 在这里尽量连续</text>
+<text x="520" y="144" font-size="14" text-anchor="start" fill="#666666" font-weight="normal" >K-major 时 box 的每一行是一整段；否则碎成很多短段</text>
+<line x1="290" y1="164" x2="290" y2="184" stroke="#666666" stroke-width="2.5" marker-end="url(#ah-666666)"/>
+<rect x="150" y="186" width="280" height="72" rx="4" fill="#e3eef9" stroke="#444444" stroke-width="1.5" />
+<text x="290" y="216" font-size="16" text-anchor="middle" fill="#222222" font-weight="bold" >TMA 描述符（tensor map）</text>
+<text x="290" y="240" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >搬运时按描述符落位</text>
+<text x="140" y="228" font-size="14" text-anchor="end" fill="#c0392b" font-weight="bold" >第 3 环</text>
+<text x="520" y="216" font-size="15" text-anchor="start" fill="#222222" font-weight="normal" >要求：swizzle 字段必须与 shared 的摆法一致</text>
+<text x="520" y="240" font-size="14" text-anchor="start" fill="#666666" font-weight="normal" >填错了不报错，读出来的是错位的数据</text>
+<line x1="290" y1="260" x2="290" y2="280" stroke="#666666" stroke-width="2.5" marker-end="url(#ah-666666)"/>
+<rect x="150" y="282" width="280" height="72" rx="4" fill="#e3eef9" stroke="#444444" stroke-width="1.5" />
+<text x="290" y="312" font-size="16" text-anchor="middle" fill="#222222" font-weight="bold" >shared memory</text>
+<text x="290" y="336" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >Swizzle&lt;3,4,3&gt;（128B 模式）</text>
+<text x="140" y="324" font-size="14" text-anchor="end" fill="#c0392b" font-weight="bold" >第 2 环的解</text>
+<text x="520" y="312" font-size="15" text-anchor="start" fill="#222222" font-weight="normal" >物理 chunk 列 = 逻辑 chunk 列 XOR 行号</text>
+<text x="520" y="336" font-size="14" text-anchor="start" fill="#666666" font-weight="normal" >让下面 ldmatrix 的 8 个行地址落到不同 bank</text>
+<line x1="290" y1="356" x2="290" y2="376" stroke="#666666" stroke-width="2.5" marker-end="url(#ah-666666)"/>
+<rect x="150" y="378" width="280" height="72" rx="4" fill="#fdeedd" stroke="#444444" stroke-width="1.5" />
+<text x="290" y="408" font-size="16" text-anchor="middle" fill="#222222" font-weight="bold" >ldmatrix（整个 warp 一条）</text>
+<text x="290" y="432" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >每线程给一个行首地址</text>
+<text x="140" y="420" font-size="14" text-anchor="end" fill="#c0392b" font-weight="bold" >第 2 环</text>
+<text x="520" y="408" font-size="15" text-anchor="start" fill="#222222" font-weight="normal" >要求：同拍的 8 个行首地址不能挤在同一组 bank</text>
+<text x="520" y="432" font-size="14" text-anchor="start" fill="#666666" font-weight="normal" >直排时它们全对齐到同一组 bank：8 路冲突</text>
+<line x1="290" y1="452" x2="290" y2="472" stroke="#666666" stroke-width="2.5" marker-end="url(#ah-666666)"/>
+<rect x="150" y="474" width="280" height="72" rx="4" fill="#fdeedd" stroke="#444444" stroke-width="1.5" />
+<text x="290" y="504" font-size="16" text-anchor="middle" fill="#222222" font-weight="bold" >寄存器里的 fragment</text>
+<text x="290" y="528" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >每个线程持有固定几个元素</text>
+<text x="140" y="516" font-size="14" text-anchor="end" fill="#c0392b" font-weight="bold" >第 1 环</text>
+<text x="520" y="504" font-size="15" text-anchor="start" fill="#222222" font-weight="normal" >软件自由度为零：只能照指令规定来摆</text>
+<text x="520" y="528" font-size="14" text-anchor="start" fill="#666666" font-weight="normal" >ldmatrix 正是按这个分布把数据分发下去</text>
+<line x1="290" y1="548" x2="290" y2="568" stroke="#666666" stroke-width="2.5" marker-end="url(#ah-666666)"/>
+<rect x="150" y="570" width="280" height="72" rx="4" fill="#ece6f5" stroke="#444444" stroke-width="1.5" />
+<text x="290" y="600" font-size="16" text-anchor="middle" fill="#222222" font-weight="bold" >Tensor Core：mma.m16n8k16</text>
+<text x="290" y="624" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >硬件电路</text>
+<text x="140" y="612" font-size="14" text-anchor="end" fill="#c0392b" font-weight="bold" >源头</text>
+<text x="520" y="600" font-size="15" text-anchor="start" fill="#222222" font-weight="normal" >规定哪个线程拿哪几个元素（上一张图）</text>
+<text x="520" y="624" font-size="14" text-anchor="start" fill="#666666" font-weight="normal" >这是电路连线决定的，不可编程</text>
+<line x1="488" y1="632" x2="488" y2="100" stroke="#c0392b" stroke-width="4" marker-end="url(#ah-c0392b)"/>
+<text x="480" y="682" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >读法：从最下面的“源头”往上读，每一站的摆法都是为了让它下面那一站的访问恰好不出问题。</text>
+</svg>

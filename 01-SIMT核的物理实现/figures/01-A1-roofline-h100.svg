@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="600" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker></defs>
+<text x="480" y="28" font-size="18" text-anchor="middle" fill="#222" font-weight="bold">H100 的 roofline：算子能跑多快，由“带宽斜线”和“算力平顶”中较低的那条决定</text>
+<line x1="163.9" y1="60" x2="163.9" y2="520" stroke="#eee" stroke-width="1.5"/>
+<text x="163.9" y="542" font-size="14" text-anchor="middle" fill="#222">0.1</text>
+<line x1="309.6" y1="60" x2="309.6" y2="520" stroke="#eee" stroke-width="1.5"/>
+<text x="309.6" y="542" font-size="14" text-anchor="middle" fill="#222">1</text>
+<line x1="455.2" y1="60" x2="455.2" y2="520" stroke="#eee" stroke-width="1.5"/>
+<text x="455.2" y="542" font-size="14" text-anchor="middle" fill="#222">10</text>
+<line x1="600.9" y1="60" x2="600.9" y2="520" stroke="#eee" stroke-width="1.5"/>
+<text x="600.9" y="542" font-size="14" text-anchor="middle" fill="#222">100</text>
+<line x1="746.6" y1="60" x2="746.6" y2="520" stroke="#eee" stroke-width="1.5"/>
+<text x="746.6" y="542" font-size="14" text-anchor="middle" fill="#222">1000</text>
+<line x1="120" y1="520.0" x2="860" y2="520.0" stroke="#eee" stroke-width="1.5"/>
+<text x="112" y="525.0" font-size="14" text-anchor="end" fill="#222">0.1</text>
+<line x1="120" y1="420.0" x2="860" y2="420.0" stroke="#eee" stroke-width="1.5"/>
+<text x="112" y="425.0" font-size="14" text-anchor="end" fill="#222">1</text>
+<line x1="120" y1="320.1" x2="860" y2="320.1" stroke="#eee" stroke-width="1.5"/>
+<text x="112" y="325.1" font-size="14" text-anchor="end" fill="#222">10</text>
+<line x1="120" y1="220.1" x2="860" y2="220.1" stroke="#eee" stroke-width="1.5"/>
+<text x="112" y="225.1" font-size="14" text-anchor="end" fill="#222">100</text>
+<line x1="120" y1="120.2" x2="860" y2="120.2" stroke="#eee" stroke-width="1.5"/>
+<text x="112" y="125.2" font-size="14" text-anchor="end" fill="#222">1000</text>
+<rect x="120" y="60" width="740" height="460" fill="none" stroke="#222" stroke-width="1.5"/>
+<text x="490.0" y="566" font-size="15" text-anchor="middle" fill="#222">算术强度 AI（每搬 1 字节做几次浮点运算，FLOP/byte，对数刻度）</text>
+<text x="36" y="290.0" font-size="15" text-anchor="middle" fill="#222" transform="rotate(-90 36 290.0)">能达到的算力（TFLOP/s，对数刻度）</text>
+<line x1="499.1" y1="237.5" x2="860" y2="237.5" stroke="#555" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="854" y="230.5" font-size="14" text-anchor="end" fill="#555">FP32 普通核心 约 67</text>
+<line x1="669.5" y1="120.6" x2="860" y2="120.6" stroke="#b86a0c" stroke-width="3"/>
+<text x="854" y="140.6" font-size="14" text-anchor="end" fill="#b86a0c">FP16/BF16 Tensor 约 990</text>
+<line x1="713.3" y1="90.5" x2="860" y2="90.5" stroke="#555" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="854" y="83.5" font-size="14" text-anchor="end" fill="#555">FP8 Tensor Core 约 1979</text>
+<line x1="120.0" y1="497.6" x2="713.3" y2="90.5" stroke="#2c6fb7" stroke-width="3"/>
+<text x="233.4" y="407.8" font-size="14" fill="#2c6fb7" transform="rotate(-34.5 233.4 407.8)">带宽斜线：算力 = AI × 3.35 TB/s</text>
+<line x1="499.1" y1="237.5" x2="499.1" y2="520" stroke="#888" stroke-width="1.5" stroke-dasharray="3 4"/>
+<text x="504.1" y="512" font-size="14" fill="#555">平衡点 20</text>
+<line x1="669.4" y1="120.7" x2="669.4" y2="520" stroke="#888" stroke-width="1.5" stroke-dasharray="3 4"/>
+<text x="674.4" y="512" font-size="14" fill="#555">平衡点 约 295</text>
+<circle cx="178.0" cy="457.8" r="7" fill="#c0392b" stroke="#fff" stroke-width="2"/>
+<circle cx="309.6" cy="367.6" r="7" fill="#c0392b" stroke="#fff" stroke-width="2"/>
+<circle cx="766.5" cy="120.6" r="7" fill="#c0392b" stroke="#fff" stroke-width="2"/>
+<text x="192.0" y="481.8" font-size="14" fill="#c0392b" font-weight="bold">y = 2x（FP32）</text>
+<text x="192.0" y="499.8" font-size="14" fill="#c0392b">AI 0.125 → 约 0.42 TFLOP/s</text>
+<text x="323.6" y="391.6" font-size="14" fill="#c0392b" font-weight="bold">GEMV 4096×4096（FP16）</text>
+<text x="323.6" y="409.6" font-size="14" fill="#c0392b">AI 约 1 → 约 3.4 TFLOP/s</text>
+<text x="766.5" y="170.6" font-size="14" text-anchor="middle" fill="#c0392b" font-weight="bold">GEMM 4096³（FP16）</text>
+<text x="766.5" y="188.6" font-size="14" text-anchor="middle" fill="#c0392b">AI 约 1370 → 封顶 990</text>
+<text x="149.7" y="160.0" font-size="15" fill="#2c6fb7">平衡点左边：带宽先用满</text>
+<text x="149.7" y="180.0" font-size="15" fill="#2c6fb7">（memory-bound）</text>
+<text x="688.7" y="312.2" font-size="15" fill="#b86a0c">平衡点右边：</text>
+<text x="688.7" y="332.2" font-size="15" fill="#b86a0c">算力先用满</text>
+<text x="688.7" y="352.2" font-size="15" fill="#b86a0c">（compute-bound）</text>
+</svg>

@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="560" fill="#ffffff"/>
+<defs>
+<marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker>
+</defs>
+<text x="480" y="28" font-size="18" text-anchor="middle" fill="#222" font-weight="bold">异步指令的共同骨架：发射 → 记账 → 等待</text>
+
+<!-- top: timeline of one warp -->
+<text x="130" y="72" font-size="15" text-anchor="end" fill="#222">warp 的指令流</text>
+<line x1="140" y1="66" x2="930" y2="66" stroke="#222" stroke-width="1.5" marker-end="url(#a)"/>
+<rect x="150" y="50" width="90" height="32" fill="#dbe8f6" stroke="#222" stroke-width="1.5"/>
+<text x="195" y="71" font-size="15" text-anchor="middle" fill="#222">① 发射</text>
+<rect x="250" y="50" width="90" height="32" fill="#dbe8f6" stroke="#222" stroke-width="1.5"/>
+<text x="295" y="71" font-size="15" text-anchor="middle" fill="#222">② 记账</text>
+<rect x="350" y="50" width="330" height="32" fill="#ffffff" stroke="#222" stroke-width="1.5"/>
+<text x="515" y="71" font-size="15" text-anchor="middle" fill="#222">继续执行别的指令（例如算上一块）</text>
+<rect x="690" y="50" width="100" height="32" fill="#fbe3c4" stroke="#b86a0c" stroke-width="2"/>
+<text x="740" y="71" font-size="15" text-anchor="middle" fill="#222">③ 等待</text>
+<rect x="800" y="50" width="110" height="32" fill="#ffffff" stroke="#222" stroke-width="1.5"/>
+<text x="855" y="71" font-size="15" text-anchor="middle" fill="#222">使用结果</text>
+
+<text x="130" y="124" font-size="15" text-anchor="end" fill="#2c6fb7">后台硬件</text>
+<rect x="195" y="106" width="520" height="28" fill="#dbe8f6" stroke="#2c6fb7" stroke-width="1.5"/>
+<text x="455" y="125" font-size="14" text-anchor="middle" fill="#222">拷贝单元 / TMA 引擎 / Tensor Core 在后台干活</text>
+<line x1="195" y1="82" x2="195" y2="104" stroke="#2c6fb7" stroke-width="1.5" marker-end="url(#a)"/>
+<line x1="715" y1="106" x2="728" y2="84" stroke="#b86a0c" stroke-width="1.5" marker-end="url(#a)"/>
+<text x="30" y="162" font-size="14" fill="#555">发射指令只是“下单”，立刻返回；记账告诉硬件“到这里算一批”；等待指令才会让 warp 停下，直到这一批（或这么多字节）到齐。</text>
+
+<!-- table -->
+<g font-size="15" font-weight="bold" fill="#222">
+<text x="30" y="200">指令族</text>
+<text x="200" y="200">① 发射（下单）</text>
+<text x="450" y="200">② 记账（这一批算多少）</text>
+<text x="700" y="200">③ 等待（等到什么程度）</text>
+</g>
+<line x1="20" y1="210" x2="940" y2="210" stroke="#222" stroke-width="1.5"/>
+
+<!-- row 1 -->
+<rect x="20" y="214" width="920" height="100" fill="#f6f6f6"/>
+<text x="30" y="244" font-size="15" font-weight="bold" fill="#222">cp.async</text>
+<text x="30" y="266" font-size="14" fill="#555">Ampere 起</text>
+<text x="30" y="286" font-size="14" fill="#555">全局 → shared</text>
+<g font-family="monospace" font-size="14" fill="#222">
+<text x="200" y="244">cp.async.cg.shared.global</text>
+<text x="200" y="264">  [dst], [src], 16</text>
+<text x="450" y="244">cp.async.commit_group</text>
+<text x="700" y="244">cp.async.wait_group 1</text>
+</g>
+<g font-size="14" fill="#555">
+<text x="200" y="296">拷 16 字节，不经寄存器</text>
+<text x="450" y="296">把还没打包的拷贝划成“一组”</text>
+<text x="700" y="296">等到在途的组 ≤ 1</text>
+</g>
+
+<!-- row 2 -->
+<rect x="20" y="318" width="920" height="100" fill="#ffffff"/>
+<text x="30" y="348" font-size="15" font-weight="bold" fill="#222">TMA + mbarrier</text>
+<text x="30" y="370" font-size="14" fill="#555">Hopper 起</text>
+<text x="30" y="390" font-size="14" fill="#555">整块 tile 搬运</text>
+<g font-family="monospace" font-size="14" fill="#222">
+<text x="200" y="348">cp.async.bulk.tensor.2d</text>
+<text x="200" y="368">  ...[smem], [tmap], [mbar]</text>
+<text x="450" y="348">mbarrier.arrive.expect_tx</text>
+<text x="450" y="368">  ... [mbar], 16384</text>
+<text x="700" y="348">mbarrier.try_wait.parity</text>
+<text x="700" y="368">  ... [mbar], phase</text>
+</g>
+<g font-size="14" fill="#555">
+<text x="200" y="400">TMA 引擎搬一整块</text>
+<text x="450" y="400">声明这一轮要等 16384 字节</text>
+<text x="700" y="400">等到屏障相位翻转</text>
+</g>
+
+<!-- row 3 -->
+<rect x="20" y="422" width="920" height="100" fill="#f6f6f6"/>
+<text x="30" y="452" font-size="15" font-weight="bold" fill="#222">wgmma</text>
+<text x="30" y="474" font-size="14" fill="#555">Hopper 起</text>
+<text x="30" y="494" font-size="14" fill="#555">异步矩阵乘</text>
+<g font-family="monospace" font-size="14" fill="#222">
+<text x="200" y="452">wgmma.mma_async...</text>
+<text x="200" y="472">  .m64n128k16.f32.bf16</text>
+<text x="450" y="452">wgmma.commit_group</text>
+<text x="700" y="452">wgmma.wait_group 1</text>
+</g>
+<g font-size="14" fill="#555">
+<text x="200" y="504">Tensor Core 算 64×128×16</text>
+<text x="450" y="504">把还没打包的矩阵乘划成一组</text>
+<text x="700" y="504">等到在途的组 ≤ 1</text>
+</g>
+<line x1="20" y1="526" x2="940" y2="526" stroke="#222" stroke-width="1.5"/>
+<text x="30" y="548" font-size="14" fill="#555">读法：同一列的三条指令拼写不同，做的是同一件事。cp.async 和 wgmma 按“组”数计；TMA 按“字节数 + 相位”计。</text>
+</svg>

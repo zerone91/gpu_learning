@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 555" width="960" height="555" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="555" fill="#ffffff"/>
+<defs><marker id="ah-2e7d4f" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e7d4f"/></marker><marker id="ahs-2e7d4f" viewBox="0 0 10 10" refX="1" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e7d4f"/></marker><marker id="ah-666666" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#666666"/></marker><marker id="ahs-666666" viewBox="0 0 10 10" refX="1" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#666666"/></marker><marker id="ah-c0392b" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="ahs-c0392b" viewBox="0 0 10 10" refX="1" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker></defs>
+<text x="480" y="30" font-size="19" text-anchor="middle" fill="#222222" font-weight="bold" >DSMEM：同一个簇里的线程块，直接读写邻居 SM 的 shared memory</text>
+<rect x="30" y="110" width="620" height="330" rx="4" fill="#fafafa" stroke="#666666" stroke-width="1.5" stroke-dasharray="8 4" />
+<text x="150" y="133" font-size="15" text-anchor="start" fill="#666666" font-weight="normal" >一个 GPC（若干相邻 SM 组成的一组）</text>
+<rect x="45" y="145" width="140" height="140" rx="4" fill="#f0f0f0" stroke="#444444" stroke-width="1.5" />
+<text x="115" y="168" font-size="16" text-anchor="middle" fill="#222222" font-weight="bold" >SM 0</text>
+<text x="115" y="188" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >线程块 0（rank 0）</text>
+<rect x="57" y="202" width="116" height="70" rx="4" fill="#e3eef9" stroke="#1f6fb2" stroke-width="1.5" />
+<text x="115" y="228" font-size="14" text-anchor="middle" fill="#1f6fb2" font-weight="normal" >shared memory</text>
+<text x="115" y="252" font-size="14" text-anchor="middle" fill="#222222" font-weight="normal" >K/V 第 1/4 份</text>
+<line x1="115" y1="287" x2="115" y2="318" stroke="#666666" stroke-width="2"/>
+<rect x="195" y="145" width="140" height="140" rx="4" fill="#f0f0f0" stroke="#444444" stroke-width="1.5" />
+<text x="265" y="168" font-size="16" text-anchor="middle" fill="#222222" font-weight="bold" >SM 1</text>
+<text x="265" y="188" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >线程块 1（rank 1）</text>
+<rect x="207" y="202" width="116" height="70" rx="4" fill="#e3eef9" stroke="#1f6fb2" stroke-width="1.5" />
+<text x="265" y="228" font-size="14" text-anchor="middle" fill="#1f6fb2" font-weight="normal" >shared memory</text>
+<text x="265" y="252" font-size="14" text-anchor="middle" fill="#222222" font-weight="normal" >K/V 第 2/4 份</text>
+<line x1="265" y1="287" x2="265" y2="318" stroke="#666666" stroke-width="2"/>
+<rect x="345" y="145" width="140" height="140" rx="4" fill="#f0f0f0" stroke="#444444" stroke-width="1.5" />
+<text x="415" y="168" font-size="16" text-anchor="middle" fill="#222222" font-weight="bold" >SM 2</text>
+<text x="415" y="188" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >线程块 2（rank 2）</text>
+<rect x="357" y="202" width="116" height="70" rx="4" fill="#e3eef9" stroke="#1f6fb2" stroke-width="1.5" />
+<text x="415" y="228" font-size="14" text-anchor="middle" fill="#1f6fb2" font-weight="normal" >shared memory</text>
+<text x="415" y="252" font-size="14" text-anchor="middle" fill="#222222" font-weight="normal" >K/V 第 3/4 份</text>
+<line x1="415" y1="287" x2="415" y2="318" stroke="#666666" stroke-width="2"/>
+<rect x="495" y="145" width="140" height="140" rx="4" fill="#f0f0f0" stroke="#444444" stroke-width="1.5" />
+<text x="565" y="168" font-size="16" text-anchor="middle" fill="#222222" font-weight="bold" >SM 3</text>
+<text x="565" y="188" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >线程块 3（rank 3）</text>
+<rect x="507" y="202" width="116" height="70" rx="4" fill="#e3eef9" stroke="#1f6fb2" stroke-width="1.5" />
+<text x="565" y="228" font-size="14" text-anchor="middle" fill="#1f6fb2" font-weight="normal" >shared memory</text>
+<text x="565" y="252" font-size="14" text-anchor="middle" fill="#222222" font-weight="normal" >K/V 第 4/4 份</text>
+<line x1="565" y1="287" x2="565" y2="318" stroke="#666666" stroke-width="2"/>
+<rect x="45" y="318" width="590" height="56" rx="4" fill="#e0f2e7" stroke="#2e7d4f" stroke-width="1.5" />
+<text x="340" y="364" font-size="15" text-anchor="middle" fill="#2e7d4f" font-weight="normal" >SM 之间的直连网络（Hopper 新增，只在 GPC 内部）</text>
+<path d="M 100 274 V 336 H 580 V 276" fill="none" stroke="#2e7d4f" stroke-width="3.5" marker-end="url(#ah-2e7d4f)"/>
+<text x="340" y="402" font-size="15" text-anchor="middle" fill="#2e7d4f" font-weight="bold" >新路：块 3 执行 ld.shared::cluster，直接读块 0 的 shared</text>
+<text x="340" y="424" font-size="15" text-anchor="middle" fill="#2e7d4f" font-weight="normal" >GPC 内一跳，不经过 L2</text>
+<rect x="740" y="150" width="200" height="80" rx="4" fill="#f0f0f0" stroke="#444444" stroke-width="1.5" />
+<text x="840" y="182" font-size="16" text-anchor="middle" fill="#222222" font-weight="bold" >L2 缓存</text>
+<text x="840" y="206" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >全芯片共享，在 GPC 外</text>
+<rect x="740" y="300" width="200" height="60" rx="4" fill="#f0f0f0" stroke="#444444" stroke-width="1.5" />
+<text x="840" y="336" font-size="16" text-anchor="middle" fill="#222222" font-weight="normal" >显存 HBM</text>
+<line x1="840" y1="232" x2="840" y2="298" stroke="#666666" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#ah-666666)" marker-start="url(#ahs-666666)"/>
+<text x="850" y="272" font-size="14" text-anchor="start" fill="#666666" font-weight="normal" >可能再到显存</text>
+<path d="M 115 143 V 80 H 810 V 148" fill="none" stroke="#c0392b" stroke-width="2.5" stroke-dasharray="8 5" marker-end="url(#ah-c0392b)"/>
+<text x="420" y="72" font-size="15" text-anchor="middle" fill="#c0392b" font-weight="normal" >旧路 ①：块 0 用 st.global 把数据写到全局内存</text>
+<path d="M 738 200 H 637" fill="none" stroke="#c0392b" stroke-width="2.5" stroke-dasharray="8 5" marker-end="url(#ah-c0392b)"/>
+<text x="697" y="250" font-size="14" text-anchor="middle" fill="#c0392b" font-weight="normal" >旧路 ②：</text>
+<text x="697" y="268" font-size="14" text-anchor="middle" fill="#c0392b" font-weight="normal" >块 3 用</text>
+<text x="697" y="286" font-size="14" text-anchor="middle" fill="#c0392b" font-weight="normal" >ld.global</text>
+<text x="697" y="304" font-size="14" text-anchor="middle" fill="#c0392b" font-weight="normal" >读回</text>
+<text x="30" y="478" font-size="15" text-anchor="start" fill="#222222" font-weight="normal" >旧路（Hopper 之前唯一的办法）：经过 L2 一来一回，几百纳秒，还占用 L2 带宽。</text>
+<text x="30" y="504" font-size="15" text-anchor="start" fill="#222222" font-weight="normal" >新路：延迟约为本地 shared memory 的数倍，仍明显好于 L2 往返；4 个块各存 1/4、用时互读，等于 shared 容量 ×4。</text>
+<text x="30" y="530" font-size="15" text-anchor="start" fill="#222222" font-weight="normal" >前提：簇里的 4 个块必须同时驻留在这组相邻的 SM 上，否则直连网络够不着。</text>
+</svg>

@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="560" fill="#ffffff"/>
+<defs><marker id="k" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222222"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777777"/></marker><marker id="o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c77a12"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f6db5"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="n" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e8b57"/></marker><marker id="p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7a4fb0"/></marker></defs>
+<text x="480.0" y="30.0" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold">DeepGEMM 的细粒度缩放：激活每 1×128 一个缩放因子，权重每 128×128 一个</text>
+<text x="40.0" y="80.0" font-size="15" text-anchor="start" fill="#2f6db5" font-weight="bold">激活 A（M × K）：每行每 128 列一个因子</text>
+<rect x="40.0" y="110.0" width="110.0" height="40.0" rx="0" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="95.0" y="136.0" font-size="14" text-anchor="middle" fill="#222222">sA[0,0]</text>
+<rect x="150.0" y="110.0" width="110.0" height="40.0" rx="0" fill="#ffffff" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="205.0" y="136.0" font-size="14" text-anchor="middle" fill="#222222">sA[0,1]</text>
+<rect x="260.0" y="110.0" width="110.0" height="40.0" rx="0" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="315.0" y="136.0" font-size="14" text-anchor="middle" fill="#222222">sA[0,2]</text>
+<rect x="40.0" y="150.0" width="110.0" height="40.0" rx="0" fill="#ffffff" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="95.0" y="176.0" font-size="14" text-anchor="middle" fill="#222222">sA[1,0]</text>
+<rect x="150.0" y="150.0" width="110.0" height="40.0" rx="0" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="205.0" y="176.0" font-size="14" text-anchor="middle" fill="#222222">sA[1,1]</text>
+<rect x="260.0" y="150.0" width="110.0" height="40.0" rx="0" fill="#ffffff" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="315.0" y="176.0" font-size="14" text-anchor="middle" fill="#222222">sA[1,2]</text>
+<rect x="40.0" y="190.0" width="110.0" height="40.0" rx="0" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="95.0" y="216.0" font-size="14" text-anchor="middle" fill="#222222">sA[2,0]</text>
+<rect x="150.0" y="190.0" width="110.0" height="40.0" rx="0" fill="#ffffff" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="205.0" y="216.0" font-size="14" text-anchor="middle" fill="#222222">sA[2,1]</text>
+<rect x="260.0" y="190.0" width="110.0" height="40.0" rx="0" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="315.0" y="216.0" font-size="14" text-anchor="middle" fill="#222222">sA[2,2]</text>
+<rect x="40.0" y="230.0" width="110.0" height="40.0" rx="0" fill="#ffffff" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="95.0" y="256.0" font-size="14" text-anchor="middle" fill="#222222">sA[3,0]</text>
+<rect x="150.0" y="230.0" width="110.0" height="40.0" rx="0" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="205.0" y="256.0" font-size="14" text-anchor="middle" fill="#222222">sA[3,1]</text>
+<rect x="260.0" y="230.0" width="110.0" height="40.0" rx="0" fill="#ffffff" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="315.0" y="256.0" font-size="14" text-anchor="middle" fill="#222222">sA[3,2]</text>
+<text x="95.0" y="102.0" font-size="14" text-anchor="middle" fill="#777777">K 段 0</text>
+<text x="205.0" y="102.0" font-size="14" text-anchor="middle" fill="#777777">K 段 1</text>
+<text x="315.0" y="102.0" font-size="14" text-anchor="middle" fill="#777777">K 段 2</text>
+<text x="32.0" y="136.0" font-size="14" text-anchor="end" fill="#777777">行0</text>
+<text x="205.0" y="294.0" font-size="14" text-anchor="middle" fill="#777777">每格 = 1 行 × 128 列，共用一个 32 位因子</text>
+<text x="520.0" y="80.0" font-size="15" text-anchor="start" fill="#c77a12" font-weight="bold">权重 B（K × N）：每 128×128 一个因子</text>
+<rect x="520.0" y="110.0" width="130.0" height="54.0" rx="0" fill="#f8e3c4" stroke="#c77a12" stroke-width="1.5"/>
+<text x="585.0" y="142.0" font-size="14" text-anchor="middle" fill="#222222">sB[0,0]</text>
+<rect x="650.0" y="110.0" width="130.0" height="54.0" rx="0" fill="#ffffff" stroke="#c77a12" stroke-width="1.5"/>
+<text x="715.0" y="142.0" font-size="14" text-anchor="middle" fill="#222222">sB[0,1]</text>
+<rect x="520.0" y="164.0" width="130.0" height="54.0" rx="0" fill="#ffffff" stroke="#c77a12" stroke-width="1.5"/>
+<text x="585.0" y="196.0" font-size="14" text-anchor="middle" fill="#222222">sB[1,0]</text>
+<rect x="650.0" y="164.0" width="130.0" height="54.0" rx="0" fill="#f8e3c4" stroke="#c77a12" stroke-width="1.5"/>
+<text x="715.0" y="196.0" font-size="14" text-anchor="middle" fill="#222222">sB[1,1]</text>
+<rect x="520.0" y="218.0" width="130.0" height="54.0" rx="0" fill="#f8e3c4" stroke="#c77a12" stroke-width="1.5"/>
+<text x="585.0" y="250.0" font-size="14" text-anchor="middle" fill="#222222">sB[2,0]</text>
+<rect x="650.0" y="218.0" width="130.0" height="54.0" rx="0" fill="#ffffff" stroke="#c77a12" stroke-width="1.5"/>
+<text x="715.0" y="250.0" font-size="14" text-anchor="middle" fill="#222222">sB[2,1]</text>
+<text x="512.0" y="142.0" font-size="14" text-anchor="end" fill="#777777">K 段 0</text>
+<text x="512.0" y="196.0" font-size="14" text-anchor="end" fill="#777777">K 段 1</text>
+<text x="512.0" y="250.0" font-size="14" text-anchor="end" fill="#777777">K 段 2</text>
+<text x="650.0" y="296.0" font-size="14" text-anchor="middle" fill="#777777">每格 = 128 × 128，共用一个 32 位因子</text>
+<rect x="150.0" y="110.0" width="110.0" height="40.0" rx="0" fill="none" stroke="#c0392b" stroke-width="3"/>
+<rect x="520.0" y="164.0" width="130.0" height="54.0" rx="0" fill="none" stroke="#c0392b" stroke-width="3"/>
+<rect x="40.0" y="340.0" width="880.0" height="200.0" rx="3" fill="#f3f3f3" stroke="#777777" stroke-width="1.5"/>
+<text x="60.0" y="368.0" font-size="15" text-anchor="start" fill="#222222" font-weight="bold">第 1 段（K 方向第 128～255 个数）算完后，输出第 0 行、第 0 块列里的每个元素：</text>
+<text x="60.0" y="402.0" font-size="15" text-anchor="start" fill="#c0392b" font-family="monospace">acc_final += sA[0,1] × sB[1,0] × (fp8 矩阵乘在这 128 深上的部分和)</text>
+<text x="60.0" y="436.0" font-size="14" text-anchor="start" fill="#222222">两个红框的因子恰好各管这 128 深：部分和只经过一种缩放，乘一次就还原成真实数值。</text>
+<text x="60.0" y="468.0" font-size="14" text-anchor="start" fill="#222222">为什么要这么细：FP8（E4M3）最大只能表示 448。整行共用一个因子时，因子要照顾一个 300 的离群值，</text>
+<text x="60.0" y="492.0" font-size="14" text-anchor="start" fill="#222222">同行 0.01 量级的小数就落进 FP8 最粗的那一档，只剩一两位有效精度；每 128 个数一个因子，离群值只拖累</text>
+<text x="60.0" y="516.0" font-size="14" text-anchor="start" fill="#222222">它所在的那 128 个数（数值为示意）。</text>
+</svg>

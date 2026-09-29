@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 545" width="980" height="545" font-family="sans-serif">
+<rect x="0" y="0" width="980" height="545" fill="#ffffff"/>
+<text x="490" y="28" font-size="18" text-anchor="middle" font-weight="bold" fill="#111">搬 1 个比特要花多少能量：信号一出封装，就贵一个数量级</text>
+<line x1="340.0" y1="70" x2="340.0" y2="449" stroke="#ddd" stroke-width="1.2"/>
+<text x="340.0" y="469" font-size="14" text-anchor="middle" fill="#111">0.01</text>
+<line x1="490.0" y1="70" x2="490.0" y2="449" stroke="#ddd" stroke-width="1.2"/>
+<text x="490.0" y="469" font-size="14" text-anchor="middle" fill="#111">0.1</text>
+<line x1="640.0" y1="70" x2="640.0" y2="449" stroke="#ddd" stroke-width="1.2"/>
+<text x="640.0" y="469" font-size="14" text-anchor="middle" fill="#111">1</text>
+<line x1="790.0" y1="70" x2="790.0" y2="449" stroke="#ddd" stroke-width="1.2"/>
+<text x="790.0" y="469" font-size="14" text-anchor="middle" fill="#111">10</text>
+<line x1="940.0" y1="70" x2="940.0" y2="449" stroke="#ddd" stroke-width="1.2"/>
+<text x="940.0" y="469" font-size="14" text-anchor="middle" fill="#111">100</text>
+<text x="640.0" y="491" font-size="14" text-anchor="middle" fill="#111">每比特能量（皮焦，pJ；对数刻度：每一大格差 10 倍）</text>
+<text x="322" y="97" font-size="14" text-anchor="end" fill="#111">寄存器堆读</text>
+<text x="322" y="115" font-size="14" text-anchor="end" fill="#777">微米级</text>
+<rect x="411.6" y="87" width="78.4" height="20" rx="3" fill="#2e7d32" fill-opacity="0.25" stroke="#2e7d32" stroke-width="1.8"/>
+<text x="498.0" y="102" font-size="14" fill="#2e7d32">0.03～0.1</text>
+<text x="322" y="149" font-size="14" text-anchor="end" fill="#111">SM 内部到 shared/L1</text>
+<text x="322" y="167" font-size="14" text-anchor="end" fill="#777">几百微米</text>
+<rect x="490.0" y="139" width="71.6" height="20" rx="3" fill="#2e7d32" fill-opacity="0.25" stroke="#2e7d32" stroke-width="1.8"/>
+<text x="569.6" y="154" font-size="14" fill="#2e7d32">0.1～0.3</text>
+<text x="322" y="201" font-size="14" text-anchor="end" fill="#111">穿过片上网络到 L2</text>
+<text x="322" y="219" font-size="14" text-anchor="end" fill="#777">十几毫米</text>
+<rect x="561.6" y="191" width="78.4" height="20" rx="3" fill="#1f5fa8" fill-opacity="0.25" stroke="#1f5fa8" stroke-width="1.8"/>
+<text x="648.0" y="206" font-size="14" fill="#1f5fa8">0.3～1</text>
+<text x="322" y="253" font-size="14" text-anchor="end" fill="#111">跨 die：封装内并行 PHY</text>
+<text x="322" y="271" font-size="14" text-anchor="end" fill="#777">几毫米，穿中介层</text>
+<rect x="549.7" y="243" width="45.2" height="20" rx="3" fill="#6a3d9a" fill-opacity="0.25" stroke="#6a3d9a" stroke-width="1.8"/>
+<text x="602.8" y="258" font-size="14" fill="#6a3d9a">0.25～0.5</text>
+<text x="322" y="305" font-size="14" text-anchor="end" fill="#111">跨封装：SerDes</text>
+<text x="322" y="323" font-size="14" text-anchor="end" fill="#777">几厘米到几十厘米</text>
+<rect x="685.2" y="295" width="71.6" height="20" rx="3" fill="#b5451b" fill-opacity="0.25" stroke="#b5451b" stroke-width="1.8"/>
+<text x="764.7" y="310" font-size="14" fill="#b5451b">2～6</text>
+<text x="322" y="357" font-size="14" text-anchor="end" fill="#111">读 HBM（含 DRAM 阵列）</text>
+<text x="322" y="375" font-size="14" text-anchor="end" fill="#777">封装内</text>
+<rect x="711.6" y="347" width="33.3" height="20" rx="3" fill="#b5451b" fill-opacity="0.25" stroke="#b5451b" stroke-width="1.8"/>
+<text x="752.8" y="362" font-size="14" fill="#b5451b">3～5</text>
+<text x="322" y="409" font-size="14" text-anchor="end" fill="#111">跨节点：光模块</text>
+<text x="322" y="427" font-size="14" text-anchor="end" fill="#777">米级</text>
+<rect x="790.0" y="399" width="71.6" height="20" rx="3" fill="#8b1a1a" fill-opacity="0.25" stroke="#8b1a1a" stroke-width="1.8"/>
+<text x="869.6" y="414" font-size="14" fill="#8b1a1a">10～30</text>
+<line x1="640.0" y1="65" x2="640.0" y2="447" stroke="#111" stroke-width="1.8" stroke-dasharray="7,4"/>
+<text x="646.0" y="59" font-size="14" fill="#111">一次 FP16 乘加 ≈ 1 pJ</text>
+<text x="490" y="527" font-size="14" text-anchor="middle" fill="#555">量级估计（先进工艺下的常见范围，不同实现有出入），数值与正文 §5 的表一致</text>
+</svg>

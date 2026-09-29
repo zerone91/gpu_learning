@@ -1,0 +1,291 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="560" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222222"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f6db5"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777777"/></marker><marker id="o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c77a12"/></marker><marker id="n" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e8b57"/></marker><marker id="p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7a4fb0"/></marker></defs>
+<text x="480" y="30" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold">Triton 源码里的一整块 a，在编译器眼里要换两次“谁持有哪几个元素”</text>
+<text x="120" y="70" font-size="15" text-anchor="middle" fill="#2f6db5" font-weight="bold">Triton 源码的视角</text>
+<rect x="40" y="90" width="160" height="110" rx="2" fill="#dbe7f5" stroke="#2f6db5" stroke-width="2.5"/>
+<text x="120" y="140" font-size="22" text-anchor="middle" fill="#222222" font-weight="bold">a</text>
+<text x="120" y="166" font-size="13" text-anchor="middle" fill="#222222">一整块 128×64</text>
+<text x="120" y="226" font-size="13" text-anchor="middle" fill="#444">一个程序实例把 a</text>
+<text x="120" y="244" font-size="13" text-anchor="middle" fill="#444">当成一个值来操作，</text>
+<text x="120" y="262" font-size="13" text-anchor="middle" fill="#444">没有“线程”这个概念</text>
+<line x1="240" y1="60" x2="240" y2="520" stroke="#bbbbbb" stroke-width="1.5" stroke-dasharray="6,5"/>
+<text x="600" y="70" font-size="14" text-anchor="middle" fill="#c77a12" font-weight="bold">编译器补出来的线程视角（取 a 左上角 8×8 示意，16 个线程 T0～T15 各持 4 个元素）</text>
+<text x="390" y="108" font-size="14" text-anchor="middle" fill="#222222" font-weight="bold">① 读显存时的分布</text>
+<rect x="270" y="120" width="30" height="30" rx="0" fill="#f8e3c4" stroke="#777777" stroke-width="1"/>
+<text x="285.0" y="140" font-size="11" text-anchor="middle" fill="#222222">T0</text>
+<rect x="300" y="120" width="30" height="30" rx="0" fill="#f8e3c4" stroke="#777777" stroke-width="1"/>
+<text x="315.0" y="140" font-size="11" text-anchor="middle" fill="#222222">T0</text>
+<rect x="330" y="120" width="30" height="30" rx="0" fill="#f8e3c4" stroke="#777777" stroke-width="1"/>
+<text x="345.0" y="140" font-size="11" text-anchor="middle" fill="#222222">T0</text>
+<rect x="360" y="120" width="30" height="30" rx="0" fill="#f8e3c4" stroke="#777777" stroke-width="1"/>
+<text x="375.0" y="140" font-size="11" text-anchor="middle" fill="#222222">T0</text>
+<rect x="390" y="120" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="405.0" y="140" font-size="11" text-anchor="middle" fill="#222222">T1</text>
+<rect x="420" y="120" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="435.0" y="140" font-size="11" text-anchor="middle" fill="#222222">T1</text>
+<rect x="450" y="120" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="465.0" y="140" font-size="11" text-anchor="middle" fill="#222222">T1</text>
+<rect x="480" y="120" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="495.0" y="140" font-size="11" text-anchor="middle" fill="#222222">T1</text>
+<rect x="270" y="150" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="285.0" y="170" font-size="11" text-anchor="middle" fill="#222222">T2</text>
+<rect x="300" y="150" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="315.0" y="170" font-size="11" text-anchor="middle" fill="#222222">T2</text>
+<rect x="330" y="150" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="345.0" y="170" font-size="11" text-anchor="middle" fill="#222222">T2</text>
+<rect x="360" y="150" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="375.0" y="170" font-size="11" text-anchor="middle" fill="#222222">T2</text>
+<rect x="390" y="150" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="405.0" y="170" font-size="11" text-anchor="middle" fill="#222222">T3</text>
+<rect x="420" y="150" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="435.0" y="170" font-size="11" text-anchor="middle" fill="#222222">T3</text>
+<rect x="450" y="150" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="465.0" y="170" font-size="11" text-anchor="middle" fill="#222222">T3</text>
+<rect x="480" y="150" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="495.0" y="170" font-size="11" text-anchor="middle" fill="#222222">T3</text>
+<rect x="270" y="180" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="285.0" y="200" font-size="11" text-anchor="middle" fill="#222222">T4</text>
+<rect x="300" y="180" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="315.0" y="200" font-size="11" text-anchor="middle" fill="#222222">T4</text>
+<rect x="330" y="180" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="345.0" y="200" font-size="11" text-anchor="middle" fill="#222222">T4</text>
+<rect x="360" y="180" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="375.0" y="200" font-size="11" text-anchor="middle" fill="#222222">T4</text>
+<rect x="390" y="180" width="30" height="30" rx="0" fill="#d5ecdc" stroke="#777777" stroke-width="1"/>
+<text x="405.0" y="200" font-size="11" text-anchor="middle" fill="#222222">T5</text>
+<rect x="420" y="180" width="30" height="30" rx="0" fill="#d5ecdc" stroke="#777777" stroke-width="1"/>
+<text x="435.0" y="200" font-size="11" text-anchor="middle" fill="#222222">T5</text>
+<rect x="450" y="180" width="30" height="30" rx="0" fill="#d5ecdc" stroke="#777777" stroke-width="1"/>
+<text x="465.0" y="200" font-size="11" text-anchor="middle" fill="#222222">T5</text>
+<rect x="480" y="180" width="30" height="30" rx="0" fill="#d5ecdc" stroke="#777777" stroke-width="1"/>
+<text x="495.0" y="200" font-size="11" text-anchor="middle" fill="#222222">T5</text>
+<rect x="270" y="210" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="285.0" y="230" font-size="11" text-anchor="middle" fill="#222222">T6</text>
+<rect x="300" y="210" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="315.0" y="230" font-size="11" text-anchor="middle" fill="#222222">T6</text>
+<rect x="330" y="210" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="345.0" y="230" font-size="11" text-anchor="middle" fill="#222222">T6</text>
+<rect x="360" y="210" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="375.0" y="230" font-size="11" text-anchor="middle" fill="#222222">T6</text>
+<rect x="390" y="210" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="405.0" y="230" font-size="11" text-anchor="middle" fill="#222222">T7</text>
+<rect x="420" y="210" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="435.0" y="230" font-size="11" text-anchor="middle" fill="#222222">T7</text>
+<rect x="450" y="210" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="465.0" y="230" font-size="11" text-anchor="middle" fill="#222222">T7</text>
+<rect x="480" y="210" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="495.0" y="230" font-size="11" text-anchor="middle" fill="#222222">T7</text>
+<rect x="270" y="240" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="285.0" y="260" font-size="11" text-anchor="middle" fill="#222222">T8</text>
+<rect x="300" y="240" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="315.0" y="260" font-size="11" text-anchor="middle" fill="#222222">T8</text>
+<rect x="330" y="240" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="345.0" y="260" font-size="11" text-anchor="middle" fill="#222222">T8</text>
+<rect x="360" y="240" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="375.0" y="260" font-size="11" text-anchor="middle" fill="#222222">T8</text>
+<rect x="390" y="240" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="405.0" y="260" font-size="11" text-anchor="middle" fill="#222222">T9</text>
+<rect x="420" y="240" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="435.0" y="260" font-size="11" text-anchor="middle" fill="#222222">T9</text>
+<rect x="450" y="240" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="465.0" y="260" font-size="11" text-anchor="middle" fill="#222222">T9</text>
+<rect x="480" y="240" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="495.0" y="260" font-size="11" text-anchor="middle" fill="#222222">T9</text>
+<rect x="270" y="270" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="285.0" y="290" font-size="11" text-anchor="middle" fill="#222222">T10</text>
+<rect x="300" y="270" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="315.0" y="290" font-size="11" text-anchor="middle" fill="#222222">T10</text>
+<rect x="330" y="270" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="345.0" y="290" font-size="11" text-anchor="middle" fill="#222222">T10</text>
+<rect x="360" y="270" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="375.0" y="290" font-size="11" text-anchor="middle" fill="#222222">T10</text>
+<rect x="390" y="270" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="405.0" y="290" font-size="11" text-anchor="middle" fill="#222222">T11</text>
+<rect x="420" y="270" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="435.0" y="290" font-size="11" text-anchor="middle" fill="#222222">T11</text>
+<rect x="450" y="270" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="465.0" y="290" font-size="11" text-anchor="middle" fill="#222222">T11</text>
+<rect x="480" y="270" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="495.0" y="290" font-size="11" text-anchor="middle" fill="#222222">T11</text>
+<rect x="270" y="300" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="285.0" y="320" font-size="11" text-anchor="middle" fill="#222222">T12</text>
+<rect x="300" y="300" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="315.0" y="320" font-size="11" text-anchor="middle" fill="#222222">T12</text>
+<rect x="330" y="300" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="345.0" y="320" font-size="11" text-anchor="middle" fill="#222222">T12</text>
+<rect x="360" y="300" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="375.0" y="320" font-size="11" text-anchor="middle" fill="#222222">T12</text>
+<rect x="390" y="300" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="405.0" y="320" font-size="11" text-anchor="middle" fill="#222222">T13</text>
+<rect x="420" y="300" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="435.0" y="320" font-size="11" text-anchor="middle" fill="#222222">T13</text>
+<rect x="450" y="300" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="465.0" y="320" font-size="11" text-anchor="middle" fill="#222222">T13</text>
+<rect x="480" y="300" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="495.0" y="320" font-size="11" text-anchor="middle" fill="#222222">T13</text>
+<rect x="270" y="330" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="285.0" y="350" font-size="11" text-anchor="middle" fill="#222222">T14</text>
+<rect x="300" y="330" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="315.0" y="350" font-size="11" text-anchor="middle" fill="#222222">T14</text>
+<rect x="330" y="330" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="345.0" y="350" font-size="11" text-anchor="middle" fill="#222222">T14</text>
+<rect x="360" y="330" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="375.0" y="350" font-size="11" text-anchor="middle" fill="#222222">T14</text>
+<rect x="390" y="330" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="405.0" y="350" font-size="11" text-anchor="middle" fill="#222222">T15</text>
+<rect x="420" y="330" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="435.0" y="350" font-size="11" text-anchor="middle" fill="#222222">T15</text>
+<rect x="450" y="330" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="465.0" y="350" font-size="11" text-anchor="middle" fill="#222222">T15</text>
+<rect x="480" y="330" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="495.0" y="350" font-size="11" text-anchor="middle" fill="#222222">T15</text>
+<rect x="270" y="120" width="240" height="240" rx="0" fill="none" stroke="#222222" stroke-width="2"/>
+<text x="810" y="108" font-size="14" text-anchor="middle" fill="#222222" font-weight="bold">③ Tensor Core 要求的分布</text>
+<rect x="690" y="120" width="30" height="30" rx="0" fill="#f8e3c4" stroke="#777777" stroke-width="1"/>
+<text x="705.0" y="140" font-size="11" text-anchor="middle" fill="#222222">T0</text>
+<rect x="720" y="120" width="30" height="30" rx="0" fill="#f8e3c4" stroke="#777777" stroke-width="1"/>
+<text x="735.0" y="140" font-size="11" text-anchor="middle" fill="#222222">T0</text>
+<rect x="750" y="120" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="765.0" y="140" font-size="11" text-anchor="middle" fill="#222222">T1</text>
+<rect x="780" y="120" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="795.0" y="140" font-size="11" text-anchor="middle" fill="#222222">T1</text>
+<rect x="810" y="120" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="825.0" y="140" font-size="11" text-anchor="middle" fill="#222222">T2</text>
+<rect x="840" y="120" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="855.0" y="140" font-size="11" text-anchor="middle" fill="#222222">T2</text>
+<rect x="870" y="120" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="885.0" y="140" font-size="11" text-anchor="middle" fill="#222222">T3</text>
+<rect x="900" y="120" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="915.0" y="140" font-size="11" text-anchor="middle" fill="#222222">T3</text>
+<rect x="690" y="150" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="705.0" y="170" font-size="11" text-anchor="middle" fill="#222222">T4</text>
+<rect x="720" y="150" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="735.0" y="170" font-size="11" text-anchor="middle" fill="#222222">T4</text>
+<rect x="750" y="150" width="30" height="30" rx="0" fill="#d5ecdc" stroke="#777777" stroke-width="1"/>
+<text x="765.0" y="170" font-size="11" text-anchor="middle" fill="#222222">T5</text>
+<rect x="780" y="150" width="30" height="30" rx="0" fill="#d5ecdc" stroke="#777777" stroke-width="1"/>
+<text x="795.0" y="170" font-size="11" text-anchor="middle" fill="#222222">T5</text>
+<rect x="810" y="150" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="825.0" y="170" font-size="11" text-anchor="middle" fill="#222222">T6</text>
+<rect x="840" y="150" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="855.0" y="170" font-size="11" text-anchor="middle" fill="#222222">T6</text>
+<rect x="870" y="150" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="885.0" y="170" font-size="11" text-anchor="middle" fill="#222222">T7</text>
+<rect x="900" y="150" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="915.0" y="170" font-size="11" text-anchor="middle" fill="#222222">T7</text>
+<rect x="690" y="180" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="705.0" y="200" font-size="11" text-anchor="middle" fill="#222222">T8</text>
+<rect x="720" y="180" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="735.0" y="200" font-size="11" text-anchor="middle" fill="#222222">T8</text>
+<rect x="750" y="180" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="765.0" y="200" font-size="11" text-anchor="middle" fill="#222222">T9</text>
+<rect x="780" y="180" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="795.0" y="200" font-size="11" text-anchor="middle" fill="#222222">T9</text>
+<rect x="810" y="180" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="825.0" y="200" font-size="11" text-anchor="middle" fill="#222222">T10</text>
+<rect x="840" y="180" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="855.0" y="200" font-size="11" text-anchor="middle" fill="#222222">T10</text>
+<rect x="870" y="180" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="885.0" y="200" font-size="11" text-anchor="middle" fill="#222222">T11</text>
+<rect x="900" y="180" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="915.0" y="200" font-size="11" text-anchor="middle" fill="#222222">T11</text>
+<rect x="690" y="210" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="705.0" y="230" font-size="11" text-anchor="middle" fill="#222222">T12</text>
+<rect x="720" y="210" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="735.0" y="230" font-size="11" text-anchor="middle" fill="#222222">T12</text>
+<rect x="750" y="210" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="765.0" y="230" font-size="11" text-anchor="middle" fill="#222222">T13</text>
+<rect x="780" y="210" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="795.0" y="230" font-size="11" text-anchor="middle" fill="#222222">T13</text>
+<rect x="810" y="210" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="825.0" y="230" font-size="11" text-anchor="middle" fill="#222222">T14</text>
+<rect x="840" y="210" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="855.0" y="230" font-size="11" text-anchor="middle" fill="#222222">T14</text>
+<rect x="870" y="210" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="885.0" y="230" font-size="11" text-anchor="middle" fill="#222222">T15</text>
+<rect x="900" y="210" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="915.0" y="230" font-size="11" text-anchor="middle" fill="#222222">T15</text>
+<rect x="690" y="240" width="30" height="30" rx="0" fill="#f8e3c4" stroke="#777777" stroke-width="1"/>
+<text x="705.0" y="260" font-size="11" text-anchor="middle" fill="#222222">T0</text>
+<rect x="720" y="240" width="30" height="30" rx="0" fill="#f8e3c4" stroke="#777777" stroke-width="1"/>
+<text x="735.0" y="260" font-size="11" text-anchor="middle" fill="#222222">T0</text>
+<rect x="750" y="240" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="765.0" y="260" font-size="11" text-anchor="middle" fill="#222222">T1</text>
+<rect x="780" y="240" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="795.0" y="260" font-size="11" text-anchor="middle" fill="#222222">T1</text>
+<rect x="810" y="240" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="825.0" y="260" font-size="11" text-anchor="middle" fill="#222222">T2</text>
+<rect x="840" y="240" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="855.0" y="260" font-size="11" text-anchor="middle" fill="#222222">T2</text>
+<rect x="870" y="240" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="885.0" y="260" font-size="11" text-anchor="middle" fill="#222222">T3</text>
+<rect x="900" y="240" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="915.0" y="260" font-size="11" text-anchor="middle" fill="#222222">T3</text>
+<rect x="690" y="270" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="705.0" y="290" font-size="11" text-anchor="middle" fill="#222222">T4</text>
+<rect x="720" y="270" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="735.0" y="290" font-size="11" text-anchor="middle" fill="#222222">T4</text>
+<rect x="750" y="270" width="30" height="30" rx="0" fill="#d5ecdc" stroke="#777777" stroke-width="1"/>
+<text x="765.0" y="290" font-size="11" text-anchor="middle" fill="#222222">T5</text>
+<rect x="780" y="270" width="30" height="30" rx="0" fill="#d5ecdc" stroke="#777777" stroke-width="1"/>
+<text x="795.0" y="290" font-size="11" text-anchor="middle" fill="#222222">T5</text>
+<rect x="810" y="270" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="825.0" y="290" font-size="11" text-anchor="middle" fill="#222222">T6</text>
+<rect x="840" y="270" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="855.0" y="290" font-size="11" text-anchor="middle" fill="#222222">T6</text>
+<rect x="870" y="270" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="885.0" y="290" font-size="11" text-anchor="middle" fill="#222222">T7</text>
+<rect x="900" y="270" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="915.0" y="290" font-size="11" text-anchor="middle" fill="#222222">T7</text>
+<rect x="690" y="300" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="705.0" y="320" font-size="11" text-anchor="middle" fill="#222222">T8</text>
+<rect x="720" y="300" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="735.0" y="320" font-size="11" text-anchor="middle" fill="#222222">T8</text>
+<rect x="750" y="300" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="765.0" y="320" font-size="11" text-anchor="middle" fill="#222222">T9</text>
+<rect x="780" y="300" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="795.0" y="320" font-size="11" text-anchor="middle" fill="#222222">T9</text>
+<rect x="810" y="300" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="825.0" y="320" font-size="11" text-anchor="middle" fill="#222222">T10</text>
+<rect x="840" y="300" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="855.0" y="320" font-size="11" text-anchor="middle" fill="#222222">T10</text>
+<rect x="870" y="300" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="885.0" y="320" font-size="11" text-anchor="middle" fill="#222222">T11</text>
+<rect x="900" y="300" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="915.0" y="320" font-size="11" text-anchor="middle" fill="#222222">T11</text>
+<rect x="690" y="330" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="705.0" y="350" font-size="11" text-anchor="middle" fill="#222222">T12</text>
+<rect x="720" y="330" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="735.0" y="350" font-size="11" text-anchor="middle" fill="#222222">T12</text>
+<rect x="750" y="330" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="765.0" y="350" font-size="11" text-anchor="middle" fill="#222222">T13</text>
+<rect x="780" y="330" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="795.0" y="350" font-size="11" text-anchor="middle" fill="#222222">T13</text>
+<rect x="810" y="330" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="825.0" y="350" font-size="11" text-anchor="middle" fill="#222222">T14</text>
+<rect x="840" y="330" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="855.0" y="350" font-size="11" text-anchor="middle" fill="#222222">T14</text>
+<rect x="870" y="330" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="885.0" y="350" font-size="11" text-anchor="middle" fill="#222222">T15</text>
+<rect x="900" y="330" width="30" height="30" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<text x="915.0" y="350" font-size="11" text-anchor="middle" fill="#222222">T15</text>
+<rect x="690" y="120" width="240" height="240" rx="0" fill="none" stroke="#222222" stroke-width="2"/>
+<rect x="560" y="180" width="100" height="120" rx="6" fill="#eeeeee" stroke="#222222" stroke-width="2"/>
+<text x="610" y="226" font-size="13" text-anchor="middle" fill="#222222" font-weight="bold">② shared</text>
+<text x="610" y="244" font-size="13" text-anchor="middle" fill="#222222" font-weight="bold">memory</text>
+<text x="610" y="266" font-size="12" text-anchor="middle" fill="#222222">中转重排</text>
+<line x1="512" y1="240" x2="556" y2="240" stroke="#222222" stroke-width="2" marker-end="url(#a)"/>
+<line x1="660" y1="240" x2="686" y2="240" stroke="#222222" stroke-width="2" marker-end="url(#a)"/>
+<text x="534" y="230" font-size="12" text-anchor="middle" fill="#444">写入</text>
+<text x="674" y="222" font-size="12" text-anchor="middle" fill="#444">读出</text>
+<text x="390" y="400" font-size="13" text-anchor="middle" fill="#222222">每个线程拿一行里连续的 4 个元素：</text>
+<text x="390" y="418" font-size="13" text-anchor="middle" fill="#222222">相邻线程读相邻地址，访存能合并</text>
+<text x="810" y="400" font-size="13" text-anchor="middle" fill="#222222">每个线程拿分在两处的 2+2 个元素：</text>
+<text x="810" y="418" font-size="13" text-anchor="middle" fill="#222222">这是矩阵指令规定死的分布</text>
+<rect x="300" y="450" width="26" height="20" rx="0" fill="#f8e3c4" stroke="#777777" stroke-width="1"/>
+<text x="334" y="466" font-size="13" text-anchor="start" fill="#222222">T0 的元素</text>
+<rect x="440" y="450" width="26" height="20" rx="0" fill="#d5ecdc" stroke="#777777" stroke-width="1"/>
+<text x="474" y="466" font-size="13" text-anchor="start" fill="#222222">T5 的元素</text>
+<text x="600" y="510" font-size="12" text-anchor="middle" fill="#777777">示意：真实的 8 个 warp 有 256 个线程，右图的分布仿照 Ampere 矩阵指令（mma）操作数 A 的片段排法缩小而成</text>
+</svg>

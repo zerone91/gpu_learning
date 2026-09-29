@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="560" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker></defs>
+<text x="480" y="28" font-size="18" text-anchor="middle" fill="#222" font-weight="bold">可定制 HBM（cHBM）：基底裸片换成逻辑工艺、接口换小之后，空出的面积可以放什么</text>
+<rect x="40" y="60" width="700" height="18" fill="#c9b3dd" stroke="#555" stroke-width="1"/>
+<rect x="40" y="82" width="700" height="18" fill="#c9b3dd" stroke="#555" stroke-width="1"/>
+<rect x="40" y="104" width="700" height="18" fill="#c9b3dd" stroke="#555" stroke-width="1"/>
+<rect x="40" y="126" width="700" height="18" fill="#c9b3dd" stroke="#555" stroke-width="1"/>
+<text x="390.0" y="140" font-size="13" text-anchor="middle">核心裸片（DRAM，不变）</text>
+<rect x="40" y="160" width="700" height="250" fill="#f7efe6" stroke="#222" stroke-width="2"/>
+<text x="52" y="182" font-size="14" font-weight="bold">基底裸片（逻辑工艺）</text>
+<rect x="52" y="196" width="120" height="150" fill="#dbe6f3" stroke="#222" stroke-width="1.5" rx="4"/>
+<text x="112.0" y="224" font-size="18" text-anchor="middle" font-weight="bold">①</text>
+<text x="112.0" y="250" font-size="15" text-anchor="middle" font-weight="bold">内存控制器</text>
+<text x="112.0" y="280" font-size="12" text-anchor="middle">地址映射、调度、</text>
+<text x="112.0" y="299" font-size="13" text-anchor="middle">刷新管理，</text>
+<text x="112.0" y="318" font-size="12" text-anchor="middle">从 GPU 搬来</text>
+<rect x="180" y="196" width="120" height="150" fill="#dbe6f3" stroke="#222" stroke-width="1.5" rx="4"/>
+<text x="240.0" y="224" font-size="18" text-anchor="middle" font-weight="bold">②</text>
+<text x="240.0" y="250" font-size="15" text-anchor="middle" font-weight="bold">SRAM 修复</text>
+<text x="240.0" y="280" font-size="12" text-anchor="middle">坏的 DRAM 地址</text>
+<text x="240.0" y="299" font-size="13" text-anchor="middle">改映射到</text>
+<text x="240.0" y="318" font-size="13" text-anchor="middle">这块 SRAM</text>
+<rect x="308" y="196" width="120" height="150" fill="#dbe6f3" stroke="#222" stroke-width="1.5" rx="4"/>
+<text x="368.0" y="224" font-size="18" text-anchor="middle" font-weight="bold">③</text>
+<text x="368.0" y="250" font-size="15" text-anchor="middle" font-weight="bold">可靠性</text>
+<text x="368.0" y="280" font-size="13" text-anchor="middle">更强的纠错、</text>
+<text x="368.0" y="299" font-size="13" text-anchor="middle">错误统计、</text>
+<text x="368.0" y="318" font-size="13" text-anchor="middle">坏块隔离</text>
+<rect x="436" y="196" width="120" height="150" fill="#e6f2de" stroke="#222" stroke-width="1.5" rx="4"/>
+<text x="496.0" y="224" font-size="18" text-anchor="middle" font-weight="bold">④</text>
+<text x="496.0" y="250" font-size="15" text-anchor="middle" font-weight="bold">级联接口</text>
+<text x="496.0" y="280" font-size="12" text-anchor="middle">再挂 DDR 或</text>
+<text x="496.0" y="299" font-size="12" text-anchor="middle">闪存（HBF），</text>
+<text x="496.0" y="318" font-size="13" text-anchor="middle">换更大容量</text>
+<rect x="564" y="196" width="120" height="150" fill="#fbe3e0" stroke="#222" stroke-width="1.5" rx="4"/>
+<text x="624.0" y="224" font-size="18" text-anchor="middle" font-weight="bold">⑤</text>
+<text x="624.0" y="250" font-size="15" text-anchor="middle" font-weight="bold">近存计算</text>
+<text x="624.0" y="280" font-size="12" text-anchor="middle">归约、洗牌、置换</text>
+<text x="624.0" y="299" font-size="13" text-anchor="middle">这类数据多、</text>
+<text x="624.0" y="318" font-size="13" text-anchor="middle">运算少的算子</text>
+<rect x="700" y="210" width="34" height="110" fill="#e79a8f" stroke="#8b2f24" stroke-width="1.5"/>
+<text x="717" y="265" font-size="12" text-anchor="middle" transform="rotate(-90 717 265)">D2D 接口</text>
+<rect x="52" y="356" width="640" height="14" fill="#fff" stroke="#8b4513" stroke-width="1"/>
+<circle cx="60.0" cy="363" r="2.2" fill="#d9822b"/>
+<circle cx="70.8" cy="363" r="2.2" fill="#d9822b"/>
+<circle cx="81.6" cy="363" r="2.2" fill="#d9822b"/>
+<circle cx="92.4" cy="363" r="2.2" fill="#d9822b"/>
+<circle cx="103.2" cy="363" r="2.2" fill="#d9822b"/>
+<circle cx="114.0" cy="363" r="2.2" fill="#d9822b"/>
+<circle cx="124.80000000000001" cy="363" r="2.2" fill="#d9822b"/>
+<circle cx="135.60000000000002" cy="363" r="2.2" fill="#d9822b"/>
+<circle cx="146.4" cy="363" r="2.2" fill="#d9822b"/>
+<circle cx="157.2" cy="363" r="2.2" fill="#d9822b"/>
+<circle cx="168.0" cy="363" r="2.2" fill="#d9822b"/>
+<circle cx="178.8" cy="363" r="2.2" fill="#d9822b"/>
+<circle cx="189.60000000000002" cy="363" r="2.2" fill="#d9822b"/>
+<circle cx="200.4" cy="363" r="2.2" fill="#d9822b"/>
+<circle cx="211.20000000000002" cy="363" r="2.2" fill="#d9822b"/>
+<circle cx="222.0" cy="363" r="2.2" fill="#d9822b"/>
+<circle cx="232.8" cy="363" r="2.2" fill="#d9822b"/>
+<circle cx="243.60000000000002" cy="363" r="2.2" fill="#d9822b"/>
+<circle cx="254.4" cy="363" r="2.2" fill="#d9822b"/>
+<circle cx="265.20000000000005" cy="363" r="2.2" fill="#d9822b"/>
+<circle cx="276.0" cy="363" r="2.2" fill="#d9822b"/>
+<circle cx="286.8" cy="363" r="2.2" fill="#d9822b"/>
+<circle cx="297.6" cy="363" r="2.2" fill="#d9822b"/>
+<circle cx="308.4" cy="363" r="2.2" fill="#d9822b"/>
+<circle cx="319.20000000000005" cy="363" r="2.2" fill="#d9822b"/>
+<circle cx="330.0" cy="363" r="2.2" fill="#d9822b"/>
+<circle cx="340.8" cy="363" r="2.2" fill="#d9822b"/>
+<circle cx="351.6" cy="363" r="2.2" fill="#d9822b"/>
+<circle cx="362.40000000000003" cy="363" r="2.2" fill="#d9822b"/>
+<circle cx="373.20000000000005" cy="363" r="2.2" fill="#d9822b"/>
+<circle cx="384.0" cy="363" r="2.2" fill="#d9822b"/>
+<circle cx="394.8" cy="363" r="2.2" fill="#d9822b"/>
+<circle cx="405.6" cy="363" r="2.2" fill="#d9822b"/>
+<circle cx="416.40000000000003" cy="363" r="2.2" fill="#d9822b"/>
+<circle cx="427.20000000000005" cy="363" r="2.2" fill="#d9822b"/>
+<circle cx="438.0" cy="363" r="2.2" fill="#d9822b"/>
+<circle cx="448.8" cy="363" r="2.2" fill="#d9822b"/>
+<circle cx="459.6" cy="363" r="2.2" fill="#d9822b"/>
+<circle cx="470.40000000000003" cy="363" r="2.2" fill="#d9822b"/>
+<circle cx="481.20000000000005" cy="363" r="2.2" fill="#d9822b"/>
+<circle cx="492.0" cy="363" r="2.2" fill="#d9822b"/>
+<circle cx="502.8" cy="363" r="2.2" fill="#d9822b"/>
+<circle cx="513.6" cy="363" r="2.2" fill="#d9822b"/>
+<circle cx="524.4000000000001" cy="363" r="2.2" fill="#d9822b"/>
+<circle cx="535.2" cy="363" r="2.2" fill="#d9822b"/>
+<circle cx="546.0" cy="363" r="2.2" fill="#d9822b"/>
+<circle cx="556.8" cy="363" r="2.2" fill="#d9822b"/>
+<circle cx="567.6" cy="363" r="2.2" fill="#d9822b"/>
+<circle cx="578.4000000000001" cy="363" r="2.2" fill="#d9822b"/>
+<circle cx="589.2" cy="363" r="2.2" fill="#d9822b"/>
+<circle cx="600.0" cy="363" r="2.2" fill="#d9822b"/>
+<circle cx="610.8000000000001" cy="363" r="2.2" fill="#d9822b"/>
+<circle cx="621.6" cy="363" r="2.2" fill="#d9822b"/>
+<circle cx="632.4000000000001" cy="363" r="2.2" fill="#d9822b"/>
+<circle cx="643.2" cy="363" r="2.2" fill="#d9822b"/>
+<circle cx="654.0" cy="363" r="2.2" fill="#d9822b"/>
+<circle cx="664.8000000000001" cy="363" r="2.2" fill="#d9822b"/>
+<circle cx="675.6" cy="363" r="2.2" fill="#d9822b"/>
+<circle cx="686.4000000000001" cy="363" r="2.2" fill="#d9822b"/>
+<text x="360.0" y="392" font-size="12" text-anchor="middle" fill="#555">TSV 区仍在（接上面的核心裸片）</text>
+<rect x="800" y="160" width="130" height="250" fill="#9bb7d4" stroke="#222" stroke-width="1.5"/>
+<rect x="800" y="210" width="24" height="110" fill="#e79a8f" stroke="#8b2f24" stroke-width="1.5"/>
+<text x="875" y="280" font-size="15" text-anchor="middle" font-weight="bold">GPU</text>
+<text x="875" y="302" font-size="12" text-anchor="middle">PHY 变小，</text>
+<text x="875" y="318" font-size="12" text-anchor="middle">控制器搬走</text>
+<line x1="734" y1="230" x2="800" y2="230" stroke="#8b2f24" stroke-width="1.5"/>
+<line x1="734" y1="248" x2="800" y2="248" stroke="#8b2f24" stroke-width="1.5"/>
+<line x1="734" y1="266" x2="800" y2="266" stroke="#8b2f24" stroke-width="1.5"/>
+<line x1="734" y1="284" x2="800" y2="284" stroke="#8b2f24" stroke-width="1.5"/>
+<line x1="734" y1="302" x2="800" y2="302" stroke="#8b2f24" stroke-width="1.5"/>
+<line x1="496.0" y1="346" x2="496.0" y2="450" stroke="#1e7b34" stroke-width="2" marker-end="url(#a)"/>
+<text x="504.0" y="444" font-size="13" fill="#1e7b34">外挂 DDR / HBF</text>
+<line x1="60" y1="480" x2="680" y2="480" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<text x="60" y="502" font-size="13">保守：几乎不需要说服谁</text>
+<text x="680" y="502" font-size="13" text-anchor="end">激进：受基底裸片的面积、功耗和散热预算限制</text>
+<text x="480" y="546" font-size="13" text-anchor="middle" fill="#555">五块的大小和位置是示意，不代表真实版图；五类用法取自 Samsung 在 Hot Chips 2026 上的归纳</text>
+</svg>

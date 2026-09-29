@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" font-family="sans-serif" font-size="15">
+<rect x="0" y="0" width="960" height="600" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#444"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/></marker><marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d9822b"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e7d32"/></marker><pattern id="h" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="#f4f4f4"/><line x1="0" y1="0" x2="0" y2="8" stroke="#bbb" stroke-width="2"/></pattern></defs>
+<text x="20.0" y="32.0" text-anchor="start" fill="#222222" font-size="19" font-weight="bold" >静态批与连续批：同样 4 个槽位、同样 200 步，空转的格子差多少</text>
+<text x="20.0" y="58.0" text-anchor="start" fill="#555" font-size="15" >每一行是批里的一个槽位（能同时生成的一个请求），横轴是 decode 步数；字母是请求名，数字是它的输出长度</text>
+<text x="20.0" y="100.0" text-anchor="start" fill="#222222" font-size="16" font-weight="bold" >静态批：攒够 4 个一起跑，全部跑完才换下一批</text>
+<text x="90.0" y="140.0" text-anchor="end" fill="#222222" font-size="14" >槽位 0</text>
+<rect x="100.0" y="114.0" width="680.0" height="40.0" rx="0" fill="url(#h)" stroke="#aaa" stroke-width="1" />
+<rect x="100.0" y="114.0" width="68.0" height="40.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5" />
+<text x="134.0" y="140.0" text-anchor="middle" fill="#222222" font-size="14" >A 20</text>
+<text x="474.0" y="140.0" text-anchor="middle" fill="#666" font-size="14" >空转 180 步</text>
+<text x="90.0" y="186.0" text-anchor="end" fill="#222222" font-size="14" >槽位 1</text>
+<rect x="100.0" y="160.0" width="680.0" height="40.0" rx="0" fill="url(#h)" stroke="#aaa" stroke-width="1" />
+<rect x="100.0" y="160.0" width="340.0" height="40.0" rx="0" fill="#fde2c4" stroke="#d9822b" stroke-width="1.5" />
+<text x="270.0" y="186.0" text-anchor="middle" fill="#222222" font-size="14" >B 100</text>
+<text x="610.0" y="186.0" text-anchor="middle" fill="#666" font-size="14" >空转 100 步</text>
+<text x="90.0" y="232.0" text-anchor="end" fill="#222222" font-size="14" >槽位 2</text>
+<rect x="100.0" y="206.0" width="680.0" height="40.0" rx="0" fill="url(#h)" stroke="#aaa" stroke-width="1" />
+<rect x="100.0" y="206.0" width="136.0" height="40.0" rx="0" fill="#d4ecd4" stroke="#2e7d32" stroke-width="1.5" />
+<text x="168.0" y="232.0" text-anchor="middle" fill="#222222" font-size="14" >C 40</text>
+<text x="508.0" y="232.0" text-anchor="middle" fill="#666" font-size="14" >空转 160 步</text>
+<text x="90.0" y="278.0" text-anchor="end" fill="#222222" font-size="14" >槽位 3</text>
+<rect x="100.0" y="252.0" width="680.0" height="40.0" rx="0" fill="url(#h)" stroke="#aaa" stroke-width="1" />
+<rect x="100.0" y="252.0" width="680.0" height="40.0" rx="0" fill="#e6dcf2" stroke="#6a3d9a" stroke-width="1.5" />
+<text x="440.0" y="278.0" text-anchor="middle" fill="#222222" font-size="14" >D 200</text>
+<line x1="100.0" y1="302.0" x2="780.0" y2="302.0" stroke="#444" stroke-width="1.5" marker-end="url(#a)"/>
+<line x1="100.0" y1="298.0" x2="100.0" y2="306.0" stroke="#444" stroke-width="1.5"/>
+<text x="100.0" y="322.0" text-anchor="middle" fill="#222222" font-size="14" >0</text>
+<line x1="168.0" y1="298.0" x2="168.0" y2="306.0" stroke="#444" stroke-width="1.5"/>
+<text x="168.0" y="322.0" text-anchor="middle" fill="#222222" font-size="14" >20</text>
+<line x1="236.0" y1="298.0" x2="236.0" y2="306.0" stroke="#444" stroke-width="1.5"/>
+<text x="236.0" y="322.0" text-anchor="middle" fill="#222222" font-size="14" >40</text>
+<line x1="304.0" y1="298.0" x2="304.0" y2="306.0" stroke="#444" stroke-width="1.5"/>
+<text x="304.0" y="322.0" text-anchor="middle" fill="#222222" font-size="14" >60</text>
+<line x1="372.0" y1="298.0" x2="372.0" y2="306.0" stroke="#444" stroke-width="1.5"/>
+<text x="372.0" y="322.0" text-anchor="middle" fill="#222222" font-size="14" >80</text>
+<line x1="440.0" y1="298.0" x2="440.0" y2="306.0" stroke="#444" stroke-width="1.5"/>
+<text x="440.0" y="322.0" text-anchor="middle" fill="#222222" font-size="14" >100</text>
+<line x1="508.0" y1="298.0" x2="508.0" y2="306.0" stroke="#444" stroke-width="1.5"/>
+<text x="508.0" y="322.0" text-anchor="middle" fill="#222222" font-size="14" >120</text>
+<line x1="576.0" y1="298.0" x2="576.0" y2="306.0" stroke="#444" stroke-width="1.5"/>
+<text x="576.0" y="322.0" text-anchor="middle" fill="#222222" font-size="14" >140</text>
+<line x1="644.0" y1="298.0" x2="644.0" y2="306.0" stroke="#444" stroke-width="1.5"/>
+<text x="644.0" y="322.0" text-anchor="middle" fill="#222222" font-size="14" >160</text>
+<line x1="712.0" y1="298.0" x2="712.0" y2="306.0" stroke="#444" stroke-width="1.5"/>
+<text x="712.0" y="322.0" text-anchor="middle" fill="#222222" font-size="14" >180</text>
+<line x1="780.0" y1="298.0" x2="780.0" y2="306.0" stroke="#444" stroke-width="1.5"/>
+<text x="780.0" y="322.0" text-anchor="middle" fill="#222222" font-size="14" >200</text>
+<text x="794.0" y="307.0" text-anchor="start" fill="#222222" font-size="14" >步</text>
+<text x="855.0" y="160.0" text-anchor="middle" fill="#222222" font-size="14" >有效</text>
+<text x="855.0" y="180.0" text-anchor="middle" fill="#222222" font-size="14" font-weight="bold" >360/800</text>
+<text x="855.0" y="200.0" text-anchor="middle" fill="#c0392b" font-size="15" font-weight="bold" >= 45%</text>
+<text x="855.0" y="240.0" text-anchor="middle" fill="#222222" font-size="14" >新请求 E、F…</text>
+<text x="855.0" y="260.0" text-anchor="middle" fill="#222222" font-size="14" >要等到第 200 步</text>
+<text x="20.0" y="362.0" text-anchor="start" fill="#222222" font-size="16" font-weight="bold" >连续批：每步结束检查一次，谁完成了就立刻换一个排队的请求进来</text>
+<text x="90.0" y="402.0" text-anchor="end" fill="#222222" font-size="14" >槽位 0</text>
+<rect x="100.0" y="376.0" width="68.0" height="40.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5" />
+<text x="134.0" y="402.0" text-anchor="middle" fill="#222222" font-size="14" >A 20</text>
+<rect x="168.0" y="376.0" width="238.0" height="40.0" rx="0" fill="#ffffff" stroke="#1f5fa8" stroke-width="1.5" />
+<text x="287.0" y="402.0" text-anchor="middle" fill="#222222" font-size="14" >E 70</text>
+<rect x="406.0" y="376.0" width="170.0" height="40.0" rx="0" fill="#ffffff" stroke="#1f5fa8" stroke-width="1.5" />
+<text x="491.0" y="402.0" text-anchor="middle" fill="#222222" font-size="14" >H 50</text>
+<rect x="576.0" y="376.0" width="204.0" height="40.0" rx="0" fill="#ffffff" stroke="#1f5fa8" stroke-width="1.5" />
+<text x="678.0" y="402.0" text-anchor="middle" fill="#222222" font-size="14" >J …</text>
+<text x="90.0" y="448.0" text-anchor="end" fill="#222222" font-size="14" >槽位 1</text>
+<rect x="100.0" y="422.0" width="340.0" height="40.0" rx="0" fill="#fde2c4" stroke="#d9822b" stroke-width="1.5" />
+<text x="270.0" y="448.0" text-anchor="middle" fill="#222222" font-size="14" >B 100</text>
+<rect x="440.0" y="422.0" width="272.0" height="40.0" rx="0" fill="#ffffff" stroke="#d9822b" stroke-width="1.5" />
+<text x="576.0" y="448.0" text-anchor="middle" fill="#222222" font-size="14" >I 80</text>
+<rect x="712.0" y="422.0" width="68.0" height="40.0" rx="0" fill="#ffffff" stroke="#d9822b" stroke-width="1.5" />
+<text x="746.0" y="448.0" text-anchor="middle" fill="#222222" font-size="14" >L …</text>
+<text x="90.0" y="494.0" text-anchor="end" fill="#222222" font-size="14" >槽位 2</text>
+<rect x="100.0" y="468.0" width="136.0" height="40.0" rx="0" fill="#d4ecd4" stroke="#2e7d32" stroke-width="1.5" />
+<text x="168.0" y="494.0" text-anchor="middle" fill="#222222" font-size="14" >C 40</text>
+<rect x="236.0" y="468.0" width="102.0" height="40.0" rx="0" fill="#ffffff" stroke="#2e7d32" stroke-width="1.5" />
+<text x="287.0" y="494.0" text-anchor="middle" fill="#222222" font-size="14" >F 30</text>
+<rect x="338.0" y="468.0" width="306.0" height="40.0" rx="0" fill="#ffffff" stroke="#2e7d32" stroke-width="1.5" />
+<text x="491.0" y="494.0" text-anchor="middle" fill="#222222" font-size="14" >G 90</text>
+<rect x="644.0" y="468.0" width="136.0" height="40.0" rx="0" fill="#ffffff" stroke="#2e7d32" stroke-width="1.5" />
+<text x="712.0" y="494.0" text-anchor="middle" fill="#222222" font-size="14" >K …</text>
+<text x="90.0" y="540.0" text-anchor="end" fill="#222222" font-size="14" >槽位 3</text>
+<rect x="100.0" y="514.0" width="680.0" height="40.0" rx="0" fill="#e6dcf2" stroke="#6a3d9a" stroke-width="1.5" />
+<text x="440.0" y="540.0" text-anchor="middle" fill="#222222" font-size="14" >D 200</text>
+<line x1="100.0" y1="564.0" x2="780.0" y2="564.0" stroke="#444" stroke-width="1.5" marker-end="url(#a)"/>
+<line x1="100.0" y1="560.0" x2="100.0" y2="568.0" stroke="#444" stroke-width="1.5"/>
+<text x="100.0" y="584.0" text-anchor="middle" fill="#222222" font-size="14" >0</text>
+<line x1="168.0" y1="560.0" x2="168.0" y2="568.0" stroke="#444" stroke-width="1.5"/>
+<text x="168.0" y="584.0" text-anchor="middle" fill="#222222" font-size="14" >20</text>
+<line x1="236.0" y1="560.0" x2="236.0" y2="568.0" stroke="#444" stroke-width="1.5"/>
+<text x="236.0" y="584.0" text-anchor="middle" fill="#222222" font-size="14" >40</text>
+<line x1="304.0" y1="560.0" x2="304.0" y2="568.0" stroke="#444" stroke-width="1.5"/>
+<text x="304.0" y="584.0" text-anchor="middle" fill="#222222" font-size="14" >60</text>
+<line x1="372.0" y1="560.0" x2="372.0" y2="568.0" stroke="#444" stroke-width="1.5"/>
+<text x="372.0" y="584.0" text-anchor="middle" fill="#222222" font-size="14" >80</text>
+<line x1="440.0" y1="560.0" x2="440.0" y2="568.0" stroke="#444" stroke-width="1.5"/>
+<text x="440.0" y="584.0" text-anchor="middle" fill="#222222" font-size="14" >100</text>
+<line x1="508.0" y1="560.0" x2="508.0" y2="568.0" stroke="#444" stroke-width="1.5"/>
+<text x="508.0" y="584.0" text-anchor="middle" fill="#222222" font-size="14" >120</text>
+<line x1="576.0" y1="560.0" x2="576.0" y2="568.0" stroke="#444" stroke-width="1.5"/>
+<text x="576.0" y="584.0" text-anchor="middle" fill="#222222" font-size="14" >140</text>
+<line x1="644.0" y1="560.0" x2="644.0" y2="568.0" stroke="#444" stroke-width="1.5"/>
+<text x="644.0" y="584.0" text-anchor="middle" fill="#222222" font-size="14" >160</text>
+<line x1="712.0" y1="560.0" x2="712.0" y2="568.0" stroke="#444" stroke-width="1.5"/>
+<text x="712.0" y="584.0" text-anchor="middle" fill="#222222" font-size="14" >180</text>
+<line x1="780.0" y1="560.0" x2="780.0" y2="568.0" stroke="#444" stroke-width="1.5"/>
+<text x="780.0" y="584.0" text-anchor="middle" fill="#222222" font-size="14" >200</text>
+<text x="794.0" y="569.0" text-anchor="start" fill="#222222" font-size="14" >步</text>
+<text x="855.0" y="422.0" text-anchor="middle" fill="#222222" font-size="14" >有效</text>
+<text x="855.0" y="442.0" text-anchor="middle" fill="#222222" font-size="14" font-weight="bold" >800/800</text>
+<text x="855.0" y="462.0" text-anchor="middle" fill="#2e7d32" font-size="15" font-weight="bold" >≈ 100%</text>
+<text x="855.0" y="502.0" text-anchor="middle" fill="#222222" font-size="14" >新请求最多</text>
+<text x="855.0" y="522.0" text-anchor="middle" fill="#222222" font-size="14" >等一步</text>
+</svg>

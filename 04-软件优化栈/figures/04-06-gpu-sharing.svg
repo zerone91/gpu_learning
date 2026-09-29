@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470" width="960" height="470" font-family="sans-serif" font-size="15">
+<rect x="0" y="0" width="960" height="470" fill="#ffffff"/>
+<defs><pattern id="h" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="#f2f2f2"/><line x1="0" y1="0" x2="0" y2="8" stroke="#bbb" stroke-width="2"/></pattern><pattern id="sw" width="6" height="6" patternUnits="userSpaceOnUse"><rect width="6" height="6" fill="#666"/><rect width="3" height="6" fill="#999"/></pattern></defs>
+<text x="20" y="30" font-size="17" font-weight="bold">四个小模型共用一块 GPU：三种共享方式下，SM 在各时刻被谁占着</text>
+<text x="40" y="70" font-weight="bold">时间片轮流（默认）</text>
+<text x="40" y="92" font-size="13" fill="#555">同一时刻只有一个模型在用</text>
+<rect x="40" y="110" width="270" height="240" fill="url(#h)" stroke="#555" stroke-width="1.5"/>
+<rect x="40.0" y="290.0" width="67.5" height="60.0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5"/>
+<text x="73.8" y="325.0" text-anchor="middle" font-size="13">模型 1</text>
+<rect x="115.5" y="290.0" width="59.5" height="60.0" fill="#fde2c4" stroke="#d9822b" stroke-width="1.5"/>
+<text x="145.2" y="325.0" text-anchor="middle" font-size="13">模型 2</text>
+<rect x="107.5" y="110" width="8" height="240" fill="url(#sw)"/>
+<rect x="183.0" y="290.0" width="59.5" height="60.0" fill="#d8efd8" stroke="#2e8b57" stroke-width="1.5"/>
+<text x="212.8" y="325.0" text-anchor="middle" font-size="13">模型 3</text>
+<rect x="175.0" y="110" width="8" height="240" fill="url(#sw)"/>
+<rect x="250.5" y="290.0" width="59.5" height="60.0" fill="#e6dcf2" stroke="#7d4ea8" stroke-width="1.5"/>
+<text x="280.2" y="325.0" text-anchor="middle" font-size="13">模型 4</text>
+<rect x="242.5" y="110" width="8" height="240" fill="url(#sw)"/>
+<rect x="115.0" y="164" width="120" height="42" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<text x="175.0" y="180" text-anchor="middle" font-size="13" fill="#555">四分之三的 SM</text>
+<text x="175.0" y="198" text-anchor="middle" font-size="13" fill="#555">一直空着</text>
+<text x="345" y="70" font-weight="bold">MPS</text>
+<text x="345" y="92" font-size="13" fill="#555">四个模型同时运行，各占一部分 SM</text>
+<rect x="345" y="110" width="270" height="240" fill="url(#h)" stroke="#555" stroke-width="1.5"/>
+<rect x="345.0" y="110.0" width="270.0" height="60.0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5"/>
+<text x="480.0" y="145.0" text-anchor="middle" font-size="13">模型 1</text>
+<rect x="345.0" y="170.0" width="270.0" height="60.0" fill="#fde2c4" stroke="#d9822b" stroke-width="1.5"/>
+<text x="480.0" y="205.0" text-anchor="middle" font-size="13">模型 2</text>
+<rect x="345.0" y="230.0" width="270.0" height="60.0" fill="#d8efd8" stroke="#2e8b57" stroke-width="1.5"/>
+<text x="480.0" y="265.0" text-anchor="middle" font-size="13">模型 3</text>
+<rect x="345.0" y="290.0" width="270.0" height="60.0" fill="#e6dcf2" stroke="#7d4ea8" stroke-width="1.5"/>
+<text x="480.0" y="325.0" text-anchor="middle" font-size="13">模型 4</text>
+<text x="650" y="70" font-weight="bold">MIG（划成 4 个实例）</text>
+<text x="650" y="92" font-size="13" fill="#555">硬件隔开，互不借用</text>
+<rect x="650" y="110" width="270" height="240" fill="url(#h)" stroke="#555" stroke-width="1.5"/>
+<rect x="650.0" y="110.0" width="270.0" height="60.0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5"/>
+<text x="785.0" y="145.0" text-anchor="middle" font-size="13">模型 1</text>
+<rect x="650.0" y="170.0" width="121.5" height="60.0" fill="#fde2c4" stroke="#d9822b" stroke-width="1.5"/>
+<text x="710.8" y="205.0" text-anchor="middle" font-size="13">模型 2</text>
+<rect x="798.4" y="189.0" width="92" height="22" fill="#ffffff"/>
+<text x="844.4" y="205.0" text-anchor="middle" font-size="13" fill="#c0392b">模型 2 空闲</text>
+<rect x="650.0" y="230.0" width="270.0" height="60.0" fill="#d8efd8" stroke="#2e8b57" stroke-width="1.5"/>
+<text x="785.0" y="265.0" text-anchor="middle" font-size="13">模型 3</text>
+<rect x="650.0" y="290.0" width="270.0" height="60.0" fill="#e6dcf2" stroke="#7d4ea8" stroke-width="1.5"/>
+<text x="785.0" y="325.0" text-anchor="middle" font-size="13">模型 4</text>
+<line x1="650" y1="170.0" x2="920" y2="170.0" stroke="#222" stroke-width="3.5"/>
+<line x1="650" y1="230.0" x2="920" y2="230.0" stroke="#222" stroke-width="3.5"/>
+<line x1="650" y1="290.0" x2="920" y2="290.0" stroke="#222" stroke-width="3.5"/>
+<line x1="40" y1="360" x2="310" y2="360" stroke="#333" stroke-width="1.5" marker-end="url(#m)"/>
+<text x="310" y="380" text-anchor="end" font-size="13">时间 →</text>
+<line x1="345" y1="360" x2="615" y2="360" stroke="#333" stroke-width="1.5" marker-end="url(#m)"/>
+<text x="615" y="380" text-anchor="end" font-size="13">时间 →</text>
+<line x1="650" y1="360" x2="920" y2="360" stroke="#333" stroke-width="1.5" marker-end="url(#m)"/>
+<text x="920" y="380" text-anchor="end" font-size="13">时间 →</text>
+<text x="30" y="230.0" text-anchor="middle" font-size="13" transform="rotate(-90 22 230.0)">全部 SM</text>
+<rect x="40" y="410" width="24" height="16" fill="url(#h)" stroke="#555" stroke-width="1.5"/><text x="72" y="423" font-size="13">SM 空着</text>
+<rect x="170" y="410" width="24" height="16" fill="url(#sw)" stroke="#555" stroke-width="1.5"/><text x="202" y="423" font-size="13">切换上下文（保存、恢复整个进程的 GPU 状态）</text>
+<line x1="560" y1="418" x2="590" y2="418" stroke="#222" stroke-width="3.5"/><text x="598" y="423" font-size="13">MIG 实例之间的硬件隔断</text>
+<text x="40" y="454" font-size="13" fill="#555">示意：每个模型单独运行时只用得上约四分之一的 SM；纵向高度表示占用的 SM 份额</text>
+</svg>

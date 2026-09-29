@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" width="960" height="500" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="500" fill="#ffffff"/>
+<defs>
+<marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker>
+<pattern id="h" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="10" height="10" fill="#fdf0f0"/><line x1="0" y1="0" x2="0" y2="10" stroke="#e79a8f" stroke-width="2.5"/></pattern>
+</defs>
+<text x="480" y="28" font-size="18" text-anchor="middle" fill="#222" font-weight="bold">264 个座位上跑 300 个块：第二波只有 36 个块，大半机器空转</text>
+<text x="480" y="52" font-size="14" text-anchor="middle" fill="#555">132 个 SM × 每个 SM 同时驻留 2 个块 = 264 个座位；假设每个块耗时相同（一个块跑完 = 一波）</text>
+<!-- axes -->
+<line x1="140" y1="420" x2="880" y2="420" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<line x1="140" y1="420" x2="140" y2="80" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<text x="130" y="96" font-size="14" text-anchor="end" fill="#222">在跑的块数</text>
+<text x="880" y="446" font-size="14" text-anchor="end" fill="#222">时间</text>
+<!-- y ticks: 264 at y=120, 0 at 420 -> scale 300/264 -->
+<line x1="134" y1="120" x2="140" y2="120" stroke="#222" stroke-width="1.5"/>
+<text x="128" y="125" font-size="14" text-anchor="end" fill="#222">264</text>
+<line x1="134" y1="379" x2="140" y2="379" stroke="#222" stroke-width="1.5"/>
+<text x="128" y="384" font-size="14" text-anchor="end" fill="#222">36</text>
+<text x="128" y="425" font-size="14" text-anchor="end" fill="#222">0</text>
+<line x1="140" y1="120" x2="840" y2="120" stroke="#bbb" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="846" y="125" font-size="14" fill="#555">满座</text>
+<!-- wave 1 -->
+<rect x="142" y="120" width="340" height="300" fill="#dbe8f6" stroke="#2c6fb7" stroke-width="2"/>
+<text x="312" y="250" font-size="16" text-anchor="middle" fill="#222" font-weight="bold">第 1 波</text>
+<text x="312" y="276" font-size="15" text-anchor="middle" fill="#222">块 0～263 同时在跑</text>
+<text x="312" y="300" font-size="15" text-anchor="middle" fill="#222">264 个座位全满</text>
+<!-- wave 2 -->
+<rect x="482" y="120" width="340" height="259" fill="url(#h)" stroke="#c0392b" stroke-width="1.5"/>
+<rect x="532" y="186" width="240" height="84" fill="#ffffff" stroke="none"/>
+<text x="652" y="210" font-size="16" text-anchor="middle" fill="#c0392b" font-weight="bold">228 个座位空着</text>
+<text x="652" y="236" font-size="15" text-anchor="middle" fill="#222">SM 已经放出了座位，</text>
+<text x="652" y="258" font-size="15" text-anchor="middle" fill="#222">但 grid 里已经没有块可发</text>
+<rect x="482" y="379" width="340" height="41" fill="#dbe8f6" stroke="#2c6fb7" stroke-width="2"/>
+<text x="652" y="405" font-size="15" text-anchor="middle" fill="#222">第 2 波：块 264～299，共 36 个</text>
+<!-- x labels -->
+<line x1="482" y1="420" x2="482" y2="428" stroke="#222" stroke-width="1.5"/>
+<line x1="822" y1="420" x2="822" y2="428" stroke="#222" stroke-width="1.5"/>
+<text x="482" y="446" font-size="14" text-anchor="middle" fill="#222">1 波</text>
+<text x="822" y="446" font-size="14" text-anchor="middle" fill="#222">2 波</text>
+<text x="140" y="446" font-size="14" text-anchor="middle" fill="#222">0</text>
+<!-- conclusion -->
+<text x="140" y="476" font-size="15" fill="#222">若 grid 正好 264 个块：1 波就结束。多出 36 个块（多 14% 的活），时间却翻倍；两波的座位时间里约 43% 空着。</text>
+</svg>

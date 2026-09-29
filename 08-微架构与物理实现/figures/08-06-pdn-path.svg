@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 550" width="980" height="550" font-family="sans-serif">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b5451b"/></marker></defs>
+<rect x="0" y="0" width="980" height="550" fill="#ffffff"/>
+<text x="490" y="28" font-size="18" text-anchor="middle" font-weight="bold" fill="#111">供电网络：700 安培从主板一路走到晶体管，每一段都有电阻和电感，沿途挂着三层去耦电容</text>
+<rect x="18" y="90" width="120" height="58" rx="5" fill="#f4f4f4" stroke="#222" stroke-width="1.8"/>
+<text x="78.0" y="114" font-size="14" text-anchor="middle" fill="#111">稳压器 VRM</text>
+<text x="78.0" y="134" font-size="13" text-anchor="middle" fill="#555">主板上</text>
+<rect x="176" y="90" width="120" height="58" rx="5" fill="#f4f4f4" stroke="#222" stroke-width="1.8"/>
+<text x="236.0" y="114" font-size="14" text-anchor="middle" fill="#111">主板电源层</text>
+<text x="236.0" y="134" font-size="13" text-anchor="middle" fill="#555">几厘米</text>
+<rect x="334" y="90" width="120" height="58" rx="5" fill="#f4f4f4" stroke="#222" stroke-width="1.8"/>
+<text x="394.0" y="114" font-size="14" text-anchor="middle" fill="#111">封装基板</text>
+<text x="394.0" y="134" font-size="13" text-anchor="middle" fill="#555">几毫米</text>
+<rect x="492" y="90" width="120" height="58" rx="5" fill="#f4f4f4" stroke="#222" stroke-width="1.8"/>
+<text x="552.0" y="114" font-size="14" text-anchor="middle" fill="#111">凸块</text>
+<text x="552.0" y="134" font-size="13" text-anchor="middle" fill="#555">几万个</text>
+<rect x="650" y="90" width="120" height="58" rx="5" fill="#f4f4f4" stroke="#222" stroke-width="1.8"/>
+<text x="710.0" y="114" font-size="14" text-anchor="middle" fill="#111">die 上电源网格</text>
+<text x="710.0" y="134" font-size="13" text-anchor="middle" fill="#555">几层金属</text>
+<rect x="808" y="90" width="120" height="58" rx="5" fill="#fdf0e8" stroke="#222" stroke-width="1.8"/>
+<text x="868.0" y="114" font-size="14" text-anchor="middle" fill="#111">晶体管</text>
+<text x="868.0" y="134" font-size="13" text-anchor="middle" fill="#555">几百亿个</text>
+<polyline points="138,119.0 142,119.0 145,113.0 150,125.0 155,113.0 160,125.0 165,113.0 170,125.0 174,119.0 176,119.0" fill="none" stroke="#b5451b" stroke-width="1.8"/>
+<polyline points="296,119.0 300,119.0 303,113.0 308,125.0 313,113.0 318,125.0 323,113.0 328,125.0 332,119.0 334,119.0" fill="none" stroke="#b5451b" stroke-width="1.8"/>
+<polyline points="454,119.0 458,119.0 461,113.0 466,125.0 471,113.0 476,125.0 481,113.0 486,125.0 490,119.0 492,119.0" fill="none" stroke="#b5451b" stroke-width="1.8"/>
+<polyline points="612,119.0 616,119.0 619,113.0 624,125.0 629,113.0 634,125.0 639,113.0 644,125.0 648,119.0 650,119.0" fill="none" stroke="#b5451b" stroke-width="1.8"/>
+<polyline points="770,119.0 774,119.0 777,113.0 782,125.0 787,113.0 792,125.0 797,113.0 802,125.0 806,119.0 808,119.0" fill="none" stroke="#b5451b" stroke-width="1.8"/>
+<text x="490" y="76" font-size="14" text-anchor="middle" fill="#b5451b">每段之间的红色锯齿 = 这一段的电阻 R（同时还有电感 L，图中未单独画）</text>
+<line x1="38" y1="166" x2="908" y2="166" stroke="#b5451b" stroke-width="3" marker-end="url(#ar)"/>
+<text x="560" y="188" font-size="14" text-anchor="middle" fill="#b5451b">电流 I ≈ 700 瓦 ÷ 1 伏 = 700 安培</text>
+<line x1="236.0" y1="148" x2="236.0" y2="218" stroke="#1f5fa8" stroke-width="1.6" stroke-dasharray="4,3"/>
+<line x1="220.0" y1="218" x2="252.0" y2="218" stroke="#1f5fa8" stroke-width="3"/><line x1="220.0" y1="227" x2="252.0" y2="227" stroke="#1f5fa8" stroke-width="3"/>
+<text x="236.0" y="248" font-size="14" text-anchor="middle" fill="#1f5fa8">板级电容</text>
+<text x="236.0" y="267" font-size="13" text-anchor="middle" fill="#555">微秒级才顶得住</text>
+<line x1="394.0" y1="148" x2="394.0" y2="218" stroke="#1f5fa8" stroke-width="1.6" stroke-dasharray="4,3"/>
+<line x1="378.0" y1="218" x2="410.0" y2="218" stroke="#1f5fa8" stroke-width="3"/><line x1="378.0" y1="227" x2="410.0" y2="227" stroke="#1f5fa8" stroke-width="3"/>
+<text x="394.0" y="248" font-size="14" text-anchor="middle" fill="#1f5fa8">封装电容</text>
+<text x="394.0" y="267" font-size="13" text-anchor="middle" fill="#555">几十～几百纳秒</text>
+<line x1="710.0" y1="148" x2="710.0" y2="218" stroke="#1f5fa8" stroke-width="1.6" stroke-dasharray="4,3"/>
+<line x1="694.0" y1="218" x2="726.0" y2="218" stroke="#1f5fa8" stroke-width="3"/><line x1="694.0" y1="227" x2="726.0" y2="227" stroke="#1f5fa8" stroke-width="3"/>
+<text x="710.0" y="248" font-size="14" text-anchor="middle" fill="#1f5fa8">片上电容</text>
+<text x="710.0" y="267" font-size="13" text-anchor="middle" fill="#555">纳秒级，占 die 面积</text>
+<text x="868.0" y="248" font-size="14" text-anchor="middle" fill="#1f5fa8">离负载越近</text>
+<text x="868.0" y="267" font-size="14" text-anchor="middle" fill="#1f5fa8">反应越快</text>
+<line x1="20" y1="312" x2="960" y2="312" stroke="#ccc" stroke-width="1.5"/>
+<text x="30" y="338" font-size="15" font-weight="bold" fill="#111">静态压降 IR drop = 电流 × 电阻</text>
+<text x="30" y="370" font-size="14" fill="#111">整条路径 0.5 毫欧：700 A × 0.5 mΩ = 0.35 V</text>
+<text x="30" y="390" font-size="14" fill="#b5451b">→ 晶体管只剩 0.65 V：不可接受</text>
+<text x="30" y="422" font-size="14" fill="#111">整条路径 0.04 毫欧：700 A × 0.04 mΩ ≈ 0.03 V</text>
+<text x="30" y="442" font-size="14" fill="#2e7d32">→ 只掉 3%：这才是设计目标的量级</text>
+<text x="30" y="478" font-size="14" fill="#555">手段：多层金属做成整片电源平面，几万个凸块大多给电源和地</text>
+<line x1="500" y1="322" x2="500" y2="535" stroke="#ccc" stroke-width="1.5"/>
+<text x="520" y="338" font-size="15" font-weight="bold" fill="#111">动态跌落 = 电感 × 电流变化有多快</text>
+<text x="520" y="370" font-size="14" fill="#111">电流在 50 纳秒里从 300 A 跳到 700 A：</text>
+<text x="520" y="392" font-size="14" fill="#111">dI/dt = 400 A ÷ 50 ns = 8 × 10⁹ A/s</text>
+<text x="520" y="414" font-size="14" fill="#111">路径电感 100 皮亨（10⁻¹⁰ 亨）：</text>
+<text x="520" y="436" font-size="14" fill="#b5451b">ΔV = 10⁻¹⁰ × 8 × 10⁹ = 0.8 V</text>
+<text x="520" y="458" font-size="14" fill="#111">比供电电压本身还大——只能靠挨着负载的</text>
+<text x="520" y="480" font-size="14" fill="#111">去耦电容就近放电顶住，等稳压器反应过来</text>
+</svg>

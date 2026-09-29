@@ -1,0 +1,165 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="560" fill="#ffffff"/>
+<text x="480" y="28" font-size="18" text-anchor="middle" fill="#222" font-weight="bold">两种朝向：面对面（F2F）只能叠两层，面对背（F2B）能一直往上叠</text>
+<line x1="440" y1="45" x2="440" y2="522" stroke="#aaa" stroke-width="1.5" stroke-dasharray="6,5"/>
+<text x="220" y="66" font-size="17" text-anchor="middle" fill="#222" font-weight="bold">（a）F2F：面对面</text>
+<rect x="70" y="110" width="300" height="60" fill="#9bb7d4" stroke="#222" stroke-width="1.5"/>
+<rect x="70" y="160" width="300" height="10" fill="#1f4e79"/>
+<text x="220.0" y="145.0" font-size="14" text-anchor="middle">上层裸片（面朝下）</text>
+<rect x="72" y="170" width="2.5" height="6" fill="#d9822b"/>
+<rect x="77" y="170" width="2.5" height="6" fill="#d9822b"/>
+<rect x="82" y="170" width="2.5" height="6" fill="#d9822b"/>
+<rect x="87" y="170" width="2.5" height="6" fill="#d9822b"/>
+<rect x="92" y="170" width="2.5" height="6" fill="#d9822b"/>
+<rect x="97" y="170" width="2.5" height="6" fill="#d9822b"/>
+<rect x="102" y="170" width="2.5" height="6" fill="#d9822b"/>
+<rect x="107" y="170" width="2.5" height="6" fill="#d9822b"/>
+<rect x="112" y="170" width="2.5" height="6" fill="#d9822b"/>
+<rect x="117" y="170" width="2.5" height="6" fill="#d9822b"/>
+<rect x="122" y="170" width="2.5" height="6" fill="#d9822b"/>
+<rect x="127" y="170" width="2.5" height="6" fill="#d9822b"/>
+<rect x="132" y="170" width="2.5" height="6" fill="#d9822b"/>
+<rect x="137" y="170" width="2.5" height="6" fill="#d9822b"/>
+<rect x="142" y="170" width="2.5" height="6" fill="#d9822b"/>
+<rect x="147" y="170" width="2.5" height="6" fill="#d9822b"/>
+<rect x="152" y="170" width="2.5" height="6" fill="#d9822b"/>
+<rect x="157" y="170" width="2.5" height="6" fill="#d9822b"/>
+<rect x="162" y="170" width="2.5" height="6" fill="#d9822b"/>
+<rect x="167" y="170" width="2.5" height="6" fill="#d9822b"/>
+<rect x="172" y="170" width="2.5" height="6" fill="#d9822b"/>
+<rect x="177" y="170" width="2.5" height="6" fill="#d9822b"/>
+<rect x="182" y="170" width="2.5" height="6" fill="#d9822b"/>
+<rect x="187" y="170" width="2.5" height="6" fill="#d9822b"/>
+<rect x="192" y="170" width="2.5" height="6" fill="#d9822b"/>
+<rect x="197" y="170" width="2.5" height="6" fill="#d9822b"/>
+<rect x="202" y="170" width="2.5" height="6" fill="#d9822b"/>
+<rect x="207" y="170" width="2.5" height="6" fill="#d9822b"/>
+<rect x="212" y="170" width="2.5" height="6" fill="#d9822b"/>
+<rect x="217" y="170" width="2.5" height="6" fill="#d9822b"/>
+<rect x="222" y="170" width="2.5" height="6" fill="#d9822b"/>
+<rect x="227" y="170" width="2.5" height="6" fill="#d9822b"/>
+<rect x="232" y="170" width="2.5" height="6" fill="#d9822b"/>
+<rect x="237" y="170" width="2.5" height="6" fill="#d9822b"/>
+<rect x="242" y="170" width="2.5" height="6" fill="#d9822b"/>
+<rect x="247" y="170" width="2.5" height="6" fill="#d9822b"/>
+<rect x="252" y="170" width="2.5" height="6" fill="#d9822b"/>
+<rect x="257" y="170" width="2.5" height="6" fill="#d9822b"/>
+<rect x="262" y="170" width="2.5" height="6" fill="#d9822b"/>
+<rect x="267" y="170" width="2.5" height="6" fill="#d9822b"/>
+<rect x="272" y="170" width="2.5" height="6" fill="#d9822b"/>
+<rect x="277" y="170" width="2.5" height="6" fill="#d9822b"/>
+<rect x="282" y="170" width="2.5" height="6" fill="#d9822b"/>
+<rect x="287" y="170" width="2.5" height="6" fill="#d9822b"/>
+<rect x="292" y="170" width="2.5" height="6" fill="#d9822b"/>
+<rect x="297" y="170" width="2.5" height="6" fill="#d9822b"/>
+<rect x="302" y="170" width="2.5" height="6" fill="#d9822b"/>
+<rect x="307" y="170" width="2.5" height="6" fill="#d9822b"/>
+<rect x="312" y="170" width="2.5" height="6" fill="#d9822b"/>
+<rect x="317" y="170" width="2.5" height="6" fill="#d9822b"/>
+<rect x="322" y="170" width="2.5" height="6" fill="#d9822b"/>
+<rect x="327" y="170" width="2.5" height="6" fill="#d9822b"/>
+<rect x="332" y="170" width="2.5" height="6" fill="#d9822b"/>
+<rect x="337" y="170" width="2.5" height="6" fill="#d9822b"/>
+<rect x="342" y="170" width="2.5" height="6" fill="#d9822b"/>
+<rect x="347" y="170" width="2.5" height="6" fill="#d9822b"/>
+<rect x="352" y="170" width="2.5" height="6" fill="#d9822b"/>
+<rect x="357" y="170" width="2.5" height="6" fill="#d9822b"/>
+<rect x="362" y="170" width="2.5" height="6" fill="#d9822b"/>
+<rect x="367" y="170" width="2.5" height="6" fill="#d9822b"/>
+<rect x="70" y="176" width="300" height="60" fill="#9bb7d4" stroke="#222" stroke-width="1.5"/>
+<rect x="70" y="176" width="300" height="10" fill="#1f4e79"/>
+<text x="220.0" y="211.0" font-size="14" text-anchor="middle">下层裸片（面朝上）</text>
+<rect x="77.5" y="176" width="5" height="60" fill="#d9822b"/>
+<rect x="117.5" y="176" width="5" height="60" fill="#d9822b"/>
+<rect x="317.5" y="176" width="5" height="60" fill="#d9822b"/>
+<rect x="357.5" y="176" width="5" height="60" fill="#d9822b"/>
+<circle cx="88" cy="246" r="9" fill="#b8860b" stroke="#6b4e00"/>
+<circle cx="126" cy="246" r="9" fill="#b8860b" stroke="#6b4e00"/>
+<circle cx="164" cy="246" r="9" fill="#b8860b" stroke="#6b4e00"/>
+<circle cx="202" cy="246" r="9" fill="#b8860b" stroke="#6b4e00"/>
+<circle cx="240" cy="246" r="9" fill="#b8860b" stroke="#6b4e00"/>
+<circle cx="278" cy="246" r="9" fill="#b8860b" stroke="#6b4e00"/>
+<circle cx="316" cy="246" r="9" fill="#b8860b" stroke="#6b4e00"/>
+<circle cx="354" cy="246" r="9" fill="#b8860b" stroke="#6b4e00"/>
+<rect x="50" y="255" width="340" height="30" fill="#cfe3c4" stroke="#222" stroke-width="1.5"/>
+<text x="220.0" y="275" font-size="14" text-anchor="middle">封装 / 中介层</text>
+<text x="380" y="176" font-size="13" fill="#222">两个面</text>
+<text x="380" y="193" font-size="13" fill="#222">直接对接</text>
+<g font-size="14" fill="#222">
+<text x="30" y="320">• 两侧金属层直连，中间不经过 TSV：</text>
+<text x="30" y="342">  间距只受键合工艺限制，混合键合可到几微米</text>
+<text x="30" y="372">• 下层裸片仍要靠 TSV（橙色竖条）把信号</text>
+<text x="30" y="394">  和电源送到封装，但那是另一件事</text>
+<text x="30" y="424" font-weight="bold" fill="#c0392b">• 每颗裸片只有一个面，两个面都用掉了：</text>
+<text x="30" y="446" font-weight="bold" fill="#c0392b">  想加第三层，只能改用面对背</text>
+<text x="30" y="484" fill="#555">例：英特尔 Foveros、Foveros Direct，</text>
+<text x="30" y="506" fill="#555">台积电 SoIC 的 F2F 版本</text>
+</g>
+<text x="700" y="66" font-size="17" text-anchor="middle" fill="#222" font-weight="bold">（b）F2B：面对背</text>
+<rect x="520" y="90" width="300" height="50" fill="#9bb7d4" stroke="#222" stroke-width="1.5"/>
+<rect x="520" y="130" width="300" height="10" fill="#1f4e79"/>
+<text x="670.0" y="120.0" font-size="14" text-anchor="middle">第 4 层（面朝下）</text>
+<circle cx="530" cy="145" r="5" fill="#b8860b" stroke="#6b4e00"/>
+<circle cx="570" cy="145" r="5" fill="#b8860b" stroke="#6b4e00"/>
+<circle cx="610" cy="145" r="5" fill="#b8860b" stroke="#6b4e00"/>
+<circle cx="730" cy="145" r="5" fill="#b8860b" stroke="#6b4e00"/>
+<circle cx="770" cy="145" r="5" fill="#b8860b" stroke="#6b4e00"/>
+<circle cx="810" cy="145" r="5" fill="#b8860b" stroke="#6b4e00"/>
+<rect x="520" y="150" width="300" height="50" fill="#9bb7d4" stroke="#222" stroke-width="1.5"/>
+<rect x="520" y="190" width="300" height="10" fill="#1f4e79"/>
+<text x="670.0" y="180.0" font-size="14" text-anchor="middle">第 3 层（面朝下）</text>
+<rect x="527.5" y="150" width="5" height="50" fill="#d9822b"/>
+<rect x="567.5" y="150" width="5" height="50" fill="#d9822b"/>
+<rect x="607.5" y="150" width="5" height="50" fill="#d9822b"/>
+<rect x="727.5" y="150" width="5" height="50" fill="#d9822b"/>
+<rect x="767.5" y="150" width="5" height="50" fill="#d9822b"/>
+<rect x="807.5" y="150" width="5" height="50" fill="#d9822b"/>
+<circle cx="530" cy="205" r="5" fill="#b8860b" stroke="#6b4e00"/>
+<circle cx="570" cy="205" r="5" fill="#b8860b" stroke="#6b4e00"/>
+<circle cx="610" cy="205" r="5" fill="#b8860b" stroke="#6b4e00"/>
+<circle cx="730" cy="205" r="5" fill="#b8860b" stroke="#6b4e00"/>
+<circle cx="770" cy="205" r="5" fill="#b8860b" stroke="#6b4e00"/>
+<circle cx="810" cy="205" r="5" fill="#b8860b" stroke="#6b4e00"/>
+<rect x="520" y="210" width="300" height="50" fill="#9bb7d4" stroke="#222" stroke-width="1.5"/>
+<rect x="520" y="250" width="300" height="10" fill="#1f4e79"/>
+<text x="670.0" y="240.0" font-size="14" text-anchor="middle">第 2 层（面朝下）</text>
+<rect x="527.5" y="210" width="5" height="50" fill="#d9822b"/>
+<rect x="567.5" y="210" width="5" height="50" fill="#d9822b"/>
+<rect x="607.5" y="210" width="5" height="50" fill="#d9822b"/>
+<rect x="727.5" y="210" width="5" height="50" fill="#d9822b"/>
+<rect x="767.5" y="210" width="5" height="50" fill="#d9822b"/>
+<rect x="807.5" y="210" width="5" height="50" fill="#d9822b"/>
+<circle cx="530" cy="265" r="5" fill="#b8860b" stroke="#6b4e00"/>
+<circle cx="570" cy="265" r="5" fill="#b8860b" stroke="#6b4e00"/>
+<circle cx="610" cy="265" r="5" fill="#b8860b" stroke="#6b4e00"/>
+<circle cx="730" cy="265" r="5" fill="#b8860b" stroke="#6b4e00"/>
+<circle cx="770" cy="265" r="5" fill="#b8860b" stroke="#6b4e00"/>
+<circle cx="810" cy="265" r="5" fill="#b8860b" stroke="#6b4e00"/>
+<rect x="520" y="270" width="300" height="50" fill="#9bb7d4" stroke="#222" stroke-width="1.5"/>
+<rect x="520" y="310" width="300" height="10" fill="#1f4e79"/>
+<text x="670.0" y="300.0" font-size="14" text-anchor="middle">第 1 层（面朝下）</text>
+<rect x="527.5" y="270" width="5" height="50" fill="#d9822b"/>
+<rect x="567.5" y="270" width="5" height="50" fill="#d9822b"/>
+<rect x="607.5" y="270" width="5" height="50" fill="#d9822b"/>
+<rect x="727.5" y="270" width="5" height="50" fill="#d9822b"/>
+<rect x="767.5" y="270" width="5" height="50" fill="#d9822b"/>
+<rect x="807.5" y="270" width="5" height="50" fill="#d9822b"/>
+<circle cx="530" cy="330" r="6" fill="#b8860b" stroke="#6b4e00"/>
+<circle cx="570" cy="330" r="6" fill="#b8860b" stroke="#6b4e00"/>
+<circle cx="610" cy="330" r="6" fill="#b8860b" stroke="#6b4e00"/>
+<circle cx="730" cy="330" r="6" fill="#b8860b" stroke="#6b4e00"/>
+<circle cx="770" cy="330" r="6" fill="#b8860b" stroke="#6b4e00"/>
+<circle cx="810" cy="330" r="6" fill="#b8860b" stroke="#6b4e00"/>
+<rect x="500" y="336" width="340" height="30" fill="#cfe3c4" stroke="#222" stroke-width="1.5"/>
+<text x="670.0" y="356" font-size="14" text-anchor="middle">封装 / 中介层</text>
+<text x="828" y="160" font-size="13" fill="#222">上层的面</text>
+<text x="828" y="177" font-size="13" fill="#222">贴下层的背</text>
+<g font-size="14" fill="#222">
+<text x="470" y="400">• 下层的背上原本什么电路都没有，信号必须</text>
+<text x="470" y="422">  先经它的 TSV 从面穿到背，才能接上上层</text>
+<text x="470" y="452" font-weight="bold" fill="#c0392b">• 连接间距被 TSV 间距卡住（粗一个数量级），</text>
+<text x="470" y="474" font-weight="bold" fill="#c0392b">  但每一层都是同样的姿势，可以一直往上叠</text>
+<text x="470" y="506" fill="#555">例：HBM 的 8 / 12 / 16 层存储裸片</text>
+</g>
+<text x="480" y="545" font-size="14" text-anchor="middle" fill="#555">深蓝细条 = 裸片的“面”（晶体管和金属层）；橙色竖条 = TSV；小圆点和小方块 = 层间连接点</text>
+</svg>

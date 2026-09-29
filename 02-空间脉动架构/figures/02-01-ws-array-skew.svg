@@ -1,0 +1,158 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 620" width="940" height="620" font-family="sans-serif">
+<rect x="0" y="0" width="940" height="620" fill="#ffffff"/>
+<defs><marker id="mk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e6fb7"/></marker><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f8a4a"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d9822b"/></marker><marker id="my" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777"/></marker><marker id="mp" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7b4fa0"/></marker></defs>
+<text x="470" y="31.6" font-size="16" text-anchor="middle" fill="#222" font-weight="bold">4×4 权重固定阵列：权重常驻，输入从左边斜着灌入，部分和向下流出（第 0 拍开始前）</text>
+<text x="452.5" y="72.2" font-size="15" text-anchor="middle" fill="#c0392b">0</text>
+<line x1="452.5" y1="77" x2="452.5" y2="103" stroke="#c0392b" stroke-width="1.8" marker-end="url(#mr)"/>
+<text x="557.5" y="72.2" font-size="15" text-anchor="middle" fill="#c0392b">0</text>
+<line x1="557.5" y1="77" x2="557.5" y2="103" stroke="#c0392b" stroke-width="1.8" marker-end="url(#mr)"/>
+<text x="662.5" y="72.2" font-size="15" text-anchor="middle" fill="#c0392b">0</text>
+<line x1="662.5" y1="77" x2="662.5" y2="103" stroke="#c0392b" stroke-width="1.8" marker-end="url(#mr)"/>
+<text x="767.5" y="72.2" font-size="15" text-anchor="middle" fill="#c0392b">0</text>
+<line x1="767.5" y1="77" x2="767.5" y2="103" stroke="#c0392b" stroke-width="1.8" marker-end="url(#mr)"/>
+<text x="380" y="71.9" font-size="14" text-anchor="end" fill="#c0392b">顶上送进的部分和初值为 0 →</text>
+<rect x="408" y="103" width="89" height="64" rx="4" fill="#fbe3c8" stroke="#d9822b" stroke-width="1.8" />
+<text x="452.5" y="130.9" font-size="14" text-anchor="middle" fill="#777">PE(0,0)</text>
+<text x="452.5" y="151.6" font-size="16" text-anchor="middle" fill="#222" font-weight="bold">b00</text>
+<line x1="497" y1="135.0" x2="513" y2="135.0" stroke="#2e6fb7" stroke-width="1.8" marker-end="url(#mb)"/>
+<line x1="452.5" y1="167" x2="452.5" y2="183" stroke="#c0392b" stroke-width="1.8" marker-end="url(#mr)"/>
+<rect x="513" y="103" width="89" height="64" rx="4" fill="#fbe3c8" stroke="#d9822b" stroke-width="1.8" />
+<text x="557.5" y="130.9" font-size="14" text-anchor="middle" fill="#777">PE(0,1)</text>
+<text x="557.5" y="151.6" font-size="16" text-anchor="middle" fill="#222" font-weight="bold">b01</text>
+<line x1="602" y1="135.0" x2="618" y2="135.0" stroke="#2e6fb7" stroke-width="1.8" marker-end="url(#mb)"/>
+<line x1="557.5" y1="167" x2="557.5" y2="183" stroke="#c0392b" stroke-width="1.8" marker-end="url(#mr)"/>
+<rect x="618" y="103" width="89" height="64" rx="4" fill="#fbe3c8" stroke="#d9822b" stroke-width="1.8" />
+<text x="662.5" y="130.9" font-size="14" text-anchor="middle" fill="#777">PE(0,2)</text>
+<text x="662.5" y="151.6" font-size="16" text-anchor="middle" fill="#222" font-weight="bold">b02</text>
+<line x1="707" y1="135.0" x2="723" y2="135.0" stroke="#2e6fb7" stroke-width="1.8" marker-end="url(#mb)"/>
+<line x1="662.5" y1="167" x2="662.5" y2="183" stroke="#c0392b" stroke-width="1.8" marker-end="url(#mr)"/>
+<rect x="723" y="103" width="89" height="64" rx="4" fill="#fbe3c8" stroke="#d9822b" stroke-width="1.8" />
+<text x="767.5" y="130.9" font-size="14" text-anchor="middle" fill="#777">PE(0,3)</text>
+<text x="767.5" y="151.6" font-size="16" text-anchor="middle" fill="#222" font-weight="bold">b03</text>
+<line x1="767.5" y1="167" x2="767.5" y2="183" stroke="#c0392b" stroke-width="1.8" marker-end="url(#mr)"/>
+<rect x="408" y="183" width="89" height="64" rx="4" fill="#fbe3c8" stroke="#d9822b" stroke-width="1.8" />
+<text x="452.5" y="210.9" font-size="14" text-anchor="middle" fill="#777">PE(1,0)</text>
+<text x="452.5" y="231.6" font-size="16" text-anchor="middle" fill="#222" font-weight="bold">b10</text>
+<line x1="497" y1="215.0" x2="513" y2="215.0" stroke="#2e6fb7" stroke-width="1.8" marker-end="url(#mb)"/>
+<line x1="452.5" y1="247" x2="452.5" y2="263" stroke="#c0392b" stroke-width="1.8" marker-end="url(#mr)"/>
+<rect x="513" y="183" width="89" height="64" rx="4" fill="#fbe3c8" stroke="#d9822b" stroke-width="1.8" />
+<text x="557.5" y="210.9" font-size="14" text-anchor="middle" fill="#777">PE(1,1)</text>
+<text x="557.5" y="231.6" font-size="16" text-anchor="middle" fill="#222" font-weight="bold">b11</text>
+<line x1="602" y1="215.0" x2="618" y2="215.0" stroke="#2e6fb7" stroke-width="1.8" marker-end="url(#mb)"/>
+<line x1="557.5" y1="247" x2="557.5" y2="263" stroke="#c0392b" stroke-width="1.8" marker-end="url(#mr)"/>
+<rect x="618" y="183" width="89" height="64" rx="4" fill="#fbe3c8" stroke="#d9822b" stroke-width="1.8" />
+<text x="662.5" y="210.9" font-size="14" text-anchor="middle" fill="#777">PE(1,2)</text>
+<text x="662.5" y="231.6" font-size="16" text-anchor="middle" fill="#222" font-weight="bold">b12</text>
+<line x1="707" y1="215.0" x2="723" y2="215.0" stroke="#2e6fb7" stroke-width="1.8" marker-end="url(#mb)"/>
+<line x1="662.5" y1="247" x2="662.5" y2="263" stroke="#c0392b" stroke-width="1.8" marker-end="url(#mr)"/>
+<rect x="723" y="183" width="89" height="64" rx="4" fill="#fbe3c8" stroke="#d9822b" stroke-width="1.8" />
+<text x="767.5" y="210.9" font-size="14" text-anchor="middle" fill="#777">PE(1,3)</text>
+<text x="767.5" y="231.6" font-size="16" text-anchor="middle" fill="#222" font-weight="bold">b13</text>
+<line x1="767.5" y1="247" x2="767.5" y2="263" stroke="#c0392b" stroke-width="1.8" marker-end="url(#mr)"/>
+<rect x="408" y="263" width="89" height="64" rx="4" fill="#fbe3c8" stroke="#d9822b" stroke-width="1.8" />
+<text x="452.5" y="290.9" font-size="14" text-anchor="middle" fill="#777">PE(2,0)</text>
+<text x="452.5" y="311.6" font-size="16" text-anchor="middle" fill="#222" font-weight="bold">b20</text>
+<line x1="497" y1="295.0" x2="513" y2="295.0" stroke="#2e6fb7" stroke-width="1.8" marker-end="url(#mb)"/>
+<line x1="452.5" y1="327" x2="452.5" y2="343" stroke="#c0392b" stroke-width="1.8" marker-end="url(#mr)"/>
+<rect x="513" y="263" width="89" height="64" rx="4" fill="#fbe3c8" stroke="#d9822b" stroke-width="1.8" />
+<text x="557.5" y="290.9" font-size="14" text-anchor="middle" fill="#777">PE(2,1)</text>
+<text x="557.5" y="311.6" font-size="16" text-anchor="middle" fill="#222" font-weight="bold">b21</text>
+<line x1="602" y1="295.0" x2="618" y2="295.0" stroke="#2e6fb7" stroke-width="1.8" marker-end="url(#mb)"/>
+<line x1="557.5" y1="327" x2="557.5" y2="343" stroke="#c0392b" stroke-width="1.8" marker-end="url(#mr)"/>
+<rect x="618" y="263" width="89" height="64" rx="4" fill="#fbe3c8" stroke="#d9822b" stroke-width="1.8" />
+<text x="662.5" y="290.9" font-size="14" text-anchor="middle" fill="#777">PE(2,2)</text>
+<text x="662.5" y="311.6" font-size="16" text-anchor="middle" fill="#222" font-weight="bold">b22</text>
+<line x1="707" y1="295.0" x2="723" y2="295.0" stroke="#2e6fb7" stroke-width="1.8" marker-end="url(#mb)"/>
+<line x1="662.5" y1="327" x2="662.5" y2="343" stroke="#c0392b" stroke-width="1.8" marker-end="url(#mr)"/>
+<rect x="723" y="263" width="89" height="64" rx="4" fill="#fbe3c8" stroke="#d9822b" stroke-width="1.8" />
+<text x="767.5" y="290.9" font-size="14" text-anchor="middle" fill="#777">PE(2,3)</text>
+<text x="767.5" y="311.6" font-size="16" text-anchor="middle" fill="#222" font-weight="bold">b23</text>
+<line x1="767.5" y1="327" x2="767.5" y2="343" stroke="#c0392b" stroke-width="1.8" marker-end="url(#mr)"/>
+<rect x="408" y="343" width="89" height="64" rx="4" fill="#fbe3c8" stroke="#d9822b" stroke-width="1.8" />
+<text x="452.5" y="370.9" font-size="14" text-anchor="middle" fill="#777">PE(3,0)</text>
+<text x="452.5" y="391.6" font-size="16" text-anchor="middle" fill="#222" font-weight="bold">b30</text>
+<line x1="497" y1="375.0" x2="513" y2="375.0" stroke="#2e6fb7" stroke-width="1.8" marker-end="url(#mb)"/>
+<rect x="513" y="343" width="89" height="64" rx="4" fill="#fbe3c8" stroke="#d9822b" stroke-width="1.8" />
+<text x="557.5" y="370.9" font-size="14" text-anchor="middle" fill="#777">PE(3,1)</text>
+<text x="557.5" y="391.6" font-size="16" text-anchor="middle" fill="#222" font-weight="bold">b31</text>
+<line x1="602" y1="375.0" x2="618" y2="375.0" stroke="#2e6fb7" stroke-width="1.8" marker-end="url(#mb)"/>
+<rect x="618" y="343" width="89" height="64" rx="4" fill="#fbe3c8" stroke="#d9822b" stroke-width="1.8" />
+<text x="662.5" y="370.9" font-size="14" text-anchor="middle" fill="#777">PE(3,2)</text>
+<text x="662.5" y="391.6" font-size="16" text-anchor="middle" fill="#222" font-weight="bold">b32</text>
+<line x1="707" y1="375.0" x2="723" y2="375.0" stroke="#2e6fb7" stroke-width="1.8" marker-end="url(#mb)"/>
+<rect x="723" y="343" width="89" height="64" rx="4" fill="#fbe3c8" stroke="#d9822b" stroke-width="1.8" />
+<text x="767.5" y="370.9" font-size="14" text-anchor="middle" fill="#777">PE(3,3)</text>
+<text x="767.5" y="391.6" font-size="16" text-anchor="middle" fill="#222" font-weight="bold">b33</text>
+<text x="22" y="139.9" font-size="14" text-anchor="start" fill="#777">第0行</text>
+<rect x="337" y="119.0" width="46" height="32" rx="0" fill="#d6e6f7" stroke="#2e6fb7" stroke-width="1.5" />
+<text x="360.0" y="140.2" font-size="15" text-anchor="middle" fill="#222">a00</text>
+<rect x="285" y="119.0" width="46" height="32" rx="0" fill="#d6e6f7" stroke="#2e6fb7" stroke-width="1.5" />
+<text x="308.0" y="140.2" font-size="15" text-anchor="middle" fill="#222">a10</text>
+<rect x="233" y="119.0" width="46" height="32" rx="0" fill="#d6e6f7" stroke="#2e6fb7" stroke-width="1.5" />
+<text x="256.0" y="140.2" font-size="15" text-anchor="middle" fill="#222">a20</text>
+<rect x="181" y="119.0" width="46" height="32" rx="0" fill="#d6e6f7" stroke="#2e6fb7" stroke-width="1.5" />
+<text x="204.0" y="140.2" font-size="15" text-anchor="middle" fill="#222">a30</text>
+<line x1="384" y1="135.0" x2="406" y2="135.0" stroke="#2e6fb7" stroke-width="1.8" marker-end="url(#mb)"/>
+<text x="22" y="219.9" font-size="14" text-anchor="start" fill="#777">第1行</text>
+<rect x="337" y="199.0" width="46" height="32" rx="0" fill="#fff" stroke="#777" stroke-width="1.5" stroke-dasharray="4 3" />
+<text x="360.0" y="219.9" font-size="14" text-anchor="middle" fill="#777">空</text>
+<rect x="285" y="199.0" width="46" height="32" rx="0" fill="#d6e6f7" stroke="#2e6fb7" stroke-width="1.5" />
+<text x="308.0" y="220.2" font-size="15" text-anchor="middle" fill="#222">a01</text>
+<rect x="233" y="199.0" width="46" height="32" rx="0" fill="#d6e6f7" stroke="#2e6fb7" stroke-width="1.5" />
+<text x="256.0" y="220.2" font-size="15" text-anchor="middle" fill="#222">a11</text>
+<rect x="181" y="199.0" width="46" height="32" rx="0" fill="#d6e6f7" stroke="#2e6fb7" stroke-width="1.5" />
+<text x="204.0" y="220.2" font-size="15" text-anchor="middle" fill="#222">a21</text>
+<rect x="129" y="199.0" width="46" height="32" rx="0" fill="#d6e6f7" stroke="#2e6fb7" stroke-width="1.5" />
+<text x="152.0" y="220.2" font-size="15" text-anchor="middle" fill="#222">a31</text>
+<line x1="384" y1="215.0" x2="406" y2="215.0" stroke="#2e6fb7" stroke-width="1.8" marker-end="url(#mb)"/>
+<text x="22" y="299.9" font-size="14" text-anchor="start" fill="#777">第2行</text>
+<rect x="337" y="279.0" width="46" height="32" rx="0" fill="#fff" stroke="#777" stroke-width="1.5" stroke-dasharray="4 3" />
+<text x="360.0" y="299.9" font-size="14" text-anchor="middle" fill="#777">空</text>
+<rect x="285" y="279.0" width="46" height="32" rx="0" fill="#fff" stroke="#777" stroke-width="1.5" stroke-dasharray="4 3" />
+<text x="308.0" y="299.9" font-size="14" text-anchor="middle" fill="#777">空</text>
+<rect x="233" y="279.0" width="46" height="32" rx="0" fill="#d6e6f7" stroke="#2e6fb7" stroke-width="1.5" />
+<text x="256.0" y="300.2" font-size="15" text-anchor="middle" fill="#222">a02</text>
+<rect x="181" y="279.0" width="46" height="32" rx="0" fill="#d6e6f7" stroke="#2e6fb7" stroke-width="1.5" />
+<text x="204.0" y="300.2" font-size="15" text-anchor="middle" fill="#222">a12</text>
+<rect x="129" y="279.0" width="46" height="32" rx="0" fill="#d6e6f7" stroke="#2e6fb7" stroke-width="1.5" />
+<text x="152.0" y="300.2" font-size="15" text-anchor="middle" fill="#222">a22</text>
+<rect x="77" y="279.0" width="46" height="32" rx="0" fill="#d6e6f7" stroke="#2e6fb7" stroke-width="1.5" />
+<text x="100.0" y="300.2" font-size="15" text-anchor="middle" fill="#222">a32</text>
+<line x1="384" y1="295.0" x2="406" y2="295.0" stroke="#2e6fb7" stroke-width="1.8" marker-end="url(#mb)"/>
+<text x="22" y="379.9" font-size="14" text-anchor="start" fill="#777">第3行</text>
+<rect x="337" y="359.0" width="46" height="32" rx="0" fill="#fff" stroke="#777" stroke-width="1.5" stroke-dasharray="4 3" />
+<text x="360.0" y="379.9" font-size="14" text-anchor="middle" fill="#777">空</text>
+<rect x="285" y="359.0" width="46" height="32" rx="0" fill="#fff" stroke="#777" stroke-width="1.5" stroke-dasharray="4 3" />
+<text x="308.0" y="379.9" font-size="14" text-anchor="middle" fill="#777">空</text>
+<rect x="233" y="359.0" width="46" height="32" rx="0" fill="#fff" stroke="#777" stroke-width="1.5" stroke-dasharray="4 3" />
+<text x="256.0" y="379.9" font-size="14" text-anchor="middle" fill="#777">空</text>
+<rect x="181" y="359.0" width="46" height="32" rx="0" fill="#d6e6f7" stroke="#2e6fb7" stroke-width="1.5" />
+<text x="204.0" y="380.2" font-size="15" text-anchor="middle" fill="#222">a03</text>
+<rect x="129" y="359.0" width="46" height="32" rx="0" fill="#d6e6f7" stroke="#2e6fb7" stroke-width="1.5" />
+<text x="152.0" y="380.2" font-size="15" text-anchor="middle" fill="#222">a13</text>
+<rect x="77" y="359.0" width="46" height="32" rx="0" fill="#d6e6f7" stroke="#2e6fb7" stroke-width="1.5" />
+<text x="100.0" y="380.2" font-size="15" text-anchor="middle" fill="#222">a23</text>
+<line x1="384" y1="375.0" x2="406" y2="375.0" stroke="#2e6fb7" stroke-width="1.8" marker-end="url(#mb)"/>
+<line x1="408.75" y1="100" x2="207.25" y2="410" stroke="#7b4fa0" stroke-width="2" stroke-dasharray="7 5"/>
+<text x="256.0" y="437.9" font-size="14" text-anchor="middle" fill="#7b4fa0">斜边：第 k 行比第 k−1 行晚一拍（skew）</text>
+<line x1="452.5" y1="407" x2="452.5" y2="445" stroke="#c0392b" stroke-width="1.8" marker-end="url(#mr)"/>
+<text x="452.5" y="465.9" font-size="14" text-anchor="middle" fill="#c0392b">c00, c10, …</text>
+<text x="452.5" y="487.9" font-size="14" text-anchor="middle" fill="#777">最早第 3 拍</text>
+<line x1="557.5" y1="407" x2="557.5" y2="445" stroke="#c0392b" stroke-width="1.8" marker-end="url(#mr)"/>
+<text x="557.5" y="465.9" font-size="14" text-anchor="middle" fill="#c0392b">c01, c11, …</text>
+<text x="557.5" y="487.9" font-size="14" text-anchor="middle" fill="#777">最早第 4 拍</text>
+<line x1="662.5" y1="407" x2="662.5" y2="445" stroke="#c0392b" stroke-width="1.8" marker-end="url(#mr)"/>
+<text x="662.5" y="465.9" font-size="14" text-anchor="middle" fill="#c0392b">c02, c12, …</text>
+<text x="662.5" y="487.9" font-size="14" text-anchor="middle" fill="#777">最早第 5 拍</text>
+<line x1="767.5" y1="407" x2="767.5" y2="445" stroke="#c0392b" stroke-width="1.8" marker-end="url(#mr)"/>
+<text x="767.5" y="465.9" font-size="14" text-anchor="middle" fill="#c0392b">c03, c13, …</text>
+<text x="767.5" y="487.9" font-size="14" text-anchor="middle" fill="#777">最早第 6 拍</text>
+<text x="610.0" y="513.9" font-size="14" text-anchor="middle" fill="#222">底边流出结果：第 n 列依次吐出结果矩阵第 n 列的 c0n、c1n……（每列比左边一列晚一拍）</text>
+<rect x="40" y="563" width="26" height="22" rx="0" fill="#fbe3c8" stroke="#d9822b" stroke-width="1.5" />
+<text x="74" y="579.9" font-size="14" text-anchor="start" fill="#222">常驻权重 b[k][n]（装载一次，整个计算期间不动）</text>
+<line x1="440" y1="575" x2="480" y2="575" stroke="#2e6fb7" stroke-width="2" marker-end="url(#mb)"/>
+<text x="488" y="579.9" font-size="14" text-anchor="start" fill="#222">输入 a 每拍右移一格</text>
+<line x1="660" y1="563" x2="660" y2="587" stroke="#c0392b" stroke-width="2" marker-end="url(#mr)"/>
+<text x="672" y="579.9" font-size="14" text-anchor="start" fill="#222">部分和每拍下移一格</text>
+<text x="470" y="607.9" font-size="14" text-anchor="middle" fill="#777">a[m][k]：矩阵 A 第 m 行第 k 列；它走阵列第 k 行，沿途与 b[k][0..3] 各乘一次</text>
+</svg>

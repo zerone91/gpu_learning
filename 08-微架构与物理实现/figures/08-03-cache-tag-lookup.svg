@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" width="960" height="620" font-family="sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e7d32"/></marker><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b5451b"/></marker><marker id="abl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/></marker></defs>
+<rect x="0" y="0" width="960" height="620" fill="#ffffff"/>
+<text x="480" y="28" font-size="18" text-anchor="middle" font-weight="bold" fill="#111">查一次 4 路组相联 cache：一组的 4 个 tag 同时读出、4 个比较器同时比，命中信号去选数据</text>
+<text x="40" y="68" font-size="15" font-weight="bold" fill="#111">请求地址（48 位）</text>
+<rect x="210" y="48" width="510.4166666666667" height="30" fill="#d6e4f5" stroke="#222" stroke-width="1.5"/>
+<text x="465.20833333333337" y="68" font-size="14" text-anchor="middle" fill="#111">tag：35 位</text>
+<rect x="720.4166666666667" y="48" width="87.5" height="30" fill="#f5c79b" stroke="#222" stroke-width="1.5"/>
+<text x="764.1666666666667" y="68" font-size="14" text-anchor="middle" fill="#111">index：6 位</text>
+<rect x="807.9166666666667" y="48" width="102.08333333333334" height="30" fill="#e6e6e6" stroke="#222" stroke-width="1.5"/>
+<text x="858.9583333333334" y="68" font-size="14" text-anchor="middle" fill="#111">偏移：7 位</text>
+<polyline points="764.1666666666667,78 764.1666666666667,100 20,100 20,245 32,245" fill="none" stroke="#b5451b" stroke-width="2" marker-end="url(#arr)"/>
+<polyline points="505,100 505,245 518,245" fill="none" stroke="#b5451b" stroke-width="2" marker-end="url(#arr)"/>
+<text x="754" y="95" font-size="14" text-anchor="end" fill="#b5451b">index = 13：两边都选第 13 组那一行</text>
+<text x="186" y="130" font-size="15" text-anchor="middle" font-weight="bold" fill="#111">tag 阵列（一块 SRAM）</text>
+<text x="700" y="130" font-size="15" text-anchor="middle" font-weight="bold" fill="#111">data 阵列（每格一条 128 字节的缓存行）</text>
+<text x="58" y="160" font-size="14" text-anchor="middle" fill="#111">组 0</text>
+<rect x="82" y="140" width="62" height="30" fill="#f4f4f4" stroke="#222" stroke-width="1"/>
+<rect x="520" y="140" width="90" height="30" fill="#f4f4f4" stroke="#222" stroke-width="1"/>
+<rect x="144" y="140" width="62" height="30" fill="#f4f4f4" stroke="#222" stroke-width="1"/>
+<rect x="610" y="140" width="90" height="30" fill="#f4f4f4" stroke="#222" stroke-width="1"/>
+<rect x="206" y="140" width="62" height="30" fill="#f4f4f4" stroke="#222" stroke-width="1"/>
+<rect x="700" y="140" width="90" height="30" fill="#f4f4f4" stroke="#222" stroke-width="1"/>
+<rect x="268" y="140" width="62" height="30" fill="#f4f4f4" stroke="#222" stroke-width="1"/>
+<rect x="790" y="140" width="90" height="30" fill="#f4f4f4" stroke="#222" stroke-width="1"/>
+<text x="58" y="190" font-size="14" text-anchor="middle" fill="#111">组 1</text>
+<rect x="82" y="170" width="62" height="30" fill="#f4f4f4" stroke="#222" stroke-width="1"/>
+<rect x="520" y="170" width="90" height="30" fill="#f4f4f4" stroke="#222" stroke-width="1"/>
+<rect x="144" y="170" width="62" height="30" fill="#f4f4f4" stroke="#222" stroke-width="1"/>
+<rect x="610" y="170" width="90" height="30" fill="#f4f4f4" stroke="#222" stroke-width="1"/>
+<rect x="206" y="170" width="62" height="30" fill="#f4f4f4" stroke="#222" stroke-width="1"/>
+<rect x="700" y="170" width="90" height="30" fill="#f4f4f4" stroke="#222" stroke-width="1"/>
+<rect x="268" y="170" width="62" height="30" fill="#f4f4f4" stroke="#222" stroke-width="1"/>
+<rect x="790" y="170" width="90" height="30" fill="#f4f4f4" stroke="#222" stroke-width="1"/>
+<text x="58" y="220" font-size="14" text-anchor="middle" fill="#111">……</text>
+<rect x="82" y="200" width="62" height="30" fill="#f4f4f4" stroke="#222" stroke-width="1"/>
+<rect x="520" y="200" width="90" height="30" fill="#f4f4f4" stroke="#222" stroke-width="1"/>
+<rect x="144" y="200" width="62" height="30" fill="#f4f4f4" stroke="#222" stroke-width="1"/>
+<rect x="610" y="200" width="90" height="30" fill="#f4f4f4" stroke="#222" stroke-width="1"/>
+<rect x="206" y="200" width="62" height="30" fill="#f4f4f4" stroke="#222" stroke-width="1"/>
+<rect x="700" y="200" width="90" height="30" fill="#f4f4f4" stroke="#222" stroke-width="1"/>
+<rect x="268" y="200" width="62" height="30" fill="#f4f4f4" stroke="#222" stroke-width="1"/>
+<rect x="790" y="200" width="90" height="30" fill="#f4f4f4" stroke="#222" stroke-width="1"/>
+<text x="58" y="250" font-size="14" text-anchor="middle" fill="#b5451b">组 13</text>
+<rect x="82" y="230" width="62" height="30" fill="#fdf3e3" stroke="#222" stroke-width="2"/>
+<rect x="520" y="230" width="90" height="30" fill="#fdf3e3" stroke="#222" stroke-width="2"/>
+<rect x="144" y="230" width="62" height="30" fill="#fdf3e3" stroke="#222" stroke-width="2"/>
+<rect x="610" y="230" width="90" height="30" fill="#fdf3e3" stroke="#222" stroke-width="2"/>
+<rect x="206" y="230" width="62" height="30" fill="#fdf3e3" stroke="#222" stroke-width="2"/>
+<rect x="700" y="230" width="90" height="30" fill="#fdf3e3" stroke="#222" stroke-width="2"/>
+<rect x="268" y="230" width="62" height="30" fill="#fdf3e3" stroke="#222" stroke-width="2"/>
+<rect x="790" y="230" width="90" height="30" fill="#fdf3e3" stroke="#222" stroke-width="2"/>
+<text x="58" y="280" font-size="14" text-anchor="middle" fill="#111">……</text>
+<rect x="82" y="260" width="62" height="30" fill="#f4f4f4" stroke="#222" stroke-width="1"/>
+<rect x="520" y="260" width="90" height="30" fill="#f4f4f4" stroke="#222" stroke-width="1"/>
+<rect x="144" y="260" width="62" height="30" fill="#f4f4f4" stroke="#222" stroke-width="1"/>
+<rect x="610" y="260" width="90" height="30" fill="#f4f4f4" stroke="#222" stroke-width="1"/>
+<rect x="206" y="260" width="62" height="30" fill="#f4f4f4" stroke="#222" stroke-width="1"/>
+<rect x="700" y="260" width="90" height="30" fill="#f4f4f4" stroke="#222" stroke-width="1"/>
+<rect x="268" y="260" width="62" height="30" fill="#f4f4f4" stroke="#222" stroke-width="1"/>
+<rect x="790" y="260" width="90" height="30" fill="#f4f4f4" stroke="#222" stroke-width="1"/>
+<text x="58" y="310" font-size="14" text-anchor="middle" fill="#111">组 63</text>
+<rect x="82" y="290" width="62" height="30" fill="#f4f4f4" stroke="#222" stroke-width="1"/>
+<rect x="520" y="290" width="90" height="30" fill="#f4f4f4" stroke="#222" stroke-width="1"/>
+<rect x="144" y="290" width="62" height="30" fill="#f4f4f4" stroke="#222" stroke-width="1"/>
+<rect x="610" y="290" width="90" height="30" fill="#f4f4f4" stroke="#222" stroke-width="1"/>
+<rect x="206" y="290" width="62" height="30" fill="#f4f4f4" stroke="#222" stroke-width="1"/>
+<rect x="700" y="290" width="90" height="30" fill="#f4f4f4" stroke="#222" stroke-width="1"/>
+<rect x="268" y="290" width="62" height="30" fill="#f4f4f4" stroke="#222" stroke-width="1"/>
+<rect x="790" y="290" width="90" height="30" fill="#f4f4f4" stroke="#222" stroke-width="1"/>
+<text x="113.0" y="340" font-size="14" text-anchor="middle" fill="#555">路 0</text>
+<text x="565.0" y="340" font-size="14" text-anchor="middle" fill="#555">路 0</text>
+<text x="175.0" y="340" font-size="14" text-anchor="middle" fill="#555">路 1</text>
+<text x="655.0" y="340" font-size="14" text-anchor="middle" fill="#555">路 1</text>
+<text x="237.0" y="340" font-size="14" text-anchor="middle" fill="#555">路 2</text>
+<text x="745.0" y="340" font-size="14" text-anchor="middle" fill="#555">路 2</text>
+<text x="299.0" y="340" font-size="14" text-anchor="middle" fill="#555">路 3</text>
+<text x="835.0" y="340" font-size="14" text-anchor="middle" fill="#555">路 3</text>
+<line x1="113.0" y1="260" x2="113.0" y2="388" stroke="#222" stroke-width="1.6" marker-end="url(#a)"/>
+<circle cx="113.0" cy="410" r="20" fill="#ffffff" stroke="#222" stroke-width="1.6"/>
+<text x="113.0" y="416" font-size="15" text-anchor="middle" fill="#111">=?</text>
+<line x1="113.0" y1="446" x2="113.0" y2="432" stroke="#1f5fa8" stroke-width="1.8" marker-end="url(#abl)"/>
+<text x="137.0" y="396" font-size="14" fill="#111" font-weight="normal">0</text>
+<line x1="175.0" y1="260" x2="175.0" y2="388" stroke="#222" stroke-width="1.6" marker-end="url(#a)"/>
+<circle cx="175.0" cy="410" r="20" fill="#ffffff" stroke="#222" stroke-width="1.6"/>
+<text x="175.0" y="416" font-size="15" text-anchor="middle" fill="#111">=?</text>
+<line x1="175.0" y1="446" x2="175.0" y2="432" stroke="#1f5fa8" stroke-width="1.8" marker-end="url(#abl)"/>
+<text x="199.0" y="396" font-size="14" fill="#111" font-weight="normal">0</text>
+<line x1="237.0" y1="260" x2="237.0" y2="388" stroke="#222" stroke-width="1.6" marker-end="url(#a)"/>
+<circle cx="237.0" cy="410" r="20" fill="#eaf5e9" stroke="#222" stroke-width="1.6"/>
+<text x="237.0" y="416" font-size="15" text-anchor="middle" fill="#111">=?</text>
+<line x1="237.0" y1="446" x2="237.0" y2="432" stroke="#1f5fa8" stroke-width="1.8" marker-end="url(#abl)"/>
+<text x="261.0" y="396" font-size="14" fill="#2e7d32" font-weight="bold">1</text>
+<line x1="299.0" y1="260" x2="299.0" y2="388" stroke="#222" stroke-width="1.6" marker-end="url(#a)"/>
+<circle cx="299.0" cy="410" r="20" fill="#ffffff" stroke="#222" stroke-width="1.6"/>
+<text x="299.0" y="416" font-size="15" text-anchor="middle" fill="#111">=?</text>
+<line x1="299.0" y1="446" x2="299.0" y2="432" stroke="#1f5fa8" stroke-width="1.8" marker-end="url(#abl)"/>
+<text x="323.0" y="396" font-size="14" fill="#111" font-weight="normal">0</text>
+<polyline points="465.20833333333337,78 465.20833333333337,88 345,88 345,446 113.0,446" fill="none" stroke="#1f5fa8" stroke-width="2"/>
+<text x="355" y="420" font-size="14" fill="#1f5fa8">请求的 tag 同时</text>
+<text x="355" y="438" font-size="14" fill="#1f5fa8">送进 4 个比较器</text>
+<polyline points="257.0,410 250,410 250,410 " fill="none"/>
+<polyline points="237.0,390 237.0,390" fill="none"/>
+<path d="M259.0,414 C300,470 600,480 640,452" fill="none" stroke="#2e7d32" stroke-width="2.2" marker-end="url(#ag)"/>
+<text x="420" y="486" font-size="14" fill="#2e7d32">第 2 路命中：这个“1”直接当选择信号</text>
+<line x1="565.0" y1="260" x2="580" y2="398" stroke="#222" stroke-width="1.4"/>
+<line x1="655.0" y1="260" x2="620" y2="398" stroke="#222" stroke-width="1.4"/>
+<line x1="745.0" y1="260" x2="660" y2="398" stroke="#222" stroke-width="1.4"/>
+<line x1="835.0" y1="260" x2="700" y2="398" stroke="#222" stroke-width="1.4"/>
+<polygon points="560,400 720,400 690,450 590,450" fill="#eef3fb" stroke="#222" stroke-width="1.6"/>
+<text x="640" y="430" font-size="14" text-anchor="middle" fill="#111">4 选 1</text>
+<line x1="700" y1="425" x2="760" y2="425" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<text x="768" y="420" font-size="14" fill="#111">第 2 路那条缓存行，</text>
+<text x="768" y="440" font-size="14" fill="#111">再按偏移取出所需字节</text>
+<text x="40" y="520" font-size="14" fill="#111">每个比较器：35 位逐位比较，再汇总“是否全部相同”，约 6 级门。4 个结果最多一个为 1；全为 0 就是缺失，请求转去下一级。</text>
+<text x="40" y="544" font-size="14" fill="#111">路数加倍 → 比较器加倍、选择器多一级，而且每次访问都要把整组的 tag 全读出来：这就是路数停在 4～16 的原因。</text>
+<rect x="40" y="566" width="880" height="36" fill="#f4f4f4" stroke="#999" stroke-width="1.2" stroke-dasharray="5,4"/>
+<text x="480" y="589" font-size="14" text-anchor="middle" fill="#111">被划成 shared memory 的那部分 SRAM：地址直接选行，不经过 tag 阵列和比较器——所以没有缺失，也少几拍</text>
+</svg>

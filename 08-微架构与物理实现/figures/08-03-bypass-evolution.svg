@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" font-family="sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b5451b"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e7d32"/></marker></defs>
+<rect x="0" y="0" width="960" height="600" fill="#ffffff"/>
+<text x="480" y="28" font-size="18" text-anchor="middle" font-weight="bold" fill="#111">四代 GPU 一步步把数据流挪出寄存器堆（红色 = 要穿过寄存器堆，绿色 = 绕开）</text>
+<text x="250" y="66" font-size="15" text-anchor="middle" font-weight="bold" fill="#111">显存 / L2</text>
+<line x1="250" y1="76" x2="250" y2="520" stroke="#eee" stroke-width="2"/>
+<text x="430" y="66" font-size="15" text-anchor="middle" font-weight="bold" fill="#b5451b">寄存器堆</text>
+<line x1="430" y1="76" x2="430" y2="520" stroke="#eee" stroke-width="16"/>
+<text x="590" y="66" font-size="15" text-anchor="middle" font-weight="bold" fill="#111">shared memory</text>
+<line x1="590" y1="76" x2="590" y2="520" stroke="#eee" stroke-width="2"/>
+<text x="750" y="66" font-size="15" text-anchor="middle" font-weight="bold" fill="#111">矩阵单元</text>
+<line x1="750" y1="76" x2="750" y2="520" stroke="#eee" stroke-width="2"/>
+<text x="880" y="66" font-size="15" text-anchor="middle" font-weight="bold" fill="#111">TMEM</text>
+<line x1="880" y1="76" x2="880" y2="520" stroke="#eee" stroke-width="2"/>
+<text x="20" y="118" font-size="14" fill="#555">一直有</text>
+<text x="20" y="137" font-size="14" fill="#111" font-weight="bold">LDG + STS 搬进 shared</text>
+<rect x="202.0" y="105" width="96" height="30" rx="4" fill="#ffffff" stroke="#222" stroke-width="1.5"/>
+<text x="250" y="125" font-size="14" text-anchor="middle" fill="#111">显存 / L2</text>
+<rect x="382.0" y="105" width="96" height="30" rx="4" fill="#ffffff" stroke="#222" stroke-width="1.5"/>
+<text x="430" y="125" font-size="14" text-anchor="middle" fill="#111">寄存器堆</text>
+<rect x="542.0" y="105" width="96" height="30" rx="4" fill="#ffffff" stroke="#222" stroke-width="1.5"/>
+<text x="590" y="125" font-size="14" text-anchor="middle" fill="#111">shared</text>
+<line x1="298" y1="120" x2="382" y2="120" stroke="#b5451b" stroke-width="2.4" marker-end="url(#ar)"/>
+<line x1="478" y1="120" x2="542" y2="120" stroke="#b5451b" stroke-width="2.4" marker-end="url(#ar)"/>
+<text x="710" y="125" font-size="14" fill="#b5451b">过寄存器堆：写一次、读一次</text>
+<text x="20" y="188" font-size="14" fill="#555">Ampere</text>
+<text x="20" y="207" font-size="14" fill="#111" font-weight="bold">LDGSTS 异步拷贝</text>
+<rect x="202.0" y="175" width="96" height="30" rx="4" fill="#ffffff" stroke="#222" stroke-width="1.5"/>
+<text x="250" y="195" font-size="14" text-anchor="middle" fill="#111">显存 / L2</text>
+<rect x="382.0" y="175" width="96" height="30" rx="4" fill="#f4f4f4" stroke="#ccc" stroke-width="1.5"/>
+<text x="430" y="195" font-size="14" text-anchor="middle" fill="#bbb">寄存器堆</text>
+<rect x="542.0" y="175" width="96" height="30" rx="4" fill="#ffffff" stroke="#222" stroke-width="1.5"/>
+<text x="590" y="195" font-size="14" text-anchor="middle" fill="#111">shared</text>
+<path d="M250,175 C250,149 590,149 590,173" fill="none" stroke="#2e7d32" stroke-width="2.4" marker-end="url(#ag)"/>
+<text x="710" y="195" font-size="14" fill="#2e7d32">不过；寄存器也不再被占着</text>
+<text x="20" y="258" font-size="14" fill="#555">Hopper</text>
+<text x="20" y="277" font-size="14" fill="#111" font-weight="bold">TMA 搬运</text>
+<rect x="202.0" y="245" width="96" height="30" rx="4" fill="#ffffff" stroke="#222" stroke-width="1.5"/>
+<text x="250" y="265" font-size="14" text-anchor="middle" fill="#111">显存 / L2</text>
+<rect x="382.0" y="245" width="96" height="30" rx="4" fill="#f4f4f4" stroke="#ccc" stroke-width="1.5"/>
+<text x="430" y="265" font-size="14" text-anchor="middle" fill="#bbb">寄存器堆</text>
+<rect x="542.0" y="245" width="96" height="30" rx="4" fill="#ffffff" stroke="#222" stroke-width="1.5"/>
+<text x="590" y="265" font-size="14" text-anchor="middle" fill="#111">shared</text>
+<path d="M250,245 C250,219 590,219 590,243" fill="none" stroke="#2e7d32" stroke-width="2.4" marker-end="url(#ag)"/>
+<text x="710" y="265" font-size="14" fill="#2e7d32">不过；地址由 TMA 引擎自己算</text>
+<text x="20" y="328" font-size="14" fill="#555">Hopper</text>
+<text x="20" y="347" font-size="14" fill="#111" font-weight="bold">wgmma 从 shared 取操作数</text>
+<rect x="382.0" y="315" width="96" height="30" rx="4" fill="#ffffff" stroke="#222" stroke-width="1.5"/>
+<text x="430" y="335" font-size="14" text-anchor="middle" fill="#111">寄存器堆</text>
+<rect x="542.0" y="315" width="96" height="30" rx="4" fill="#ffffff" stroke="#222" stroke-width="1.5"/>
+<text x="590" y="335" font-size="14" text-anchor="middle" fill="#111">shared</text>
+<rect x="702.0" y="315" width="96" height="30" rx="4" fill="#ffffff" stroke="#222" stroke-width="1.5"/>
+<text x="750" y="335" font-size="14" text-anchor="middle" fill="#111">矩阵单元</text>
+<line x1="638" y1="330" x2="702" y2="330" stroke="#2e7d32" stroke-width="2.4" marker-end="url(#ag)"/>
+<path d="M750,345 C750,366 430,366 430,347" fill="none" stroke="#b5451b" stroke-width="2.4" marker-end="url(#ar)" marker-start="url(#ar)"/>
+<text x="870" y="326" font-size="14" text-anchor="middle" fill="#2e7d32">输入不过</text>
+<text x="870" y="346" font-size="14" text-anchor="middle" fill="#b5451b">累加器仍过</text>
+<text x="20" y="398" font-size="14" fill="#555">Blackwell</text>
+<text x="20" y="417" font-size="14" fill="#111" font-weight="bold">累加值住 TMEM</text>
+<rect x="382.0" y="385" width="96" height="30" rx="4" fill="#f4f4f4" stroke="#ccc" stroke-width="1.5"/>
+<text x="430" y="405" font-size="14" text-anchor="middle" fill="#bbb">寄存器堆</text>
+<rect x="542.0" y="385" width="96" height="30" rx="4" fill="#ffffff" stroke="#222" stroke-width="1.5"/>
+<text x="590" y="405" font-size="14" text-anchor="middle" fill="#111">shared</text>
+<rect x="702.0" y="385" width="96" height="30" rx="4" fill="#ffffff" stroke="#222" stroke-width="1.5"/>
+<text x="750" y="405" font-size="14" text-anchor="middle" fill="#111">矩阵单元</text>
+<rect x="845.0" y="385" width="70" height="30" rx="4" fill="#ffffff" stroke="#222" stroke-width="1.5"/>
+<text x="880" y="405" font-size="14" text-anchor="middle" fill="#111">TMEM</text>
+<line x1="638" y1="400" x2="702" y2="400" stroke="#2e7d32" stroke-width="2.4" marker-end="url(#ag)"/>
+<line x1="798" y1="400" x2="843" y2="400" stroke="#2e7d32" stroke-width="2.4" marker-end="url(#ag)" marker-start="url(#ag)"/>
+<text x="250" y="405" font-size="14" text-anchor="middle" fill="#2e7d32">输入、累加器都不过</text>
+<text x="20" y="468" font-size="14" fill="#555">一直有</text>
+<text x="20" y="487" font-size="14" fill="#111" font-weight="bold">普通 FMA / 地址计算</text>
+<rect x="382.0" y="455" width="96" height="30" rx="4" fill="#ffffff" stroke="#222" stroke-width="1.5"/>
+<text x="430" y="475" font-size="14" text-anchor="middle" fill="#111">寄存器堆</text>
+<rect x="702" y="455" width="96" height="30" rx="4" fill="#ffffff" stroke="#222" stroke-width="1.5"/><text x="750" y="475" font-size="14" text-anchor="middle" fill="#111">FMA 通路</text>
+<line x1="478" y1="465" x2="700" y2="465" stroke="#b5451b" stroke-width="2.4" marker-end="url(#ar)"/>
+<line x1="702" y1="477" x2="480" y2="477" stroke="#b5451b" stroke-width="2.4" marker-end="url(#ar)"/>
+<text x="590.0" y="504" font-size="14" text-anchor="middle" fill="#b5451b">必须过：每条 lane 的操作数各不相同</text>
+<text x="20" y="548" font-size="14" fill="#111">Blackwell 另有 2-CTA 配对：一对 SM 共同执行一条矩阵指令，B 操作数和累加器各持一半，操作数搬运量减半——把数据流挪出单个 SM。</text>
+<text x="20" y="574" font-size="14" fill="#555">规律：取数模式规则、能批量、或全 warp 一致的数据流逐个被挪走；每条 lane 各取任意寄存器的标量运算，仍只能走寄存器堆。</text>
+</svg>

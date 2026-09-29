@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" font-family="sans-serif" font-size="15">
+<rect x="0" y="0" width="960" height="600" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#444"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/></marker><marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d9822b"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e7d32"/></marker><pattern id="h" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="#f4f4f4"/><line x1="0" y1="0" x2="0" y2="8" stroke="#bbb" stroke-width="2"/></pattern></defs>
+<text x="20.0" y="32.0" text-anchor="start" fill="#222222" font-size="19" font-weight="bold" >张量并行切一个 FFN：A 按列切、B 按行切，中间不通信，最后一次 all-reduce</text>
+<text x="20.0" y="58.0" text-anchor="start" fill="#555" font-size="15" >以 2 张卡为例；FFN 计算 Z = GeLU(X·A)·B。蓝色归卡 0，橙色归卡 1，灰色两卡各有一份完整的</text>
+<text x="20.0" y="100.0" text-anchor="start" fill="#222222" font-size="16" font-weight="bold" >① 完整权重怎么切</text>
+<rect x="60.0" y="125.0" width="75.0" height="50.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5" />
+<rect x="135.0" y="125.0" width="75.0" height="50.0" rx="0" fill="#fde2c4" stroke="#d9822b" stroke-width="1.5" />
+<text x="97.0" y="156.0" text-anchor="middle" fill="#222222" font-size="16" font-weight="bold" >A₀</text>
+<text x="172.0" y="156.0" text-anchor="middle" fill="#222222" font-size="16" font-weight="bold" >A₁</text>
+<text x="135.0" y="197.0" text-anchor="middle" fill="#222222" font-size="14" >A（h 行 × 4h 列）按列切成两半</text>
+<rect x="360.0" y="110.0" width="50.0" height="38.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5" />
+<rect x="360.0" y="148.0" width="50.0" height="38.0" rx="0" fill="#fde2c4" stroke="#d9822b" stroke-width="1.5" />
+<text x="385.0" y="135.0" text-anchor="middle" fill="#222222" font-size="16" font-weight="bold" >B₀</text>
+<text x="385.0" y="173.0" text-anchor="middle" fill="#222222" font-size="16" font-weight="bold" >B₁</text>
+<text x="425.0" y="146.0" text-anchor="start" fill="#222222" font-size="14" >B（4h 行 × h 列）</text>
+<text x="425.0" y="166.0" text-anchor="start" fill="#222222" font-size="14" >按行切成两半</text>
+<text x="560.0" y="130.0" text-anchor="start" fill="#444" font-size="14" >这样配对的好处：卡 0 算出的是 Y 的左半边列，</text>
+<text x="560.0" y="152.0" text-anchor="start" fill="#444" font-size="14" >而它手上的 B₀ 恰好是和这些列相乘的那几行，</text>
+<text x="560.0" y="174.0" text-anchor="start" fill="#444" font-size="14" >所以不用向另一张卡要任何数据就能接着算。</text>
+<line x1="20.0" y1="215.0" x2="940.0" y2="215.0" stroke="#bbb" stroke-width="1"/>
+<text x="20.0" y="245.0" text-anchor="start" fill="#222222" font-size="16" font-weight="bold" >② 每张卡各算各的（这一整段两卡之间没有任何通信）</text>
+<text x="20.0" y="311.0" text-anchor="start" fill="#222222" font-size="16" font-weight="bold" >卡 0</text>
+<rect x="80.0" y="275.0" width="50.0" height="60.0" rx="0" fill="#e8e8e8" stroke="#666666" stroke-width="1.5" />
+<text x="105.0" y="311.0" text-anchor="middle" fill="#222222" font-size="16" font-weight="bold" >X</text>
+<text x="142.0" y="311.0" text-anchor="middle" fill="#222222" font-size="18" >×</text>
+<rect x="155.0" y="280.0" width="75.0" height="50.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5" />
+<text x="192.0" y="311.0" text-anchor="middle" fill="#222222" font-size="16" font-weight="bold" >A₀</text>
+<text x="245.0" y="311.0" text-anchor="middle" fill="#222222" font-size="18" >=</text>
+<rect x="260.0" y="275.0" width="75.0" height="60.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5" />
+<text x="297.0" y="311.0" text-anchor="middle" fill="#222222" font-size="16" font-weight="bold" >Y₀</text>
+<line x1="340.0" y1="305.0" x2="395.0" y2="305.0" stroke="#444" stroke-width="1.5" marker-end="url(#a)"/>
+<text x="367.0" y="297.0" text-anchor="middle" fill="#222222" font-size="14" >GeLU</text>
+<rect x="400.0" y="275.0" width="75.0" height="60.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5" />
+<text x="437.0" y="311.0" text-anchor="middle" fill="#222222" font-size="16" font-weight="bold" >G₀</text>
+<text x="487.0" y="311.0" text-anchor="middle" fill="#222222" font-size="18" >×</text>
+<rect x="500.0" y="268.0" width="50.0" height="75.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5" />
+<text x="525.0" y="311.0" text-anchor="middle" fill="#222222" font-size="16" font-weight="bold" >B₀</text>
+<text x="563.0" y="311.0" text-anchor="middle" fill="#222222" font-size="18" >=</text>
+<rect x="578.0" y="275.0" width="50.0" height="60.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5" stroke-dasharray="5,3" />
+<text x="603.0" y="311.0" text-anchor="middle" fill="#222222" font-size="16" font-weight="bold" >Z₀</text>
+<text x="20.0" y="431.0" text-anchor="start" fill="#222222" font-size="16" font-weight="bold" >卡 1</text>
+<rect x="80.0" y="395.0" width="50.0" height="60.0" rx="0" fill="#e8e8e8" stroke="#666666" stroke-width="1.5" />
+<text x="105.0" y="431.0" text-anchor="middle" fill="#222222" font-size="16" font-weight="bold" >X</text>
+<text x="142.0" y="431.0" text-anchor="middle" fill="#222222" font-size="18" >×</text>
+<rect x="155.0" y="400.0" width="75.0" height="50.0" rx="0" fill="#fde2c4" stroke="#d9822b" stroke-width="1.5" />
+<text x="192.0" y="431.0" text-anchor="middle" fill="#222222" font-size="16" font-weight="bold" >A₁</text>
+<text x="245.0" y="431.0" text-anchor="middle" fill="#222222" font-size="18" >=</text>
+<rect x="260.0" y="395.0" width="75.0" height="60.0" rx="0" fill="#fde2c4" stroke="#d9822b" stroke-width="1.5" />
+<text x="297.0" y="431.0" text-anchor="middle" fill="#222222" font-size="16" font-weight="bold" >Y₁</text>
+<line x1="340.0" y1="425.0" x2="395.0" y2="425.0" stroke="#444" stroke-width="1.5" marker-end="url(#a)"/>
+<text x="367.0" y="417.0" text-anchor="middle" fill="#222222" font-size="14" >GeLU</text>
+<rect x="400.0" y="395.0" width="75.0" height="60.0" rx="0" fill="#fde2c4" stroke="#d9822b" stroke-width="1.5" />
+<text x="437.0" y="431.0" text-anchor="middle" fill="#222222" font-size="16" font-weight="bold" >G₁</text>
+<text x="487.0" y="431.0" text-anchor="middle" fill="#222222" font-size="18" >×</text>
+<rect x="500.0" y="388.0" width="50.0" height="75.0" rx="0" fill="#fde2c4" stroke="#d9822b" stroke-width="1.5" />
+<text x="525.0" y="431.0" text-anchor="middle" fill="#222222" font-size="16" font-weight="bold" >B₁</text>
+<text x="563.0" y="431.0" text-anchor="middle" fill="#222222" font-size="18" >=</text>
+<rect x="578.0" y="395.0" width="50.0" height="60.0" rx="0" fill="#fde2c4" stroke="#d9822b" stroke-width="1.5" stroke-dasharray="5,3" />
+<text x="603.0" y="431.0" text-anchor="middle" fill="#222222" font-size="16" font-weight="bold" >Z₁</text>
+<text x="80.0" y="490.0" text-anchor="start" fill="#444" font-size="14" >X 是这一层的输入（s 个 token × h 维），两卡都有完整的一份。G = GeLU(Y) 是逐元素运算，</text>
+<text x="80.0" y="512.0" text-anchor="start" fill="#444" font-size="14" >每个数只看自己，所以各卡对自己那半边直接做就行。虚线框的 Z₀、Z₁ 形状和最终结果一样，</text>
+<text x="80.0" y="534.0" text-anchor="start" fill="#444" font-size="14" >但每个只是“一半的乘积之和”，叫部分和。</text>
+<rect x="670.0" y="300.0" width="110.0" height="140.0" rx="6" fill="#f6c6c0" stroke="#c0392b" stroke-width="1.5" />
+<text x="725.0" y="355.0" text-anchor="middle" fill="#c0392b" font-size="15" font-weight="bold" >all-reduce</text>
+<text x="725.0" y="378.0" text-anchor="middle" fill="#222222" font-size="15" >Z = Z₀ + Z₁</text>
+<text x="725.0" y="400.0" text-anchor="middle" fill="#c0392b" font-size="14" >本层唯一一次</text>
+<text x="725.0" y="418.0" text-anchor="middle" fill="#c0392b" font-size="14" >卡间通信</text>
+<line x1="632.0" y1="305.0" x2="668.0" y2="330.0" stroke="#444" stroke-width="1.5" marker-end="url(#a)"/>
+<line x1="632.0" y1="425.0" x2="668.0" y2="410.0" stroke="#444" stroke-width="1.5" marker-end="url(#a)"/>
+<line x1="782.0" y1="330.0" x2="818.0" y2="305.0" stroke="#444" stroke-width="1.5" marker-end="url(#a)"/>
+<line x1="782.0" y1="410.0" x2="818.0" y2="425.0" stroke="#444" stroke-width="1.5" marker-end="url(#a)"/>
+<rect x="822.0" y="275.0" width="50.0" height="60.0" rx="0" fill="#e8e8e8" stroke="#666666" stroke-width="1.5" />
+<text x="847.0" y="311.0" text-anchor="middle" fill="#222222" font-size="16" font-weight="bold" >Z</text>
+<rect x="822.0" y="395.0" width="50.0" height="60.0" rx="0" fill="#e8e8e8" stroke="#666666" stroke-width="1.5" />
+<text x="847.0" y="431.0" text-anchor="middle" fill="#222222" font-size="16" font-weight="bold" >Z</text>
+<text x="880.0" y="311.0" text-anchor="start" fill="#222222" font-size="14" >卡 0</text>
+<text x="880.0" y="431.0" text-anchor="start" fill="#222222" font-size="14" >卡 1</text>
+<text x="20.0" y="580.0" text-anchor="start" fill="#555" font-size="14" >注意力层按头切，也是层末一次 all-reduce；所以一个 Transformer 层共 2 次 all-reduce</text>
+</svg>

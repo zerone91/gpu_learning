@@ -1,0 +1,232 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="560" fill="#ffffff"/>
+<defs><marker id="mk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e6fb7"/></marker><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f8a4a"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d9822b"/></marker><marker id="my" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777"/></marker><marker id="mp" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7b4fa0"/></marker></defs>
+<text x="480" y="31.9" font-size="17" text-anchor="middle" fill="#222" font-weight="bold">把 4096×4096×4096 的矩阵乘切成 512×512 的块：块越大，每块被搬进来后用得越多</text>
+<rect x="40" y="290" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="64" y="290" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="88" y="290" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="112" y="290" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="136" y="290" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="160" y="290" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="184" y="290" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="208" y="290" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="40" y="314" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="64" y="314" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="88" y="314" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="112" y="314" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="136" y="314" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="160" y="314" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="184" y="314" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="208" y="314" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="40" y="338" width="24" height="24" rx="0" fill="#d6e6f7" stroke="#999" stroke-width="1" />
+<rect x="64" y="338" width="24" height="24" rx="0" fill="#d6e6f7" stroke="#999" stroke-width="1" />
+<rect x="88" y="338" width="24" height="24" rx="0" fill="#d6e6f7" stroke="#999" stroke-width="1" />
+<rect x="112" y="338" width="24" height="24" rx="0" fill="#2e6fb7" stroke="#999" stroke-width="1" />
+<rect x="136" y="338" width="24" height="24" rx="0" fill="#d6e6f7" stroke="#999" stroke-width="1" />
+<rect x="160" y="338" width="24" height="24" rx="0" fill="#d6e6f7" stroke="#999" stroke-width="1" />
+<rect x="184" y="338" width="24" height="24" rx="0" fill="#d6e6f7" stroke="#999" stroke-width="1" />
+<rect x="208" y="338" width="24" height="24" rx="0" fill="#d6e6f7" stroke="#999" stroke-width="1" />
+<rect x="40" y="362" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="64" y="362" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="88" y="362" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="112" y="362" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="136" y="362" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="160" y="362" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="184" y="362" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="208" y="362" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="40" y="386" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="64" y="386" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="88" y="386" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="112" y="386" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="136" y="386" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="160" y="386" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="184" y="386" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="208" y="386" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="40" y="410" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="64" y="410" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="88" y="410" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="112" y="410" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="136" y="410" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="160" y="410" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="184" y="410" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="208" y="410" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="40" y="434" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="64" y="434" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="88" y="434" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="112" y="434" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="136" y="434" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="160" y="434" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="184" y="434" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="208" y="434" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="40" y="458" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="64" y="458" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="88" y="458" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="112" y="458" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="136" y="458" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="160" y="458" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="184" y="458" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="208" y="458" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="40" y="290" width="192" height="192" rx="0" fill="none" stroke="#222" stroke-width="2" />
+<text x="136.0" y="281.2" font-size="15" text-anchor="middle" fill="#222">A（4096×4096，8×8 块）</text>
+<rect x="272" y="70" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="296" y="70" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="320" y="70" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="344" y="70" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="368" y="70" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="392" y="70" width="24" height="24" rx="0" fill="#fbe3c8" stroke="#999" stroke-width="1" />
+<rect x="416" y="70" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="440" y="70" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="272" y="94" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="296" y="94" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="320" y="94" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="344" y="94" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="368" y="94" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="392" y="94" width="24" height="24" rx="0" fill="#fbe3c8" stroke="#999" stroke-width="1" />
+<rect x="416" y="94" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="440" y="94" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="272" y="118" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="296" y="118" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="320" y="118" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="344" y="118" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="368" y="118" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="392" y="118" width="24" height="24" rx="0" fill="#fbe3c8" stroke="#999" stroke-width="1" />
+<rect x="416" y="118" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="440" y="118" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="272" y="142" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="296" y="142" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="320" y="142" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="344" y="142" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="368" y="142" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="392" y="142" width="24" height="24" rx="0" fill="#fbe3c8" stroke="#999" stroke-width="1" />
+<rect x="416" y="142" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="440" y="142" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="272" y="166" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="296" y="166" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="320" y="166" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="344" y="166" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="368" y="166" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="392" y="166" width="24" height="24" rx="0" fill="#fbe3c8" stroke="#999" stroke-width="1" />
+<rect x="416" y="166" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="440" y="166" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="272" y="190" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="296" y="190" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="320" y="190" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="344" y="190" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="368" y="190" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="392" y="190" width="24" height="24" rx="0" fill="#fbe3c8" stroke="#999" stroke-width="1" />
+<rect x="416" y="190" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="440" y="190" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="272" y="214" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="296" y="214" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="320" y="214" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="344" y="214" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="368" y="214" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="392" y="214" width="24" height="24" rx="0" fill="#fbe3c8" stroke="#999" stroke-width="1" />
+<rect x="416" y="214" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="440" y="214" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="272" y="238" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="296" y="238" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="320" y="238" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="344" y="238" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="368" y="238" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="392" y="238" width="24" height="24" rx="0" fill="#fbe3c8" stroke="#999" stroke-width="1" />
+<rect x="416" y="238" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="440" y="238" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="272" y="70" width="192" height="192" rx="0" fill="none" stroke="#222" stroke-width="2" />
+<text x="368.0" y="61.2" font-size="15" text-anchor="middle" fill="#222">B（8×8 块）</text>
+<rect x="272" y="290" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="296" y="290" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="320" y="290" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="344" y="290" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="368" y="290" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="392" y="290" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="416" y="290" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="440" y="290" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="272" y="314" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="296" y="314" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="320" y="314" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="344" y="314" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="368" y="314" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="392" y="314" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="416" y="314" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="440" y="314" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="272" y="338" width="24" height="24" rx="0" fill="#f6d5d1" stroke="#999" stroke-width="1" />
+<rect x="296" y="338" width="24" height="24" rx="0" fill="#f6d5d1" stroke="#999" stroke-width="1" />
+<rect x="320" y="338" width="24" height="24" rx="0" fill="#f6d5d1" stroke="#999" stroke-width="1" />
+<rect x="344" y="338" width="24" height="24" rx="0" fill="#f6d5d1" stroke="#999" stroke-width="1" />
+<rect x="368" y="338" width="24" height="24" rx="0" fill="#f6d5d1" stroke="#999" stroke-width="1" />
+<rect x="392" y="338" width="24" height="24" rx="0" fill="#c0392b" stroke="#999" stroke-width="1" />
+<rect x="416" y="338" width="24" height="24" rx="0" fill="#f6d5d1" stroke="#999" stroke-width="1" />
+<rect x="440" y="338" width="24" height="24" rx="0" fill="#f6d5d1" stroke="#999" stroke-width="1" />
+<rect x="272" y="362" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="296" y="362" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="320" y="362" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="344" y="362" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="368" y="362" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="392" y="362" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="416" y="362" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="440" y="362" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="272" y="386" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="296" y="386" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="320" y="386" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="344" y="386" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="368" y="386" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="392" y="386" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="416" y="386" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="440" y="386" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="272" y="410" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="296" y="410" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="320" y="410" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="344" y="410" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="368" y="410" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="392" y="410" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="416" y="410" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="440" y="410" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="272" y="434" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="296" y="434" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="320" y="434" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="344" y="434" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="368" y="434" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="392" y="434" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="416" y="434" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="440" y="434" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="272" y="458" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="296" y="458" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="320" y="458" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="344" y="458" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="368" y="458" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="392" y="458" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="416" y="458" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="440" y="458" width="24" height="24" rx="0" fill="#fff" stroke="#999" stroke-width="1" />
+<rect x="272" y="290" width="192" height="192" rx="0" fill="none" stroke="#222" stroke-width="2" />
+<text x="368.0" y="281.2" font-size="15" text-anchor="middle" fill="#222">C（8×8 块）</text>
+<text x="252" y="393.0" font-size="20" text-anchor="middle" fill="#222" font-weight="bold">×</text>
+<text x="40" y="512.9" font-size="14" text-anchor="start" fill="#2e6fb7">深红是正在算的 C 块：它要 A 的第 2 块行（浅蓝，8 块）</text>
+<text x="40" y="534.9" font-size="14" text-anchor="start" fill="#d9822b">与 B 的第 5 块列（浅橙，8 块）逐对相乘、累加</text>
+<text x="40" y="154.9" font-size="14" text-anchor="start" fill="#2e6fb7">深蓝那一块 A：C 第 2 块行的</text>
+<text x="40" y="176.9" font-size="14" text-anchor="start" fill="#2e6fb7">8 个 C 块（浅红）每个都要用它</text>
+<text x="40" y="198.9" font-size="14" text-anchor="start" fill="#2e6fb7" font-weight="bold">→ 从 DRAM 被搬进来 8 遍</text>
+<text x="40" y="230.9" font-size="14" text-anchor="start" fill="#777">每块 512×512×2 字节 = 0.5 MB</text>
+<rect x="540" y="60" width="400" height="440" rx="8" fill="#fafafa" stroke="#ccc" stroke-width="1.2" />
+<text x="740" y="91.6" font-size="16" text-anchor="middle" fill="#222" font-weight="bold">块边长怎么选：两条约束</text>
+<text x="560" y="127.2" font-size="15" text-anchor="start" fill="#c0392b">喂得饱：A、B 从 DRAM 读的总量</text>
+<text x="620" y="166.9" font-size="14" text-anchor="end" fill="#222">边长 128</text>
+<rect x="630" y="150" width="220.0" height="24" rx="0" fill="#f6d5d1" stroke="#c0392b" stroke-width="1.5" />
+<text x="858.0" y="166.9" font-size="14" text-anchor="start" fill="#c0392b" font-weight="bold">2.0 GB</text>
+<text x="620" y="210.9" font-size="14" text-anchor="end" fill="#222">边长 512</text>
+<rect x="630" y="194" width="55.0" height="24" rx="0" fill="#f6d5d1" stroke="#c0392b" stroke-width="1.5" />
+<text x="693.0" y="210.9" font-size="14" text-anchor="start" fill="#c0392b" font-weight="bold">0.5 GB</text>
+<text x="620" y="254.9" font-size="14" text-anchor="end" fill="#222">边长 1024</text>
+<rect x="630" y="238" width="27.5" height="24" rx="0" fill="#f6d5d1" stroke="#c0392b" stroke-width="1.5" />
+<text x="665.5" y="254.9" font-size="14" text-anchor="start" fill="#c0392b" font-weight="bold">0.25 GB</text>
+<text x="740" y="294.9" font-size="14" text-anchor="middle" fill="#c0392b">边长翻倍 → 每块用的次数减半 → 流量减半</text>
+<text x="560" y="335.2" font-size="15" text-anchor="start" fill="#2f8a4a">装得下：同时要放的 A、B、C 三块</text>
+<text x="620" y="369.9" font-size="14" text-anchor="end" fill="#222">边长 128</text>
+<text x="632" y="369.9" font-size="14" text-anchor="start" fill="#2f8a4a">3 × 128² × 2 字节 ≈ 96 KB</text>
+<text x="620" y="403.9" font-size="14" text-anchor="end" fill="#222">边长 512</text>
+<text x="632" y="403.9" font-size="14" text-anchor="start" fill="#2f8a4a">3 × 512² × 2 字节 ≈ 1.5 MB</text>
+<text x="620" y="437.9" font-size="14" text-anchor="end" fill="#222">边长 1024</text>
+<text x="632" y="437.9" font-size="14" text-anchor="start" fill="#2f8a4a">3 × 1024² × 2 字节 ≈ 6 MB（双缓冲 12 MB）</text>
+<text x="740" y="472.9" font-size="14" text-anchor="middle" fill="#2f8a4a">scratchpad 按 24 MB 算，三种都装得下</text>
+<text x="740" y="494.9" font-size="14" text-anchor="middle" fill="#222" font-weight="bold">→ 在装得下的前提下，块越大越好</text>
+</svg>

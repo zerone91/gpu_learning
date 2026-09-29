@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 400" width="960" height="400" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="400" fill="#ffffff"/>
+<defs><marker id="mk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e6fb7"/></marker><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f8a4a"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d9822b"/></marker><marker id="my" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777"/></marker><marker id="mp" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7b4fa0"/></marker></defs>
+<text x="480" y="31.9" font-size="17" text-anchor="middle" fill="#222" font-weight="bold">同一个 4096×4096 权重矩阵、同样用权重驻留：只改输入行数 M，能量结构翻转</text>
+<text x="186" y="109.6" font-size="16" text-anchor="end" fill="#222" font-weight="bold">解码 M = 8</text>
+<text x="186" y="132.9" font-size="14" text-anchor="end" fill="#777">每个权重只用 8 次</text>
+<rect x="200" y="90" width="100.80000000000001" height="44" rx="0" fill="#f6d5d1" stroke="#c0392b" stroke-width="1.8" />
+<text x="250.4" y="117.2" font-size="15" text-anchor="middle" fill="#222">搬权重</text>
+<rect x="300.8" y="90" width="4.0200000000000005" height="44" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.8" />
+<text x="250.4" y="156.9" font-size="14" text-anchor="middle" fill="#c0392b">33.6 亿</text>
+<text x="314.82" y="110.9" font-size="14" text-anchor="start" fill="#2f8a4a">乘加只有 1.34 亿</text>
+<text x="314.82" y="132.9" font-size="14" text-anchor="start" fill="#c0392b" font-weight="bold">→ 搬运占 96%：九成以上的电花在搬运上</text>
+<text x="186" y="229.6" font-size="16" text-anchor="end" fill="#222" font-weight="bold">预填充 M = 1024</text>
+<text x="186" y="252.9" font-size="14" text-anchor="end" fill="#777">每个权重用 1024 次</text>
+<rect x="200" y="210" width="100.80000000000001" height="44" rx="0" fill="#f6d5d1" stroke="#c0392b" stroke-width="1.8" />
+<text x="250.4" y="237.2" font-size="15" text-anchor="middle" fill="#222">搬权重</text>
+<rect x="300.8" y="210" width="515.4000000000001" height="44" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.8" />
+<text x="558.5" y="237.2" font-size="15" text-anchor="middle" fill="#222">乘加 172 亿</text>
+<text x="250.4" y="276.9" font-size="14" text-anchor="middle" fill="#c0392b">33.6 亿</text>
+<text x="826.2" y="236.9" font-size="14" text-anchor="start" fill="#2f8a4a" font-weight="bold">→ 搬运占 16%</text>
+<text x="480" y="350.9" font-size="14" text-anchor="middle" fill="#222">单位：亿个能量单位（乘加一次 ≈ 1，从 DRAM 搬一个数 ≈ 200）；红条两行一样长：权重总量没变</text>
+<text x="480" y="376.9" font-size="14" text-anchor="middle" fill="#777">搬运量 = 4096×4096 ≈ 1678 万个权重 × 200 ≈ 33.6 亿；乘加次数 = M × 4096 × 4096</text>
+</svg>

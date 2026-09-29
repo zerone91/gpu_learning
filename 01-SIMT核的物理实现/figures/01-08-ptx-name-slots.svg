@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470" width="960" height="470" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="470" fill="#ffffff"/>
+<defs>
+<marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#555"/></marker>
+</defs>
+<text x="480" y="28" font-size="18" text-anchor="middle" fill="#222" font-weight="bold">一条 PTX 指令名 = 五个固定槽位 + 操作数</text>
+
+<!-- operand notes above -->
+<text x="668" y="62" font-size="14" text-anchor="middle" fill="#555">目的操作数（写到哪）</text>
+<text x="856" y="62" font-size="14" text-anchor="middle" fill="#555">源操作数（从哪读）</text>
+<line x1="668" y1="68" x2="668" y2="84" stroke="#555" stroke-width="1.5" marker-end="url(#a)"/>
+<line x1="856" y1="68" x2="856" y2="84" stroke="#555" stroke-width="1.5" marker-end="url(#a)"/>
+
+<!-- segment boxes -->
+<g font-family="monospace" font-size="24" text-anchor="middle" fill="#222">
+<rect x="30" y="88" width="64" height="44" fill="#dbe8f6" stroke="#222" stroke-width="2"/>
+<text x="62" y="118">ld</text>
+<rect x="100" y="88" width="136" height="44" fill="#dbe8f6" stroke="#222" stroke-width="2"/>
+<text x="168" y="118">.global</text>
+<rect x="242" y="88" width="72" height="44" fill="#dbe8f6" stroke="#222" stroke-width="2"/>
+<text x="278" y="118">.ca</text>
+<rect x="320" y="88" width="72" height="44" fill="#dbe8f6" stroke="#222" stroke-width="2"/>
+<text x="356" y="118">.v4</text>
+<rect x="398" y="88" width="88" height="44" fill="#dbe8f6" stroke="#222" stroke-width="2"/>
+<text x="442" y="118">.f32</text>
+</g>
+<g font-family="monospace" font-size="19" text-anchor="middle" fill="#222">
+<rect x="516" y="88" width="304" height="44" fill="#eeeeee" stroke="#888" stroke-width="1.5"/>
+<text x="668" y="117">{%f1, %f2, %f3, %f4},</text>
+<rect x="826" y="88" width="104" height="44" fill="#eeeeee" stroke="#888" stroke-width="1.5"/>
+<text x="878" y="117">[%rd1];</text>
+</g>
+
+<!-- slot numbers -->
+<g font-size="15" text-anchor="middle" fill="#fff" font-weight="bold">
+<circle cx="62" cy="152" r="12" fill="#2c6fb7"/><text x="62" y="157">1</text>
+<circle cx="168" cy="152" r="12" fill="#2c6fb7"/><text x="168" y="157">2</text>
+<circle cx="278" cy="152" r="12" fill="#2c6fb7"/><text x="278" y="157">3</text>
+<circle cx="356" cy="152" r="12" fill="#2c6fb7"/><text x="356" y="157">4</text>
+<circle cx="442" cy="152" r="12" fill="#2c6fb7"/><text x="442" y="157">5</text>
+</g>
+<!-- leader lines -->
+<g stroke="#2c6fb7" stroke-width="1.5" fill="none">
+<line x1="62" y1="164" x2="113" y2="196"/>
+<line x1="168" y1="164" x2="297" y2="196"/>
+<line x1="278" y1="164" x2="481" y2="196"/>
+<line x1="356" y1="164" x2="665" y2="196"/>
+<line x1="442" y1="164" x2="849" y2="196"/>
+</g>
+
+<!-- cards -->
+<g stroke="#2c6fb7" stroke-width="2" fill="#f7fafd">
+<rect x="30" y="196" width="166" height="186" rx="6"/>
+<rect x="214" y="196" width="166" height="186" rx="6"/>
+<rect x="398" y="196" width="166" height="186" rx="6"/>
+<rect x="582" y="196" width="166" height="186" rx="6"/>
+<rect x="766" y="196" width="166" height="186" rx="6"/>
+</g>
+<g font-size="16" font-weight="bold" fill="#2c6fb7">
+<text x="42" y="222">① 干什么？</text>
+<text x="226" y="222">② 对哪级存储？</text>
+<text x="410" y="222">③ 缓存怎么用？</text>
+<text x="594" y="222">④ 一次搬多宽？</text>
+<text x="778" y="222">⑤ 什么数据类型？</text>
+</g>
+<g font-size="15" fill="#222">
+<text x="42" y="250">ld：加载，</text>
+<text x="42" y="270">内存 → 寄存器</text>
+<text x="226" y="250">.global：显存，</text>
+<text x="226" y="270">经 L1、L2 缓存</text>
+<text x="410" y="250">.ca：各级缓存</text>
+<text x="410" y="270">都留一份（默认）</text>
+<text x="594" y="250">.v4：4 个元素打包</text>
+<text x="594" y="270">= 一条搬 16 字节</text>
+<text x="778" y="250">.f32：每个元素</text>
+<text x="778" y="270">是 32 位浮点数</text>
+</g>
+<g stroke="#bbb" stroke-width="1.5"><line x1="42" y1="284" x2="184" y2="284"/><line x1="226" y1="284" x2="368" y2="284"/><line x1="410" y1="284" x2="552" y2="284"/><line x1="594" y1="284" x2="736" y2="284"/><line x1="778" y1="284" x2="920" y2="284"/></g>
+<g font-size="14" fill="#555">
+<text x="42" y="304">同一槽的其它值：</text>
+<text x="42" y="324">st 存储</text>
+<text x="42" y="344">cp 内存→内存拷贝</text>
+<text x="42" y="364">atom 原子操作</text>
+<text x="226" y="304">同一槽的其它值：</text>
+<text x="226" y="324">.shared 块内共享</text>
+<text x="226" y="344">.local 线程私有</text>
+<text x="226" y="364">.const .param</text>
+<text x="410" y="304">同一槽的其它值：</text>
+<text x="410" y="324">.cg 只进 L2</text>
+<text x="410" y="344">.cs 用完即弃</text>
+<text x="410" y="364">.nc 走只读路径</text>
+<text x="594" y="304">同一槽的其它值：</text>
+<text x="594" y="324">不写 = 1 个元素</text>
+<text x="594" y="344">.v2 = 2 个元素</text>
+<text x="778" y="304">同一槽的其它值：</text>
+<text x="778" y="324">.f16x2 两个半精度</text>
+<text x="778" y="344">.bf16 .s32 .u64</text>
+<text x="778" y="364">.b128 .pred</text>
+</g>
+
+<!-- translation -->
+<rect x="30" y="402" width="900" height="50" fill="#fbe3c4" stroke="#b86a0c" stroke-width="1.5" rx="6"/>
+<text x="480" y="433" font-size="16" text-anchor="middle" fill="#222">整句读作：从 %rd1 指向的显存地址，一次读 4 个 f32，经缓存，放进 %f1～%f4 四个寄存器</text>
+</svg>

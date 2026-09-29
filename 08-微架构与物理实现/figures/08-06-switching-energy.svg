@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 560" width="980" height="560" font-family="sans-serif">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b5451b"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/></marker></defs>
+<rect x="0" y="0" width="980" height="560" fill="#ffffff"/>
+<text x="490" y="28" font-size="18" text-anchor="middle" font-weight="bold" fill="#111">动态功耗从哪来：每次翻转都是给一个小电容充电或放电</text>
+<text x="160" y="64" font-size="15" text-anchor="middle" font-weight="bold" fill="#111">① 输出 0 → 1：上开关接通</text>
+<line x1="80" y1="90" x2="160" y2="90" stroke="#222" stroke-width="2.5"/>
+<text x="170" y="95" font-size="14" fill="#111">电源 V（1 伏）</text>
+<line x1="120" y1="90" x2="120" y2="130" stroke="#222" stroke-width="2"/>
+<line x1="120" y1="130" x2="120" y2="170" stroke="#b5451b" stroke-width="3"/>
+<circle cx="120" cy="130" r="3.5" fill="#222"/><circle cx="120" cy="170" r="3.5" fill="#222"/>
+<text x="108" y="155" font-size="14" text-anchor="end" fill="#111">上开关</text>
+<line x1="120" y1="170" x2="120" y2="210" stroke="#222" stroke-width="2"/>
+<circle cx="120" cy="210" r="4.5" fill="#222"/>
+<line x1="120" y1="210" x2="220" y2="210" stroke="#222" stroke-width="2"/>
+<text x="50" y="215" font-size="14" fill="#111">输出</text>
+<line x1="220" y1="210" x2="220" y2="240" stroke="#222" stroke-width="2"/>
+<line x1="200" y1="240" x2="240" y2="240" stroke="#222" stroke-width="3"/><line x1="200" y1="252" x2="240" y2="252" stroke="#222" stroke-width="3"/>
+<line x1="220" y1="252" x2="220" y2="330" stroke="#222" stroke-width="2"/>
+<text x="248" y="245" font-size="14" fill="#111">C</text>
+<line x1="120" y1="210" x2="120" y2="250" stroke="#222" stroke-width="2"/>
+<line x1="120" y1="250" x2="142" y2="286" stroke="#222" stroke-width="2"/>
+<circle cx="120" cy="250" r="3.5" fill="#222"/><circle cx="120" cy="290" r="3.5" fill="#222"/>
+<text x="108" y="275" font-size="14" text-anchor="end" fill="#111">下开关</text>
+<line x1="120" y1="290" x2="120" y2="330" stroke="#222" stroke-width="2"/>
+<line x1="90" y1="330" x2="250" y2="330" stroke="#222" stroke-width="2.5"/>
+<text x="170" y="350" font-size="14" text-anchor="middle" fill="#111">地（0 伏）</text>
+<polyline points="132,100 132,200 208,200 208,230" fill="none" stroke="#b5451b" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#ar)"/>
+<text x="450" y="64" font-size="15" text-anchor="middle" font-weight="bold" fill="#111">② 输出 1 → 0：下开关接通</text>
+<line x1="370" y1="90" x2="450" y2="90" stroke="#222" stroke-width="2.5"/>
+<text x="460" y="95" font-size="14" fill="#111">电源 V（1 伏）</text>
+<line x1="410" y1="90" x2="410" y2="130" stroke="#222" stroke-width="2"/>
+<line x1="410" y1="130" x2="432" y2="166" stroke="#222" stroke-width="2"/>
+<circle cx="410" cy="130" r="3.5" fill="#222"/><circle cx="410" cy="170" r="3.5" fill="#222"/>
+<text x="398" y="155" font-size="14" text-anchor="end" fill="#111">上开关</text>
+<line x1="410" y1="170" x2="410" y2="210" stroke="#222" stroke-width="2"/>
+<circle cx="410" cy="210" r="4.5" fill="#222"/>
+<line x1="410" y1="210" x2="510" y2="210" stroke="#222" stroke-width="2"/>
+<text x="340" y="215" font-size="14" fill="#111">输出</text>
+<line x1="510" y1="210" x2="510" y2="240" stroke="#222" stroke-width="2"/>
+<line x1="490" y1="240" x2="530" y2="240" stroke="#222" stroke-width="3"/><line x1="490" y1="252" x2="530" y2="252" stroke="#222" stroke-width="3"/>
+<line x1="510" y1="252" x2="510" y2="330" stroke="#222" stroke-width="2"/>
+<text x="538" y="245" font-size="14" fill="#111">C</text>
+<line x1="410" y1="210" x2="410" y2="250" stroke="#222" stroke-width="2"/>
+<line x1="410" y1="250" x2="410" y2="290" stroke="#1f5fa8" stroke-width="3"/>
+<circle cx="410" cy="250" r="3.5" fill="#222"/><circle cx="410" cy="290" r="3.5" fill="#222"/>
+<text x="398" y="275" font-size="14" text-anchor="end" fill="#111">下开关</text>
+<line x1="410" y1="290" x2="410" y2="330" stroke="#222" stroke-width="2"/>
+<line x1="380" y1="330" x2="540" y2="330" stroke="#222" stroke-width="2.5"/>
+<text x="460" y="350" font-size="14" text-anchor="middle" fill="#111">地（0 伏）</text>
+<polyline points="498,228 498,220 422,220 422,320" fill="none" stroke="#1f5fa8" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#ab)"/>
+<text x="40" y="385" font-size="14" fill="#b5451b">电源送出 CV²：一半（½CV²）</text>
+<text x="40" y="405" font-size="14" fill="#b5451b">存进电容，一半在上开关里发热</text>
+<text x="330" y="385" font-size="14" fill="#1f5fa8">电容里存的 ½CV² 经下开关</text>
+<text x="330" y="405" font-size="14" fill="#1f5fa8">流到地，全部变成热</text>
+<text x="300" y="480" font-size="15" text-anchor="middle" font-weight="bold" fill="#111">一次完整的 0 → 1 → 0，从电源拿走 CV²，全部变成热，收不回来</text>
+<line x1="600" y1="50" x2="600" y2="520" stroke="#ccc" stroke-width="1.5"/>
+<text x="790" y="70" font-size="16" text-anchor="middle" font-weight="bold" fill="#111">乘上"每秒多少次"就是功率</text>
+<text x="790" y="115" font-size="26" text-anchor="middle" font-weight="bold" fill="#111">P = α · C · V² · f</text>
+<text x="620" y="160" font-size="18" font-weight="bold" fill="#b5451b">α</text>
+<text x="670" y="158" font-size="14" fill="#111">活动因子：每拍有多大比例的节点真的翻转</text>
+<text x="670" y="178" font-size="14" fill="#555">普通逻辑 0.05～0.3；时钟网络 = 1</text>
+<text x="620" y="218" font-size="18" font-weight="bold" fill="#b5451b">C</text>
+<text x="670" y="216" font-size="14" fill="#111">所有会被充放电的电容加起来</text>
+<text x="670" y="236" font-size="14" fill="#555">导线越长、门越多，C 越大</text>
+<text x="620" y="276" font-size="18" font-weight="bold" fill="#b5451b">V²</text>
+<text x="670" y="274" font-size="14" fill="#111">电源电压的平方</text>
+<text x="670" y="294" font-size="14" fill="#555">降 15% 电压，这一项降到 0.72</text>
+<text x="620" y="334" font-size="18" font-weight="bold" fill="#b5451b">f</text>
+<text x="670" y="332" font-size="14" fill="#111">每秒多少拍</text>
+<text x="670" y="352" font-size="14" fill="#555">降 f 只是线性省电，性能也线性掉</text>
+<text x="620" y="400" font-size="14" font-weight="bold" fill="#111">算一个节点（示意）：</text>
+<text x="620" y="422" font-size="14" fill="#111">C = 1 fF（10⁻¹⁵ 法），V = 1 伏：翻一次 1 fJ</text>
+<text x="620" y="444" font-size="14" fill="#111">α = 0.1，f = 2 GHz：</text>
+<text x="620" y="466" font-size="14" fill="#111">0.1 × 1 fJ × 2×10⁹ = 0.2 微瓦</text>
+<text x="620" y="488" font-size="14" fill="#111">十亿个这样的节点 ≈ 200 瓦</text>
+<text x="300" y="440" font-size="14" text-anchor="middle" fill="#555">C：输出端连着的导线、以及下一级门的输入，合起来像一个小电容</text>
+<text x="490" y="545" font-size="14" text-anchor="middle" fill="#555">开关就是晶体管：上开关是 PMOS，下开关是 NMOS，两者永远一个通一个断，合起来是一个反相器</text>
+</svg>

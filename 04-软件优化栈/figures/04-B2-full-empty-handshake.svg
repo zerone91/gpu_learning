@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" width="960" height="620" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="620" fill="#ffffff"/>
+<defs><marker id="k" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222222"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777777"/></marker><marker id="o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c77a12"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f6db5"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="n" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e8b57"/></marker><marker id="p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7a4fb0"/></marker></defs>
+<text x="480.0" y="30.0" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold">生产者与消费者怎样用 full / empty 两组屏障交接一格缓冲（以第 s 格为例）</text>
+<rect x="30.0" y="70.0" width="190.0" height="64.0" rx="3" fill="#f8e3c4" stroke="#c77a12" stroke-width="1.5"/>
+<text x="125.0" y="99.0" font-size="16" text-anchor="middle" fill="#222222" font-weight="bold">生产者 WG0</text>
+<text x="125.0" y="117.0" font-size="14" text-anchor="middle" fill="#777777">选出的 1 个线程</text>
+<rect x="385.0" y="70.0" width="190.0" height="64.0" rx="3" fill="#f3f3f3" stroke="#222222" stroke-width="1.5"/>
+<text x="480.0" y="99.0" font-size="16" text-anchor="middle" fill="#222222" font-weight="bold">TMA 引擎</text>
+<text x="480.0" y="117.0" font-size="14" text-anchor="middle" fill="#777777">硬件搬运，不占线程</text>
+<rect x="740.0" y="70.0" width="190.0" height="64.0" rx="3" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="835.0" y="99.0" font-size="16" text-anchor="middle" fill="#222222" font-weight="bold">消费者 WG1/WG2</text>
+<text x="835.0" y="117.0" font-size="14" text-anchor="middle" fill="#777777">矩阵乘 + softmax</text>
+<rect x="385.0" y="230.0" width="190.0" height="60.0" rx="3" fill="#f8e3c4" stroke="#c77a12" stroke-width="1.5"/>
+<text x="480.0" y="257.0" font-size="16" text-anchor="middle" fill="#222222" font-weight="bold">sK[s]、sV[s]</text>
+<text x="480.0" y="275.0" font-size="14" text-anchor="middle" fill="#777777">shared 里的第 s 格</text>
+<rect x="385.0" y="350.0" width="190.0" height="60.0" rx="3" fill="#ffffff" stroke="#2e8b57" stroke-width="1.5"/>
+<text x="480.0" y="377.0" font-size="16" text-anchor="middle" fill="#222222" font-weight="bold">full[s]</text>
+<text x="480.0" y="395.0" font-size="14" text-anchor="middle" fill="#777777">已到 0 / 32768 字节</text>
+<rect x="30.0" y="350.0" width="190.0" height="60.0" rx="3" fill="#ffffff" stroke="#c0392b" stroke-width="1.5"/>
+<text x="125.0" y="377.0" font-size="16" text-anchor="middle" fill="#222222" font-weight="bold">empty[s]</text>
+<text x="125.0" y="395.0" font-size="14" text-anchor="middle" fill="#777777">消费者到齐才翻面</text>
+<line x1="60.0" y1="348.0" x2="60.0" y2="136.0" stroke="#c0392b" stroke-width="1.5" marker-end="url(#r)"/>
+<text x="68.0" y="240.0" font-size="14" text-anchor="start" fill="#c0392b">① wait(</text>
+<text x="68.0" y="260.0" font-size="14" text-anchor="start" fill="#c0392b">empty[s])：</text>
+<text x="68.0" y="280.0" font-size="14" text-anchor="start" fill="#c0392b">等这一格</text>
+<text x="68.0" y="300.0" font-size="14" text-anchor="start" fill="#c0392b">被用完</text>
+<path d="M200,136 L200,300 L383,370" fill="none" stroke="#2e8b57" stroke-width="1.5" marker-end="url(#n)"/>
+<text x="210.0" y="170.0" font-size="14" text-anchor="start" fill="#2e8b57">② arrive_and_</text>
+<text x="210.0" y="190.0" font-size="14" text-anchor="start" fill="#2e8b57">expect_tx(32768)：</text>
+<text x="210.0" y="210.0" font-size="14" text-anchor="start" fill="#2e8b57">声明要收多少字节</text>
+<line x1="222.0" y1="100.0" x2="383.0" y2="100.0" stroke="#c77a12" stroke-width="1.5" marker-end="url(#o)"/>
+<text x="230.0" y="92.0" font-size="14" text-anchor="start" fill="#c77a12">③ tma_load × 2（K、V）</text>
+<line x1="480.0" y1="136.0" x2="480.0" y2="228.0" stroke="#c77a12" stroke-width="1.5" marker-end="url(#o)"/>
+<text x="490.0" y="190.0" font-size="14" text-anchor="start" fill="#c77a12">④ 搬数据进第 s 格</text>
+<path d="M577,110 L640,110 L640,380 L577,380" fill="none" stroke="#2e8b57" stroke-width="1.5" marker-end="url(#n)"/>
+<text x="648.0" y="246.0" font-size="14" text-anchor="start" fill="#2e8b57">⑤ 每搬完一段自动</text>
+<text x="648.0" y="266.0" font-size="14" text-anchor="start" fill="#2e8b57">汇报字节数；凑满</text>
+<text x="648.0" y="286.0" font-size="14" text-anchor="start" fill="#2e8b57">32768 才翻相位</text>
+<path d="M577,395 L835,395 L835,136" fill="none" stroke="#2f6db5" stroke-width="1.5" marker-end="url(#b)"/>
+<text x="700.0" y="430.0" font-size="14" text-anchor="start" fill="#2f6db5">⑥ wait(full[s]) 放行：</text>
+<text x="700.0" y="450.0" font-size="14" text-anchor="start" fill="#2f6db5">消费者开始读这一格</text>
+<path d="M870,136 L870,470 L125,470 L125,412" fill="none" stroke="#c0392b" stroke-width="1.5" marker-end="url(#r)"/>
+<text x="420.0" y="490.0" font-size="14" text-anchor="start" fill="#c0392b">⑦ 用完后 empty[s].arrive()：告诉生产者可以重装</text>
+<text x="30.0" y="536.0" font-size="15" text-anchor="start" fill="#222222" font-weight="bold">相位票：同一个屏障对象循环复用，每绕环一圈翻一次面（S = 3）</text>
+<text x="30.0" y="566.0" font-size="14" text-anchor="start" fill="#222222">第 k 块</text>
+<text x="30.0" y="594.0" font-size="14" text-anchor="start" fill="#222222">格号 s / 相位</text>
+<text x="215.0" y="566.0" font-size="14" text-anchor="middle" fill="#222222">0</text>
+<rect x="170.0" y="576.0" width="90.0" height="26.0" rx="3" fill="#d5eddf" stroke="#2e8b57" stroke-width="1.5"/>
+<text x="215.0" y="595.0" font-size="14" text-anchor="middle" fill="#222222">s=0 / 0</text>
+<text x="323.0" y="566.0" font-size="14" text-anchor="middle" fill="#222222">1</text>
+<rect x="278.0" y="576.0" width="90.0" height="26.0" rx="3" fill="#d5eddf" stroke="#2e8b57" stroke-width="1.5"/>
+<text x="323.0" y="595.0" font-size="14" text-anchor="middle" fill="#222222">s=1 / 0</text>
+<text x="431.0" y="566.0" font-size="14" text-anchor="middle" fill="#222222">2</text>
+<rect x="386.0" y="576.0" width="90.0" height="26.0" rx="3" fill="#d5eddf" stroke="#2e8b57" stroke-width="1.5"/>
+<text x="431.0" y="595.0" font-size="14" text-anchor="middle" fill="#222222">s=2 / 0</text>
+<text x="539.0" y="566.0" font-size="14" text-anchor="middle" fill="#222222">3</text>
+<rect x="494.0" y="576.0" width="90.0" height="26.0" rx="3" fill="#fbf1c7" stroke="#b58900" stroke-width="1.5"/>
+<text x="539.0" y="595.0" font-size="14" text-anchor="middle" fill="#222222">s=0 / 1</text>
+<text x="647.0" y="566.0" font-size="14" text-anchor="middle" fill="#222222">4</text>
+<rect x="602.0" y="576.0" width="90.0" height="26.0" rx="3" fill="#fbf1c7" stroke="#b58900" stroke-width="1.5"/>
+<text x="647.0" y="595.0" font-size="14" text-anchor="middle" fill="#222222">s=1 / 1</text>
+<text x="755.0" y="566.0" font-size="14" text-anchor="middle" fill="#222222">5</text>
+<rect x="710.0" y="576.0" width="90.0" height="26.0" rx="3" fill="#fbf1c7" stroke="#b58900" stroke-width="1.5"/>
+<text x="755.0" y="595.0" font-size="14" text-anchor="middle" fill="#222222">s=2 / 1</text>
+<text x="863.0" y="566.0" font-size="14" text-anchor="middle" fill="#222222">6</text>
+<rect x="818.0" y="576.0" width="90.0" height="26.0" rx="3" fill="#d5eddf" stroke="#2e8b57" stroke-width="1.5"/>
+<text x="863.0" y="595.0" font-size="14" text-anchor="middle" fill="#222222">s=0 / 0</text>
+</svg>

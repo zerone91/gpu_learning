@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="520" fill="#ffffff"/>
+<defs><marker id="k" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222222"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777777"/></marker><marker id="o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c77a12"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f6db5"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="n" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e8b57"/></marker><marker id="p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7a4fb0"/></marker></defs>
+<text x="480.0" y="30.0" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold">wgmma 的“发了不等”：线程发出矩阵指令后立刻往下走，到 wait 才停（时长示意）</text>
+<text x="30.0" y="66.0" font-size="16" text-anchor="start" fill="#222222" font-weight="bold">① 代码里的写法：commit 之后立刻 wait&lt;0&gt;</text>
+<text x="180.0" y="102.0" font-size="14" text-anchor="end" fill="#222222">消费者线程</text>
+<text x="180.0" y="152.0" font-size="14" text-anchor="end" fill="#222222">矩阵单元</text>
+<rect x="190.0" y="80.0" width="70.0" height="34.0" rx="3" fill="#f3f3f3" stroke="#777777" stroke-width="1.5"/>
+<text x="225.0" y="102.0" font-size="14" text-anchor="middle" fill="#222222">arrive</text>
+<rect x="260.0" y="80.0" width="100.0" height="34.0" rx="3" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="310.0" y="102.0" font-size="14" text-anchor="middle" fill="#222222">发射 gemm</text>
+<rect x="360.0" y="80.0" width="70.0" height="34.0" rx="3" fill="#f3f3f3" stroke="#777777" stroke-width="1.5"/>
+<text x="395.0" y="102.0" font-size="14" text-anchor="middle" fill="#222222">commit</text>
+<rect x="430.0" y="80.0" width="230.0" height="34.0" rx="3" fill="#f5d0cb" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="4,3"/>
+<text x="545.0" y="102.0" font-size="14" text-anchor="middle" fill="#c0392b">wait&lt;0&gt;：阻塞</text>
+<rect x="660.0" y="80.0" width="230.0" height="34.0" rx="3" fill="#d5eddf" stroke="#2e8b57" stroke-width="1.5"/>
+<text x="775.0" y="102.0" font-size="14" text-anchor="middle" fill="#222222">softmax(块 k)</text>
+<rect x="290.0" y="130.0" width="370.0" height="34.0" rx="3" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="475.0" y="152.0" font-size="14" text-anchor="middle" fill="#222222">执行 S = Q·Kᵀ（块 k）</text>
+<rect x="660.0" y="130.0" width="230.0" height="34.0" rx="3" fill="#ffffff" stroke="#bbbbbb" stroke-width="1.5" stroke-dasharray="4,3"/>
+<text x="775.0" y="152.0" font-size="14" text-anchor="middle" fill="#777777">空闲</text>
+<line x1="290.0" y1="114.0" x2="290.0" y2="128.0" stroke="#2f6db5" stroke-width="1.5" marker-end="url(#b)"/>
+<text x="298.0" y="180.0" font-size="14" text-anchor="start" fill="#2f6db5">指令一发出，线程就继续往下走</text>
+<line x1="660.0" y1="164.0" x2="660.0" y2="116.0" stroke="#222222" stroke-width="1.5" marker-end="url(#k)"/>
+<text x="668.0" y="180.0" font-size="14" text-anchor="start" fill="#222222">结果写进寄存器，wait 放行</text>
+<text x="30.0" y="222.0" font-size="14" text-anchor="start" fill="#777777">矩阵单元直接从 shared memory 读两个操作数（sQ 和 sK[s]），不必先装进寄存器；算出的分数块写进消费者线程的寄存器。</text>
+<text x="30.0" y="286.0" font-size="16" text-anchor="start" fill="#222222" font-weight="bold">② 改成 wait&lt;1&gt;：允许最新的一组还没算完</text>
+<text x="180.0" y="322.0" font-size="14" text-anchor="end" fill="#222222">消费者线程</text>
+<text x="180.0" y="372.0" font-size="14" text-anchor="end" fill="#222222">矩阵单元</text>
+<rect x="190.0" y="300.0" width="100.0" height="34.0" rx="3" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="240.0" y="322.0" font-size="14" text-anchor="middle" fill="#222222">发射组 k+1</text>
+<rect x="290.0" y="300.0" width="70.0" height="34.0" rx="3" fill="#f3f3f3" stroke="#777777" stroke-width="1.5"/>
+<text x="325.0" y="322.0" font-size="14" text-anchor="middle" fill="#222222">commit</text>
+<rect x="360.0" y="300.0" width="60.0" height="34.0" rx="3" fill="#f3f3f3" stroke="#777777" stroke-width="1.5"/>
+<text x="390.0" y="322.0" font-size="14" text-anchor="middle" fill="#222222">wait&lt;1&gt;</text>
+<rect x="420.0" y="300.0" width="230.0" height="34.0" rx="3" fill="#d5eddf" stroke="#2e8b57" stroke-width="1.5"/>
+<text x="535.0" y="322.0" font-size="14" text-anchor="middle" fill="#222222">softmax(块 k)</text>
+<rect x="220.0" y="350.0" width="370.0" height="34.0" rx="3" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="405.0" y="372.0" font-size="14" text-anchor="middle" fill="#222222">执行组 k+1 的 Q·Kᵀ</text>
+<text x="365.0" y="410.0" font-size="14" text-anchor="start" fill="#222222">wait&lt;1&gt; 只要求“最多还剩 1 组没完成”：组 k 早已完成，立刻放行</text>
+<text x="365.0" y="432.0" font-size="14" text-anchor="start" fill="#222222">于是 softmax(块 k) 与组 k+1 的矩阵乘同时进行</text>
+<rect x="30.0" y="460.0" width="900.0" height="44.0" rx="3" fill="#fbf1c7" stroke="#b58900" stroke-width="1.5"/>
+<text x="480.0" y="488.0" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">代价：组 k 的结果和组 k+1 的累加器要同时占着寄存器——重叠越深，寄存器越紧</text>
+</svg>

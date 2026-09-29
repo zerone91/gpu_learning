@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 500" width="980" height="500" font-family="sans-serif">
+<rect x="0" y="0" width="980" height="500" fill="#ffffff"/>
+<text x="490" y="28" font-size="18" text-anchor="middle" font-weight="bold" fill="#111">流片前在哪跑、跑多快：真机 1 毫秒的事，在仿真里可能要几个小时</text>
+<text x="420.0" y="70" font-size="15" text-anchor="middle" font-weight="bold" fill="#111">每秒能跑多少个时钟周期（对数刻度）</text>
+<text x="800" y="70" font-size="15" text-anchor="middle" font-weight="bold" fill="#111">真机 100 毫秒的推理要跑多久</text>
+<line x1="200.0" y1="84" x2="200.0" y2="350" stroke="#e5e5e5" stroke-width="1"/>
+<text x="200.0" y="370" font-size="13" text-anchor="middle" fill="#111">10</text>
+<line x1="248.88888888888889" y1="84" x2="248.88888888888889" y2="350" stroke="#e5e5e5" stroke-width="1"/>
+<line x1="297.77777777777777" y1="84" x2="297.77777777777777" y2="350" stroke="#e5e5e5" stroke-width="1"/>
+<text x="297.77777777777777" y="370" font-size="13" text-anchor="middle" fill="#111">1 千</text>
+<line x1="346.66666666666663" y1="84" x2="346.66666666666663" y2="350" stroke="#e5e5e5" stroke-width="1"/>
+<line x1="395.55555555555554" y1="84" x2="395.55555555555554" y2="350" stroke="#e5e5e5" stroke-width="1"/>
+<line x1="444.44444444444446" y1="84" x2="444.44444444444446" y2="350" stroke="#e5e5e5" stroke-width="1"/>
+<text x="444.44444444444446" y="370" font-size="13" text-anchor="middle" fill="#111">1 百万</text>
+<line x1="493.3333333333333" y1="84" x2="493.3333333333333" y2="350" stroke="#e5e5e5" stroke-width="1"/>
+<line x1="542.2222222222222" y1="84" x2="542.2222222222222" y2="350" stroke="#e5e5e5" stroke-width="1"/>
+<line x1="591.1111111111111" y1="84" x2="591.1111111111111" y2="350" stroke="#e5e5e5" stroke-width="1"/>
+<text x="591.1111111111111" y="370" font-size="13" text-anchor="middle" fill="#111">10 亿</text>
+<line x1="640.0" y1="84" x2="640.0" y2="350" stroke="#e5e5e5" stroke-width="1"/>
+<text x="188" y="110" font-size="14" text-anchor="end" fill="#111">RTL 软件仿真</text>
+<rect x="223.3" y="94" width="108.6" height="24" rx="3" fill="#f9d9c8" stroke="#b5451b" stroke-width="1.6"/>
+<text x="339.9" y="111" font-size="14" text-anchor="start" fill="#b5451b">每秒几十到几千拍</text>
+<text x="800" y="111" font-size="15" text-anchor="middle" fill="#b5451b" font-weight="bold">十几小时～几十天</text>
+<text x="188" y="180" font-size="14" text-anchor="end" fill="#111">硬件模拟器</text>
+<rect x="436.9" y="164" width="16.2" height="24" rx="3" fill="#fff4d6" stroke="#9a6b00" stroke-width="1.6"/>
+<text x="461.1" y="181" font-size="14" text-anchor="start" fill="#9a6b00">约 1 MHz</text>
+<text x="800" y="181" font-size="15" text-anchor="middle" fill="#9a6b00" font-weight="bold">约 200 秒</text>
+<text x="188" y="250" font-size="14" text-anchor="end" fill="#111">FPGA 原型</text>
+<rect x="493.3" y="234" width="34.2" height="24" rx="3" fill="#cfe2f3" stroke="#1f5fa8" stroke-width="1.6"/>
+<text x="485.3" y="251" font-size="14" text-anchor="end" fill="#1f5fa8">几十 MHz</text>
+<text x="800" y="251" font-size="15" text-anchor="middle" fill="#1f5fa8" font-weight="bold">几秒～二十秒</text>
+<text x="188" y="320" font-size="14" text-anchor="end" fill="#111">真实硅片</text>
+<rect x="603.6" y="304" width="8.0" height="24" rx="3" fill="#d6ecd2" stroke="#2e7d32" stroke-width="1.6"/>
+<text x="595.6" y="321" font-size="14" text-anchor="end" fill="#2e7d32">2 GHz</text>
+<text x="800" y="321" font-size="15" text-anchor="middle" fill="#2e7d32" font-weight="bold">0.1 秒</text>
+<line x1="670" y1="80" x2="670" y2="350" stroke="#ccc" stroke-width="1.5"/>
+<text x="800" y="368" font-size="13" text-anchor="middle" fill="#555">100 毫秒 × 2 GHz = 2 亿拍</text>
+<text x="40" y="410" font-size="14" fill="#111">RTL 仿真：逐个信号模拟电路行为，最细但最慢，用来调单个模块。</text>
+<text x="40" y="432" font-size="14" fill="#111">硬件模拟器：把设计装进专门的大型机器里跑，能跑驱动、编译器和完整 kernel，但一个完整训练步要几小时到几天。</text>
+<text x="40" y="454" font-size="14" fill="#b5451b">所以流片前只能跑挑选并裁剪过的片段，真实负载的性能问题往往要等硅片回来才暴露。</text>
+</svg>

@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 530" width="960" height="530" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="530" fill="#ffffff"/>
+<defs><pattern id="h" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="#fff"/><line x1="0" y1="0" x2="0" y2="8" stroke="#c0392b" stroke-width="1.5"/></pattern></defs>
+<text x="480" y="28" font-size="18" text-anchor="middle" fill="#222" font-weight="bold">三个专家分别有 12、2、2 个 tile，机器同时能跑 8 个线程块：静态划分 vs 动态领活</text>
+<text x="30" y="66" font-size="16" fill="#222" font-weight="bold">左：静态划分（每个块事先分给一个专家）</text>
+<text x="142.0" y="90" font-size="14" text-anchor="middle" fill="#555">第 1 轮</text>
+<text x="226.0" y="90" font-size="14" text-anchor="middle" fill="#555">第 2 轮</text>
+<text x="310.0" y="90" font-size="14" text-anchor="middle" fill="#555">第 3 轮</text>
+<text x="90" y="122.0" font-size="14" text-anchor="end" fill="#222">块 1</text>
+<rect x="102" y="100" width="80" height="34" fill="#fbe3c4" stroke="#222" stroke-width="1.5"/>
+<text x="142.0" y="122.0" font-size="14" text-anchor="middle" fill="#222">专家1·1</text>
+<rect x="186" y="100" width="80" height="34" fill="#fbe3c4" stroke="#222" stroke-width="1.5"/>
+<text x="226.0" y="122.0" font-size="14" text-anchor="middle" fill="#222">专家1·2</text>
+<rect x="270" y="100" width="80" height="34" fill="#fbe3c4" stroke="#222" stroke-width="1.5"/>
+<text x="310.0" y="122.0" font-size="14" text-anchor="middle" fill="#222">专家1·3</text>
+<text x="90" y="162.0" font-size="14" text-anchor="end" fill="#222">块 2</text>
+<rect x="102" y="140" width="80" height="34" fill="#fbe3c4" stroke="#222" stroke-width="1.5"/>
+<text x="142.0" y="162.0" font-size="14" text-anchor="middle" fill="#222">专家1·4</text>
+<rect x="186" y="140" width="80" height="34" fill="#fbe3c4" stroke="#222" stroke-width="1.5"/>
+<text x="226.0" y="162.0" font-size="14" text-anchor="middle" fill="#222">专家1·5</text>
+<rect x="270" y="140" width="80" height="34" fill="#fbe3c4" stroke="#222" stroke-width="1.5"/>
+<text x="310.0" y="162.0" font-size="14" text-anchor="middle" fill="#222">专家1·6</text>
+<text x="90" y="202.0" font-size="14" text-anchor="end" fill="#222">块 3</text>
+<rect x="102" y="180" width="80" height="34" fill="#fbe3c4" stroke="#222" stroke-width="1.5"/>
+<text x="142.0" y="202.0" font-size="14" text-anchor="middle" fill="#222">专家1·7</text>
+<rect x="186" y="180" width="80" height="34" fill="#fbe3c4" stroke="#222" stroke-width="1.5"/>
+<text x="226.0" y="202.0" font-size="14" text-anchor="middle" fill="#222">专家1·8</text>
+<rect x="270" y="180" width="80" height="34" fill="#fbe3c4" stroke="#222" stroke-width="1.5"/>
+<text x="310.0" y="202.0" font-size="14" text-anchor="middle" fill="#222">专家1·9</text>
+<text x="90" y="242.0" font-size="14" text-anchor="end" fill="#222">块 4</text>
+<rect x="102" y="220" width="80" height="34" fill="#fbe3c4" stroke="#222" stroke-width="1.5"/>
+<text x="142.0" y="242.0" font-size="14" text-anchor="middle" fill="#222">专家1·10</text>
+<rect x="186" y="220" width="80" height="34" fill="#fbe3c4" stroke="#222" stroke-width="1.5"/>
+<text x="226.0" y="242.0" font-size="14" text-anchor="middle" fill="#222">专家1·11</text>
+<rect x="270" y="220" width="80" height="34" fill="#fbe3c4" stroke="#222" stroke-width="1.5"/>
+<text x="310.0" y="242.0" font-size="14" text-anchor="middle" fill="#222">专家1·12</text>
+<text x="90" y="282.0" font-size="14" text-anchor="end" fill="#222">块 5</text>
+<rect x="102" y="260" width="80" height="34" fill="#dbe8f6" stroke="#222" stroke-width="1.5"/>
+<text x="142.0" y="282.0" font-size="14" text-anchor="middle" fill="#222">专家2·1</text>
+<rect x="186" y="260" width="80" height="34" fill="url(#h)" stroke="#c0392b" stroke-width="1.5"/>
+<text x="226.0" y="282.0" font-size="14" text-anchor="middle" fill="#c0392b">空等</text>
+<rect x="270" y="260" width="80" height="34" fill="url(#h)" stroke="#c0392b" stroke-width="1.5"/>
+<text x="310.0" y="282.0" font-size="14" text-anchor="middle" fill="#c0392b">空等</text>
+<text x="90" y="322.0" font-size="14" text-anchor="end" fill="#222">块 6</text>
+<rect x="102" y="300" width="80" height="34" fill="#dbe8f6" stroke="#222" stroke-width="1.5"/>
+<text x="142.0" y="322.0" font-size="14" text-anchor="middle" fill="#222">专家2·2</text>
+<rect x="186" y="300" width="80" height="34" fill="url(#h)" stroke="#c0392b" stroke-width="1.5"/>
+<text x="226.0" y="322.0" font-size="14" text-anchor="middle" fill="#c0392b">空等</text>
+<rect x="270" y="300" width="80" height="34" fill="url(#h)" stroke="#c0392b" stroke-width="1.5"/>
+<text x="310.0" y="322.0" font-size="14" text-anchor="middle" fill="#c0392b">空等</text>
+<text x="90" y="362.0" font-size="14" text-anchor="end" fill="#222">块 7</text>
+<rect x="102" y="340" width="80" height="34" fill="#e3efd9" stroke="#222" stroke-width="1.5"/>
+<text x="142.0" y="362.0" font-size="14" text-anchor="middle" fill="#222">专家3·1</text>
+<rect x="186" y="340" width="80" height="34" fill="url(#h)" stroke="#c0392b" stroke-width="1.5"/>
+<text x="226.0" y="362.0" font-size="14" text-anchor="middle" fill="#c0392b">空等</text>
+<rect x="270" y="340" width="80" height="34" fill="url(#h)" stroke="#c0392b" stroke-width="1.5"/>
+<text x="310.0" y="362.0" font-size="14" text-anchor="middle" fill="#c0392b">空等</text>
+<text x="90" y="402.0" font-size="14" text-anchor="end" fill="#222">块 8</text>
+<rect x="102" y="380" width="80" height="34" fill="#e3efd9" stroke="#222" stroke-width="1.5"/>
+<text x="142.0" y="402.0" font-size="14" text-anchor="middle" fill="#222">专家3·2</text>
+<rect x="186" y="380" width="80" height="34" fill="url(#h)" stroke="#c0392b" stroke-width="1.5"/>
+<text x="226.0" y="402.0" font-size="14" text-anchor="middle" fill="#c0392b">空等</text>
+<rect x="270" y="380" width="80" height="34" fill="url(#h)" stroke="#c0392b" stroke-width="1.5"/>
+<text x="310.0" y="402.0" font-size="14" text-anchor="middle" fill="#c0392b">空等</text>
+<text x="100" y="438" font-size="15" fill="#c0392b" font-weight="bold">3 轮做完；后两轮只有一半的块在干活</text>
+<text x="520" y="66" font-size="16" fill="#222" font-weight="bold">右：persistent kernel 动态领活（谁闲谁领下一个）</text>
+<text x="632.0" y="90" font-size="14" text-anchor="middle" fill="#555">第 1 轮</text>
+<text x="716.0" y="90" font-size="14" text-anchor="middle" fill="#555">第 2 轮</text>
+<text x="580" y="122.0" font-size="14" text-anchor="end" fill="#222">块 1</text>
+<rect x="592" y="100" width="80" height="34" fill="#fbe3c4" stroke="#222" stroke-width="1.5"/>
+<text x="632.0" y="122.0" font-size="14" text-anchor="middle" fill="#222">专家1·1</text>
+<rect x="676" y="100" width="80" height="34" fill="#fbe3c4" stroke="#222" stroke-width="1.5"/>
+<text x="716.0" y="122.0" font-size="14" text-anchor="middle" fill="#222">专家1·9</text>
+<text x="580" y="162.0" font-size="14" text-anchor="end" fill="#222">块 2</text>
+<rect x="592" y="140" width="80" height="34" fill="#fbe3c4" stroke="#222" stroke-width="1.5"/>
+<text x="632.0" y="162.0" font-size="14" text-anchor="middle" fill="#222">专家1·2</text>
+<rect x="676" y="140" width="80" height="34" fill="#fbe3c4" stroke="#222" stroke-width="1.5"/>
+<text x="716.0" y="162.0" font-size="14" text-anchor="middle" fill="#222">专家1·10</text>
+<text x="580" y="202.0" font-size="14" text-anchor="end" fill="#222">块 3</text>
+<rect x="592" y="180" width="80" height="34" fill="#fbe3c4" stroke="#222" stroke-width="1.5"/>
+<text x="632.0" y="202.0" font-size="14" text-anchor="middle" fill="#222">专家1·3</text>
+<rect x="676" y="180" width="80" height="34" fill="#fbe3c4" stroke="#222" stroke-width="1.5"/>
+<text x="716.0" y="202.0" font-size="14" text-anchor="middle" fill="#222">专家1·11</text>
+<text x="580" y="242.0" font-size="14" text-anchor="end" fill="#222">块 4</text>
+<rect x="592" y="220" width="80" height="34" fill="#fbe3c4" stroke="#222" stroke-width="1.5"/>
+<text x="632.0" y="242.0" font-size="14" text-anchor="middle" fill="#222">专家1·4</text>
+<rect x="676" y="220" width="80" height="34" fill="#fbe3c4" stroke="#222" stroke-width="1.5"/>
+<text x="716.0" y="242.0" font-size="14" text-anchor="middle" fill="#222">专家1·12</text>
+<text x="580" y="282.0" font-size="14" text-anchor="end" fill="#222">块 5</text>
+<rect x="592" y="260" width="80" height="34" fill="#fbe3c4" stroke="#222" stroke-width="1.5"/>
+<text x="632.0" y="282.0" font-size="14" text-anchor="middle" fill="#222">专家1·5</text>
+<rect x="676" y="260" width="80" height="34" fill="#dbe8f6" stroke="#222" stroke-width="1.5"/>
+<text x="716.0" y="282.0" font-size="14" text-anchor="middle" fill="#222">专家2·1</text>
+<text x="580" y="322.0" font-size="14" text-anchor="end" fill="#222">块 6</text>
+<rect x="592" y="300" width="80" height="34" fill="#fbe3c4" stroke="#222" stroke-width="1.5"/>
+<text x="632.0" y="322.0" font-size="14" text-anchor="middle" fill="#222">专家1·6</text>
+<rect x="676" y="300" width="80" height="34" fill="#dbe8f6" stroke="#222" stroke-width="1.5"/>
+<text x="716.0" y="322.0" font-size="14" text-anchor="middle" fill="#222">专家2·2</text>
+<text x="580" y="362.0" font-size="14" text-anchor="end" fill="#222">块 7</text>
+<rect x="592" y="340" width="80" height="34" fill="#fbe3c4" stroke="#222" stroke-width="1.5"/>
+<text x="632.0" y="362.0" font-size="14" text-anchor="middle" fill="#222">专家1·7</text>
+<rect x="676" y="340" width="80" height="34" fill="#e3efd9" stroke="#222" stroke-width="1.5"/>
+<text x="716.0" y="362.0" font-size="14" text-anchor="middle" fill="#222">专家3·1</text>
+<text x="580" y="402.0" font-size="14" text-anchor="end" fill="#222">块 8</text>
+<rect x="592" y="380" width="80" height="34" fill="#fbe3c4" stroke="#222" stroke-width="1.5"/>
+<text x="632.0" y="402.0" font-size="14" text-anchor="middle" fill="#222">专家1·8</text>
+<rect x="676" y="380" width="80" height="34" fill="#e3efd9" stroke="#222" stroke-width="1.5"/>
+<text x="716.0" y="402.0" font-size="14" text-anchor="middle" fill="#222">专家3·2</text>
+<text x="590" y="438" font-size="15" fill="#2c6fb7" font-weight="bold">2 轮做完；16 个 tile 正好排满，没有块空等</text>
+<rect x="520" y="454" width="410" height="60" fill="#f6f6f6" stroke="#222" stroke-width="1.5" rx="6"/>
+<text x="532" y="478" font-size="14" fill="#222">队列：专家1·1 … 专家1·12，专家2·1、2，专家3·1、2</text>
+<text x="532" y="500" font-size="14" fill="#222">块做完一个 tile，就用 atomicAdd 从计数器领下一个编号</text>
+<text x="30" y="478" font-size="14" fill="#555">示意：每个 tile 耗时相同（1 轮）。静态划分在启动前就定好：</text>
+<text x="30" y="500" font-size="14" fill="#555">专家 1 分 4 个块，专家 2、3 各分 2 个块。</text>
+</svg>

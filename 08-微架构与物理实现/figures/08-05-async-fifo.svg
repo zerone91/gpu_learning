@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 620" width="980" height="620" font-family="sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b5451b"/></marker></defs>
+<rect x="0" y="0" width="980" height="620" fill="#ffffff"/>
+<text x="490" y="28" font-size="18" text-anchor="middle" font-weight="bold" fill="#111">异步 FIFO：数据放在两边都能访问的存储里，只有"指针"跨时钟域，而且用格雷码跨</text>
+<rect x="15" y="45" width="330" height="345" rx="8" fill="#eef3fb" stroke="#1f5fa8" stroke-width="1.5"/>
+<text x="30" y="68" font-size="15" font-weight="bold" fill="#1f5fa8">写时钟域（例：SM 这边）</text>
+<rect x="635" y="45" width="330" height="345" rx="8" fill="#fdf0e8" stroke="#b5451b" stroke-width="1.5"/>
+<text x="950" y="68" font-size="15" font-weight="bold" fill="#b5451b" text-anchor="end">读时钟域（例：显存控制器）</text>
+<rect x="400" y="60" width="180" height="200" rx="4" fill="#fff" stroke="#222" stroke-width="1.8"/>
+<text x="490" y="80" font-size="14" text-anchor="middle" fill="#111" font-weight="bold">双端口存储，8 格</text>
+<rect x="440" y="90" width="100" height="20" fill="#fff" stroke="#777" stroke-width="1"/>
+<text x="446" y="105" font-size="13" fill="#777">0</text>
+<rect x="440" y="110" width="100" height="20" fill="#fff" stroke="#777" stroke-width="1"/>
+<text x="446" y="125" font-size="13" fill="#777">1</text>
+<rect x="440" y="130" width="100" height="20" fill="#d6ecd2" stroke="#777" stroke-width="1"/>
+<text x="446" y="145" font-size="13" fill="#777">2</text>
+<rect x="440" y="150" width="100" height="20" fill="#d6ecd2" stroke="#777" stroke-width="1"/>
+<text x="446" y="165" font-size="13" fill="#777">3</text>
+<rect x="440" y="170" width="100" height="20" fill="#d6ecd2" stroke="#777" stroke-width="1"/>
+<text x="446" y="185" font-size="13" fill="#777">4</text>
+<rect x="440" y="190" width="100" height="20" fill="#fff" stroke="#777" stroke-width="1"/>
+<text x="446" y="205" font-size="13" fill="#777">5</text>
+<rect x="440" y="210" width="100" height="20" fill="#fff" stroke="#777" stroke-width="1"/>
+<text x="446" y="225" font-size="13" fill="#777">6</text>
+<rect x="440" y="230" width="100" height="20" fill="#fff" stroke="#777" stroke-width="1"/>
+<text x="446" y="245" font-size="13" fill="#777">7</text>
+<text x="490" y="152" font-size="13" text-anchor="middle" fill="#2e7d32">有数据</text>
+<text x="365" y="192" font-size="14" text-anchor="middle" fill="#1f5fa8">写指针 = 5</text>
+<text x="660" y="160" font-size="14" text-anchor="middle" fill="#b5451b">读指针 = 2</text>
+<rect x="35" y="90" width="150" height="48" rx="5" fill="#fff" stroke="#1f5fa8" stroke-width="1.6"/><text x="110" y="110" font-size="14" text-anchor="middle" fill="#111">写入数据</text><text x="110" y="128" font-size="14" text-anchor="middle" fill="#555">写指针 +1</text>
+<polyline points="185,114 300,114 300,200 438,200" fill="none" stroke="#1f5fa8" stroke-width="2" marker-end="url(#ab)"/>
+<rect x="35" y="170" width="150" height="48" rx="5" fill="#fff" stroke="#1f5fa8" stroke-width="1.6"/><text x="110" y="190" font-size="14" text-anchor="middle" fill="#111">写指针</text><text x="110" y="208" font-size="14" text-anchor="middle" fill="#555">转成格雷码</text>
+<rect x="795" y="90" width="150" height="48" rx="5" fill="#fff" stroke="#b5451b" stroke-width="1.6"/><text x="870" y="110" font-size="14" text-anchor="middle" fill="#111">读出数据</text><text x="870" y="128" font-size="14" text-anchor="middle" fill="#555">读指针 +1</text>
+<polyline points="542,140 760,140 760,114 793,114" fill="none" stroke="#b5451b" stroke-width="2" marker-end="url(#ar)"/>
+<rect x="795" y="170" width="150" height="48" rx="5" fill="#fff" stroke="#b5451b" stroke-width="1.6"/><text x="870" y="190" font-size="14" text-anchor="middle" fill="#111">读指针</text><text x="870" y="208" font-size="14" text-anchor="middle" fill="#555">转成格雷码</text>
+<polyline points="110,218 110,285 660,285" fill="none" stroke="#1f5fa8" stroke-width="2" marker-end="url(#ab)"/>
+<rect x="662" y="268" width="34" height="34" fill="#fff" stroke="#b5451b" stroke-width="1.6"/><text x="679" y="290" font-size="13" text-anchor="middle" fill="#111">FF</text>
+<rect x="710" y="268" width="34" height="34" fill="#fff" stroke="#b5451b" stroke-width="1.6"/><text x="727" y="290" font-size="13" text-anchor="middle" fill="#111">FF</text>
+<line x1="696" y1="285" x2="708" y2="285" stroke="#222" stroke-width="1.4" marker-end="url(#a)"/>
+<line x1="744" y1="285" x2="793" y2="285" stroke="#222" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="795" y="262" width="150" height="48" rx="5" fill="#fff8e1" stroke="#b5451b" stroke-width="1.6"/><text x="870" y="282" font-size="14" text-anchor="middle" fill="#111">比较：读=写？</text><text x="870" y="300" font-size="14" text-anchor="middle" fill="#555">相等就是"空"</text>
+<polyline points="870,218 870,240 952,240 952,345 320,345" fill="none" stroke="#b5451b" stroke-width="2" marker-end="url(#ar)"/>
+<rect x="236" y="328" width="34" height="34" fill="#fff" stroke="#1f5fa8" stroke-width="1.6"/><text x="253" y="350" font-size="13" text-anchor="middle" fill="#111">FF</text>
+<rect x="284" y="328" width="34" height="34" fill="#fff" stroke="#1f5fa8" stroke-width="1.6"/><text x="301" y="350" font-size="13" text-anchor="middle" fill="#111">FF</text>
+<line x1="270" y1="345" x2="282" y2="345" stroke="#222" stroke-width="1.4" marker-end="url(#a)"/>
+<line x1="236" y1="345" x2="187" y2="345" stroke="#222" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="35" y="321" width="150" height="48" rx="5" fill="#fff8e1" stroke="#1f5fa8" stroke-width="1.6"/><text x="110" y="341" font-size="14" text-anchor="middle" fill="#111">比较：写追上读？</text><text x="110" y="359" font-size="14" text-anchor="middle" fill="#555">追上就是"满"</text>
+<text x="490" y="278" font-size="14" text-anchor="middle" fill="#1f5fa8">写指针（格雷码）跨过去</text>
+<text x="490" y="338" font-size="14" text-anchor="middle" fill="#b5451b">读指针（格雷码）跨回来</text>
+<text x="703" y="318" font-size="13" text-anchor="middle" fill="#555">两级同步器</text>
+<text x="277" y="378" font-size="13" text-anchor="middle" fill="#555">两级同步器</text>
+<text x="30" y="428" font-size="15" font-weight="bold" fill="#111">为什么指针要用格雷码：看指针从 3 走到 4 的那一瞬间被另一边采样</text>
+<text x="30" y="473" font-size="14" font-weight="bold" fill="#b5451b">二进制</text>
+<rect x="100" y="455" width="60" height="26" fill="#fff" stroke="#555"/><text x="130" y="473" font-size="15" text-anchor="middle" font-family="monospace" fill="#111">011</text>
+<line x1="162" y1="468" x2="196" y2="468" stroke="#222" stroke-width="1.5" marker-end="url(#a)"/>
+<rect x="198" y="455" width="60" height="26" fill="#fff" stroke="#555"/><text x="228" y="473" font-size="15" text-anchor="middle" font-family="monospace" fill="#111">100</text>
+<text x="275" y="465" font-size="14" fill="#111">三位同时翻转，三位各自早晚不同：可能采到 111、001、110……</text>
+<text x="275" y="485" font-size="14" fill="#b5451b">采到 7？读侧以为 FIFO 里有一堆数据，读出垃圾</text>
+<text x="30" y="535" font-size="14" font-weight="bold" fill="#2e7d32">格雷码</text>
+<rect x="100" y="517" width="60" height="26" fill="#fff" stroke="#555"/><text x="130" y="535" font-size="15" text-anchor="middle" font-family="monospace" fill="#111">010</text>
+<line x1="162" y1="530" x2="196" y2="530" stroke="#222" stroke-width="1.5" marker-end="url(#a)"/>
+<rect x="198" y="517" width="60" height="26" fill="#fff" stroke="#555"/><text x="228" y="535" font-size="15" text-anchor="middle" font-family="monospace" fill="#111">110</text>
+<text x="275" y="527" font-size="14" fill="#111">只有最高位翻转：采到的要么是 010（旧值 3），要么是 110（新值 4）</text>
+<text x="275" y="547" font-size="14" fill="#2e7d32">最坏只是晚一拍看到新值，永远不会错</text>
+<text x="490" y="600" font-size="14" text-anchor="middle" fill="#555">格雷码：相邻两个数只差一位的编号方式（3 = 010，4 = 110）。代价：每跨一次域至少多两拍，这是访存延迟里"怎么优化都下不去"的一部分</text>
+</svg>

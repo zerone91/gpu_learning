@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 560" width="980" height="560" font-family="sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/></marker></defs>
+<rect x="0" y="0" width="980" height="560" fill="#ffffff"/>
+<text x="490" y="28" font-size="18" text-anchor="middle" font-weight="bold" fill="#111">扫描链：测试时把所有触发器串成一条长移位寄存器，从芯片外面直接写进、读出内部状态</text>
+<ellipse cx="130" cy="95" rx="70" ry="28" fill="#eeeeee" stroke="#777" stroke-width="1.5"/>
+<text x="130" y="100" font-size="14" text-anchor="middle" fill="#111">组合逻辑</text>
+<line x1="130" y1="123" x2="130" y2="150" stroke="#222" stroke-width="1.6"/>
+<text x="136" y="142" font-size="13" fill="#555">D</text>
+<polygon points="108,150 152,150 144,196 116,196" fill="#fdf0e8" stroke="#b5451b" stroke-width="1.6"/>
+<text x="130" y="178" font-size="13" text-anchor="middle" fill="#b5451b">选</text>
+<line x1="130" y1="196" x2="130" y2="214" stroke="#222" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="100" y="216" width="60" height="44" rx="3" fill="#fff4d6" stroke="#9a6b00" stroke-width="1.8"/>
+<text x="130" y="243" font-size="14" text-anchor="middle" fill="#111">FF1</text>
+<polyline points="160,238 200,238 200,160 332,160" fill="none" stroke="#1f5fa8" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#ab)"/>
+<line x1="200" y1="238" x2="200" y2="238" />
+<polyline points="200,238 200,270 230,270 230,95 280,95" fill="none" stroke="#222" stroke-width="1.3"/>
+<ellipse cx="350" cy="95" rx="70" ry="28" fill="#eeeeee" stroke="#777" stroke-width="1.5"/>
+<text x="350" y="100" font-size="14" text-anchor="middle" fill="#111">组合逻辑</text>
+<line x1="350" y1="123" x2="350" y2="150" stroke="#222" stroke-width="1.6"/>
+<text x="356" y="142" font-size="13" fill="#555">D</text>
+<polygon points="328,150 372,150 364,196 336,196" fill="#fdf0e8" stroke="#b5451b" stroke-width="1.6"/>
+<text x="350" y="178" font-size="13" text-anchor="middle" fill="#b5451b">选</text>
+<line x1="350" y1="196" x2="350" y2="214" stroke="#222" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="320" y="216" width="60" height="44" rx="3" fill="#fff4d6" stroke="#9a6b00" stroke-width="1.8"/>
+<text x="350" y="243" font-size="14" text-anchor="middle" fill="#111">FF2</text>
+<polyline points="380,238 420,238 420,160 552,160" fill="none" stroke="#1f5fa8" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#ab)"/>
+<line x1="420" y1="238" x2="420" y2="238" />
+<polyline points="420,238 420,270 450,270 450,95 500,95" fill="none" stroke="#222" stroke-width="1.3"/>
+<ellipse cx="570" cy="95" rx="70" ry="28" fill="#eeeeee" stroke="#777" stroke-width="1.5"/>
+<text x="570" y="100" font-size="14" text-anchor="middle" fill="#111">组合逻辑</text>
+<line x1="570" y1="123" x2="570" y2="150" stroke="#222" stroke-width="1.6"/>
+<text x="576" y="142" font-size="13" fill="#555">D</text>
+<polygon points="548,150 592,150 584,196 556,196" fill="#fdf0e8" stroke="#b5451b" stroke-width="1.6"/>
+<text x="570" y="178" font-size="13" text-anchor="middle" fill="#b5451b">选</text>
+<line x1="570" y1="196" x2="570" y2="214" stroke="#222" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="540" y="216" width="60" height="44" rx="3" fill="#fff4d6" stroke="#9a6b00" stroke-width="1.8"/>
+<text x="570" y="243" font-size="14" text-anchor="middle" fill="#111">FF3</text>
+<polyline points="600,238 640,238 640,160 772,160" fill="none" stroke="#1f5fa8" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#ab)"/>
+<line x1="640" y1="238" x2="640" y2="238" />
+<polyline points="640,238 640,270 670,270 670,95 720,95" fill="none" stroke="#222" stroke-width="1.3"/>
+<ellipse cx="790" cy="95" rx="70" ry="28" fill="#eeeeee" stroke="#777" stroke-width="1.5"/>
+<text x="790" y="100" font-size="14" text-anchor="middle" fill="#111">组合逻辑</text>
+<line x1="790" y1="123" x2="790" y2="150" stroke="#222" stroke-width="1.6"/>
+<text x="796" y="142" font-size="13" fill="#555">D</text>
+<polygon points="768,150 812,150 804,196 776,196" fill="#fdf0e8" stroke="#b5451b" stroke-width="1.6"/>
+<text x="790" y="178" font-size="13" text-anchor="middle" fill="#b5451b">选</text>
+<line x1="790" y1="196" x2="790" y2="214" stroke="#222" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="760" y="216" width="60" height="44" rx="3" fill="#fff4d6" stroke="#9a6b00" stroke-width="1.8"/>
+<text x="790" y="243" font-size="14" text-anchor="middle" fill="#111">FF4</text>
+<polyline points="30,160 112,160" fill="none" stroke="#1f5fa8" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#ab)"/>
+<text x="30" y="152" font-size="14" fill="#1f5fa8">扫描输入</text><text x="30" y="178" font-size="13" fill="#555">（芯片引脚）</text>
+<polyline points="820,238 890,238" fill="none" stroke="#1f5fa8" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#ab)"/>
+<text x="894" y="232" font-size="14" fill="#1f5fa8">扫描</text><text x="894" y="252" font-size="14" fill="#1f5fa8">输出</text>
+<text x="490" y="300" font-size="14" text-anchor="middle" fill="#111">每个触发器前多了一个二选一（橙色梯形）：测试模式选蓝色虚线（上一个触发器的输出），功能模式选组合逻辑送来的 D</text>
+<line x1="20" y1="317" x2="960" y2="317" stroke="#ccc" stroke-width="1.5"/>
+<text x="30" y="341" font-size="15" font-weight="bold" fill="#1f5fa8">① 移位输入</text>
+<text x="30" y="363" font-size="14" fill="#111">测试模式，时钟打 4 拍</text>
+<rect x="30" y="377" width="40" height="30" fill="#fff4d6" stroke="#9a6b00" stroke-width="1.4"/><text x="50" y="397" font-size="14" text-anchor="middle" fill="#111">1</text>
+<text x="50" y="423" font-size="12" text-anchor="middle" fill="#555">FF1</text>
+<rect x="74" y="377" width="40" height="30" fill="#fff4d6" stroke="#9a6b00" stroke-width="1.4"/><text x="94" y="397" font-size="14" text-anchor="middle" fill="#111">1</text>
+<text x="94" y="423" font-size="12" text-anchor="middle" fill="#555">FF2</text>
+<rect x="118" y="377" width="40" height="30" fill="#fff4d6" stroke="#9a6b00" stroke-width="1.4"/><text x="138" y="397" font-size="14" text-anchor="middle" fill="#111">0</text>
+<text x="138" y="423" font-size="12" text-anchor="middle" fill="#555">FF3</text>
+<rect x="162" y="377" width="40" height="30" fill="#fff4d6" stroke="#9a6b00" stroke-width="1.4"/><text x="182" y="397" font-size="14" text-anchor="middle" fill="#111">1</text>
+<text x="182" y="423" font-size="12" text-anchor="middle" fill="#555">FF4</text>
+<text x="30" y="449" font-size="14" fill="#111">把 1 0 1 1 一位一位推进去：</text>
+<text x="30" y="469" font-size="14" fill="#111">芯片被强行设到一个指定的内部状态</text>
+<text x="345" y="341" font-size="15" font-weight="bold" fill="#b5451b">② 捕获</text>
+<text x="345" y="363" font-size="14" fill="#111">切回功能模式，只打 1 拍</text>
+<rect x="345" y="377" width="40" height="30" fill="#fff4d6" stroke="#9a6b00" stroke-width="1.4"/><text x="365" y="397" font-size="14" text-anchor="middle" fill="#111">0</text>
+<text x="365" y="423" font-size="12" text-anchor="middle" fill="#555">FF1</text>
+<rect x="389" y="377" width="40" height="30" fill="#fff4d6" stroke="#9a6b00" stroke-width="1.4"/><text x="409" y="397" font-size="14" text-anchor="middle" fill="#111">1</text>
+<text x="409" y="423" font-size="12" text-anchor="middle" fill="#555">FF2</text>
+<rect x="433" y="377" width="40" height="30" fill="#fff4d6" stroke="#9a6b00" stroke-width="1.4"/><text x="453" y="397" font-size="14" text-anchor="middle" fill="#111">1</text>
+<text x="453" y="423" font-size="12" text-anchor="middle" fill="#555">FF3</text>
+<rect x="477" y="377" width="40" height="30" fill="#fff4d6" stroke="#9a6b00" stroke-width="1.4"/><text x="497" y="397" font-size="14" text-anchor="middle" fill="#111">0</text>
+<text x="497" y="423" font-size="12" text-anchor="middle" fill="#555">FF4</text>
+<text x="345" y="449" font-size="14" fill="#111">每个 FF 抓住它上游组合逻辑</text>
+<text x="345" y="469" font-size="14" fill="#111">对这个状态算出来的结果</text>
+<text x="660" y="341" font-size="15" font-weight="bold" fill="#2e7d32">③ 移位输出</text>
+<text x="660" y="363" font-size="14" fill="#111">测试模式，再打 4 拍</text>
+<rect x="660" y="377" width="40" height="30" fill="#fff4d6" stroke="#9a6b00" stroke-width="1.4"/><text x="680" y="397" font-size="14" text-anchor="middle" fill="#111">0</text>
+<text x="680" y="423" font-size="12" text-anchor="middle" fill="#555">FF1</text>
+<rect x="704" y="377" width="40" height="30" fill="#fff4d6" stroke="#9a6b00" stroke-width="1.4"/><text x="724" y="397" font-size="14" text-anchor="middle" fill="#111">1</text>
+<text x="724" y="423" font-size="12" text-anchor="middle" fill="#555">FF2</text>
+<rect x="748" y="377" width="40" height="30" fill="#fff4d6" stroke="#9a6b00" stroke-width="1.4"/><text x="768" y="397" font-size="14" text-anchor="middle" fill="#111">1</text>
+<text x="768" y="423" font-size="12" text-anchor="middle" fill="#555">FF3</text>
+<rect x="792" y="377" width="40" height="30" fill="#fff4d6" stroke="#9a6b00" stroke-width="1.4"/><text x="812" y="397" font-size="14" text-anchor="middle" fill="#111">0</text>
+<text x="812" y="423" font-size="12" text-anchor="middle" fill="#555">FF4</text>
+<text x="660" y="449" font-size="14" fill="#111">结果一位一位从扫描输出移出来，</text>
+<text x="660" y="469" font-size="14" fill="#111">与期望值比对：不一致就是有制造缺陷</text>
+<text x="490" y="510" font-size="14" text-anchor="middle" fill="#555">格子里的值为示意。真实芯片的扫描链每条有几万个触发器，移一次要几万拍，一颗芯片的测试要几秒到几十秒</text>
+<text x="490" y="532" font-size="14" text-anchor="middle" fill="#555">代价：多出的二选一和扫描连线，约占几个百分点的面积</text>
+</svg>

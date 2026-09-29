@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 480" width="960" height="480" font-family="sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker></defs>
+<rect x="0" y="0" width="960" height="480" fill="#ffffff"/>
+<text x="480" y="28" font-size="18" text-anchor="middle" font-weight="bold" fill="#111">开了 ECC 之后：写满 8 字节是一次写；只写 1 个字节，要先读、再改、再写</text>
+<text x="30" y="72" font-size="16" font-weight="bold" fill="#111">① 对齐的整块写（8 个字节全换新）：1 次访问</text>
+<rect x="40" y="96" width="180" height="46" rx="4" fill="#eaf5e9" stroke="#222" stroke-width="1.5"/>
+<text x="130" y="116" font-size="14" text-anchor="middle" fill="#111">新数据 8 字节</text>
+<text x="130" y="134" font-size="14" text-anchor="middle" fill="#111">直接算出 8 位校验</text>
+<line x1="220" y1="119" x2="268" y2="119" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<text x="280" y="110" font-size="14" fill="#111">写入</text>
+<rect x="320" y="104" width="26" height="30" fill="#d6e4f5" stroke="#222" stroke-width="1.2"/>
+<rect x="346" y="104" width="26" height="30" fill="#d6e4f5" stroke="#222" stroke-width="1.2"/>
+<rect x="372" y="104" width="26" height="30" fill="#d6e4f5" stroke="#222" stroke-width="1.2"/>
+<rect x="398" y="104" width="26" height="30" fill="#d6e4f5" stroke="#222" stroke-width="1.2"/>
+<rect x="424" y="104" width="26" height="30" fill="#d6e4f5" stroke="#222" stroke-width="1.2"/>
+<rect x="450" y="104" width="26" height="30" fill="#d6e4f5" stroke="#222" stroke-width="1.2"/>
+<rect x="476" y="104" width="26" height="30" fill="#d6e4f5" stroke="#222" stroke-width="1.2"/>
+<rect x="502" y="104" width="26" height="30" fill="#d6e4f5" stroke="#222" stroke-width="1.2"/>
+<rect x="532" y="104" width="26" height="30" fill="#f5c79b" stroke="#b5451b" stroke-width="1.5"/>
+<text x="424" y="152" font-size="14" text-anchor="middle" fill="#555">64 位数据</text>
+<text x="545" y="152" font-size="14" text-anchor="middle" fill="#b5451b">8 位校验</text>
+<text x="600" y="124" font-size="14" fill="#2e7d32" font-weight="bold">SRAM 访问：写 1 次</text>
+<line x1="30" y1="178" x2="930" y2="178" stroke="#ccc" stroke-width="1.5"/>
+<text x="30" y="212" font-size="16" font-weight="bold" fill="#111">② 只写其中 1 个字节：读 − 改 − 写，一次写变成一读一写</text>
+<rect x="40" y="232" width="160" height="50" rx="4" fill="#f7dada" stroke="#222" stroke-width="1.5"/>
+<text x="120" y="252" font-size="14" text-anchor="middle" fill="#111" font-weight="bold">1. 读出整块</text>
+<text x="120" y="272" font-size="14" text-anchor="middle" fill="#555">SRAM 读 1 次</text>
+<line x1="200" y1="257" x2="218" y2="257" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<rect x="220" y="232" width="160" height="50" rx="4" fill="#f4f4f4" stroke="#222" stroke-width="1.5"/>
+<text x="300" y="252" font-size="14" text-anchor="middle" fill="#111" font-weight="bold">2. 校验、纠错</text>
+<text x="300" y="272" font-size="14" text-anchor="middle" fill="#555">异或树，几级门</text>
+<line x1="380" y1="257" x2="398" y2="257" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<rect x="400" y="232" width="160" height="50" rx="4" fill="#f4f4f4" stroke="#222" stroke-width="1.5"/>
+<text x="480" y="252" font-size="14" text-anchor="middle" fill="#111" font-weight="bold">3. 换掉第 3 字节</text>
+<text x="480" y="272" font-size="14" text-anchor="middle" fill="#555">其余 7 字节不变</text>
+<line x1="560" y1="257" x2="578" y2="257" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<rect x="580" y="232" width="160" height="50" rx="4" fill="#f4f4f4" stroke="#222" stroke-width="1.5"/>
+<text x="660" y="252" font-size="14" text-anchor="middle" fill="#111" font-weight="bold">4. 重算 8 位校验</text>
+<text x="660" y="272" font-size="14" text-anchor="middle" fill="#555">同样是异或树</text>
+<line x1="740" y1="257" x2="758" y2="257" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<rect x="760" y="232" width="160" height="50" rx="4" fill="#f7dada" stroke="#222" stroke-width="1.5"/>
+<text x="840" y="252" font-size="14" text-anchor="middle" fill="#111" font-weight="bold">5. 写回整块</text>
+<text x="840" y="272" font-size="14" text-anchor="middle" fill="#555">SRAM 写 1 次</text>
+<text x="40" y="320" font-size="14" fill="#111">读出的旧块：</text>
+<rect x="140" y="302" width="26" height="30" fill="#d6e4f5" stroke="#222" stroke-width="1.2"/>
+<rect x="166" y="302" width="26" height="30" fill="#d6e4f5" stroke="#222" stroke-width="1.2"/>
+<rect x="192" y="302" width="26" height="30" fill="#d6e4f5" stroke="#222" stroke-width="1.2"/>
+<rect x="218" y="302" width="26" height="30" fill="#d6e4f5" stroke="#222" stroke-width="1.2"/>
+<rect x="244" y="302" width="26" height="30" fill="#d6e4f5" stroke="#222" stroke-width="1.2"/>
+<rect x="270" y="302" width="26" height="30" fill="#d6e4f5" stroke="#222" stroke-width="1.2"/>
+<rect x="296" y="302" width="26" height="30" fill="#d6e4f5" stroke="#222" stroke-width="1.2"/>
+<rect x="322" y="302" width="26" height="30" fill="#d6e4f5" stroke="#222" stroke-width="1.2"/>
+<rect x="352" y="302" width="26" height="30" fill="#f5c79b" stroke="#b5451b" stroke-width="1.5"/>
+<text x="40" y="376" font-size="14" fill="#111">改后的新块：</text>
+<rect x="140" y="358" width="26" height="30" fill="#d6e4f5" stroke="#222" stroke-width="1.2"/>
+<rect x="166" y="358" width="26" height="30" fill="#d6e4f5" stroke="#222" stroke-width="1.2"/>
+<rect x="192" y="358" width="26" height="30" fill="#8fcf8f" stroke="#222" stroke-width="1.2"/>
+<rect x="218" y="358" width="26" height="30" fill="#d6e4f5" stroke="#222" stroke-width="1.2"/>
+<rect x="244" y="358" width="26" height="30" fill="#d6e4f5" stroke="#222" stroke-width="1.2"/>
+<rect x="270" y="358" width="26" height="30" fill="#d6e4f5" stroke="#222" stroke-width="1.2"/>
+<rect x="296" y="358" width="26" height="30" fill="#d6e4f5" stroke="#222" stroke-width="1.2"/>
+<rect x="322" y="358" width="26" height="30" fill="#d6e4f5" stroke="#222" stroke-width="1.2"/>
+<rect x="352" y="358" width="26" height="30" fill="#f9e0a0" stroke="#b5451b" stroke-width="1.5"/>
+<text x="420" y="322" font-size="14" fill="#111">校验码是用全部 64 位一起算出来的，</text>
+<text x="420" y="342" font-size="14" fill="#111">只改 1 个字节（绿色）也要把 8 位校验（黄色）整个重算，</text>
+<text x="420" y="362" font-size="14" fill="#111">而重算需要另外 7 个字节——所以必须先把整块读出来</text>
+<text x="30" y="420" font-size="14" fill="#b5451b">结果：散乱的小写入，访问次数翻倍，还多出校验和重算的延迟——这是“开 ECC 掉性能”的主要来源</text>
+<text x="30" y="448" font-size="14" fill="#555">SECDED：每 64 位数据配 8 位校验，存储多 12.5%，能纠正 1 位错、发现 2 位错。示意中每格 1 字节。</text>
+</svg>

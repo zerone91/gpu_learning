@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 510" width="960" height="510" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="510" fill="#ffffff"/>
+<defs><pattern id="h" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="#fff"/><line x1="0" y1="0" x2="0" y2="8" stroke="#bbb" stroke-width="2"/></pattern></defs>
+<text x="480" y="28" font-size="18" text-anchor="middle" fill="#222" font-weight="bold">tile 量化：tile 固定为 128 行，专家分到的 token 数 M_i 不是 128 的整数倍时，多出的行照样付费</text>
+<text x="60" y="64" font-size="16" fill="#222" font-weight="bold">M_i = 8</text>
+<rect x="60" y="100" width="110" height="256" fill="url(#h)" stroke="#222" stroke-width="2"/>
+<rect x="60" y="100" width="110" height="16" fill="#fbe3c4" stroke="#b86a0c" stroke-width="2"/>
+<text x="115.0" y="90" font-size="14" text-anchor="middle" fill="#555">tile 1</text>
+<text x="60" y="386" font-size="15" fill="#c0392b" font-weight="bold">有效 8 ÷ 128 = 6%</text>
+<text x="60" y="408" font-size="14" fill="#222">8 行真数据，</text>
+<text x="60" y="428" font-size="14" fill="#222">120 行填充的 0</text>
+<line x1="176" y1="108" x2="200" y2="108" stroke="#b86a0c" stroke-width="1.5"/>
+<text x="204" y="113" font-size="14" fill="#b86a0c">8 行</text>
+<text x="204" y="240" font-size="14" fill="#555">120 行</text>
+<text x="204" y="258" font-size="14" fill="#555">白算</text>
+<text x="330" y="64" font-size="16" fill="#222" font-weight="bold">M_i = 128</text>
+<rect x="330" y="100" width="110" height="256" fill="url(#h)" stroke="#222" stroke-width="2"/>
+<rect x="330" y="100" width="110" height="256" fill="#fbe3c4" stroke="#b86a0c" stroke-width="2"/>
+<text x="385.0" y="90" font-size="14" text-anchor="middle" fill="#555">tile 1</text>
+<text x="330" y="386" font-size="15" fill="#2c6fb7" font-weight="bold">有效 128 ÷ 128 = 100%</text>
+<text x="330" y="408" font-size="14" fill="#222">刚好装满，</text>
+<text x="330" y="428" font-size="14" fill="#222">没有浪费</text>
+<text x="590" y="64" font-size="16" fill="#222" font-weight="bold">M_i = 130</text>
+<rect x="590" y="100" width="110" height="256" fill="url(#h)" stroke="#222" stroke-width="2"/>
+<rect x="590" y="100" width="110" height="256" fill="#fbe3c4" stroke="#b86a0c" stroke-width="2"/>
+<text x="645.0" y="90" font-size="14" text-anchor="middle" fill="#555">tile 1</text>
+<rect x="716" y="100" width="110" height="256" fill="url(#h)" stroke="#222" stroke-width="2"/>
+<rect x="716" y="100" width="110" height="4" fill="#fbe3c4" stroke="#b86a0c" stroke-width="2"/>
+<text x="771.0" y="90" font-size="14" text-anchor="middle" fill="#555">tile 2</text>
+<text x="590" y="386" font-size="15" fill="#c0392b" font-weight="bold">有效 130 ÷ 256 = 51%</text>
+<text x="590" y="408" font-size="14" fill="#222">只多了 2 行，却要多起一整个 tile，</text>
+<text x="590" y="428" font-size="14" fill="#222">耗时接近 M_i = 256 的情形</text>
+<text x="834" y="106" font-size="14" fill="#b86a0c">← 2 行</text>
+<rect x="30" y="478" width="18" height="14" fill="#fbe3c4" stroke="#b86a0c" stroke-width="1.5"/><text x="54" y="490" font-size="14" fill="#222">真实 token 的行</text>
+<rect x="190" y="478" width="18" height="14" fill="url(#h)" stroke="#222" stroke-width="1.5"/><text x="214" y="490" font-size="14" fill="#222">填充的行：搬运和计算照做，结果丢弃</text>
+<text x="560" y="490" font-size="14" fill="#555">每格高度按行数成比例画（1 行 = 2 像素）</text>
+</svg>

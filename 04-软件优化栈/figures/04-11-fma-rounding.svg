@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="600" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222222"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f6db5"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777777"/></marker><marker id="o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c77a12"/></marker><marker id="n" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e8b57"/></marker><marker id="p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7a4fb0"/></marker></defs>
+<text x="480" y="32" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold">FMA 少舍一次：a × a + c，分开算得 0，FMA 得到精确答案 2⁻²⁴</text>
+<text x="30" y="70" font-size="14" text-anchor="start" fill="#222222">输入（都是 fp32 能精确表示的数）：a = 1 + 2⁻¹²，c = −(1 + 2⁻¹¹)。精确的 a × a = 1 + 2⁻¹¹ + 2⁻²⁴，所以精确答案是 2⁻²⁴ ≈ 5.96×10⁻⁸</text>
+<line x1="80" y1="170" x2="880" y2="170" stroke="#222222" stroke-width="2"/>
+<line x1="180" y1="156" x2="180" y2="184" stroke="#222222" stroke-width="2.5"/>
+<text x="180" y="208" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">1 + 2⁻¹¹</text>
+<text x="180" y="228" font-size="13" text-anchor="middle" fill="#444444">fp32 能表示</text>
+<line x1="780" y1="156" x2="780" y2="184" stroke="#222222" stroke-width="2.5"/>
+<text x="780" y="208" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">1 + 2⁻¹¹ + 2⁻²³</text>
+<text x="780" y="228" font-size="13" text-anchor="middle" fill="#444444">fp32 能表示</text>
+<circle cx="480.0" cy="170" r="7" fill="#c77a12" stroke="#c77a12" stroke-width="1.5"/>
+<text x="480.0" y="208" font-size="15" text-anchor="middle" fill="#c77a12" font-weight="bold">精确的 a × a</text>
+<text x="480.0" y="144" font-size="13" text-anchor="middle" fill="#c77a12">正好在两个 fp32 的正中间</text>
+<path d="M180,122 L180,112 L780,112 L780,122" fill="none" stroke="#2f6db5" stroke-width="1.8"/>
+<text x="480.0" y="104" font-size="13" text-anchor="middle" fill="#2f6db5">间隔 2⁻²³（1 附近 fp32 的 ULP）</text>
+<line x1="468.0" y1="240" x2="188" y2="188" stroke="#c0392b" stroke-width="1.8" marker-end="url(#r)"/>
+<text x="490.0" y="256" font-size="13" text-anchor="middle" fill="#c0392b">舍入：两边一样近时取末位为偶数的那个 → 1 + 2⁻¹¹，那 2⁻²⁴ 丢了</text>
+<text x="30" y="326" font-size="16" text-anchor="start" fill="#c0392b" font-weight="bold">分开的乘和加</text>
+<text x="30" y="348" font-size="13" text-anchor="start" fill="#444444">舍入 2 次</text>
+<rect x="200" y="300" width="250" height="44" rx="6" fill="#f6dcd8" stroke="#c0392b" stroke-width="2"/>
+<text x="325.0" y="326.9" font-size="14" text-anchor="middle" fill="#222222">t = round(a × a) = 1 + 2⁻¹¹</text>
+<line x1="452" y1="322" x2="478" y2="322" stroke="#222222" stroke-width="1.5" marker-end="url(#a)"/>
+<rect x="480" y="300" width="250" height="44" rx="6" fill="#eeeeee" stroke="#777777" stroke-width="2"/>
+<text x="605.0" y="326.9" font-size="14" text-anchor="middle" fill="#222222">round(t + c) = 0</text>
+<text x="764" y="328" font-size="17" text-anchor="start" fill="#c0392b" font-weight="bold">结果 0</text>
+<text x="30" y="406" font-size="16" text-anchor="start" fill="#2e8b57" font-weight="bold">FMA</text>
+<text x="30" y="428" font-size="13" text-anchor="start" fill="#444444">舍入 1 次</text>
+<rect x="200" y="380" width="250" height="44" rx="6" fill="#d9efe2" stroke="#2e8b57" stroke-width="2"/>
+<text x="325.0" y="406.9" font-size="14" text-anchor="middle" fill="#222222">a × a 保持精确，不舍入</text>
+<line x1="452" y1="402" x2="478" y2="402" stroke="#222222" stroke-width="1.5" marker-end="url(#a)"/>
+<rect x="480" y="380" width="250" height="44" rx="6" fill="#d9efe2" stroke="#2e8b57" stroke-width="2"/>
+<text x="605.0" y="406.9" font-size="14" text-anchor="middle" fill="#222222">round(a × a + c) = 2⁻²⁴</text>
+<text x="764" y="408" font-size="17" text-anchor="start" fill="#2e8b57" font-weight="bold">结果 2⁻²⁴</text>
+<text x="30" y="470" font-size="14" text-anchor="start" fill="#444444">分开算时，第一次舍入就把 2⁻²⁴ 扔掉了，后面的减法把两个相同的数相减，只剩 0。</text>
+<text x="30" y="494" font-size="14" text-anchor="start" fill="#444444">FMA 的乘积以完整精度进入加法，大的部分 1 + 2⁻¹¹ 被 c 抵消后，剩下的 2⁻²⁴ 本身是 fp32 能精确表示的数，不再有误差。</text>
+<text x="30" y="530" font-size="14" text-anchor="start" fill="#444444">这是一个故意挑出来的极端例子：相对误差 100%。一般情况下两者只差最后一两位；FMA 只舍入一次，结果离精确值不会比分开算更远。</text>
+</svg>

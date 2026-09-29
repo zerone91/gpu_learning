@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540">
+<rect x="0" y="0" width="960" height="540" fill="#ffffff"/>
+<defs><marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777"/></marker><marker id="alg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#bbb"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="agr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e7d32"/></marker><marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b9770e"/></marker><marker id="ap" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7d3c98"/></marker></defs>
+<text x="480.0" y="30.0" font-family="sans-serif" font-size="17" fill="#222" text-anchor="middle" font-weight="bold">warp 内一半线程等另一半释放锁：Volta 之前死锁，Volta 之后交替推进能跑通</text>
+<line x1="200.0" y1="90.0" x2="200.0" y2="420.0" stroke="#eee" stroke-width="1"/>
+<line x1="256.0" y1="90.0" x2="256.0" y2="420.0" stroke="#eee" stroke-width="1"/>
+<line x1="312.0" y1="90.0" x2="312.0" y2="420.0" stroke="#eee" stroke-width="1"/>
+<line x1="368.0" y1="90.0" x2="368.0" y2="420.0" stroke="#eee" stroke-width="1"/>
+<line x1="424.0" y1="90.0" x2="424.0" y2="420.0" stroke="#eee" stroke-width="1"/>
+<line x1="480.0" y1="90.0" x2="480.0" y2="420.0" stroke="#eee" stroke-width="1"/>
+<line x1="536.0" y1="90.0" x2="536.0" y2="420.0" stroke="#eee" stroke-width="1"/>
+<line x1="592.0" y1="90.0" x2="592.0" y2="420.0" stroke="#eee" stroke-width="1"/>
+<line x1="648.0" y1="90.0" x2="648.0" y2="420.0" stroke="#eee" stroke-width="1"/>
+<line x1="704.0" y1="90.0" x2="704.0" y2="420.0" stroke="#eee" stroke-width="1"/>
+<line x1="760.0" y1="90.0" x2="760.0" y2="420.0" stroke="#eee" stroke-width="1"/>
+<line x1="816.0" y1="90.0" x2="816.0" y2="420.0" stroke="#eee" stroke-width="1"/>
+<line x1="872.0" y1="90.0" x2="872.0" y2="420.0" stroke="#eee" stroke-width="1"/>
+<text x="200.0" y="84.0" font-family="sans-serif" font-size="14" fill="#777" text-anchor="start">时间 →</text>
+<text x="40.0" y="110.0" font-family="sans-serif" font-size="16" fill="#c0392b" text-anchor="start" font-weight="bold">Volta 之前</text>
+<text x="40.0" y="132.0" font-family="sans-serif" font-size="14" fill="#c0392b" text-anchor="start">一条路走到底</text>
+<text x="190.0" y="124.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="end">A 组线程</text>
+<text x="190.0" y="170.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="end">B 组线程</text>
+<rect x="202.0" y="102.0" width="52.0" height="34.0" rx="3" fill="#f6d5d0" stroke="#c0392b" stroke-width="2"/>
+<text x="228.0" y="125.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">等锁</text>
+<rect x="258.0" y="102.0" width="52.0" height="34.0" rx="3" fill="#f6d5d0" stroke="#c0392b" stroke-width="2"/>
+<text x="284.0" y="125.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">等锁</text>
+<rect x="314.0" y="102.0" width="52.0" height="34.0" rx="3" fill="#f6d5d0" stroke="#c0392b" stroke-width="2"/>
+<text x="340.0" y="125.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">等锁</text>
+<rect x="370.0" y="102.0" width="52.0" height="34.0" rx="3" fill="#f6d5d0" stroke="#c0392b" stroke-width="2"/>
+<text x="396.0" y="125.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">等锁</text>
+<rect x="426.0" y="102.0" width="52.0" height="34.0" rx="3" fill="#f6d5d0" stroke="#c0392b" stroke-width="2"/>
+<text x="452.0" y="125.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">等锁</text>
+<rect x="482.0" y="102.0" width="52.0" height="34.0" rx="3" fill="#f6d5d0" stroke="#c0392b" stroke-width="2"/>
+<text x="508.0" y="125.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">等锁</text>
+<rect x="538.0" y="102.0" width="52.0" height="34.0" rx="3" fill="#f6d5d0" stroke="#c0392b" stroke-width="2"/>
+<text x="564.0" y="125.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">等锁</text>
+<rect x="594.0" y="102.0" width="52.0" height="34.0" rx="3" fill="#f6d5d0" stroke="#c0392b" stroke-width="2"/>
+<text x="620.0" y="125.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">等锁</text>
+<rect x="650.0" y="102.0" width="52.0" height="34.0" rx="3" fill="#f6d5d0" stroke="#c0392b" stroke-width="2"/>
+<text x="676.0" y="125.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">等锁</text>
+<rect x="706.0" y="102.0" width="52.0" height="34.0" rx="3" fill="#f6d5d0" stroke="#c0392b" stroke-width="2"/>
+<text x="732.0" y="125.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">等锁</text>
+<rect x="762.0" y="102.0" width="52.0" height="34.0" rx="3" fill="#f6d5d0" stroke="#c0392b" stroke-width="2"/>
+<text x="788.0" y="125.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">等锁</text>
+<rect x="818.0" y="102.0" width="52.0" height="34.0" rx="3" fill="#f6d5d0" stroke="#c0392b" stroke-width="2"/>
+<text x="844.0" y="125.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">等锁</text>
+<text x="878.0" y="124.0" font-family="sans-serif" font-size="14" fill="#c0392b" text-anchor="start">……永远</text>
+<rect x="202.0" y="148.0" width="668.0" height="34.0" rx="3" fill="#fff" stroke="#777" stroke-width="2" stroke-dasharray="5,4"/>
+<text x="536.0" y="171.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">轮不到执行（要等 A 走完）</text>
+<rect x="200.0" y="196.0" width="672.0" height="36.0" rx="4" fill="#f6d5d0" stroke="none" stroke-width="0"/>
+<text x="536.0" y="220.0" font-family="sans-serif" font-size="15" fill="#c0392b" text-anchor="middle" font-weight="bold">A 等 B 释放锁，B 等 A 走完：互相等待，死锁</text>
+<text x="40.0" y="280.0" font-family="sans-serif" font-size="16" fill="#2e7d32" text-anchor="start" font-weight="bold">Volta 之后</text>
+<text x="40.0" y="380.0" font-family="sans-serif" font-size="14" fill="#2e7d32" text-anchor="start">每个线程有自己的</text>
+<text x="40.0" y="400.0" font-family="sans-serif" font-size="14" fill="#2e7d32" text-anchor="start">程序计数器</text>
+<text x="190.0" y="294.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="end">A 组线程</text>
+<text x="190.0" y="340.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="end">B 组线程</text>
+<rect x="202.0" y="272.0" width="108.0" height="34.0" rx="3" fill="#f6d5d0" stroke="#c0392b" stroke-width="2"/>
+<text x="256.0" y="295.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">等锁</text>
+<rect x="314.0" y="318.0" width="108.0" height="34.0" rx="3" fill="#fdebd0" stroke="#b9770e" stroke-width="2"/>
+<text x="368.0" y="341.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">干活</text>
+<rect x="426.0" y="318.0" width="52.0" height="34.0" rx="3" fill="#fdebd0" stroke="#b9770e" stroke-width="2"/>
+<text x="452.0" y="341.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">放锁</text>
+<rect x="482.0" y="272.0" width="108.0" height="34.0" rx="3" fill="#d7ecd9" stroke="#2e7d32" stroke-width="2"/>
+<text x="536.0" y="295.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">拿到锁</text>
+<rect x="594.0" y="318.0" width="108.0" height="34.0" rx="3" fill="#fdebd0" stroke="#b9770e" stroke-width="2"/>
+<text x="648.0" y="341.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">继续</text>
+<rect x="706.0" y="272.0" width="108.0" height="34.0" rx="3" fill="#d7ecd9" stroke="#2e7d32" stroke-width="2"/>
+<text x="760.0" y="295.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">继续</text>
+<line x1="452.0" y1="352.0" x2="508.0" y2="306.0" stroke="#222" stroke-width="2" marker-end="url(#ak)"/>
+<text x="826.0" y="300.0" font-family="sans-serif" font-size="14" fill="#c0392b" text-anchor="start">两组何时</text>
+<text x="826.0" y="320.0" font-family="sans-serif" font-size="14" fill="#c0392b" text-anchor="start">重新聚齐？</text>
+<text x="826.0" y="340.0" font-family="sans-serif" font-size="14" fill="#c0392b" text-anchor="start">硬件不保证</text>
+<text x="368.0" y="380.0" font-family="sans-serif" font-size="14" fill="#777" text-anchor="middle">调度器在两组之间切换推进</text>
+<rect x="40.0" y="430.0" width="880.0" height="96.0" rx="4" fill="#eeeeee" stroke="none" stroke-width="0"/>
+<text x="60.0" y="456.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="start">改变的是正确性规则：死锁消失；但需要全员对齐的地方必须显式写 __syncwarp() 或带 _sync 的函数。</text>
+<text x="60.0" y="482.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="start">没变的是性能账：任何一拍里，这 32 条通道仍只执行一条指令——两组交替推进，</text>
+<text x="60.0" y="504.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="start" font-weight="bold">每一拍照样只有一组在干活，另一组陪跑。</text>
+</svg>

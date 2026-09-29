@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 480" width="960" height="480" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="480" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker></defs>
+<text x="480" y="28" font-size="18" text-anchor="middle" fill="#222" font-weight="bold">双缓冲下，wait_group 的参数决定搬运和计算能不能重叠（4 块数据，示意）</text>
+<text x="20" y="70" font-size="16" fill="#222" font-weight="bold">上：cp.async.wait_group 1 —— 只要求“在途 ≤ 1 组”，所以下一块可以边飞边算</text>
+<text x="160" y="105" font-size="15" text-anchor="end" fill="#2c6fb7">搬运（LDGSTS）</text>
+<text x="160" y="163" font-size="15" text-anchor="end" fill="#b86a0c">计算（HMMA 等）</text>
+<line x1="170" y1="136" x2="887.2" y2="136" stroke="#ddd" stroke-width="1.5"/>
+<rect x="170" y="84" width="88" height="32" fill="#dbe8f6" stroke="#222" stroke-width="1.5"/>
+<text x="214.0" y="105.0" font-size="14" text-anchor="middle" fill="#222">块0→buf0</text>
+<rect x="258" y="84" width="88" height="32" fill="#dbe8f6" stroke="#222" stroke-width="1.5"/>
+<text x="302.0" y="105.0" font-size="14" text-anchor="middle" fill="#222">块1→buf1</text>
+<rect x="346" y="84" width="88" height="32" fill="#dbe8f6" stroke="#222" stroke-width="1.5"/>
+<text x="390.0" y="105.0" font-size="14" text-anchor="middle" fill="#222">块2→buf0</text>
+<rect x="434" y="84" width="88" height="32" fill="#dbe8f6" stroke="#222" stroke-width="1.5"/>
+<text x="478.0" y="105.0" font-size="14" text-anchor="middle" fill="#222">块3→buf1</text>
+<rect x="258" y="142" width="88" height="32" fill="#fbe3c4" stroke="#222" stroke-width="1.5"/>
+<text x="302.0" y="163.0" font-size="14" text-anchor="middle" fill="#222">算块0</text>
+<rect x="346" y="142" width="88" height="32" fill="#fbe3c4" stroke="#222" stroke-width="1.5"/>
+<text x="390.0" y="163.0" font-size="14" text-anchor="middle" fill="#222">算块1</text>
+<rect x="434" y="142" width="88" height="32" fill="#fbe3c4" stroke="#222" stroke-width="1.5"/>
+<text x="478.0" y="163.0" font-size="14" text-anchor="middle" fill="#222">算块2</text>
+<rect x="522" y="142" width="88" height="32" fill="#fbe3c4" stroke="#222" stroke-width="1.5"/>
+<text x="566.0" y="163.0" font-size="14" text-anchor="middle" fill="#222">算块3</text>
+<line x1="610" y1="78" x2="610" y2="182" stroke="#2c6fb7" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="618" y="178" font-size="15" fill="#2c6fb7" font-weight="bold">10 个单位做完</text>
+<line x1="252" y1="118" x2="264" y2="139" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<line x1="340" y1="118" x2="352" y2="139" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<line x1="428" y1="118" x2="440" y2="139" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<line x1="516" y1="118" x2="528" y2="139" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<text x="20" y="236" font-size="16" fill="#222" font-weight="bold">下：cp.async.wait_group 0 —— 要求“在途 = 0 组”，每轮都等全部到货才开算</text>
+<text x="160" y="271" font-size="15" text-anchor="end" fill="#2c6fb7">搬运（LDGSTS）</text>
+<text x="160" y="329" font-size="15" text-anchor="end" fill="#b86a0c">计算（HMMA 等）</text>
+<line x1="170" y1="302" x2="887.2" y2="302" stroke="#ddd" stroke-width="1.5"/>
+<rect x="170" y="250" width="88" height="32" fill="#dbe8f6" stroke="#222" stroke-width="1.5"/>
+<text x="214.0" y="271.0" font-size="14" text-anchor="middle" fill="#222">块0→buf0</text>
+<rect x="258" y="250" width="88" height="32" fill="#dbe8f6" stroke="#222" stroke-width="1.5"/>
+<text x="302.0" y="271.0" font-size="14" text-anchor="middle" fill="#222">块1→buf1</text>
+<rect x="434" y="250" width="88" height="32" fill="#dbe8f6" stroke="#222" stroke-width="1.5"/>
+<text x="478.0" y="271.0" font-size="14" text-anchor="middle" fill="#222">块2→buf0</text>
+<rect x="610" y="250" width="88" height="32" fill="#dbe8f6" stroke="#222" stroke-width="1.5"/>
+<text x="654.0" y="271.0" font-size="14" text-anchor="middle" fill="#222">块3→buf1</text>
+<rect x="346" y="308" width="88" height="32" fill="#fbe3c4" stroke="#222" stroke-width="1.5"/>
+<text x="390.0" y="329.0" font-size="14" text-anchor="middle" fill="#222">算块0</text>
+<rect x="522" y="308" width="88" height="32" fill="#fbe3c4" stroke="#222" stroke-width="1.5"/>
+<text x="566.0" y="329.0" font-size="14" text-anchor="middle" fill="#222">算块1</text>
+<rect x="698" y="308" width="88" height="32" fill="#fbe3c4" stroke="#222" stroke-width="1.5"/>
+<text x="742.0" y="329.0" font-size="14" text-anchor="middle" fill="#222">算块2</text>
+<rect x="786" y="308" width="88" height="32" fill="#fbe3c4" stroke="#222" stroke-width="1.5"/>
+<text x="830.0" y="329.0" font-size="14" text-anchor="middle" fill="#222">算块3</text>
+<line x1="874" y1="244" x2="874" y2="348" stroke="#c0392b" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="882" y="344" font-size="15" fill="#c0392b" font-weight="bold">16 个单位</text>
+<line x1="340" y1="284" x2="352" y2="305" stroke="#c0392b" stroke-width="2" marker-end="url(#r)"/>
+<line x1="516" y1="284" x2="528" y2="305" stroke="#c0392b" stroke-width="2" marker-end="url(#r)"/>
+<line x1="692" y1="284" x2="704" y2="305" stroke="#c0392b" stroke-width="2" marker-end="url(#r)"/>
+<rect x="170" y="308" width="176" height="32" fill="none" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="4 3"/>
+<text x="258.0" y="329.0" font-size="14" text-anchor="middle" fill="#c0392b">空等</text>
+<rect x="434" y="308" width="88" height="32" fill="none" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="4 3"/>
+<text x="478.0" y="329.0" font-size="14" text-anchor="middle" fill="#c0392b">空等</text>
+<rect x="610" y="308" width="88" height="32" fill="none" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="4 3"/>
+<text x="654.0" y="329.0" font-size="14" text-anchor="middle" fill="#c0392b">空等</text>
+<line x1="170" y1="392" x2="887.2" y2="392" stroke="#222" stroke-width="1.5" marker-end="url(#a)"/>
+<line x1="170" y1="392" x2="170" y2="398" stroke="#222" stroke-width="1.5"/>
+<text x="170" y="414" font-size="14" text-anchor="middle" fill="#222">0</text>
+<line x1="258" y1="392" x2="258" y2="398" stroke="#222" stroke-width="1.5"/>
+<text x="258" y="414" font-size="14" text-anchor="middle" fill="#222">2</text>
+<line x1="346" y1="392" x2="346" y2="398" stroke="#222" stroke-width="1.5"/>
+<text x="346" y="414" font-size="14" text-anchor="middle" fill="#222">4</text>
+<line x1="434" y1="392" x2="434" y2="398" stroke="#222" stroke-width="1.5"/>
+<text x="434" y="414" font-size="14" text-anchor="middle" fill="#222">6</text>
+<line x1="522" y1="392" x2="522" y2="398" stroke="#222" stroke-width="1.5"/>
+<text x="522" y="414" font-size="14" text-anchor="middle" fill="#222">8</text>
+<line x1="610" y1="392" x2="610" y2="398" stroke="#222" stroke-width="1.5"/>
+<text x="610" y="414" font-size="14" text-anchor="middle" fill="#222">10</text>
+<line x1="698" y1="392" x2="698" y2="398" stroke="#222" stroke-width="1.5"/>
+<text x="698" y="414" font-size="14" text-anchor="middle" fill="#222">12</text>
+<line x1="786" y1="392" x2="786" y2="398" stroke="#222" stroke-width="1.5"/>
+<text x="786" y="414" font-size="14" text-anchor="middle" fill="#222">14</text>
+<line x1="874" y1="392" x2="874" y2="398" stroke="#222" stroke-width="1.5"/>
+<text x="874" y="414" font-size="14" text-anchor="middle" fill="#222">16</text>
+<text x="160" y="414" font-size="14" text-anchor="end" fill="#555">时间（示意单位）</text>
+<text x="20" y="440" font-size="14" fill="#555">假设每块搬运 2 个单位、计算 2 个单位。黑色箭头：这一轮的 wait 等到了本轮要算的那一块；</text>
+<text x="20" y="462" font-size="14" fill="#555">红色箭头：wait_group 0 还要多等刚发出去的下一块，计算被推迟。buf0、buf1 是 shared memory 里轮流使用的两块缓冲区。</text>
+</svg>

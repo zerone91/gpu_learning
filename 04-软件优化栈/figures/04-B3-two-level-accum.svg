@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="600" fill="#ffffff"/>
+<defs><marker id="k" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222222"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777777"/></marker><marker id="o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c77a12"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f6db5"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="n" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e8b57"/></marker><marker id="p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7a4fb0"/></marker></defs>
+<text x="480.0" y="30.0" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold">两级累加：矩阵单元只累加 128 深，然后由 FMA 通道乘上缩放因子、并进 32 位累加器</text>
+<rect x="40.0" y="70.0" width="250.0" height="70.0" rx="3" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="165.0" y="102.0" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">fp8 矩阵指令内部累加器</text>
+<text x="165.0" y="120.0" font-size="14" text-anchor="middle" fill="#777777">有效位数有限，每段清零</text>
+<rect x="360.0" y="70.0" width="220.0" height="70.0" rx="3" fill="#d5eddf" stroke="#2e8b57" stroke-width="1.5"/>
+<text x="470.0" y="102.0" font-size="16" text-anchor="middle" fill="#222222" font-weight="bold">× sA · sB</text>
+<text x="470.0" y="120.0" font-size="14" text-anchor="middle" fill="#777777">FMA 通道，每段一次</text>
+<rect x="650.0" y="70.0" width="270.0" height="70.0" rx="3" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="785.0" y="102.0" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">acc_final（32 位）</text>
+<text x="785.0" y="120.0" font-size="14" text-anchor="middle" fill="#777777">寄存器，整个 K 循环常驻</text>
+<line x1="292.0" y1="105.0" x2="358.0" y2="105.0" stroke="#222222" stroke-width="1.5" marker-end="url(#k)"/>
+<line x1="582.0" y1="105.0" x2="648.0" y2="105.0" stroke="#222222" stroke-width="1.5" marker-end="url(#k)"/>
+<text x="325.0" y="96.0" font-size="14" text-anchor="middle" fill="#777777">每 128 深</text>
+<text x="30.0" y="186.0" font-size="15" text-anchor="start" fill="#222222" font-weight="bold">时间线（K = 512，分 4 段）</text>
+<text x="140.0" y="222.0" font-size="14" text-anchor="end" fill="#222222">矩阵单元</text>
+<text x="140.0" y="262.0" font-size="14" text-anchor="end" fill="#222222">FMA 通道</text>
+<rect x="150.0" y="200.0" width="166.0" height="32.0" rx="3" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="235.0" y="222.0" font-size="14" text-anchor="middle" fill="#222222">段 0：128 深</text>
+<rect x="316.0" y="242.0" width="50.0" height="30.0" rx="3" fill="#d5eddf" stroke="#2e8b57" stroke-width="1.5"/>
+<text x="341.0" y="262.0" font-size="14" text-anchor="middle" fill="#222222">收账</text>
+<rect x="320.0" y="200.0" width="166.0" height="32.0" rx="3" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="405.0" y="222.0" font-size="14" text-anchor="middle" fill="#222222">段 1：128 深</text>
+<rect x="486.0" y="242.0" width="50.0" height="30.0" rx="3" fill="#d5eddf" stroke="#2e8b57" stroke-width="1.5"/>
+<text x="511.0" y="262.0" font-size="14" text-anchor="middle" fill="#222222">收账</text>
+<rect x="490.0" y="200.0" width="166.0" height="32.0" rx="3" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="575.0" y="222.0" font-size="14" text-anchor="middle" fill="#222222">段 2：128 深</text>
+<rect x="656.0" y="242.0" width="50.0" height="30.0" rx="3" fill="#d5eddf" stroke="#2e8b57" stroke-width="1.5"/>
+<text x="681.0" y="262.0" font-size="14" text-anchor="middle" fill="#222222">收账</text>
+<rect x="660.0" y="200.0" width="166.0" height="32.0" rx="3" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="745.0" y="222.0" font-size="14" text-anchor="middle" fill="#222222">段 3：128 深</text>
+<rect x="826.0" y="242.0" width="50.0" height="30.0" rx="3" fill="#d5eddf" stroke="#2e8b57" stroke-width="1.5"/>
+<text x="851.0" y="262.0" font-size="14" text-anchor="middle" fill="#222222">收账</text>
+<text x="150.0" y="296.0" font-size="14" text-anchor="start" fill="#777777">收账跑在 FMA 通道上；只要矩阵单元手里还有下一段的活，这几拍就被盖在后面。</text>
+<rect x="30.0" y="318.0" width="900.0" height="266.0" rx="3" fill="#f3f3f3" stroke="#777777" stroke-width="1.5"/>
+<text x="46.0" y="344.0" font-size="15" text-anchor="start" fill="#222222" font-weight="bold">为什么非分级不可：假设内部累加器只保留 4 位有效数字（十进制示意）</text>
+<text x="46.0" y="374.0" font-size="14" text-anchor="start" fill="#222222">已经累加到 1024，接下来还要加 128 个 0.3（真值应再加 38.4，得 1062.4）</text>
+<text x="60.0" y="410.0" font-size="15" text-anchor="start" fill="#c0392b" font-weight="bold">一级到底：</text>
+<text x="160.0" y="410.0" font-size="15" text-anchor="start" fill="#c0392b" font-family="monospace">1024 + 0.3 = 1024.3 → 存成 1024</text>
+<text x="160.0" y="436.0" font-size="14" text-anchor="start" fill="#c0392b">每次加的 0.3 都在第 5 位上，全部被舍掉；加 128 次后仍是 1024，误差 38.4（约 3.6%）</text>
+<text x="60.0" y="478.0" font-size="15" text-anchor="start" fill="#2e8b57" font-weight="bold">两级累加：</text>
+<text x="160.0" y="478.0" font-size="15" text-anchor="start" fill="#2e8b57" font-family="monospace">段内从 0 起：0.3, 0.6, …, 38.40  （4 位够用）</text>
+<text x="160.0" y="504.0" font-size="15" text-anchor="start" fill="#2e8b57" font-family="monospace">收账进 32 位：1024 + 38.40 = 1062.4</text>
+<text x="160.0" y="530.0" font-size="14" text-anchor="start" fill="#2e8b57">段内的数小，4 位有效数字装得下；大数与小数相加只发生在 32 位累加器里</text>
+<text x="46.0" y="566.0" font-size="14" text-anchor="start" fill="#222222">段越长，段内部分和越大，被舍掉的越多；段越短，收账越频繁。128 同时也是缩放因子的管辖范围。</text>
+</svg>

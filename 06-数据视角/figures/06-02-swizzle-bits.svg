@@ -1,0 +1,157 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 745" width="960" height="745" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="745" fill="#ffffff"/>
+<defs><marker id="ah-1f6fb2" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f6fb2"/></marker><marker id="ahs-1f6fb2" viewBox="0 0 10 10" refX="1" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f6fb2"/></marker><marker id="ah-666666" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#666666"/></marker><marker id="ahs-666666" viewBox="0 0 10 10" refX="1" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#666666"/></marker><marker id="ah-c0392b" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="ahs-c0392b" viewBox="0 0 10 10" refX="1" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="ah-c8650a" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c8650a"/></marker><marker id="ahs-c8650a" viewBox="0 0 10 10" refX="1" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c8650a"/></marker><marker id="ah-cccccc" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cccccc"/></marker><marker id="ahs-cccccc" viewBox="0 0 10 10" refX="1" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cccccc"/></marker></defs>
+<text x="480" y="30" font-size="19" text-anchor="middle" fill="#222222" font-weight="bold" >Swizzle&lt;B,M,S&gt; 在字节偏移的二进制位上做什么：把行号的几位异或进 chunk 列</text>
+<text x="40" y="70" font-size="16" text-anchor="start" fill="#222222" font-weight="bold" >A. Swizzle&lt;3,4,3&gt;（128B 模式），用正文的例子走一遍：第 5 行第 2 个 chunk</text>
+<text x="744.0" y="122" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >位0</text>
+<text x="692.0" y="122" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >位1</text>
+<text x="640.0" y="122" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >位2</text>
+<text x="588.0" y="122" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >位3</text>
+<text x="536.0" y="122" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >位4</text>
+<text x="484.0" y="122" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >位5</text>
+<text x="432.0" y="122" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >位6</text>
+<text x="380.0" y="122" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >位7</text>
+<text x="328.0" y="122" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >位8</text>
+<text x="276.0" y="122" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >位9</text>
+<text x="234" y="159" font-size="15" text-anchor="end" fill="#222222" font-weight="bold" >原偏移 672 =</text>
+<rect x="718" y="132" width="52" height="40" rx="0" fill="#ffffff" stroke="#444444" stroke-width="1.5" />
+<text x="744.0" y="159" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold" >0</text>
+<rect x="666" y="132" width="52" height="40" rx="0" fill="#ffffff" stroke="#444444" stroke-width="1.5" />
+<text x="692.0" y="159" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold" >0</text>
+<rect x="614" y="132" width="52" height="40" rx="0" fill="#ffffff" stroke="#444444" stroke-width="1.5" />
+<text x="640.0" y="159" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold" >0</text>
+<rect x="562" y="132" width="52" height="40" rx="0" fill="#ffffff" stroke="#444444" stroke-width="1.5" />
+<text x="588.0" y="159" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold" >0</text>
+<rect x="510" y="132" width="52" height="40" rx="0" fill="#e3eef9" stroke="#444444" stroke-width="1.5" />
+<text x="536.0" y="159" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold" >0</text>
+<rect x="458" y="132" width="52" height="40" rx="0" fill="#e3eef9" stroke="#444444" stroke-width="1.5" />
+<text x="484.0" y="159" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold" >1</text>
+<rect x="406" y="132" width="52" height="40" rx="0" fill="#e3eef9" stroke="#444444" stroke-width="1.5" />
+<text x="432.0" y="159" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold" >0</text>
+<rect x="354" y="132" width="52" height="40" rx="0" fill="#fdeedd" stroke="#444444" stroke-width="1.5" />
+<text x="380.0" y="159" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold" >1</text>
+<rect x="302" y="132" width="52" height="40" rx="0" fill="#fdeedd" stroke="#444444" stroke-width="1.5" />
+<text x="328.0" y="159" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold" >0</text>
+<rect x="250" y="132" width="52" height="40" rx="0" fill="#fdeedd" stroke="#444444" stroke-width="1.5" />
+<text x="276.0" y="159" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold" >1</text>
+<path d="M 253 176 v 8 H 403 v -8" fill="none" stroke="#c8650a" stroke-width="1.5"/>
+<text x="328.0" y="204" font-size="14" text-anchor="middle" fill="#c8650a" font-weight="normal" >行号 101 = 5</text>
+<path d="M 409 176 v 8 H 559 v -8" fill="none" stroke="#1f6fb2" stroke-width="1.5"/>
+<text x="484.0" y="204" font-size="14" text-anchor="middle" fill="#1f6fb2" font-weight="normal" >chunk 列 010 = 2</text>
+<path d="M 565 176 v 8 H 767 v -8" fill="none" stroke="#666666" stroke-width="1.5"/>
+<text x="666.0" y="204" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >chunk 内 16 字节，不动</text>
+<path d="M 328.0 106 C 328.0 78, 484.0 78, 484.0 104" fill="none" stroke="#c0392b" stroke-width="2.5" marker-end="url(#ah-c0392b)"/>
+<text x="498.0" y="100" font-size="15" text-anchor="start" fill="#c0392b" font-weight="bold" >异或</text>
+<text x="234" y="264" font-size="15" text-anchor="end" fill="#222222" font-weight="bold" >新偏移 752 =</text>
+<rect x="718" y="237" width="52" height="40" rx="0" fill="#ffffff" stroke="#444444" stroke-width="1.5" />
+<text x="744.0" y="264" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold" >0</text>
+<rect x="666" y="237" width="52" height="40" rx="0" fill="#ffffff" stroke="#444444" stroke-width="1.5" />
+<text x="692.0" y="264" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold" >0</text>
+<rect x="614" y="237" width="52" height="40" rx="0" fill="#ffffff" stroke="#444444" stroke-width="1.5" />
+<text x="640.0" y="264" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold" >0</text>
+<rect x="562" y="237" width="52" height="40" rx="0" fill="#ffffff" stroke="#444444" stroke-width="1.5" />
+<text x="588.0" y="264" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold" >0</text>
+<rect x="510" y="237" width="52" height="40" rx="0" fill="#e3eef9" stroke="#444444" stroke-width="1.5" />
+<text x="536.0" y="264" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold" >1</text>
+<rect x="458" y="237" width="52" height="40" rx="0" fill="#e3eef9" stroke="#444444" stroke-width="1.5" />
+<text x="484.0" y="264" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold" >1</text>
+<rect x="406" y="237" width="52" height="40" rx="0" fill="#e3eef9" stroke="#444444" stroke-width="1.5" />
+<text x="432.0" y="264" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold" >1</text>
+<rect x="354" y="237" width="52" height="40" rx="0" fill="#fdeedd" stroke="#444444" stroke-width="1.5" />
+<text x="380.0" y="264" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold" >1</text>
+<rect x="302" y="237" width="52" height="40" rx="0" fill="#fdeedd" stroke="#444444" stroke-width="1.5" />
+<text x="328.0" y="264" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold" >0</text>
+<rect x="250" y="237" width="52" height="40" rx="0" fill="#fdeedd" stroke="#444444" stroke-width="1.5" />
+<text x="276.0" y="264" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold" >1</text>
+<path d="M 409 281 v 8 H 559 v -8" fill="none" stroke="#c0392b" stroke-width="1.5"/>
+<text x="484.0" y="309" font-size="14" text-anchor="middle" fill="#c0392b" font-weight="normal" >2 XOR 5 = 7 → 111</text>
+<text x="785" y="145" font-size="14" text-anchor="start" fill="#222222" font-weight="normal" >M = 4：最低 4 位不动</text>
+<text x="785" y="165" font-size="14" text-anchor="start" fill="#222222" font-weight="normal" >（16 字节一个 chunk）</text>
+<text x="785" y="185" font-size="14" text-anchor="start" fill="#222222" font-weight="normal" >B = 3：取 3 位行号</text>
+<text x="785" y="205" font-size="14" text-anchor="start" fill="#222222" font-weight="normal" >（8 种错位）</text>
+<text x="785" y="225" font-size="14" text-anchor="start" fill="#222222" font-weight="normal" >S = 3：行号位在 chunk</text>
+<text x="785" y="245" font-size="14" text-anchor="start" fill="#222222" font-weight="normal" >列位上方 3 位处</text>
+<text x="785" y="265" font-size="14" text-anchor="start" fill="#222222" font-weight="normal" >（行宽 2^7 = 128 字节）</text>
+<text x="40" y="345" font-size="15" text-anchor="start" fill="#222222" font-weight="normal" >验算：5 × 128 + 7 × 16 = 640 + 112 = 752。行号不变，只有 chunk 列从 2 换到了 7。</text>
+<line x1="30" y1="375" x2="930" y2="375" stroke="#cccccc" stroke-width="1"/>
+<text x="40" y="405" font-size="16" text-anchor="start" fill="#222222" font-weight="bold" >B. 行宽仍是 128 字节，却配了 64B 模式 Swizzle&lt;2,4,3&gt;：只取 2 位行号</text>
+<text x="744.0" y="457" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >位0</text>
+<text x="692.0" y="457" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >位1</text>
+<text x="640.0" y="457" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >位2</text>
+<text x="588.0" y="457" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >位3</text>
+<text x="536.0" y="457" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >位4</text>
+<text x="484.0" y="457" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >位5</text>
+<text x="432.0" y="457" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >位6</text>
+<text x="380.0" y="457" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >位7</text>
+<text x="328.0" y="457" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >位8</text>
+<text x="276.0" y="457" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >位9</text>
+<text x="234" y="494" font-size="15" text-anchor="end" fill="#222222" font-weight="bold" >原偏移 672 =</text>
+<rect x="718" y="467" width="52" height="40" rx="0" fill="#ffffff" stroke="#444444" stroke-width="1.5" />
+<text x="744.0" y="494" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold" >0</text>
+<rect x="666" y="467" width="52" height="40" rx="0" fill="#ffffff" stroke="#444444" stroke-width="1.5" />
+<text x="692.0" y="494" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold" >0</text>
+<rect x="614" y="467" width="52" height="40" rx="0" fill="#ffffff" stroke="#444444" stroke-width="1.5" />
+<text x="640.0" y="494" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold" >0</text>
+<rect x="562" y="467" width="52" height="40" rx="0" fill="#ffffff" stroke="#444444" stroke-width="1.5" />
+<text x="588.0" y="494" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold" >0</text>
+<rect x="510" y="467" width="52" height="40" rx="0" fill="#e3eef9" stroke="#444444" stroke-width="1.5" />
+<text x="536.0" y="494" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold" >0</text>
+<rect x="458" y="467" width="52" height="40" rx="0" fill="#e3eef9" stroke="#444444" stroke-width="1.5" />
+<text x="484.0" y="494" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold" >1</text>
+<rect x="406" y="467" width="52" height="40" rx="0" fill="#f0f0f0" stroke="#444444" stroke-width="1.5" />
+<text x="432.0" y="494" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold" >0</text>
+<rect x="354" y="467" width="52" height="40" rx="0" fill="#fdeedd" stroke="#444444" stroke-width="1.5" />
+<text x="380.0" y="494" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold" >1</text>
+<rect x="302" y="467" width="52" height="40" rx="0" fill="#fdeedd" stroke="#444444" stroke-width="1.5" />
+<text x="328.0" y="494" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold" >0</text>
+<rect x="250" y="467" width="52" height="40" rx="0" fill="#f0f0f0" stroke="#444444" stroke-width="1.5" />
+<text x="276.0" y="494" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold" >1</text>
+<path d="M 380.0 441 C 380.0 417, 484.0 417, 484.0 439" fill="none" stroke="#c0392b" stroke-width="2.5" marker-end="url(#ah-c0392b)"/>
+<text x="498.0" y="435" font-size="15" text-anchor="start" fill="#c0392b" font-weight="bold" >异或</text>
+<path d="M 253 511 v 8 H 299 v -8" fill="none" stroke="#666666" stroke-width="1.5"/>
+<text x="276.0" y="539" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >不参与</text>
+<path d="M 305 511 v 8 H 403 v -8" fill="none" stroke="#c8650a" stroke-width="1.5"/>
+<text x="354.0" y="539" font-size="14" text-anchor="middle" fill="#c8650a" font-weight="normal" >行号的低 2 位</text>
+<path d="M 409 511 v 8 H 455 v -8" fill="none" stroke="#666666" stroke-width="1.5"/>
+<text x="432.0" y="539" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >不变</text>
+<path d="M 461 511 v 8 H 559 v -8" fill="none" stroke="#1f6fb2" stroke-width="1.5"/>
+<text x="510.0" y="539" font-size="14" text-anchor="middle" fill="#1f6fb2" font-weight="normal" >chunk 列低 2 位</text>
+<text x="40" y="580" font-size="15" text-anchor="start" fill="#222222" font-weight="normal" >后果：第 r 行和第 r+4 行的低 2 位行号相同，得到同样的错位。看逻辑第 0 列在第 0～7 行落到的物理 chunk 列：</text>
+<text x="40" y="626" font-size="15" text-anchor="start" fill="#222222" font-weight="bold" >128B 模式（配对）</text>
+<rect x="210" y="600" width="42" height="38" rx="0" fill="#dbe9f6" stroke="#444444" stroke-width="1.5" />
+<text x="231" y="626" font-size="17" text-anchor="middle" fill="#222222" font-weight="normal" >0</text>
+<rect x="256" y="600" width="42" height="38" rx="0" fill="#fde2c8" stroke="#444444" stroke-width="1.5" />
+<text x="277" y="626" font-size="17" text-anchor="middle" fill="#222222" font-weight="normal" >1</text>
+<rect x="302" y="600" width="42" height="38" rx="0" fill="#d8efdf" stroke="#444444" stroke-width="1.5" />
+<text x="323" y="626" font-size="17" text-anchor="middle" fill="#222222" font-weight="normal" >2</text>
+<rect x="348" y="600" width="42" height="38" rx="0" fill="#efe0f5" stroke="#444444" stroke-width="1.5" />
+<text x="369" y="626" font-size="17" text-anchor="middle" fill="#222222" font-weight="normal" >3</text>
+<rect x="394" y="600" width="42" height="38" rx="0" fill="#fbf1c4" stroke="#444444" stroke-width="1.5" />
+<text x="415" y="626" font-size="17" text-anchor="middle" fill="#222222" font-weight="normal" >4</text>
+<rect x="440" y="600" width="42" height="38" rx="0" fill="#f7d9d6" stroke="#444444" stroke-width="1.5" />
+<text x="461" y="626" font-size="17" text-anchor="middle" fill="#222222" font-weight="normal" >5</text>
+<rect x="486" y="600" width="42" height="38" rx="0" fill="#d9f0f2" stroke="#444444" stroke-width="1.5" />
+<text x="507" y="626" font-size="17" text-anchor="middle" fill="#222222" font-weight="normal" >6</text>
+<rect x="532" y="600" width="42" height="38" rx="0" fill="#e6e6e6" stroke="#444444" stroke-width="1.5" />
+<text x="553" y="626" font-size="17" text-anchor="middle" fill="#222222" font-weight="normal" >7</text>
+<text x="594" y="626" font-size="15" text-anchor="start" fill="#2e7d4f" font-weight="bold" >8 个值互不相同：无冲突</text>
+<text x="40" y="682" font-size="15" text-anchor="start" fill="#222222" font-weight="bold" >64B 模式（配错）</text>
+<rect x="210" y="656" width="42" height="38" rx="0" fill="#dbe9f6" stroke="#444444" stroke-width="1.5" />
+<text x="231" y="682" font-size="17" text-anchor="middle" fill="#222222" font-weight="normal" >0</text>
+<rect x="256" y="656" width="42" height="38" rx="0" fill="#fde2c8" stroke="#444444" stroke-width="1.5" />
+<text x="277" y="682" font-size="17" text-anchor="middle" fill="#222222" font-weight="normal" >1</text>
+<rect x="302" y="656" width="42" height="38" rx="0" fill="#d8efdf" stroke="#444444" stroke-width="1.5" />
+<text x="323" y="682" font-size="17" text-anchor="middle" fill="#222222" font-weight="normal" >2</text>
+<rect x="348" y="656" width="42" height="38" rx="0" fill="#efe0f5" stroke="#444444" stroke-width="1.5" />
+<text x="369" y="682" font-size="17" text-anchor="middle" fill="#222222" font-weight="normal" >3</text>
+<rect x="394" y="656" width="42" height="38" rx="0" fill="#dbe9f6" stroke="#444444" stroke-width="1.5" />
+<text x="415" y="682" font-size="17" text-anchor="middle" fill="#222222" font-weight="normal" >0</text>
+<rect x="440" y="656" width="42" height="38" rx="0" fill="#fde2c8" stroke="#444444" stroke-width="1.5" />
+<text x="461" y="682" font-size="17" text-anchor="middle" fill="#222222" font-weight="normal" >1</text>
+<rect x="486" y="656" width="42" height="38" rx="0" fill="#d8efdf" stroke="#444444" stroke-width="1.5" />
+<text x="507" y="682" font-size="17" text-anchor="middle" fill="#222222" font-weight="normal" >2</text>
+<rect x="532" y="656" width="42" height="38" rx="0" fill="#efe0f5" stroke="#444444" stroke-width="1.5" />
+<text x="553" y="682" font-size="17" text-anchor="middle" fill="#222222" font-weight="normal" >3</text>
+<text x="594" y="682" font-size="15" text-anchor="start" fill="#c0392b" font-weight="bold" >每个值出现两次：2 路冲突，带宽打对折</text>
+<text x="210" y="717" font-size="14" text-anchor="start" fill="#666666" font-weight="normal" >（方块从左到右是第 0～7 行；方块里的数是物理 chunk 列）</text>
+</svg>

@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" font-family="sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b5451b"/></marker></defs>
+<rect x="0" y="0" width="960" height="520" fill="#ffffff"/>
+<text x="480" y="28" font-size="18" text-anchor="middle" font-weight="bold" fill="#111">一个 bank 只有一套行译码器，一拍只能打开一行：同一行可以分给多人，不同行只能排队</text>
+<text x="220" y="64" font-size="16" text-anchor="middle" font-weight="bold" fill="#111">① 三个线程读同一行：1 拍</text>
+<text x="220" y="86" font-size="14" text-anchor="middle" fill="#555">t0、t5、t9 都读地址 64（bank 0 第 2 行）</text>
+<rect x="20" y="110" width="40" height="240" fill="#d6e4f5" stroke="#222" stroke-width="1.5"/>
+<text x="40" y="235" font-size="14" text-anchor="middle" fill="#111" transform="rotate(-90 40 235)">行译码器（只有一套）</text>
+<rect x="64" y="110" width="200" height="36" fill="#f4f4f4" stroke="#222" stroke-width="1.2"/>
+<text x="164" y="136" font-size="14" text-anchor="middle" fill="#111">第 0 行（地址 0）</text>
+<rect x="64" y="150" width="200" height="36" fill="#f4f4f4" stroke="#222" stroke-width="1.2"/>
+<text x="164" y="176" font-size="14" text-anchor="middle" fill="#111">第 1 行（地址 32）</text>
+<rect x="64" y="190" width="200" height="36" fill="#fdf3e3" stroke="#222" stroke-width="1.2"/>
+<text x="164" y="216" font-size="14" text-anchor="middle" fill="#111">第 2 行（地址 64）</text>
+<rect x="64" y="230" width="200" height="36" fill="#f4f4f4" stroke="#222" stroke-width="1.2"/>
+<text x="164" y="256" font-size="14" text-anchor="middle" fill="#111">第 3 行（地址 96）</text>
+<rect x="64" y="270" width="200" height="36" fill="#f4f4f4" stroke="#222" stroke-width="1.2"/>
+<text x="164" y="296" font-size="14" text-anchor="middle" fill="#111">第 4 行（地址 128）</text>
+<rect x="64" y="310" width="200" height="36" fill="#f4f4f4" stroke="#222" stroke-width="1.2"/>
+<text x="164" y="336" font-size="14" text-anchor="middle" fill="#111">第 5 行（地址 160）</text>
+<rect x="64" y="354" width="200" height="24" fill="#f5c79b" stroke="#222" stroke-width="1.2"/>
+<text x="164" y="371" font-size="14" text-anchor="middle" fill="#111">灵敏放大器 → 读出的值</text>
+<text x="42" y="396" font-size="14" fill="#555">bank 0：只画了 6 行</text>
+<line x1="64" y1="195" x2="264" y2="195" stroke="#b5451b" stroke-width="3"/>
+<text x="270" y="200" font-size="14" fill="#b5451b">第 1 拍：打开第 2 行</text>
+<path d="M264,366 C300,366 320,344 350,344" fill="none" stroke="#222" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="352" y="330" width="60" height="28" fill="#eaf5e9" stroke="#222" stroke-width="1.2"/><text x="382" y="349" font-size="14" text-anchor="middle" fill="#111">t0</text>
+<path d="M264,366 C300,366 320,378 350,378" fill="none" stroke="#222" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="352" y="364" width="60" height="28" fill="#eaf5e9" stroke="#222" stroke-width="1.2"/><text x="382" y="383" font-size="14" text-anchor="middle" fill="#111">t5</text>
+<path d="M264,366 C300,366 320,412 350,412" fill="none" stroke="#222" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="352" y="398" width="60" height="28" fill="#eaf5e9" stroke="#222" stroke-width="1.2"/><text x="382" y="417" font-size="14" text-anchor="middle" fill="#111">t9</text>
+<text x="20" y="450" font-size="14" fill="#2e7d32" font-weight="bold">同一次读出的值分给三人（广播），1 拍完成</text>
+<line x1="470" y1="50" x2="470" y2="480" stroke="#ccc" stroke-width="1.5"/>
+<text x="700" y="64" font-size="16" text-anchor="middle" font-weight="bold" fill="#111">② 两个线程读同一 bank 的不同行：2 拍</text>
+<text x="700" y="86" font-size="14" text-anchor="middle" fill="#555">t0 读地址 0（第 0 行），t1 读地址 32（第 1 行）</text>
+<rect x="500" y="110" width="40" height="240" fill="#d6e4f5" stroke="#222" stroke-width="1.5"/>
+<text x="520" y="235" font-size="14" text-anchor="middle" fill="#111" transform="rotate(-90 520 235)">行译码器（只有一套）</text>
+<rect x="544" y="110" width="200" height="36" fill="#fdf3e3" stroke="#222" stroke-width="1.2"/>
+<text x="644" y="136" font-size="14" text-anchor="middle" fill="#111">第 0 行（地址 0）</text>
+<rect x="544" y="150" width="200" height="36" fill="#f7dada" stroke="#222" stroke-width="1.2"/>
+<text x="644" y="176" font-size="14" text-anchor="middle" fill="#111">第 1 行（地址 32）</text>
+<rect x="544" y="190" width="200" height="36" fill="#f4f4f4" stroke="#222" stroke-width="1.2"/>
+<text x="644" y="216" font-size="14" text-anchor="middle" fill="#111">第 2 行（地址 64）</text>
+<rect x="544" y="230" width="200" height="36" fill="#f4f4f4" stroke="#222" stroke-width="1.2"/>
+<text x="644" y="256" font-size="14" text-anchor="middle" fill="#111">第 3 行（地址 96）</text>
+<rect x="544" y="270" width="200" height="36" fill="#f4f4f4" stroke="#222" stroke-width="1.2"/>
+<text x="644" y="296" font-size="14" text-anchor="middle" fill="#111">第 4 行（地址 128）</text>
+<rect x="544" y="310" width="200" height="36" fill="#f4f4f4" stroke="#222" stroke-width="1.2"/>
+<text x="644" y="336" font-size="14" text-anchor="middle" fill="#111">第 5 行（地址 160）</text>
+<rect x="544" y="354" width="200" height="24" fill="#f5c79b" stroke="#222" stroke-width="1.2"/>
+<text x="644" y="371" font-size="14" text-anchor="middle" fill="#111">灵敏放大器 → 读出的值</text>
+<text x="522" y="396" font-size="14" fill="#555">bank 0：只画了 6 行</text>
+<line x1="544" y1="115" x2="744" y2="115" stroke="#b5451b" stroke-width="3"/>
+<text x="752" y="124" font-size="14" fill="#b5451b">第 1 拍：打开第 0 行</text>
+<text x="752" y="144" font-size="14" fill="#111">→ 交给 t0</text>
+<line x1="544" y1="155" x2="744" y2="155" stroke="#b5451b" stroke-width="3" stroke-dasharray="8,5"/>
+<text x="752" y="176" font-size="14" fill="#b5451b">第 2 拍：才能打开第 1 行</text>
+<text x="752" y="196" font-size="14" fill="#111">→ 交给 t1</text>
+<text x="752" y="250" font-size="14" fill="#111">同一拍拉高两根字线，</text>
+<text x="752" y="270" font-size="14" fill="#111">两行的值会在同一对</text>
+<text x="752" y="290" font-size="14" fill="#111">位线上撞在一起；</text>
+<text x="752" y="310" font-size="14" fill="#111">又没有第二套译码器</text>
+<text x="752" y="330" font-size="14" fill="#111">和放大器，只能排队</text>
+<text x="500" y="450" font-size="14" fill="#b5451b" font-weight="bold">2 路 bank 冲突：多花 1 拍；32 个线程全撞在 bank 0 就是 32 拍</text>
+<text x="480" y="500" font-size="14" text-anchor="middle" fill="#555">shared memory 的 bank 每行只存 1 个 4 字节的字，第 r 行就是地址 r×32 + bank 号（单位：字）；“同一行”在这里就等于“同一个地址”</text>
+</svg>

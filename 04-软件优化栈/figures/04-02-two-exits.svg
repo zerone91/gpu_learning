@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" width="960" height="640" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="640" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222222"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f6db5"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777777"/></marker><marker id="o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c77a12"/></marker><marker id="n" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e8b57"/></marker><marker id="p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7a4fb0"/></marker></defs>
+<text x="480" y="30" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold">PyTorch 框架层的两个出口，以及各自接到哪一层</text>
+<rect x="300" y="54" width="360" height="56" rx="6" fill="#dbe7f5" stroke="#2f6db5" stroke-width="2.5"/>
+<text x="480" y="78" font-size="16" text-anchor="middle" fill="#222222" font-weight="bold">用户的 Python 程序</text>
+<text x="480" y="99" font-size="13" text-anchor="middle" fill="#444">torch.Tensor / torch.nn / torch.optim（上边界）</text>
+<line x1="420" y1="110" x2="250.0" y2="150" stroke="#c77a12" stroke-width="2.5" marker-end="url(#o)"/>
+<line x1="540" y1="110" x2="710.0" y2="150" stroke="#2f6db5" stroke-width="2.5" marker-end="url(#b)"/>
+<text x="250.0" y="172" font-size="16" text-anchor="middle" fill="#c77a12" font-weight="bold">出口 A：逐算子即时执行（默认）</text>
+<text x="710.0" y="172" font-size="16" text-anchor="middle" fill="#2f6db5" font-weight="bold">出口 B：抓图（torch.compile / torch.export）</text>
+<rect x="60" y="190" width="380" height="62" rx="6" fill="#ffffff" stroke="#222222" stroke-width="2"/>
+<text x="250.0" y="217" font-size="14" text-anchor="middle" fill="#222222"><tspan x="250.0" dy="0">调用 ATen 算子（如 @ → aten::matmul）</tspan><tspan x="250.0" dy="18.900000000000002">ATen 约两千个算子，各设备分别注册实现</tspan></text>
+<line x1="250.0" y1="252" x2="250.0" y2="274" stroke="#c77a12" stroke-width="2.5" marker-end="url(#o)"/>
+<rect x="520" y="190" width="380" height="62" rx="6" fill="#ffffff" stroke="#222222" stroke-width="2"/>
+<text x="710.0" y="226" font-size="14" text-anchor="middle" fill="#222222">把整段程序记录成一张计算图</text>
+<line x1="710.0" y1="252" x2="710.0" y2="274" stroke="#2f6db5" stroke-width="2.5" marker-end="url(#b)"/>
+<rect x="60" y="276" width="380" height="62" rx="6" fill="#ffffff" stroke="#222222" stroke-width="2"/>
+<text x="250.0" y="303" font-size="14" text-anchor="middle" fill="#222222"><tspan x="250.0" dy="0">分发器：按设备、数据类型、是否求梯度</tspan><tspan x="250.0" dy="18.900000000000002">选出这个算子已注册的某个实现</tspan></text>
+<line x1="250.0" y1="338" x2="250.0" y2="360" stroke="#c77a12" stroke-width="2.5" marker-end="url(#o)"/>
+<rect x="520" y="276" width="380" height="62" rx="6" fill="#ffffff" stroke="#222222" stroke-width="2"/>
+<text x="710.0" y="303" font-size="14" text-anchor="middle" fill="#222222"><tspan x="710.0" dy="0">FX 图 / torch.export 程序</tspan><tspan x="710.0" dy="18.900000000000002">（跨框架格式：ONNX、StableHLO）</tspan></text>
+<line x1="710.0" y1="338" x2="710.0" y2="360" stroke="#2f6db5" stroke-width="2.5" marker-end="url(#b)"/>
+<rect x="60" y="362" width="380" height="62" rx="6" fill="#eeeeee" stroke="#777777" stroke-width="2"/>
+<text x="250.0" y="389" font-size="14" text-anchor="middle" fill="#222222"><tspan x="250.0" dy="0">第③层：预先写好的 kernel</tspan><tspan x="250.0" dy="18.900000000000002">（矩阵乘 → cuBLAS，卷积 → cuDNN）</tspan></text>
+<line x1="250.0" y1="424" x2="250.0" y2="446" stroke="#c77a12" stroke-width="2.5" marker-end="url(#o)"/>
+<rect x="520" y="362" width="380" height="62" rx="6" fill="#dbe7f5" stroke="#2f6db5" stroke-width="2"/>
+<text x="710.0" y="398" font-size="14" text-anchor="middle" fill="#222222">第②层：图编译层（融合、显存规划）</text>
+<line x1="710.0" y1="424" x2="710.0" y2="446" stroke="#2f6db5" stroke-width="2.5" marker-end="url(#b)"/>
+<rect x="60" y="448" width="380" height="62" rx="6" fill="#f8e3c4" stroke="#c77a12" stroke-width="2"/>
+<text x="250.0" y="484" font-size="14" text-anchor="middle" fill="#222222">第⑤层：运行时提交 kernel</text>
+<line x1="250.0" y1="510" x2="250.0" y2="532" stroke="#c77a12" stroke-width="2.5" marker-end="url(#o)"/>
+<rect x="520" y="448" width="380" height="62" rx="6" fill="#f8e3c4" stroke="#c77a12" stroke-width="2"/>
+<text x="710.0" y="484" font-size="14" text-anchor="middle" fill="#222222">第③④层现场生成 kernel，再经第⑤层提交</text>
+<line x1="710.0" y1="510" x2="710.0" y2="532" stroke="#2f6db5" stroke-width="2.5" marker-end="url(#b)"/>
+<rect x="60" y="534" width="380" height="44" rx="6" fill="#f2f2f2" stroke="#222222" stroke-width="2"/>
+<text x="250.0" y="562" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">GPU</text>
+<rect x="520" y="534" width="380" height="44" rx="6" fill="#f2f2f2" stroke="#222222" stroke-width="2"/>
+<text x="710.0" y="562" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">GPU</text>
+<text x="250.0" y="606" font-size="14" text-anchor="middle" fill="#c77a12">第②层被整个跳过：没人看到算子之间的关系</text>
+<text x="710.0" y="606" font-size="14" text-anchor="middle" fill="#2f6db5">第②层拿到整张图，才谈得上融合</text>
+</svg>

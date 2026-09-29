@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="600" fill="#ffffff"/>
+<defs>
+<marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker>
+<marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e8b57"/></marker>
+</defs>
+<text x="480" y="28" font-size="18" text-anchor="middle" fill="#222" font-weight="bold">把一块 128×64 的 bf16 数据（16 KB）从显存搬进 shared memory</text>
+<line x1="480" y1="46" x2="480" y2="590" stroke="#ccc" stroke-width="1.5"/>
+<!-- LEFT: cp.async -->
+<text x="240" y="62" font-size="17" text-anchor="middle" fill="#222" font-weight="bold">cp.async（Ampere）：全员干活</text>
+<text x="240" y="86" font-size="14" text-anchor="middle" fill="#555">128 个线程，每人自己算地址、自己发指令</text>
+<!-- 4 warps rows of thread dots -->
+<g font-size="14" fill="#222">
+<text x="30" y="122">warp 0</text><text x="30" y="152">warp 1</text><text x="30" y="182">warp 2</text><text x="30" y="212">warp 3</text>
+</g>
+<g fill="#e08a1e">
+<rect x="92" y="108" width="360" height="20" fill="#fbe3c4" stroke="#e08a1e" stroke-width="1.5"/>
+<rect x="92" y="138" width="360" height="20" fill="#fbe3c4" stroke="#e08a1e" stroke-width="1.5"/>
+<rect x="92" y="168" width="360" height="20" fill="#fbe3c4" stroke="#e08a1e" stroke-width="1.5"/>
+<rect x="92" y="198" width="360" height="20" fill="#fbe3c4" stroke="#e08a1e" stroke-width="1.5"/>
+</g>
+<text x="272" y="123" font-size="14" text-anchor="middle" fill="#222">32 个线程 × 每人 8 条搬运</text>
+<text x="272" y="153" font-size="14" text-anchor="middle" fill="#222">32 个线程 × 每人 8 条搬运</text>
+<text x="272" y="183" font-size="14" text-anchor="middle" fill="#222">32 个线程 × 每人 8 条搬运</text>
+<text x="272" y="213" font-size="14" text-anchor="middle" fill="#222">32 个线程 × 每人 8 条搬运</text>
+<rect x="40" y="240" width="400" height="92" rx="6" fill="#ffffff" stroke="#222" stroke-width="2"/>
+<text x="240" y="264" font-size="15" text-anchor="middle" fill="#222">每条搬运指令只搬 16 字节：16 KB ÷ 16 B = 1024 条</text>
+<text x="240" y="288" font-size="15" text-anchor="middle" fill="#222">每条前面还有约 2 条算地址的乘加</text>
+<text x="240" y="314" font-size="16" text-anchor="middle" fill="#c0392b" font-weight="bold">合计约 3000 条指令挤过发射口</text>
+<line x1="240" y1="334" x2="240" y2="372" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<rect x="100" y="374" width="280" height="44" rx="6" fill="#dbe8f6" stroke="#222" stroke-width="2"/>
+<text x="240" y="402" font-size="15" text-anchor="middle" fill="#222">shared memory 里的 16 KB tile</text>
+<text x="40" y="452" font-size="15" fill="#222">✔ 数据不再绕道寄存器，发出即返回</text>
+<text x="40" y="478" font-size="15" fill="#c0392b">✘ 每个线程都占着几个寄存器放地址</text>
+<text x="40" y="504" font-size="15" fill="#c0392b">✘ 发射口被搬运指令占去一大块</text>
+<!-- RIGHT: TMA -->
+<text x="720" y="62" font-size="17" text-anchor="middle" fill="#222" font-weight="bold">TMA（Hopper）：一人下单</text>
+<text x="720" y="86" font-size="14" text-anchor="middle" fill="#555">1 个线程发 1 条指令，其余 127 个线程一条不发</text>
+<rect x="510" y="104" width="190" height="200" rx="6" fill="#f2f2f2" stroke="#222" stroke-width="2"/>
+<text x="605" y="126" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">tensor map</text>
+<text x="605" y="146" font-size="14" text-anchor="middle" fill="#555">128 字节，主机侧先填好</text>
+<g font-size="14" fill="#222">
+<text x="522" y="172">· 基址</text>
+<text x="522" y="194">· 维度数、每维长度与步长</text>
+<text x="522" y="216">· tile 形状、元素类型</text>
+<text x="522" y="238">· swizzle 模式</text>
+<text x="522" y="260">· 越界填 0 还是 NaN</text>
+</g>
+<text x="605" y="290" font-size="14" text-anchor="middle" fill="#2c6fb7">整个 kernel 不变</text>
+<rect x="730" y="104" width="210" height="132" rx="6" fill="#fbe3c4" stroke="#222" stroke-width="2"/>
+<text x="835" y="126" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">发单指令（1 条）</text>
+<g font-size="14" fill="#222">
+<text x="742" y="152">· 要第几块（tile 坐标）</text>
+<text x="742" y="174">· 放到 shared 的哪</text>
+<text x="742" y="196">· 搬完向哪个 mbarrier</text>
+<text x="752" y="216">  报字节数</text>
+</g>
+<text x="835" y="264" font-size="14" text-anchor="middle" fill="#b86a0c">每块都不同</text>
+<line x1="605" y1="306" x2="690" y2="340" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<line x1="835" y1="238" x2="760" y2="340" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<rect x="560" y="342" width="320" height="66" rx="6" fill="#d4eddc" stroke="#222" stroke-width="2"/>
+<text x="720" y="366" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">TMA 单元（每个 SM 一个）</text>
+<text x="720" y="390" font-size="14" text-anchor="middle" fill="#222">硬件自己算全部地址、判越界、做 swizzle</text>
+<line x1="720" y1="410" x2="720" y2="430" stroke="#2e8b57" stroke-width="2" marker-end="url(#g)"/>
+<rect x="580" y="432" width="280" height="44" rx="6" fill="#dbe8f6" stroke="#222" stroke-width="2"/>
+<text x="720" y="460" font-size="15" text-anchor="middle" fill="#222">shared memory 里的 16 KB tile</text>
+<text x="520" y="504" font-size="15" fill="#2e8b57">✔ 地址寄存器一个不占，发射口几乎不占</text>
+<text x="520" y="530" font-size="15" fill="#2e8b57">✔ 计算 warp 的发射机会全部留给计算</text>
+<text x="480" y="576" font-size="15" text-anchor="middle" fill="#222">两种方式搬的数据完全一样；差别在“谁来算地址、谁来发指令”。</text>
+</svg>

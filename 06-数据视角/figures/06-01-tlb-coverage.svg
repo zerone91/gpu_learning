@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 530" width="960" height="530" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="530" fill="#ffffff"/>
+<defs><marker id="ah-2e7d4f" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e7d4f"/></marker><marker id="ahs-2e7d4f" viewBox="0 0 10 10" refX="1" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e7d4f"/></marker><marker id="ah-444444" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#444444"/></marker><marker id="ahs-444444" viewBox="0 0 10 10" refX="1" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#444444"/></marker><marker id="ah-c0392b" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="ahs-c0392b" viewBox="0 0 10 10" refX="1" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker></defs>
+<text x="480" y="30" font-size="19" text-anchor="middle" fill="#222222" font-weight="bold" >地址翻译：每次访存先把虚拟地址换成物理地址；页越大，同一个 TLB 管得越远</text>
+<text x="40" y="70" font-size="16" text-anchor="start" fill="#222222" font-weight="bold" >A. 一次访存前的翻译（逐级查，查到就停）</text>
+<rect x="40" y="90" width="290" height="40" rx="4" fill="#f0f0f0" stroke="#444444" stroke-width="1.5" />
+<text x="185.0" y="114" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold" >程序给出的虚拟地址</text>
+<line x1="185.0" y1="132" x2="185.0" y2="164" stroke="#444444" stroke-width="2" marker-end="url(#ah-444444)"/>
+<rect x="40" y="166" width="290" height="56" rx="4" fill="#e0f2e7" stroke="#2e7d4f" stroke-width="1.5" />
+<text x="185.0" y="190" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold" >L1 TLB（每个 SM 一小块）</text>
+<text x="185.0" y="211" font-size="14" text-anchor="middle" fill="#2e7d4f" font-weight="normal" >命中：几乎不花时间</text>
+<line x1="185.0" y1="224" x2="185.0" y2="256" stroke="#444444" stroke-width="2" marker-end="url(#ah-444444)"/>
+<text x="195.0" y="246" font-size="14" text-anchor="start" fill="#666666" font-weight="normal" >未命中</text>
+<rect x="40" y="258" width="290" height="56" rx="4" fill="#e0f2e7" stroke="#2e7d4f" stroke-width="1.5" />
+<text x="185.0" y="282" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold" >L2 TLB（全芯片共享，更大）</text>
+<text x="185.0" y="303" font-size="14" text-anchor="middle" fill="#2e7d4f" font-weight="normal" >命中：比页表遍历快得多</text>
+<line x1="185.0" y1="316" x2="185.0" y2="348" stroke="#444444" stroke-width="2" marker-end="url(#ah-444444)"/>
+<text x="195.0" y="338" font-size="14" text-anchor="start" fill="#666666" font-weight="normal" >未命中</text>
+<rect x="40" y="350" width="290" height="56" rx="4" fill="#f9e0dd" stroke="#c0392b" stroke-width="1.5" />
+<text x="185.0" y="374" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold" >页表遍历（page table walk）</text>
+<text x="185.0" y="395" font-size="14" text-anchor="middle" fill="#c0392b" font-weight="normal" >去内存里逐级查页表：几百到上千拍</text>
+<rect x="40" y="452" width="290" height="40" rx="4" fill="#f0f0f0" stroke="#444444" stroke-width="1.5" />
+<text x="185.0" y="478" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >物理地址 → 再去 L1 / L2 / HBM 取数据</text>
+<path d="M 332 194 H 360 V 472 H 332" fill="none" stroke="#2e7d4f" stroke-width="1.8" marker-end="url(#ah-2e7d4f)"/>
+<path d="M 332 286 H 360 V 472 H 332" fill="none" stroke="#2e7d4f" stroke-width="1.8" marker-end="url(#ah-2e7d4f)"/>
+<line x1="185.0" y1="418" x2="185.0" y2="450" stroke="#c0392b" stroke-width="2" marker-end="url(#ah-c0392b)"/>
+<text x="370" y="392" font-size="14" text-anchor="start" fill="#2e7d4f" font-weight="normal" >命中就直接</text>
+<text x="370" y="410" font-size="14" text-anchor="start" fill="#2e7d4f" font-weight="normal" >得到物理地址</text>
+<text x="470" y="70" font-size="16" text-anchor="start" fill="#222222" font-weight="bold" >B. 80 GB 显存要多少个页表项？TLB 能覆盖多少？</text>
+<text x="470" y="104" font-size="15" text-anchor="start" fill="#222222" font-weight="normal" >按 4 KB 一页：80 GB ÷ 4 KB ≈ 2000 万个页表项</text>
+<text x="470" y="128" font-size="15" text-anchor="start" fill="#222222" font-weight="normal" >按 2 MB 一页：80 GB ÷ 2 MB ≈ 4 万个页表项（少 512 倍）</text>
+<text x="470" y="170" font-size="15" text-anchor="start" fill="#666666" font-weight="normal" >假设 TLB 能记 1024 项（示意），它一次能覆盖的范围：</text>
+<text x="470" y="218" font-size="15" text-anchor="start" fill="#222222" font-weight="bold" >4 KB 页</text>
+<rect x="550" y="200" width="360" height="30" rx="0" fill="#ffffff" stroke="#666666" stroke-width="1.5" />
+<rect x="550" y="200" width="1.5" height="30" rx="0" fill="#1f6fb2" stroke="#1f6fb2" stroke-width="1" />
+<text x="904" y="221" font-size="14" text-anchor="end" fill="#666666" font-weight="normal" >80 GB</text>
+<text x="550" y="254" font-size="14" text-anchor="start" fill="#1f6fb2" font-weight="normal" >1024 × 4 KB = 4 MB，约占显存的 0.005%：细得看不见</text>
+<text x="470" y="328" font-size="15" text-anchor="start" fill="#222222" font-weight="bold" >2 MB 页</text>
+<rect x="550" y="310" width="360" height="30" rx="0" fill="#ffffff" stroke="#666666" stroke-width="1.5" />
+<rect x="550" y="310" width="9.0" height="30" rx="0" fill="#1f6fb2" stroke="#1f6fb2" stroke-width="1" />
+<text x="904" y="331" font-size="14" text-anchor="end" fill="#666666" font-weight="normal" >80 GB</text>
+<text x="550" y="364" font-size="14" text-anchor="start" fill="#1f6fb2" font-weight="normal" >1024 × 2 MB = 2 GB，约占显存的 2.5%：大 512 倍</text>
+<text x="470" y="440" font-size="15" text-anchor="start" fill="#222222" font-weight="normal" >所以驱动分配大块显存时尽量用大页。两种情况会让它</text>
+<text x="470" y="463" font-size="15" text-anchor="start" fill="#222222" font-weight="normal" >浮出水面：</text>
+<text x="470" y="486" font-size="15" text-anchor="start" fill="#222222" font-weight="normal" >① 大量零散的小 cudaMalloc，散在很多页上，TLB 盖不住；</text>
+<text x="470" y="509" font-size="15" text-anchor="start" fill="#222222" font-weight="normal" >② 统一内存访问到不在显存的页，触发缺页，一次微秒级。</text>
+</svg>

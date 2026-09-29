@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1020 560" width="1020" height="560">
+<rect x="0" y="0" width="1020" height="560" fill="#ffffff"/>
+<g font-family="sans-serif">
+<text x="30" y="34" font-size="20" fill="#111" text-anchor="start" font-weight="bold">四代 Tensor Core：谁发起、操作数住哪、能叫上几个 SM</text>
+<text x="30" y="58" font-size="15" fill="#333" text-anchor="start" font-weight="normal">每一代都在给矩阵引擎松绑：发起的人越来越少，操作数越搬越近，协作范围越来越大</text>
+<rect x="30" y="78" width="232" height="34" fill="#f2f2f2" stroke="#555" stroke-width="2"/>
+<text x="146.0" y="101" font-size="16" fill="#555" text-anchor="middle" font-weight="bold">Volta（2017）</text>
+<rect x="30" y="122" width="232" height="118" fill="#ffffff" stroke="#999" stroke-width="1.5"/>
+<text x="42" y="148" font-size="14" fill="#111" text-anchor="start" font-weight="normal">1 个 warp 的 32 个</text>
+<text x="42" y="170" font-size="14" fill="#111" text-anchor="start" font-weight="normal">线程一起发出，</text>
+<text x="42" y="192" font-size="14" fill="#111" text-anchor="start" font-weight="normal">发完原地等结果</text>
+<text x="42" y="228" font-size="14" fill="#555" text-anchor="start" font-weight="normal">发起者：32 个线程</text>
+<rect x="30" y="250" width="232" height="108" fill="#ffffff" stroke="#999" stroke-width="1.5"/>
+<text x="42" y="276" font-size="14" fill="#111" text-anchor="start" font-weight="normal">操作数全部打散在</text>
+<text x="42" y="298" font-size="14" fill="#111" text-anchor="start" font-weight="normal">warp 的寄存器里</text>
+<text x="42" y="320" font-size="14" fill="#111" text-anchor="start" font-weight="normal">（就是 fragment）</text>
+<rect x="30" y="368" width="232" height="168" fill="#ffffff" stroke="#999" stroke-width="1.5"/>
+<text x="42" y="394" font-size="14" fill="#111" text-anchor="start" font-weight="normal">1 个子分区</text>
+<text x="42" y="416" font-size="14" fill="#111" text-anchor="start" font-weight="normal">（SM 的四分之一）</text>
+<rect x="46" y="436" width="48" height="48" fill="#fafafa" stroke="#333" stroke-width="1.5"/>
+<rect x="50" y="440" width="20" height="20" fill="#f6c1b6" stroke="#c23b22" stroke-width="1.5"/>
+<rect x="70" y="440" width="20" height="20" fill="#ffffff" stroke="#bbb" stroke-width="1"/>
+<rect x="50" y="460" width="20" height="20" fill="#ffffff" stroke="#bbb" stroke-width="1"/>
+<rect x="70" y="460" width="20" height="20" fill="#ffffff" stroke="#bbb" stroke-width="1"/>
+<text x="70" y="498" font-size="13" fill="#666" text-anchor="middle" font-weight="normal">SM 0</text>
+<rect x="112" y="436" width="48" height="48" fill="#fafafa" stroke="#333" stroke-width="1.5"/>
+<rect x="116" y="440" width="20" height="20" fill="#ffffff" stroke="#bbb" stroke-width="1"/>
+<rect x="136" y="440" width="20" height="20" fill="#ffffff" stroke="#bbb" stroke-width="1"/>
+<rect x="116" y="460" width="20" height="20" fill="#ffffff" stroke="#bbb" stroke-width="1"/>
+<rect x="136" y="460" width="20" height="20" fill="#ffffff" stroke="#bbb" stroke-width="1"/>
+<text x="136" y="498" font-size="13" fill="#666" text-anchor="middle" font-weight="normal">SM 1</text>
+<rect x="282" y="78" width="232" height="34" fill="#f2f2f2" stroke="#555" stroke-width="2"/>
+<text x="398.0" y="101" font-size="16" fill="#555" text-anchor="middle" font-weight="bold">Ampere（2020）</text>
+<rect x="282" y="122" width="232" height="118" fill="#ffffff" stroke="#999" stroke-width="1.5"/>
+<text x="294" y="148" font-size="14" fill="#111" text-anchor="start" font-weight="normal">仍是 1 个 warp</text>
+<text x="294" y="170" font-size="14" fill="#111" text-anchor="start" font-weight="normal">一起发、原地等</text>
+<text x="294" y="192" font-size="14" fill="#111" text-anchor="start" font-weight="normal">（块形状可选更多）</text>
+<text x="294" y="228" font-size="14" fill="#555" text-anchor="start" font-weight="normal">发起者：32 个线程</text>
+<rect x="282" y="250" width="232" height="108" fill="#ffffff" stroke="#999" stroke-width="1.5"/>
+<text x="294" y="276" font-size="14" fill="#111" text-anchor="start" font-weight="normal">寄存器；数据可以</text>
+<text x="294" y="298" font-size="14" fill="#111" text-anchor="start" font-weight="normal">异步从显存拷进</text>
+<text x="294" y="320" font-size="14" fill="#111" text-anchor="start" font-weight="normal">共享内存备用</text>
+<rect x="282" y="368" width="232" height="168" fill="#ffffff" stroke="#999" stroke-width="1.5"/>
+<text x="294" y="394" font-size="14" fill="#111" text-anchor="start" font-weight="normal">1 个子分区</text>
+<text x="294" y="416" font-size="14" fill="#111" text-anchor="start" font-weight="normal"></text>
+<rect x="298" y="436" width="48" height="48" fill="#fafafa" stroke="#333" stroke-width="1.5"/>
+<rect x="302" y="440" width="20" height="20" fill="#f6c1b6" stroke="#c23b22" stroke-width="1.5"/>
+<rect x="322" y="440" width="20" height="20" fill="#ffffff" stroke="#bbb" stroke-width="1"/>
+<rect x="302" y="460" width="20" height="20" fill="#ffffff" stroke="#bbb" stroke-width="1"/>
+<rect x="322" y="460" width="20" height="20" fill="#ffffff" stroke="#bbb" stroke-width="1"/>
+<text x="322" y="498" font-size="13" fill="#666" text-anchor="middle" font-weight="normal">SM 0</text>
+<rect x="364" y="436" width="48" height="48" fill="#fafafa" stroke="#333" stroke-width="1.5"/>
+<rect x="368" y="440" width="20" height="20" fill="#ffffff" stroke="#bbb" stroke-width="1"/>
+<rect x="388" y="440" width="20" height="20" fill="#ffffff" stroke="#bbb" stroke-width="1"/>
+<rect x="368" y="460" width="20" height="20" fill="#ffffff" stroke="#bbb" stroke-width="1"/>
+<rect x="388" y="460" width="20" height="20" fill="#ffffff" stroke="#bbb" stroke-width="1"/>
+<text x="388" y="498" font-size="13" fill="#666" text-anchor="middle" font-weight="normal">SM 1</text>
+<rect x="534" y="78" width="232" height="34" fill="#f2f2f2" stroke="#c23b22" stroke-width="2"/>
+<text x="650.0" y="101" font-size="16" fill="#c23b22" text-anchor="middle" font-weight="bold">Hopper（2022）</text>
+<rect x="534" y="122" width="232" height="118" fill="#ffffff" stroke="#999" stroke-width="1.5"/>
+<text x="546" y="148" font-size="14" fill="#111" text-anchor="start" font-weight="normal">4 个 warp（128 线程）</text>
+<text x="546" y="170" font-size="14" fill="#111" text-anchor="start" font-weight="normal">组团发，异步——</text>
+<text x="546" y="192" font-size="14" fill="#111" text-anchor="start" font-weight="normal">发完先干别的</text>
+<text x="546" y="228" font-size="14" fill="#c23b22" text-anchor="start" font-weight="normal">发起者：128 个线程</text>
+<rect x="534" y="250" width="232" height="108" fill="#ffffff" stroke="#999" stroke-width="1.5"/>
+<text x="546" y="276" font-size="14" fill="#111" text-anchor="start" font-weight="normal">操作数可直接读</text>
+<text x="546" y="298" font-size="14" fill="#111" text-anchor="start" font-weight="normal">共享内存；累加器</text>
+<text x="546" y="320" font-size="14" fill="#111" text-anchor="start" font-weight="normal">仍占着寄存器</text>
+<rect x="534" y="368" width="232" height="168" fill="#ffffff" stroke="#999" stroke-width="1.5"/>
+<text x="546" y="394" font-size="14" fill="#111" text-anchor="start" font-weight="normal">1 个 SM</text>
+<text x="546" y="416" font-size="14" fill="#111" text-anchor="start" font-weight="normal">（四个子分区合力）</text>
+<rect x="550" y="436" width="48" height="48" fill="#fafafa" stroke="#333" stroke-width="1.5"/>
+<rect x="554" y="440" width="20" height="20" fill="#f6c1b6" stroke="#c23b22" stroke-width="1.5"/>
+<rect x="574" y="440" width="20" height="20" fill="#f6c1b6" stroke="#c23b22" stroke-width="1.5"/>
+<rect x="554" y="460" width="20" height="20" fill="#f6c1b6" stroke="#c23b22" stroke-width="1.5"/>
+<rect x="574" y="460" width="20" height="20" fill="#f6c1b6" stroke="#c23b22" stroke-width="1.5"/>
+<text x="574" y="498" font-size="13" fill="#666" text-anchor="middle" font-weight="normal">SM 0</text>
+<rect x="616" y="436" width="48" height="48" fill="#fafafa" stroke="#333" stroke-width="1.5"/>
+<rect x="620" y="440" width="20" height="20" fill="#ffffff" stroke="#bbb" stroke-width="1"/>
+<rect x="640" y="440" width="20" height="20" fill="#ffffff" stroke="#bbb" stroke-width="1"/>
+<rect x="620" y="460" width="20" height="20" fill="#ffffff" stroke="#bbb" stroke-width="1"/>
+<rect x="640" y="460" width="20" height="20" fill="#ffffff" stroke="#bbb" stroke-width="1"/>
+<text x="640" y="498" font-size="13" fill="#666" text-anchor="middle" font-weight="normal">SM 1</text>
+<rect x="786" y="78" width="232" height="34" fill="#f2f2f2" stroke="#c23b22" stroke-width="2"/>
+<text x="902.0" y="101" font-size="16" fill="#c23b22" text-anchor="middle" font-weight="bold">Blackwell（2024）</text>
+<rect x="786" y="122" width="232" height="118" fill="#ffffff" stroke="#999" stroke-width="1.5"/>
+<text x="798" y="148" font-size="14" fill="#111" text-anchor="start" font-weight="normal">1 个线程就能发出</text>
+<text x="798" y="170" font-size="14" fill="#111" text-anchor="start" font-weight="normal">一条矩阵指令</text>
+<text x="798" y="192" font-size="14" fill="#111" text-anchor="start" font-weight="normal"></text>
+<text x="798" y="228" font-size="14" fill="#c23b22" text-anchor="start" font-weight="normal">发起者：1 个线程</text>
+<rect x="786" y="250" width="232" height="108" fill="#ffffff" stroke="#999" stroke-width="1.5"/>
+<text x="798" y="276" font-size="14" fill="#111" text-anchor="start" font-weight="normal">累加器搬进专属的</text>
+<text x="798" y="298" font-size="14" fill="#111" text-anchor="start" font-weight="normal">片上存储 TMEM，</text>
+<text x="798" y="320" font-size="14" fill="#111" text-anchor="start" font-weight="normal">不再占寄存器</text>
+<rect x="786" y="368" width="232" height="168" fill="#ffffff" stroke="#999" stroke-width="1.5"/>
+<text x="798" y="394" font-size="14" fill="#111" text-anchor="start" font-weight="normal">2 个 SM 结对</text>
+<text x="798" y="416" font-size="14" fill="#111" text-anchor="start" font-weight="normal">共发一条指令</text>
+<rect x="802" y="436" width="48" height="48" fill="#fafafa" stroke="#333" stroke-width="1.5"/>
+<rect x="806" y="440" width="20" height="20" fill="#f6c1b6" stroke="#c23b22" stroke-width="1.5"/>
+<rect x="826" y="440" width="20" height="20" fill="#f6c1b6" stroke="#c23b22" stroke-width="1.5"/>
+<rect x="806" y="460" width="20" height="20" fill="#f6c1b6" stroke="#c23b22" stroke-width="1.5"/>
+<rect x="826" y="460" width="20" height="20" fill="#f6c1b6" stroke="#c23b22" stroke-width="1.5"/>
+<text x="826" y="498" font-size="13" fill="#666" text-anchor="middle" font-weight="normal">SM 0</text>
+<rect x="868" y="436" width="48" height="48" fill="#fafafa" stroke="#333" stroke-width="1.5"/>
+<rect x="872" y="440" width="20" height="20" fill="#f6c1b6" stroke="#c23b22" stroke-width="1.5"/>
+<rect x="892" y="440" width="20" height="20" fill="#f6c1b6" stroke="#c23b22" stroke-width="1.5"/>
+<rect x="872" y="460" width="20" height="20" fill="#f6c1b6" stroke="#c23b22" stroke-width="1.5"/>
+<rect x="892" y="460" width="20" height="20" fill="#f6c1b6" stroke="#c23b22" stroke-width="1.5"/>
+<text x="892" y="498" font-size="13" fill="#666" text-anchor="middle" font-weight="normal">SM 1</text>
+<text x="30" y="118" font-size="14" fill="#111" text-anchor="start" font-weight="normal"></text>
+<text x="30" y="118" font-size="14" fill="#111" text-anchor="start" font-weight="normal"></text>
+</g></svg>

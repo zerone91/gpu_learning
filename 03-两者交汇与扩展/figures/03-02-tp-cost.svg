@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" width="1000" height="560">
+<rect x="0" y="0" width="1000" height="560" fill="#ffffff"/>
+<g font-family="sans-serif">
+<text x="30" y="34" font-size="20" fill="#111" text-anchor="start" font-weight="bold">同一个张量并行，放在第三层还是第四层：一笔手算的账</text>
+<text x="30" y="58" font-size="15" fill="#333" text-anchor="start" font-weight="normal">设定：70B 模型、80 层、隐藏维 8192、一个 micro-batch 2048 个 token、bf16（每个数 2 字节）、切成 8 份</text>
+<text x="30" y="96" font-size="14" fill="#111" text-anchor="start" font-weight="normal">1. 每层算完要做 2 次全归约（注意力后一次、前馈后一次）：8 张卡各算出一部分，相加后每张卡都拿到完整结果。</text>
+<text x="30" y="122" font-size="14" fill="#111" text-anchor="start" font-weight="normal">2. 一次全归约的数据量 ≈ 2048 × 8192 × 2 字节 ≈ 34 MB；每张卡收发的量约是它的 2 倍，按 68 MB 算。</text>
+<text x="30" y="148" font-size="14" fill="#111" text-anchor="start" font-weight="normal">3. 80 层 × 每层 2 次 = 160 次全归约 → 每个 micro-batch 的通信量 ≈ 160 × 68 MB ≈ 11 GB。</text>
+<text x="30" y="174" font-size="14" fill="#111" text-anchor="start" font-weight="normal">4. 同一个 micro-batch 的计算量 = 2 × 700 亿 × 2048 ≈ 287 TFLOP；8 张卡按每卡 400 TFLOPS 有效算力算，约 90 毫秒。</text>
+<text x="30" y="224" font-size="16" fill="#111" text-anchor="start" font-weight="bold">把 11 GB 分别除以两层的带宽：</text>
+<text x="30" y="268" font-size="14" fill="#111" text-anchor="start" font-weight="normal">计算（两种情况一样）</text>
+<rect x="230" y="250" width="540.0" height="30" fill="#e6e6e6" stroke="#555" stroke-width="1.5"/>
+<text x="500.0" y="270" font-size="14" fill="#111" text-anchor="middle" font-weight="normal">90 毫秒</text>
+<text x="30" y="320" font-size="14" fill="#c23b22" text-anchor="start" font-weight="normal">走 NVLink（1.8 TB/s）</text>
+<rect x="230" y="302" width="36.0" height="30" fill="#f6c1b6" stroke="#c23b22" stroke-width="1.5"/>
+<text x="276.0" y="322" font-size="14" fill="#c23b22" text-anchor="start" font-weight="normal">6 毫秒 —— 只占计算的 7%，与计算重叠后基本看不见</text>
+<text x="30" y="372" font-size="14" fill="#2a5d9c" text-anchor="start" font-weight="normal">走 InfiniBand（0.1 TB/s）</text>
+<rect x="230" y="354" width="660.0" height="30" fill="#d6e4f5" stroke="#2a5d9c" stroke-width="1.5"/>
+<text x="900.0" y="374" font-size="14" fill="#2a5d9c" text-anchor="start" font-weight="normal">110 毫秒</text>
+<text x="230" y="404" font-size="14" fill="#2a5d9c" text-anchor="start" font-weight="normal">比 90 毫秒的计算还长：藏不进去，每个 micro-batch 都要为通信净等几十毫秒，端到端至少慢一倍。</text>
+<rect x="30" y="436" width="940" height="104" fill="#f6f6f6" stroke="#555" stroke-width="1.5"/>
+<text x="46" y="464" font-size="15" fill="#111" text-anchor="start" font-weight="normal">同一个策略，换一层互连，从"可行"变"灾难"。据此写出标准的居住安排：</text>
+<text x="46" y="492" font-size="15" fill="#111" text-anchor="start" font-weight="normal">TP 住第三层（绝不出机柜）· EP 尽量住第三层 · PP 第三四层都行（段间只传一次激活）· DP 住第四层（每步才通信一次）</text>
+<text x="46" y="520" font-size="15" fill="#111" text-anchor="start" font-weight="normal">开会听到"TP 不出 node、DP 跨机房"，背后就是这笔账。</text>
+</g></svg>

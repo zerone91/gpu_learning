@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 430" width="1000" height="430">
+<rect x="0" y="0" width="1000" height="430" fill="#ffffff"/>
+<g font-family="sans-serif">
+<text x="30" y="34" font-size="20" fill="#111" text-anchor="start" font-weight="bold">一个封装里放两颗芯片：缝合带宽决定软件看见几块卡</text>
+<text x="30" y="58" font-size="15" fill="#333" text-anchor="start" font-weight="normal">封装＝把裸芯片装进去、再焊到电路板上的那个外壳；两颗芯片之间的连线走在封装内部</text>
+<rect x="30" y="84" width="440" height="250" fill="#fafafa" stroke="#c23b22" stroke-width="2"/>
+<text x="250" y="112" font-size="17" fill="#c23b22" text-anchor="middle" font-weight="bold">缝得够快：Blackwell</text>
+<rect x="60" y="136" width="150" height="120" fill="#eceff4" stroke="#555" stroke-width="1.5"/>
+<text x="135" y="190" font-size="15" fill="#111" text-anchor="middle" font-weight="normal">计算芯片 A</text>
+<text x="135" y="214" font-size="13" fill="#666" text-anchor="middle" font-weight="normal">（约 800 mm²）</text>
+<rect x="290" y="136" width="150" height="120" fill="#eceff4" stroke="#555" stroke-width="1.5"/>
+<text x="365" y="190" font-size="15" fill="#111" text-anchor="middle" font-weight="normal">计算芯片 B</text>
+<text x="365" y="214" font-size="13" fill="#666" text-anchor="middle" font-weight="normal">（约 800 mm²）</text>
+<line x1="210" y1="150.0" x2="290" y2="150.0" stroke="#c23b22" stroke-width="3"/>
+<line x1="210" y1="166.66666666666666" x2="290" y2="166.66666666666666" stroke="#c23b22" stroke-width="3"/>
+<line x1="210" y1="183.33333333333334" x2="290" y2="183.33333333333334" stroke="#c23b22" stroke-width="3"/>
+<line x1="210" y1="200.0" x2="290" y2="200.0" stroke="#c23b22" stroke-width="3"/>
+<line x1="210" y1="216.66666666666669" x2="290" y2="216.66666666666669" stroke="#c23b22" stroke-width="3"/>
+<line x1="210" y1="233.33333333333334" x2="290" y2="233.33333333333334" stroke="#c23b22" stroke-width="3"/>
+<line x1="210" y1="250.0" x2="290" y2="250.0" stroke="#c23b22" stroke-width="3"/>
+<text x="250" y="282" font-size="15" fill="#c23b22" text-anchor="middle" font-weight="bold">封装内互连约 10 TB/s</text>
+<text x="250" y="308" font-size="14" fill="#333" text-anchor="middle" font-weight="normal">相当于芯片内部带宽的同一量级</text>
+<text x="60" y="362" font-size="15" fill="#111" text-anchor="start" font-weight="normal">软件看到：一块 GPU，一个设备号</text>
+<text x="60" y="386" font-size="14" fill="#666" text-anchor="start" font-weight="normal">统一的缓存语义，程序一行都不用改</text>
+<rect x="520" y="84" width="440" height="250" fill="#fafafa" stroke="#2a5d9c" stroke-width="2"/>
+<text x="740" y="112" font-size="17" fill="#2a5d9c" text-anchor="middle" font-weight="bold">缝得不够快：早年的双芯卡</text>
+<rect x="550" y="136" width="150" height="120" fill="#eceff4" stroke="#555" stroke-width="1.5"/>
+<text x="625" y="190" font-size="15" fill="#111" text-anchor="middle" font-weight="normal">计算芯片 A</text>
+<text x="625" y="214" font-size="13" fill="#666" text-anchor="middle" font-weight="normal">（约 800 mm²）</text>
+<rect x="780" y="136" width="150" height="120" fill="#eceff4" stroke="#555" stroke-width="1.5"/>
+<text x="855" y="190" font-size="15" fill="#111" text-anchor="middle" font-weight="normal">计算芯片 B</text>
+<text x="855" y="214" font-size="13" fill="#666" text-anchor="middle" font-weight="normal">（约 800 mm²）</text>
+<line x1="700" y1="150.0" x2="780" y2="150.0" stroke="#2a5d9c" stroke-width="2"/>
+<line x1="700" y1="250.0" x2="780" y2="250.0" stroke="#2a5d9c" stroke-width="2"/>
+<text x="740" y="282" font-size="15" fill="#2a5d9c" text-anchor="middle" font-weight="bold">卡内互连约 0.01～0.1 TB/s</text>
+<text x="740" y="308" font-size="14" fill="#333" text-anchor="middle" font-weight="normal">只有封装内互连的百分之一量级</text>
+<text x="550" y="362" font-size="15" fill="#111" text-anchor="start" font-weight="normal">软件看到：两块独立的 GPU</text>
+<text x="550" y="386" font-size="14" fill="#666" text-anchor="start" font-weight="normal">要自己切数据、自己在两块之间传，当两张卡用</text>
+<text x="30" y="418" font-size="15" fill="#111" text-anchor="start" font-weight="normal">判据只有一条：缝的带宽配不配得上芯片内部的带宽。配得上，缝就不存在；配不上，缝就成了软件要绕的一道墙。</text>
+</g></svg>

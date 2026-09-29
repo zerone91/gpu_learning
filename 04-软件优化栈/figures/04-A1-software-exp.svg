@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="560" fill="#ffffff"/>
+<defs><marker id="k" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222222"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777777"/></marker><marker id="o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c77a12"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f6db5"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="n" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e8b57"/></marker><marker id="p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7a4fb0"/></marker></defs>
+<text x="480.0" y="32.0" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold">软件 exp：2^x 拆成“整数次幂 × 小数次幂”，全程只用 FMA 管线（例：x = 3.7）</text>
+<rect x="30.0" y="190.0" width="120.0" height="60.0" rx="3" fill="#f3f3f3" stroke="#222222" stroke-width="1.5"/>
+<text x="90.0" y="226.1" font-size="17" text-anchor="middle" fill="#222222" font-weight="bold">x = 3.7</text>
+<rect x="190.0" y="150.0" width="200.0" height="140.0" rx="3" fill="#ffffff" stroke="#222222" stroke-width="1.5"/>
+<text x="290.0" y="176.0" font-size="16" text-anchor="middle" fill="#222222" font-weight="bold">① 值域缩减</text>
+<text x="290.0" y="206.0" font-size="15" text-anchor="middle" fill="#222222">n = ⌊x⌋ = 3</text>
+<text x="290.0" y="232.0" font-size="15" text-anchor="middle" fill="#222222">f = x − n = 0.7</text>
+<text x="290.0" y="262.0" font-size="14" text-anchor="middle" fill="#777777">（1 条取整 + 1 条减法）</text>
+<line x1="150.0" y1="220.0" x2="188.0" y2="220.0" stroke="#222222" stroke-width="1.5" marker-end="url(#k)"/>
+<rect x="440.0" y="60.0" width="490.0" height="170.0" rx="3" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="685.0" y="86.0" font-size="15" text-anchor="middle" fill="#2f6db5" font-weight="bold">② 小数部分：三次多项式近似 2^f（f 只在 0 到 1 之间）</text>
+<text x="460.0" y="116.0" font-size="15" text-anchor="start" fill="#222222" font-family="monospace">p = c3·f + c2            ← FMA 1</text>
+<text x="460.0" y="142.0" font-size="15" text-anchor="start" fill="#222222" font-family="monospace">p = p·f + c1             ← FMA 2</text>
+<text x="460.0" y="168.0" font-size="15" text-anchor="start" fill="#222222" font-family="monospace">p = p·f + c0             ← FMA 3</text>
+<text x="460.0" y="198.0" font-size="14" text-anchor="start" fill="#777777">c0≈1.0000  c1≈0.6964  c2≈0.2245  c3≈0.0791</text>
+<text x="460.0" y="220.0" font-size="14" text-anchor="start" fill="#222222">得 2^0.7 ≈ 1.62451（真值 1.62450，误差约万分之一）</text>
+<path d="M390,190 L415,190 L415,145 L438,145" fill="none" stroke="#2f6db5" stroke-width="1.5" marker-end="url(#b)"/>
+<rect x="440.0" y="260.0" width="490.0" height="170.0" rx="3" fill="#f8e3c4" stroke="#c77a12" stroke-width="1.5"/>
+<text x="685.0" y="286.0" font-size="15" text-anchor="middle" fill="#c77a12" font-weight="bold">③ 整数部分：乘 2^n = 把 n 加到浮点数的指数字段上</text>
+<text x="471.0" y="312.0" font-size="14" text-anchor="middle" fill="#777777">符号</text>
+<text x="541.0" y="312.0" font-size="14" text-anchor="middle" fill="#c77a12">指数字段 8 位</text>
+<text x="675.0" y="312.0" font-size="14" text-anchor="middle" fill="#777777">尾数 23 位（不动）</text>
+<rect x="460.0" y="322.0" width="22.0" height="28.0" rx="3" fill="#ffffff" stroke="#222222" stroke-width="1.5"/>
+<text x="471.0" y="342.0" font-size="15" text-anchor="middle" fill="#222222" font-family="monospace">0</text>
+<rect x="482.0" y="322.0" width="118.0" height="28.0" rx="3" fill="#ffffff" stroke="#c77a12" stroke-width="2"/>
+<text x="541.0" y="342.0" font-size="15" text-anchor="middle" fill="#c77a12" font-weight="bold" font-family="monospace">01111111</text>
+<rect x="600.0" y="322.0" width="150.0" height="28.0" rx="3" fill="#ffffff" stroke="#222222" stroke-width="1.5"/>
+<text x="675.0" y="342.0" font-size="15" text-anchor="middle" fill="#222222" font-family="monospace">1001111…</text>
+<text x="760.0" y="342.0" font-size="14" text-anchor="start" fill="#222222">127 → ×2⁰</text>
+<text x="760.0" y="342.0" font-size="14" text-anchor="middle" fill="#222222"></text>
+<text x="920.0" y="342.0" font-size="15" text-anchor="end" fill="#222222" font-weight="bold">1.6245</text>
+<text x="556.0" y="374.0" font-size="14" text-anchor="start" fill="#c77a12" font-weight="bold">指数字段 + 3（1 条整数加法）</text>
+<line x1="541.0" y1="352.0" x2="541.0" y2="384.0" stroke="#c77a12" stroke-width="1.5" marker-end="url(#o)"/>
+<rect x="460.0" y="386.0" width="22.0" height="28.0" rx="3" fill="#ffffff" stroke="#222222" stroke-width="1.5"/>
+<text x="471.0" y="406.0" font-size="15" text-anchor="middle" fill="#222222" font-family="monospace">0</text>
+<rect x="482.0" y="386.0" width="118.0" height="28.0" rx="3" fill="#ffffff" stroke="#c77a12" stroke-width="2"/>
+<text x="541.0" y="406.0" font-size="15" text-anchor="middle" fill="#c77a12" font-weight="bold" font-family="monospace">10000010</text>
+<rect x="600.0" y="386.0" width="150.0" height="28.0" rx="3" fill="#ffffff" stroke="#222222" stroke-width="1.5"/>
+<text x="675.0" y="406.0" font-size="15" text-anchor="middle" fill="#222222" font-family="monospace">1001111…</text>
+<text x="760.0" y="406.0" font-size="14" text-anchor="start" fill="#222222">130 → ×2³</text>
+<text x="760.0" y="406.0" font-size="14" text-anchor="middle" fill="#222222"></text>
+<text x="920.0" y="406.0" font-size="15" text-anchor="end" fill="#222222" font-weight="bold">12.996</text>
+<path d="M390,250 L415,250 L415,340 L438,340" fill="none" stroke="#c77a12" stroke-width="1.5" marker-end="url(#o)"/>
+<line x1="685.0" y1="230.0" x2="685.0" y2="258.0" stroke="#2f6db5" stroke-width="1.5" marker-end="url(#b)"/>
+<text x="695.0" y="250.0" font-size="14" text-anchor="start" fill="#2f6db5">p 的比特作为起点</text>
+<text x="30.0" y="470.0" font-size="15" text-anchor="start" fill="#222222" font-weight="bold">为什么值得：每个 SM 每拍能做的 exp 个数（Blackwell 量级示意）</text>
+<rect x="30.0" y="486.0" width="80.0" height="26.0" rx="3" fill="#f5d0cb" stroke="#c0392b" stroke-width="1.5"/>
+<text x="120.0" y="505.0" font-size="15" text-anchor="start" fill="#c0392b">MUFU（硬件超越函数单元）：约 16 个</text>
+<rect x="410.0" y="486.0" width="210.0" height="26.0" rx="3" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="630.0" y="505.0" font-size="15" text-anchor="start" fill="#2f6db5">FMA 管线：128 条 ÷ 3 ≈ 42 个</text>
+<text x="30.0" y="540.0" font-size="14" text-anchor="start" fill="#777777">真值 2^3.7 = 12.996。一次 exp 从“占一次拥挤的 MUFU”变成“3 条 FMA + 几条整数指令”，走的是空闲得多的管线。</text>
+</svg>

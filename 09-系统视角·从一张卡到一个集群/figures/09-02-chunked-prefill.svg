@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" font-family="sans-serif" font-size="15">
+<rect x="0" y="0" width="960" height="560" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#444"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/></marker><marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d9822b"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e7d32"/></marker><pattern id="h" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="#f4f4f4"/><line x1="0" y1="0" x2="0" y2="8" stroke="#bbb" stroke-width="2"/></pattern></defs>
+<text x="20.0" y="32.0" text-anchor="start" fill="#222222" font-size="19" font-weight="bold" >一个长 prefill 插进来：不切块时同批所有人卡半秒，切块后每步都稍慢</text>
+<text x="20.0" y="58.0" text-anchor="start" fill="#555" font-size="15" >批里有 32 个正在生成的请求，每步各出一个字；第 40 毫秒来了一个 4096 token 的新请求。横轴按毫秒比例画</text>
+<text x="20.0" y="100.0" text-anchor="start" fill="#222222" font-size="16" font-weight="bold" >不切块：新请求的整个 prefill 塞进同一步</text>
+<rect x="90.0" y="116.0" width="21.0" height="44.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<path d="M106.0,178 L116.0,178 L111.0,168 z" stroke="#1f5fa8" stroke-width="1" fill="#1f5fa8"/>
+<rect x="111.0" y="116.0" width="21.0" height="44.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<path d="M127.0,178 L137.0,178 L132.0,168 z" stroke="#1f5fa8" stroke-width="1" fill="#1f5fa8"/>
+<rect x="132.0" y="116.0" width="21.0" height="44.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="153.0" y="116.0" width="504.0" height="44.0" rx="0" fill="#fde2c4" stroke="#d9822b" stroke-width="1.2" />
+<path d="M652.0,178 L662.0,178 L657.0,168 z" stroke="#1f5fa8" stroke-width="1" fill="#1f5fa8"/>
+<rect x="657.0" y="116.0" width="21.0" height="44.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<path d="M673.0,178 L683.0,178 L678.0,168 z" stroke="#1f5fa8" stroke-width="1" fill="#1f5fa8"/>
+<rect x="678.0" y="116.0" width="21.0" height="44.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<path d="M694.0,178 L704.0,178 L699.0,168 z" stroke="#1f5fa8" stroke-width="1" fill="#1f5fa8"/>
+<rect x="699.0" y="116.0" width="21.0" height="44.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<path d="M715.0,178 L725.0,178 L720.0,168 z" stroke="#1f5fa8" stroke-width="1" fill="#1f5fa8"/>
+<rect x="720.0" y="116.0" width="21.0" height="44.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<path d="M736.0,178 L746.0,178 L741.0,168 z" stroke="#1f5fa8" stroke-width="1" fill="#1f5fa8"/>
+<rect x="741.0" y="116.0" width="21.0" height="44.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<path d="M757.0,178 L767.0,178 L762.0,168 z" stroke="#1f5fa8" stroke-width="1" fill="#1f5fa8"/>
+<rect x="762.0" y="116.0" width="21.0" height="44.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<path d="M778.0,178 L788.0,178 L783.0,168 z" stroke="#1f5fa8" stroke-width="1" fill="#1f5fa8"/>
+<rect x="783.0" y="116.0" width="21.0" height="44.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<path d="M799.0,178 L809.0,178 L804.0,168 z" stroke="#1f5fa8" stroke-width="1" fill="#1f5fa8"/>
+<text x="82.0" y="143.0" text-anchor="end" fill="#222222" font-size="14" >GPU</text>
+<text x="82.0" y="180.0" text-anchor="end" fill="#1f5fa8" font-size="14" >出字</text>
+<line x1="132.0" y1="110.0" x2="132.0" y2="196.0" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="4,3"/>
+<line x1="657.0" y1="110.0" x2="657.0" y2="196.0" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="4,3"/>
+<line x1="132.0" y1="194.0" x2="657.0" y2="194.0" stroke="#c0392b" stroke-width="1.8" marker-end="url(#ar)" marker-start="url(#ar)"/>
+<text x="394.5" y="214.0" text-anchor="middle" fill="#c0392b" font-size="14" >新请求 TTFT ≈ 500 毫秒</text>
+<text x="394.5" y="143.0" text-anchor="middle" fill="#222222" font-size="14" >这一步 500 毫秒：32 个人都要等</text>
+<text x="20.0" y="300.0" text-anchor="start" fill="#222222" font-size="16" font-weight="bold" >切成 8 块：每步做 512 个 token 的 prefill，和 decode 混在一起</text>
+<rect x="90.0" y="316.0" width="21.0" height="44.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<path d="M106.0,378 L116.0,378 L111.0,368 z" stroke="#1f5fa8" stroke-width="1" fill="#1f5fa8"/>
+<rect x="111.0" y="316.0" width="21.0" height="44.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<path d="M127.0,378 L137.0,378 L132.0,368 z" stroke="#1f5fa8" stroke-width="1" fill="#1f5fa8"/>
+<rect x="132.0" y="316.0" width="21.0" height="44.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="153.0" y="316.0" width="65.1" height="44.0" rx="0" fill="#fde2c4" stroke="#d9822b" stroke-width="1.2" />
+<path d="M213.1,378 L223.1,378 L218.1,368 z" stroke="#1f5fa8" stroke-width="1" fill="#1f5fa8"/>
+<rect x="218.1" y="316.0" width="21.0" height="44.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="239.1" y="316.0" width="65.1" height="44.0" rx="0" fill="#fde2c4" stroke="#d9822b" stroke-width="1.2" />
+<path d="M299.20000000000005,378 L309.20000000000005,378 L304.20000000000005,368 z" stroke="#1f5fa8" stroke-width="1" fill="#1f5fa8"/>
+<rect x="304.2" y="316.0" width="21.0" height="44.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="325.2" y="316.0" width="65.1" height="44.0" rx="0" fill="#fde2c4" stroke="#d9822b" stroke-width="1.2" />
+<path d="M385.3,378 L395.3,378 L390.3,368 z" stroke="#1f5fa8" stroke-width="1" fill="#1f5fa8"/>
+<rect x="390.3" y="316.0" width="21.0" height="44.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="411.3" y="316.0" width="65.1" height="44.0" rx="0" fill="#fde2c4" stroke="#d9822b" stroke-width="1.2" />
+<path d="M471.40000000000003,378 L481.40000000000003,378 L476.40000000000003,368 z" stroke="#1f5fa8" stroke-width="1" fill="#1f5fa8"/>
+<rect x="476.4" y="316.0" width="21.0" height="44.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="497.4" y="316.0" width="65.1" height="44.0" rx="0" fill="#fde2c4" stroke="#d9822b" stroke-width="1.2" />
+<path d="M557.5,378 L567.5,378 L562.5,368 z" stroke="#1f5fa8" stroke-width="1" fill="#1f5fa8"/>
+<rect x="562.5" y="316.0" width="21.0" height="44.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="583.5" y="316.0" width="65.1" height="44.0" rx="0" fill="#fde2c4" stroke="#d9822b" stroke-width="1.2" />
+<path d="M643.6,378 L653.6,378 L648.6,368 z" stroke="#1f5fa8" stroke-width="1" fill="#1f5fa8"/>
+<rect x="648.6" y="316.0" width="21.0" height="44.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="669.6" y="316.0" width="65.1" height="44.0" rx="0" fill="#fde2c4" stroke="#d9822b" stroke-width="1.2" />
+<path d="M729.7,378 L739.7,378 L734.7,368 z" stroke="#1f5fa8" stroke-width="1" fill="#1f5fa8"/>
+<rect x="734.7" y="316.0" width="21.0" height="44.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="755.7" y="316.0" width="65.1" height="44.0" rx="0" fill="#fde2c4" stroke="#d9822b" stroke-width="1.2" />
+<path d="M815.8000000000001,378 L825.8000000000001,378 L820.8000000000001,368 z" stroke="#1f5fa8" stroke-width="1" fill="#1f5fa8"/>
+<rect x="820.8" y="316.0" width="21.0" height="44.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<path d="M836.8000000000001,378 L846.8000000000001,378 L841.8000000000001,368 z" stroke="#1f5fa8" stroke-width="1" fill="#1f5fa8"/>
+<rect x="841.8" y="316.0" width="21.0" height="44.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<path d="M857.8000000000001,378 L867.8000000000001,378 L862.8000000000001,368 z" stroke="#1f5fa8" stroke-width="1" fill="#1f5fa8"/>
+<rect x="862.8" y="316.0" width="21.0" height="44.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<path d="M878.8000000000001,378 L888.8000000000001,378 L883.8000000000001,368 z" stroke="#1f5fa8" stroke-width="1" fill="#1f5fa8"/>
+<text x="82.0" y="343.0" text-anchor="end" fill="#222222" font-size="14" >GPU</text>
+<text x="82.0" y="380.0" text-anchor="end" fill="#1f5fa8" font-size="14" >出字</text>
+<line x1="132.0" y1="310.0" x2="132.0" y2="396.0" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="4,3"/>
+<line x1="820.8" y1="310.0" x2="820.8" y2="396.0" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="4,3"/>
+<line x1="132.0" y1="394.0" x2="820.8" y2="394.0" stroke="#c0392b" stroke-width="1.8" marker-end="url(#ar)" marker-start="url(#ar)"/>
+<text x="476.4" y="414.0" text-anchor="middle" fill="#c0392b" font-size="14" >新请求 TTFT ≈ 8 × 82 = 656 毫秒</text>
+<line x1="90.0" y1="465.0" x2="909.0" y2="465.0" stroke="#444" stroke-width="1.5" marker-end="url(#a)"/>
+<line x1="90.0" y1="461.0" x2="90.0" y2="469.0" stroke="#444" stroke-width="1.5"/>
+<text x="90.0" y="485.0" text-anchor="middle" fill="#222222" font-size="14" >0</text>
+<line x1="195.0" y1="461.0" x2="195.0" y2="469.0" stroke="#444" stroke-width="1.5"/>
+<text x="195.0" y="485.0" text-anchor="middle" fill="#222222" font-size="14" >100</text>
+<line x1="300.0" y1="461.0" x2="300.0" y2="469.0" stroke="#444" stroke-width="1.5"/>
+<text x="300.0" y="485.0" text-anchor="middle" fill="#222222" font-size="14" >200</text>
+<line x1="405.0" y1="461.0" x2="405.0" y2="469.0" stroke="#444" stroke-width="1.5"/>
+<text x="405.0" y="485.0" text-anchor="middle" fill="#222222" font-size="14" >300</text>
+<line x1="510.0" y1="461.0" x2="510.0" y2="469.0" stroke="#444" stroke-width="1.5"/>
+<text x="510.0" y="485.0" text-anchor="middle" fill="#222222" font-size="14" >400</text>
+<line x1="615.0" y1="461.0" x2="615.0" y2="469.0" stroke="#444" stroke-width="1.5"/>
+<text x="615.0" y="485.0" text-anchor="middle" fill="#222222" font-size="14" >500</text>
+<line x1="720.0" y1="461.0" x2="720.0" y2="469.0" stroke="#444" stroke-width="1.5"/>
+<text x="720.0" y="485.0" text-anchor="middle" fill="#222222" font-size="14" >600</text>
+<line x1="825.0" y1="461.0" x2="825.0" y2="469.0" stroke="#444" stroke-width="1.5"/>
+<text x="825.0" y="485.0" text-anchor="middle" fill="#222222" font-size="14" >700</text>
+<text x="905.0" y="455.0" text-anchor="end" fill="#222222" font-size="14" >毫秒</text>
+<rect x="90.0" y="528.0" width="22.0" height="16.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5" />
+<text x="118.0" y="542.0" text-anchor="start" fill="#222222" font-size="14" >decode 部分（20 毫秒）</text>
+<rect x="300.0" y="528.0" width="22.0" height="16.0" rx="0" fill="#fde2c4" stroke="#d9822b" stroke-width="1.5" />
+<text x="328.0" y="542.0" text-anchor="start" fill="#222222" font-size="14" >prefill 部分</text>
+<path d="M450,544 L462,544 L456,532 z" stroke="#1f5fa8" stroke-width="1" fill="#1f5fa8"/>
+<text x="470.0" y="542.0" text-anchor="start" fill="#222222" font-size="14" >每个三角：32 个请求各出一个字</text>
+</svg>

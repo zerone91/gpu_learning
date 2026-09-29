@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" font-family="sans-serif" font-size="15">
+<rect x="0" y="0" width="960" height="580" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#444"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/></marker><marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d9822b"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e7d32"/></marker><pattern id="h" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="#f4f4f4"/><line x1="0" y1="0" x2="0" y2="8" stroke="#bbb" stroke-width="2"/></pattern></defs>
+<text x="20.0" y="32.0" text-anchor="start" fill="#222222" font-size="19" font-weight="bold" >SHARP：让交换机在转发的路上顺手把数据加起来</text>
+<text x="20.0" y="58.0" text-anchor="start" fill="#555" font-size="15" >4 张卡接在同一台交换机上做 all-reduce，每张卡有 S 字节的梯度</text>
+<text x="220.0" y="100.0" text-anchor="middle" fill="#222222" font-size="16" font-weight="bold" >普通交换机 + 环形 all-reduce</text>
+<rect x="80.0" y="125.0" width="280.0" height="70.0" rx="8" fill="#f4f4f4" stroke="#222222" stroke-width="2" />
+<text x="220.0" y="158.0" text-anchor="middle" fill="#222222" font-size="15" font-weight="bold" >交换机</text>
+<text x="220.0" y="180.0" text-anchor="middle" fill="#555" font-size="14" >只负责转发</text>
+<rect x="70.0" y="330.0" width="70.0" height="44.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5" />
+<text x="105.0" y="357.2" text-anchor="middle" fill="#222222" font-size="15" font-weight="bold" >卡 0</text>
+<line x1="92.0" y1="326.0" x2="92.0" y2="200.0" stroke="#2e7d32" stroke-width="2.5" marker-end="url(#ag)"/>
+<line x1="118.0" y1="200.0" x2="118.0" y2="326.0" stroke="#d9822b" stroke-width="2.5" marker-end="url(#ao)"/>
+<rect x="160.0" y="330.0" width="70.0" height="44.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5" />
+<text x="195.0" y="357.2" text-anchor="middle" fill="#222222" font-size="15" font-weight="bold" >卡 1</text>
+<line x1="182.0" y1="326.0" x2="182.0" y2="200.0" stroke="#2e7d32" stroke-width="2.5" marker-end="url(#ag)"/>
+<line x1="208.0" y1="200.0" x2="208.0" y2="326.0" stroke="#d9822b" stroke-width="2.5" marker-end="url(#ao)"/>
+<rect x="250.0" y="330.0" width="70.0" height="44.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5" />
+<text x="285.0" y="357.2" text-anchor="middle" fill="#222222" font-size="15" font-weight="bold" >卡 2</text>
+<line x1="272.0" y1="326.0" x2="272.0" y2="200.0" stroke="#2e7d32" stroke-width="2.5" marker-end="url(#ag)"/>
+<line x1="298.0" y1="200.0" x2="298.0" y2="326.0" stroke="#d9822b" stroke-width="2.5" marker-end="url(#ao)"/>
+<rect x="340.0" y="330.0" width="70.0" height="44.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5" />
+<text x="375.0" y="357.2" text-anchor="middle" fill="#222222" font-size="15" font-weight="bold" >卡 3</text>
+<line x1="362.0" y1="326.0" x2="362.0" y2="200.0" stroke="#2e7d32" stroke-width="2.5" marker-end="url(#ag)"/>
+<line x1="388.0" y1="200.0" x2="388.0" y2="326.0" stroke="#d9822b" stroke-width="2.5" marker-end="url(#ao)"/>
+<text x="220.0" y="400.0" text-anchor="middle" fill="#222222" font-size="14" >绿、橙都只是经交换机从一张卡转给下一张卡，</text>
+<text x="220.0" y="422.0" text-anchor="middle" fill="#c0392b" font-size="14" >加法在卡上做；每卡发 ≈2S、收 ≈2S</text>
+<text x="700.0" y="100.0" text-anchor="middle" fill="#222222" font-size="16" font-weight="bold" >带 SHARP 的交换机</text>
+<rect x="560.0" y="125.0" width="280.0" height="70.0" rx="8" fill="#f4f4f4" stroke="#222222" stroke-width="2" />
+<text x="700.0" y="152.0" text-anchor="middle" fill="#222222" font-size="15" font-weight="bold" >交换机</text>
+<circle cx="660.0" cy="175.0" r="14" fill="#f6c6c0" stroke="#c0392b" stroke-width="2"/>
+<text x="660.0" y="181.0" text-anchor="middle" fill="#c0392b" font-size="16" font-weight="bold" >Σ</text>
+<text x="682.0" y="181.0" text-anchor="start" fill="#c0392b" font-size="14" >内置加法单元</text>
+<rect x="550.0" y="330.0" width="70.0" height="44.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5" />
+<text x="585.0" y="357.2" text-anchor="middle" fill="#222222" font-size="15" font-weight="bold" >卡 0</text>
+<line x1="572.0" y1="326.0" x2="572.0" y2="200.0" stroke="#2e7d32" stroke-width="2.5" marker-end="url(#ag)"/>
+<line x1="598.0" y1="200.0" x2="598.0" y2="326.0" stroke="#d9822b" stroke-width="2.5" marker-end="url(#ao)"/>
+<rect x="640.0" y="330.0" width="70.0" height="44.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5" />
+<text x="675.0" y="357.2" text-anchor="middle" fill="#222222" font-size="15" font-weight="bold" >卡 1</text>
+<line x1="662.0" y1="326.0" x2="662.0" y2="200.0" stroke="#2e7d32" stroke-width="2.5" marker-end="url(#ag)"/>
+<line x1="688.0" y1="200.0" x2="688.0" y2="326.0" stroke="#d9822b" stroke-width="2.5" marker-end="url(#ao)"/>
+<rect x="730.0" y="330.0" width="70.0" height="44.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5" />
+<text x="765.0" y="357.2" text-anchor="middle" fill="#222222" font-size="15" font-weight="bold" >卡 2</text>
+<line x1="752.0" y1="326.0" x2="752.0" y2="200.0" stroke="#2e7d32" stroke-width="2.5" marker-end="url(#ag)"/>
+<line x1="778.0" y1="200.0" x2="778.0" y2="326.0" stroke="#d9822b" stroke-width="2.5" marker-end="url(#ao)"/>
+<rect x="820.0" y="330.0" width="70.0" height="44.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5" />
+<text x="855.0" y="357.2" text-anchor="middle" fill="#222222" font-size="15" font-weight="bold" >卡 3</text>
+<line x1="842.0" y1="326.0" x2="842.0" y2="200.0" stroke="#2e7d32" stroke-width="2.5" marker-end="url(#ag)"/>
+<line x1="868.0" y1="200.0" x2="868.0" y2="326.0" stroke="#d9822b" stroke-width="2.5" marker-end="url(#ao)"/>
+<text x="700.0" y="400.0" text-anchor="middle" fill="#2e7d32" font-size="14" >绿（上行）：每卡把自己的 S 发一次，交换机加完只剩 1 份</text>
+<text x="700.0" y="422.0" text-anchor="middle" fill="#d9822b" font-size="14" >橙（下行）：交换机把结果 S 发回每张卡</text>
+<text x="20.0" y="470.0" text-anchor="start" fill="#222222" font-size="15" font-weight="bold" >每张卡发送的字节数（N = 4 时环形为 2S × 3/4 = 1.5S，卡多时趋近 2S）</text>
+<text x="150.0" y="508.0" text-anchor="end" fill="#222222" font-size="14" >环形（卡很多时）</text>
+<rect x="160.0" y="488.0" width="340.0" height="30.0" rx="0" fill="#f6c6c0" stroke="#c0392b" stroke-width="1.5" />
+<text x="510.0" y="508.0" text-anchor="start" fill="#222222" font-size="14" >≈ 2S，步数 2(N−1)</text>
+<text x="150.0" y="550.0" text-anchor="end" fill="#222222" font-size="14" >SHARP</text>
+<rect x="160.0" y="530.0" width="170.0" height="30.0" rx="0" fill="#d4ecd4" stroke="#2e7d32" stroke-width="1.5" />
+<text x="340.0" y="550.0" text-anchor="start" fill="#222222" font-size="14" >≈ S，步数只等于交换机的层数（上去一次、下来一次）</text>
+</svg>

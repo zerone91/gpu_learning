@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540">
+  <rect x="0" y="0" width="960" height="540" fill="#ffffff"/>
+  <g font-family="sans-serif">
+    <text x="30" y="34" font-size="20" font-weight="bold" fill="#111">Tensor Core 坐在哪里，一条指令做多少乘加</text>
+
+    <!-- left: SM -->
+    <text x="30" y="70" font-size="16" fill="#333">左：一个 SM（GPU 上有一百多个）内部分成 4 个子分区</text>
+    <rect x="30" y="84" width="400" height="176" fill="#f6f6f6" stroke="#333" stroke-width="1.5"/>
+    <text x="40" y="106" font-size="15" fill="#111">SM</text>
+    <rect x="46" y="116" width="180" height="60" fill="#ffffff" stroke="#c23b22" stroke-width="2"/>
+    <text x="136" y="152" font-size="15" text-anchor="middle" fill="#111">子分区 0</text>
+    <rect x="238" y="116" width="180" height="60" fill="#ffffff" stroke="#555" stroke-width="1.5"/>
+    <text x="328" y="152" font-size="15" text-anchor="middle" fill="#111">子分区 1</text>
+    <rect x="46" y="186" width="180" height="60" fill="#ffffff" stroke="#555" stroke-width="1.5"/>
+    <text x="136" y="222" font-size="15" text-anchor="middle" fill="#111">子分区 2</text>
+    <rect x="238" y="186" width="180" height="60" fill="#ffffff" stroke="#555" stroke-width="1.5"/>
+    <text x="328" y="222" font-size="15" text-anchor="middle" fill="#111">子分区 3</text>
+
+    <!-- zoom arrow -->
+    <path d="M136 260 L136 292" stroke="#c23b22" stroke-width="2" fill="none" marker-end="url(#ar)"/>
+    <text x="150" y="284" font-size="14" fill="#c23b22">放大一个子分区</text>
+
+    <rect x="30" y="300" width="400" height="212" fill="#ffffff" stroke="#c23b22" stroke-width="2"/>
+    <rect x="46" y="314" width="368" height="34" fill="#eceff4" stroke="#555" stroke-width="1.5"/>
+    <text x="230" y="336" font-size="15" text-anchor="middle" fill="#111">指令调度器（每拍挑一条指令发出去）</text>
+    <rect x="46" y="356" width="368" height="34" fill="#eceff4" stroke="#555" stroke-width="1.5"/>
+    <text x="230" y="378" font-size="15" text-anchor="middle" fill="#111">寄存器堆（操作数都存在这里）</text>
+    <path d="M110 390 L110 412" stroke="#555" stroke-width="1.5" fill="none" marker-end="url(#ar2)"/>
+    <path d="M230 390 L230 412" stroke="#c23b22" stroke-width="2" fill="none" marker-end="url(#ar)"/>
+    <path d="M350 390 L350 412" stroke="#555" stroke-width="1.5" fill="none" marker-end="url(#ar2)"/>
+    <rect x="46" y="416" width="112" height="80" fill="#ffffff" stroke="#555" stroke-width="1.5"/>
+    <text x="102" y="444" font-size="14" text-anchor="middle" fill="#111">32 条</text>
+    <text x="102" y="464" font-size="14" text-anchor="middle" fill="#111">普通算术通道</text>
+    <text x="102" y="484" font-size="13" text-anchor="middle" fill="#666">（一线程一条）</text>
+    <rect x="174" y="416" width="112" height="80" fill="#fdeeea" stroke="#c23b22" stroke-width="2"/>
+    <text x="230" y="444" font-size="14" text-anchor="middle" fill="#c23b22" font-weight="bold">Tensor Core</text>
+    <text x="230" y="464" font-size="14" text-anchor="middle" fill="#111">矩阵引擎</text>
+    <text x="230" y="484" font-size="13" text-anchor="middle" fill="#666">（每子分区 1 个）</text>
+    <rect x="302" y="416" width="112" height="80" fill="#ffffff" stroke="#555" stroke-width="1.5"/>
+    <text x="358" y="444" font-size="14" text-anchor="middle" fill="#111">访存单元</text>
+    <text x="358" y="464" font-size="13" text-anchor="middle" fill="#666">（收发显存/</text>
+    <text x="358" y="482" font-size="13" text-anchor="middle" fill="#666">共享内存数据）</text>
+
+    <!-- right: throughput -->
+    <text x="470" y="70" font-size="16" fill="#333">右：同样是“一条指令”，两条管道干的活量差 8192 倍</text>
+
+    <rect x="470" y="88" width="460" height="176" fill="#fafafa" stroke="#555" stroke-width="1.5"/>
+    <text x="486" y="114" font-size="15" fill="#111">普通算术通道的一条乘加指令</text>
+    <g fill="#555">
+      <g id="dots">
+        <circle cx="492" cy="136" r="4"/><circle cx="508" cy="136" r="4"/><circle cx="524" cy="136" r="4"/><circle cx="540" cy="136" r="4"/>
+        <circle cx="556" cy="136" r="4"/><circle cx="572" cy="136" r="4"/><circle cx="588" cy="136" r="4"/><circle cx="604" cy="136" r="4"/>
+        <circle cx="492" cy="152" r="4"/><circle cx="508" cy="152" r="4"/><circle cx="524" cy="152" r="4"/><circle cx="540" cy="152" r="4"/>
+        <circle cx="556" cy="152" r="4"/><circle cx="572" cy="152" r="4"/><circle cx="588" cy="152" r="4"/><circle cx="604" cy="152" r="4"/>
+        <circle cx="492" cy="168" r="4"/><circle cx="508" cy="168" r="4"/><circle cx="524" cy="168" r="4"/><circle cx="540" cy="168" r="4"/>
+        <circle cx="556" cy="168" r="4"/><circle cx="572" cy="168" r="4"/><circle cx="588" cy="168" r="4"/><circle cx="604" cy="168" r="4"/>
+        <circle cx="492" cy="184" r="4"/><circle cx="508" cy="184" r="4"/><circle cx="524" cy="184" r="4"/><circle cx="540" cy="184" r="4"/>
+        <circle cx="556" cy="184" r="4"/><circle cx="572" cy="184" r="4"/><circle cx="588" cy="184" r="4"/><circle cx="604" cy="184" r="4"/>
+      </g>
+    </g>
+    <text x="630" y="150" font-size="15" fill="#111">32 个点 = 32 次乘加</text>
+    <text x="630" y="172" font-size="14" fill="#666">（warp 里每个线程各算一次）</text>
+    <text x="486" y="216" font-size="15" fill="#111">乘加：把两个数相乘，加进一个累计值。</text>
+    <text x="486" y="240" font-size="15" fill="#111">矩阵乘法整个就是由这一种动作堆出来的。</text>
+
+    <rect x="470" y="284" width="460" height="228" fill="#fdeeea" stroke="#c23b22" stroke-width="2"/>
+    <text x="486" y="310" font-size="15" fill="#111">Tensor Core 的一条矩阵指令（Hopper 的一种典型形状）</text>
+    <rect x="500" y="326" width="150" height="100" fill="#ffffff" stroke="#c23b22" stroke-width="1.5"/>
+    <text x="575" y="372" font-size="14" text-anchor="middle" fill="#111">A 块</text>
+    <text x="575" y="394" font-size="14" text-anchor="middle" fill="#111">64 行 × 16 列</text>
+    <text x="672" y="382" font-size="20" text-anchor="middle" fill="#111">×</text>
+    <rect x="694" y="326" width="200" height="100" fill="#ffffff" stroke="#c23b22" stroke-width="1.5"/>
+    <text x="794" y="372" font-size="14" text-anchor="middle" fill="#111">B 块</text>
+    <text x="794" y="394" font-size="14" text-anchor="middle" fill="#111">16 行 × 256 列</text>
+    <text x="486" y="456" font-size="15" fill="#111">乘加次数 = 64 × 256 × 16 =</text>
+    <text x="760" y="456" font-size="17" font-weight="bold" fill="#c23b22">262144 次</text>
+    <text x="486" y="482" font-size="15" fill="#111">是左边那条指令的 8192 倍。</text>
+    <text x="486" y="504" font-size="14" fill="#666">注：一条矩阵指令要占用引擎多个周期，不是一拍算完。</text>
+  </g>
+  <defs>
+    <marker id="ar" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#c23b22"/>
+    </marker>
+    <marker id="ar2" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#555"/>
+    </marker>
+  </defs>
+</svg>

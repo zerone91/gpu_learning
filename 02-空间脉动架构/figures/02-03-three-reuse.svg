@@ -1,0 +1,263 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 440" width="960" height="440" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="440" fill="#ffffff"/>
+<defs><marker id="mk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e6fb7"/></marker><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f8a4a"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d9822b"/></marker><marker id="my" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777"/></marker><marker id="mp" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7b4fa0"/></marker></defs>
+<text x="480" y="31.9" font-size="17" text-anchor="middle" fill="#222" font-weight="bold">C = A × B（M=6, K=4, N=5）：三类数据各自被用多少次</text>
+<rect x="20" y="50" width="300" height="370" rx="8" fill="#fafafa" stroke="#ccc" stroke-width="1.2" />
+<text x="170" y="77.6" font-size="16" text-anchor="middle" fill="#d9822b" font-weight="bold">一个权重 b[k][n]</text>
+<text x="170" y="101.2" font-size="15" text-anchor="middle" fill="#222">被 M = 6 行输入各用一次</text>
+<rect x="45" y="250" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="67" y="250" width="22" height="22" rx="0" fill="#fbe3c8" stroke="#d9822b" stroke-width="1.2" />
+<rect x="89" y="250" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="111" y="250" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="45" y="272" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="67" y="272" width="22" height="22" rx="0" fill="#fbe3c8" stroke="#d9822b" stroke-width="1.2" />
+<rect x="89" y="272" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="111" y="272" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="45" y="294" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="67" y="294" width="22" height="22" rx="0" fill="#fbe3c8" stroke="#d9822b" stroke-width="1.2" />
+<rect x="89" y="294" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="111" y="294" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="45" y="316" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="67" y="316" width="22" height="22" rx="0" fill="#fbe3c8" stroke="#d9822b" stroke-width="1.2" />
+<rect x="89" y="316" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="111" y="316" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="45" y="338" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="67" y="338" width="22" height="22" rx="0" fill="#fbe3c8" stroke="#d9822b" stroke-width="1.2" />
+<rect x="89" y="338" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="111" y="338" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="45" y="360" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="67" y="360" width="22" height="22" rx="0" fill="#fbe3c8" stroke="#d9822b" stroke-width="1.2" />
+<rect x="89" y="360" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="111" y="360" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="45" y="250" width="88" height="132" rx="0" fill="none" stroke="#222" stroke-width="1.8" />
+<text x="89.0" y="242.9" font-size="14" text-anchor="middle" fill="#222">A（M×K）</text>
+<rect x="163" y="134" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="185" y="134" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="207" y="134" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="229" y="134" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="251" y="134" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="163" y="156" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="185" y="156" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="207" y="156" width="22" height="22" rx="0" fill="#fbe3c8" stroke="#d9822b" stroke-width="1.2" />
+<rect x="229" y="156" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="251" y="156" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="163" y="178" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="185" y="178" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="207" y="178" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="229" y="178" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="251" y="178" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="163" y="200" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="185" y="200" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="207" y="200" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="229" y="200" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="251" y="200" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="163" y="134" width="110" height="88" rx="0" fill="none" stroke="#222" stroke-width="1.8" />
+<text x="218.0" y="126.9" font-size="14" text-anchor="middle" fill="#222">B（K×N）</text>
+<rect x="163" y="250" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="185" y="250" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="207" y="250" width="22" height="22" rx="0" fill="#fbe3c8" stroke="#d9822b" stroke-width="1.2" />
+<rect x="229" y="250" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="251" y="250" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="163" y="272" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="185" y="272" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="207" y="272" width="22" height="22" rx="0" fill="#fbe3c8" stroke="#d9822b" stroke-width="1.2" />
+<rect x="229" y="272" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="251" y="272" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="163" y="294" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="185" y="294" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="207" y="294" width="22" height="22" rx="0" fill="#fbe3c8" stroke="#d9822b" stroke-width="1.2" />
+<rect x="229" y="294" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="251" y="294" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="163" y="316" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="185" y="316" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="207" y="316" width="22" height="22" rx="0" fill="#fbe3c8" stroke="#d9822b" stroke-width="1.2" />
+<rect x="229" y="316" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="251" y="316" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="163" y="338" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="185" y="338" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="207" y="338" width="22" height="22" rx="0" fill="#fbe3c8" stroke="#d9822b" stroke-width="1.2" />
+<rect x="229" y="338" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="251" y="338" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="163" y="360" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="185" y="360" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="207" y="360" width="22" height="22" rx="0" fill="#fbe3c8" stroke="#d9822b" stroke-width="1.2" />
+<rect x="229" y="360" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="251" y="360" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="163" y="250" width="110" height="132" rx="0" fill="none" stroke="#222" stroke-width="1.8" />
+<text x="218.0" y="242.9" font-size="14" text-anchor="middle" fill="#222">C（M×N）</text>
+<text x="148" y="322.3" font-size="18" text-anchor="middle" fill="#222" font-weight="bold">×</text>
+<text x="170" y="408.9" font-size="14" text-anchor="middle" fill="#222"></text>
+<rect x="335" y="50" width="300" height="370" rx="8" fill="#fafafa" stroke="#ccc" stroke-width="1.2" />
+<text x="485" y="77.6" font-size="16" text-anchor="middle" fill="#2e6fb7" font-weight="bold">一个输入 a[m][k]</text>
+<text x="485" y="101.2" font-size="15" text-anchor="middle" fill="#222">为 N = 5 个输出列各贡献一次</text>
+<rect x="360" y="250" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="382" y="250" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="404" y="250" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="426" y="250" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="360" y="272" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="382" y="272" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="404" y="272" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="426" y="272" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="360" y="294" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="382" y="294" width="22" height="22" rx="0" fill="#d6e6f7" stroke="#2e6fb7" stroke-width="1.2" />
+<rect x="404" y="294" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="426" y="294" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="360" y="316" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="382" y="316" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="404" y="316" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="426" y="316" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="360" y="338" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="382" y="338" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="404" y="338" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="426" y="338" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="360" y="360" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="382" y="360" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="404" y="360" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="426" y="360" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="360" y="250" width="88" height="132" rx="0" fill="none" stroke="#222" stroke-width="1.8" />
+<text x="404.0" y="242.9" font-size="14" text-anchor="middle" fill="#222">A（M×K）</text>
+<rect x="478" y="134" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="500" y="134" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="522" y="134" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="544" y="134" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="566" y="134" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="478" y="156" width="22" height="22" rx="0" fill="#d6e6f7" stroke="#2e6fb7" stroke-width="1.2" />
+<rect x="500" y="156" width="22" height="22" rx="0" fill="#d6e6f7" stroke="#2e6fb7" stroke-width="1.2" />
+<rect x="522" y="156" width="22" height="22" rx="0" fill="#d6e6f7" stroke="#2e6fb7" stroke-width="1.2" />
+<rect x="544" y="156" width="22" height="22" rx="0" fill="#d6e6f7" stroke="#2e6fb7" stroke-width="1.2" />
+<rect x="566" y="156" width="22" height="22" rx="0" fill="#d6e6f7" stroke="#2e6fb7" stroke-width="1.2" />
+<rect x="478" y="178" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="500" y="178" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="522" y="178" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="544" y="178" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="566" y="178" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="478" y="200" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="500" y="200" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="522" y="200" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="544" y="200" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="566" y="200" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="478" y="134" width="110" height="88" rx="0" fill="none" stroke="#222" stroke-width="1.8" />
+<text x="533.0" y="126.9" font-size="14" text-anchor="middle" fill="#222">B（K×N）</text>
+<rect x="478" y="250" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="500" y="250" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="522" y="250" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="544" y="250" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="566" y="250" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="478" y="272" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="500" y="272" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="522" y="272" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="544" y="272" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="566" y="272" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="478" y="294" width="22" height="22" rx="0" fill="#d6e6f7" stroke="#2e6fb7" stroke-width="1.2" />
+<rect x="500" y="294" width="22" height="22" rx="0" fill="#d6e6f7" stroke="#2e6fb7" stroke-width="1.2" />
+<rect x="522" y="294" width="22" height="22" rx="0" fill="#d6e6f7" stroke="#2e6fb7" stroke-width="1.2" />
+<rect x="544" y="294" width="22" height="22" rx="0" fill="#d6e6f7" stroke="#2e6fb7" stroke-width="1.2" />
+<rect x="566" y="294" width="22" height="22" rx="0" fill="#d6e6f7" stroke="#2e6fb7" stroke-width="1.2" />
+<rect x="478" y="316" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="500" y="316" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="522" y="316" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="544" y="316" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="566" y="316" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="478" y="338" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="500" y="338" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="522" y="338" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="544" y="338" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="566" y="338" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="478" y="360" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="500" y="360" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="522" y="360" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="544" y="360" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="566" y="360" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="478" y="250" width="110" height="132" rx="0" fill="none" stroke="#222" stroke-width="1.8" />
+<text x="533.0" y="242.9" font-size="14" text-anchor="middle" fill="#222">C（M×N）</text>
+<text x="463" y="322.3" font-size="18" text-anchor="middle" fill="#222" font-weight="bold">×</text>
+<text x="485" y="408.9" font-size="14" text-anchor="middle" fill="#222"></text>
+<rect x="650" y="50" width="300" height="370" rx="8" fill="#fafafa" stroke="#ccc" stroke-width="1.2" />
+<text x="800" y="77.6" font-size="16" text-anchor="middle" fill="#c0392b" font-weight="bold">一个部分和 c[m][n]</text>
+<text x="800" y="101.2" font-size="15" text-anchor="middle" fill="#222">被累加 K = 4 次</text>
+<rect x="675" y="250" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="697" y="250" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="719" y="250" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="741" y="250" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="675" y="272" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="697" y="272" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="719" y="272" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="741" y="272" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="675" y="294" width="22" height="22" rx="0" fill="#f6d5d1" stroke="#c0392b" stroke-width="1.2" />
+<rect x="697" y="294" width="22" height="22" rx="0" fill="#f6d5d1" stroke="#c0392b" stroke-width="1.2" />
+<rect x="719" y="294" width="22" height="22" rx="0" fill="#f6d5d1" stroke="#c0392b" stroke-width="1.2" />
+<rect x="741" y="294" width="22" height="22" rx="0" fill="#f6d5d1" stroke="#c0392b" stroke-width="1.2" />
+<rect x="675" y="316" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="697" y="316" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="719" y="316" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="741" y="316" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="675" y="338" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="697" y="338" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="719" y="338" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="741" y="338" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="675" y="360" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="697" y="360" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="719" y="360" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="741" y="360" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="675" y="250" width="88" height="132" rx="0" fill="none" stroke="#222" stroke-width="1.8" />
+<text x="719.0" y="242.9" font-size="14" text-anchor="middle" fill="#222">A（M×K）</text>
+<rect x="793" y="134" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="815" y="134" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="837" y="134" width="22" height="22" rx="0" fill="#f6d5d1" stroke="#c0392b" stroke-width="1.2" />
+<rect x="859" y="134" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="881" y="134" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="793" y="156" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="815" y="156" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="837" y="156" width="22" height="22" rx="0" fill="#f6d5d1" stroke="#c0392b" stroke-width="1.2" />
+<rect x="859" y="156" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="881" y="156" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="793" y="178" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="815" y="178" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="837" y="178" width="22" height="22" rx="0" fill="#f6d5d1" stroke="#c0392b" stroke-width="1.2" />
+<rect x="859" y="178" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="881" y="178" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="793" y="200" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="815" y="200" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="837" y="200" width="22" height="22" rx="0" fill="#f6d5d1" stroke="#c0392b" stroke-width="1.2" />
+<rect x="859" y="200" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="881" y="200" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="793" y="134" width="110" height="88" rx="0" fill="none" stroke="#222" stroke-width="1.8" />
+<text x="848.0" y="126.9" font-size="14" text-anchor="middle" fill="#222">B（K×N）</text>
+<rect x="793" y="250" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="815" y="250" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="837" y="250" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="859" y="250" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="881" y="250" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="793" y="272" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="815" y="272" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="837" y="272" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="859" y="272" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="881" y="272" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="793" y="294" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="815" y="294" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="837" y="294" width="22" height="22" rx="0" fill="#f6d5d1" stroke="#c0392b" stroke-width="1.2" />
+<rect x="859" y="294" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="881" y="294" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="793" y="316" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="815" y="316" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="837" y="316" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="859" y="316" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="881" y="316" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="793" y="338" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="815" y="338" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="837" y="338" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="859" y="338" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="881" y="338" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="793" y="360" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="815" y="360" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="837" y="360" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="859" y="360" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="881" y="360" width="22" height="22" rx="0" fill="#fff" stroke="#999" stroke-width="1.2" />
+<rect x="793" y="250" width="110" height="132" rx="0" fill="none" stroke="#222" stroke-width="1.8" />
+<text x="848.0" y="242.9" font-size="14" text-anchor="middle" fill="#222">C（M×N）</text>
+<text x="778" y="322.3" font-size="18" text-anchor="middle" fill="#222" font-weight="bold">×</text>
+<text x="800" y="408.9" font-size="14" text-anchor="middle" fill="#222"></text>
+<text x="170" y="408.9" font-size="14" text-anchor="middle" fill="#777">b[1][2] 乘 A 第 1 列，结果进 C 第 2 列</text>
+<text x="485" y="408.9" font-size="14" text-anchor="middle" fill="#777">a[2][1] 乘 B 第 1 行，结果进 C 第 2 行</text>
+<text x="800" y="408.9" font-size="14" text-anchor="middle" fill="#777">c[2][2] = A 第 2 行·B 第 2 列</text>
+</svg>

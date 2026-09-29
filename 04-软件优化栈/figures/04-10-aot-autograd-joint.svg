@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" width="960" height="640" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="640" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222222"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f6db5"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777777"/></marker><marker id="o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c77a12"/></marker><marker id="n" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e8b57"/></marker><marker id="p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7a4fb0"/></marker></defs>
+<text x="480" y="32" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold">AOTAutograd：在融合之前同时拿到前向图和反向图，逐个张量决定存还是重算</text>
+<rect x="60" y="56" width="180" height="52" rx="6" fill="#eeeeee" stroke="#777777" stroke-width="2"/>
+<text x="150.0" y="86.9" font-size="14" text-anchor="middle" fill="#222222">Dynamo 抓图</text>
+<line x1="242" y1="82" x2="278" y2="82" stroke="#222222" stroke-width="1.5" marker-end="url(#a)"/>
+<rect x="280" y="56" width="260" height="52" rx="6" fill="#f8e8cf" stroke="#c77a12" stroke-width="2"/>
+<text x="410.0" y="77.80000000000001" font-size="14" text-anchor="middle" fill="#222222" font-weight="bold"><tspan x="410.0" dy="0">AOTAutograd</tspan><tspan x="410.0" dy="18.2">生成反向图、划分存/重算</tspan></text>
+<line x1="542" y1="82" x2="578" y2="82" stroke="#222222" stroke-width="1.5" marker-end="url(#a)"/>
+<rect x="580" y="56" width="260" height="52" rx="6" fill="#eeeeee" stroke="#777777" stroke-width="2"/>
+<text x="710.0" y="77.80000000000001" font-size="14" text-anchor="middle" fill="#222222"><tspan x="710.0" dy="0">Inductor</tspan><tspan x="710.0" dy="18.2">分别融合两张图、生成 kernel</tspan></text>
+<text x="30" y="150" font-size="15" text-anchor="start" fill="#2f6db5" font-weight="bold">前向图</text>
+<text x="30" y="300" font-size="15" text-anchor="start" fill="#7a4fb0" font-weight="bold">反向图</text>
+<circle cx="130" cy="150" r="22" fill="#ffffff" stroke="#444444" stroke-width="1.5"/>
+<text x="130" y="155" font-size="14" text-anchor="middle" fill="#222222" font-family="monospace">x</text>
+<circle cx="130" cy="200" r="22" fill="#ffffff" stroke="#444444" stroke-width="1.5"/>
+<text x="130" y="205" font-size="14" text-anchor="middle" fill="#222222" font-family="monospace">w</text>
+<rect x="200" y="157" width="110" height="36" rx="6" fill="#dbe7f5" stroke="#2f6db5" stroke-width="2"/>
+<text x="255.0" y="179.9" font-size="14" text-anchor="middle" fill="#222222">x@w + b</text>
+<line x1="152" y1="150" x2="198" y2="170" stroke="#222222" stroke-width="1.5" marker-end="url(#a)"/>
+<line x1="152" y1="200" x2="198" y2="185" stroke="#222222" stroke-width="1.5" marker-end="url(#a)"/>
+<circle cx="380" cy="175" r="22" fill="#ffffff" stroke="#444444" stroke-width="1.5"/>
+<text x="380" y="180" font-size="14" text-anchor="middle" fill="#222222" font-family="monospace">h</text>
+<line x1="310" y1="175" x2="356" y2="175" stroke="#222222" stroke-width="1.5" marker-end="url(#a)"/>
+<rect x="450" y="157" width="110" height="36" rx="6" fill="#dbe7f5" stroke="#2f6db5" stroke-width="2"/>
+<text x="505.0" y="179.9" font-size="14" text-anchor="middle" fill="#222222">relu</text>
+<line x1="402" y1="175" x2="448" y2="175" stroke="#222222" stroke-width="1.5" marker-end="url(#a)"/>
+<circle cx="630" cy="175" r="22" fill="#ffffff" stroke="#444444" stroke-width="1.5"/>
+<text x="630" y="180" font-size="14" text-anchor="middle" fill="#222222" font-family="monospace">y</text>
+<line x1="560" y1="175" x2="606" y2="175" stroke="#222222" stroke-width="1.5" marker-end="url(#a)"/>
+<text x="660" y="180" font-size="14" text-anchor="start" fill="#444444">→ 后续层 → loss</text>
+<circle cx="800" cy="300" r="22" fill="#ffffff" stroke="#444444" stroke-width="1.5"/>
+<text x="800" y="305" font-size="14" text-anchor="middle" fill="#222222" font-family="monospace">∂y</text>
+<rect x="600" y="282" width="130" height="36" rx="6" fill="#e9e0f4" stroke="#7a4fb0" stroke-width="2"/>
+<text x="665.0" y="304.9" font-size="14" text-anchor="middle" fill="#222222">relu 的反向</text>
+<line x1="778" y1="300" x2="732" y2="300" stroke="#7a4fb0" stroke-width="1.5" marker-end="url(#p)"/>
+<circle cx="510" cy="300" r="22" fill="#ffffff" stroke="#444444" stroke-width="1.5"/>
+<text x="510" y="305" font-size="14" text-anchor="middle" fill="#222222" font-family="monospace">∂h</text>
+<line x1="598" y1="300" x2="534" y2="300" stroke="#7a4fb0" stroke-width="1.5" marker-end="url(#p)"/>
+<rect x="300" y="282" width="130" height="36" rx="6" fill="#e9e0f4" stroke="#7a4fb0" stroke-width="2"/>
+<text x="365.0" y="304.9" font-size="14" text-anchor="middle" fill="#222222">matmul 的反向</text>
+<line x1="488" y1="300" x2="432" y2="300" stroke="#7a4fb0" stroke-width="1.5" marker-end="url(#p)"/>
+<circle cx="170" cy="280" r="22" fill="#ffffff" stroke="#444444" stroke-width="1.5"/>
+<text x="170" y="285" font-size="14" text-anchor="middle" fill="#222222" font-family="monospace">∂x</text>
+<circle cx="170" cy="330" r="22" fill="#ffffff" stroke="#444444" stroke-width="1.5"/>
+<text x="170" y="335" font-size="14" text-anchor="middle" fill="#222222" font-family="monospace">∂w</text>
+<line x1="298" y1="295" x2="194" y2="282" stroke="#7a4fb0" stroke-width="1.5" marker-end="url(#p)"/>
+<line x1="298" y1="308" x2="194" y2="326" stroke="#7a4fb0" stroke-width="1.5" marker-end="url(#p)"/>
+<path d="M380,197 C380,215 700,215 650,280" fill="none" stroke="#c77a12" stroke-width="2.5" marker-end="url(#o)" stroke-dasharray="7 4"/>
+<text x="340" y="262" font-size="13" text-anchor="start" fill="#c77a12">橙虚线：relu 的反向要用 h &gt; 0 的掩码</text>
+<path d="M130,222 C150,260 300,250 330,280" fill="none" stroke="#777777" stroke-width="2" marker-end="url(#g)" stroke-dasharray="4 4"/>
+<path d="M148,163 C175,245 320,240 362,280" fill="none" stroke="#777777" stroke-width="2" marker-end="url(#g)" stroke-dasharray="4 4"/>
+<text x="445" y="344" font-size="13" text-anchor="start" fill="#777777">灰虚线：matmul 的反向要用 x、w（输入本来就在）</text>
+<text x="30" y="380" font-size="15" text-anchor="start" fill="#222222" font-weight="bold">逐张量的账（示意：4096 个 token × 隐藏维 4096，bf16）：</text>
+<text x="30" y="414" font-size="14" text-anchor="start" fill="#444444" font-weight="bold">中间张量</text>
+<text x="200" y="414" font-size="14" text-anchor="start" fill="#444444" font-weight="bold">存下来占的显存</text>
+<text x="420" y="414" font-size="14" text-anchor="start" fill="#444444" font-weight="bold">反向时重算它的代价</text>
+<text x="720" y="414" font-size="14" text-anchor="start" fill="#444444" font-weight="bold">决定</text>
+<line x1="30" y1="424" x2="930" y2="424" stroke="#bbbbbb" stroke-width="1.5"/>
+<text x="30" y="452" font-size="14" text-anchor="start" fill="#222222" font-family="monospace">h = x@w + b</text>
+<text x="200" y="452" font-size="14" text-anchor="start" fill="#222222">4096 × 4096 × 2 字节 = 32 MiB</text>
+<text x="420" y="452" font-size="14" text-anchor="start" fill="#222222">再做一次矩阵乘：2 × 4096³ ≈ 1.4×10¹¹ 次运算</text>
+<text x="720" y="452" font-size="14" text-anchor="start" fill="#2e8b57" font-weight="bold">存</text>
+<text x="30" y="484" font-size="14" text-anchor="start" fill="#222222" font-family="monospace">y = relu(h)</text>
+<text x="200" y="484" font-size="14" text-anchor="start" fill="#222222">再占 32 MiB</text>
+<text x="420" y="484" font-size="14" text-anchor="start" fill="#222222">从 h 比较一遍：4096² ≈ 1.7×10⁷ 次比较</text>
+<text x="720" y="484" font-size="14" text-anchor="start" fill="#c77a12" font-weight="bold">不存，要时重算</text>
+<text x="30" y="540" font-size="14" text-anchor="start" fill="#444444">两张图同时在手，编译器才能把这两列数字摆在一起比；手写时通常只能按“整层存 / 整层重算”粗粒度地选。</text>
+<text x="30" y="566" font-size="14" text-anchor="start" fill="#444444">若等融合之后再求导：“x@w+b 与 relu 融成的那个 kernel 的导数是什么”没有现成规则，每种融合组合都要单独写反向。</text>
+<text x="30" y="598" font-size="13" text-anchor="start" fill="#777777">（∂ 表示梯度：∂y 是 loss 对 y 的梯度。橙色虚线是本节讨论的那个张量，灰色虚线是反向图还需要的其它输入。）</text>
+</svg>

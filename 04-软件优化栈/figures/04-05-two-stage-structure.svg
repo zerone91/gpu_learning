@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" width="960" height="640" font-family="sans-serif" font-size="15">
+  <rect x="0" y="0" width="960" height="640" fill="#ffffff"/>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#333"/></marker>
+  </defs>
+  <text x="20" y="30" font-size="17" font-weight="bold">底层编译层的前后两段：多种入口在 PTX 汇合，再按芯片代号分头翻译</text>
+
+  <!-- inputs -->
+  <g stroke="#333" stroke-width="1.5" fill="#f5f5f5">
+    <rect x="40" y="55" width="200" height="50" rx="4"/>
+    <rect x="280" y="55" width="260" height="50" rx="4"/>
+    <rect x="580" y="55" width="200" height="50" rx="4"/>
+  </g>
+  <g text-anchor="middle">
+    <text x="140" y="86">CUDA C++ 源码</text>
+    <text x="410" y="78">Triton、Numba 等</text>
+    <text x="410" y="97" font-size="14">生成的 LLVM IR</text>
+    <text x="680" y="78">其它语言的编译器</text>
+    <text x="680" y="97" font-size="14">（经 libNVVM）</text>
+  </g>
+  <g stroke="#333" stroke-width="1.5" marker-end="url(#a)">
+    <line x1="140" y1="105" x2="140" y2="140"/>
+    <line x1="410" y1="105" x2="410" y2="140"/>
+    <line x1="680" y1="105" x2="680" y2="140"/>
+  </g>
+
+  <!-- front half -->
+  <rect x="40" y="142" width="740" height="92" rx="6" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="2"/>
+  <text x="60" y="168" font-weight="bold">前半段：语言前端 + 通用优化（nvcc 内部的编译器、LLVM 的 NVPTX 后端）</text>
+  <text x="60" y="193">不针对任何一代芯片。在这里决定：循环展开、公共子表达式消除、</text>
+  <text x="60" y="216">把乘和加合并成 fma、把短分支改写成条件选择</text>
+
+  <line x1="410" y1="234" x2="410" y2="266" stroke="#333" stroke-width="1.5" marker-end="url(#a)"/>
+
+  <!-- PTX -->
+  <rect x="200" y="268" width="420" height="68" rx="6" fill="#fde2c4" stroke="#d9822b" stroke-width="2.5"/>
+  <text x="410" y="294" text-anchor="middle" font-weight="bold" font-size="17">PTX（公开、稳定、不绑定芯片）</text>
+  <text x="410" y="321" text-anchor="middle" font-size="14">寄存器不限量（%f1、%f2……一直往上编号），顺序基本照源码</text>
+
+  <!-- fan out -->
+  <g stroke="#333" stroke-width="1.5" marker-end="url(#a)" fill="none">
+    <path d="M330,336 L160,388"/>
+    <line x1="410" y1="336" x2="410" y2="388"/>
+    <path d="M490,336 L660,388"/>
+  </g>
+
+  <!-- back half -->
+  <rect x="30" y="360" width="760" height="185" rx="6" fill="none" stroke="#555" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <text x="44" y="533" font-size="14" fill="#555">后半段：ptxas（NVIDIA 闭源），每一代芯片一个目标</text>
+  <g stroke="#333" stroke-width="1.5" fill="#e8e8e8">
+    <rect x="60" y="392" width="200" height="56" rx="4"/>
+    <rect x="310" y="392" width="200" height="56" rx="4"/>
+    <rect x="560" y="392" width="200" height="56" rx="4"/>
+  </g>
+  <g text-anchor="middle">
+    <text x="160" y="416">ptxas → sm_80</text><text x="160" y="438" font-size="14">Ampere（A100）</text>
+    <text x="410" y="416">ptxas → sm_90</text><text x="410" y="438" font-size="14">Hopper（H100）</text>
+    <text x="660" y="416">ptxas → sm_100</text><text x="660" y="438" font-size="14">Blackwell（B200）</text>
+  </g>
+  <text x="60" y="478">在这里决定：每线程用几个物理寄存器、指令的真实顺序与等待拍数、</text>
+  <text x="60" y="501">每个操作用哪条真实指令。三个目标各做一遍，结果互不相同</text>
+
+  <g stroke="#333" stroke-width="1.5" marker-end="url(#a)">
+    <line x1="160" y1="545" x2="160" y2="560"/>
+    <line x1="410" y1="545" x2="410" y2="560"/>
+    <line x1="660" y1="545" x2="660" y2="560"/>
+  </g>
+  <g stroke="#333" stroke-width="1.5" fill="#ffffff">
+    <rect x="60" y="560" width="200" height="56" rx="4"/>
+    <rect x="310" y="560" width="200" height="56" rx="4"/>
+    <rect x="560" y="560" width="200" height="56" rx="4"/>
+  </g>
+  <g text-anchor="middle" font-size="14">
+    <text x="160" y="583">cubin：sm_80 的 SASS</text><text x="160" y="604">+ 资源需求</text>
+    <text x="410" y="583">cubin：sm_90 的 SASS</text><text x="410" y="604">+ 资源需求</text>
+    <text x="660" y="583">cubin：sm_100 的 SASS</text><text x="660" y="604">+ 资源需求</text>
+  </g>
+
+  <!-- right-side brackets -->
+  <g stroke="#1f5fa8" stroke-width="2" fill="none">
+    <path d="M810,142 L825,142 L825,234 L810,234"/>
+  </g>
+  <text x="835" y="185" fill="#1f5fa8" font-weight="bold">前半段</text>
+  <text x="835" y="207" fill="#1f5fa8" font-size="14">谁都能写</text>
+  <g stroke="#d9822b" stroke-width="2" fill="none">
+    <path d="M810,268 L825,268 L825,336 L810,336"/>
+  </g>
+  <text x="835" y="300" fill="#d9822b" font-weight="bold">分界面</text>
+  <text x="835" y="321" fill="#d9822b" font-size="14">多年不变</text>
+  <g stroke="#555" stroke-width="2" fill="none">
+    <path d="M810,360 L825,360 L825,616 L810,616"/>
+  </g>
+  <text x="835" y="480" fill="#555" font-weight="bold">后半段</text>
+  <text x="835" y="502" fill="#555" font-size="14">只有 NVIDIA</text>
+  <text x="835" y="522" fill="#555" font-size="14">能写</text>
+</svg>

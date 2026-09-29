@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" width="960" height="640" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="640" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222222"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f6db5"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777777"/></marker><marker id="o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c77a12"/></marker><marker id="n" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e8b57"/></marker><marker id="p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7a4fb0"/></marker></defs>
+<text x="480" y="32" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold">同样 8 个数、每次都按固定顺序加，只因网格配置不同，树的形状变了，结果也变了</text>
+<text x="245" y="76" font-size="16" text-anchor="middle" fill="#2f6db5" font-weight="bold">配置 A：2 个块 × 每块 4 个线程</text>
+<rect x="30" y="96" width="50" height="30" rx="6" fill="#dbe7f5" stroke="#2f6db5" stroke-width="2"/>
+<text x="55.0" y="115.2" font-size="12" text-anchor="middle" fill="#222222">1×10⁸</text>
+<rect x="84" y="96" width="50" height="30" rx="6" fill="#dbe7f5" stroke="#2f6db5" stroke-width="2"/>
+<text x="109.0" y="115.2" font-size="12" text-anchor="middle" fill="#222222">3</text>
+<rect x="138" y="96" width="50" height="30" rx="6" fill="#dbe7f5" stroke="#2f6db5" stroke-width="2"/>
+<text x="163.0" y="115.2" font-size="12" text-anchor="middle" fill="#222222">3</text>
+<rect x="192" y="96" width="50" height="30" rx="6" fill="#dbe7f5" stroke="#2f6db5" stroke-width="2"/>
+<text x="217.0" y="115.2" font-size="12" text-anchor="middle" fill="#222222">3</text>
+<rect x="246" y="96" width="50" height="30" rx="6" fill="#f8e8cf" stroke="#c77a12" stroke-width="2"/>
+<text x="271.0" y="115.2" font-size="12" text-anchor="middle" fill="#222222">−1×10⁸</text>
+<rect x="300" y="96" width="50" height="30" rx="6" fill="#f8e8cf" stroke="#c77a12" stroke-width="2"/>
+<text x="325.0" y="115.2" font-size="12" text-anchor="middle" fill="#222222">3</text>
+<rect x="354" y="96" width="50" height="30" rx="6" fill="#f8e8cf" stroke="#c77a12" stroke-width="2"/>
+<text x="379.0" y="115.2" font-size="12" text-anchor="middle" fill="#222222">1</text>
+<rect x="408" y="96" width="50" height="30" rx="6" fill="#f8e8cf" stroke="#c77a12" stroke-width="2"/>
+<text x="433.0" y="115.2" font-size="12" text-anchor="middle" fill="#222222">1</text>
+<line x1="55" y1="126" x2="82.0" y2="170" stroke="#777777" stroke-width="1.5"/>
+<line x1="109" y1="126" x2="82.0" y2="170" stroke="#777777" stroke-width="1.5"/>
+<rect x="42.0" y="170" width="80" height="30" rx="6" fill="#ffffff" stroke="#444444" stroke-width="2"/>
+<text x="82.0" y="189.55" font-size="13" text-anchor="middle" fill="#c0392b">1×10⁸</text>
+<line x1="163" y1="126" x2="190.0" y2="170" stroke="#777777" stroke-width="1.5"/>
+<line x1="217" y1="126" x2="190.0" y2="170" stroke="#777777" stroke-width="1.5"/>
+<rect x="150.0" y="170" width="80" height="30" rx="6" fill="#ffffff" stroke="#444444" stroke-width="2"/>
+<text x="190.0" y="189.55" font-size="13" text-anchor="middle" fill="#222222">6</text>
+<line x1="271" y1="126" x2="298.0" y2="170" stroke="#777777" stroke-width="1.5"/>
+<line x1="325" y1="126" x2="298.0" y2="170" stroke="#777777" stroke-width="1.5"/>
+<rect x="258.0" y="170" width="80" height="30" rx="6" fill="#ffffff" stroke="#444444" stroke-width="2"/>
+<text x="298.0" y="189.55" font-size="13" text-anchor="middle" fill="#c0392b">−1×10⁸</text>
+<line x1="379" y1="126" x2="406.0" y2="170" stroke="#777777" stroke-width="1.5"/>
+<line x1="433" y1="126" x2="406.0" y2="170" stroke="#777777" stroke-width="1.5"/>
+<rect x="366.0" y="170" width="80" height="30" rx="6" fill="#ffffff" stroke="#444444" stroke-width="2"/>
+<text x="406.0" y="189.55" font-size="13" text-anchor="middle" fill="#222222">2</text>
+<line x1="82.0" y1="200" x2="136.0" y2="250" stroke="#777777" stroke-width="1.5"/>
+<line x1="190.0" y1="200" x2="136.0" y2="250" stroke="#777777" stroke-width="1.5"/>
+<rect x="88.0" y="250" width="96" height="30" rx="6" fill="#dbe7f5" stroke="#2f6db5" stroke-width="2"/>
+<text x="136.0" y="269.55" font-size="13" text-anchor="middle" fill="#c0392b">100000008</text>
+<line x1="298.0" y1="200" x2="352.0" y2="250" stroke="#777777" stroke-width="1.5"/>
+<line x1="406.0" y1="200" x2="352.0" y2="250" stroke="#777777" stroke-width="1.5"/>
+<rect x="304.0" y="250" width="96" height="30" rx="6" fill="#f8e8cf" stroke="#c77a12" stroke-width="2"/>
+<text x="352.0" y="269.55" font-size="13" text-anchor="middle" fill="#c0392b">−1×10⁸</text>
+<text x="136.0" y="298" font-size="12" text-anchor="middle" fill="#444444">块 0 的局部和</text>
+<text x="352.0" y="298" font-size="12" text-anchor="middle" fill="#444444">块 1 的局部和</text>
+<line x1="136.0" y1="312" x2="244.0" y2="350" stroke="#777777" stroke-width="1.5"/>
+<line x1="352.0" y1="312" x2="244.0" y2="350" stroke="#777777" stroke-width="1.5"/>
+<rect x="189.0" y="350" width="110" height="30" rx="6" fill="#ffffff" stroke="#444444" stroke-width="2"/>
+<text x="244.0" y="369.55" font-size="13" text-anchor="middle" fill="#c0392b">8</text>
+<text x="244.0" y="452" font-size="18" text-anchor="middle" fill="#c0392b" font-weight="bold">结果 8</text>
+<text x="715" y="76" font-size="16" text-anchor="middle" fill="#7a4fb0" font-weight="bold">配置 B：4 个块 × 每块 2 个线程</text>
+<rect x="500" y="96" width="50" height="30" rx="6" fill="#dbe7f5" stroke="#2f6db5" stroke-width="2"/>
+<text x="525.0" y="115.2" font-size="12" text-anchor="middle" fill="#222222">1×10⁸</text>
+<rect x="554" y="96" width="50" height="30" rx="6" fill="#dbe7f5" stroke="#2f6db5" stroke-width="2"/>
+<text x="579.0" y="115.2" font-size="12" text-anchor="middle" fill="#222222">3</text>
+<rect x="608" y="96" width="50" height="30" rx="6" fill="#f8e8cf" stroke="#c77a12" stroke-width="2"/>
+<text x="633.0" y="115.2" font-size="12" text-anchor="middle" fill="#222222">3</text>
+<rect x="662" y="96" width="50" height="30" rx="6" fill="#f8e8cf" stroke="#c77a12" stroke-width="2"/>
+<text x="687.0" y="115.2" font-size="12" text-anchor="middle" fill="#222222">3</text>
+<rect x="716" y="96" width="50" height="30" rx="6" fill="#e9e0f4" stroke="#7a4fb0" stroke-width="2"/>
+<text x="741.0" y="115.2" font-size="12" text-anchor="middle" fill="#222222">−1×10⁸</text>
+<rect x="770" y="96" width="50" height="30" rx="6" fill="#e9e0f4" stroke="#7a4fb0" stroke-width="2"/>
+<text x="795.0" y="115.2" font-size="12" text-anchor="middle" fill="#222222">3</text>
+<rect x="824" y="96" width="50" height="30" rx="6" fill="#d9efe2" stroke="#2e8b57" stroke-width="2"/>
+<text x="849.0" y="115.2" font-size="12" text-anchor="middle" fill="#222222">1</text>
+<rect x="878" y="96" width="50" height="30" rx="6" fill="#d9efe2" stroke="#2e8b57" stroke-width="2"/>
+<text x="903.0" y="115.2" font-size="12" text-anchor="middle" fill="#222222">1</text>
+<line x1="525" y1="126" x2="552.0" y2="170" stroke="#777777" stroke-width="1.5"/>
+<line x1="579" y1="126" x2="552.0" y2="170" stroke="#777777" stroke-width="1.5"/>
+<rect x="512.0" y="170" width="80" height="30" rx="6" fill="#dbe7f5" stroke="#2f6db5" stroke-width="2"/>
+<text x="552.0" y="189.55" font-size="13" text-anchor="middle" fill="#c0392b">1×10⁸</text>
+<line x1="633" y1="126" x2="660.0" y2="170" stroke="#777777" stroke-width="1.5"/>
+<line x1="687" y1="126" x2="660.0" y2="170" stroke="#777777" stroke-width="1.5"/>
+<rect x="620.0" y="170" width="80" height="30" rx="6" fill="#f8e8cf" stroke="#c77a12" stroke-width="2"/>
+<text x="660.0" y="189.55" font-size="13" text-anchor="middle" fill="#222222">6</text>
+<line x1="741" y1="126" x2="768.0" y2="170" stroke="#777777" stroke-width="1.5"/>
+<line x1="795" y1="126" x2="768.0" y2="170" stroke="#777777" stroke-width="1.5"/>
+<rect x="728.0" y="170" width="80" height="30" rx="6" fill="#e9e0f4" stroke="#7a4fb0" stroke-width="2"/>
+<text x="768.0" y="189.55" font-size="13" text-anchor="middle" fill="#c0392b">−1×10⁸</text>
+<line x1="849" y1="126" x2="876.0" y2="170" stroke="#777777" stroke-width="1.5"/>
+<line x1="903" y1="126" x2="876.0" y2="170" stroke="#777777" stroke-width="1.5"/>
+<rect x="836.0" y="170" width="80" height="30" rx="6" fill="#d9efe2" stroke="#2e8b57" stroke-width="2"/>
+<text x="876.0" y="189.55" font-size="13" text-anchor="middle" fill="#222222">2</text>
+<text x="715" y="244" font-size="13" text-anchor="middle" fill="#444444">4 个局部和，按块号依次累加：</text>
+<rect x="615.0" y="258" width="200" height="30" rx="6" fill="#ffffff" stroke="#444444" stroke-width="2"/>
+<text x="715.0" y="277.55" font-size="13" text-anchor="middle" fill="#222222">1×10⁸</text>
+<line x1="715" y1="288" x2="715" y2="302" stroke="#777777" stroke-width="1.5" marker-end="url(#g)"/>
+<rect x="615.0" y="304" width="200" height="30" rx="6" fill="#ffffff" stroke="#444444" stroke-width="2"/>
+<text x="715.0" y="323.55" font-size="13" text-anchor="middle" fill="#222222">+6 → 100000008</text>
+<line x1="715" y1="334" x2="715" y2="348" stroke="#777777" stroke-width="1.5" marker-end="url(#g)"/>
+<rect x="615.0" y="350" width="200" height="30" rx="6" fill="#ffffff" stroke="#444444" stroke-width="2"/>
+<text x="715.0" y="369.55" font-size="13" text-anchor="middle" fill="#222222">−1×10⁸ → 8</text>
+<line x1="715" y1="380" x2="715" y2="394" stroke="#777777" stroke-width="1.5" marker-end="url(#g)"/>
+<rect x="615.0" y="396" width="200" height="30" rx="6" fill="#ffffff" stroke="#444444" stroke-width="2"/>
+<text x="715.0" y="415.55" font-size="13" text-anchor="middle" fill="#222222">+2 → 10</text>
+<text x="715" y="452" font-size="18" text-anchor="middle" fill="#c0392b" font-weight="bold">结果 10</text>
+<line x1="480" y1="70" x2="480" y2="460" stroke="#eeeeee" stroke-width="2"/>
+<text x="30" y="500" font-size="14" text-anchor="start" fill="#444444">真实的和是 14。两种配置里，每一步加法都是确定的，没有任何随机性：换成同样的配置再跑，结果逐位相同。</text>
+<text x="30" y="526" font-size="14" text-anchor="start" fill="#444444">差别只在哪些数先碰到一起：3 先和 10⁸ 相加就被吃掉（fp32 在 10⁸ 附近的间隔是 8），先和另一个 3 相加就能凑成 6 保留下来。</text>
+<text x="30" y="552" font-size="14" text-anchor="start" fill="#444444">块数、每块线程数常随输入尺寸自动选择，所以“换了批大小，结果变了”也是这个原因。</text>
+<text x="30" y="588" font-size="13" text-anchor="start" fill="#777777">图例：叶子的颜色表示它被分到哪个块；红字表示这一步的结果经过了舍入（小的数被吃掉，或被凑到 8 的倍数）。</text>
+</svg>

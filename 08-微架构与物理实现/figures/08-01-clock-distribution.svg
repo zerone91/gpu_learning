@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" font-family="sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b5451b"/></marker></defs>
+<rect x="0" y="0" width="960" height="560" fill="#ffffff"/>
+<text x="480" y="30" font-size="18" text-anchor="middle" font-weight="bold" fill="#111">时钟从哪来：板上晶振 → 片内 PLL 倍频 → 时钟树分发到每个触发器</text>
+
+<!-- 晶振 -->
+<rect x="30" y="90" width="150" height="80" rx="6" fill="#f4f4f4" stroke="#222" stroke-width="1.8"/>
+<text x="105" y="118" font-size="15" text-anchor="middle" font-weight="bold" fill="#111">① 石英晶振</text>
+<text x="105" y="140" font-size="14" text-anchor="middle" fill="#111">在电路板上</text>
+<text x="105" y="160" font-size="14" text-anchor="middle" fill="#1f5fa8">100 MHz，很稳</text>
+<line x1="180" y1="130" x2="226" y2="130" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+
+<!-- PLL -->
+<rect x="228" y="60" width="270" height="170" rx="6" fill="#eef3fb" stroke="#222" stroke-width="1.8"/>
+<text x="363" y="82" font-size="15" text-anchor="middle" font-weight="bold" fill="#111">② PLL 锁相环（芯片里）</text>
+<rect x="240" y="100" width="80" height="50" fill="#ffffff" stroke="#222" stroke-width="1.5"/>
+<text x="280" y="121" font-size="14" text-anchor="middle" fill="#111">比较</text>
+<text x="280" y="140" font-size="14" text-anchor="middle" fill="#111">相位</text>
+<line x1="320" y1="125" x2="366" y2="125" stroke="#222" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="368" y="100" width="118" height="50" fill="#ffffff" stroke="#222" stroke-width="1.5"/>
+<text x="427" y="121" font-size="14" text-anchor="middle" fill="#111">可调振荡器</text>
+<text x="427" y="140" font-size="14" text-anchor="middle" fill="#1f5fa8">输出 2 GHz</text>
+<rect x="368" y="170" width="118" height="42" fill="#ffffff" stroke="#222" stroke-width="1.5"/>
+<text x="427" y="197" font-size="14" text-anchor="middle" fill="#111">分频 ÷20</text>
+<polyline points="486,125 494,125 494,191 488,191" fill="none" stroke="#222" stroke-width="1.6" marker-end="url(#a)"/>
+<polyline points="368,191 280,191 280,152" fill="none" stroke="#222" stroke-width="1.6" marker-end="url(#a)"/>
+<text x="318" y="210" font-size="14" text-anchor="middle" fill="#555">反馈：100 MHz</text>
+
+<!-- 时钟树 -->
+<text x="700" y="52" font-size="15" text-anchor="middle" font-weight="bold" fill="#111">③ 时钟树：逐级缓冲、分叉</text>
+<line x1="498" y1="145" x2="548" y2="145" stroke="#222" stroke-width="2"/>
+<polygon points="548,133 548,157 568,145" fill="#fdf3e3" stroke="#222" stroke-width="1.5"/>
+<line x1="568" y1="145" x2="600" y2="145" stroke="#222" stroke-width="2"/>
+<line x1="600" y1="95" x2="600" y2="195" stroke="#222" stroke-width="2"/>
+<line x1="600" y1="95" x2="640" y2="95" stroke="#222" stroke-width="2"/>
+<line x1="600" y1="195" x2="640" y2="195" stroke="#222" stroke-width="2"/>
+<polygon points="640,83 640,107 660,95" fill="#fdf3e3" stroke="#222" stroke-width="1.5"/>
+<polygon points="640,183 640,207 660,195" fill="#fdf3e3" stroke="#222" stroke-width="1.5"/>
+<line x1="660" y1="95" x2="690" y2="95" stroke="#222" stroke-width="2"/>
+<line x1="690" y1="75" x2="690" y2="115" stroke="#222" stroke-width="2"/>
+<line x1="660" y1="195" x2="690" y2="195" stroke="#222" stroke-width="2"/>
+<line x1="690" y1="175" x2="690" y2="215" stroke="#222" stroke-width="2"/>
+<line x1="690" y1="75" x2="760" y2="75" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<line x1="690" y1="115" x2="760" y2="115" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<line x1="690" y1="175" x2="760" y2="175" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<polyline points="690,215 720,215 720,238 800,238 800,215 760,215" fill="none" stroke="#b5451b" stroke-width="2.2"/>
+<line x1="780" y1="215" x2="762" y2="215" stroke="#b5451b" stroke-width="2.2" marker-end="url(#ar)"/>
+<g font-size="14" fill="#111" text-anchor="middle">
+<rect x="762" y="63" width="50" height="24" fill="#eaf5e9" stroke="#222" stroke-width="1.5"/><text x="787" y="80">FF1</text>
+<rect x="762" y="103" width="50" height="24" fill="#eaf5e9" stroke="#222" stroke-width="1.5"/><text x="787" y="120">FF2</text>
+<rect x="762" y="163" width="50" height="24" fill="#eaf5e9" stroke="#222" stroke-width="1.5"/><text x="787" y="180">FF3</text>
+<rect x="762" y="203" width="50" height="24" fill="#eaf5e9" stroke="#b5451b" stroke-width="2"/><text x="787" y="220">FF4</text>
+</g>
+<text x="822" y="80" font-size="14" fill="#555">三角 = 缓冲器</text>
+<text x="822" y="100" font-size="14" fill="#555">（把信号重新</text>
+<text x="822" y="118" font-size="14" fill="#555">放大一次）</text>
+<text x="822" y="212" font-size="14" fill="#b5451b">到 FF4 的线</text>
+<text x="822" y="230" font-size="14" fill="#b5451b">绕远了一段</text>
+<text x="480" y="268" font-size="14" text-anchor="middle" fill="#555">真实芯片里的时钟树有几十万到上百万个末端；一颗 GPU 有好几个 PLL，各管一个时钟域</text>
+
+<!-- 下半：偏斜 -->
+<line x1="30" y1="290" x2="930" y2="290" stroke="#ccc" stroke-width="1.5"/>
+<text x="240" y="322" font-size="15" text-anchor="middle" font-weight="bold" fill="#111">偏斜（skew）：同一个沿，到不同触发器早晚不同</text>
+<text x="50" y="378" font-size="14" fill="#111">FF1</text>
+<polyline points="90,390 150,390 150,350 270,350 270,390 390,390 390,350 430,350" fill="none" stroke="#1f5fa8" stroke-width="2.2"/>
+<text x="50" y="448" font-size="14" fill="#b5451b">FF4</text>
+<polyline points="90,460 170,460 170,420 290,420 290,460 410,460 410,420 430,420" fill="none" stroke="#b5451b" stroke-width="2.2"/>
+<line x1="150" y1="340" x2="150" y2="470" stroke="#999" stroke-width="1.2" stroke-dasharray="4,3"/>
+<line x1="170" y1="410" x2="170" y2="470" stroke="#999" stroke-width="1.2" stroke-dasharray="4,3"/>
+<line x1="150" y1="485" x2="170" y2="485" stroke="#222" stroke-width="1.5"/>
+<line x1="150" y1="478" x2="150" y2="492" stroke="#222" stroke-width="1.5"/>
+<line x1="170" y1="478" x2="170" y2="492" stroke="#222" stroke-width="1.5"/>
+<text x="182" y="490" font-size="14" fill="#111">晚到约 20 ps（空间上的差；图中比例夸大）</text>
+
+<!-- 下半：抖动 -->
+<text x="700" y="322" font-size="15" text-anchor="middle" font-weight="bold" fill="#111">抖动（jitter）：同一个触发器，两沿间隔在晃</text>
+<line x1="530" y1="340" x2="530" y2="440" stroke="#999" stroke-width="1.2" stroke-dasharray="4,3"/>
+<line x1="690" y1="340" x2="690" y2="440" stroke="#999" stroke-width="1.2" stroke-dasharray="4,3"/>
+<line x1="850" y1="340" x2="850" y2="440" stroke="#999" stroke-width="1.2" stroke-dasharray="4,3"/>
+<text x="530" y="455" font-size="14" text-anchor="middle" fill="#555">理想沿</text>
+<text x="690" y="455" font-size="14" text-anchor="middle" fill="#555">理想沿</text>
+<text x="850" y="455" font-size="14" text-anchor="middle" fill="#555">理想沿</text>
+<polyline points="490,410 530,410 530,370 610,370 610,410 684,410 684,370 770,370 770,410 856,410 856,370 900,370" fill="none" stroke="#2e7d32" stroke-width="2.2"/>
+<text x="610" y="480" font-size="14" text-anchor="middle" fill="#111">第 1 个间隔 494 ps</text>
+<text x="770" y="480" font-size="14" text-anchor="middle" fill="#111">第 2 个间隔 506 ps</text>
+<text x="700" y="508" font-size="14" text-anchor="middle" fill="#555">名义都是 500 ps；实际沿前后随机晃（时间上的差，幅度夸大）</text>
+<text x="480" y="545" font-size="14" text-anchor="middle" fill="#b5451b">两者都要从一拍的 500 ps 里扣掉：留给逻辑计算的时间只能按“最早的沿、最晚的沿”之间最坏的情况算</text>
+</svg>

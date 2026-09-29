@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" font-family="sans-serif" font-size="15">
+<rect x="0" y="0" width="960" height="560" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#444"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/></marker><marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d9822b"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e7d32"/></marker><pattern id="h" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="#f4f4f4"/><line x1="0" y1="0" x2="0" y2="8" stroke="#bbb" stroke-width="2"/></pattern></defs>
+<text x="20.0" y="32.0" text-anchor="start" fill="#222222" font-size="19" font-weight="bold" >投机解码的一轮：小模型猜 4 个，大模型一次前向同时验证</text>
+<text x="20.0" y="58.0" text-anchor="start" fill="#555" font-size="15" >k = 4；方框是 token。例子里前两个猜对、第三个猜错，这一轮产出 3 个 token</text>
+<text x="20.0" y="127.0" text-anchor="start" fill="#222222" font-size="15" font-weight="bold" >① 草稿模型连猜</text>
+<text x="20.0" y="147.0" text-anchor="start" fill="#555" font-size="14" >（小而快）</text>
+<rect x="200.0" y="100.0" width="64.0" height="42.0" rx="0" fill="#e8e8e8" stroke="#666666" stroke-width="1.8" />
+<text x="232.0" y="127.0" text-anchor="middle" fill="#222222" font-size="16" >今天</text>
+<rect x="270.0" y="100.0" width="64.0" height="42.0" rx="0" fill="#e8e8e8" stroke="#666666" stroke-width="1.8" />
+<text x="302.0" y="127.0" text-anchor="middle" fill="#222222" font-size="16" >天气</text>
+<rect x="340.0" y="100.0" width="64.0" height="42.0" rx="0" fill="#fde2c4" stroke="#d9822b" stroke-width="1.8" stroke-dasharray="5,3" />
+<text x="372.0" y="127.0" text-anchor="middle" fill="#222222" font-size="16" >很</text>
+<rect x="410.0" y="100.0" width="64.0" height="42.0" rx="0" fill="#fde2c4" stroke="#d9822b" stroke-width="1.8" stroke-dasharray="5,3" />
+<text x="442.0" y="127.0" text-anchor="middle" fill="#222222" font-size="16" >好</text>
+<rect x="480.0" y="100.0" width="64.0" height="42.0" rx="0" fill="#fde2c4" stroke="#d9822b" stroke-width="1.8" stroke-dasharray="5,3" />
+<text x="512.0" y="127.0" text-anchor="middle" fill="#222222" font-size="16" >适合</text>
+<rect x="550.0" y="100.0" width="64.0" height="42.0" rx="0" fill="#fde2c4" stroke="#d9822b" stroke-width="1.8" stroke-dasharray="5,3" />
+<text x="582.0" y="127.0" text-anchor="middle" fill="#222222" font-size="16" >爬山</text>
+<text x="267.0" y="162.0" text-anchor="middle" fill="#555" font-size="14" >已确定的上文</text>
+<text x="515.0" y="162.0" text-anchor="middle" fill="#d9822b" font-size="14" >猜的 4 个（橙色虚线）</text>
+<text x="20.0" y="237.0" text-anchor="start" fill="#222222" font-size="15" font-weight="bold" >② 大模型一次前向</text>
+<text x="20.0" y="257.0" text-anchor="start" fill="#555" font-size="14" >（读一遍权重）</text>
+<rect x="200.0" y="210.0" width="414.0" height="48.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="2" />
+<text x="410.0" y="228.0" text-anchor="middle" fill="#222222" font-size="15" >6 个位置的输入都已知，像 prefill 一样并行算</text>
+<text x="410.0" y="246.0" text-anchor="middle" fill="#1f5fa8" font-size="14" >每个位置输出“它后面该接什么”</text>
+<line x1="232.0" y1="168.0" x2="232.0" y2="206.0" stroke="#888" stroke-width="1.5" marker-end="url(#a)"/>
+<line x1="302.0" y1="168.0" x2="302.0" y2="206.0" stroke="#888" stroke-width="1.5" marker-end="url(#a)"/>
+<line x1="372.0" y1="168.0" x2="372.0" y2="206.0" stroke="#888" stroke-width="1.5" marker-end="url(#a)"/>
+<line x1="442.0" y1="168.0" x2="442.0" y2="206.0" stroke="#888" stroke-width="1.5" marker-end="url(#a)"/>
+<line x1="512.0" y1="168.0" x2="512.0" y2="206.0" stroke="#888" stroke-width="1.5" marker-end="url(#a)"/>
+<line x1="582.0" y1="168.0" x2="582.0" y2="206.0" stroke="#888" stroke-width="1.5" marker-end="url(#a)"/>
+<text x="20.0" y="347.0" text-anchor="start" fill="#222222" font-size="15" font-weight="bold" >③ 逐个比对</text>
+<line x1="302.0" y1="256.0" x2="366.0" y2="316.0" stroke="#888" stroke-width="1.5" marker-end="url(#a)"/>
+<rect x="340.0" y="320.0" width="64.0" height="42.0" rx="0" fill="#d4ecd4" stroke="#2e7d32" stroke-width="1.8" />
+<text x="372.0" y="347.0" text-anchor="middle" fill="#222222" font-size="16" >很</text>
+<text x="372.0" y="382.0" text-anchor="middle" fill="#2e7d32" font-size="14" >✓ 同意</text>
+<line x1="372.0" y1="256.0" x2="436.0" y2="316.0" stroke="#888" stroke-width="1.5" marker-end="url(#a)"/>
+<rect x="410.0" y="320.0" width="64.0" height="42.0" rx="0" fill="#d4ecd4" stroke="#2e7d32" stroke-width="1.8" />
+<text x="442.0" y="347.0" text-anchor="middle" fill="#222222" font-size="16" >好</text>
+<text x="442.0" y="382.0" text-anchor="middle" fill="#2e7d32" font-size="14" >✓ 同意</text>
+<line x1="442.0" y1="256.0" x2="506.0" y2="316.0" stroke="#888" stroke-width="1.5" marker-end="url(#a)"/>
+<rect x="480.0" y="320.0" width="64.0" height="42.0" rx="0" fill="#f6c6c0" stroke="#c0392b" stroke-width="1.8" />
+<text x="512.0" y="347.0" text-anchor="middle" fill="#222222" font-size="16" >我们</text>
+<text x="512.0" y="382.0" text-anchor="middle" fill="#c0392b" font-size="14" >✗ 它要“我们”</text>
+<line x1="512.0" y1="256.0" x2="576.0" y2="316.0" stroke="#888" stroke-width="1.5" marker-end="url(#a)"/>
+<rect x="550.0" y="320.0" width="64.0" height="42.0" rx="0" fill="#f4f4f4" stroke="#aaa" stroke-width="1.8" stroke-dasharray="4,3" />
+<text x="582.0" y="347.0" text-anchor="middle" fill="#999" font-size="16" >爬山</text>
+<text x="582.0" y="382.0" text-anchor="middle" fill="#999" font-size="14" >丢弃</text>
+<text x="20.0" y="457.0" text-anchor="start" fill="#222222" font-size="15" font-weight="bold" >④ 本轮产出</text>
+<rect x="340.0" y="430.0" width="64.0" height="42.0" rx="0" fill="#d4ecd4" stroke="#2e7d32" stroke-width="1.8" />
+<text x="372.0" y="457.0" text-anchor="middle" fill="#222222" font-size="16" >很</text>
+<rect x="410.0" y="430.0" width="64.0" height="42.0" rx="0" fill="#d4ecd4" stroke="#2e7d32" stroke-width="1.8" />
+<text x="442.0" y="457.0" text-anchor="middle" fill="#222222" font-size="16" >好</text>
+<rect x="480.0" y="430.0" width="64.0" height="42.0" rx="0" fill="#f6c6c0" stroke="#c0392b" stroke-width="1.8" />
+<text x="512.0" y="457.0" text-anchor="middle" fill="#222222" font-size="16" >我们</text>
+<text x="560.0" y="448.0" text-anchor="start" fill="#222222" font-size="15" font-weight="bold" >3 个 token，只花了 1 次大模型前向</text>
+<text x="560.0" y="470.0" text-anchor="start" fill="#555" font-size="14" >（加上草稿模型猜 4 次的时间）</text>
+<text x="560.0" y="492.0" text-anchor="start" fill="#555" font-size="14" >逐个生成要 3 次大模型前向</text>
+<text x="20.0" y="530.0" text-anchor="start" fill="#555" font-size="14" >猜错的位置由大模型自己的输出“我们”补上，所以一个都没猜对时每轮也至少产出 1 个 token；4 个全对时还多得 1 个，最多 5 个</text>
+</svg>

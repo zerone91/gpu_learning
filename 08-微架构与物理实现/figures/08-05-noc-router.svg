@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 600" width="980" height="600" font-family="sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker>
+<marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/></marker>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b5451b"/></marker></defs>
+<rect x="0" y="0" width="980" height="600" fill="#ffffff"/>
+<text x="490" y="28" font-size="18" text-anchor="middle" font-weight="bold" fill="#111">一个 NoC 路由器的内部：五个端口、每口几条虚通道、中间一个小 crossbar</text>
+
+<!-- 上游 -->
+<rect x="15" y="100" width="105" height="60" rx="5" fill="#f4f4f4" stroke="#222" stroke-width="1.6"/>
+<text x="67" y="126" font-size="14" text-anchor="middle" fill="#111">西边的</text>
+<text x="67" y="145" font-size="14" text-anchor="middle" fill="#111">上一跳</text>
+<line x1="120" y1="120" x2="168" y2="120" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<text x="134" y="112" font-size="14" text-anchor="middle" fill="#111">flit</text>
+<line x1="168" y1="150" x2="122" y2="150" stroke="#1f5fa8" stroke-width="1.6" stroke-dasharray="5,3" marker-end="url(#ab)"/>
+<text x="67" y="185" font-size="14" text-anchor="middle" fill="#1f5fa8">信用回送：</text>
+<text x="67" y="203" font-size="14" text-anchor="middle" fill="#1f5fa8">腾出一格</text>
+<text x="67" y="221" font-size="14" text-anchor="middle" fill="#1f5fa8">就还一个</text>
+
+<!-- router box -->
+<rect x="150" y="45" width="690" height="300" rx="8" fill="#fafafa" stroke="#222" stroke-width="2" stroke-dasharray="7,4"/>
+<text x="828" y="66" font-size="14" text-anchor="end" fill="#555">路由器</text>
+
+<!-- 控制块 -->
+<rect x="385" y="58" width="120" height="50" rx="5" fill="#eef3fb" stroke="#1f5fa8" stroke-width="1.6"/>
+<text x="445" y="79" font-size="14" text-anchor="middle" fill="#111">② RC 路由计算</text>
+<text x="445" y="98" font-size="14" text-anchor="middle" fill="#555">该走哪个口</text>
+<rect x="515" y="58" width="120" height="50" rx="5" fill="#eef3fb" stroke="#1f5fa8" stroke-width="1.6"/>
+<text x="575" y="79" font-size="14" text-anchor="middle" fill="#111">③ VA 分配</text>
+<text x="575" y="98" font-size="14" text-anchor="middle" fill="#555">订下游一个 VC</text>
+<rect x="645" y="58" width="120" height="50" rx="5" fill="#eef3fb" stroke="#1f5fa8" stroke-width="1.6"/>
+<text x="705" y="79" font-size="14" text-anchor="middle" fill="#111">④ SA 仲裁</text>
+<text x="705" y="98" font-size="14" text-anchor="middle" fill="#555">谁用这个输出口</text>
+<line x1="705" y1="108" x2="705" y2="128" stroke="#1f5fa8" stroke-width="1.6" stroke-dasharray="4,3" marker-end="url(#ab)"/>
+
+<!-- 端口 西 详细 -->
+<rect x="168" y="112" width="190" height="84" rx="4" fill="#ffffff" stroke="#222" stroke-width="1.6"/>
+<text x="176" y="130" font-size="14" fill="#111" font-weight="bold">输入口：西</text>
+<text x="352" y="130" font-size="14" text-anchor="end" fill="#555">① BW 写入</text>
+<text x="176" y="156" font-size="14" fill="#111">VC0</text>
+<g stroke="#555" stroke-width="1.2">
+<rect x="212" y="140" width="34" height="22" fill="#f9d9c8"/><rect x="246" y="140" width="34" height="22" fill="#f9d9c8"/><rect x="280" y="140" width="34" height="22" fill="#f9d9c8"/><rect x="314" y="140" width="34" height="22" fill="#fff"/>
+</g>
+<text x="176" y="185" font-size="14" fill="#111">VC1</text>
+<g stroke="#555" stroke-width="1.2">
+<rect x="212" y="169" width="34" height="22" fill="#cfe2f3"/><rect x="246" y="169" width="34" height="22" fill="#fff"/><rect x="280" y="169" width="34" height="22" fill="#fff"/><rect x="314" y="169" width="34" height="22" fill="#fff"/>
+</g>
+<g font-size="13" text-anchor="middle" fill="#111">
+<text x="229" y="156">头</text><text x="263" y="156">体</text><text x="297" y="156">尾</text><text x="229" y="185">头</text>
+</g>
+<!-- 其余端口 -->
+<g font-size="14" fill="#111">
+<rect x="168" y="204" width="190" height="28" rx="4" fill="#ffffff" stroke="#222" stroke-width="1.4"/><text x="176" y="223">输入口：北（同样 2 个 VC）</text>
+<rect x="168" y="238" width="190" height="28" rx="4" fill="#ffffff" stroke="#222" stroke-width="1.4"/><text x="176" y="257">输入口：东</text>
+<rect x="168" y="272" width="190" height="28" rx="4" fill="#ffffff" stroke="#222" stroke-width="1.4"/><text x="176" y="291">输入口：南</text>
+<rect x="168" y="306" width="190" height="28" rx="4" fill="#ffffff" stroke="#222" stroke-width="1.4"/><text x="176" y="325">输入口：本地（SM/L2 片）</text>
+</g>
+<!-- 到 crossbar -->
+<g stroke="#222" stroke-width="1.6">
+<line x1="358" y1="151" x2="638" y2="151" marker-end="url(#a)"/>
+<line x1="358" y1="218" x2="638" y2="218" marker-end="url(#a)"/>
+<line x1="358" y1="252" x2="638" y2="252" marker-end="url(#a)"/>
+<line x1="358" y1="286" x2="638" y2="286" marker-end="url(#a)"/>
+<line x1="358" y1="320" x2="638" y2="320" marker-end="url(#a)"/>
+</g>
+<line x1="445" y1="108" x2="445" y2="146" stroke="#1f5fa8" stroke-width="1.4" stroke-dasharray="4,3"/>
+<line x1="575" y1="108" x2="575" y2="146" stroke="#1f5fa8" stroke-width="1.4" stroke-dasharray="4,3"/>
+<text x="500" y="172" font-size="14" text-anchor="middle" fill="#1f5fa8">头 flit 的目的地址送去做 ②③④</text>
+<text x="500" y="192" font-size="14" text-anchor="middle" fill="#555">体、尾 flit 跟着头走，不再算</text>
+
+<!-- crossbar -->
+<rect x="640" y="130" width="90" height="205" rx="4" fill="#fdf0e8" stroke="#b5451b" stroke-width="2"/>
+<text x="685" y="215" font-size="14" text-anchor="middle" fill="#b5451b" font-weight="bold">5 × 5</text>
+<text x="685" y="235" font-size="14" text-anchor="middle" fill="#b5451b">crossbar</text>
+<text x="685" y="258" font-size="14" text-anchor="middle" fill="#111">⑤ ST</text>
+<text x="685" y="276" font-size="14" text-anchor="middle" fill="#111">穿过</text>
+<!-- outputs -->
+<g stroke="#222" stroke-width="1.6">
+<line x1="730" y1="151" x2="860" y2="151" marker-end="url(#a)"/>
+<line x1="730" y1="190" x2="860" y2="190" marker-end="url(#a)"/>
+<line x1="730" y1="230" x2="860" y2="230" marker-end="url(#a)"/>
+<line x1="730" y1="270" x2="860" y2="270" marker-end="url(#a)"/>
+<line x1="730" y1="310" x2="860" y2="310" marker-end="url(#a)"/>
+</g>
+<g font-size="14" fill="#111">
+<text x="866" y="156">出：西</text><text x="866" y="195">出：北</text><text x="866" y="235">出：东</text><text x="866" y="275">出：南</text><text x="866" y="315">出：本地</text>
+</g>
+<text x="785" y="143" font-size="14" text-anchor="middle" fill="#111">⑤ LT</text>
+<text x="490" y="366" font-size="14" text-anchor="middle" fill="#555">flit：包被切成的小片，头 flit 带目的地址。VC：一个输入口的缓冲切成几条各自排队的队列</text>
+
+<line x1="20" y1="382" x2="960" y2="382" stroke="#ccc" stroke-width="1.5"/>
+
+<!-- 下左：流水线 -->
+<text x="20" y="408" font-size="15" font-weight="bold" fill="#111">一个 flit 过一跳 = 5 拍；3 跳 = 15 拍（不拥塞时）</text>
+<g font-size="13" text-anchor="middle">
+<g transform="translate(10,420)">
+<rect x="0" y="0" width="30" height="28" fill="#fff" stroke="#555"/><text x="15" y="19">BW</text>
+<rect x="30" y="0" width="30" height="28" fill="#eef3fb" stroke="#555"/><text x="45" y="19">RC</text>
+<rect x="60" y="0" width="30" height="28" fill="#eef3fb" stroke="#555"/><text x="75" y="19">VA</text>
+<rect x="90" y="0" width="30" height="28" fill="#eef3fb" stroke="#555"/><text x="105" y="19">SA</text>
+<rect x="120" y="0" width="30" height="28" fill="#fdf0e8" stroke="#555"/><text x="135" y="19">ST</text>
+</g>
+<g transform="translate(180,420)">
+<rect x="0" y="0" width="30" height="28" fill="#fff" stroke="#555"/><text x="15" y="19">BW</text>
+<rect x="30" y="0" width="30" height="28" fill="#eef3fb" stroke="#555"/><text x="45" y="19">RC</text>
+<rect x="60" y="0" width="30" height="28" fill="#eef3fb" stroke="#555"/><text x="75" y="19">VA</text>
+<rect x="90" y="0" width="30" height="28" fill="#eef3fb" stroke="#555"/><text x="105" y="19">SA</text>
+<rect x="120" y="0" width="30" height="28" fill="#fdf0e8" stroke="#555"/><text x="135" y="19">ST</text>
+</g>
+<g transform="translate(350,420)">
+<rect x="0" y="0" width="30" height="28" fill="#fff" stroke="#555"/><text x="15" y="19">BW</text>
+<rect x="30" y="0" width="30" height="28" fill="#eef3fb" stroke="#555"/><text x="45" y="19">RC</text>
+<rect x="60" y="0" width="30" height="28" fill="#eef3fb" stroke="#555"/><text x="75" y="19">VA</text>
+<rect x="90" y="0" width="30" height="28" fill="#eef3fb" stroke="#555"/><text x="105" y="19">SA</text>
+<rect x="120" y="0" width="30" height="28" fill="#fdf0e8" stroke="#555"/><text x="135" y="19">ST</text>
+</g>
+</g>
+<g font-size="14" text-anchor="middle" fill="#555"><text x="85" y="468">第 1 跳</text><text x="255" y="468">第 2 跳</text><text x="425" y="468">第 3 跳</text></g>
+<g stroke="#b5451b" stroke-width="1.5"><line x1="160" y1="434" x2="178" y2="434" marker-end="url(#ar)"/><line x1="330" y1="434" x2="348" y2="434" marker-end="url(#ar)"/></g>
+<text x="20" y="496" font-size="14" fill="#111">红色短箭头 = LT，走线到下一个路由器</text>
+<text x="20" y="518" font-size="14" fill="#111">一次 L2 访问去 3 跳、回 3 跳：光网络就 30 拍上下，</text>
+<text x="20" y="538" font-size="14" fill="#111">再加上各路由器入口的排队，真正读 SRAM 只占约四分之一</text>
+
+<!-- 下右：队头阻塞 -->
+<line x1="512" y1="395" x2="512" y2="580" stroke="#ccc" stroke-width="1.5"/>
+<text x="525" y="408" font-size="15" font-weight="bold" fill="#111">为什么要切 VC：队头阻塞</text>
+<text x="525" y="440" font-size="14" fill="#111">只有 1 条队列：</text>
+<rect x="640" y="424" width="120" height="26" fill="#f9d9c8" stroke="#b5451b" stroke-width="1.4"/><text x="700" y="442" font-size="14" text-anchor="middle" fill="#111">A 要去东（忙）</text>
+<rect x="760" y="424" width="120" height="26" fill="#eeeeee" stroke="#555" stroke-width="1.4"/><text x="820" y="442" font-size="14" text-anchor="middle" fill="#111">B 要去南（闲）</text>
+<text x="890" y="442" font-size="14" fill="#b5451b">✗</text>
+<text x="640" y="470" font-size="14" fill="#b5451b">B 排在 A 后面，南口空着也过不去</text>
+<text x="525" y="508" font-size="14" fill="#111">切成 2 个 VC：</text>
+<text x="604" y="508" font-size="14" text-anchor="end" fill="#555"></text>
+<rect x="640" y="492" width="120" height="26" fill="#f9d9c8" stroke="#b5451b" stroke-width="1.4"/><text x="700" y="510" font-size="14" text-anchor="middle" fill="#111">VC0：A 等东口</text>
+<rect x="640" y="524" width="120" height="26" fill="#d6ecd2" stroke="#2e7d32" stroke-width="1.4"/><text x="700" y="542" font-size="14" text-anchor="middle" fill="#111">VC1：B 去南</text>
+<line x1="760" y1="537" x2="800" y2="537" stroke="#2e7d32" stroke-width="1.8" marker-end="url(#a)"/>
+<text x="806" y="542" font-size="14" fill="#2e7d32">✓ 照走</text>
+<text x="525" y="578" font-size="14" fill="#555">两个 VC 共用同一条物理链路，只是缓冲分开排队</text>
+</svg>

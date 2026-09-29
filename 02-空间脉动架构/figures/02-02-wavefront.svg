@@ -1,0 +1,199 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" width="960" height="640" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="640" fill="#ffffff"/>
+<defs><marker id="mk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e6fb7"/></marker><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f8a4a"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d9822b"/></marker><marker id="my" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777"/></marker><marker id="mp" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7b4fa0"/></marker></defs>
+<text x="480" y="31.9" font-size="17" text-anchor="middle" fill="#222" font-weight="bold">4×4 权重固定阵列、8 行输入流过：每格写的是“这一拍它在处理第几行输入 m”</text>
+<text x="480" y="57.2" font-size="15" text-anchor="middle" fill="#7b4fa0">规律：第 t 拍，PE(k,n) 处理的一定是第 m = t − k − n 行输入（算出来不在 0～7 之间就是空闲）</text>
+<text x="108" y="90.2" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">第 1 拍（灌入）</text>
+<rect x="40" y="95" width="31" height="31" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="55.5" y="115.8" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">1</text>
+<rect x="74" y="95" width="31" height="31" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="89.5" y="115.8" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">0</text>
+<rect x="108" y="95" width="31" height="31" rx="0" fill="#f2f2f2" stroke="#bbb" stroke-width="1.5" />
+<rect x="142" y="95" width="31" height="31" rx="0" fill="#f2f2f2" stroke="#bbb" stroke-width="1.5" />
+<rect x="40" y="129" width="31" height="31" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="55.5" y="149.8" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">0</text>
+<rect x="74" y="129" width="31" height="31" rx="0" fill="#f2f2f2" stroke="#bbb" stroke-width="1.5" />
+<rect x="108" y="129" width="31" height="31" rx="0" fill="#f2f2f2" stroke="#bbb" stroke-width="1.5" />
+<rect x="142" y="129" width="31" height="31" rx="0" fill="#f2f2f2" stroke="#bbb" stroke-width="1.5" />
+<rect x="40" y="163" width="31" height="31" rx="0" fill="#f2f2f2" stroke="#bbb" stroke-width="1.5" />
+<rect x="74" y="163" width="31" height="31" rx="0" fill="#f2f2f2" stroke="#bbb" stroke-width="1.5" />
+<rect x="108" y="163" width="31" height="31" rx="0" fill="#f2f2f2" stroke="#bbb" stroke-width="1.5" />
+<rect x="142" y="163" width="31" height="31" rx="0" fill="#f2f2f2" stroke="#bbb" stroke-width="1.5" />
+<rect x="40" y="197" width="31" height="31" rx="0" fill="#f2f2f2" stroke="#bbb" stroke-width="1.5" />
+<rect x="74" y="197" width="31" height="31" rx="0" fill="#f2f2f2" stroke="#bbb" stroke-width="1.5" />
+<rect x="108" y="197" width="31" height="31" rx="0" fill="#f2f2f2" stroke="#bbb" stroke-width="1.5" />
+<rect x="142" y="197" width="31" height="31" rx="0" fill="#f2f2f2" stroke="#bbb" stroke-width="1.5" />
+<text x="108" y="253.9" font-size="14" text-anchor="middle" fill="#777">3/16 个 PE 在算</text>
+<text x="290" y="90.2" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">第 3 拍（灌入）</text>
+<rect x="222" y="95" width="31" height="31" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="237.5" y="115.8" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">3</text>
+<rect x="256" y="95" width="31" height="31" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="271.5" y="115.8" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">2</text>
+<rect x="290" y="95" width="31" height="31" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="305.5" y="115.8" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">1</text>
+<rect x="324" y="95" width="31" height="31" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="339.5" y="115.8" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">0</text>
+<rect x="222" y="129" width="31" height="31" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="237.5" y="149.8" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">2</text>
+<rect x="256" y="129" width="31" height="31" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="271.5" y="149.8" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">1</text>
+<rect x="290" y="129" width="31" height="31" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="305.5" y="149.8" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">0</text>
+<rect x="324" y="129" width="31" height="31" rx="0" fill="#f2f2f2" stroke="#bbb" stroke-width="1.5" />
+<rect x="222" y="163" width="31" height="31" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="237.5" y="183.8" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">1</text>
+<rect x="256" y="163" width="31" height="31" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="271.5" y="183.8" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">0</text>
+<rect x="290" y="163" width="31" height="31" rx="0" fill="#f2f2f2" stroke="#bbb" stroke-width="1.5" />
+<rect x="324" y="163" width="31" height="31" rx="0" fill="#f2f2f2" stroke="#bbb" stroke-width="1.5" />
+<rect x="222" y="197" width="31" height="31" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="237.5" y="217.8" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">0</text>
+<rect x="256" y="197" width="31" height="31" rx="0" fill="#f2f2f2" stroke="#bbb" stroke-width="1.5" />
+<rect x="290" y="197" width="31" height="31" rx="0" fill="#f2f2f2" stroke="#bbb" stroke-width="1.5" />
+<rect x="324" y="197" width="31" height="31" rx="0" fill="#f2f2f2" stroke="#bbb" stroke-width="1.5" />
+<text x="290" y="253.9" font-size="14" text-anchor="middle" fill="#777">10/16 个 PE 在算</text>
+<text x="472" y="90.2" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">第 6 拍（满载）</text>
+<rect x="404" y="95" width="31" height="31" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="419.5" y="115.8" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">6</text>
+<rect x="438" y="95" width="31" height="31" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="453.5" y="115.8" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">5</text>
+<rect x="472" y="95" width="31" height="31" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="487.5" y="115.8" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">4</text>
+<rect x="506" y="95" width="31" height="31" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="521.5" y="115.8" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">3</text>
+<rect x="404" y="129" width="31" height="31" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="419.5" y="149.8" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">5</text>
+<rect x="438" y="129" width="31" height="31" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="453.5" y="149.8" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">4</text>
+<rect x="472" y="129" width="31" height="31" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="487.5" y="149.8" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">3</text>
+<rect x="506" y="129" width="31" height="31" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="521.5" y="149.8" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">2</text>
+<rect x="404" y="163" width="31" height="31" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="419.5" y="183.8" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">4</text>
+<rect x="438" y="163" width="31" height="31" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="453.5" y="183.8" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">3</text>
+<rect x="472" y="163" width="31" height="31" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="487.5" y="183.8" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">2</text>
+<rect x="506" y="163" width="31" height="31" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="521.5" y="183.8" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">1</text>
+<rect x="404" y="197" width="31" height="31" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="419.5" y="217.8" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">3</text>
+<rect x="438" y="197" width="31" height="31" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="453.5" y="217.8" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">2</text>
+<rect x="472" y="197" width="31" height="31" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="487.5" y="217.8" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">1</text>
+<rect x="506" y="197" width="31" height="31" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="521.5" y="217.8" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">0</text>
+<text x="472" y="253.9" font-size="14" text-anchor="middle" fill="#777">16/16 个 PE 在算</text>
+<text x="654" y="90.2" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">第 9 拍（排空）</text>
+<rect x="586" y="95" width="31" height="31" rx="0" fill="#f2f2f2" stroke="#bbb" stroke-width="1.5" />
+<rect x="620" y="95" width="31" height="31" rx="0" fill="#f2f2f2" stroke="#bbb" stroke-width="1.5" />
+<rect x="654" y="95" width="31" height="31" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="669.5" y="115.8" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">7</text>
+<rect x="688" y="95" width="31" height="31" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="703.5" y="115.8" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">6</text>
+<rect x="586" y="129" width="31" height="31" rx="0" fill="#f2f2f2" stroke="#bbb" stroke-width="1.5" />
+<rect x="620" y="129" width="31" height="31" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="635.5" y="149.8" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">7</text>
+<rect x="654" y="129" width="31" height="31" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="669.5" y="149.8" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">6</text>
+<rect x="688" y="129" width="31" height="31" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="703.5" y="149.8" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">5</text>
+<rect x="586" y="163" width="31" height="31" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="601.5" y="183.8" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">7</text>
+<rect x="620" y="163" width="31" height="31" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="635.5" y="183.8" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">6</text>
+<rect x="654" y="163" width="31" height="31" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="669.5" y="183.8" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">5</text>
+<rect x="688" y="163" width="31" height="31" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="703.5" y="183.8" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">4</text>
+<rect x="586" y="197" width="31" height="31" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="601.5" y="217.8" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">6</text>
+<rect x="620" y="197" width="31" height="31" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="635.5" y="217.8" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">5</text>
+<rect x="654" y="197" width="31" height="31" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="669.5" y="217.8" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">4</text>
+<rect x="688" y="197" width="31" height="31" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="703.5" y="217.8" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">3</text>
+<text x="654" y="253.9" font-size="14" text-anchor="middle" fill="#777">13/16 个 PE 在算</text>
+<text x="836" y="90.2" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">第 12 拍（排空）</text>
+<rect x="768" y="95" width="31" height="31" rx="0" fill="#f2f2f2" stroke="#bbb" stroke-width="1.5" />
+<rect x="802" y="95" width="31" height="31" rx="0" fill="#f2f2f2" stroke="#bbb" stroke-width="1.5" />
+<rect x="836" y="95" width="31" height="31" rx="0" fill="#f2f2f2" stroke="#bbb" stroke-width="1.5" />
+<rect x="870" y="95" width="31" height="31" rx="0" fill="#f2f2f2" stroke="#bbb" stroke-width="1.5" />
+<rect x="768" y="129" width="31" height="31" rx="0" fill="#f2f2f2" stroke="#bbb" stroke-width="1.5" />
+<rect x="802" y="129" width="31" height="31" rx="0" fill="#f2f2f2" stroke="#bbb" stroke-width="1.5" />
+<rect x="836" y="129" width="31" height="31" rx="0" fill="#f2f2f2" stroke="#bbb" stroke-width="1.5" />
+<rect x="870" y="129" width="31" height="31" rx="0" fill="#f2f2f2" stroke="#bbb" stroke-width="1.5" />
+<rect x="768" y="163" width="31" height="31" rx="0" fill="#f2f2f2" stroke="#bbb" stroke-width="1.5" />
+<rect x="802" y="163" width="31" height="31" rx="0" fill="#f2f2f2" stroke="#bbb" stroke-width="1.5" />
+<rect x="836" y="163" width="31" height="31" rx="0" fill="#f2f2f2" stroke="#bbb" stroke-width="1.5" />
+<rect x="870" y="163" width="31" height="31" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="885.5" y="183.8" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">7</text>
+<rect x="768" y="197" width="31" height="31" rx="0" fill="#f2f2f2" stroke="#bbb" stroke-width="1.5" />
+<rect x="802" y="197" width="31" height="31" rx="0" fill="#f2f2f2" stroke="#bbb" stroke-width="1.5" />
+<rect x="836" y="197" width="31" height="31" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="851.5" y="217.8" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">7</text>
+<rect x="870" y="197" width="31" height="31" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="885.5" y="217.8" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">6</text>
+<text x="836" y="253.9" font-size="14" text-anchor="middle" fill="#777">3/16 个 PE 在算</text>
+<line x1="110" y1="520" x2="890" y2="520" stroke="#222" stroke-width="1.5"/>
+<line x1="110" y1="300" x2="110" y2="520" stroke="#222" stroke-width="1.5"/>
+<text x="100" y="304.9" font-size="14" text-anchor="end" fill="#222">16</text>
+<text x="100" y="414.9" font-size="14" text-anchor="end" fill="#222">8</text>
+<text x="100" y="524.9" font-size="14" text-anchor="end" fill="#222">0</text>
+<line x1="110" y1="300" x2="890" y2="300" stroke="#ccc" stroke-width="1" stroke-dasharray="4 4"/>
+<text x="40" y="384.9" font-size="14" text-anchor="middle" fill="#222">在算的</text>
+<text x="40" y="404.9" font-size="14" text-anchor="middle" fill="#222">PE 数</text>
+<rect x="116.0" y="506.25" width="43.714285714285715" height="13.75" rx="0" fill="#8fc39d" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="137.85714285714286" y="499.1" font-size="14" text-anchor="middle" fill="#222">1</text>
+<text x="137.85714285714286" y="542.9" font-size="14" text-anchor="middle" fill="#222">0</text>
+<rect x="171.71428571428572" y="478.75" width="43.714285714285715" height="41.25" rx="0" fill="#8fc39d" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="193.57142857142858" y="471.6" font-size="14" text-anchor="middle" fill="#222">3</text>
+<text x="193.57142857142858" y="542.9" font-size="14" text-anchor="middle" fill="#222">1</text>
+<rect x="227.42857142857144" y="437.5" width="43.714285714285715" height="82.5" rx="0" fill="#8fc39d" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="249.2857142857143" y="430.4" font-size="14" text-anchor="middle" fill="#222">6</text>
+<text x="249.2857142857143" y="542.9" font-size="14" text-anchor="middle" fill="#222">2</text>
+<rect x="283.1428571428571" y="382.5" width="43.714285714285715" height="137.5" rx="0" fill="#8fc39d" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="304.99999999999994" y="375.4" font-size="14" text-anchor="middle" fill="#222">10</text>
+<text x="304.99999999999994" y="542.9" font-size="14" text-anchor="middle" fill="#222">3</text>
+<rect x="338.8571428571429" y="341.25" width="43.714285714285715" height="178.75" rx="0" fill="#8fc39d" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="360.7142857142857" y="334.1" font-size="14" text-anchor="middle" fill="#222">13</text>
+<text x="360.7142857142857" y="542.9" font-size="14" text-anchor="middle" fill="#222">4</text>
+<rect x="394.57142857142856" y="313.75" width="43.714285714285715" height="206.25" rx="0" fill="#8fc39d" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="416.4285714285714" y="306.6" font-size="14" text-anchor="middle" fill="#222">15</text>
+<text x="416.4285714285714" y="542.9" font-size="14" text-anchor="middle" fill="#222">5</text>
+<rect x="450.2857142857143" y="300.0" width="43.714285714285715" height="220.0" rx="0" fill="#2f8a4a" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="472.1428571428571" y="292.9" font-size="14" text-anchor="middle" fill="#222">16</text>
+<text x="472.1428571428571" y="542.9" font-size="14" text-anchor="middle" fill="#222">6</text>
+<rect x="506.0" y="300.0" width="43.714285714285715" height="220.0" rx="0" fill="#2f8a4a" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="527.8571428571429" y="292.9" font-size="14" text-anchor="middle" fill="#222">16</text>
+<text x="527.8571428571429" y="542.9" font-size="14" text-anchor="middle" fill="#222">7</text>
+<rect x="561.7142857142858" y="313.75" width="43.714285714285715" height="206.25" rx="0" fill="#8fc39d" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="583.5714285714287" y="306.6" font-size="14" text-anchor="middle" fill="#222">15</text>
+<text x="583.5714285714287" y="542.9" font-size="14" text-anchor="middle" fill="#222">8</text>
+<rect x="617.4285714285714" y="341.25" width="43.714285714285715" height="178.75" rx="0" fill="#8fc39d" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="639.2857142857143" y="334.1" font-size="14" text-anchor="middle" fill="#222">13</text>
+<text x="639.2857142857143" y="542.9" font-size="14" text-anchor="middle" fill="#222">9</text>
+<rect x="673.1428571428571" y="382.5" width="43.714285714285715" height="137.5" rx="0" fill="#8fc39d" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="695.0" y="375.4" font-size="14" text-anchor="middle" fill="#222">10</text>
+<text x="695.0" y="542.9" font-size="14" text-anchor="middle" fill="#222">10</text>
+<rect x="728.8571428571429" y="437.5" width="43.714285714285715" height="82.5" rx="0" fill="#8fc39d" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="750.7142857142858" y="430.4" font-size="14" text-anchor="middle" fill="#222">6</text>
+<text x="750.7142857142858" y="542.9" font-size="14" text-anchor="middle" fill="#222">11</text>
+<rect x="784.5714285714286" y="478.75" width="43.714285714285715" height="41.25" rx="0" fill="#8fc39d" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="806.4285714285714" y="471.6" font-size="14" text-anchor="middle" fill="#222">3</text>
+<text x="806.4285714285714" y="542.9" font-size="14" text-anchor="middle" fill="#222">12</text>
+<rect x="840.2857142857143" y="506.25" width="43.714285714285715" height="13.75" rx="0" fill="#8fc39d" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="862.1428571428572" y="499.1" font-size="14" text-anchor="middle" fill="#222">1</text>
+<text x="862.1428571428572" y="542.9" font-size="14" text-anchor="middle" fill="#222">13</text>
+<text x="500.0" y="566.9" font-size="14" text-anchor="middle" fill="#222">拍数 t</text>
+<path d="M114.0,574 L114.0,582 L440.2857142857143,582 L440.2857142857143,574" stroke="#2e6fb7" stroke-width="2" fill="none"/>
+<text x="277.1428571428571" y="605.2" font-size="15" text-anchor="middle" fill="#2e6fb7" font-weight="bold">灌入：波前斜着扫进来（约 2N 拍）</text>
+<path d="M448.2857142857143,574 L448.2857142857143,582 L551.7142857142858,582 L551.7142857142858,574" stroke="#2f8a4a" stroke-width="2" fill="none"/>
+<text x="500.0" y="605.2" font-size="15" text-anchor="middle" fill="#2f8a4a" font-weight="bold">满载</text>
+<path d="M559.7142857142858,574 L559.7142857142858,582 L886.0,582 L886.0,574" stroke="#c0392b" stroke-width="2" fill="none"/>
+<text x="722.8571428571429" y="605.2" font-size="15" text-anchor="middle" fill="#c0392b" font-weight="bold">排空：波尾斜着扫出去（约 2N 拍）</text>
+<text x="480" y="633.2" font-size="15" text-anchor="middle" fill="#222">总共 M + 2N − 2 = 8 + 6 = 14 拍；有效工作 8×16 = 128 个“格子·拍”，占 14×16 = 224 的 57%</text>
+</svg>

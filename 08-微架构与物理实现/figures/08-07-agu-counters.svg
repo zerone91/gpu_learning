@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 560" width="980" height="560" font-family="sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker></defs>
+<rect x="0" y="0" width="980" height="560" fill="#ffffff"/>
+<text x="490" y="28" font-size="18" text-anchor="middle" font-weight="bold" fill="#111">地址生成单元（AGU）：三个像里程表一样进位的计数器，配上各自的步长</text>
+<text x="30" y="62" font-size="15" font-weight="bold" fill="#111">① 配置（缩小版：外层 2 次、中层 3 次、内层 4 次）</text>
+<rect x="40" y="80" width="170" height="92" rx="6" fill="#fff" stroke="#6a3d9a" stroke-width="2"/>
+<text x="125" y="103" font-size="15" text-anchor="middle" font-weight="bold" fill="#6a3d9a">外层 i0</text>
+<text x="125" y="127" font-size="14" text-anchor="middle" fill="#111">计数范围 0～1</text>
+<text x="125" y="150" font-size="14" text-anchor="middle" fill="#111">步长 1024</text>
+<rect x="235" y="80" width="170" height="92" rx="6" fill="#fff" stroke="#1f5fa8" stroke-width="2"/>
+<text x="320" y="103" font-size="15" text-anchor="middle" font-weight="bold" fill="#1f5fa8">中层 i1</text>
+<text x="320" y="127" font-size="14" text-anchor="middle" fill="#111">计数范围 0～2</text>
+<text x="320" y="150" font-size="14" text-anchor="middle" fill="#111">步长 64</text>
+<rect x="430" y="80" width="170" height="92" rx="6" fill="#fff" stroke="#2e7d32" stroke-width="2"/>
+<text x="515" y="103" font-size="15" text-anchor="middle" font-weight="bold" fill="#2e7d32">内层 i2</text>
+<text x="515" y="127" font-size="14" text-anchor="middle" fill="#111">计数范围 0～3</text>
+<text x="515" y="150" font-size="14" text-anchor="middle" fill="#111">步长 1</text>
+<text x="235" y="195" font-size="14" text-anchor="middle" fill="#555">← 进位</text>
+<text x="430" y="195" font-size="14" text-anchor="middle" fill="#555">← 进位</text>
+<text x="330" y="218" font-size="14" text-anchor="middle" fill="#555">内层每拍 +1，数满回 0 并让中层 +1；中层数满让外层 +1</text>
+<rect x="640" y="80" width="310" height="92" rx="6" fill="#fdf0e8" stroke="#b5451b" stroke-width="2"/>
+<text x="795" y="108" font-size="15" text-anchor="middle" fill="#b5451b" font-weight="bold">每拍吐出一个地址</text>
+<text x="795" y="134" font-size="14" text-anchor="middle" fill="#111" font-family="monospace">base + i0×1024 + i1×64 + i2×1</text>
+<text x="795" y="158" font-size="13" text-anchor="middle" fill="#555">省面积的做法：不做乘法，每拍只加一个步长</text>
+<line x1="610" y1="126" x2="638" y2="126" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<text x="30" y="262" font-size="15" font-weight="bold" fill="#111">② 吐出来的地址序列（base = 0），前 16 个</text>
+<rect x="30" y="280" width="54" height="34" fill="#d6ecd2" stroke="#555" stroke-width="1"/>
+<text x="57.0" y="302" font-size="14" text-anchor="middle" fill="#111">0</text>
+<text x="57.0" y="332" font-size="12" text-anchor="middle" fill="#555">000</text>
+<rect x="87" y="280" width="54" height="34" fill="#d6ecd2" stroke="#555" stroke-width="1"/>
+<text x="114.0" y="302" font-size="14" text-anchor="middle" fill="#111">1</text>
+<text x="114.0" y="332" font-size="12" text-anchor="middle" fill="#555">001</text>
+<rect x="144" y="280" width="54" height="34" fill="#d6ecd2" stroke="#555" stroke-width="1"/>
+<text x="171.0" y="302" font-size="14" text-anchor="middle" fill="#111">2</text>
+<text x="171.0" y="332" font-size="12" text-anchor="middle" fill="#555">002</text>
+<rect x="201" y="280" width="54" height="34" fill="#d6ecd2" stroke="#555" stroke-width="1"/>
+<text x="228.0" y="302" font-size="14" text-anchor="middle" fill="#111">3</text>
+<text x="228.0" y="332" font-size="12" text-anchor="middle" fill="#555">003</text>
+<rect x="258" y="280" width="54" height="34" fill="#cfe2f3" stroke="#555" stroke-width="1"/>
+<text x="285.0" y="302" font-size="14" text-anchor="middle" fill="#111">64</text>
+<text x="285.0" y="332" font-size="12" text-anchor="middle" fill="#555">010</text>
+<rect x="315" y="280" width="54" height="34" fill="#cfe2f3" stroke="#555" stroke-width="1"/>
+<text x="342.0" y="302" font-size="14" text-anchor="middle" fill="#111">65</text>
+<text x="342.0" y="332" font-size="12" text-anchor="middle" fill="#555">011</text>
+<rect x="372" y="280" width="54" height="34" fill="#cfe2f3" stroke="#555" stroke-width="1"/>
+<text x="399.0" y="302" font-size="14" text-anchor="middle" fill="#111">66</text>
+<text x="399.0" y="332" font-size="12" text-anchor="middle" fill="#555">012</text>
+<rect x="429" y="280" width="54" height="34" fill="#cfe2f3" stroke="#555" stroke-width="1"/>
+<text x="456.0" y="302" font-size="14" text-anchor="middle" fill="#111">67</text>
+<text x="456.0" y="332" font-size="12" text-anchor="middle" fill="#555">013</text>
+<rect x="486" y="280" width="54" height="34" fill="#e6dcf0" stroke="#555" stroke-width="1"/>
+<text x="513.0" y="302" font-size="14" text-anchor="middle" fill="#111">128</text>
+<text x="513.0" y="332" font-size="12" text-anchor="middle" fill="#555">020</text>
+<rect x="543" y="280" width="54" height="34" fill="#e6dcf0" stroke="#555" stroke-width="1"/>
+<text x="570.0" y="302" font-size="14" text-anchor="middle" fill="#111">129</text>
+<text x="570.0" y="332" font-size="12" text-anchor="middle" fill="#555">021</text>
+<rect x="600" y="280" width="54" height="34" fill="#e6dcf0" stroke="#555" stroke-width="1"/>
+<text x="627.0" y="302" font-size="14" text-anchor="middle" fill="#111">130</text>
+<text x="627.0" y="332" font-size="12" text-anchor="middle" fill="#555">022</text>
+<rect x="657" y="280" width="54" height="34" fill="#e6dcf0" stroke="#555" stroke-width="1"/>
+<text x="684.0" y="302" font-size="14" text-anchor="middle" fill="#111">131</text>
+<text x="684.0" y="332" font-size="12" text-anchor="middle" fill="#555">023</text>
+<rect x="714" y="280" width="54" height="34" fill="#d6ecd2" stroke="#555" stroke-width="1"/>
+<text x="741.0" y="302" font-size="14" text-anchor="middle" fill="#111">1024</text>
+<text x="741.0" y="332" font-size="12" text-anchor="middle" fill="#555">100</text>
+<rect x="771" y="280" width="54" height="34" fill="#d6ecd2" stroke="#555" stroke-width="1"/>
+<text x="798.0" y="302" font-size="14" text-anchor="middle" fill="#111">1025</text>
+<text x="798.0" y="332" font-size="12" text-anchor="middle" fill="#555">101</text>
+<rect x="828" y="280" width="54" height="34" fill="#d6ecd2" stroke="#555" stroke-width="1"/>
+<text x="855.0" y="302" font-size="14" text-anchor="middle" fill="#111">1026</text>
+<text x="855.0" y="332" font-size="12" text-anchor="middle" fill="#555">102</text>
+<rect x="885" y="280" width="54" height="34" fill="#d6ecd2" stroke="#555" stroke-width="1"/>
+<text x="912.0" y="302" font-size="14" text-anchor="middle" fill="#111">1027</text>
+<text x="912.0" y="332" font-size="12" text-anchor="middle" fill="#555">103</text>
+<text x="30" y="356" font-size="13" fill="#555">格子下的三位小数字是此刻的 i0 i1 i2。颜色按中层分组：每 4 个连续地址后，中层进 1，地址跳 64；中层数满 3 次后外层进 1，地址跳到 1024。</text>
+<text x="30" y="378" font-size="14" fill="#111">整个过程只要三个计数器、三个步长寄存器和一个加法器，几千个门，替代了逐个计算地址的成千上万条指令。</text>
+<line x1="20" y1="418" x2="960" y2="418" stroke="#ccc" stroke-width="1.5"/>
+<text x="30" y="444" font-size="15" font-weight="bold" fill="#b5451b">③ 表达不了的访问：gather（按一张索引表取数）</text>
+<rect x="30" y="460" width="64" height="34" fill="#f9d9c8" stroke="#b5451b" stroke-width="1"/><text x="62" y="482" font-size="14" text-anchor="middle" fill="#111">7</text>
+<rect x="100" y="460" width="64" height="34" fill="#f9d9c8" stroke="#b5451b" stroke-width="1"/><text x="132" y="482" font-size="14" text-anchor="middle" fill="#111">300</text>
+<rect x="170" y="460" width="64" height="34" fill="#f9d9c8" stroke="#b5451b" stroke-width="1"/><text x="202" y="482" font-size="14" text-anchor="middle" fill="#111">12</text>
+<rect x="240" y="460" width="64" height="34" fill="#f9d9c8" stroke="#b5451b" stroke-width="1"/><text x="272" y="482" font-size="14" text-anchor="middle" fill="#111">951</text>
+<rect x="310" y="460" width="64" height="34" fill="#f9d9c8" stroke="#b5451b" stroke-width="1"/><text x="342" y="482" font-size="14" text-anchor="middle" fill="#111">64</text>
+<rect x="380" y="460" width="64" height="34" fill="#f9d9c8" stroke="#b5451b" stroke-width="1"/><text x="412" y="482" font-size="14" text-anchor="middle" fill="#111">5</text>
+<text x="470" y="474" font-size="14" fill="#111">这串地址找不到固定的步长和循环次数，</text>
+<text x="470" y="494" font-size="14" fill="#111">AGU 配不出来：只能回落到标量流水线逐个算，慢一个数量级。</text>
+<text x="470" y="514" font-size="14" fill="#555">稀疏、动态形状在 NPU 上难做，硬件根源在这里。</text>
+</svg>

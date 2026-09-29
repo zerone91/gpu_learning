@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 720" width="960" height="720" font-family="sans-serif" font-size="15">
+<rect x="0" y="0" width="960" height="720" fill="#ffffff"/>
+<text x="20" y="30" font-size="17" font-weight="bold">4096³ 矩阵乘（bf16，H100）从整卡到单条指令：每一层的循环对上哪一级硬件</text>
+<text x="20" y="62" font-size="14" font-weight="bold" fill="#555">层次</text>
+<text x="200" y="62" font-size="14" font-weight="bold" fill="#555">这一层切出了什么（简图）</text>
+<text x="420" y="62" font-size="14" font-weight="bold" fill="#555">对上的硬件与数字</text>
+<text x="800" y="62" font-size="14" font-weight="bold" fill="#555">动了哪几维</text>
+<rect x="10" y="76" width="940" height="92" fill="#fafafa" stroke="#ddd" stroke-width="1"/>
+<text x="20" y="124" font-size="15" font-weight="bold">① 整卡 → 线程块</text>
+<text x="420" y="112" font-size="14">32 × 16 = 512 块；分给 132 个 SM，</text>
+<text x="420" y="134" font-size="14">约 3.9 轮；相邻块尽量同期，多命中 L2</text>
+<rect x="800" y="106" width="44" height="24" rx="12" fill="#ffffff" stroke="#555" stroke-width="1.5"/>
+<text x="822" y="123" text-anchor="middle" font-size="13">切分</text>
+<rect x="848" y="106" width="44" height="24" rx="12" fill="#ffffff" stroke="#555" stroke-width="1.5"/>
+<text x="870" y="123" text-anchor="middle" font-size="13">绑定</text>
+<rect x="896" y="106" width="44" height="24" rx="12" fill="#ffffff" stroke="#555" stroke-width="1.5"/>
+<text x="918" y="123" text-anchor="middle" font-size="13">顺序</text>
+<rect x="200" y="86" width="20" height="14" fill="#fff" stroke="#888" stroke-width="1"/>
+<rect x="220" y="86" width="20" height="14" fill="#fff" stroke="#888" stroke-width="1"/>
+<rect x="240" y="86" width="20" height="14" fill="#fff" stroke="#888" stroke-width="1"/>
+<rect x="260" y="86" width="20" height="14" fill="#fff" stroke="#888" stroke-width="1"/>
+<rect x="280" y="86" width="20" height="14" fill="#fff" stroke="#888" stroke-width="1"/>
+<rect x="300" y="86" width="20" height="14" fill="#fff" stroke="#888" stroke-width="1"/>
+<rect x="320" y="86" width="20" height="14" fill="#fff" stroke="#888" stroke-width="1"/>
+<rect x="340" y="86" width="20" height="14" fill="#fff" stroke="#888" stroke-width="1"/>
+<rect x="200" y="100" width="20" height="14" fill="#fff" stroke="#888" stroke-width="1"/>
+<rect x="220" y="100" width="20" height="14" fill="#fff" stroke="#888" stroke-width="1"/>
+<rect x="240" y="100" width="20" height="14" fill="#d8efd8" stroke="#2e8b57" stroke-width="2"/>
+<rect x="260" y="100" width="20" height="14" fill="#fff" stroke="#888" stroke-width="1"/>
+<rect x="280" y="100" width="20" height="14" fill="#fff" stroke="#888" stroke-width="1"/>
+<rect x="300" y="100" width="20" height="14" fill="#fff" stroke="#888" stroke-width="1"/>
+<rect x="320" y="100" width="20" height="14" fill="#fff" stroke="#888" stroke-width="1"/>
+<rect x="340" y="100" width="20" height="14" fill="#fff" stroke="#888" stroke-width="1"/>
+<rect x="200" y="114" width="20" height="14" fill="#fff" stroke="#888" stroke-width="1"/>
+<rect x="220" y="114" width="20" height="14" fill="#fff" stroke="#888" stroke-width="1"/>
+<rect x="240" y="114" width="20" height="14" fill="#fff" stroke="#888" stroke-width="1"/>
+<rect x="260" y="114" width="20" height="14" fill="#fff" stroke="#888" stroke-width="1"/>
+<rect x="280" y="114" width="20" height="14" fill="#fff" stroke="#888" stroke-width="1"/>
+<rect x="300" y="114" width="20" height="14" fill="#fff" stroke="#888" stroke-width="1"/>
+<rect x="320" y="114" width="20" height="14" fill="#fff" stroke="#888" stroke-width="1"/>
+<rect x="340" y="114" width="20" height="14" fill="#fff" stroke="#888" stroke-width="1"/>
+<rect x="200" y="128" width="20" height="14" fill="#fff" stroke="#888" stroke-width="1"/>
+<rect x="220" y="128" width="20" height="14" fill="#fff" stroke="#888" stroke-width="1"/>
+<rect x="240" y="128" width="20" height="14" fill="#fff" stroke="#888" stroke-width="1"/>
+<rect x="260" y="128" width="20" height="14" fill="#fff" stroke="#888" stroke-width="1"/>
+<rect x="280" y="128" width="20" height="14" fill="#fff" stroke="#888" stroke-width="1"/>
+<rect x="300" y="128" width="20" height="14" fill="#fff" stroke="#888" stroke-width="1"/>
+<rect x="320" y="128" width="20" height="14" fill="#fff" stroke="#888" stroke-width="1"/>
+<rect x="340" y="128" width="20" height="14" fill="#fff" stroke="#888" stroke-width="1"/>
+<text x="368" y="120" font-size="12" fill="#555">（缩略）</text>
+<text x="200" y="160" font-size="12" fill="#555">输出 4096 × 4096 切成 128 × 256 的块</text>
+<rect x="10" y="176" width="940" height="92" fill="#ffffff" stroke="#ddd" stroke-width="1"/>
+<text x="20" y="224" font-size="15" font-weight="bold">② K 方向的累加循环</text>
+<text x="420" y="212" font-size="14">每段 A、B 片由搬运引擎送进 shared memory；</text>
+<text x="420" y="234" font-size="14">三级流水：算第 k 段时 k+1、k+2 已在路上</text>
+<rect x="800" y="206" width="44" height="24" rx="12" fill="#ffffff" stroke="#555" stroke-width="1.5"/>
+<text x="822" y="223" text-anchor="middle" font-size="13">切分</text>
+<rect x="848" y="206" width="44" height="24" rx="12" fill="#ffffff" stroke="#555" stroke-width="1.5"/>
+<text x="870" y="223" text-anchor="middle" font-size="13">放置</text>
+<rect x="896" y="206" width="44" height="24" rx="12" fill="#ffffff" stroke="#555" stroke-width="1.5"/>
+<text x="918" y="223" text-anchor="middle" font-size="13">顺序</text>
+<rect x="200" y="194" width="16" height="30" fill="#e8a868" stroke="#888" stroke-width="1"/>
+<rect x="218" y="194" width="16" height="30" fill="#fde2c4" stroke="#888" stroke-width="1"/>
+<rect x="236" y="194" width="16" height="30" fill="#fde2c4" stroke="#888" stroke-width="1"/>
+<rect x="254" y="194" width="16" height="30" fill="#fff" stroke="#888" stroke-width="1"/>
+<rect x="272" y="194" width="16" height="30" fill="#fff" stroke="#888" stroke-width="1"/>
+<rect x="290" y="194" width="16" height="30" fill="#fff" stroke="#888" stroke-width="1"/>
+<rect x="308" y="194" width="16" height="30" fill="#fff" stroke="#888" stroke-width="1"/>
+<rect x="326" y="194" width="16" height="30" fill="#fff" stroke="#888" stroke-width="1"/>
+<rect x="344" y="194" width="16" height="30" fill="#fff" stroke="#888" stroke-width="1"/>
+<text x="366" y="214" font-size="12" fill="#555">……</text>
+<text x="200" y="242" font-size="12" fill="#555">只画前 9 段。深色正在算，浅色在路上</text>
+<text x="200" y="260" font-size="12" fill="#555">K = 4096 切成 64 段，每段 64</text>
+<rect x="10" y="276" width="940" height="92" fill="#fafafa" stroke="#ddd" stroke-width="1"/>
+<text x="20" y="324" font-size="15" font-weight="bold">③ 线程块内 → warp 组</text>
+<text x="420" y="312" font-size="14">例：2 个计算 warp 组各算 64 × 256，</text>
+<text x="420" y="334" font-size="14">另有 1 个 warp 组专门发搬运命令</text>
+<rect x="800" y="306" width="44" height="24" rx="12" fill="#ffffff" stroke="#555" stroke-width="1.5"/>
+<text x="822" y="323" text-anchor="middle" font-size="13">绑定</text>
+<rect x="200" y="286" width="120" height="30" fill="#d8efd8" stroke="#2e8b57" stroke-width="2"/>
+<rect x="200" y="316" width="120" height="30" fill="#d8efd8" stroke="#2e8b57" stroke-width="2"/>
+<text x="260" y="306" text-anchor="middle" font-size="12">warp 组 1</text>
+<text x="260" y="336" text-anchor="middle" font-size="12">warp 组 2</text>
+<rect x="330" y="301" width="70" height="30" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5"/>
+<text x="365" y="321" text-anchor="middle" font-size="12">搬运组</text>
+<text x="200" y="362" font-size="12" fill="#555">128 × 256 的块分给多个 warp 组</text>
+<rect x="10" y="376" width="940" height="92" fill="#ffffff" stroke="#ddd" stroke-width="1"/>
+<text x="20" y="424" font-size="15" font-weight="bold">④ warp 组 → 矩阵指令</text>
+<text x="420" y="412" font-size="14">每段 K = 64 要发 4 条；累加值留在寄存器，</text>
+<text x="420" y="434" font-size="14">每线程约 128 个（64×256 ÷ 128 线程）</text>
+<rect x="800" y="406" width="44" height="24" rx="12" fill="#ffffff" stroke="#555" stroke-width="1.5"/>
+<text x="822" y="423" text-anchor="middle" font-size="13">绑定</text>
+<rect x="848" y="406" width="44" height="24" rx="12" fill="#ffffff" stroke="#555" stroke-width="1.5"/>
+<text x="870" y="423" text-anchor="middle" font-size="13">放置</text>
+<rect x="200" y="396" width="120" height="30" fill="#d8efd8" stroke="#2e8b57" stroke-width="2"/>
+<text x="260" y="416" text-anchor="middle" font-size="12">64 × 256</text>
+<text x="328" y="416" font-size="13">× 16</text>
+<text x="200" y="450" font-size="12" fill="#555">每条指令算 64 × 256 × 16</text>
+<rect x="10" y="476" width="940" height="92" fill="#fafafa" stroke="#ddd" stroke-width="1"/>
+<text x="20" y="524" font-size="15" font-weight="bold">⑤ 指令内部</text>
+<text x="420" y="512" font-size="14">时序对指令而言完全确定，</text>
+<text x="420" y="534" font-size="14">映射到此为止</text>
+<rect x="200" y="492" width="120" height="40" fill="#e8e8e8" stroke="#555" stroke-width="1.5" rx="4"/>
+<text x="260" y="517" text-anchor="middle" font-size="13">Tensor Core</text>
+<text x="200" y="552" font-size="12" fill="#555">Tensor Core 电路自己完成</text>
+<rect x="10" y="576" width="940" height="92" fill="#ffffff" stroke="#ddd" stroke-width="1"/>
+<text x="20" y="624" font-size="15" font-weight="bold">⑥ 收尾</text>
+<text x="420" y="612" font-size="14">在寄存器里顺路做完，</text>
+<text x="420" y="634" font-size="14">一次合并写回显存</text>
+<rect x="800" y="606" width="44" height="24" rx="12" fill="#ffffff" stroke="#555" stroke-width="1.5"/>
+<text x="822" y="623" text-anchor="middle" font-size="13">放置</text>
+<rect x="200" y="596" width="60" height="30" fill="#d8efd8" stroke="#2e8b57" stroke-width="2"/>
+<text x="230" y="616" text-anchor="middle" font-size="12">寄存器</text>
+<line x1="262" y1="611" x2="318" y2="611" stroke="#555" stroke-width="1.5"/>
+<path d="M318,606 L326,611 L318,616 z" fill="#555"/>
+<rect x="328" y="596" width="60" height="30" fill="#f5f5f5" stroke="#555" stroke-width="1.5"/>
+<text x="358" y="616" text-anchor="middle" font-size="12">显存</text>
+<text x="200" y="650" font-size="12" fill="#555">加偏置、做激活、写回</text>
+<text x="20" y="702" font-size="13" fill="#555">每一行都比上一行"放大"一级：第 ① 行的一个绿色块，就是第 ③ 行的整个矩形；第 ③ 行的一个 warp 组，就是第 ④ 行的矩形。</text>
+</svg>

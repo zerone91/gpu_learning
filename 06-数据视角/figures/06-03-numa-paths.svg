@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 590" width="960" height="590" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="590" fill="#ffffff"/>
+<defs><marker id="ah-2e7d4f" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e7d4f"/></marker><marker id="ahs-2e7d4f" viewBox="0 0 10 10" refX="1" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e7d4f"/></marker><marker id="ah-666666" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#666666"/></marker><marker id="ahs-666666" viewBox="0 0 10 10" refX="1" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#666666"/></marker><marker id="ah-c0392b" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="ahs-c0392b" viewBox="0 0 10 10" refX="1" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker></defs>
+<text x="480" y="30" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold" >双路服务器的 NUMA：数据从哪颗 CPU 的内存出发、喂给哪颗 CPU 下的 GPU，路径长短不同</text>
+<rect x="30" y="55" width="390" height="340" rx="4" fill="#fbfbfb" stroke="#666666" stroke-width="1.5" stroke-dasharray="8 4" />
+<text x="42" y="76" font-size="15" text-anchor="start" fill="#666666" font-weight="normal" >NUMA 节点 0</text>
+<rect x="50" y="90" width="350" height="50" rx="4" fill="#f0f0f0" stroke="#444444" stroke-width="1.5" />
+<text x="225" y="121" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >内存条（节点 0 的主机内存）</text>
+<rect x="110" y="180" width="230" height="60" rx="4" fill="#f0f0f0" stroke="#222222" stroke-width="2" />
+<text x="225" y="216" font-size="17" text-anchor="middle" fill="#222222" font-weight="bold" >CPU 0</text>
+<text x="225" y="290" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >PCIe 插槽</text>
+<rect x="45" y="310" width="66" height="50" rx="4" fill="#ffffff" stroke="#444444" stroke-width="1.5" />
+<text x="78" y="341" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >GPU0</text>
+<rect x="119" y="310" width="66" height="50" rx="4" fill="#e3eef9" stroke="#1f6fb2" stroke-width="2" />
+<text x="152" y="341" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold" >GPU1</text>
+<rect x="193" y="310" width="66" height="50" rx="4" fill="#ffffff" stroke="#444444" stroke-width="1.5" />
+<text x="226" y="341" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >GPU2</text>
+<rect x="267" y="310" width="66" height="50" rx="4" fill="#ffffff" stroke="#444444" stroke-width="1.5" />
+<text x="300" y="341" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >GPU3</text>
+<rect x="341" y="310" width="66" height="50" rx="4" fill="#ffffff" stroke="#444444" stroke-width="1.5" />
+<text x="374" y="341" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >NIC0</text>
+<line x1="225" y1="240" x2="225" y2="300" stroke="#666666" stroke-width="1.5"/>
+<line x1="78" y1="300" x2="374" y2="300" stroke="#666666" stroke-width="1.5"/>
+<rect x="540" y="55" width="390" height="340" rx="4" fill="#fbfbfb" stroke="#666666" stroke-width="1.5" stroke-dasharray="8 4" />
+<text x="552" y="76" font-size="15" text-anchor="start" fill="#666666" font-weight="normal" >NUMA 节点 1</text>
+<rect x="560" y="90" width="350" height="50" rx="4" fill="#f0f0f0" stroke="#444444" stroke-width="1.5" />
+<text x="735" y="121" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >内存条（节点 1 的主机内存）</text>
+<rect x="620" y="180" width="230" height="60" rx="4" fill="#f0f0f0" stroke="#222222" stroke-width="2" />
+<text x="735" y="216" font-size="17" text-anchor="middle" fill="#222222" font-weight="bold" >CPU 1</text>
+<text x="735" y="290" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >PCIe 插槽</text>
+<rect x="555" y="310" width="66" height="50" rx="4" fill="#ffffff" stroke="#444444" stroke-width="1.5" />
+<text x="588" y="341" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >GPU4</text>
+<rect x="629" y="310" width="66" height="50" rx="4" fill="#e3eef9" stroke="#1f6fb2" stroke-width="2" />
+<text x="662" y="341" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold" >GPU5</text>
+<rect x="703" y="310" width="66" height="50" rx="4" fill="#ffffff" stroke="#444444" stroke-width="1.5" />
+<text x="736" y="341" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >GPU6</text>
+<rect x="777" y="310" width="66" height="50" rx="4" fill="#ffffff" stroke="#444444" stroke-width="1.5" />
+<text x="810" y="341" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >GPU7</text>
+<rect x="851" y="310" width="66" height="50" rx="4" fill="#ffffff" stroke="#444444" stroke-width="1.5" />
+<text x="884" y="341" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >NIC1</text>
+<line x1="735" y1="240" x2="735" y2="300" stroke="#666666" stroke-width="1.5"/>
+<line x1="588" y1="300" x2="884" y2="300" stroke="#666666" stroke-width="1.5"/>
+<rect x="340" y="202" width="280" height="16" rx="2" fill="#fdeedd" stroke="#c8650a" stroke-width="1.5" />
+<text x="480" y="176" font-size="14" text-anchor="middle" fill="#c8650a" font-weight="bold" >CPU 间互连</text>
+<text x="480" y="194" font-size="14" text-anchor="middle" fill="#c8650a" font-weight="normal" >（UPI 等）</text>
+<text x="480" y="242" font-size="14" text-anchor="middle" fill="#c8650a" font-weight="normal" >几十 GB/s</text>
+<text x="480" y="260" font-size="14" text-anchor="middle" fill="#c8650a" font-weight="normal" >跨节点流量</text>
+<text x="480" y="278" font-size="14" text-anchor="middle" fill="#c8650a" font-weight="normal" >全挤在这</text>
+<path d="M 152 142 V 178" fill="none" stroke="#2e7d4f" stroke-width="4" marker-end="url(#ah-2e7d4f)"/>
+<path d="M 152 242 V 308" fill="none" stroke="#2e7d4f" stroke-width="4" marker-end="url(#ah-2e7d4f)"/>
+<path d="M 290 142 V 178" fill="none" stroke="#c0392b" stroke-width="4" stroke-dasharray="8 5" marker-end="url(#ah-c0392b)"/>
+<path d="M 342 210 H 618" fill="none" stroke="#c0392b" stroke-width="3" stroke-dasharray="8 5" marker-end="url(#ah-c0392b)"/>
+<path d="M 670 242 V 272 H 662 V 308" fill="none" stroke="#c0392b" stroke-width="4" stroke-dasharray="8 5" marker-end="url(#ah-c0392b)"/>
+<text x="40" y="430" font-size="15" text-anchor="start" fill="#2e7d4f" font-weight="normal" >绿色（本地路径）：进程和锁页内存在节点 0，喂的是同样挂在 CPU 0 下的 GPU1：内存 → CPU 0 → PCIe → GPU1。</text>
+<text x="40" y="457" font-size="15" text-anchor="start" fill="#c0392b" font-weight="normal" >红色（走错插槽）：进程和内存仍在节点 0，要喂的却是挂在 CPU 1 下的 GPU5：多了一跳 CPU 间互连。</text>
+<text x="40" y="484" font-size="15" text-anchor="start" fill="#c0392b" font-weight="normal" >这一跳带宽有限、还要和其它跨节点流量抢，实测 H2D 带宽常掉到本地路径的一半以下，而且抖动大。</text>
+<text x="40" y="511" font-size="15" text-anchor="start" fill="#222222" font-weight="normal" >对策：让进程的 CPU 核（numactl --cpunodebind）、内存（--membind）、所用网卡都与目标 GPU 在同一个节点上；</text>
+<text x="40" y="538" font-size="15" text-anchor="start" fill="#222222" font-weight="normal" >用 nvidia-smi topo -m 查每张 GPU 的 NUMA 归属，用 lstopo 画整机拓扑。</text>
+</svg>

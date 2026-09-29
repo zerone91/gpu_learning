@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="560" fill="#ffffff"/>
+<text x="480" y="30" font-size="18" text-anchor="middle" font-weight="bold" fill="#111">标准单元：高度统一、宽度不一，一行行排开，共用上下两条电源线</text>
+
+<!-- 左：一行标准单元 -->
+<text x="265" y="70" font-size="15" text-anchor="middle" font-weight="bold" fill="#111">一行标准单元（示意）</text>
+<rect x="40" y="130" width="450" height="18" fill="#9cc3ea" stroke="#222" stroke-width="1.5"/>
+<text x="40" y="122" font-size="14" text-anchor="start" fill="#1f5fa8">电源线 VDD（高电压，代表 1）</text>
+<rect x="40" y="342" width="450" height="18" fill="#9cc3ea" stroke="#222" stroke-width="1.5"/>
+<text x="40" y="380" font-size="14" text-anchor="start" fill="#1f5fa8">地线 GND（0 伏，代表 0）</text>
+<!-- INV -->
+<rect x="40" y="148" width="60" height="194" fill="#f4f4f4" stroke="#555" stroke-width="1.5" stroke-dasharray="5,3"/>
+<rect x="48" y="165" width="44" height="55" fill="#fbe3c8" stroke="#8a6d3b" stroke-width="1"/>
+<rect x="48" y="270" width="44" height="55" fill="#d8efd6" stroke="#3c763d" stroke-width="1"/>
+<rect x="66" y="158" width="8" height="175" fill="#d9534f" opacity="0.85"/>
+<!-- NAND2 -->
+<rect x="100" y="148" width="90" height="194" fill="#f4f4f4" stroke="#b5451b" stroke-width="2.5"/>
+<rect x="108" y="165" width="74" height="55" fill="#fbe3c8" stroke="#8a6d3b" stroke-width="1"/>
+<rect x="108" y="270" width="74" height="55" fill="#d8efd6" stroke="#3c763d" stroke-width="1"/>
+<rect x="128" y="158" width="8" height="175" fill="#d9534f" opacity="0.85"/>
+<rect x="154" y="158" width="8" height="175" fill="#d9534f" opacity="0.85"/>
+<!-- DFF -->
+<rect x="190" y="148" width="300" height="194" fill="#f4f4f4" stroke="#555" stroke-width="1.5" stroke-dasharray="5,3"/>
+<rect x="198" y="165" width="284" height="55" fill="#fbe3c8" stroke="#8a6d3b" stroke-width="1"/>
+<rect x="198" y="270" width="284" height="55" fill="#d8efd6" stroke="#3c763d" stroke-width="1"/>
+<g fill="#d9534f" opacity="0.85">
+<rect x="214" y="158" width="8" height="175"/><rect x="240" y="158" width="8" height="175"/><rect x="266" y="158" width="8" height="175"/><rect x="292" y="158" width="8" height="175"/><rect x="318" y="158" width="8" height="175"/><rect x="344" y="158" width="8" height="175"/><rect x="370" y="158" width="8" height="175"/><rect x="396" y="158" width="8" height="175"/><rect x="422" y="158" width="8" height="175"/><rect x="448" y="158" width="8" height="175"/>
+</g>
+<!-- 高度标注 -->
+<line x1="24" y1="148" x2="24" y2="342" stroke="#222" stroke-width="1.5"/>
+<line x1="18" y1="148" x2="30" y2="148" stroke="#222" stroke-width="1.5"/>
+<line x1="18" y1="342" x2="30" y2="342" stroke="#222" stroke-width="1.5"/>
+<text x="16" y="250" font-size="14" text-anchor="middle" fill="#111" transform="rotate(-90 16 250)">高度统一</text>
+<!-- 单元名 -->
+<text x="70" y="408" font-size="14" text-anchor="middle" fill="#111" font-weight="bold">INV</text>
+<text x="70" y="428" font-size="14" text-anchor="middle" fill="#555">反相器</text>
+<text x="70" y="448" font-size="14" text-anchor="middle" fill="#555">2 管</text>
+<text x="145" y="408" font-size="14" text-anchor="middle" fill="#b5451b" font-weight="bold">NAND2</text>
+<text x="145" y="428" font-size="14" text-anchor="middle" fill="#555">两输入与非</text>
+<text x="145" y="448" font-size="14" text-anchor="middle" fill="#555">4 管</text>
+<text x="340" y="408" font-size="14" text-anchor="middle" fill="#111" font-weight="bold">DFF</text>
+<text x="340" y="428" font-size="14" text-anchor="middle" fill="#555">D 触发器（存 1 位，带时钟）</text>
+<text x="340" y="448" font-size="14" text-anchor="middle" fill="#555">约 22 管，宽度是 NAND2 的好几倍</text>
+<!-- 放大引线 -->
+<line x1="190" y1="148" x2="560" y2="96" stroke="#b5451b" stroke-width="1.5" stroke-dasharray="6,4"/>
+<line x1="190" y1="342" x2="560" y2="444" stroke="#b5451b" stroke-width="1.5" stroke-dasharray="6,4"/>
+
+<!-- 右：NAND2 版图放大 -->
+<text x="750" y="58" font-size="15" text-anchor="middle" font-weight="bold" fill="#111">放大：NAND2 单元的版图（从正上方往下看）</text>
+<rect x="560" y="70" width="380" height="26" fill="#9cc3ea" stroke="#222" stroke-width="1.5"/>
+<text x="900" y="89" font-size="14" text-anchor="middle" fill="#111">VDD</text>
+<rect x="560" y="444" width="380" height="26" fill="#9cc3ea" stroke="#222" stroke-width="1.5"/>
+<text x="900" y="463" font-size="14" text-anchor="middle" fill="#111">GND</text>
+<!-- 扩散区 -->
+<rect x="610" y="130" width="270" height="80" fill="#fbe3c8" stroke="#8a6d3b" stroke-width="1.5"/>
+<rect x="610" y="300" width="270" height="80" fill="#d8efd6" stroke="#3c763d" stroke-width="1.5"/>
+<!-- 金属：VDD 两个接触 -->
+<rect x="626" y="96" width="20" height="72" fill="#9cc3ea" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="836" y="96" width="20" height="72" fill="#9cc3ea" stroke="#1f5fa8" stroke-width="1.2"/>
+<!-- 金属：GND 接触（右下） -->
+<rect x="836" y="333" width="20" height="111" fill="#9cc3ea" stroke="#1f5fa8" stroke-width="1.2"/>
+<!-- 金属：输出 -->
+<rect x="736" y="152" width="20" height="112" fill="#9cc3ea" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="626" y="244" width="130" height="20" fill="#9cc3ea" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="626" y="244" width="20" height="104" fill="#9cc3ea" stroke="#1f5fa8" stroke-width="1.2"/>
+<!-- 多晶硅栅 -->
+<rect x="686" y="112" width="16" height="290" fill="#d9534f" opacity="0.85"/>
+<rect x="786" y="112" width="16" height="290" fill="#d9534f" opacity="0.85"/>
+<!-- 接触孔 -->
+<g fill="#111"><rect x="629" y="153" width="14" height="14"/><rect x="739" y="153" width="14" height="14"/><rect x="839" y="153" width="14" height="14"/><rect x="629" y="333" width="14" height="14"/><rect x="839" y="333" width="14" height="14"/></g>
+<!-- 标签 -->
+<text x="709" y="203" font-size="14" fill="#111" font-weight="bold">P1</text>
+<text x="809" y="203" font-size="14" fill="#111" font-weight="bold">P2</text>
+<text x="709" y="373" font-size="14" fill="#111" font-weight="bold">N1</text>
+<text x="809" y="373" font-size="14" fill="#111" font-weight="bold">N2</text>
+<rect x="680" y="408" width="28" height="24" fill="#ffffff" stroke="#d9534f" stroke-width="1.5"/>
+<text x="694" y="426" font-size="15" text-anchor="middle" fill="#b5451b" font-weight="bold">A</text>
+<rect x="780" y="408" width="28" height="24" fill="#ffffff" stroke="#d9534f" stroke-width="1.5"/>
+<text x="794" y="426" font-size="15" text-anchor="middle" fill="#b5451b" font-weight="bold">B</text>
+<line x1="626" y1="290" x2="578" y2="290" stroke="#222" stroke-width="1.8"/>
+<path d="M578,290 l10,-6 v12 z" fill="#222"/>
+<text x="600" y="316" font-size="14" text-anchor="end" fill="#111" font-weight="bold">输出 Y</text>
+<text x="890" y="176" font-size="14" fill="#8a6d3b">上排：</text>
+<text x="890" y="194" font-size="14" fill="#8a6d3b">PMOS</text>
+<text x="890" y="346" font-size="14" fill="#3c763d">下排：</text>
+<text x="890" y="364" font-size="14" fill="#3c763d">NMOS</text>
+
+<!-- 图例 -->
+<g font-size="14" fill="#111">
+<rect x="40" y="500" width="22" height="16" fill="#fbe3c8" stroke="#8a6d3b"/><text x="68" y="513">P 型区（放 PMOS）</text>
+<rect x="220" y="500" width="22" height="16" fill="#d8efd6" stroke="#3c763d"/><text x="248" y="513">N 型区（放 NMOS）</text>
+<rect x="400" y="500" width="10" height="16" fill="#d9534f"/><text x="418" y="513">栅极（输入线）</text>
+<rect x="560" y="500" width="22" height="16" fill="#9cc3ea" stroke="#1f5fa8"/><text x="588" y="513">金属连线</text>
+<rect x="690" y="501" width="14" height="14" fill="#111"/><text x="712" y="513">接触孔（金属接到硅上）</text>
+</g>
+<text x="480" y="545" font-size="14" text-anchor="middle" fill="#555">红色栅极横穿一块 P 型或 N 型区的地方，就是一个晶体管；布局示意，不按真实比例</text>
+</svg>

@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470" width="960" height="470">
+<rect x="0" y="0" width="960" height="470" fill="#ffffff"/>
+<defs><marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777"/></marker><marker id="alg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#bbb"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="agr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e7d32"/></marker><marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b9770e"/></marker><marker id="ap" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7d3c98"/></marker></defs>
+<text x="480.0" y="30.0" font-family="sans-serif" font-size="17" fill="#222" text-anchor="middle" font-weight="bold">y[i] = 2 × x[i] 的一百万个线程，怎样一层层落到 SM 的调度器手里</text>
+<rect x="40.0" y="56.0" width="880.0" height="48.0" rx="4" fill="#dbe9f7" stroke="#1f5fa8" stroke-width="2"/>
+<text x="480.0" y="86.0" font-family="sans-serif" font-size="16" fill="#222" text-anchor="middle" font-weight="bold">一百万个线程，每个线程负责一个元素 i</text>
+<line x1="480.0" y1="104.0" x2="480.0" y2="132.0" stroke="#222" stroke-width="2" marker-end="url(#ak)"/>
+<rect x="40.0" y="134.0" width="880.0" height="60.0" rx="4" fill="#fff" stroke="#222" stroke-width="2"/>
+<rect x="52.0" y="142.0" width="40.0" height="26.0" rx="0" fill="#fcf3cf" stroke="#b9770e" stroke-width="1.2"/>
+<rect x="99.0" y="142.0" width="40.0" height="26.0" rx="0" fill="#fcf3cf" stroke="#b9770e" stroke-width="1.2"/>
+<rect x="146.0" y="142.0" width="40.0" height="26.0" rx="0" fill="#fcf3cf" stroke="#b9770e" stroke-width="1.2"/>
+<rect x="193.0" y="142.0" width="40.0" height="26.0" rx="0" fill="#fcf3cf" stroke="#b9770e" stroke-width="1.2"/>
+<rect x="240.0" y="142.0" width="40.0" height="26.0" rx="0" fill="#fcf3cf" stroke="#b9770e" stroke-width="1.2"/>
+<rect x="287.0" y="142.0" width="40.0" height="26.0" rx="0" fill="#fcf3cf" stroke="#b9770e" stroke-width="1.2"/>
+<rect x="334.0" y="142.0" width="40.0" height="26.0" rx="0" fill="#fcf3cf" stroke="#b9770e" stroke-width="1.2"/>
+<rect x="381.0" y="142.0" width="40.0" height="26.0" rx="0" fill="#fcf3cf" stroke="#b9770e" stroke-width="1.2"/>
+<rect x="428.0" y="142.0" width="40.0" height="26.0" rx="0" fill="#fcf3cf" stroke="#b9770e" stroke-width="1.2"/>
+<rect x="475.0" y="142.0" width="40.0" height="26.0" rx="0" fill="#fcf3cf" stroke="#b9770e" stroke-width="1.2"/>
+<rect x="522.0" y="142.0" width="40.0" height="26.0" rx="0" fill="#fcf3cf" stroke="#b9770e" stroke-width="1.2"/>
+<rect x="569.0" y="142.0" width="40.0" height="26.0" rx="0" fill="#fcf3cf" stroke="#b9770e" stroke-width="1.2"/>
+<rect x="616.0" y="142.0" width="40.0" height="26.0" rx="0" fill="#fcf3cf" stroke="#b9770e" stroke-width="1.2"/>
+<rect x="663.0" y="142.0" width="40.0" height="26.0" rx="0" fill="#fcf3cf" stroke="#b9770e" stroke-width="1.2"/>
+<rect x="710.0" y="142.0" width="40.0" height="26.0" rx="0" fill="#fcf3cf" stroke="#b9770e" stroke-width="1.2"/>
+<rect x="757.0" y="142.0" width="40.0" height="26.0" rx="0" fill="#fcf3cf" stroke="#b9770e" stroke-width="1.2"/>
+<rect x="804.0" y="142.0" width="40.0" height="26.0" rx="0" fill="#fcf3cf" stroke="#b9770e" stroke-width="1.2"/>
+<rect x="851.0" y="142.0" width="40.0" height="26.0" rx="0" fill="#fcf3cf" stroke="#b9770e" stroke-width="1.2"/>
+<text x="480.0" y="186.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">每 256 个线程编成一个线程块：1,000,000 ÷ 256 ≈ 3906，约 4000 块</text>
+<line x1="480.0" y1="194.0" x2="480.0" y2="222.0" stroke="#222" stroke-width="2" marker-end="url(#ak)"/>
+<rect x="40.0" y="224.0" width="880.0" height="118.0" rx="4" fill="#fff" stroke="#222" stroke-width="2"/>
+<text x="480.0" y="246.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">线程块分给 132 个 SM：4000 ÷ 132 ≈ 30 块/SM；每块整体交给一个 SM，不拆开</text>
+<rect x="60.0" y="258.0" width="150.0" height="74.0" rx="0" fill="#fafafa" stroke="#222" stroke-width="1.5"/>
+<text x="135.0" y="276.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle" font-weight="bold">SM 0</text>
+<rect x="68.0" y="286.0" width="14.0" height="18.0" rx="0" fill="#fcf3cf" stroke="#b9770e" stroke-width="1"/>
+<rect x="85.0" y="286.0" width="14.0" height="18.0" rx="0" fill="#fcf3cf" stroke="#b9770e" stroke-width="1"/>
+<rect x="102.0" y="286.0" width="14.0" height="18.0" rx="0" fill="#fcf3cf" stroke="#b9770e" stroke-width="1"/>
+<rect x="119.0" y="286.0" width="14.0" height="18.0" rx="0" fill="#fcf3cf" stroke="#b9770e" stroke-width="1"/>
+<rect x="136.0" y="286.0" width="14.0" height="18.0" rx="0" fill="#fcf3cf" stroke="#b9770e" stroke-width="1"/>
+<rect x="153.0" y="286.0" width="14.0" height="18.0" rx="0" fill="#fcf3cf" stroke="#b9770e" stroke-width="1"/>
+<rect x="170.0" y="286.0" width="14.0" height="18.0" rx="0" fill="#fcf3cf" stroke="#b9770e" stroke-width="1"/>
+<rect x="187.0" y="286.0" width="14.0" height="18.0" rx="0" fill="#fcf3cf" stroke="#b9770e" stroke-width="1"/>
+<text x="135.0" y="324.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">8 块驻留，其余排队</text>
+<rect x="230.0" y="258.0" width="150.0" height="74.0" rx="0" fill="#fafafa" stroke="#222" stroke-width="1.5"/>
+<text x="305.0" y="276.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle" font-weight="bold">SM 1</text>
+<rect x="238.0" y="286.0" width="14.0" height="18.0" rx="0" fill="#fcf3cf" stroke="#b9770e" stroke-width="1"/>
+<rect x="255.0" y="286.0" width="14.0" height="18.0" rx="0" fill="#fcf3cf" stroke="#b9770e" stroke-width="1"/>
+<rect x="272.0" y="286.0" width="14.0" height="18.0" rx="0" fill="#fcf3cf" stroke="#b9770e" stroke-width="1"/>
+<rect x="289.0" y="286.0" width="14.0" height="18.0" rx="0" fill="#fcf3cf" stroke="#b9770e" stroke-width="1"/>
+<rect x="306.0" y="286.0" width="14.0" height="18.0" rx="0" fill="#fcf3cf" stroke="#b9770e" stroke-width="1"/>
+<rect x="323.0" y="286.0" width="14.0" height="18.0" rx="0" fill="#fcf3cf" stroke="#b9770e" stroke-width="1"/>
+<rect x="340.0" y="286.0" width="14.0" height="18.0" rx="0" fill="#fcf3cf" stroke="#b9770e" stroke-width="1"/>
+<rect x="357.0" y="286.0" width="14.0" height="18.0" rx="0" fill="#fcf3cf" stroke="#b9770e" stroke-width="1"/>
+<text x="305.0" y="324.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">8 块驻留，其余排队</text>
+<rect x="400.0" y="258.0" width="150.0" height="74.0" rx="0" fill="#fafafa" stroke="#222" stroke-width="1.5"/>
+<text x="475.0" y="276.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle" font-weight="bold">SM 2</text>
+<rect x="408.0" y="286.0" width="14.0" height="18.0" rx="0" fill="#fcf3cf" stroke="#b9770e" stroke-width="1"/>
+<rect x="425.0" y="286.0" width="14.0" height="18.0" rx="0" fill="#fcf3cf" stroke="#b9770e" stroke-width="1"/>
+<rect x="442.0" y="286.0" width="14.0" height="18.0" rx="0" fill="#fcf3cf" stroke="#b9770e" stroke-width="1"/>
+<rect x="459.0" y="286.0" width="14.0" height="18.0" rx="0" fill="#fcf3cf" stroke="#b9770e" stroke-width="1"/>
+<rect x="476.0" y="286.0" width="14.0" height="18.0" rx="0" fill="#fcf3cf" stroke="#b9770e" stroke-width="1"/>
+<rect x="493.0" y="286.0" width="14.0" height="18.0" rx="0" fill="#fcf3cf" stroke="#b9770e" stroke-width="1"/>
+<rect x="510.0" y="286.0" width="14.0" height="18.0" rx="0" fill="#fcf3cf" stroke="#b9770e" stroke-width="1"/>
+<rect x="527.0" y="286.0" width="14.0" height="18.0" rx="0" fill="#fcf3cf" stroke="#b9770e" stroke-width="1"/>
+<text x="475.0" y="324.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">8 块驻留，其余排队</text>
+<rect x="570.0" y="258.0" width="150.0" height="74.0" rx="0" fill="#fafafa" stroke="#222" stroke-width="1.5"/>
+<text x="645.0" y="276.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle" font-weight="bold">SM 3</text>
+<rect x="578.0" y="286.0" width="14.0" height="18.0" rx="0" fill="#fcf3cf" stroke="#b9770e" stroke-width="1"/>
+<rect x="595.0" y="286.0" width="14.0" height="18.0" rx="0" fill="#fcf3cf" stroke="#b9770e" stroke-width="1"/>
+<rect x="612.0" y="286.0" width="14.0" height="18.0" rx="0" fill="#fcf3cf" stroke="#b9770e" stroke-width="1"/>
+<rect x="629.0" y="286.0" width="14.0" height="18.0" rx="0" fill="#fcf3cf" stroke="#b9770e" stroke-width="1"/>
+<rect x="646.0" y="286.0" width="14.0" height="18.0" rx="0" fill="#fcf3cf" stroke="#b9770e" stroke-width="1"/>
+<rect x="663.0" y="286.0" width="14.0" height="18.0" rx="0" fill="#fcf3cf" stroke="#b9770e" stroke-width="1"/>
+<rect x="680.0" y="286.0" width="14.0" height="18.0" rx="0" fill="#fcf3cf" stroke="#b9770e" stroke-width="1"/>
+<rect x="697.0" y="286.0" width="14.0" height="18.0" rx="0" fill="#fcf3cf" stroke="#b9770e" stroke-width="1"/>
+<text x="645.0" y="324.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">8 块驻留，其余排队</text>
+<rect x="740.0" y="258.0" width="150.0" height="74.0" rx="0" fill="#fafafa" stroke="#222" stroke-width="1.5"/>
+<text x="815.0" y="276.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle" font-weight="bold">…… SM 131</text>
+<rect x="748.0" y="286.0" width="14.0" height="18.0" rx="0" fill="#fcf3cf" stroke="#b9770e" stroke-width="1"/>
+<rect x="765.0" y="286.0" width="14.0" height="18.0" rx="0" fill="#fcf3cf" stroke="#b9770e" stroke-width="1"/>
+<rect x="782.0" y="286.0" width="14.0" height="18.0" rx="0" fill="#fcf3cf" stroke="#b9770e" stroke-width="1"/>
+<rect x="799.0" y="286.0" width="14.0" height="18.0" rx="0" fill="#fcf3cf" stroke="#b9770e" stroke-width="1"/>
+<rect x="816.0" y="286.0" width="14.0" height="18.0" rx="0" fill="#fcf3cf" stroke="#b9770e" stroke-width="1"/>
+<rect x="833.0" y="286.0" width="14.0" height="18.0" rx="0" fill="#fcf3cf" stroke="#b9770e" stroke-width="1"/>
+<rect x="850.0" y="286.0" width="14.0" height="18.0" rx="0" fill="#fcf3cf" stroke="#b9770e" stroke-width="1"/>
+<rect x="867.0" y="286.0" width="14.0" height="18.0" rx="0" fill="#fcf3cf" stroke="#b9770e" stroke-width="1"/>
+<text x="815.0" y="324.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">8 块驻留，其余排队</text>
+<line x1="480.0" y1="342.0" x2="480.0" y2="370.0" stroke="#222" stroke-width="2" marker-end="url(#ak)"/>
+<rect x="40.0" y="372.0" width="880.0" height="84.0" rx="4" fill="#fff" stroke="#222" stroke-width="2"/>
+<text x="480.0" y="394.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">每个驻留的块切成 256 ÷ 32 = 8 个 warp，全部进入调度器的候选池</text>
+<rect x="200.0" y="404.0" width="64.0" height="40.0" rx="0" fill="#d7ecd9" stroke="#2e7d32" stroke-width="1.5"/>
+<text x="232.0" y="429.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">warp 0</text>
+<rect x="272.0" y="404.0" width="64.0" height="40.0" rx="0" fill="#d7ecd9" stroke="#2e7d32" stroke-width="1.5"/>
+<text x="304.0" y="429.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">warp 1</text>
+<rect x="344.0" y="404.0" width="64.0" height="40.0" rx="0" fill="#d7ecd9" stroke="#2e7d32" stroke-width="1.5"/>
+<text x="376.0" y="429.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">warp 2</text>
+<rect x="416.0" y="404.0" width="64.0" height="40.0" rx="0" fill="#d7ecd9" stroke="#2e7d32" stroke-width="1.5"/>
+<text x="448.0" y="429.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">warp 3</text>
+<rect x="488.0" y="404.0" width="64.0" height="40.0" rx="0" fill="#d7ecd9" stroke="#2e7d32" stroke-width="1.5"/>
+<text x="520.0" y="429.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">warp 4</text>
+<rect x="560.0" y="404.0" width="64.0" height="40.0" rx="0" fill="#d7ecd9" stroke="#2e7d32" stroke-width="1.5"/>
+<text x="592.0" y="429.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">warp 5</text>
+<rect x="632.0" y="404.0" width="64.0" height="40.0" rx="0" fill="#d7ecd9" stroke="#2e7d32" stroke-width="1.5"/>
+<text x="664.0" y="429.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">warp 6</text>
+<rect x="704.0" y="404.0" width="64.0" height="40.0" rx="0" fill="#d7ecd9" stroke="#2e7d32" stroke-width="1.5"/>
+<text x="736.0" y="429.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">warp 7</text>
+</svg>

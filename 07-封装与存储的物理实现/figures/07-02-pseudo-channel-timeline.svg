@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="600" fill="#ffffff"/>
+<text x="480" y="28" font-size="18" text-anchor="middle" fill="#222" font-weight="bold">HBM 内部的三层切分，以及伪通道换来了什么（时长为示意）</text>
+<rect x="30" y="55" width="170" height="64" fill="#e0d4ec" stroke="#222" stroke-width="1.5" rx="4"/>
+<text x="115" y="80" font-size="14" text-anchor="middle" font-weight="bold">一个 HBM4 堆叠</text>
+<text x="115" y="102" font-size="12" text-anchor="middle">对外 2048 根数据线</text>
+<line x1="204" y1="87" x2="264" y2="87" stroke="#222" stroke-width="2"/><path d="M260,81 L270,87 L260,93 z" fill="#222"/>
+<rect x="270" y="55" width="170" height="64" fill="#dbe6f3" stroke="#222" stroke-width="1.5" rx="4"/>
+<text x="355" y="80" font-size="14" text-anchor="middle" font-weight="bold">32 条通道</text>
+<text x="355" y="102" font-size="12" text-anchor="middle">各有命令地址线和数据线</text>
+<line x1="444" y1="87" x2="504" y2="87" stroke="#222" stroke-width="2"/><path d="M500,81 L510,87 L500,93 z" fill="#222"/>
+<rect x="510" y="55" width="170" height="64" fill="#dbe6f3" stroke="#222" stroke-width="1.5" rx="4"/>
+<text x="595" y="80" font-size="14" text-anchor="middle" font-weight="bold">每条分成 2 个伪通道</text>
+<text x="595" y="102" font-size="12" text-anchor="middle">共用命令地址线，数据线分开</text>
+<line x1="684" y1="87" x2="744" y2="87" stroke="#222" stroke-width="2"/><path d="M740,81 L750,87 L740,93 z" fill="#222"/>
+<rect x="770" y="55" width="170" height="64" fill="#dbe6f3" stroke="#222" stroke-width="1.5" rx="4"/>
+<text x="855" y="80" font-size="14" text-anchor="middle" font-weight="bold">bank</text>
+<text x="855" y="102" font-size="12" text-anchor="middle">每片裸片 256 个</text>
+<text x="480" y="146" font-size="13" text-anchor="middle" fill="#555">（HBM3E：16 条通道、32 个伪通道、每片 128 个 bank；HBM4 各翻倍）</text>
+<text x="30" y="186" font-size="15" font-weight="bold">（a）没有伪通道：两个请求落在同一条通道、要读不同的行</text>
+<text x="178" y="218" font-size="14" text-anchor="end">通道</text>
+<line x1="190" y1="230" x2="866" y2="230" stroke="#bbb" stroke-width="1"/>
+<rect x="191" y="202" width="154" height="26" fill="#f4d58d" stroke="#222" stroke-width="1.2" rx="3"/>
+<text x="268.0" y="220" font-size="13" text-anchor="middle">激活行 A</text>
+<rect x="347" y="202" width="102" height="26" fill="#9fd3a8" stroke="#222" stroke-width="1.2" rx="3"/>
+<text x="398.0" y="220" font-size="13" text-anchor="middle">读 A</text>
+<rect x="451" y="202" width="102" height="26" fill="#e79a8f" stroke="#222" stroke-width="1.2" rx="3"/>
+<text x="502.0" y="220" font-size="13" text-anchor="middle">预充电</text>
+<rect x="555" y="202" width="154" height="26" fill="#f4d58d" stroke="#222" stroke-width="1.2" rx="3"/>
+<text x="632.0" y="220" font-size="13" text-anchor="middle">激活行 B</text>
+<rect x="711" y="202" width="102" height="26" fill="#9fd3a8" stroke="#222" stroke-width="1.2" rx="3"/>
+<text x="762.0" y="220" font-size="13" text-anchor="middle">读 B</text>
+<text x="822" y="220" font-size="13" fill="#c0392b" font-weight="bold">12 格</text>
+<text x="30" y="276" font-size="15" font-weight="bold">（b）有伪通道：两个请求分属伪通道 0 和 1</text>
+<text x="178" y="308" font-size="14" text-anchor="end">命令地址线</text>
+<text x="178" y="325" font-size="12" text-anchor="end" fill="#555">两个伪通道共用</text>
+<line x1="190" y1="320" x2="866" y2="320" stroke="#bbb" stroke-width="1"/>
+<rect x="191" y="292" width="50" height="26" fill="#eeeeee" stroke="#222" stroke-width="1.2" rx="3"/>
+<text x="216.0" y="310" font-size="13" text-anchor="middle">ACT A</text>
+<rect x="243" y="292" width="50" height="26" fill="#eeeeee" stroke="#222" stroke-width="1.2" rx="3"/>
+<text x="268.0" y="310" font-size="13" text-anchor="middle">ACT B</text>
+<rect x="347" y="292" width="50" height="26" fill="#eeeeee" stroke="#222" stroke-width="1.2" rx="3"/>
+<text x="372.0" y="310" font-size="13" text-anchor="middle">RD A</text>
+<rect x="399" y="292" width="50" height="26" fill="#eeeeee" stroke="#222" stroke-width="1.2" rx="3"/>
+<text x="424.0" y="310" font-size="13" text-anchor="middle">RD B</text>
+<text x="178" y="358" font-size="14" text-anchor="end">伪通道 0</text>
+<line x1="190" y1="370" x2="866" y2="370" stroke="#bbb" stroke-width="1"/>
+<rect x="191" y="342" width="154" height="26" fill="#f4d58d" stroke="#222" stroke-width="1.2" rx="3"/>
+<text x="268.0" y="360" font-size="13" text-anchor="middle">激活行 A</text>
+<rect x="347" y="342" width="102" height="26" fill="#9fd3a8" stroke="#222" stroke-width="1.2" rx="3"/>
+<text x="398.0" y="360" font-size="13" text-anchor="middle">读 A</text>
+<text x="178" y="408" font-size="14" text-anchor="end">伪通道 1</text>
+<line x1="190" y1="420" x2="866" y2="420" stroke="#bbb" stroke-width="1"/>
+<rect x="243" y="392" width="154" height="26" fill="#f4d58d" stroke="#222" stroke-width="1.2" rx="3"/>
+<text x="320.0" y="410" font-size="13" text-anchor="middle">激活行 B</text>
+<rect x="399" y="392" width="102" height="26" fill="#9fd3a8" stroke="#222" stroke-width="1.2" rx="3"/>
+<text x="450.0" y="410" font-size="13" text-anchor="middle">读 B</text>
+<text x="510" y="410" font-size="13" fill="#1e7b34" font-weight="bold">6 格</text>
+<line x1="190" y1="440" x2="190" y2="446" stroke="#222" stroke-width="1.2"/>
+<text x="190" y="462" font-size="12" text-anchor="middle" fill="#555">0</text>
+<line x1="242" y1="440" x2="242" y2="446" stroke="#222" stroke-width="1.2"/>
+<text x="242" y="462" font-size="12" text-anchor="middle" fill="#555">1</text>
+<line x1="294" y1="440" x2="294" y2="446" stroke="#222" stroke-width="1.2"/>
+<text x="294" y="462" font-size="12" text-anchor="middle" fill="#555">2</text>
+<line x1="346" y1="440" x2="346" y2="446" stroke="#222" stroke-width="1.2"/>
+<text x="346" y="462" font-size="12" text-anchor="middle" fill="#555">3</text>
+<line x1="398" y1="440" x2="398" y2="446" stroke="#222" stroke-width="1.2"/>
+<text x="398" y="462" font-size="12" text-anchor="middle" fill="#555">4</text>
+<line x1="450" y1="440" x2="450" y2="446" stroke="#222" stroke-width="1.2"/>
+<text x="450" y="462" font-size="12" text-anchor="middle" fill="#555">5</text>
+<line x1="502" y1="440" x2="502" y2="446" stroke="#222" stroke-width="1.2"/>
+<text x="502" y="462" font-size="12" text-anchor="middle" fill="#555">6</text>
+<line x1="554" y1="440" x2="554" y2="446" stroke="#222" stroke-width="1.2"/>
+<text x="554" y="462" font-size="12" text-anchor="middle" fill="#555">7</text>
+<line x1="606" y1="440" x2="606" y2="446" stroke="#222" stroke-width="1.2"/>
+<text x="606" y="462" font-size="12" text-anchor="middle" fill="#555">8</text>
+<line x1="658" y1="440" x2="658" y2="446" stroke="#222" stroke-width="1.2"/>
+<text x="658" y="462" font-size="12" text-anchor="middle" fill="#555">9</text>
+<line x1="710" y1="440" x2="710" y2="446" stroke="#222" stroke-width="1.2"/>
+<text x="710" y="462" font-size="12" text-anchor="middle" fill="#555">10</text>
+<line x1="762" y1="440" x2="762" y2="446" stroke="#222" stroke-width="1.2"/>
+<text x="762" y="462" font-size="12" text-anchor="middle" fill="#555">11</text>
+<line x1="814" y1="440" x2="814" y2="446" stroke="#222" stroke-width="1.2"/>
+<text x="814" y="462" font-size="12" text-anchor="middle" fill="#555">12</text>
+<line x1="190" y1="440" x2="814" y2="440" stroke="#222" stroke-width="1.5"/>
+<text x="824" y="462" font-size="12" fill="#555">时间（格）</text>
+<text x="30" y="500" font-size="14" fill="#222">• (a) 一条通道只有一套行读出电路：读完 A 必须先预充电（关掉这一行），才能激活 B，全部串行。</text>
+<text x="30" y="524" font-size="14" fill="#222">• (b) 两个伪通道各有自己的 bank 和数据线，行 A 和行 B 可以同时开着，各读各的；</text>
+<text x="30" y="548" font-size="14" fill="#222">   代价只是共用的命令地址线要把两条命令错开一格发出（灰色小格）。</text>
+<text x="30" y="572" font-size="14" fill="#222">• 伪通道不增加总线宽度（两个伪通道各拿一半数据线），它增加的是把带宽用满的概率。</text>
+</svg>

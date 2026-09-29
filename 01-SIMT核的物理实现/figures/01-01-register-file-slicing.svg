@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 492" width="960" height="492">
+<rect x="0" y="0" width="960" height="492" fill="#ffffff"/>
+<defs><marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777"/></marker><marker id="alg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#bbb"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="agr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e7d32"/></marker><marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b9770e"/></marker><marker id="ap" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7d3c98"/></marker></defs>
+<text x="480.0" y="30.0" font-family="sans-serif" font-size="17" fill="#222" text-anchor="middle" font-weight="bold">寄存器堆是按线程切分的“容量”：每线程要的越多，同时住得下的 warp 越少</text>
+<text x="40.0" y="68.0" font-family="sans-serif" font-size="15" fill="#222" text-anchor="start" font-weight="bold">情况一：每线程 32 个寄存器 → 一个 warp 占 32×32 = 1024 个 → 65536 ÷ 1024 = 64 个 warp（满员）</text>
+<rect x="40.0" y="80.0" width="880.0" height="60.0" rx="0" fill="#fff" stroke="#222" stroke-width="2"/>
+<rect x="40.0" y="80.0" width="13.8" height="60.0" rx="0" fill="#dbe9f7" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="53.8" y="80.0" width="13.8" height="60.0" rx="0" fill="#ffffff" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="67.5" y="80.0" width="13.8" height="60.0" rx="0" fill="#dbe9f7" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="81.2" y="80.0" width="13.8" height="60.0" rx="0" fill="#ffffff" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="95.0" y="80.0" width="13.8" height="60.0" rx="0" fill="#dbe9f7" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="108.8" y="80.0" width="13.8" height="60.0" rx="0" fill="#ffffff" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="122.5" y="80.0" width="13.8" height="60.0" rx="0" fill="#dbe9f7" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="136.2" y="80.0" width="13.8" height="60.0" rx="0" fill="#ffffff" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="150.0" y="80.0" width="13.8" height="60.0" rx="0" fill="#dbe9f7" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="163.8" y="80.0" width="13.8" height="60.0" rx="0" fill="#ffffff" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="177.5" y="80.0" width="13.8" height="60.0" rx="0" fill="#dbe9f7" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="191.2" y="80.0" width="13.8" height="60.0" rx="0" fill="#ffffff" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="205.0" y="80.0" width="13.8" height="60.0" rx="0" fill="#dbe9f7" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="218.8" y="80.0" width="13.8" height="60.0" rx="0" fill="#ffffff" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="232.5" y="80.0" width="13.8" height="60.0" rx="0" fill="#dbe9f7" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="246.2" y="80.0" width="13.8" height="60.0" rx="0" fill="#ffffff" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="260.0" y="80.0" width="13.8" height="60.0" rx="0" fill="#dbe9f7" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="273.8" y="80.0" width="13.8" height="60.0" rx="0" fill="#ffffff" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="287.5" y="80.0" width="13.8" height="60.0" rx="0" fill="#dbe9f7" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="301.2" y="80.0" width="13.8" height="60.0" rx="0" fill="#ffffff" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="315.0" y="80.0" width="13.8" height="60.0" rx="0" fill="#dbe9f7" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="328.8" y="80.0" width="13.8" height="60.0" rx="0" fill="#ffffff" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="342.5" y="80.0" width="13.8" height="60.0" rx="0" fill="#dbe9f7" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="356.2" y="80.0" width="13.8" height="60.0" rx="0" fill="#ffffff" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="370.0" y="80.0" width="13.8" height="60.0" rx="0" fill="#dbe9f7" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="383.8" y="80.0" width="13.8" height="60.0" rx="0" fill="#ffffff" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="397.5" y="80.0" width="13.8" height="60.0" rx="0" fill="#dbe9f7" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="411.2" y="80.0" width="13.8" height="60.0" rx="0" fill="#ffffff" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="425.0" y="80.0" width="13.8" height="60.0" rx="0" fill="#dbe9f7" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="438.8" y="80.0" width="13.8" height="60.0" rx="0" fill="#ffffff" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="452.5" y="80.0" width="13.8" height="60.0" rx="0" fill="#dbe9f7" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="466.2" y="80.0" width="13.8" height="60.0" rx="0" fill="#ffffff" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="480.0" y="80.0" width="13.8" height="60.0" rx="0" fill="#dbe9f7" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="493.8" y="80.0" width="13.8" height="60.0" rx="0" fill="#ffffff" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="507.5" y="80.0" width="13.8" height="60.0" rx="0" fill="#dbe9f7" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="521.2" y="80.0" width="13.8" height="60.0" rx="0" fill="#ffffff" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="535.0" y="80.0" width="13.8" height="60.0" rx="0" fill="#dbe9f7" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="548.8" y="80.0" width="13.8" height="60.0" rx="0" fill="#ffffff" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="562.5" y="80.0" width="13.8" height="60.0" rx="0" fill="#dbe9f7" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="576.2" y="80.0" width="13.8" height="60.0" rx="0" fill="#ffffff" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="590.0" y="80.0" width="13.8" height="60.0" rx="0" fill="#dbe9f7" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="603.8" y="80.0" width="13.8" height="60.0" rx="0" fill="#ffffff" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="617.5" y="80.0" width="13.8" height="60.0" rx="0" fill="#dbe9f7" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="631.2" y="80.0" width="13.8" height="60.0" rx="0" fill="#ffffff" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="645.0" y="80.0" width="13.8" height="60.0" rx="0" fill="#dbe9f7" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="658.8" y="80.0" width="13.8" height="60.0" rx="0" fill="#ffffff" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="672.5" y="80.0" width="13.8" height="60.0" rx="0" fill="#dbe9f7" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="686.2" y="80.0" width="13.8" height="60.0" rx="0" fill="#ffffff" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="700.0" y="80.0" width="13.8" height="60.0" rx="0" fill="#dbe9f7" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="713.8" y="80.0" width="13.8" height="60.0" rx="0" fill="#ffffff" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="727.5" y="80.0" width="13.8" height="60.0" rx="0" fill="#dbe9f7" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="741.2" y="80.0" width="13.8" height="60.0" rx="0" fill="#ffffff" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="755.0" y="80.0" width="13.8" height="60.0" rx="0" fill="#dbe9f7" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="768.8" y="80.0" width="13.8" height="60.0" rx="0" fill="#ffffff" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="782.5" y="80.0" width="13.8" height="60.0" rx="0" fill="#dbe9f7" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="796.2" y="80.0" width="13.8" height="60.0" rx="0" fill="#ffffff" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="810.0" y="80.0" width="13.8" height="60.0" rx="0" fill="#dbe9f7" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="823.8" y="80.0" width="13.8" height="60.0" rx="0" fill="#ffffff" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="837.5" y="80.0" width="13.8" height="60.0" rx="0" fill="#dbe9f7" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="851.2" y="80.0" width="13.8" height="60.0" rx="0" fill="#ffffff" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="865.0" y="80.0" width="13.8" height="60.0" rx="0" fill="#dbe9f7" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="878.8" y="80.0" width="13.8" height="60.0" rx="0" fill="#ffffff" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="892.5" y="80.0" width="13.8" height="60.0" rx="0" fill="#dbe9f7" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="906.2" y="80.0" width="13.8" height="60.0" rx="0" fill="#ffffff" stroke="#1f5fa8" stroke-width="1"/>
+<text x="46.9" y="160.0" font-family="sans-serif" font-size="14" fill="#1f5fa8" text-anchor="middle">w0</text>
+<text x="156.9" y="160.0" font-family="sans-serif" font-size="14" fill="#1f5fa8" text-anchor="middle">w8</text>
+<text x="266.9" y="160.0" font-family="sans-serif" font-size="14" fill="#1f5fa8" text-anchor="middle">w16</text>
+<text x="376.9" y="160.0" font-family="sans-serif" font-size="14" fill="#1f5fa8" text-anchor="middle">w24</text>
+<text x="486.9" y="160.0" font-family="sans-serif" font-size="14" fill="#1f5fa8" text-anchor="middle">w32</text>
+<text x="596.9" y="160.0" font-family="sans-serif" font-size="14" fill="#1f5fa8" text-anchor="middle">w40</text>
+<text x="706.9" y="160.0" font-family="sans-serif" font-size="14" fill="#1f5fa8" text-anchor="middle">w48</text>
+<text x="816.9" y="160.0" font-family="sans-serif" font-size="14" fill="#1f5fa8" text-anchor="middle">w56</text>
+<text x="480.0" y="186.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">每个窄格是一个 warp 的全部寄存器，它的变量从启动到结束一直住在这里</text>
+<text x="40.0" y="238.0" font-family="sans-serif" font-size="15" fill="#222" text-anchor="start" font-weight="bold">情况二：每线程 128 个寄存器 → 一个 warp 占 4096 个 → 只住得下 16 个 warp（1/4）</text>
+<rect x="40.0" y="250.0" width="880.0" height="60.0" rx="0" fill="#fff" stroke="#222" stroke-width="2"/>
+<rect x="40.0" y="250.0" width="55.0" height="60.0" rx="0" fill="#f6d5d0" stroke="#c0392b" stroke-width="1"/>
+<rect x="95.0" y="250.0" width="55.0" height="60.0" rx="0" fill="#ffffff" stroke="#c0392b" stroke-width="1"/>
+<rect x="150.0" y="250.0" width="55.0" height="60.0" rx="0" fill="#f6d5d0" stroke="#c0392b" stroke-width="1"/>
+<rect x="205.0" y="250.0" width="55.0" height="60.0" rx="0" fill="#ffffff" stroke="#c0392b" stroke-width="1"/>
+<rect x="260.0" y="250.0" width="55.0" height="60.0" rx="0" fill="#f6d5d0" stroke="#c0392b" stroke-width="1"/>
+<rect x="315.0" y="250.0" width="55.0" height="60.0" rx="0" fill="#ffffff" stroke="#c0392b" stroke-width="1"/>
+<rect x="370.0" y="250.0" width="55.0" height="60.0" rx="0" fill="#f6d5d0" stroke="#c0392b" stroke-width="1"/>
+<rect x="425.0" y="250.0" width="55.0" height="60.0" rx="0" fill="#ffffff" stroke="#c0392b" stroke-width="1"/>
+<rect x="480.0" y="250.0" width="55.0" height="60.0" rx="0" fill="#f6d5d0" stroke="#c0392b" stroke-width="1"/>
+<rect x="535.0" y="250.0" width="55.0" height="60.0" rx="0" fill="#ffffff" stroke="#c0392b" stroke-width="1"/>
+<rect x="590.0" y="250.0" width="55.0" height="60.0" rx="0" fill="#f6d5d0" stroke="#c0392b" stroke-width="1"/>
+<rect x="645.0" y="250.0" width="55.0" height="60.0" rx="0" fill="#ffffff" stroke="#c0392b" stroke-width="1"/>
+<rect x="700.0" y="250.0" width="55.0" height="60.0" rx="0" fill="#f6d5d0" stroke="#c0392b" stroke-width="1"/>
+<rect x="755.0" y="250.0" width="55.0" height="60.0" rx="0" fill="#ffffff" stroke="#c0392b" stroke-width="1"/>
+<rect x="810.0" y="250.0" width="55.0" height="60.0" rx="0" fill="#f6d5d0" stroke="#c0392b" stroke-width="1"/>
+<rect x="865.0" y="250.0" width="55.0" height="60.0" rx="0" fill="#ffffff" stroke="#c0392b" stroke-width="1"/>
+<text x="67.5" y="287.0" font-family="sans-serif" font-size="14" fill="#c0392b" text-anchor="middle">w0</text>
+<text x="122.5" y="287.0" font-family="sans-serif" font-size="14" fill="#c0392b" text-anchor="middle">w1</text>
+<text x="177.5" y="287.0" font-family="sans-serif" font-size="14" fill="#c0392b" text-anchor="middle">w2</text>
+<text x="232.5" y="287.0" font-family="sans-serif" font-size="14" fill="#c0392b" text-anchor="middle">w3</text>
+<text x="287.5" y="287.0" font-family="sans-serif" font-size="14" fill="#c0392b" text-anchor="middle">w4</text>
+<text x="342.5" y="287.0" font-family="sans-serif" font-size="14" fill="#c0392b" text-anchor="middle">w5</text>
+<text x="397.5" y="287.0" font-family="sans-serif" font-size="14" fill="#c0392b" text-anchor="middle">w6</text>
+<text x="452.5" y="287.0" font-family="sans-serif" font-size="14" fill="#c0392b" text-anchor="middle">w7</text>
+<text x="507.5" y="287.0" font-family="sans-serif" font-size="14" fill="#c0392b" text-anchor="middle">w8</text>
+<text x="562.5" y="287.0" font-family="sans-serif" font-size="14" fill="#c0392b" text-anchor="middle">w9</text>
+<text x="617.5" y="287.0" font-family="sans-serif" font-size="14" fill="#c0392b" text-anchor="middle">w10</text>
+<text x="672.5" y="287.0" font-family="sans-serif" font-size="14" fill="#c0392b" text-anchor="middle">w11</text>
+<text x="727.5" y="287.0" font-family="sans-serif" font-size="14" fill="#c0392b" text-anchor="middle">w12</text>
+<text x="782.5" y="287.0" font-family="sans-serif" font-size="14" fill="#c0392b" text-anchor="middle">w13</text>
+<text x="837.5" y="287.0" font-family="sans-serif" font-size="14" fill="#c0392b" text-anchor="middle">w14</text>
+<text x="892.5" y="287.0" font-family="sans-serif" font-size="14" fill="#c0392b" text-anchor="middle">w15</text>
+<rect x="205.0" y="250.0" width="55.0" height="60.0" rx="0" fill="none" stroke="#222" stroke-width="3.5"/>
+<line x1="232.5" y1="342.0" x2="232.5" y2="314.0" stroke="#222" stroke-width="2" marker-end="url(#ak)"/>
+<text x="232.5" y="360.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle" font-weight="bold">这一拍发射</text>
+<rect x="425.0" y="250.0" width="55.0" height="60.0" rx="0" fill="none" stroke="#222" stroke-width="3.5"/>
+<line x1="452.5" y1="342.0" x2="452.5" y2="314.0" stroke="#222" stroke-width="2" marker-end="url(#ak)"/>
+<text x="452.5" y="360.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle" font-weight="bold">下一拍发射</text>
+<text x="700.0" y="350.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">同一块 65536 个寄存器（256 KB），</text>
+<text x="700.0" y="370.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">切得越粗，份数越少</text>
+<rect x="40.0" y="384.0" width="880.0" height="90.0" rx="4" fill="#eeeeee" stroke="none" stroke-width="0"/>
+<text x="60.0" y="412.0" font-family="sans-serif" font-size="15" fill="#222" text-anchor="start">切换 warp 怎么做到零开销：调度器这一拍发射 w3，下一拍发射 w7，</text>
+<text x="60.0" y="436.0" font-family="sans-serif" font-size="15" fill="#222" text-anchor="start">只是去读寄存器堆里另一个格子，不需要把 w3 的变量搬出去、把 w7 的变量搬进来。</text>
+<text x="60.0" y="460.0" font-family="sans-serif" font-size="15" fill="#777" text-anchor="start">对比：CPU 切换线程要把几十个寄存器保存到内存、再恢复另一个，耗时上千拍。</text>
+</svg>

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" width="1000" height="500">
+<rect x="0" y="0" width="1000" height="500" fill="#ffffff"/>
+<g font-family="sans-serif">
+<text x="30" y="34" font-size="20" fill="#111" text-anchor="start" font-weight="bold">四层互连的带宽阶梯：每往外一层，带宽掉约一个数量级</text>
+<text x="30" y="58" font-size="15" fill="#333" text-anchor="start" font-weight="normal">条的长度按对数画（每长出同样一段，带宽就大十倍），末尾数字是该层的典型带宽</text>
+<text x="30" y="114" font-size="16" fill="#555" text-anchor="start" font-weight="bold">第一层 · 芯片内</text>
+<text x="30" y="136" font-size="13" fill="#333" text-anchor="start" font-weight="normal">SM 之间经 L2 缓存会合</text>
+<text x="30" y="156" font-size="13" fill="#666" text-anchor="start" font-weight="normal">距离量级：毫米</text>
+<rect x="300" y="92" width="580.0" height="34" fill="#e6e6e6" stroke="#555" stroke-width="1.5"/>
+<text x="310" y="115" font-size="14" fill="#111" text-anchor="start" font-weight="normal">约 10 TB/s（全芯片合计）</text>
+<text x="300" y="150" font-size="14" fill="#555" text-anchor="start" font-weight="normal">—（一颗芯片内部的事）</text>
+<text x="30" y="212" font-size="16" fill="#555" text-anchor="start" font-weight="bold">第二层 · 芯片间</text>
+<text x="30" y="234" font-size="13" fill="#333" text-anchor="start" font-weight="normal">同一封装里两颗 die 缝合（NV-HBI）</text>
+<text x="30" y="254" font-size="13" fill="#666" text-anchor="start" font-weight="normal">距离量级：厘米</text>
+<rect x="300" y="190" width="580.0" height="34" fill="#e6e6e6" stroke="#555" stroke-width="1.5"/>
+<text x="310" y="213" font-size="14" fill="#111" text-anchor="start" font-weight="normal">约 10 TB/s</text>
+<text x="300" y="248" font-size="14" fill="#555" text-anchor="start" font-weight="normal">—（快到软件看不见缝）</text>
+<text x="30" y="310" font-size="16" fill="#c23b22" text-anchor="start" font-weight="bold">第三层 · 服务器内</text>
+<text x="30" y="332" font-size="13" fill="#333" text-anchor="start" font-weight="normal">卡与卡之间走 NVLink / NVSwitch</text>
+<text x="30" y="352" font-size="13" fill="#666" text-anchor="start" font-weight="normal">距离量级：几十厘米</text>
+<rect x="300" y="288" width="411.62682724074745" height="34" fill="#f6c1b6" stroke="#c23b22" stroke-width="1.5"/>
+<text x="310" y="311" font-size="14" fill="#111" text-anchor="start" font-weight="normal">约 1.8 TB/s（每卡）</text>
+<text x="300" y="346" font-size="14" fill="#c23b22" text-anchor="start" font-weight="normal">张量并行 TP、专家并行 EP 住这里</text>
+<text x="30" y="408" font-size="16" fill="#2a5d9c" text-anchor="start" font-weight="bold">第四层 · 服务器间</text>
+<text x="30" y="430" font-size="13" fill="#333" text-anchor="start" font-weight="normal">机器与机器之间走 InfiniBand / 高速以太网</text>
+<text x="30" y="450" font-size="13" fill="#666" text-anchor="start" font-weight="normal">距离量级：数米到数十米</text>
+<rect x="300" y="386" width="105.91599705904812" height="34" fill="#d6e4f5" stroke="#2a5d9c" stroke-width="1.5"/>
+<text x="415.9159970590481" y="409" font-size="14" fill="#111" text-anchor="start" font-weight="normal">约 0.05～0.1 TB/s（每卡）</text>
+<text x="300" y="444" font-size="14" fill="#2a5d9c" text-anchor="start" font-weight="normal">数据并行 DP、流水并行 PP 住这里</text>
+<line x1="290" y1="88" x2="290" y2="478" stroke="#999" stroke-width="1.5" stroke-dasharray="4 4"/>
+</g></svg>

@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 600" width="980" height="600" font-family="sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b5451b"/></marker></defs>
+<rect x="0" y="0" width="980" height="600" fill="#ffffff"/>
+<text x="490" y="28" font-size="18" text-anchor="middle" font-weight="bold" fill="#111">DMA 引擎内部：读描述符、两侧各算地址、同时挂着几十个请求、回来的数据排好序再写</text>
+<rect x="160" y="50" width="600" height="310" rx="8" fill="#fafafa" stroke="#222" stroke-width="2" stroke-dasharray="7,4"/>
+<text x="748" y="350" font-size="14" text-anchor="end" fill="#555">DMA 引擎</text>
+<rect x="20" y="90" width="120" height="60" rx="5" fill="#f4f4f4" stroke="#222" stroke-width="1.8"/>
+<text x="80.0" y="116.0" font-size="14" text-anchor="middle" fill="#111">标量流水线</text>
+<text x="80.0" y="135.0" font-size="13" text-anchor="middle" fill="#555">发出描述符</text>
+<line x1="140" y1="120" x2="178" y2="120" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<rect x="180" y="90" width="130" height="60" rx="5" fill="#fff4d6" stroke="#9a6b00" stroke-width="1.8"/>
+<text x="245.0" y="116.0" font-size="14" text-anchor="middle" fill="#111">描述符队列</text>
+<text x="245.0" y="135.0" font-size="13" text-anchor="middle" fill="#555">排着一批任务</text>
+<line x1="310" y1="120" x2="338" y2="120" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<rect x="340" y="90" width="120" height="60" rx="5" fill="#f4f4f4" stroke="#222" stroke-width="1.8"/>
+<text x="400.0" y="116.0" font-size="14" text-anchor="middle" fill="#111">描述符解析</text>
+<text x="400.0" y="135.0" font-size="13" text-anchor="middle" fill="#555">配置两个 AGU</text>
+<line x1="460" y1="110" x2="498" y2="95" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<line x1="460" y1="130" x2="498" y2="175" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<rect x="500" y="70" width="130" height="50" rx="5" fill="#eef3fb" stroke="#1f5fa8" stroke-width="1.8"/>
+<text x="565.0" y="91.0" font-size="14" text-anchor="middle" fill="#111">源侧 AGU</text>
+<text x="565.0" y="110.0" font-size="13" text-anchor="middle" fill="#555">生成读地址</text>
+<rect x="500" y="150" width="130" height="50" rx="5" fill="#eef3fb" stroke="#1f5fa8" stroke-width="1.8"/>
+<text x="565.0" y="171.0" font-size="14" text-anchor="middle" fill="#111">目的侧 AGU</text>
+<text x="565.0" y="190.0" font-size="13" text-anchor="middle" fill="#555">生成写地址</text>
+<line x1="630" y1="95" x2="668" y2="95" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<rect x="670" y="70" width="80" height="110" rx="5" fill="#fdf0e8" stroke="#b5451b" stroke-width="1.8"/>
+<text x="710" y="98" font-size="14" text-anchor="middle" fill="#111">请求发射</text>
+<text x="710" y="130" font-size="13" text-anchor="middle" fill="#555">在途跟踪</text>
+<text x="710" y="158" font-size="13" text-anchor="middle" fill="#b5451b">最多 N 个</text>
+<rect x="820" y="70" width="140" height="110" rx="5" fill="#eeeeee" stroke="#222" stroke-width="1.8"/>
+<text x="890.0" y="121.0" font-size="14" text-anchor="middle" fill="#111">显存 HBM</text>
+<text x="890.0" y="140.0" font-size="13" text-anchor="middle" fill="#555">延迟约 500 拍</text>
+<line x1="750" y1="95" x2="818" y2="95" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<text x="792" y="88" font-size="13" text-anchor="middle" fill="#555">读请求</text>
+<line x1="818" y1="160" x2="752" y2="250" stroke="#b5451b" stroke-width="1.8" marker-end="url(#ar)"/>
+<text x="800" y="228" font-size="13" fill="#b5451b">数据回来，顺序是乱的</text>
+<rect x="560" y="240" width="190" height="60" rx="5" fill="#fdf0e8" stroke="#b5451b" stroke-width="1.8"/>
+<text x="655.0" y="266.0" font-size="14" text-anchor="middle" fill="#111">重排序缓冲</text>
+<text x="655.0" y="285.0" font-size="13" text-anchor="middle" fill="#555">按请求顺序排好</text>
+<line x1="560" y1="270" x2="452" y2="270" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<polyline points="565,200 565,220 375,220 375,238" fill="none" stroke="#1f5fa8" stroke-width="1.6" stroke-dasharray="5,3" marker-end="url(#a)"/>
+<text x="470" y="214" font-size="13" text-anchor="middle" fill="#1f5fa8">写地址</text>
+<rect x="300" y="240" width="150" height="60" rx="5" fill="#d6ecd2" stroke="#2e7d32" stroke-width="1.8"/>
+<text x="375.0" y="266.0" font-size="14" text-anchor="middle" fill="#111">写入便签存储</text>
+<text x="375.0" y="285.0" font-size="13" text-anchor="middle" fill="#555">scratchpad / L1</text>
+<line x1="300" y1="270" x2="262" y2="270" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<rect x="175" y="240" width="85" height="60" rx="5" fill="#fff4d6" stroke="#9a6b00" stroke-width="1.8"/>
+<text x="217.5" y="266.0" font-size="14" text-anchor="middle" fill="#111">完成标志</text>
+<text x="217.5" y="285.0" font-size="13" text-anchor="middle" fill="#555">置 1</text>
+<line x1="175" y1="270" x2="142" y2="270" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<rect x="20" y="240" width="120" height="60" rx="5" fill="#f4f4f4" stroke="#222" stroke-width="1.8"/>
+<text x="80.0" y="266.0" font-size="14" text-anchor="middle" fill="#111">计算流水线</text>
+<text x="80.0" y="285.0" font-size="13" text-anchor="middle" fill="#555">等标志置位再算</text>
+<line x1="20" y1="382" x2="960" y2="382" stroke="#ccc" stroke-width="1.5"/>
+<text x="30" y="406" font-size="15" font-weight="bold" fill="#111">为什么"最多挂 N 个请求"是最关键的参数（小定律）</text>
+<text x="30" y="436" font-size="14" fill="#111">要喂满每拍 128 字节，而每个请求 500 拍后才回来：</text>
+<text x="30" y="458" font-size="14" fill="#111">路上必须同时有 500 × 128 = 64 KB 的数据在飞。</text>
+<text x="30" y="480" font-size="14" fill="#b5451b">若只能挂 8 个 512 字节的请求（共 4 KB）：</text>
+<text x="30" y="502" font-size="14" fill="#b5451b">实际带宽只有峰值的 4 ÷ 64 = 1/16。</text>
+<text x="520" y="426" font-size="14" fill="#111">一根 500 拍长的管子（示意）：</text>
+<rect x="520" y="436" width="400" height="26" fill="#fff" stroke="#555" stroke-width="1.5"/>
+<rect x="520" y="436" width="400" height="26" fill="#d6ecd2" stroke="none"/>
+<text x="720.0" y="454" font-size="13" text-anchor="middle" fill="#2e7d32">塞满 64 KB：每拍都有数据流出</text>
+<rect x="520" y="480" width="400" height="26" fill="#fff" stroke="#555" stroke-width="1.5"/>
+<rect x="520" y="480" width="25.0" height="26" fill="#f9d9c8" stroke="none"/>
+<text x="553.0" y="498" font-size="13" fill="#b5451b">只塞 4 KB：大部分时间出口没东西</text>
+<text x="30" y="540" font-size="14" fill="#1f5fa8">两侧 AGU 步长可以不同：源侧按行读、目的侧按列写，搬的同时就完成了转置，不用再多跑一趟。</text>
+</svg>

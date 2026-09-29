@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="560" fill="#ffffff"/>
+<defs><marker id="k" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222222"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777777"/></marker><marker id="o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c77a12"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f6db5"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="n" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e8b57"/></marker><marker id="p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7a4fb0"/></marker></defs>
+<text x="480.0" y="30.0" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold">FA-3 一个线程块的编制：3 个 warpgroup 分工，寄存器在组间重新分配</text>
+<rect x="30.0" y="70.0" width="250.0" height="60.0" rx="3" fill="#f8e3c4" stroke="#c77a12" stroke-width="1.5"/>
+<text x="155.0" y="97.0" font-size="16" text-anchor="middle" fill="#222222" font-weight="bold">WG0 生产者</text>
+<text x="155.0" y="115.0" font-size="14" text-anchor="middle" fill="#777777">128 线程，选 1 个发 TMA 订单</text>
+<rect x="30.0" y="144.0" width="250.0" height="60.0" rx="3" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="155.0" y="171.0" font-size="16" text-anchor="middle" fill="#222222" font-weight="bold">WG1 消费者甲</text>
+<text x="155.0" y="189.0" font-size="14" text-anchor="middle" fill="#777777">矩阵乘 + softmax</text>
+<rect x="30.0" y="218.0" width="250.0" height="60.0" rx="3" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="155.0" y="245.0" font-size="16" text-anchor="middle" fill="#222222" font-weight="bold">WG2 消费者乙</text>
+<text x="155.0" y="263.0" font-size="14" text-anchor="middle" fill="#777777">与甲同工，错开半拍</text>
+<text x="320.0" y="66.0" font-size="15" text-anchor="start" fill="#222222" font-weight="bold">每个线程的寄存器数（启动时平分 → setmaxnreg 之后）</text>
+<rect x="320.0" y="84.0" width="235.2" height="18.0" rx="3" fill="#ffffff" stroke="#777777" stroke-width="1.5" stroke-dasharray="4,3"/>
+<text x="563.2" y="99.0" font-size="14" text-anchor="start" fill="#777777">168（平分）</text>
+<rect x="320.0" y="108.0" width="33.6" height="20.0" rx="3" fill="#f8e3c4" stroke="#c77a12" stroke-width="1.5"/>
+<text x="361.6" y="124.0" font-size="14" text-anchor="start" fill="#c77a12" font-weight="bold">24：交出（dealloc）</text>
+<rect x="320.0" y="158.0" width="235.2" height="18.0" rx="3" fill="#ffffff" stroke="#777777" stroke-width="1.5" stroke-dasharray="4,3"/>
+<text x="563.2" y="173.0" font-size="14" text-anchor="start" fill="#777777">168（平分）</text>
+<rect x="320.0" y="182.0" width="336.0" height="20.0" rx="3" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="664.0" y="198.0" font-size="14" text-anchor="start" fill="#2f6db5" font-weight="bold">240：扩容（alloc）</text>
+<rect x="320.0" y="232.0" width="235.2" height="18.0" rx="3" fill="#ffffff" stroke="#777777" stroke-width="1.5" stroke-dasharray="4,3"/>
+<text x="563.2" y="247.0" font-size="14" text-anchor="start" fill="#777777">168（平分）</text>
+<rect x="320.0" y="256.0" width="336.0" height="20.0" rx="3" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="664.0" y="272.0" font-size="14" text-anchor="start" fill="#2f6db5" font-weight="bold">240：扩容（alloc）</text>
+<text x="320.0" y="312.0" font-size="14" text-anchor="start" fill="#222222">合计：128×24 + 256×240 = 64512 个，没超过每个 SM 的 65536 个</text>
+<text x="320.0" y="334.0" font-size="14" text-anchor="start" fill="#777777">消费者多出的寄存器用来装输出累加器 acc</text>
+<text x="30.0" y="378.0" font-size="15" text-anchor="start" fill="#222222" font-weight="bold">shared memory 布局（S = 3 级流水）</text>
+<rect x="30.0" y="392.0" width="110.0" height="44.0" rx="3" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="85.0" y="420.0" font-size="14" text-anchor="middle" fill="#222222">sQ（常驻）</text>
+<rect x="150.0" y="392.0" width="94.0" height="44.0" rx="3" fill="#f8e3c4" stroke="#c77a12" stroke-width="1.5"/>
+<text x="197.0" y="420.0" font-size="14" text-anchor="middle" fill="#222222">sK[0]</text>
+<rect x="250.0" y="392.0" width="94.0" height="44.0" rx="3" fill="#f8e3c4" stroke="#c77a12" stroke-width="1.5"/>
+<text x="297.0" y="420.0" font-size="14" text-anchor="middle" fill="#222222">sK[1]</text>
+<rect x="350.0" y="392.0" width="94.0" height="44.0" rx="3" fill="#f8e3c4" stroke="#c77a12" stroke-width="1.5"/>
+<text x="397.0" y="420.0" font-size="14" text-anchor="middle" fill="#222222">sK[2]</text>
+<rect x="460.0" y="392.0" width="94.0" height="44.0" rx="3" fill="#f8e3c4" stroke="#c77a12" stroke-width="1.5"/>
+<text x="507.0" y="420.0" font-size="14" text-anchor="middle" fill="#222222">sV[0]</text>
+<rect x="560.0" y="392.0" width="94.0" height="44.0" rx="3" fill="#f8e3c4" stroke="#c77a12" stroke-width="1.5"/>
+<text x="607.0" y="420.0" font-size="14" text-anchor="middle" fill="#222222">sV[1]</text>
+<rect x="660.0" y="392.0" width="94.0" height="44.0" rx="3" fill="#f8e3c4" stroke="#c77a12" stroke-width="1.5"/>
+<text x="707.0" y="420.0" font-size="14" text-anchor="middle" fill="#222222">sV[2]</text>
+<text x="305.0" y="456.0" font-size="14" text-anchor="middle" fill="#c77a12">K 块的环形缓冲</text>
+<text x="610.0" y="456.0" font-size="14" text-anchor="middle" fill="#c77a12">V 块的环形缓冲</text>
+<rect x="150.0" y="470.0" width="94.0" height="30.0" rx="3" fill="#ffffff" stroke="#2e8b57" stroke-width="1.5"/>
+<text x="197.0" y="490.0" font-size="14" text-anchor="middle" fill="#222222">full[0]</text>
+<rect x="460.0" y="470.0" width="94.0" height="30.0" rx="3" fill="#ffffff" stroke="#c0392b" stroke-width="1.5"/>
+<text x="507.0" y="490.0" font-size="14" text-anchor="middle" fill="#222222">empty[0]</text>
+<rect x="250.0" y="470.0" width="94.0" height="30.0" rx="3" fill="#ffffff" stroke="#2e8b57" stroke-width="1.5"/>
+<text x="297.0" y="490.0" font-size="14" text-anchor="middle" fill="#222222">full[1]</text>
+<rect x="560.0" y="470.0" width="94.0" height="30.0" rx="3" fill="#ffffff" stroke="#c0392b" stroke-width="1.5"/>
+<text x="607.0" y="490.0" font-size="14" text-anchor="middle" fill="#222222">empty[1]</text>
+<rect x="350.0" y="470.0" width="94.0" height="30.0" rx="3" fill="#ffffff" stroke="#2e8b57" stroke-width="1.5"/>
+<text x="397.0" y="490.0" font-size="14" text-anchor="middle" fill="#222222">full[2]</text>
+<rect x="660.0" y="470.0" width="94.0" height="30.0" rx="3" fill="#ffffff" stroke="#c0392b" stroke-width="1.5"/>
+<text x="707.0" y="490.0" font-size="14" text-anchor="middle" fill="#222222">empty[2]</text>
+<text x="770.0" y="490.0" font-size="14" text-anchor="middle" fill="#222222"></text>
+<text x="30.0" y="490.0" font-size="14" text-anchor="start" fill="#222222">屏障：</text>
+<text x="30.0" y="530.0" font-size="14" text-anchor="start" fill="#222222">full[s]：“第 s 格装满了”，生产者 → 消费者；empty[s]：“第 s 格用完了”，消费者 → 生产者。</text>
+</svg>

@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 990" width="960" height="990" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="990" fill="#ffffff"/>
+<defs><marker id="ah-1f6fb2" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f6fb2"/></marker><marker id="ahs-1f6fb2" viewBox="0 0 10 10" refX="1" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f6fb2"/></marker><marker id="ah-2e7d4f" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e7d4f"/></marker><marker id="ahs-2e7d4f" viewBox="0 0 10 10" refX="1" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e7d4f"/></marker><marker id="ah-666666" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#666666"/></marker><marker id="ahs-666666" viewBox="0 0 10 10" refX="1" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#666666"/></marker><marker id="ah-6a4c93" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6a4c93"/></marker><marker id="ahs-6a4c93" viewBox="0 0 10 10" refX="1" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6a4c93"/></marker><marker id="ah-c8650a" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c8650a"/></marker><marker id="ahs-c8650a" viewBox="0 0 10 10" refX="1" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c8650a"/></marker></defs>
+<text x="480" y="32" font-size="20" text-anchor="middle" fill="#222222" font-weight="bold" >一个 bf16 权重的一生：经过六种存储，每一跳由谁来搬</text>
+<text x="40" y="67" font-size="15" text-anchor="start" fill="#666666" font-weight="normal" >箭头颜色 = 发起者：</text>
+<line x1="190" y1="62" x2="216" y2="62" stroke="#666666" stroke-width="4"/>
+<text x="222" y="67" font-size="15" text-anchor="start" fill="#666666" font-weight="normal" >网卡 / 通信库</text>
+<line x1="350" y1="62" x2="376" y2="62" stroke="#2e7d4f" stroke-width="4"/>
+<text x="382" y="67" font-size="15" text-anchor="start" fill="#666666" font-weight="normal" >硬件自动</text>
+<line x1="480" y1="62" x2="506" y2="62" stroke="#1f6fb2" stroke-width="4"/>
+<text x="512" y="67" font-size="15" text-anchor="start" fill="#666666" font-weight="normal" >单线程下单（TMA）</text>
+<line x1="700" y1="62" x2="726" y2="62" stroke="#c8650a" stroke-width="4"/>
+<text x="732" y="67" font-size="15" text-anchor="start" fill="#666666" font-weight="normal" >整个 warp 的指令</text>
+<rect x="170" y="90" width="250" height="58" rx="4" fill="#f0f0f0" stroke="#444444" stroke-width="1.5" />
+<text x="295.0" y="115" font-size="17" text-anchor="middle" fill="#222222" font-weight="bold" >远端节点 GPU 的 HBM</text>
+<text x="295.0" y="137" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >另一台服务器上的显存</text>
+<rect x="170" y="220" width="250" height="58" rx="4" fill="#f0f0f0" stroke="#444444" stroke-width="1.5" />
+<text x="295.0" y="245" font-size="17" text-anchor="middle" fill="#222222" font-weight="bold" >本卡 HBM（显存）</text>
+<text x="295.0" y="267" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >约 80 条通道，每条背后有行缓冲</text>
+<rect x="170" y="350" width="250" height="58" rx="4" fill="#e0f2e7" stroke="#444444" stroke-width="1.5" />
+<text x="295.0" y="375" font-size="17" text-anchor="middle" fill="#222222" font-weight="bold" >L2 缓存</text>
+<text x="295.0" y="397" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >几十个 slice，地址哈希决定归属</text>
+<rect x="170" y="480" width="250" height="58" rx="4" fill="#e3eef9" stroke="#444444" stroke-width="1.5" />
+<text x="295.0" y="505" font-size="17" text-anchor="middle" fill="#222222" font-weight="bold" >shared memory（本 SM）</text>
+<text x="295.0" y="527" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >32 个 bank，按 swizzle 摆放</text>
+<rect x="170" y="610" width="250" height="58" rx="4" fill="#fdeedd" stroke="#444444" stroke-width="1.5" />
+<text x="295.0" y="635" font-size="17" text-anchor="middle" fill="#222222" font-weight="bold" >寄存器（32 个线程各一份）</text>
+<text x="295.0" y="657" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >按 fragment 规定的分布</text>
+<rect x="170" y="740" width="250" height="58" rx="4" fill="#ece6f5" stroke="#444444" stroke-width="1.5" />
+<text x="295.0" y="765" font-size="17" text-anchor="middle" fill="#222222" font-weight="bold" >Tensor Core</text>
+<text x="295.0" y="787" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >做乘加，结果落回累加器</text>
+<line x1="295.0" y1="150" x2="295.0" y2="218" stroke="#666666" stroke-width="4" marker-end="url(#ah-666666)"/>
+<text x="440" y="169" font-size="16" text-anchor="start" fill="#666666" font-weight="bold" >① RDMA 网卡跨网络搬运（GPUDirect RDMA）</text>
+<text x="440" y="190" font-size="15" text-anchor="start" fill="#222222" font-weight="normal" >发起者：通信库，或 GPU 自己按门铃（IBGDA）</text>
+<text x="440" y="210" font-size="15" text-anchor="start" fill="#666666" font-weight="normal" >微秒级；两端都不经过主机内存</text>
+<line x1="295.0" y1="280" x2="295.0" y2="348" stroke="#2e7d4f" stroke-width="4" marker-end="url(#ah-2e7d4f)"/>
+<text x="440" y="299" font-size="16" text-anchor="start" fill="#2e7d4f" font-weight="bold" >② L2 未命中时，硬件自动去显存取回</text>
+<text x="440" y="320" font-size="15" text-anchor="start" fill="#222222" font-weight="normal" >地址交织选中一条通道，激活一行，按 32 字节 sector 交给 L2</text>
+<text x="440" y="340" font-size="15" text-anchor="start" fill="#666666" font-weight="normal" >几百纳秒</text>
+<line x1="295.0" y1="410" x2="295.0" y2="478" stroke="#1f6fb2" stroke-width="4" marker-end="url(#ah-1f6fb2)"/>
+<text x="440" y="429" font-size="16" text-anchor="start" fill="#1f6fb2" font-weight="bold" >③ TMA 整块搬运（cp.async.bulk.tensor）</text>
+<text x="440" y="450" font-size="15" text-anchor="start" fill="#222222" font-weight="normal" >发起者：kernel 里 1 个线程提交一张订单</text>
+<text x="440" y="470" font-size="15" text-anchor="start" fill="#666666" font-weight="normal" >落位时按 swizzle 摆好，搬完向 mbarrier 记账</text>
+<line x1="295.0" y1="540" x2="295.0" y2="608" stroke="#c8650a" stroke-width="4" marker-end="url(#ah-c8650a)"/>
+<text x="440" y="559" font-size="16" text-anchor="start" fill="#c8650a" font-weight="bold" >④ ldmatrix：整个 warp 执行一条指令</text>
+<text x="440" y="580" font-size="15" text-anchor="start" fill="#222222" font-weight="normal" >每个线程给一个行地址，硬件把数据分发给各线程</text>
+<text x="440" y="600" font-size="15" text-anchor="start" fill="#666666" font-weight="normal" >一次取齐 Tensor Core 要求的分布</text>
+<line x1="295.0" y1="670" x2="295.0" y2="738" stroke="#c8650a" stroke-width="4" marker-end="url(#ah-c8650a)"/>
+<text x="440" y="689" font-size="16" text-anchor="start" fill="#c8650a" font-weight="bold" >⑤ mma：整个 warp 执行一条指令</text>
+<text x="440" y="710" font-size="15" text-anchor="start" fill="#222222" font-weight="normal" >读寄存器里的操作数，乘加结果写回累加器寄存器</text>
+<path d="M 170 520 C 110 560, 110 720, 172 760" fill="none" stroke="#c8650a" stroke-width="2.5" stroke-dasharray="7 5" marker-end="url(#ah-c8650a)"/>
+<text x="8" y="606" font-size="14" text-anchor="start" fill="#c8650a" font-weight="normal" >Hopper：</text>
+<text x="8" y="625" font-size="14" text-anchor="start" fill="#c8650a" font-weight="normal" >wgmma 直接</text>
+<text x="8" y="644" font-size="14" text-anchor="start" fill="#c8650a" font-weight="normal" >从 shared 取，</text>
+<text x="8" y="663" font-size="14" text-anchor="start" fill="#c8650a" font-weight="normal" >跳过寄存器</text>
+<rect x="440" y="740" width="330" height="58" rx="4" fill="#ffffff" stroke="#6a4c93" stroke-width="1.5" stroke-dasharray="6 4" />
+<text x="455" y="764" font-size="15" text-anchor="start" fill="#6a4c93" font-weight="bold" >Blackwell：累加器改放 TMEM</text>
+<text x="455" y="785" font-size="14" text-anchor="start" fill="#6a4c93" font-weight="normal" >（tcgen05 指令族读写，不再占寄存器）</text>
+<line x1="422" y1="769" x2="438" y2="769" stroke="#6a4c93" stroke-width="2" stroke-dasharray="5 4"/>
+<text x="40" y="842" font-size="17" text-anchor="start" fill="#222222" font-weight="bold" >⑥ 写回：结果沿相反方向回到显存</text>
+<rect x="40" y="860" width="200" height="46" rx="4" fill="#f0f0f0" stroke="#444444" stroke-width="1.5" />
+<text x="140" y="889" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >累加器（寄存器或 TMEM）</text>
+<rect x="380" y="860" width="200" height="46" rx="4" fill="#f0f0f0" stroke="#444444" stroke-width="1.5" />
+<text x="480" y="889" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >shared memory</text>
+<rect x="720" y="860" width="200" height="46" rx="4" fill="#f0f0f0" stroke="#444444" stroke-width="1.5" />
+<text x="820" y="889" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >本卡 HBM</text>
+<line x1="242" y1="883" x2="378" y2="883" stroke="#c8650a" stroke-width="3" marker-end="url(#ah-c8650a)"/>
+<text x="310" y="874" font-size="14" text-anchor="middle" fill="#c8650a" font-weight="normal" >stmatrix</text>
+<line x1="582" y1="883" x2="718" y2="883" stroke="#1f6fb2" stroke-width="3" marker-end="url(#ah-1f6fb2)"/>
+<text x="650" y="874" font-size="14" text-anchor="middle" fill="#1f6fb2" font-weight="normal" >TMA store</text>
+<path d="M 140 908 V 940 H 820 V 910" fill="none" stroke="#666666" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#ah-666666)"/>
+<text x="480" y="964" font-size="15" text-anchor="middle" fill="#666666" font-weight="normal" >或者：每个线程直接 st.global 写回显存（不经 shared）</text>
+</svg>

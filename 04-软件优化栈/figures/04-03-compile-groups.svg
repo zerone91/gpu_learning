@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 410" width="960" height="410" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="410" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222222"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f6db5"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777777"/></marker><marker id="o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c77a12"/></marker><marker id="n" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e8b57"/></marker><marker id="p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7a4fb0"/></marker></defs>
+<text x="480" y="30" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold">f(x, W, b, g) 的 9 个节点被分成 4 个融合组</text>
+<rect x="22" y="100" width="96" height="110" rx="6" fill="#eeeeee" fill-opacity="0.6" stroke="#777777" stroke-width="2"/>
+<text x="70.0" y="120" font-size="13" text-anchor="middle" fill="#777777" font-weight="bold">K0：cuBLAS</text>
+<rect x="122" y="100" width="176" height="110" rx="6" fill="#dbe7f5" fill-opacity="0.6" stroke="#2f6db5" stroke-width="2"/>
+<text x="210.0" y="120" font-size="13" text-anchor="middle" fill="#2f6db5" font-weight="bold">K1：生成 kernel（逐元素）</text>
+<rect x="322" y="100" width="176" height="110" rx="6" fill="#f8e3c4" fill-opacity="0.6" stroke="#c77a12" stroke-width="2"/>
+<text x="410.0" y="120" font-size="13" text-anchor="middle" fill="#c77a12" font-weight="bold">K2：生成 kernel（归约）</text>
+<rect x="522" y="100" width="426" height="110" rx="6" fill="#d5ecdc" fill-opacity="0.6" stroke="#2e8b57" stroke-width="2"/>
+<text x="735.0" y="120" font-size="13" text-anchor="middle" fill="#2e8b57" font-weight="bold">K3：生成 kernel（逐元素）</text>
+<rect x="30" y="138" width="80" height="40" rx="6" fill="#ffffff" stroke="#222222" stroke-width="2"/>
+<text x="70.0" y="163.0" font-size="13" text-anchor="middle" fill="#222222">matmul</text>
+<rect x="130" y="138" width="70" height="40" rx="6" fill="#ffffff" stroke="#222222" stroke-width="2"/>
+<text x="165.0" y="163.0" font-size="13" text-anchor="middle" fill="#222222">add b</text>
+<rect x="220" y="138" width="70" height="40" rx="6" fill="#ffffff" stroke="#222222" stroke-width="2"/>
+<text x="255.0" y="163.0" font-size="13" text-anchor="middle" fill="#222222">relu</text>
+<rect x="330" y="138" width="70" height="40" rx="6" fill="#ffffff" stroke="#222222" stroke-width="2"/>
+<text x="365.0" y="163.0" font-size="13" text-anchor="middle" fill="#222222">h*h</text>
+<rect x="420" y="138" width="70" height="40" rx="6" fill="#ffffff" stroke="#222222" stroke-width="2"/>
+<text x="455.0" y="163.0" font-size="13" text-anchor="middle" fill="#222222">mean</text>
+<rect x="530" y="138" width="80" height="40" rx="6" fill="#ffffff" stroke="#222222" stroke-width="2"/>
+<text x="570.0" y="163.0" font-size="13" text-anchor="middle" fill="#222222">add 1e-6</text>
+<rect x="630" y="138" width="70" height="40" rx="6" fill="#ffffff" stroke="#222222" stroke-width="2"/>
+<text x="665.0" y="163.0" font-size="13" text-anchor="middle" fill="#222222">rsqrt</text>
+<rect x="730" y="138" width="90" height="40" rx="6" fill="#ffffff" stroke="#222222" stroke-width="2"/>
+<text x="775.0" y="163.0" font-size="13" text-anchor="middle" fill="#222222">mul(h, r)</text>
+<rect x="850" y="138" width="90" height="40" rx="6" fill="#ffffff" stroke="#222222" stroke-width="2"/>
+<text x="895.0" y="163.0" font-size="13" text-anchor="middle" fill="#222222">mul(·, g)</text>
+<line x1="110" y1="158" x2="128" y2="158" stroke="#222222" stroke-width="1.8" marker-end="url(#a)"/>
+<line x1="200" y1="158" x2="218" y2="158" stroke="#222222" stroke-width="1.8" marker-end="url(#a)"/>
+<line x1="400" y1="158" x2="418" y2="158" stroke="#222222" stroke-width="1.8" marker-end="url(#a)"/>
+<line x1="610" y1="158" x2="628" y2="158" stroke="#222222" stroke-width="1.8" marker-end="url(#a)"/>
+<line x1="700" y1="158" x2="728" y2="158" stroke="#222222" stroke-width="1.8" marker-end="url(#a)"/>
+<line x1="820" y1="158" x2="848" y2="158" stroke="#222222" stroke-width="1.8" marker-end="url(#a)"/>
+<line x1="290" y1="158" x2="328" y2="158" stroke="#222222" stroke-width="1.8" marker-end="url(#a)"/>
+<path d="M 255.0 178 C 255.0 280, 775 280, 775 180" stroke="#c0392b" stroke-width="2.2" fill="none" marker-end="url(#r)"/>
+<text x="515.0" y="278" font-size="13" text-anchor="middle" fill="#c0392b">h 有两个使用者（K2 和 K3），必须作为完整张量写进显存：K1 与 K2 在这里分开</text>
+<line x1="490" y1="158" x2="528" y2="158" stroke="#c77a12" stroke-width="2.2" marker-end="url(#o)"/>
+<text x="502" y="198" font-size="12" text-anchor="start" fill="#c77a12">每行 1 个数</text>
+<text x="480" y="306" font-size="13" text-anchor="middle" fill="#c77a12">K2 的输出是每行一个数（8192 个），K3 的每个元素都要等本行的归约结果：K2 与 K3 在这里分开</text>
+<text x="480" y="338" font-size="13" text-anchor="middle" fill="#2f6db5">matmul → add → relu 之间没有这类障碍：若开启更激进的模式，K1 可作为 epilogue 并进矩阵乘，kernel 数从 4 降到 3</text>
+<text x="480" y="382" font-size="13" text-anchor="middle" fill="#777777">节点名是简写：add b = 加偏置，h*h = pow(2) 规范化后的平方，mul(·, g) = 乘逐通道缩放系数 g</text>
+</svg>

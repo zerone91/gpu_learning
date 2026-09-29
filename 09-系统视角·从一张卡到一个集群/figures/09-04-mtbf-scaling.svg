@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" width="1000" height="560" font-family="sans-serif" font-size="15">
+<rect x="0" y="0" width="1000" height="560" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#444"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/></marker><marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d9822b"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e7d32"/></marker><pattern id="h" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="#f4f4f4"/><line x1="0" y1="0" x2="0" y2="8" stroke="#bbb" stroke-width="2"/></pattern></defs>
+<text x="20.0" y="32.0" text-anchor="start" fill="#222222" font-size="19" font-weight="bold" >卡越多，坏得越勤：系统 MTBF = 单卡 MTBF ÷ 卡数</text>
+<text x="20.0" y="58.0" text-anchor="start" fill="#555" font-size="14" >假设单卡 MTBF 为 5 万小时（约 5.7 年），只算 GPU，不算网卡、光模块、电源等其它部件；两根轴都是对数刻度</text>
+<line x1="110.0" y1="480.0" x2="885.0" y2="480.0" stroke="#444" stroke-width="1.5" marker-end="url(#a)"/>
+<line x1="110.0" y1="480.0" x2="110.0" y2="90.0" stroke="#444" stroke-width="1.5" marker-end="url(#a)"/>
+<line x1="110.0" y1="480.0" x2="110.0" y2="485.0" stroke="#444" stroke-width="1.5"/>
+<text x="110.0" y="502.0" text-anchor="middle" fill="#222222" font-size="14" >1</text>
+<line x1="269.6" y1="480.0" x2="269.6" y2="485.0" stroke="#444" stroke-width="1.5"/>
+<text x="269.6" y="502.0" text-anchor="middle" fill="#222222" font-size="14" >8</text>
+<line x1="482.3" y1="480.0" x2="482.3" y2="485.0" stroke="#444" stroke-width="1.5"/>
+<text x="482.3" y="502.0" text-anchor="middle" fill="#222222" font-size="14" >128</text>
+<line x1="641.9" y1="480.0" x2="641.9" y2="485.0" stroke="#444" stroke-width="1.5"/>
+<text x="641.9" y="502.0" text-anchor="middle" fill="#222222" font-size="14" >1024</text>
+<line x1="801.5" y1="480.0" x2="801.5" y2="485.0" stroke="#444" stroke-width="1.5"/>
+<text x="801.5" y="502.0" text-anchor="middle" fill="#222222" font-size="14" >8192</text>
+<line x1="854.7" y1="480.0" x2="854.7" y2="485.0" stroke="#444" stroke-width="1.5"/>
+<text x="854.7" y="502.0" text-anchor="middle" fill="#222222" font-size="14" >16384</text>
+<text x="490.0" y="528.0" text-anchor="middle" fill="#222222" font-size="14" >集群里的 GPU 数量</text>
+<line x1="105.0" y1="480.0" x2="110.0" y2="480.0" stroke="#444" stroke-width="1.5"/>
+<text x="101.0" y="485.0" text-anchor="end" fill="#222222" font-size="14" >1 小时</text>
+<line x1="105.0" y1="404.0" x2="110.0" y2="404.0" stroke="#444" stroke-width="1.5"/>
+<text x="101.0" y="409.0" text-anchor="end" fill="#222222" font-size="14" >10 小时</text>
+<line x1="105.0" y1="328.0" x2="110.0" y2="328.0" stroke="#444" stroke-width="1.5"/>
+<text x="101.0" y="333.0" text-anchor="end" fill="#222222" font-size="14" >100 小时</text>
+<line x1="105.0" y1="252.0" x2="110.0" y2="252.0" stroke="#444" stroke-width="1.5"/>
+<text x="101.0" y="257.0" text-anchor="end" fill="#222222" font-size="14" >1000 小时</text>
+<line x1="105.0" y1="176.0" x2="110.0" y2="176.0" stroke="#444" stroke-width="1.5"/>
+<text x="101.0" y="181.0" text-anchor="end" fill="#222222" font-size="14" >1 万小时</text>
+<line x1="105.0" y1="100.0" x2="110.0" y2="100.0" stroke="#444" stroke-width="1.5"/>
+<text x="101.0" y="105.0" text-anchor="end" fill="#222222" font-size="14" >10 万小时</text>
+<line x1="110.0" y1="375.1" x2="870.0" y2="375.1" stroke="#bbb" stroke-width="1.2" stroke-dasharray="5,4"/>
+<text x="116.0" y="370.1" text-anchor="start" fill="#777" font-size="14" >一天</text>
+<line x1="110.0" y1="310.9" x2="870.0" y2="310.9" stroke="#bbb" stroke-width="1.2" stroke-dasharray="5,4"/>
+<text x="116.0" y="305.9" text-anchor="start" fill="#777" font-size="14" >一周</text>
+<line x1="110.0" y1="262.8" x2="870.0" y2="262.8" stroke="#bbb" stroke-width="1.2" stroke-dasharray="5,4"/>
+<text x="116.0" y="257.8" text-anchor="start" fill="#777" font-size="14" >一个月</text>
+<path d="M110.0,122.9 L113.7,124.5 L117.5,126.1 L121.2,127.7 L125.0,129.3 L128.7,130.9 L132.5,132.5 L136.2,134.2 L140.0,135.8 L143.7,137.4 L147.4,139.0 L151.2,140.6 L154.9,142.2 L158.7,143.8 L162.4,145.4 L166.2,147.0 L169.9,148.6 L173.7,150.3 L177.4,151.9 L181.1,153.5 L184.9,155.1 L188.6,156.7 L192.4,158.3 L196.1,159.9 L199.9,161.5 L203.6,163.1 L207.3,164.7 L211.1,166.4 L214.8,168.0 L218.6,169.6 L222.3,171.2 L226.1,172.8 L229.8,174.4 L233.6,176.0 L237.3,177.6 L241.0,179.2 L244.8,180.9 L248.5,182.5 L252.3,184.1 L256.0,185.7 L259.8,187.3 L263.5,188.9 L267.3,190.5 L271.0,192.1 L274.7,193.7 L278.5,195.3 L282.2,197.0 L286.0,198.6 L289.7,200.2 L293.5,201.8 L297.2,203.4 L301.0,205.0 L304.7,206.6 L308.4,208.2 L312.2,209.8 L315.9,211.4 L319.7,213.1 L323.4,214.7 L327.2,216.3 L330.9,217.9 L334.7,219.5 L338.4,221.1 L342.1,222.7 L345.9,224.3 L349.6,225.9 L353.4,227.6 L357.1,229.2 L360.9,230.8 L364.6,232.4 L368.3,234.0 L372.1,235.6 L375.8,237.2 L379.6,238.8 L383.3,240.4 L387.1,242.0 L390.8,243.7 L394.6,245.3 L398.3,246.9 L402.0,248.5 L405.8,250.1 L409.5,251.7 L413.3,253.3 L417.0,254.9 L420.8,256.5 L424.5,258.2 L428.3,259.8 L432.0,261.4 L435.7,263.0 L439.5,264.6 L443.2,266.2 L447.0,267.8 L450.7,269.4 L454.5,271.0 L458.2,272.6 L462.0,274.3 L465.7,275.9 L469.4,277.5 L473.2,279.1 L476.9,280.7 L480.7,282.3 L484.4,283.9 L488.2,285.5 L491.9,287.1 L495.7,288.7 L499.4,290.4 L503.1,292.0 L506.9,293.6 L510.6,295.2 L514.4,296.8 L518.1,298.4 L521.9,300.0 L525.6,301.6 L529.3,303.2 L533.1,304.9 L536.8,306.5 L540.6,308.1 L544.3,309.7 L548.1,311.3 L551.8,312.9 L555.6,314.5 L559.3,316.1 L563.0,317.7 L566.8,319.3 L570.5,321.0 L574.3,322.6 L578.0,324.2 L581.8,325.8 L585.5,327.4 L589.3,329.0 L593.0,330.6 L596.7,332.2 L600.5,333.8 L604.2,335.4 L608.0,337.1 L611.7,338.7 L615.5,340.3 L619.2,341.9 L623.0,343.5 L626.7,345.1 L630.4,346.7 L634.2,348.3 L637.9,349.9 L641.7,351.6 L645.4,353.2 L649.2,354.8 L652.9,356.4 L656.7,358.0 L660.4,359.6 L664.1,361.2 L667.9,362.8 L671.6,364.4 L675.4,366.0 L679.1,367.7 L682.9,369.3 L686.6,370.9 L690.3,372.5 L694.1,374.1 L697.8,375.7 L701.6,377.3 L705.3,378.9 L709.1,380.5 L712.8,382.2 L716.6,383.8 L720.3,385.4 L724.0,387.0 L727.8,388.6 L731.5,390.2 L735.3,391.8 L739.0,393.4 L742.8,395.0 L746.5,396.6 L750.3,398.3 L754.0,399.9 L757.7,401.5 L761.5,403.1 L765.2,404.7 L769.0,406.3 L772.7,407.9 L776.5,409.5 L780.2,411.1 L784.0,412.7 L787.7,414.4 L791.4,416.0 L795.2,417.6 L798.9,419.2 L802.7,420.8 L806.4,422.4 L810.2,424.0 L813.9,425.6 L817.7,427.2 L821.4,428.9 L825.1,430.5 L828.9,432.1 L832.6,433.7 L836.4,435.3 L840.1,436.9 L843.9,438.5 L847.6,440.1 L851.3,441.7 L855.1,443.3 L858.8,445.0 L862.6,446.6 L866.3,448.2" stroke="#c0392b" stroke-width="3" fill="none"/>
+<path d="M852.8758204522234,433.7302856288108 L860.8758204522234,448.7302856288108 L844.8758204522234,448.7302856288108 z" stroke="#1f5fa8" stroke-width="2" fill="#cfe3f7"/>
+<text x="930.0" y="170.0" text-anchor="end" fill="#1f5fa8" font-size="14" >蓝色三角：公开报道的一次训练，</text>
+<text x="930.0" y="192.0" text-anchor="end" fill="#1f5fa8" font-size="14" >约 1.6 万卡、54 天、419 次中断，</text>
+<text x="930.0" y="214.0" text-anchor="end" fill="#1f5fa8" font-size="14" >平均每 3.1 小时一次</text>
+<line x1="900.0" y1="224.0" x2="856.9" y2="428.7" stroke="#1f5fa8" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#ab)"/>
+<circle cx="269.6" cy="191.5" r="5" fill="#f6c6c0" stroke="#c0392b" stroke-width="2"/>
+<text x="279.6" y="183.5" text-anchor="start" fill="#c0392b" font-size="14" >6250 h ≈ 8.5 个月</text>
+<circle cx="482.3" cy="283.0" r="5" fill="#f6c6c0" stroke="#c0392b" stroke-width="2"/>
+<text x="492.3" y="275.0" text-anchor="start" fill="#c0392b" font-size="14" >390 h ≈ 16 天</text>
+<circle cx="641.9" cy="351.7" r="5" fill="#f6c6c0" stroke="#c0392b" stroke-width="2"/>
+<text x="651.9" y="343.7" text-anchor="start" fill="#c0392b" font-size="14" >49 h ≈ 两天</text>
+<circle cx="801.5" cy="420.3" r="5" fill="#f6c6c0" stroke="#c0392b" stroke-width="2"/>
+<circle cx="854.7" cy="443.2" r="5" fill="#f6c6c0" stroke="#c0392b" stroke-width="2"/>
+<text x="789.5" y="442.3" text-anchor="end" fill="#c0392b" font-size="14" >6.1 h：一天四次</text>
+<text x="868.7" y="463.2" text-anchor="start" fill="#c0392b" font-size="14" >3.1 h：一天八次</text>
+</svg>

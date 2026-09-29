@@ -1,0 +1,240 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 740" width="960" height="740" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="740" fill="#ffffff"/>
+<text x="480" y="28" font-size="18" text-anchor="middle" fill="#222" font-weight="bold">计算裸片和 HBM 并排时，垫在下面的载体有四种做法（剖面示意）</text>
+<rect x="20" y="50" width="450" height="325" fill="none" stroke="#bbb" stroke-width="1.2"/>
+<text x="245" y="76" font-size="16" text-anchor="middle" fill="#222" font-weight="bold">（a）CoWoS-S：整片硅</text>
+<rect x="40" y="250" width="410" height="40" fill="#cfe3c4" stroke="#222" stroke-width="1.5"/>
+<text x="245" y="276" font-size="13" text-anchor="middle">有机封装基板（约 10 微米走线）</text>
+<circle cx="60" cy="298" r="7" fill="#b8860b"/>
+<circle cx="101" cy="298" r="7" fill="#b8860b"/>
+<circle cx="142" cy="298" r="7" fill="#b8860b"/>
+<circle cx="183" cy="298" r="7" fill="#b8860b"/>
+<circle cx="224" cy="298" r="7" fill="#b8860b"/>
+<circle cx="265" cy="298" r="7" fill="#b8860b"/>
+<circle cx="306" cy="298" r="7" fill="#b8860b"/>
+<circle cx="347" cy="298" r="7" fill="#b8860b"/>
+<circle cx="388" cy="298" r="7" fill="#b8860b"/>
+<circle cx="429" cy="298" r="7" fill="#b8860b"/>
+<rect x="60" y="210" width="370" height="36" fill="#8fa3b8" stroke="#222" stroke-width="1.5"/>
+<circle cx="75" cy="248" r="3.5" fill="#b8860b"/>
+<circle cx="117" cy="248" r="3.5" fill="#b8860b"/>
+<circle cx="159" cy="248" r="3.5" fill="#b8860b"/>
+<circle cx="201" cy="248" r="3.5" fill="#b8860b"/>
+<circle cx="243" cy="248" r="3.5" fill="#b8860b"/>
+<circle cx="285" cy="248" r="3.5" fill="#b8860b"/>
+<circle cx="327" cy="248" r="3.5" fill="#b8860b"/>
+<circle cx="369" cy="248" r="3.5" fill="#b8860b"/>
+<circle cx="411" cy="248" r="3.5" fill="#b8860b"/>
+<rect x="73" y="210" width="4" height="36" fill="#d9822b"/>
+<rect x="115" y="210" width="4" height="36" fill="#d9822b"/>
+<rect x="157" y="210" width="4" height="36" fill="#d9822b"/>
+<rect x="199" y="210" width="4" height="36" fill="#d9822b"/>
+<rect x="241" y="210" width="4" height="36" fill="#d9822b"/>
+<rect x="283" y="210" width="4" height="36" fill="#d9822b"/>
+<rect x="325" y="210" width="4" height="36" fill="#d9822b"/>
+<rect x="367" y="210" width="4" height="36" fill="#d9822b"/>
+<rect x="409" y="210" width="4" height="36" fill="#d9822b"/>
+<text x="245" y="233" font-size="13" text-anchor="middle" fill="#fff" font-weight="bold" stroke="#8fa3b8" stroke-width="5" paint-order="stroke">整片硅中介层（竖条是 TSV）</text>
+<rect x="70" y="134" width="220" height="60" fill="#9bb7d4" stroke="#222" stroke-width="1.5"/>
+<text x="180" y="169" font-size="14" text-anchor="middle">计算裸片</text>
+<rect x="310" y="98" width="110" height="17" fill="#c9b3dd" stroke="#555" stroke-width="1"/>
+<rect x="310" y="117" width="110" height="17" fill="#c9b3dd" stroke="#555" stroke-width="1"/>
+<rect x="310" y="136" width="110" height="17" fill="#c9b3dd" stroke="#555" stroke-width="1"/>
+<rect x="310" y="155" width="110" height="17" fill="#c9b3dd" stroke="#555" stroke-width="1"/>
+<rect x="310" y="174" width="110" height="17" fill="#c9b3dd" stroke="#555" stroke-width="1"/>
+<text x="365" y="144" font-size="13" text-anchor="middle">HBM</text>
+<circle cx="77.0" cy="198" r="3.5" fill="#b8860b"/>
+<circle cx="90.5" cy="198" r="3.5" fill="#b8860b"/>
+<circle cx="104.0" cy="198" r="3.5" fill="#b8860b"/>
+<circle cx="117.5" cy="198" r="3.5" fill="#b8860b"/>
+<circle cx="131.0" cy="198" r="3.5" fill="#b8860b"/>
+<circle cx="144.5" cy="198" r="3.5" fill="#b8860b"/>
+<circle cx="158.0" cy="198" r="3.5" fill="#b8860b"/>
+<circle cx="171.5" cy="198" r="3.5" fill="#b8860b"/>
+<circle cx="185.0" cy="198" r="3.5" fill="#b8860b"/>
+<circle cx="198.5" cy="198" r="3.5" fill="#b8860b"/>
+<circle cx="212.0" cy="198" r="3.5" fill="#b8860b"/>
+<circle cx="225.5" cy="198" r="3.5" fill="#b8860b"/>
+<circle cx="239.0" cy="198" r="3.5" fill="#b8860b"/>
+<circle cx="252.5" cy="198" r="3.5" fill="#b8860b"/>
+<circle cx="266.0" cy="198" r="3.5" fill="#b8860b"/>
+<circle cx="279.5" cy="198" r="3.5" fill="#b8860b"/>
+<circle cx="317.0" cy="198" r="3.5" fill="#b8860b"/>
+<circle cx="330.5" cy="198" r="3.5" fill="#b8860b"/>
+<circle cx="344.0" cy="198" r="3.5" fill="#b8860b"/>
+<circle cx="357.5" cy="198" r="3.5" fill="#b8860b"/>
+<circle cx="371.0" cy="198" r="3.5" fill="#b8860b"/>
+<circle cx="384.5" cy="198" r="3.5" fill="#b8860b"/>
+<circle cx="398.0" cy="198" r="3.5" fill="#b8860b"/>
+<circle cx="411.5" cy="198" r="3.5" fill="#b8860b"/>
+<text x="40" y="335" font-size="13" fill="#222">走线亚微米，每毫米每层约 1000 根</text>
+<text x="40" y="355" font-size="13" fill="#c0392b">面积受光罩极限约束，大硅片贵、刚性</text>
+<rect x="490" y="50" width="450" height="325" fill="none" stroke="#bbb" stroke-width="1.2"/>
+<text x="715" y="76" font-size="16" text-anchor="middle" fill="#222" font-weight="bold">（b）CoWoS-R：整片 RDL</text>
+<rect x="510" y="250" width="410" height="40" fill="#cfe3c4" stroke="#222" stroke-width="1.5"/>
+<text x="715" y="276" font-size="13" text-anchor="middle">有机封装基板（约 10 微米走线）</text>
+<circle cx="530" cy="298" r="7" fill="#b8860b"/>
+<circle cx="571" cy="298" r="7" fill="#b8860b"/>
+<circle cx="612" cy="298" r="7" fill="#b8860b"/>
+<circle cx="653" cy="298" r="7" fill="#b8860b"/>
+<circle cx="694" cy="298" r="7" fill="#b8860b"/>
+<circle cx="735" cy="298" r="7" fill="#b8860b"/>
+<circle cx="776" cy="298" r="7" fill="#b8860b"/>
+<circle cx="817" cy="298" r="7" fill="#b8860b"/>
+<circle cx="858" cy="298" r="7" fill="#b8860b"/>
+<circle cx="899" cy="298" r="7" fill="#b8860b"/>
+<rect x="530" y="210" width="370" height="36" fill="#f1dfb8" stroke="#222" stroke-width="1.5"/>
+<circle cx="545" cy="248" r="3.5" fill="#b8860b"/>
+<circle cx="587" cy="248" r="3.5" fill="#b8860b"/>
+<circle cx="629" cy="248" r="3.5" fill="#b8860b"/>
+<circle cx="671" cy="248" r="3.5" fill="#b8860b"/>
+<circle cx="713" cy="248" r="3.5" fill="#b8860b"/>
+<circle cx="755" cy="248" r="3.5" fill="#b8860b"/>
+<circle cx="797" cy="248" r="3.5" fill="#b8860b"/>
+<circle cx="839" cy="248" r="3.5" fill="#b8860b"/>
+<circle cx="881" cy="248" r="3.5" fill="#b8860b"/>
+<line x1="534" y1="218" x2="896" y2="218" stroke="#b07a1e" stroke-width="1.5" stroke-dasharray="14,6"/>
+<line x1="534" y1="226" x2="896" y2="226" stroke="#b07a1e" stroke-width="1.5" stroke-dasharray="14,6"/>
+<line x1="534" y1="234" x2="896" y2="234" stroke="#b07a1e" stroke-width="1.5" stroke-dasharray="14,6"/>
+<text x="715" y="232" font-size="13" text-anchor="middle" fill="#222" font-weight="bold" stroke="#f1dfb8" stroke-width="4" paint-order="stroke">RDL 中介层（几层铜线 + 高分子绝缘层）</text>
+<rect x="540" y="134" width="220" height="60" fill="#9bb7d4" stroke="#222" stroke-width="1.5"/>
+<text x="650" y="169" font-size="14" text-anchor="middle">计算裸片</text>
+<rect x="780" y="98" width="110" height="17" fill="#c9b3dd" stroke="#555" stroke-width="1"/>
+<rect x="780" y="117" width="110" height="17" fill="#c9b3dd" stroke="#555" stroke-width="1"/>
+<rect x="780" y="136" width="110" height="17" fill="#c9b3dd" stroke="#555" stroke-width="1"/>
+<rect x="780" y="155" width="110" height="17" fill="#c9b3dd" stroke="#555" stroke-width="1"/>
+<rect x="780" y="174" width="110" height="17" fill="#c9b3dd" stroke="#555" stroke-width="1"/>
+<text x="835" y="144" font-size="13" text-anchor="middle">HBM</text>
+<circle cx="547.0" cy="198" r="3.5" fill="#b8860b"/>
+<circle cx="560.5" cy="198" r="3.5" fill="#b8860b"/>
+<circle cx="574.0" cy="198" r="3.5" fill="#b8860b"/>
+<circle cx="587.5" cy="198" r="3.5" fill="#b8860b"/>
+<circle cx="601.0" cy="198" r="3.5" fill="#b8860b"/>
+<circle cx="614.5" cy="198" r="3.5" fill="#b8860b"/>
+<circle cx="628.0" cy="198" r="3.5" fill="#b8860b"/>
+<circle cx="641.5" cy="198" r="3.5" fill="#b8860b"/>
+<circle cx="655.0" cy="198" r="3.5" fill="#b8860b"/>
+<circle cx="668.5" cy="198" r="3.5" fill="#b8860b"/>
+<circle cx="682.0" cy="198" r="3.5" fill="#b8860b"/>
+<circle cx="695.5" cy="198" r="3.5" fill="#b8860b"/>
+<circle cx="709.0" cy="198" r="3.5" fill="#b8860b"/>
+<circle cx="722.5" cy="198" r="3.5" fill="#b8860b"/>
+<circle cx="736.0" cy="198" r="3.5" fill="#b8860b"/>
+<circle cx="749.5" cy="198" r="3.5" fill="#b8860b"/>
+<circle cx="787.0" cy="198" r="3.5" fill="#b8860b"/>
+<circle cx="800.5" cy="198" r="3.5" fill="#b8860b"/>
+<circle cx="814.0" cy="198" r="3.5" fill="#b8860b"/>
+<circle cx="827.5" cy="198" r="3.5" fill="#b8860b"/>
+<circle cx="841.0" cy="198" r="3.5" fill="#b8860b"/>
+<circle cx="854.5" cy="198" r="3.5" fill="#b8860b"/>
+<circle cx="868.0" cy="198" r="3.5" fill="#b8860b"/>
+<circle cx="881.5" cy="198" r="3.5" fill="#b8860b"/>
+<text x="510" y="335" font-size="13" fill="#222">走线约 2 微米，每毫米每层约 250 根</text>
+<text x="510" y="355" font-size="13" fill="#c0392b">不受光罩约束、便宜、有柔性；同样的线要多占几层</text>
+<rect x="20" y="395" width="450" height="325" fill="none" stroke="#bbb" stroke-width="1.2"/>
+<text x="245" y="421" font-size="16" text-anchor="middle" fill="#222" font-weight="bold">（c）CoWoS-L：RDL + 局部硅桥（LSI）</text>
+<rect x="40" y="595" width="410" height="40" fill="#cfe3c4" stroke="#222" stroke-width="1.5"/>
+<text x="245" y="621" font-size="13" text-anchor="middle">有机封装基板（约 10 微米走线）</text>
+<circle cx="60" cy="643" r="7" fill="#b8860b"/>
+<circle cx="101" cy="643" r="7" fill="#b8860b"/>
+<circle cx="142" cy="643" r="7" fill="#b8860b"/>
+<circle cx="183" cy="643" r="7" fill="#b8860b"/>
+<circle cx="224" cy="643" r="7" fill="#b8860b"/>
+<circle cx="265" cy="643" r="7" fill="#b8860b"/>
+<circle cx="306" cy="643" r="7" fill="#b8860b"/>
+<circle cx="347" cy="643" r="7" fill="#b8860b"/>
+<circle cx="388" cy="643" r="7" fill="#b8860b"/>
+<circle cx="429" cy="643" r="7" fill="#b8860b"/>
+<rect x="60" y="555" width="370" height="36" fill="#f1dfb8" stroke="#222" stroke-width="1.5"/>
+<circle cx="75" cy="593" r="3.5" fill="#b8860b"/>
+<circle cx="117" cy="593" r="3.5" fill="#b8860b"/>
+<circle cx="159" cy="593" r="3.5" fill="#b8860b"/>
+<circle cx="201" cy="593" r="3.5" fill="#b8860b"/>
+<circle cx="243" cy="593" r="3.5" fill="#b8860b"/>
+<circle cx="285" cy="593" r="3.5" fill="#b8860b"/>
+<circle cx="327" cy="593" r="3.5" fill="#b8860b"/>
+<circle cx="369" cy="593" r="3.5" fill="#b8860b"/>
+<circle cx="411" cy="593" r="3.5" fill="#b8860b"/>
+<line x1="64" y1="563" x2="426" y2="563" stroke="#b07a1e" stroke-width="1.5" stroke-dasharray="14,6"/>
+<line x1="64" y1="571" x2="426" y2="571" stroke="#b07a1e" stroke-width="1.5" stroke-dasharray="14,6"/>
+<line x1="64" y1="579" x2="426" y2="579" stroke="#b07a1e" stroke-width="1.5" stroke-dasharray="14,6"/>
+<rect x="265" y="561" width="70" height="24" fill="#8fa3b8" stroke="#222" stroke-width="1.5"/>
+<text x="300" y="578" font-size="13" text-anchor="middle" fill="#fff" font-weight="bold">LSI</text>
+<text x="160" y="577" font-size="13" text-anchor="middle" fill="#222" font-weight="bold" stroke="#f1dfb8" stroke-width="4" paint-order="stroke">RDL 中介层</text>
+<rect x="70" y="479" width="220" height="60" fill="#9bb7d4" stroke="#222" stroke-width="1.5"/>
+<text x="180" y="514" font-size="14" text-anchor="middle">计算裸片</text>
+<rect x="310" y="443" width="110" height="17" fill="#c9b3dd" stroke="#555" stroke-width="1"/>
+<rect x="310" y="462" width="110" height="17" fill="#c9b3dd" stroke="#555" stroke-width="1"/>
+<rect x="310" y="481" width="110" height="17" fill="#c9b3dd" stroke="#555" stroke-width="1"/>
+<rect x="310" y="500" width="110" height="17" fill="#c9b3dd" stroke="#555" stroke-width="1"/>
+<rect x="310" y="519" width="110" height="17" fill="#c9b3dd" stroke="#555" stroke-width="1"/>
+<text x="365" y="489" font-size="13" text-anchor="middle">HBM</text>
+<circle cx="77.0" cy="543" r="3.5" fill="#b8860b"/>
+<circle cx="90.5" cy="543" r="3.5" fill="#b8860b"/>
+<circle cx="104.0" cy="543" r="3.5" fill="#b8860b"/>
+<circle cx="117.5" cy="543" r="3.5" fill="#b8860b"/>
+<circle cx="131.0" cy="543" r="3.5" fill="#b8860b"/>
+<circle cx="144.5" cy="543" r="3.5" fill="#b8860b"/>
+<circle cx="158.0" cy="543" r="3.5" fill="#b8860b"/>
+<circle cx="171.5" cy="543" r="3.5" fill="#b8860b"/>
+<circle cx="185.0" cy="543" r="3.5" fill="#b8860b"/>
+<circle cx="198.5" cy="543" r="3.5" fill="#b8860b"/>
+<circle cx="212.0" cy="543" r="3.5" fill="#b8860b"/>
+<circle cx="225.5" cy="543" r="3.5" fill="#b8860b"/>
+<circle cx="239.0" cy="543" r="3.5" fill="#b8860b"/>
+<circle cx="252.5" cy="543" r="3.5" fill="#b8860b"/>
+<circle cx="266.0" cy="543" r="3.5" fill="#b8860b"/>
+<circle cx="279.5" cy="543" r="3.5" fill="#b8860b"/>
+<circle cx="317.0" cy="543" r="3.5" fill="#b8860b"/>
+<circle cx="330.5" cy="543" r="3.5" fill="#b8860b"/>
+<circle cx="344.0" cy="543" r="3.5" fill="#b8860b"/>
+<circle cx="357.5" cy="543" r="3.5" fill="#b8860b"/>
+<circle cx="371.0" cy="543" r="3.5" fill="#b8860b"/>
+<circle cx="384.5" cy="543" r="3.5" fill="#b8860b"/>
+<circle cx="398.0" cy="543" r="3.5" fill="#b8860b"/>
+<circle cx="411.5" cy="543" r="3.5" fill="#b8860b"/>
+<text x="40" y="680" font-size="13" fill="#222">只在裸片与 HBM 相接的窄带下埋硅，走最密的线</text>
+<text x="40" y="700" font-size="13" fill="#1e7b34">其余面积用 RDL：面积不受限，硅只用一点</text>
+<rect x="490" y="395" width="450" height="325" fill="none" stroke="#bbb" stroke-width="1.2"/>
+<text x="715" y="421" font-size="16" text-anchor="middle" fill="#222" font-weight="bold">（d）英特尔 EMIB：硅桥直接埋进基板</text>
+<rect x="510" y="595" width="410" height="40" fill="#cfe3c4" stroke="#222" stroke-width="1.5"/>
+<text x="620" y="621" font-size="13" text-anchor="middle">有机封装基板（约 10 微米走线）</text>
+<circle cx="530" cy="643" r="7" fill="#b8860b"/>
+<circle cx="571" cy="643" r="7" fill="#b8860b"/>
+<circle cx="612" cy="643" r="7" fill="#b8860b"/>
+<circle cx="653" cy="643" r="7" fill="#b8860b"/>
+<circle cx="694" cy="643" r="7" fill="#b8860b"/>
+<circle cx="735" cy="643" r="7" fill="#b8860b"/>
+<circle cx="776" cy="643" r="7" fill="#b8860b"/>
+<circle cx="817" cy="643" r="7" fill="#b8860b"/>
+<circle cx="858" cy="643" r="7" fill="#b8860b"/>
+<circle cx="899" cy="643" r="7" fill="#b8860b"/>
+<rect x="735" y="597" width="70" height="20" fill="#8fa3b8" stroke="#222" stroke-width="1.5"/>
+<text x="770" y="612" font-size="13" text-anchor="middle" fill="#fff" font-weight="bold">硅桥</text>
+<rect x="540" y="525" width="220" height="60" fill="#9bb7d4" stroke="#222" stroke-width="1.5"/>
+<text x="650" y="560" font-size="14" text-anchor="middle">计算裸片</text>
+<rect x="780" y="489" width="110" height="17" fill="#c9b3dd" stroke="#555" stroke-width="1"/>
+<rect x="780" y="508" width="110" height="17" fill="#c9b3dd" stroke="#555" stroke-width="1"/>
+<rect x="780" y="527" width="110" height="17" fill="#c9b3dd" stroke="#555" stroke-width="1"/>
+<rect x="780" y="546" width="110" height="17" fill="#c9b3dd" stroke="#555" stroke-width="1"/>
+<rect x="780" y="565" width="110" height="17" fill="#c9b3dd" stroke="#555" stroke-width="1"/>
+<text x="835" y="535" font-size="13" text-anchor="middle">HBM</text>
+<circle cx="547.0" cy="589" r="5" fill="#b8860b"/>
+<circle cx="587.5" cy="589" r="5" fill="#b8860b"/>
+<circle cx="628.0" cy="589" r="5" fill="#b8860b"/>
+<circle cx="668.5" cy="589" r="5" fill="#b8860b"/>
+<circle cx="709.0" cy="589" r="5" fill="#b8860b"/>
+<circle cx="736.0" cy="589" r="3.5" fill="#b8860b"/>
+<circle cx="749.5" cy="589" r="3.5" fill="#b8860b"/>
+<circle cx="787.0" cy="589" r="3.5" fill="#b8860b"/>
+<circle cx="800.5" cy="589" r="3.5" fill="#b8860b"/>
+<circle cx="814.0" cy="589" r="3.5" fill="#b8860b"/>
+<circle cx="827.5" cy="589" r="3.5" fill="#b8860b"/>
+<circle cx="841.0" cy="589" r="3.5" fill="#b8860b"/>
+<circle cx="854.5" cy="589" r="3.5" fill="#b8860b"/>
+<circle cx="868.0" cy="589" r="3.5" fill="#b8860b"/>
+<circle cx="881.5" cy="589" r="3.5" fill="#b8860b"/>
+<text x="510" y="680" font-size="13" fill="#222">没有中介层：裸片直接焊在基板上</text>
+<text x="510" y="700" font-size="13" fill="#1e7b34">只有跨在硅桥上方的凸块做成细间距</text>
+<text x="480" y="734" font-size="13" text-anchor="middle" fill="#555">蓝灰色 = 硅；浅黄 = RDL（虚线为铜走线）；浅绿 = 有机基板；小圆点 = 凸块。每毫米走线数为量级估算</text>
+</svg>

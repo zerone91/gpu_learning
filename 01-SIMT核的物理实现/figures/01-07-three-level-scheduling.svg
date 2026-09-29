@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" width="960" height="640" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="640" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker></defs>
+<text x="480" y="26" font-size="18" text-anchor="middle" fill="#222" font-weight="bold">从 kernel&lt;&lt;&lt;4000, 256&gt;&gt;&gt; 到指令发射：三层调度</text>
+<rect x="20" y="50" width="210" height="190" rx="8" fill="#fafafa" stroke="#999" stroke-width="1.5"/>
+<text x="125" y="72" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">CPU 侧</text>
+<rect x="40" y="84" width="170" height="40" rx="6" fill="#ffffff" stroke="#222" stroke-width="2"/>
+<text x="125" y="109" font-size="14" text-anchor="middle" fill="#222">驱动把启动打包成命令</text>
+<line x1="125" y1="126" x2="125" y2="150" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<text x="125" y="170" font-size="14" text-anchor="middle" fill="#222">内存里的命令队列</text>
+<rect x="45" y="180" width="30" height="26" fill="#fbe3c4" stroke="#222" stroke-width="1.5"/>
+<rect x="77" y="180" width="30" height="26" fill="#fbe3c4" stroke="#222" stroke-width="1.5"/>
+<rect x="109" y="180" width="30" height="26" fill="#fbe3c4" stroke="#222" stroke-width="1.5"/>
+<rect x="141" y="180" width="30" height="26" fill="#ffffff" stroke="#222" stroke-width="1.5"/>
+<rect x="173" y="180" width="30" height="26" fill="#ffffff" stroke="#222" stroke-width="1.5"/>
+<text x="125" y="228" font-size="14" text-anchor="middle" fill="#555">写完即返回，CPU 不等</text>
+<rect x="250" y="50" width="690" height="570" rx="10" fill="#ffffff" stroke="#222" stroke-width="2.5"/>
+<text x="920" y="72" font-size="15" text-anchor="end" fill="#222" font-weight="bold">GPU</text>
+<line x1="232" y1="193" x2="268" y2="110" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<rect x="270" y="84" width="120" height="50" rx="6" fill="#f2f2f2" stroke="#222" stroke-width="2"/>
+<text x="330" y="114" font-size="14" text-anchor="middle" fill="#222">前端取命令</text>
+<line x1="392" y1="109" x2="418" y2="109" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<rect x="420" y="80" width="200" height="60" rx="6" fill="#fbe3c4" stroke="#222" stroke-width="2"/>
+<text x="520" y="100" font-size="14" text-anchor="middle" fill="#222" font-weight="bold">GMU：排队的 grid</text>
+<rect x="430" y="108" width="56" height="24" fill="#ffffff" stroke="#222" stroke-width="1.5"/>
+<text x="458" y="125" font-size="13" text-anchor="middle" fill="#222">grid A</text>
+<rect x="492" y="108" width="56" height="24" fill="#ffffff" stroke="#222" stroke-width="1.5"/>
+<text x="520" y="125" font-size="13" text-anchor="middle" fill="#222">grid B</text>
+<rect x="554" y="108" width="56" height="24" fill="#ffffff" stroke="#222" stroke-width="1.5"/>
+<text x="582" y="125" font-size="13" text-anchor="middle" fill="#222">grid C</text>
+<line x1="622" y1="109" x2="648" y2="109" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<rect x="650" y="80" width="170" height="60" rx="6" fill="#fbe3c4" stroke="#222" stroke-width="2"/>
+<text x="735" y="104" font-size="14" text-anchor="middle" fill="#222" font-weight="bold">CWD：逐个发块</text>
+<text x="735" y="126" font-size="14" text-anchor="middle" fill="#222">谁有空座就发给谁</text>
+<rect x="270" y="176" width="100" height="62" rx="6" fill="#dbe8f6" stroke="#222" stroke-width="1.5"/>
+<text x="320" y="195" font-size="14" text-anchor="middle" fill="#222">SM 0</text>
+<rect x="288" y="204" width="28" height="24" fill="#2c6fb7" stroke="#222" stroke-width="1.5"/>
+<rect x="324" y="204" width="28" height="24" fill="#2c6fb7" stroke="#222" stroke-width="1.5"/>
+<rect x="380" y="176" width="100" height="62" rx="6" fill="#dbe8f6" stroke="#222" stroke-width="1.5"/>
+<text x="430" y="195" font-size="14" text-anchor="middle" fill="#222">SM 1</text>
+<rect x="398" y="204" width="28" height="24" fill="#2c6fb7" stroke="#222" stroke-width="1.5"/>
+<rect x="434" y="204" width="28" height="24" fill="#2c6fb7" stroke="#222" stroke-width="1.5"/>
+<rect x="490" y="176" width="100" height="62" rx="6" fill="#dbe8f6" stroke="#222" stroke-width="3"/>
+<text x="540" y="195" font-size="14" text-anchor="middle" fill="#222">SM 2</text>
+<rect x="508" y="204" width="28" height="24" fill="#2c6fb7" stroke="#222" stroke-width="1.5"/>
+<rect x="544" y="204" width="28" height="24" fill="#ffffff" stroke="#222" stroke-width="1.5"/>
+<rect x="600" y="176" width="100" height="62" rx="6" fill="#dbe8f6" stroke="#222" stroke-width="1.5"/>
+<text x="650" y="195" font-size="14" text-anchor="middle" fill="#222">SM 3</text>
+<rect x="618" y="204" width="28" height="24" fill="#2c6fb7" stroke="#222" stroke-width="1.5"/>
+<rect x="654" y="204" width="28" height="24" fill="#2c6fb7" stroke="#222" stroke-width="1.5"/>
+<rect x="710" y="176" width="100" height="62" rx="6" fill="#dbe8f6" stroke="#222" stroke-width="1.5"/>
+<text x="760" y="195" font-size="14" text-anchor="middle" fill="#222">SM 4</text>
+<rect x="728" y="204" width="28" height="24" fill="#ffffff" stroke="#222" stroke-width="1.5"/>
+<rect x="764" y="204" width="28" height="24" fill="#ffffff" stroke="#222" stroke-width="1.5"/>
+<rect x="820" y="176" width="100" height="62" rx="6" fill="#dbe8f6" stroke="#222" stroke-width="1.5"/>
+<text x="870" y="195" font-size="14" text-anchor="middle" fill="#222">SM 5</text>
+<rect x="838" y="204" width="28" height="24" fill="#2c6fb7" stroke="#222" stroke-width="1.5"/>
+<rect x="874" y="204" width="28" height="24" fill="#2c6fb7" stroke="#222" stroke-width="1.5"/>
+<line x1="735" y1="142" x2="578" y2="174" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<line x1="735" y1="142" x2="775" y2="174" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<rect x="270" y="248" width="16" height="14" fill="#2c6fb7" stroke="#222" stroke-width="1"/><text x="292" y="260" font-size="14" fill="#222">座位上已有块在跑</text>
+<rect x="430" y="248" width="16" height="14" fill="#ffffff" stroke="#222" stroke-width="1"/><text x="452" y="260" font-size="14" fill="#222">空座（寄存器、shared memory、块槽位都够）</text>
+<text x="930" y="260" font-size="14" text-anchor="end" fill="#c0392b" font-weight="bold">第一层：块 → SM</text>
+<rect x="270" y="290" width="660" height="320" rx="8" fill="#fafafa" stroke="#222" stroke-width="2"/>
+<text x="285" y="312" font-size="15" fill="#222" font-weight="bold">放大 SM 2（上面粗框那个）：4 个子分区，每个一台 warp 调度器</text>
+<text x="915" y="312" font-size="14" text-anchor="end" fill="#c0392b" font-weight="bold">第二层：每拍挑一个 warp</text>
+<rect x="285" y="324" width="150" height="36" rx="4" fill="#fbe3c4" stroke="#222" stroke-width="1.5"/>
+<text x="360" y="347" font-size="14" text-anchor="middle" fill="#222">warp 调度器 0</text>
+<rect x="285" y="372" width="150" height="28" rx="4" fill="#d4eddc" stroke="#2e8b57" stroke-width="3"/>
+<text x="295" y="391" font-size="14" fill="#222">warp 0</text>
+<text x="425" y="391" font-size="14" text-anchor="end" fill="#2e8b57">就绪</text>
+<rect x="285" y="406" width="150" height="28" rx="4" fill="#eeeeee" stroke="#999" stroke-width="1.5"/>
+<text x="295" y="425" font-size="14" fill="#222">warp 4</text>
+<text x="425" y="425" font-size="14" text-anchor="end" fill="#555">等数据</text>
+<rect x="285" y="440" width="150" height="28" rx="4" fill="#d4eddc" stroke="#999" stroke-width="1.5"/>
+<text x="295" y="459" font-size="14" fill="#222">warp 8</text>
+<text x="425" y="459" font-size="14" text-anchor="end" fill="#2e8b57">就绪</text>
+<rect x="445" y="324" width="150" height="36" rx="4" fill="#fbe3c4" stroke="#222" stroke-width="1.5"/>
+<text x="520" y="347" font-size="14" text-anchor="middle" fill="#222">warp 调度器 1</text>
+<rect x="445" y="372" width="150" height="28" rx="4" fill="#eeeeee" stroke="#999" stroke-width="1.5"/>
+<text x="455" y="391" font-size="14" fill="#222">warp 1</text>
+<text x="585" y="391" font-size="14" text-anchor="end" fill="#555">等数据</text>
+<rect x="445" y="406" width="150" height="28" rx="4" fill="#d4eddc" stroke="#2e8b57" stroke-width="3"/>
+<text x="455" y="425" font-size="14" fill="#222">warp 5</text>
+<text x="585" y="425" font-size="14" text-anchor="end" fill="#2e8b57">就绪</text>
+<rect x="445" y="440" width="150" height="28" rx="4" fill="#eeeeee" stroke="#999" stroke-width="1.5"/>
+<text x="455" y="459" font-size="14" fill="#222">warp 9</text>
+<text x="585" y="459" font-size="14" text-anchor="end" fill="#555">等数据</text>
+<rect x="605" y="324" width="150" height="36" rx="4" fill="#fbe3c4" stroke="#222" stroke-width="1.5"/>
+<text x="680" y="347" font-size="14" text-anchor="middle" fill="#222">warp 调度器 2</text>
+<rect x="605" y="372" width="150" height="28" rx="4" fill="#d4eddc" stroke="#2e8b57" stroke-width="3"/>
+<text x="615" y="391" font-size="14" fill="#222">warp 2</text>
+<text x="745" y="391" font-size="14" text-anchor="end" fill="#2e8b57">就绪</text>
+<rect x="605" y="406" width="150" height="28" rx="4" fill="#eeeeee" stroke="#999" stroke-width="1.5"/>
+<text x="615" y="425" font-size="14" fill="#222">warp 6</text>
+<text x="745" y="425" font-size="14" text-anchor="end" fill="#555">等屏障</text>
+<rect x="605" y="440" width="150" height="28" rx="4" fill="#d4eddc" stroke="#999" stroke-width="1.5"/>
+<text x="615" y="459" font-size="14" fill="#222">warp 10</text>
+<text x="745" y="459" font-size="14" text-anchor="end" fill="#2e8b57">就绪</text>
+<rect x="765" y="324" width="150" height="36" rx="4" fill="#fbe3c4" stroke="#222" stroke-width="1.5"/>
+<text x="840" y="347" font-size="14" text-anchor="middle" fill="#222">warp 调度器 3</text>
+<rect x="765" y="372" width="150" height="28" rx="4" fill="#eeeeee" stroke="#999" stroke-width="1.5"/>
+<text x="775" y="391" font-size="14" fill="#222">warp 3</text>
+<text x="905" y="391" font-size="14" text-anchor="end" fill="#555">等数据</text>
+<rect x="765" y="406" width="150" height="28" rx="4" fill="#eeeeee" stroke="#999" stroke-width="1.5"/>
+<text x="775" y="425" font-size="14" fill="#222">warp 7</text>
+<text x="905" y="425" font-size="14" text-anchor="end" fill="#555">等数据</text>
+<rect x="765" y="440" width="150" height="28" rx="4" fill="#d4eddc" stroke="#2e8b57" stroke-width="3"/>
+<text x="775" y="459" font-size="14" fill="#222">warp 11</text>
+<text x="905" y="459" font-size="14" text-anchor="end" fill="#2e8b57">就绪</text>
+<text x="285" y="494" font-size="14" fill="#2e8b57">粗绿框 = 这一拍被选中发射的 warp（每台调度器每拍一个）</text>
+<rect x="285" y="506" width="630" height="92" rx="6" fill="#ffffff" stroke="#222" stroke-width="1.5"/>
+<text x="300" y="528" font-size="14" fill="#222" font-weight="bold">一个 warp 的指令缓冲（取指单元提前填好）：</text>
+<rect x="300" y="538" width="190" height="28" fill="#dbe8f6" stroke="#222" stroke-width="1.5"/>
+<text x="395" y="557" font-size="14" text-anchor="middle" fill="#222">队首：FMUL R4, R2, R3</text>
+<rect x="500" y="538" width="190" height="28" fill="#ffffff" stroke="#222" stroke-width="1.5"/>
+<text x="595" y="557" font-size="14" text-anchor="middle" fill="#222">LDG R6, [R8]</text>
+<rect x="700" y="538" width="190" height="28" fill="#ffffff" stroke="#222" stroke-width="1.5"/>
+<text x="795" y="557" font-size="14" text-anchor="middle" fill="#222">FADD R5, R4, R2</text>
+<text x="300" y="588" font-size="14" fill="#222">队首指令能不能发，由控制位（等几拍）和记分牌（要的数据回来没有）判定</text>
+<text x="915" y="588" font-size="14" text-anchor="end" fill="#c0392b" font-weight="bold">第三层</text>
+</svg>

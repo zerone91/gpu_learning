@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" width="960" height="640">
+<rect x="0" y="0" width="960" height="640" fill="#ffffff"/>
+<defs><marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777"/></marker><marker id="alg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#bbb"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="agr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e7d32"/></marker><marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b9770e"/></marker><marker id="ap" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7d3c98"/></marker></defs>
+<defs><pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="#f2f2f2"/><line x1="0" y1="0" x2="0" y2="8" stroke="#bbb" stroke-width="3"/></pattern></defs>
+<text x="480.0" y="30.0" font-family="sans-serif" font-size="16" fill="#222" text-anchor="middle" font-weight="bold">延迟 6 拍的读取（示意）：1 个 warp 时执行单元大半空转，4 个 warp 轮流发射就把空档填上了</text>
+<text x="40.0" y="66.0" font-family="sans-serif" font-size="15" fill="#222" text-anchor="start" font-weight="bold">情况一：只驻留 1 个 warp（A）</text>
+<text x="202.0" y="82.0" font-family="sans-serif" font-size="14" fill="#777" text-anchor="middle">1</text>
+<text x="266.0" y="82.0" font-family="sans-serif" font-size="14" fill="#777" text-anchor="middle">2</text>
+<text x="330.0" y="82.0" font-family="sans-serif" font-size="14" fill="#777" text-anchor="middle">3</text>
+<text x="394.0" y="82.0" font-family="sans-serif" font-size="14" fill="#777" text-anchor="middle">4</text>
+<text x="458.0" y="82.0" font-family="sans-serif" font-size="14" fill="#777" text-anchor="middle">5</text>
+<text x="522.0" y="82.0" font-family="sans-serif" font-size="14" fill="#777" text-anchor="middle">6</text>
+<text x="586.0" y="82.0" font-family="sans-serif" font-size="14" fill="#777" text-anchor="middle">7</text>
+<text x="650.0" y="82.0" font-family="sans-serif" font-size="14" fill="#777" text-anchor="middle">8</text>
+<text x="158.0" y="82.0" font-family="sans-serif" font-size="14" fill="#777" text-anchor="end">第几拍</text>
+<line x1="170.0" y1="88.0" x2="170.0" y2="168.0" stroke="#ddd" stroke-width="1"/>
+<line x1="234.0" y1="88.0" x2="234.0" y2="168.0" stroke="#ddd" stroke-width="1"/>
+<line x1="298.0" y1="88.0" x2="298.0" y2="168.0" stroke="#ddd" stroke-width="1"/>
+<line x1="362.0" y1="88.0" x2="362.0" y2="168.0" stroke="#ddd" stroke-width="1"/>
+<line x1="426.0" y1="88.0" x2="426.0" y2="168.0" stroke="#ddd" stroke-width="1"/>
+<line x1="490.0" y1="88.0" x2="490.0" y2="168.0" stroke="#ddd" stroke-width="1"/>
+<line x1="554.0" y1="88.0" x2="554.0" y2="168.0" stroke="#ddd" stroke-width="1"/>
+<line x1="618.0" y1="88.0" x2="618.0" y2="168.0" stroke="#ddd" stroke-width="1"/>
+<line x1="682.0" y1="88.0" x2="682.0" y2="168.0" stroke="#ddd" stroke-width="1"/>
+<text x="158.0" y="114.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="end" font-weight="bold">执行单元</text>
+<rect x="173.0" y="93.0" width="58.0" height="30.0" rx="3" fill="#dbe9f7" stroke="#1f5fa8" stroke-width="2"/>
+<text x="202.0" y="114.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle" font-weight="bold">A:LD</text>
+<rect x="237.0" y="93.0" width="58.0" height="30.0" rx="3" fill="#f6d5d0" stroke="#c0392b" stroke-width="1.5"/>
+<text x="266.0" y="114.0" font-family="sans-serif" font-size="14" fill="#c0392b" text-anchor="middle">空转</text>
+<rect x="301.0" y="93.0" width="58.0" height="30.0" rx="3" fill="#f6d5d0" stroke="#c0392b" stroke-width="1.5"/>
+<text x="330.0" y="114.0" font-family="sans-serif" font-size="14" fill="#c0392b" text-anchor="middle">空转</text>
+<rect x="365.0" y="93.0" width="58.0" height="30.0" rx="3" fill="#f6d5d0" stroke="#c0392b" stroke-width="1.5"/>
+<text x="394.0" y="114.0" font-family="sans-serif" font-size="14" fill="#c0392b" text-anchor="middle">空转</text>
+<rect x="429.0" y="93.0" width="58.0" height="30.0" rx="3" fill="#f6d5d0" stroke="#c0392b" stroke-width="1.5"/>
+<text x="458.0" y="114.0" font-family="sans-serif" font-size="14" fill="#c0392b" text-anchor="middle">空转</text>
+<rect x="493.0" y="93.0" width="58.0" height="30.0" rx="3" fill="#f6d5d0" stroke="#c0392b" stroke-width="1.5"/>
+<text x="522.0" y="114.0" font-family="sans-serif" font-size="14" fill="#c0392b" text-anchor="middle">空转</text>
+<rect x="557.0" y="93.0" width="58.0" height="30.0" rx="3" fill="#f6d5d0" stroke="#c0392b" stroke-width="1.5"/>
+<text x="586.0" y="114.0" font-family="sans-serif" font-size="14" fill="#c0392b" text-anchor="middle">空转</text>
+<rect x="621.0" y="93.0" width="58.0" height="30.0" rx="3" fill="#d7ecd9" stroke="#2e7d32" stroke-width="2"/>
+<text x="650.0" y="114.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle" font-weight="bold">A:FMA</text>
+<text x="158.0" y="154.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="end">warp A</text>
+<rect x="173.0" y="133.0" width="58.0" height="30.0" rx="3" fill="#dbe9f7" stroke="#1f5fa8" stroke-width="2"/>
+<text x="202.0" y="154.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle" font-weight="bold">LD</text>
+<rect x="237.0" y="140.0" width="378.0" height="16.0" rx="0" fill="url(#hatch)" stroke="#bbb" stroke-width="1"/>
+<rect x="621.0" y="133.0" width="58.0" height="30.0" rx="3" fill="#d7ecd9" stroke="#2e7d32" stroke-width="2"/>
+<text x="650.0" y="154.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle" font-weight="bold">FMA</text>
+<text x="394.0" y="186.0" font-family="sans-serif" font-size="14" fill="#777" text-anchor="middle">A 在等数据，别无可发</text>
+<text x="692.0" y="114.0" font-family="sans-serif" font-size="14" fill="#c0392b" text-anchor="start">8 拍里只干了 2 件事，</text>
+<text x="692.0" y="134.0" font-family="sans-serif" font-size="14" fill="#c0392b" text-anchor="start">利用率 25%</text>
+<text x="40.0" y="224.0" font-family="sans-serif" font-size="15" fill="#222" text-anchor="start" font-weight="bold">情况二：驻留 4 个 warp（A、B、C、D），每个都是“先 LD、数据回来后 FMA”</text>
+<text x="202.0" y="242.0" font-family="sans-serif" font-size="14" fill="#777" text-anchor="middle">1</text>
+<text x="266.0" y="242.0" font-family="sans-serif" font-size="14" fill="#777" text-anchor="middle">2</text>
+<text x="330.0" y="242.0" font-family="sans-serif" font-size="14" fill="#777" text-anchor="middle">3</text>
+<text x="394.0" y="242.0" font-family="sans-serif" font-size="14" fill="#777" text-anchor="middle">4</text>
+<text x="458.0" y="242.0" font-family="sans-serif" font-size="14" fill="#777" text-anchor="middle">5</text>
+<text x="522.0" y="242.0" font-family="sans-serif" font-size="14" fill="#777" text-anchor="middle">6</text>
+<text x="586.0" y="242.0" font-family="sans-serif" font-size="14" fill="#777" text-anchor="middle">7</text>
+<text x="650.0" y="242.0" font-family="sans-serif" font-size="14" fill="#777" text-anchor="middle">8</text>
+<text x="714.0" y="242.0" font-family="sans-serif" font-size="14" fill="#777" text-anchor="middle">9</text>
+<text x="778.0" y="242.0" font-family="sans-serif" font-size="14" fill="#777" text-anchor="middle">10</text>
+<text x="842.0" y="242.0" font-family="sans-serif" font-size="14" fill="#777" text-anchor="middle">11</text>
+<text x="158.0" y="242.0" font-family="sans-serif" font-size="14" fill="#777" text-anchor="end">第几拍</text>
+<line x1="170.0" y1="248.0" x2="170.0" y2="448.0" stroke="#ddd" stroke-width="1"/>
+<line x1="234.0" y1="248.0" x2="234.0" y2="448.0" stroke="#ddd" stroke-width="1"/>
+<line x1="298.0" y1="248.0" x2="298.0" y2="448.0" stroke="#ddd" stroke-width="1"/>
+<line x1="362.0" y1="248.0" x2="362.0" y2="448.0" stroke="#ddd" stroke-width="1"/>
+<line x1="426.0" y1="248.0" x2="426.0" y2="448.0" stroke="#ddd" stroke-width="1"/>
+<line x1="490.0" y1="248.0" x2="490.0" y2="448.0" stroke="#ddd" stroke-width="1"/>
+<line x1="554.0" y1="248.0" x2="554.0" y2="448.0" stroke="#ddd" stroke-width="1"/>
+<line x1="618.0" y1="248.0" x2="618.0" y2="448.0" stroke="#ddd" stroke-width="1"/>
+<line x1="682.0" y1="248.0" x2="682.0" y2="448.0" stroke="#ddd" stroke-width="1"/>
+<line x1="746.0" y1="248.0" x2="746.0" y2="448.0" stroke="#ddd" stroke-width="1"/>
+<line x1="810.0" y1="248.0" x2="810.0" y2="448.0" stroke="#ddd" stroke-width="1"/>
+<line x1="874.0" y1="248.0" x2="874.0" y2="448.0" stroke="#ddd" stroke-width="1"/>
+<text x="158.0" y="274.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="end" font-weight="bold">执行单元</text>
+<rect x="173.0" y="253.0" width="58.0" height="30.0" rx="3" fill="#dbe9f7" stroke="#1f5fa8" stroke-width="2"/>
+<text x="202.0" y="274.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle" font-weight="bold">A:LD</text>
+<rect x="237.0" y="253.0" width="58.0" height="30.0" rx="3" fill="#dbe9f7" stroke="#1f5fa8" stroke-width="2"/>
+<text x="266.0" y="274.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle" font-weight="bold">B:LD</text>
+<rect x="301.0" y="253.0" width="58.0" height="30.0" rx="3" fill="#dbe9f7" stroke="#1f5fa8" stroke-width="2"/>
+<text x="330.0" y="274.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle" font-weight="bold">C:LD</text>
+<rect x="365.0" y="253.0" width="58.0" height="30.0" rx="3" fill="#dbe9f7" stroke="#1f5fa8" stroke-width="2"/>
+<text x="394.0" y="274.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle" font-weight="bold">D:LD</text>
+<rect x="429.0" y="253.0" width="58.0" height="30.0" rx="3" fill="#f6d5d0" stroke="#c0392b" stroke-width="1.5"/>
+<text x="458.0" y="274.0" font-family="sans-serif" font-size="14" fill="#c0392b" text-anchor="middle">空转</text>
+<rect x="493.0" y="253.0" width="58.0" height="30.0" rx="3" fill="#f6d5d0" stroke="#c0392b" stroke-width="1.5"/>
+<text x="522.0" y="274.0" font-family="sans-serif" font-size="14" fill="#c0392b" text-anchor="middle">空转</text>
+<rect x="557.0" y="253.0" width="58.0" height="30.0" rx="3" fill="#f6d5d0" stroke="#c0392b" stroke-width="1.5"/>
+<text x="586.0" y="274.0" font-family="sans-serif" font-size="14" fill="#c0392b" text-anchor="middle">空转</text>
+<rect x="621.0" y="253.0" width="58.0" height="30.0" rx="3" fill="#d7ecd9" stroke="#2e7d32" stroke-width="2"/>
+<text x="650.0" y="274.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle" font-weight="bold">A:FMA</text>
+<rect x="685.0" y="253.0" width="58.0" height="30.0" rx="3" fill="#d7ecd9" stroke="#2e7d32" stroke-width="2"/>
+<text x="714.0" y="274.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle" font-weight="bold">B:FMA</text>
+<rect x="749.0" y="253.0" width="58.0" height="30.0" rx="3" fill="#d7ecd9" stroke="#2e7d32" stroke-width="2"/>
+<text x="778.0" y="274.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle" font-weight="bold">C:FMA</text>
+<rect x="813.0" y="253.0" width="58.0" height="30.0" rx="3" fill="#d7ecd9" stroke="#2e7d32" stroke-width="2"/>
+<text x="842.0" y="274.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle" font-weight="bold">D:FMA</text>
+<text x="158.0" y="314.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="end">warp A</text>
+<rect x="173.0" y="293.0" width="58.0" height="30.0" rx="3" fill="#dbe9f7" stroke="#1f5fa8" stroke-width="2"/>
+<text x="202.0" y="314.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle" font-weight="bold">LD</text>
+<rect x="237.0" y="300.0" width="378.0" height="16.0" rx="0" fill="url(#hatch)" stroke="#bbb" stroke-width="1"/>
+<rect x="621.0" y="293.0" width="58.0" height="30.0" rx="3" fill="#d7ecd9" stroke="#2e7d32" stroke-width="2"/>
+<text x="650.0" y="314.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle" font-weight="bold">FMA</text>
+<text x="158.0" y="354.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="end">warp B</text>
+<rect x="237.0" y="333.0" width="58.0" height="30.0" rx="3" fill="#dbe9f7" stroke="#1f5fa8" stroke-width="2"/>
+<text x="266.0" y="354.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle" font-weight="bold">LD</text>
+<rect x="301.0" y="340.0" width="378.0" height="16.0" rx="0" fill="url(#hatch)" stroke="#bbb" stroke-width="1"/>
+<rect x="685.0" y="333.0" width="58.0" height="30.0" rx="3" fill="#d7ecd9" stroke="#2e7d32" stroke-width="2"/>
+<text x="714.0" y="354.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle" font-weight="bold">FMA</text>
+<text x="158.0" y="394.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="end">warp C</text>
+<rect x="301.0" y="373.0" width="58.0" height="30.0" rx="3" fill="#dbe9f7" stroke="#1f5fa8" stroke-width="2"/>
+<text x="330.0" y="394.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle" font-weight="bold">LD</text>
+<rect x="365.0" y="380.0" width="378.0" height="16.0" rx="0" fill="url(#hatch)" stroke="#bbb" stroke-width="1"/>
+<rect x="749.0" y="373.0" width="58.0" height="30.0" rx="3" fill="#d7ecd9" stroke="#2e7d32" stroke-width="2"/>
+<text x="778.0" y="394.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle" font-weight="bold">FMA</text>
+<text x="158.0" y="434.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="end">warp D</text>
+<rect x="365.0" y="413.0" width="58.0" height="30.0" rx="3" fill="#dbe9f7" stroke="#1f5fa8" stroke-width="2"/>
+<text x="394.0" y="434.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle" font-weight="bold">LD</text>
+<rect x="429.0" y="420.0" width="378.0" height="16.0" rx="0" fill="url(#hatch)" stroke="#bbb" stroke-width="1"/>
+<rect x="813.0" y="413.0" width="58.0" height="30.0" rx="3" fill="#d7ecd9" stroke="#2e7d32" stroke-width="2"/>
+<text x="842.0" y="434.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle" font-weight="bold">FMA</text>
+<line x1="682.0" y1="240.0" x2="682.0" y2="452.0" stroke="#222" stroke-width="2" stroke-dasharray="6,4"/>
+<text x="676.0" y="470.0" font-family="sans-serif" font-size="14" fill="#1f5fa8" text-anchor="end">前 8 拍干了 5 件事</text>
+<text x="688.0" y="470.0" font-family="sans-serif" font-size="14" fill="#2e7d32" text-anchor="start">第 8 拍起每拍都有 FMA 可发</text>
+<rect x="40.0" y="520.0" width="880.0" height="100.0" rx="4" fill="#eeeeee" stroke="none" stroke-width="0"/>
+<rect x="60.0" y="536.0" width="40.0" height="22.0" rx="3" fill="#dbe9f7" stroke="#1f5fa8" stroke-width="2"/>
+<text x="108.0" y="553.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="start">LD：发出一条显存读取</text>
+<rect x="330.0" y="536.0" width="40.0" height="22.0" rx="3" fill="#d7ecd9" stroke="#2e7d32" stroke-width="2"/>
+<text x="378.0" y="553.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="start">FMA：用读回的数做一次乘加</text>
+<rect x="640.0" y="540.0" width="40.0" height="16.0" rx="0" fill="url(#hatch)" stroke="#bbb" stroke-width="1"/>
+<text x="688.0" y="553.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="start">该 warp 在等数据</text>
+<text x="60.0" y="586.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="start">注意：每个 warp 自己都照样等了 6 拍（阴影长度相同），没有谁变快；变的只是等待期间执行单元有别的活干。</text>
+<text x="60.0" y="608.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="start">真实显存延迟是几百拍，道理相同：延迟多长，就需要大约多少条互不相干的指令来填满。</text>
+</svg>

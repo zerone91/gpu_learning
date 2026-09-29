@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470" width="960" height="470" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="470" fill="#ffffff"/>
+<defs><marker id="mk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e6fb7"/></marker><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f8a4a"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d9822b"/></marker><marker id="my" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777"/></marker><marker id="mp" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7b4fa0"/></marker></defs>
+<defs><pattern id="h" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="#f0f0f0"/><line x1="0" y1="0" x2="0" y2="8" stroke="#bbb" stroke-width="2"/></pattern></defs>
+<text x="480" y="31.9" font-size="17" text-anchor="middle" fill="#222" font-weight="bold">同一个 130×130 任务，按三种阵列边长 P 取整（按同一比例画）</text>
+<rect x="50" y="80" width="256.0" height="256.0" rx="0" fill="url(#h)" stroke="none" stroke-width="1.5" />
+<rect x="50" y="80" width="130.0" height="130.0" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="2" />
+<rect x="50" y="80" width="256.0" height="256.0" rx="0" fill="none" stroke="#222" stroke-width="2" />
+<text x="178" y="375.2" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">P = 256：1×1 块，占 256×256</text>
+<text x="178" y="401.2" font-size="15" text-anchor="middle" fill="#c0392b" font-weight="bold">利用率 (130/256)² ≈ 26%</text>
+<rect x="360" y="80" width="256.0" height="256.0" rx="0" fill="url(#h)" stroke="none" stroke-width="1.5" />
+<rect x="360" y="80" width="130.0" height="130.0" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="2" />
+<line x1="488.0" y1="80" x2="488.0" y2="336.0" stroke="#222" stroke-width="2" stroke-dasharray="6 4"/>
+<line x1="360" y1="208.0" x2="616.0" y2="208.0" stroke="#222" stroke-width="2" stroke-dasharray="6 4"/>
+<rect x="360" y="80" width="256.0" height="256.0" rx="0" fill="none" stroke="#222" stroke-width="2" />
+<text x="488" y="375.2" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">P = 128：2×2 块，占 256×256</text>
+<text x="488" y="401.2" font-size="15" text-anchor="middle" fill="#c0392b" font-weight="bold">利用率 (130/256)² ≈ 26%</text>
+<rect x="670" y="80" width="192.0" height="192.0" rx="0" fill="url(#h)" stroke="none" stroke-width="1.5" />
+<rect x="670" y="80" width="130.0" height="130.0" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="2" />
+<line x1="734.0" y1="80" x2="734.0" y2="272.0" stroke="#222" stroke-width="2" stroke-dasharray="6 4"/>
+<line x1="670" y1="144.0" x2="862.0" y2="144.0" stroke="#222" stroke-width="2" stroke-dasharray="6 4"/>
+<line x1="798.0" y1="80" x2="798.0" y2="272.0" stroke="#222" stroke-width="2" stroke-dasharray="6 4"/>
+<line x1="670" y1="208.0" x2="862.0" y2="208.0" stroke="#222" stroke-width="2" stroke-dasharray="6 4"/>
+<rect x="670" y="80" width="192.0" height="192.0" rx="0" fill="none" stroke="#222" stroke-width="2" />
+<text x="798" y="375.2" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">P = 64：3×3 块，占 192×192</text>
+<text x="798" y="401.2" font-size="15" text-anchor="middle" fill="#2f8a4a" font-weight="bold">利用率 (130/192)² ≈ 46%</text>
+<text x="480" y="444.9" font-size="14" text-anchor="middle" fill="#777">绿色是 130×130 的真实数据，灰色斜线是填的零，虚线是块边界。P = 64 时凑整只凑到 192，浪费少得多</text>
+</svg>

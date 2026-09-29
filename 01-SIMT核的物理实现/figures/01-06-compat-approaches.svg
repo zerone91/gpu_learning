@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" width="960" height="500" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="500" fill="#ffffff"/>
+<defs>
+<marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker>
+</defs>
+<text x="480" y="28" font-size="18" text-anchor="middle" fill="#222" font-weight="bold">老程序怎么在新芯片上跑：“翻译”放在哪里</text>
+<line x1="320" y1="46" x2="320" y2="490" stroke="#ddd" stroke-width="1.5"/>
+<line x1="640" y1="46" x2="640" y2="490" stroke="#ddd" stroke-width="1.5"/>
+<!-- col 1 x86 -->
+<text x="160" y="64" font-size="16" text-anchor="middle" fill="#222" font-weight="bold">x86 CPU：翻译在硬件里</text>
+<rect x="30" y="84" width="260" height="56" rx="6" fill="#f2f2f2" stroke="#222" stroke-width="2"/>
+<text x="160" y="108" font-size="15" text-anchor="middle" fill="#222">多年前编译的程序</text>
+<text x="160" y="129" font-size="14" text-anchor="middle" fill="#555">x86 机器码</text>
+<line x1="160" y1="142" x2="160" y2="180" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<rect x="30" y="182" width="260" height="210" rx="8" fill="#ffffff" stroke="#222" stroke-width="2.5"/>
+<text x="160" y="204" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">新一代 CPU 芯片</text>
+<rect x="48" y="216" width="224" height="80" rx="4" fill="#f5cccc" stroke="#c0392b" stroke-width="2"/>
+<text x="160" y="240" font-size="14" text-anchor="middle" fill="#222">解码电路</text>
+<text x="160" y="262" font-size="14" text-anchor="middle" fill="#222">把老格式指令翻成内部操作</text>
+<text x="160" y="284" font-size="14" text-anchor="middle" fill="#c0392b">每代都要带着，占芯片面积</text>
+<line x1="160" y1="298" x2="160" y2="316" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<rect x="48" y="318" width="224" height="58" rx="4" fill="#dbe8f6" stroke="#222" stroke-width="1.5"/>
+<text x="160" y="352" font-size="14" text-anchor="middle" fill="#222">内部执行部件</text>
+<text x="30" y="424" font-size="14" fill="#222">✔ 老程序直接能跑</text>
+<text x="30" y="450" font-size="14" fill="#c0392b">✘ 指令格式四十年不能改，</text>
+<text x="30" y="472" font-size="14" fill="#c0392b">    兼容包袱越背越重</text>
+<!-- col 2 NVIDIA -->
+<text x="480" y="64" font-size="16" text-anchor="middle" fill="#222" font-weight="bold">NVIDIA：翻译在软件里</text>
+<rect x="350" y="84" width="260" height="56" rx="6" fill="#f2f2f2" stroke="#222" stroke-width="2"/>
+<text x="480" y="108" font-size="15" text-anchor="middle" fill="#222">多年前发布的程序</text>
+<text x="480" y="129" font-size="14" text-anchor="middle" fill="#555">里面带着一份 PTX（虚拟指令）</text>
+<line x1="480" y1="142" x2="480" y2="180" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<rect x="350" y="182" width="260" height="80" rx="6" fill="#d4eddc" stroke="#2e8b57" stroke-width="2"/>
+<text x="480" y="206" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">用户机器上的显卡驱动</text>
+<text x="480" y="228" font-size="14" text-anchor="middle" fill="#222">内置编译器 ptxas（软件）</text>
+<text x="480" y="250" font-size="14" text-anchor="middle" fill="#222">当场把 PTX 编成这一代的 SASS</text>
+<line x1="480" y1="264" x2="480" y2="300" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<rect x="350" y="302" width="260" height="90" rx="8" fill="#ffffff" stroke="#222" stroke-width="2.5"/>
+<text x="480" y="326" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">新一代 GPU 芯片</text>
+<rect x="368" y="336" width="224" height="44" rx="4" fill="#dbe8f6" stroke="#222" stroke-width="1.5"/>
+<text x="480" y="363" font-size="14" text-anchor="middle" fill="#222">只认本代的 SASS（真实机器码）</text>
+<text x="350" y="424" font-size="14" fill="#222">✔ 老程序能跑（首次多花几秒编译）</text>
+<text x="350" y="450" font-size="14" fill="#2e8b57">✔ SASS 每代可以推倒重来，</text>
+<text x="350" y="472" font-size="14" fill="#2e8b57">    芯片里不用放解码包袱</text>
+<!-- col 3 AMD -->
+<text x="800" y="64" font-size="16" text-anchor="middle" fill="#222" font-weight="bold">AMD GPU：没有虚拟层</text>
+<rect x="670" y="84" width="260" height="56" rx="6" fill="#f2f2f2" stroke="#222" stroke-width="2"/>
+<text x="800" y="108" font-size="15" text-anchor="middle" fill="#222">程序的源代码</text>
+<text x="800" y="129" font-size="14" text-anchor="middle" fill="#555">换代时要拿源码重新编译</text>
+<line x1="800" y1="142" x2="800" y2="180" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<rect x="670" y="182" width="260" height="80" rx="6" fill="#fbe3c4" stroke="#b86a0c" stroke-width="2"/>
+<text x="800" y="206" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">开发者的编译器</text>
+<text x="800" y="228" font-size="14" text-anchor="middle" fill="#222">直接生成某一代的真实机器码</text>
+<text x="800" y="250" font-size="14" text-anchor="middle" fill="#222">（指令集文档公开）</text>
+<line x1="800" y1="264" x2="800" y2="300" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<rect x="670" y="302" width="260" height="90" rx="8" fill="#ffffff" stroke="#222" stroke-width="2.5"/>
+<text x="800" y="326" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">这一代 GPU 芯片</text>
+<rect x="688" y="336" width="224" height="44" rx="4" fill="#dbe8f6" stroke="#222" stroke-width="1.5"/>
+<text x="800" y="363" font-size="14" text-anchor="middle" fill="#222">执行这一代的机器码</text>
+<text x="670" y="424" font-size="14" fill="#2e8b57">✔ 汇编完全透明，可以手调</text>
+<text x="670" y="450" font-size="14" fill="#c0392b">✘ 二进制跨代兼容弱，</text>
+<text x="670" y="472" font-size="14" fill="#c0392b">    主要靠重新编译</text>
+</svg>

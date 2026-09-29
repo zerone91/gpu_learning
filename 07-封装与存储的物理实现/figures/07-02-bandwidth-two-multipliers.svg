@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 700" width="960" height="700" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="700" fill="#ffffff"/>
+<defs><pattern id="h" patternUnits="userSpaceOnUse" width="8" height="8" patternTransform="rotate(45)"><rect width="8" height="8" fill="#dbe6f3"/><line x1="0" y1="0" x2="0" y2="8" stroke="#6f95c4" stroke-width="3"/></pattern></defs>
+<text x="480" y="28" font-size="18" text-anchor="middle" fill="#222" font-weight="bold">单个 HBM 堆叠的带宽 = 引脚数 × 每引脚速率 ÷ 8：两个乘数各自怎么走</text>
+<text x="20" y="120.0" font-size="15" fill="#222" font-weight="bold">① 引脚数</text>
+<text x="20" y="140.0" font-size="13" fill="#555">根数据线</text>
+<line x1="120" y1="160" x2="845" y2="160" stroke="#888" stroke-width="1.5"/>
+<rect x="130.0" y="120.0" width="40" height="40.0" fill="#3d6fb0" stroke="#3d6fb0" stroke-width="1.5"/>
+<text x="150" y="114.0" font-size="13" text-anchor="middle" fill="#222">1024</text>
+<rect x="225.0" y="120.0" width="40" height="40.0" fill="#3d6fb0" stroke="#3d6fb0" stroke-width="1.5"/>
+<text x="245" y="114.0" font-size="13" text-anchor="middle" fill="#222">1024</text>
+<rect x="320.0" y="120.0" width="40" height="40.0" fill="#3d6fb0" stroke="#3d6fb0" stroke-width="1.5"/>
+<text x="340" y="114.0" font-size="13" text-anchor="middle" fill="#222">1024</text>
+<rect x="415.0" y="120.0" width="40" height="40.0" fill="#3d6fb0" stroke="#3d6fb0" stroke-width="1.5"/>
+<text x="435" y="114.0" font-size="13" text-anchor="middle" fill="#222">1024</text>
+<rect x="510.0" y="120.0" width="40" height="40.0" fill="#3d6fb0" stroke="#3d6fb0" stroke-width="1.5"/>
+<text x="530" y="114.0" font-size="13" text-anchor="middle" fill="#222">1024</text>
+<rect x="605.0" y="80.0" width="40" height="80.0" fill="#3d6fb0" stroke="#3d6fb0" stroke-width="1.5"/>
+<text x="625" y="74.0" font-size="13" text-anchor="middle" fill="#222">2048</text>
+<rect x="700.0" y="80.0" width="40" height="80.0" fill="url(#h)" stroke="#3d6fb0" stroke-width="1.5"/>
+<text x="720" y="74.0" font-size="13" text-anchor="middle" fill="#222">2048</text>
+<rect x="795.0" y="80.0" width="40" height="80.0" fill="url(#h)" stroke="#3d6fb0" stroke-width="1.5"/>
+<text x="815" y="74.0" font-size="13" text-anchor="middle" fill="#222">2048</text>
+<text x="20" y="285.0" font-size="15" fill="#222" font-weight="bold">② 每引脚速率</text>
+<text x="20" y="305.0" font-size="13" fill="#555">Gbps</text>
+<line x1="120" y1="360" x2="845" y2="360" stroke="#888" stroke-width="1.5"/>
+<rect x="130.0" y="353.75" width="40" height="6.25" fill="#3d6fb0" stroke="#3d6fb0" stroke-width="1.5"/>
+<text x="150" y="347.75" font-size="13" text-anchor="middle" fill="#222">1</text>
+<rect x="225.0" y="345.0" width="40" height="14.999999999999998" fill="#3d6fb0" stroke="#3d6fb0" stroke-width="1.5"/>
+<text x="245" y="339.0" font-size="13" text-anchor="middle" fill="#222">2.4</text>
+<rect x="320.0" y="337.5" width="40" height="22.5" fill="#3d6fb0" stroke="#3d6fb0" stroke-width="1.5"/>
+<text x="340" y="331.5" font-size="13" text-anchor="middle" fill="#222">3.6</text>
+<rect x="415.0" y="320.0" width="40" height="40.0" fill="#3d6fb0" stroke="#3d6fb0" stroke-width="1.5"/>
+<text x="435" y="314.0" font-size="13" text-anchor="middle" fill="#222">6.4</text>
+<rect x="510.0" y="300.0" width="40" height="59.99999999999999" fill="#3d6fb0" stroke="#3d6fb0" stroke-width="1.5"/>
+<text x="530" y="294.0" font-size="13" text-anchor="middle" fill="#222">9.6</text>
+<rect x="605.0" y="291.25" width="40" height="68.75" fill="#3d6fb0" stroke="#3d6fb0" stroke-width="1.5"/>
+<text x="625" y="285.25" font-size="13" text-anchor="middle" fill="#222">约 11</text>
+<rect x="700.0" y="266.25" width="40" height="93.75" fill="url(#h)" stroke="#3d6fb0" stroke-width="1.5"/>
+<text x="720" y="260.25" font-size="13" text-anchor="middle" fill="#222">约 15</text>
+<rect x="795.0" y="210.0" width="40" height="150.0" fill="url(#h)" stroke="#3d6fb0" stroke-width="1.5"/>
+<text x="815" y="204.0" font-size="13" text-anchor="middle" fill="#222">约 24</text>
+<text x="20" y="505.0" font-size="15" fill="#222" font-weight="bold">③ 单堆叠带宽</text>
+<text x="20" y="525.0" font-size="13" fill="#555">TB/s（①×②÷8）</text>
+<line x1="120" y1="590" x2="845" y2="590" stroke="#888" stroke-width="1.5"/>
+<rect x="130.0" y="586.4583333333334" width="40" height="3.5416666666666665" fill="#3d6fb0" stroke="#3d6fb0" stroke-width="1.5"/>
+<text x="150" y="580.4583333333334" font-size="13" text-anchor="middle" fill="#222">0.13</text>
+<rect x="225.0" y="581.5" width="40" height="8.5" fill="#3d6fb0" stroke="#3d6fb0" stroke-width="1.5"/>
+<text x="245" y="575.5" font-size="13" text-anchor="middle" fill="#222">0.31</text>
+<rect x="320.0" y="577.25" width="40" height="12.75" fill="#3d6fb0" stroke="#3d6fb0" stroke-width="1.5"/>
+<text x="340" y="571.25" font-size="13" text-anchor="middle" fill="#222">0.46</text>
+<rect x="415.0" y="567.3333333333334" width="40" height="22.666666666666668" fill="#3d6fb0" stroke="#3d6fb0" stroke-width="1.5"/>
+<text x="435" y="561.3333333333334" font-size="13" text-anchor="middle" fill="#222">0.82</text>
+<rect x="510.0" y="556.0" width="40" height="34.0" fill="#3d6fb0" stroke="#3d6fb0" stroke-width="1.5"/>
+<text x="530" y="550.0" font-size="13" text-anchor="middle" fill="#222">1.23</text>
+<rect x="605.0" y="512.0833333333334" width="40" height="77.91666666666666" fill="#3d6fb0" stroke="#3d6fb0" stroke-width="1.5"/>
+<text x="625" y="506.08333333333337" font-size="13" text-anchor="middle" fill="#222">2.82</text>
+<rect x="700.0" y="483.75" width="40" height="106.25" fill="url(#h)" stroke="#3d6fb0" stroke-width="1.5"/>
+<text x="720" y="477.75" font-size="13" text-anchor="middle" fill="#222">3.84</text>
+<rect x="795.0" y="420.0" width="40" height="170.0" fill="url(#h)" stroke="#3d6fb0" stroke-width="1.5"/>
+<text x="815" y="414.0" font-size="13" text-anchor="middle" fill="#222">6.14</text>
+<text x="150" y="612" font-size="14" text-anchor="middle" fill="#222" font-weight="bold">HBM</text>
+<text x="245" y="612" font-size="14" text-anchor="middle" fill="#222" font-weight="bold">HBM2</text>
+<text x="340" y="612" font-size="14" text-anchor="middle" fill="#222" font-weight="bold">HBM2E</text>
+<text x="435" y="612" font-size="14" text-anchor="middle" fill="#222" font-weight="bold">HBM3</text>
+<text x="530" y="612" font-size="14" text-anchor="middle" fill="#222" font-weight="bold">HBM3E</text>
+<text x="625" y="612" font-size="14" text-anchor="middle" fill="#222" font-weight="bold">HBM4</text>
+<text x="720" y="612" font-size="14" text-anchor="middle" fill="#222" font-weight="bold">HBM4E</text>
+<text x="815" y="612" font-size="14" text-anchor="middle" fill="#222" font-weight="bold">HBM5</text>
+<text x="767.5" y="632" font-size="13" text-anchor="middle" fill="#555">路线图（斜线填充）</text>
+<text x="625" y="632" font-size="13" text-anchor="middle" fill="#555">2026 量产</text>
+<line x1="601" y1="320.0" x2="649" y2="320.0" stroke="#c0392b" stroke-width="2" stroke-dasharray="4,3"/>
+<text x="652" y="324.0" font-size="12" fill="#c0392b">下沿 6.4</text>
+<text x="480" y="664" font-size="14" text-anchor="middle" fill="#222">引脚数一直是 1024，HBM4 一次性翻倍后又停住；此后带宽增长全靠每引脚速率，而跑得更快的电路要靠逻辑工艺的基底裸片</text>
+<text x="480" y="686" font-size="13" text-anchor="middle" fill="#555">HBM4E、HBM5 为路线图数值，HBM4E 的速率取区间 14～16 的中值；HBM2 按 2.4 Gbps 的档位算</text>
+</svg>

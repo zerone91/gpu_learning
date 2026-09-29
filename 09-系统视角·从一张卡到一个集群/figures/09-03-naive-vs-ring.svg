@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" font-family="sans-serif" font-size="15">
+<rect x="0" y="0" width="960" height="560" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#444"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/></marker><marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d9822b"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e7d32"/></marker><pattern id="h" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="#f4f4f4"/><line x1="0" y1="0" x2="0" y2="8" stroke="#bbb" stroke-width="2"/></pattern></defs>
+<text x="20.0" y="32.0" text-anchor="start" fill="#222222" font-size="19" font-weight="bold" >为什么环形算法的每卡流量不随卡数增长</text>
+<text x="20.0" y="58.0" text-anchor="start" fill="#555" font-size="14" >S 是每张卡要参与归约的数据量；左边以 8 张卡为例画流量路径，右边是每张（最忙的）卡要发送的字节数随卡数的变化</text>
+<text x="150.0" y="100.0" text-anchor="middle" fill="#222222" font-size="15" font-weight="bold" >朴素：都交给卡 0 汇总</text>
+<line x1="150.0" y1="147.0" x2="150.0" y2="194.0" stroke="#c0392b" stroke-width="2.5" marker-end="url(#ar)" marker-start="url(#ar)"/>
+<circle cx="150.0" cy="125.0" r="20" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="2"/>
+<text x="150.0" y="130.0" text-anchor="middle" fill="#222222" font-size="14" font-weight="bold" >1</text>
+<line x1="207.1" y1="174.5" x2="170.3" y2="203.8" stroke="#c0392b" stroke-width="2.5" marker-end="url(#ar)" marker-start="url(#ar)"/>
+<circle cx="224.3" cy="160.8" r="20" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="2"/>
+<text x="224.3" y="165.8" text-anchor="middle" fill="#222222" font-size="14" font-weight="bold" >2</text>
+<line x1="221.2" y1="236.2" x2="175.3" y2="225.8" stroke="#c0392b" stroke-width="2.5" marker-end="url(#ar)" marker-start="url(#ar)"/>
+<circle cx="242.6" cy="241.1" r="20" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="2"/>
+<text x="242.6" y="246.1" text-anchor="middle" fill="#222222" font-size="14" font-weight="bold" >3</text>
+<line x1="181.7" y1="285.8" x2="161.3" y2="243.4" stroke="#c0392b" stroke-width="2.5" marker-end="url(#ar)" marker-start="url(#ar)"/>
+<circle cx="191.2" cy="305.6" r="20" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="2"/>
+<text x="191.2" y="310.6" text-anchor="middle" fill="#222222" font-size="14" font-weight="bold" >4</text>
+<line x1="118.3" y1="285.8" x2="138.7" y2="243.4" stroke="#c0392b" stroke-width="2.5" marker-end="url(#ar)" marker-start="url(#ar)"/>
+<circle cx="108.8" cy="305.6" r="20" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="2"/>
+<text x="108.8" y="310.6" text-anchor="middle" fill="#222222" font-size="14" font-weight="bold" >5</text>
+<line x1="78.8" y1="236.2" x2="124.7" y2="225.8" stroke="#c0392b" stroke-width="2.5" marker-end="url(#ar)" marker-start="url(#ar)"/>
+<circle cx="57.4" cy="241.1" r="20" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="2"/>
+<text x="57.4" y="246.1" text-anchor="middle" fill="#222222" font-size="14" font-weight="bold" >6</text>
+<line x1="92.9" y1="174.5" x2="129.7" y2="203.8" stroke="#c0392b" stroke-width="2.5" marker-end="url(#ar)" marker-start="url(#ar)"/>
+<circle cx="75.7" cy="160.8" r="20" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="2"/>
+<text x="75.7" y="165.8" text-anchor="middle" fill="#222222" font-size="14" font-weight="bold" >7</text>
+<circle cx="150.0" cy="220.0" r="24" fill="#f6c6c0" stroke="#c0392b" stroke-width="2"/>
+<text x="150.0" y="225.0" text-anchor="middle" fill="#222222" font-size="14" font-weight="bold" >0</text>
+<text x="150.0" y="362.0" text-anchor="middle" fill="#c0392b" font-size="14" >卡 0 收 7S、再发 7S</text>
+<text x="150.0" y="382.0" text-anchor="middle" fill="#c0392b" font-size="14" >N 张卡时是 (N−1)S，</text>
+<text x="150.0" y="402.0" text-anchor="middle" fill="#c0392b" font-size="14" >随 N 线性增长</text>
+<text x="410.0" y="100.0" text-anchor="middle" fill="#222222" font-size="15" font-weight="bold" >环形：每人只传给右边邻居</text>
+<line x1="430.3" y1="133.4" x2="455.0" y2="143.6" stroke="#2e7d32" stroke-width="2.5" marker-end="url(#ag)"/>
+<line x1="485.6" y1="173.2" x2="495.8" y2="197.8" stroke="#2e7d32" stroke-width="2.5" marker-end="url(#ag)"/>
+<line x1="496.6" y1="240.3" x2="486.4" y2="265.0" stroke="#2e7d32" stroke-width="2.5" marker-end="url(#ag)"/>
+<line x1="456.8" y1="295.6" x2="432.2" y2="305.8" stroke="#2e7d32" stroke-width="2.5" marker-end="url(#ag)"/>
+<line x1="389.7" y1="306.6" x2="365.0" y2="296.4" stroke="#2e7d32" stroke-width="2.5" marker-end="url(#ag)"/>
+<line x1="334.4" y1="266.8" x2="324.2" y2="242.2" stroke="#2e7d32" stroke-width="2.5" marker-end="url(#ag)"/>
+<line x1="323.4" y1="199.7" x2="333.6" y2="175.0" stroke="#2e7d32" stroke-width="2.5" marker-end="url(#ag)"/>
+<line x1="363.2" y1="144.4" x2="387.8" y2="134.2" stroke="#2e7d32" stroke-width="2.5" marker-end="url(#ag)"/>
+<circle cx="410.0" cy="125.0" r="20" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="2"/>
+<text x="410.0" y="130.0" text-anchor="middle" fill="#222222" font-size="14" font-weight="bold" >0</text>
+<circle cx="477.2" cy="152.8" r="20" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="2"/>
+<text x="477.2" y="157.8" text-anchor="middle" fill="#222222" font-size="14" font-weight="bold" >1</text>
+<circle cx="505.0" cy="220.0" r="20" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="2"/>
+<text x="505.0" y="225.0" text-anchor="middle" fill="#222222" font-size="14" font-weight="bold" >2</text>
+<circle cx="477.2" cy="287.2" r="20" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="2"/>
+<text x="477.2" y="292.2" text-anchor="middle" fill="#222222" font-size="14" font-weight="bold" >3</text>
+<circle cx="410.0" cy="315.0" r="20" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="2"/>
+<text x="410.0" y="320.0" text-anchor="middle" fill="#222222" font-size="14" font-weight="bold" >4</text>
+<circle cx="342.8" cy="287.2" r="20" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="2"/>
+<text x="342.8" y="292.2" text-anchor="middle" fill="#222222" font-size="14" font-weight="bold" >5</text>
+<circle cx="315.0" cy="220.0" r="20" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="2"/>
+<text x="315.0" y="225.0" text-anchor="middle" fill="#222222" font-size="14" font-weight="bold" >6</text>
+<circle cx="342.8" cy="152.8" r="20" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="2"/>
+<text x="342.8" y="157.8" text-anchor="middle" fill="#222222" font-size="14" font-weight="bold" >7</text>
+<text x="410.0" y="214.0" text-anchor="middle" fill="#2e7d32" font-size="14" >8 条链路</text>
+<text x="410.0" y="234.0" text-anchor="middle" fill="#2e7d32" font-size="14" >同时在传</text>
+<text x="410.0" y="362.0" text-anchor="middle" fill="#2e7d32" font-size="14" >每步每卡只发 S/8，</text>
+<text x="410.0" y="382.0" text-anchor="middle" fill="#2e7d32" font-size="14" >共 14 步：2 × 7 × S/8 = 1.75S</text>
+<text x="410.0" y="402.0" text-anchor="middle" fill="#2e7d32" font-size="14" >N 再大也不超过 2S</text>
+<line x1="600.0" y1="470.0" x2="930.0" y2="470.0" stroke="#444" stroke-width="1.5" marker-end="url(#a)"/>
+<line x1="600.0" y1="470.0" x2="600.0" y2="132.0" stroke="#444" stroke-width="1.5" marker-end="url(#a)"/>
+<line x1="624.6" y1="470.0" x2="624.6" y2="475.0" stroke="#444" stroke-width="1.5"/>
+<text x="624.6" y="492.0" text-anchor="middle" fill="#222222" font-size="14" >2</text>
+<line x1="673.8" y1="470.0" x2="673.8" y2="475.0" stroke="#444" stroke-width="1.5"/>
+<text x="673.8" y="492.0" text-anchor="middle" fill="#222222" font-size="14" >8</text>
+<line x1="747.7" y1="470.0" x2="747.7" y2="475.0" stroke="#444" stroke-width="1.5"/>
+<text x="747.7" y="492.0" text-anchor="middle" fill="#222222" font-size="14" >64</text>
+<line x1="846.2" y1="470.0" x2="846.2" y2="475.0" stroke="#444" stroke-width="1.5"/>
+<text x="846.2" y="492.0" text-anchor="middle" fill="#222222" font-size="14" >1024</text>
+<line x1="920.0" y1="470.0" x2="920.0" y2="475.0" stroke="#444" stroke-width="1.5"/>
+<text x="920.0" y="492.0" text-anchor="middle" fill="#222222" font-size="14" >8192</text>
+<line x1="595.0" y1="433.3" x2="600.0" y2="433.3" stroke="#444" stroke-width="1.5"/>
+<text x="592.0" y="438.3" text-anchor="end" fill="#222222" font-size="14" >S</text>
+<line x1="595.0" y1="360.0" x2="600.0" y2="360.0" stroke="#444" stroke-width="1.5"/>
+<text x="592.0" y="365.0" text-anchor="end" fill="#222222" font-size="14" >10S</text>
+<line x1="595.0" y1="286.7" x2="600.0" y2="286.7" stroke="#444" stroke-width="1.5"/>
+<text x="592.0" y="291.7" text-anchor="end" fill="#222222" font-size="14" >100S</text>
+<line x1="595.0" y1="213.3" x2="600.0" y2="213.3" stroke="#444" stroke-width="1.5"/>
+<text x="592.0" y="218.3" text-anchor="end" fill="#222222" font-size="14" >1000S</text>
+<text x="760.0" y="516.0" text-anchor="middle" fill="#222222" font-size="14" >卡数 N（对数刻度）</text>
+<text x="592.0" y="124.0" text-anchor="start" fill="#222222" font-size="14" >最忙那张卡发送的量（对数刻度）</text>
+<path d="M624.6,433.3 L628.0,427.5 L631.4,422.2 L634.8,417.2 L638.2,412.4 L641.5,407.9 L644.9,403.6 L648.3,399.5 L651.7,395.4 L655.1,391.5 L658.5,387.7 L661.8,384.0 L665.2,380.4 L668.6,376.8 L672.0,373.3 L675.4,369.8 L678.8,366.4 L682.2,363.0 L685.5,359.6 L688.9,356.3 L692.3,353.0 L695.7,349.7 L699.1,346.5 L702.5,343.3 L705.8,340.1 L709.2,336.9 L712.6,333.7 L716.0,330.5 L719.4,327.4 L722.8,324.2 L726.2,321.1 L729.5,318.0 L732.9,314.9 L736.3,311.8 L739.7,308.7 L743.1,305.6 L746.5,302.5 L749.8,299.4 L753.2,296.3 L756.6,293.3 L760.0,290.2 L763.4,287.1 L766.8,284.1 L770.2,281.0 L773.5,277.9 L776.9,274.9 L780.3,271.8 L783.7,268.8 L787.1,265.7 L790.5,262.7 L793.9,259.6 L797.2,256.6 L800.6,253.5 L804.0,250.5 L807.4,247.4 L810.8,244.4 L814.2,241.3 L817.5,238.3 L820.9,235.3 L824.3,232.2 L827.7,229.2 L831.1,226.1 L834.5,223.1 L837.9,220.1 L841.2,217.0 L844.6,214.0 L848.0,210.9 L851.4,207.9 L854.8,204.9 L858.2,201.8 L861.5,198.8 L864.9,195.8 L868.3,192.7 L871.7,189.7 L875.1,186.6 L878.5,183.6 L881.9,180.6 L885.2,177.5 L888.6,174.5 L892.0,171.5 L895.4,168.4 L898.8,165.4 L902.2,162.4 L905.5,159.3 L908.9,156.3 L912.3,153.2 L915.7,150.2 L919.1,147.2" stroke="#c0392b" stroke-width="3" fill="none"/>
+<path d="M624.6,433.3 L628.0,430.6 L631.4,428.2 L634.8,426.3 L638.2,424.6 L641.5,423.1 L644.9,421.8 L648.3,420.7 L651.7,419.7 L655.1,418.8 L658.5,418.1 L661.8,417.4 L665.2,416.8 L668.6,416.2 L672.0,415.8 L675.4,415.3 L678.8,414.9 L682.2,414.6 L685.5,414.3 L688.9,414.0 L692.3,413.7 L695.7,413.5 L699.1,413.3 L702.5,413.1 L705.8,412.9 L709.2,412.8 L712.6,412.6 L716.0,412.5 L719.4,412.4 L722.8,412.3 L726.2,412.2 L729.5,412.1 L732.9,412.0 L736.3,412.0 L739.7,411.9 L743.1,411.8 L746.5,411.8 L749.8,411.7 L753.2,411.7 L756.6,411.6 L760.0,411.6 L763.4,411.6 L766.8,411.5 L770.2,411.5 L773.5,411.5 L776.9,411.5 L780.3,411.5 L783.7,411.4 L787.1,411.4 L790.5,411.4 L793.9,411.4 L797.2,411.4 L800.6,411.4 L804.0,411.4 L807.4,411.4 L810.8,411.3 L814.2,411.3 L817.5,411.3 L820.9,411.3 L824.3,411.3 L827.7,411.3 L831.1,411.3 L834.5,411.3 L837.9,411.3 L841.2,411.3 L844.6,411.3 L848.0,411.3 L851.4,411.3 L854.8,411.3 L858.2,411.3 L861.5,411.3 L864.9,411.3 L868.3,411.3 L871.7,411.3 L875.1,411.3 L878.5,411.3 L881.9,411.3 L885.2,411.3 L888.6,411.3 L892.0,411.3 L895.4,411.3 L898.8,411.3 L902.2,411.3 L905.5,411.3 L908.9,411.3 L912.3,411.3 L915.7,411.3 L919.1,411.3" stroke="#2e7d32" stroke-width="3" fill="none"/>
+<text x="802.6" y="239.7" text-anchor="end" fill="#c0392b" font-size="14" >朴素：(N−1)S</text>
+<text x="920.0" y="397.3" text-anchor="end" fill="#2e7d32" font-size="14" >环形：2S(N−1)/N → 2S</text>
+<circle cx="624.6" cy="433.3" r="4" fill="#d4ecd4" stroke="#2e7d32" stroke-width="2"/>
+<circle cx="673.8" cy="415.5" r="4" fill="#d4ecd4" stroke="#2e7d32" stroke-width="2"/>
+<circle cx="747.7" cy="411.8" r="4" fill="#d4ecd4" stroke="#2e7d32" stroke-width="2"/>
+<circle cx="846.2" cy="411.3" r="4" fill="#d4ecd4" stroke="#2e7d32" stroke-width="2"/>
+<circle cx="920.0" cy="411.3" r="4" fill="#d4ecd4" stroke="#2e7d32" stroke-width="2"/>
+<text x="20.0" y="455.0" text-anchor="start" fill="#222222" font-size="14" >代价：环形要走 2(N−1) 步。每步都有固定的启动延迟，所以卡很多、</text>
+<text x="20.0" y="477.0" text-anchor="start" fill="#222222" font-size="14" >消息又很小时，延迟项会占上风（1024 卡是 2046 步）。</text>
+</svg>

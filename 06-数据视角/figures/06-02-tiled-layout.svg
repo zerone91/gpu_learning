@@ -1,0 +1,177 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" width="960" height="640" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="640" fill="#ffffff"/>
+<defs><marker id="ah-1f6fb2" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f6fb2"/></marker><marker id="ahs-1f6fb2" viewBox="0 0 10 10" refX="1" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f6fb2"/></marker><marker id="ah-aaaaaa" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#aaaaaa"/></marker><marker id="ahs-aaaaaa" viewBox="0 0 10 10" refX="1" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#aaaaaa"/></marker><marker id="ah-cccccc" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cccccc"/></marker><marker id="ahs-cccccc" viewBox="0 0 10 10" refX="1" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cccccc"/></marker></defs>
+<text x="480" y="30" font-size="19" text-anchor="middle" fill="#222222" font-weight="bold" >分块布局：让“计算一次要用的那一块”在内存里连成一段</text>
+<text x="230" y="72" font-size="16" text-anchor="middle" fill="#222222" font-weight="bold" >行主序</text>
+<text x="230" y="96" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >地址 = 4r + c</text>
+<rect x="110" y="110" width="60" height="44" rx="0" fill="#ffffff" stroke="#888888" stroke-width="1" />
+<text x="140" y="139" font-size="17" text-anchor="middle" fill="#222222" font-weight="normal" >0</text>
+<rect x="170" y="110" width="60" height="44" rx="0" fill="#ffffff" stroke="#888888" stroke-width="1" />
+<text x="200" y="139" font-size="17" text-anchor="middle" fill="#222222" font-weight="normal" >1</text>
+<rect x="230" y="110" width="60" height="44" rx="0" fill="#fdeedd" stroke="#c8650a" stroke-width="2.5" />
+<text x="260" y="139" font-size="17" text-anchor="middle" fill="#222222" font-weight="bold" >2</text>
+<rect x="290" y="110" width="60" height="44" rx="0" fill="#fdeedd" stroke="#c8650a" stroke-width="2.5" />
+<text x="320" y="139" font-size="17" text-anchor="middle" fill="#222222" font-weight="bold" >3</text>
+<rect x="110" y="154" width="60" height="44" rx="0" fill="#ffffff" stroke="#888888" stroke-width="1" />
+<text x="140" y="183" font-size="17" text-anchor="middle" fill="#222222" font-weight="normal" >4</text>
+<rect x="170" y="154" width="60" height="44" rx="0" fill="#ffffff" stroke="#888888" stroke-width="1" />
+<text x="200" y="183" font-size="17" text-anchor="middle" fill="#222222" font-weight="normal" >5</text>
+<rect x="230" y="154" width="60" height="44" rx="0" fill="#fdeedd" stroke="#c8650a" stroke-width="2.5" />
+<text x="260" y="183" font-size="17" text-anchor="middle" fill="#222222" font-weight="bold" >6</text>
+<rect x="290" y="154" width="60" height="44" rx="0" fill="#fdeedd" stroke="#c8650a" stroke-width="2.5" />
+<text x="320" y="183" font-size="17" text-anchor="middle" fill="#222222" font-weight="bold" >7</text>
+<rect x="110" y="198" width="60" height="44" rx="0" fill="#ffffff" stroke="#888888" stroke-width="1" />
+<text x="140" y="227" font-size="17" text-anchor="middle" fill="#222222" font-weight="normal" >8</text>
+<rect x="170" y="198" width="60" height="44" rx="0" fill="#ffffff" stroke="#888888" stroke-width="1" />
+<text x="200" y="227" font-size="17" text-anchor="middle" fill="#222222" font-weight="normal" >9</text>
+<rect x="230" y="198" width="60" height="44" rx="0" fill="#ffffff" stroke="#888888" stroke-width="1" />
+<text x="260" y="227" font-size="17" text-anchor="middle" fill="#222222" font-weight="normal" >10</text>
+<rect x="290" y="198" width="60" height="44" rx="0" fill="#ffffff" stroke="#888888" stroke-width="1" />
+<text x="320" y="227" font-size="17" text-anchor="middle" fill="#222222" font-weight="normal" >11</text>
+<rect x="110" y="242" width="60" height="44" rx="0" fill="#ffffff" stroke="#888888" stroke-width="1" />
+<text x="140" y="271" font-size="17" text-anchor="middle" fill="#222222" font-weight="normal" >12</text>
+<rect x="170" y="242" width="60" height="44" rx="0" fill="#ffffff" stroke="#888888" stroke-width="1" />
+<text x="200" y="271" font-size="17" text-anchor="middle" fill="#222222" font-weight="normal" >13</text>
+<rect x="230" y="242" width="60" height="44" rx="0" fill="#ffffff" stroke="#888888" stroke-width="1" />
+<text x="260" y="271" font-size="17" text-anchor="middle" fill="#222222" font-weight="normal" >14</text>
+<rect x="290" y="242" width="60" height="44" rx="0" fill="#ffffff" stroke="#888888" stroke-width="1" />
+<text x="320" y="271" font-size="17" text-anchor="middle" fill="#222222" font-weight="normal" >15</text>
+<text x="100" y="138" font-size="14" text-anchor="end" fill="#666666" font-weight="normal" >第0行</text>
+<text x="100" y="182" font-size="14" text-anchor="end" fill="#666666" font-weight="normal" >第1行</text>
+<text x="100" y="226" font-size="14" text-anchor="end" fill="#666666" font-weight="normal" >第2行</text>
+<text x="100" y="270" font-size="14" text-anchor="end" fill="#666666" font-weight="normal" >第3行</text>
+<text x="710" y="72" font-size="16" text-anchor="middle" fill="#222222" font-weight="bold" >2×2 分块布局</text>
+<text x="710" y="96" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >块内行主序、块间行主序（蓝虚线分出 4 块）</text>
+<rect x="590" y="110" width="60" height="44" rx="0" fill="#ffffff" stroke="#888888" stroke-width="1" />
+<text x="620" y="139" font-size="17" text-anchor="middle" fill="#222222" font-weight="normal" >0</text>
+<rect x="650" y="110" width="60" height="44" rx="0" fill="#ffffff" stroke="#888888" stroke-width="1" />
+<text x="680" y="139" font-size="17" text-anchor="middle" fill="#222222" font-weight="normal" >1</text>
+<rect x="710" y="110" width="60" height="44" rx="0" fill="#fdeedd" stroke="#c8650a" stroke-width="2.5" />
+<text x="740" y="139" font-size="17" text-anchor="middle" fill="#222222" font-weight="bold" >4</text>
+<rect x="770" y="110" width="60" height="44" rx="0" fill="#fdeedd" stroke="#c8650a" stroke-width="2.5" />
+<text x="800" y="139" font-size="17" text-anchor="middle" fill="#222222" font-weight="bold" >5</text>
+<rect x="590" y="154" width="60" height="44" rx="0" fill="#ffffff" stroke="#888888" stroke-width="1" />
+<text x="620" y="183" font-size="17" text-anchor="middle" fill="#222222" font-weight="normal" >2</text>
+<rect x="650" y="154" width="60" height="44" rx="0" fill="#ffffff" stroke="#888888" stroke-width="1" />
+<text x="680" y="183" font-size="17" text-anchor="middle" fill="#222222" font-weight="normal" >3</text>
+<rect x="710" y="154" width="60" height="44" rx="0" fill="#fdeedd" stroke="#c8650a" stroke-width="2.5" />
+<text x="740" y="183" font-size="17" text-anchor="middle" fill="#222222" font-weight="bold" >6</text>
+<rect x="770" y="154" width="60" height="44" rx="0" fill="#fdeedd" stroke="#c8650a" stroke-width="2.5" />
+<text x="800" y="183" font-size="17" text-anchor="middle" fill="#222222" font-weight="bold" >7</text>
+<rect x="590" y="198" width="60" height="44" rx="0" fill="#ffffff" stroke="#888888" stroke-width="1" />
+<text x="620" y="227" font-size="17" text-anchor="middle" fill="#222222" font-weight="normal" >8</text>
+<rect x="650" y="198" width="60" height="44" rx="0" fill="#ffffff" stroke="#888888" stroke-width="1" />
+<text x="680" y="227" font-size="17" text-anchor="middle" fill="#222222" font-weight="normal" >9</text>
+<rect x="710" y="198" width="60" height="44" rx="0" fill="#ffffff" stroke="#888888" stroke-width="1" />
+<text x="740" y="227" font-size="17" text-anchor="middle" fill="#222222" font-weight="normal" >12</text>
+<rect x="770" y="198" width="60" height="44" rx="0" fill="#ffffff" stroke="#888888" stroke-width="1" />
+<text x="800" y="227" font-size="17" text-anchor="middle" fill="#222222" font-weight="normal" >13</text>
+<rect x="590" y="242" width="60" height="44" rx="0" fill="#ffffff" stroke="#888888" stroke-width="1" />
+<text x="620" y="271" font-size="17" text-anchor="middle" fill="#222222" font-weight="normal" >10</text>
+<rect x="650" y="242" width="60" height="44" rx="0" fill="#ffffff" stroke="#888888" stroke-width="1" />
+<text x="680" y="271" font-size="17" text-anchor="middle" fill="#222222" font-weight="normal" >11</text>
+<rect x="710" y="242" width="60" height="44" rx="0" fill="#ffffff" stroke="#888888" stroke-width="1" />
+<text x="740" y="271" font-size="17" text-anchor="middle" fill="#222222" font-weight="normal" >14</text>
+<rect x="770" y="242" width="60" height="44" rx="0" fill="#ffffff" stroke="#888888" stroke-width="1" />
+<text x="800" y="271" font-size="17" text-anchor="middle" fill="#222222" font-weight="normal" >15</text>
+<line x1="710" y1="106" x2="710" y2="290" stroke="#1f6fb2" stroke-width="2" stroke-dasharray="5 4"/>
+<line x1="586" y1="198" x2="834" y2="198" stroke="#1f6fb2" stroke-width="2" stroke-dasharray="5 4"/>
+<text x="580" y="138" font-size="14" text-anchor="end" fill="#666666" font-weight="normal" >第0行</text>
+<text x="580" y="182" font-size="14" text-anchor="end" fill="#666666" font-weight="normal" >第1行</text>
+<text x="580" y="226" font-size="14" text-anchor="end" fill="#666666" font-weight="normal" >第2行</text>
+<text x="580" y="270" font-size="14" text-anchor="end" fill="#666666" font-weight="normal" >第3行</text>
+<text x="40" y="320" font-size="14" text-anchor="start" fill="#666666" font-weight="normal" >内存地址 0～15（一维）：</text>
+<rect x="40" y="330" width="26" height="32" rx="0" fill="#ffffff" stroke="#aaaaaa" stroke-width="1.5" />
+<text x="53" y="352" font-size="14" text-anchor="middle" fill="#222222" font-weight="normal" >0</text>
+<rect x="66" y="330" width="26" height="32" rx="0" fill="#ffffff" stroke="#aaaaaa" stroke-width="1.5" />
+<text x="79" y="352" font-size="14" text-anchor="middle" fill="#222222" font-weight="normal" >1</text>
+<rect x="92" y="330" width="26" height="32" rx="0" fill="#fdeedd" stroke="#c8650a" stroke-width="1.5" />
+<text x="105" y="352" font-size="14" text-anchor="middle" fill="#222222" font-weight="normal" >2</text>
+<rect x="118" y="330" width="26" height="32" rx="0" fill="#fdeedd" stroke="#c8650a" stroke-width="1.5" />
+<text x="131" y="352" font-size="14" text-anchor="middle" fill="#222222" font-weight="normal" >3</text>
+<rect x="144" y="330" width="26" height="32" rx="0" fill="#ffffff" stroke="#aaaaaa" stroke-width="1.5" />
+<text x="157" y="352" font-size="14" text-anchor="middle" fill="#222222" font-weight="normal" >4</text>
+<rect x="170" y="330" width="26" height="32" rx="0" fill="#ffffff" stroke="#aaaaaa" stroke-width="1.5" />
+<text x="183" y="352" font-size="14" text-anchor="middle" fill="#222222" font-weight="normal" >5</text>
+<rect x="196" y="330" width="26" height="32" rx="0" fill="#fdeedd" stroke="#c8650a" stroke-width="1.5" />
+<text x="209" y="352" font-size="14" text-anchor="middle" fill="#222222" font-weight="normal" >6</text>
+<rect x="222" y="330" width="26" height="32" rx="0" fill="#fdeedd" stroke="#c8650a" stroke-width="1.5" />
+<text x="235" y="352" font-size="14" text-anchor="middle" fill="#222222" font-weight="normal" >7</text>
+<rect x="248" y="330" width="26" height="32" rx="0" fill="#ffffff" stroke="#aaaaaa" stroke-width="1.5" />
+<text x="261" y="352" font-size="14" text-anchor="middle" fill="#222222" font-weight="normal" >8</text>
+<rect x="274" y="330" width="26" height="32" rx="0" fill="#ffffff" stroke="#aaaaaa" stroke-width="1.5" />
+<text x="287" y="352" font-size="14" text-anchor="middle" fill="#222222" font-weight="normal" >9</text>
+<rect x="300" y="330" width="26" height="32" rx="0" fill="#ffffff" stroke="#aaaaaa" stroke-width="1.5" />
+<text x="313" y="352" font-size="14" text-anchor="middle" fill="#222222" font-weight="normal" >10</text>
+<rect x="326" y="330" width="26" height="32" rx="0" fill="#ffffff" stroke="#aaaaaa" stroke-width="1.5" />
+<text x="339" y="352" font-size="14" text-anchor="middle" fill="#222222" font-weight="normal" >11</text>
+<rect x="352" y="330" width="26" height="32" rx="0" fill="#ffffff" stroke="#aaaaaa" stroke-width="1.5" />
+<text x="365" y="352" font-size="14" text-anchor="middle" fill="#222222" font-weight="normal" >12</text>
+<rect x="378" y="330" width="26" height="32" rx="0" fill="#ffffff" stroke="#aaaaaa" stroke-width="1.5" />
+<text x="391" y="352" font-size="14" text-anchor="middle" fill="#222222" font-weight="normal" >13</text>
+<rect x="404" y="330" width="26" height="32" rx="0" fill="#ffffff" stroke="#aaaaaa" stroke-width="1.5" />
+<text x="417" y="352" font-size="14" text-anchor="middle" fill="#222222" font-weight="normal" >14</text>
+<rect x="430" y="330" width="26" height="32" rx="0" fill="#ffffff" stroke="#aaaaaa" stroke-width="1.5" />
+<text x="443" y="352" font-size="14" text-anchor="middle" fill="#222222" font-weight="normal" >15</text>
+<text x="40" y="388" font-size="15" text-anchor="start" fill="#c0392b" font-weight="bold" >橙色块 = 地址 {2,3,6,7}：两段，中间隔着 4、5</text>
+<text x="520" y="320" font-size="14" text-anchor="start" fill="#666666" font-weight="normal" >内存地址 0～15（一维）：</text>
+<rect x="520" y="330" width="26" height="32" rx="0" fill="#ffffff" stroke="#aaaaaa" stroke-width="1.5" />
+<text x="533" y="352" font-size="14" text-anchor="middle" fill="#222222" font-weight="normal" >0</text>
+<rect x="546" y="330" width="26" height="32" rx="0" fill="#ffffff" stroke="#aaaaaa" stroke-width="1.5" />
+<text x="559" y="352" font-size="14" text-anchor="middle" fill="#222222" font-weight="normal" >1</text>
+<rect x="572" y="330" width="26" height="32" rx="0" fill="#ffffff" stroke="#aaaaaa" stroke-width="1.5" />
+<text x="585" y="352" font-size="14" text-anchor="middle" fill="#222222" font-weight="normal" >2</text>
+<rect x="598" y="330" width="26" height="32" rx="0" fill="#ffffff" stroke="#aaaaaa" stroke-width="1.5" />
+<text x="611" y="352" font-size="14" text-anchor="middle" fill="#222222" font-weight="normal" >3</text>
+<rect x="624" y="330" width="26" height="32" rx="0" fill="#fdeedd" stroke="#c8650a" stroke-width="1.5" />
+<text x="637" y="352" font-size="14" text-anchor="middle" fill="#222222" font-weight="normal" >4</text>
+<rect x="650" y="330" width="26" height="32" rx="0" fill="#fdeedd" stroke="#c8650a" stroke-width="1.5" />
+<text x="663" y="352" font-size="14" text-anchor="middle" fill="#222222" font-weight="normal" >5</text>
+<rect x="676" y="330" width="26" height="32" rx="0" fill="#fdeedd" stroke="#c8650a" stroke-width="1.5" />
+<text x="689" y="352" font-size="14" text-anchor="middle" fill="#222222" font-weight="normal" >6</text>
+<rect x="702" y="330" width="26" height="32" rx="0" fill="#fdeedd" stroke="#c8650a" stroke-width="1.5" />
+<text x="715" y="352" font-size="14" text-anchor="middle" fill="#222222" font-weight="normal" >7</text>
+<rect x="728" y="330" width="26" height="32" rx="0" fill="#ffffff" stroke="#aaaaaa" stroke-width="1.5" />
+<text x="741" y="352" font-size="14" text-anchor="middle" fill="#222222" font-weight="normal" >8</text>
+<rect x="754" y="330" width="26" height="32" rx="0" fill="#ffffff" stroke="#aaaaaa" stroke-width="1.5" />
+<text x="767" y="352" font-size="14" text-anchor="middle" fill="#222222" font-weight="normal" >9</text>
+<rect x="780" y="330" width="26" height="32" rx="0" fill="#ffffff" stroke="#aaaaaa" stroke-width="1.5" />
+<text x="793" y="352" font-size="14" text-anchor="middle" fill="#222222" font-weight="normal" >10</text>
+<rect x="806" y="330" width="26" height="32" rx="0" fill="#ffffff" stroke="#aaaaaa" stroke-width="1.5" />
+<text x="819" y="352" font-size="14" text-anchor="middle" fill="#222222" font-weight="normal" >11</text>
+<rect x="832" y="330" width="26" height="32" rx="0" fill="#ffffff" stroke="#aaaaaa" stroke-width="1.5" />
+<text x="845" y="352" font-size="14" text-anchor="middle" fill="#222222" font-weight="normal" >12</text>
+<rect x="858" y="330" width="26" height="32" rx="0" fill="#ffffff" stroke="#aaaaaa" stroke-width="1.5" />
+<text x="871" y="352" font-size="14" text-anchor="middle" fill="#222222" font-weight="normal" >13</text>
+<rect x="884" y="330" width="26" height="32" rx="0" fill="#ffffff" stroke="#aaaaaa" stroke-width="1.5" />
+<text x="897" y="352" font-size="14" text-anchor="middle" fill="#222222" font-weight="normal" >14</text>
+<rect x="910" y="330" width="26" height="32" rx="0" fill="#ffffff" stroke="#aaaaaa" stroke-width="1.5" />
+<text x="923" y="352" font-size="14" text-anchor="middle" fill="#222222" font-weight="normal" >15</text>
+<text x="520" y="388" font-size="15" text-anchor="start" fill="#2e7d4f" font-weight="bold" >橙色块 = 地址 {4,5,6,7}：一段连续</text>
+<line x1="30" y1="430" x2="930" y2="430" stroke="#cccccc" stroke-width="1"/>
+<text x="40" y="456" font-size="16" text-anchor="start" fill="#222222" font-weight="bold" >放大到真实尺寸：从 4096 列的 bf16 矩阵里取一个 16×16 的块</text>
+<text x="40" y="496" font-size="15" text-anchor="start" fill="#222222" font-weight="bold" >行主序</text>
+<line x1="150" y1="490" x2="900" y2="490" stroke="#aaaaaa" stroke-width="1.5"/>
+<rect x="150.0" y="480" width="6" height="20" rx="0" fill="#c8650a" stroke="#c8650a" stroke-width="1" />
+<rect x="199.6" y="480" width="6" height="20" rx="0" fill="#c8650a" stroke="#c8650a" stroke-width="1" />
+<rect x="249.2" y="480" width="6" height="20" rx="0" fill="#c8650a" stroke="#c8650a" stroke-width="1" />
+<rect x="298.8" y="480" width="6" height="20" rx="0" fill="#c8650a" stroke="#c8650a" stroke-width="1" />
+<rect x="348.4" y="480" width="6" height="20" rx="0" fill="#c8650a" stroke="#c8650a" stroke-width="1" />
+<rect x="398.0" y="480" width="6" height="20" rx="0" fill="#c8650a" stroke="#c8650a" stroke-width="1" />
+<rect x="447.6" y="480" width="6" height="20" rx="0" fill="#c8650a" stroke="#c8650a" stroke-width="1" />
+<rect x="497.2" y="480" width="6" height="20" rx="0" fill="#c8650a" stroke="#c8650a" stroke-width="1" />
+<rect x="546.8" y="480" width="6" height="20" rx="0" fill="#c8650a" stroke="#c8650a" stroke-width="1" />
+<rect x="596.4" y="480" width="6" height="20" rx="0" fill="#c8650a" stroke="#c8650a" stroke-width="1" />
+<rect x="646.0" y="480" width="6" height="20" rx="0" fill="#c8650a" stroke="#c8650a" stroke-width="1" />
+<rect x="695.6" y="480" width="6" height="20" rx="0" fill="#c8650a" stroke="#c8650a" stroke-width="1" />
+<rect x="745.2" y="480" width="6" height="20" rx="0" fill="#c8650a" stroke="#c8650a" stroke-width="1" />
+<rect x="794.8" y="480" width="6" height="20" rx="0" fill="#c8650a" stroke="#c8650a" stroke-width="1" />
+<rect x="844.4" y="480" width="6" height="20" rx="0" fill="#c8650a" stroke="#c8650a" stroke-width="1" />
+<rect x="894.0" y="480" width="6" height="20" rx="0" fill="#c8650a" stroke="#c8650a" stroke-width="1" />
+<text x="150" y="524" font-size="15" text-anchor="start" fill="#c0392b" font-weight="normal" >16 段，每段 32 字节（一行里的 16 个元素），段与段相隔 8 KB（一整行）→ 16 次零碎的短搬运</text>
+<text x="40" y="566" font-size="15" text-anchor="start" fill="#222222" font-weight="bold" >分块布局</text>
+<line x1="150" y1="560" x2="900" y2="560" stroke="#aaaaaa" stroke-width="1.5"/>
+<rect x="450" y="550" width="60" height="20" rx="0" fill="#c8650a" stroke="#c8650a" stroke-width="1" />
+<text x="150" y="594" font-size="15" text-anchor="start" fill="#2e7d4f" font-weight="normal" >1 段连续的 512 字节（16 × 16 × 2 字节）→ 一次整段搬运</text>
+<text x="900" y="594" font-size="14" text-anchor="end" fill="#666666" font-weight="normal" >（横线示意内存地址，不按比例）</text>
+</svg>

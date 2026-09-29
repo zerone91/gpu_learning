@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="560" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222222"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f6db5"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777777"/></marker><marker id="o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c77a12"/></marker><marker id="n" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e8b57"/></marker><marker id="p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7a4fb0"/></marker></defs>
+<text x="480" y="30" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold">转置只改描述，不动数据：视图与步长</text>
+<text x="60" y="282" font-size="14" text-anchor="middle" fill="#444"><tspan x="60" dy="0">显存里</tspan><tspan x="60" dy="18.900000000000002">的数据</tspan></text>
+<rect x="150" y="250" width="54" height="44" rx="0" fill="#dbe7f5" stroke="#222222" stroke-width="1.5"/>
+<text x="177.0" y="278" font-size="15" text-anchor="middle" fill="#222222">0</text>
+<rect x="204" y="250" width="54" height="44" rx="0" fill="#dbe7f5" stroke="#222222" stroke-width="1.5"/>
+<text x="231.0" y="278" font-size="15" text-anchor="middle" fill="#222222">1</text>
+<rect x="258" y="250" width="54" height="44" rx="0" fill="#dbe7f5" stroke="#222222" stroke-width="1.5"/>
+<text x="285.0" y="278" font-size="15" text-anchor="middle" fill="#222222">2</text>
+<rect x="312" y="250" width="54" height="44" rx="0" fill="#dbe7f5" stroke="#222222" stroke-width="1.5"/>
+<text x="339.0" y="278" font-size="15" text-anchor="middle" fill="#222222">3</text>
+<rect x="366" y="250" width="54" height="44" rx="0" fill="#f8e3c4" stroke="#222222" stroke-width="1.5"/>
+<text x="393.0" y="278" font-size="15" text-anchor="middle" fill="#222222">4</text>
+<rect x="420" y="250" width="54" height="44" rx="0" fill="#f8e3c4" stroke="#222222" stroke-width="1.5"/>
+<text x="447.0" y="278" font-size="15" text-anchor="middle" fill="#222222">5</text>
+<rect x="474" y="250" width="54" height="44" rx="0" fill="#f8e3c4" stroke="#222222" stroke-width="1.5"/>
+<text x="501.0" y="278" font-size="15" text-anchor="middle" fill="#222222">6</text>
+<rect x="528" y="250" width="54" height="44" rx="0" fill="#f8e3c4" stroke="#222222" stroke-width="1.5"/>
+<text x="555.0" y="278" font-size="15" text-anchor="middle" fill="#222222">7</text>
+<rect x="582" y="250" width="54" height="44" rx="0" fill="#d5ecdc" stroke="#222222" stroke-width="1.5"/>
+<text x="609.0" y="278" font-size="15" text-anchor="middle" fill="#222222">8</text>
+<rect x="636" y="250" width="54" height="44" rx="0" fill="#d5ecdc" stroke="#222222" stroke-width="1.5"/>
+<text x="663.0" y="278" font-size="15" text-anchor="middle" fill="#222222">9</text>
+<rect x="690" y="250" width="54" height="44" rx="0" fill="#d5ecdc" stroke="#222222" stroke-width="1.5"/>
+<text x="717.0" y="278" font-size="15" text-anchor="middle" fill="#222222">10</text>
+<rect x="744" y="250" width="54" height="44" rx="0" fill="#d5ecdc" stroke="#222222" stroke-width="1.5"/>
+<text x="771.0" y="278" font-size="15" text-anchor="middle" fill="#222222">11</text>
+<text x="808" y="270" font-size="12" text-anchor="start" fill="#777777">方格里的数字</text>
+<text x="808" y="288" font-size="12" text-anchor="start" fill="#777777">= 元素编号 = 地址</text>
+<rect x="60" y="70" width="360" height="120" rx="6" fill="#ffffff" stroke="#2f6db5" stroke-width="2"/>
+<text x="80" y="96" font-size="15" text-anchor="start" fill="#2f6db5" font-weight="bold">张量 x（描述，几百字节）</text>
+<text x="80" y="122" font-size="14" text-anchor="start" fill="#222222">形状 (3, 4)　　步长 (4, 1)</text>
+<text x="80" y="146" font-size="14" text-anchor="start" fill="#444">下一行 +4，下一列 +1</text>
+<text x="80" y="170" font-size="14" text-anchor="start" fill="#444">数据指针 → 地址 0</text>
+<rect x="540" y="70" width="360" height="120" rx="6" fill="#ffffff" stroke="#c77a12" stroke-width="2"/>
+<text x="560" y="96" font-size="15" text-anchor="start" fill="#c77a12" font-weight="bold">张量 x.T（新描述，同一块数据）</text>
+<text x="560" y="122" font-size="14" text-anchor="start" fill="#222222">形状 (4, 3)　　步长 (1, 4)</text>
+<text x="560" y="146" font-size="14" text-anchor="start" fill="#444">下一行 +1，下一列 +4</text>
+<text x="560" y="170" font-size="14" text-anchor="start" fill="#444">数据指针 → 地址 0（没有复制）</text>
+<line x1="240" y1="190" x2="154" y2="246" stroke="#2f6db5" stroke-width="2" marker-end="url(#b)"/>
+<line x1="720" y1="190" x2="162" y2="244" stroke="#c77a12" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#o)"/>
+<text x="480" y="348" font-size="14" text-anchor="middle" fill="#c77a12">按行读 x.T 的第 0 行 = 元素 0、4、8：地址跳着走，不连续</text>
+<path d="M 177.0 294 Q 285.0 342 389.0 296" stroke="#c77a12" stroke-width="2" fill="none" marker-end="url(#o)"/>
+<path d="M 393.0 294 Q 501.0 342 605.0 296" stroke="#c77a12" stroke-width="2" fill="none" marker-end="url(#o)"/>
+<text x="60" y="452" font-size="14" text-anchor="middle" fill="#444"><tspan x="60" dy="0">contiguous()</tspan><tspan x="60" dy="18.900000000000002">之后</tspan></text>
+<rect x="150" y="420" width="54" height="44" rx="0" fill="#dbe7f5" stroke="#222222" stroke-width="1.5"/>
+<text x="177.0" y="448" font-size="15" text-anchor="middle" fill="#222222">0</text>
+<rect x="204" y="420" width="54" height="44" rx="0" fill="#f8e3c4" stroke="#222222" stroke-width="1.5"/>
+<text x="231.0" y="448" font-size="15" text-anchor="middle" fill="#222222">4</text>
+<rect x="258" y="420" width="54" height="44" rx="0" fill="#d5ecdc" stroke="#222222" stroke-width="1.5"/>
+<text x="285.0" y="448" font-size="15" text-anchor="middle" fill="#222222">8</text>
+<rect x="312" y="420" width="54" height="44" rx="0" fill="#dbe7f5" stroke="#222222" stroke-width="1.5"/>
+<text x="339.0" y="448" font-size="15" text-anchor="middle" fill="#222222">1</text>
+<rect x="366" y="420" width="54" height="44" rx="0" fill="#f8e3c4" stroke="#222222" stroke-width="1.5"/>
+<text x="393.0" y="448" font-size="15" text-anchor="middle" fill="#222222">5</text>
+<rect x="420" y="420" width="54" height="44" rx="0" fill="#d5ecdc" stroke="#222222" stroke-width="1.5"/>
+<text x="447.0" y="448" font-size="15" text-anchor="middle" fill="#222222">9</text>
+<rect x="474" y="420" width="54" height="44" rx="0" fill="#dbe7f5" stroke="#222222" stroke-width="1.5"/>
+<text x="501.0" y="448" font-size="15" text-anchor="middle" fill="#222222">2</text>
+<rect x="528" y="420" width="54" height="44" rx="0" fill="#f8e3c4" stroke="#222222" stroke-width="1.5"/>
+<text x="555.0" y="448" font-size="15" text-anchor="middle" fill="#222222">6</text>
+<rect x="582" y="420" width="54" height="44" rx="0" fill="#d5ecdc" stroke="#222222" stroke-width="1.5"/>
+<text x="609.0" y="448" font-size="15" text-anchor="middle" fill="#222222">10</text>
+<rect x="636" y="420" width="54" height="44" rx="0" fill="#dbe7f5" stroke="#222222" stroke-width="1.5"/>
+<text x="663.0" y="448" font-size="15" text-anchor="middle" fill="#222222">3</text>
+<rect x="690" y="420" width="54" height="44" rx="0" fill="#f8e3c4" stroke="#222222" stroke-width="1.5"/>
+<text x="717.0" y="448" font-size="15" text-anchor="middle" fill="#222222">7</text>
+<rect x="744" y="420" width="54" height="44" rx="0" fill="#d5ecdc" stroke="#222222" stroke-width="1.5"/>
+<text x="771.0" y="448" font-size="15" text-anchor="middle" fill="#222222">11</text>
+<text x="480" y="496" font-size="14" text-anchor="middle" fill="#444">真的复制一遍：新开一块内存，按 x.T 的行顺序重排。4096×4096 的 bf16 张量要读写各 32 MB</text>
+<text x="808" y="440" font-size="12" text-anchor="start" fill="#777777">新的一块内存</text>
+<text x="808" y="458" font-size="12" text-anchor="start" fill="#777777">（数字是原编号）</text>
+<text x="480" y="520" font-size="13" text-anchor="middle" fill="#777777">颜色表示它属于 x 的第几行（蓝=第 0 行，橙=第 1 行，绿=第 2 行）</text>
+</svg>

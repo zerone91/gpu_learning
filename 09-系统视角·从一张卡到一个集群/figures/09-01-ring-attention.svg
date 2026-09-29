@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" font-family="sans-serif" font-size="15">
+<rect x="0" y="0" width="960" height="520" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#444"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/></marker><marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d9822b"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e7d32"/></marker><pattern id="h" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="#f4f4f4"/><line x1="0" y1="0" x2="0" y2="8" stroke="#bbb" stroke-width="2"/></pattern></defs>
+<text x="20.0" y="32.0" text-anchor="start" fill="#222222" font-size="19" font-weight="bold" >环形注意力：Q 留在原地，KV 分块沿环接力一圈</text>
+<text x="20.0" y="58.0" text-anchor="start" fill="#555" font-size="15" >上下文并行 4 张卡，序列切成 4 段；卡 i 持有第 i 段的查询 Q 和第 i 段的键值 KV</text>
+<line x1="199.7" y1="204.7" x2="245.3" y2="250.3" stroke="#222222" stroke-width="2" marker-end="url(#a)"/>
+<line x1="245.3" y1="309.7" x2="199.7" y2="355.3" stroke="#222222" stroke-width="2" marker-end="url(#a)"/>
+<line x1="140.3" y1="355.3" x2="94.7" y2="309.7" stroke="#222222" stroke-width="2" marker-end="url(#a)"/>
+<line x1="94.7" y1="250.3" x2="140.3" y2="204.7" stroke="#222222" stroke-width="2" marker-end="url(#a)"/>
+<circle cx="170.0" cy="175.0" r="38" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="2"/>
+<text x="170.0" y="171.0" text-anchor="middle" fill="#222222" font-size="15" font-weight="bold" >卡 0</text>
+<text x="170.0" y="191.0" text-anchor="middle" fill="#222222" font-size="14" >Q₀</text>
+<circle cx="275.0" cy="280.0" r="38" fill="#fde2c4" stroke="#d9822b" stroke-width="2"/>
+<text x="275.0" y="276.0" text-anchor="middle" fill="#222222" font-size="15" font-weight="bold" >卡 1</text>
+<text x="275.0" y="296.0" text-anchor="middle" fill="#222222" font-size="14" >Q₁</text>
+<circle cx="170.0" cy="385.0" r="38" fill="#d4ecd4" stroke="#2e7d32" stroke-width="2"/>
+<text x="170.0" y="381.0" text-anchor="middle" fill="#222222" font-size="15" font-weight="bold" >卡 2</text>
+<text x="170.0" y="401.0" text-anchor="middle" fill="#222222" font-size="14" >Q₂</text>
+<circle cx="65.0" cy="280.0" r="38" fill="#e6dcf2" stroke="#6a3d9a" stroke-width="2"/>
+<text x="65.0" y="276.0" text-anchor="middle" fill="#222222" font-size="15" font-weight="bold" >卡 3</text>
+<text x="65.0" y="296.0" text-anchor="middle" fill="#222222" font-size="14" >Q₃</text>
+<text x="170.0" y="285.0" text-anchor="middle" fill="#444" font-size="14" >每步把手上的</text>
+<text x="170.0" y="304.0" text-anchor="middle" fill="#444" font-size="14" >KV 块传给下一张</text>
+<text x="170.0" y="460.0" text-anchor="middle" fill="#222222" font-size="14" >只和左右邻居通信（点对点），</text>
+<text x="170.0" y="480.0" text-anchor="middle" fill="#222222" font-size="14" >不是全员对全员</text>
+<text x="480.0" y="98.0" text-anchor="middle" fill="#222222" font-size="15" font-weight="bold" >第 0 步</text>
+<text x="600.0" y="98.0" text-anchor="middle" fill="#222222" font-size="15" font-weight="bold" >第 1 步</text>
+<text x="720.0" y="98.0" text-anchor="middle" fill="#222222" font-size="15" font-weight="bold" >第 2 步</text>
+<text x="840.0" y="98.0" text-anchor="middle" fill="#222222" font-size="15" font-weight="bold" >第 3 步</text>
+<text x="406.0" y="146.0" text-anchor="end" fill="#222222" font-size="15" font-weight="bold" >卡 0</text>
+<rect x="426.0" y="116.0" width="108.0" height="50.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5" />
+<text x="480.0" y="138.0" text-anchor="middle" fill="#222222" font-size="15" >Q₀ 对 KV₀</text>
+<text x="480.0" y="158.0" text-anchor="middle" fill="#555" font-size="14" >算一部分</text>
+<rect x="546.0" y="116.0" width="108.0" height="50.0" rx="0" fill="#e6dcf2" stroke="#6a3d9a" stroke-width="1.5" />
+<text x="600.0" y="138.0" text-anchor="middle" fill="#222222" font-size="15" >Q₀ 对 KV₃</text>
+<text x="600.0" y="158.0" text-anchor="middle" fill="#555" font-size="14" >算一部分</text>
+<rect x="666.0" y="116.0" width="108.0" height="50.0" rx="0" fill="#d4ecd4" stroke="#2e7d32" stroke-width="1.5" />
+<text x="720.0" y="138.0" text-anchor="middle" fill="#222222" font-size="15" >Q₀ 对 KV₂</text>
+<text x="720.0" y="158.0" text-anchor="middle" fill="#555" font-size="14" >算一部分</text>
+<rect x="786.0" y="116.0" width="108.0" height="50.0" rx="0" fill="#fde2c4" stroke="#d9822b" stroke-width="1.5" />
+<text x="840.0" y="138.0" text-anchor="middle" fill="#222222" font-size="15" >Q₀ 对 KV₁</text>
+<text x="840.0" y="158.0" text-anchor="middle" fill="#555" font-size="14" >算一部分</text>
+<text x="406.0" y="208.0" text-anchor="end" fill="#222222" font-size="15" font-weight="bold" >卡 1</text>
+<rect x="426.0" y="178.0" width="108.0" height="50.0" rx="0" fill="#fde2c4" stroke="#d9822b" stroke-width="1.5" />
+<text x="480.0" y="200.0" text-anchor="middle" fill="#222222" font-size="15" >Q₁ 对 KV₁</text>
+<text x="480.0" y="220.0" text-anchor="middle" fill="#555" font-size="14" >算一部分</text>
+<rect x="546.0" y="178.0" width="108.0" height="50.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5" />
+<text x="600.0" y="200.0" text-anchor="middle" fill="#222222" font-size="15" >Q₁ 对 KV₀</text>
+<text x="600.0" y="220.0" text-anchor="middle" fill="#555" font-size="14" >算一部分</text>
+<rect x="666.0" y="178.0" width="108.0" height="50.0" rx="0" fill="#e6dcf2" stroke="#6a3d9a" stroke-width="1.5" />
+<text x="720.0" y="200.0" text-anchor="middle" fill="#222222" font-size="15" >Q₁ 对 KV₃</text>
+<text x="720.0" y="220.0" text-anchor="middle" fill="#555" font-size="14" >算一部分</text>
+<rect x="786.0" y="178.0" width="108.0" height="50.0" rx="0" fill="#d4ecd4" stroke="#2e7d32" stroke-width="1.5" />
+<text x="840.0" y="200.0" text-anchor="middle" fill="#222222" font-size="15" >Q₁ 对 KV₂</text>
+<text x="840.0" y="220.0" text-anchor="middle" fill="#555" font-size="14" >算一部分</text>
+<text x="406.0" y="270.0" text-anchor="end" fill="#222222" font-size="15" font-weight="bold" >卡 2</text>
+<rect x="426.0" y="240.0" width="108.0" height="50.0" rx="0" fill="#d4ecd4" stroke="#2e7d32" stroke-width="1.5" />
+<text x="480.0" y="262.0" text-anchor="middle" fill="#222222" font-size="15" >Q₂ 对 KV₂</text>
+<text x="480.0" y="282.0" text-anchor="middle" fill="#555" font-size="14" >算一部分</text>
+<rect x="546.0" y="240.0" width="108.0" height="50.0" rx="0" fill="#fde2c4" stroke="#d9822b" stroke-width="1.5" />
+<text x="600.0" y="262.0" text-anchor="middle" fill="#222222" font-size="15" >Q₂ 对 KV₁</text>
+<text x="600.0" y="282.0" text-anchor="middle" fill="#555" font-size="14" >算一部分</text>
+<rect x="666.0" y="240.0" width="108.0" height="50.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5" />
+<text x="720.0" y="262.0" text-anchor="middle" fill="#222222" font-size="15" >Q₂ 对 KV₀</text>
+<text x="720.0" y="282.0" text-anchor="middle" fill="#555" font-size="14" >算一部分</text>
+<rect x="786.0" y="240.0" width="108.0" height="50.0" rx="0" fill="#e6dcf2" stroke="#6a3d9a" stroke-width="1.5" />
+<text x="840.0" y="262.0" text-anchor="middle" fill="#222222" font-size="15" >Q₂ 对 KV₃</text>
+<text x="840.0" y="282.0" text-anchor="middle" fill="#555" font-size="14" >算一部分</text>
+<text x="406.0" y="332.0" text-anchor="end" fill="#222222" font-size="15" font-weight="bold" >卡 3</text>
+<rect x="426.0" y="302.0" width="108.0" height="50.0" rx="0" fill="#e6dcf2" stroke="#6a3d9a" stroke-width="1.5" />
+<text x="480.0" y="324.0" text-anchor="middle" fill="#222222" font-size="15" >Q₃ 对 KV₃</text>
+<text x="480.0" y="344.0" text-anchor="middle" fill="#555" font-size="14" >算一部分</text>
+<rect x="546.0" y="302.0" width="108.0" height="50.0" rx="0" fill="#d4ecd4" stroke="#2e7d32" stroke-width="1.5" />
+<text x="600.0" y="324.0" text-anchor="middle" fill="#222222" font-size="15" >Q₃ 对 KV₂</text>
+<text x="600.0" y="344.0" text-anchor="middle" fill="#555" font-size="14" >算一部分</text>
+<rect x="666.0" y="302.0" width="108.0" height="50.0" rx="0" fill="#fde2c4" stroke="#d9822b" stroke-width="1.5" />
+<text x="720.0" y="324.0" text-anchor="middle" fill="#222222" font-size="15" >Q₃ 对 KV₁</text>
+<text x="720.0" y="344.0" text-anchor="middle" fill="#555" font-size="14" >算一部分</text>
+<rect x="786.0" y="302.0" width="108.0" height="50.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5" />
+<text x="840.0" y="324.0" text-anchor="middle" fill="#222222" font-size="15" >Q₃ 对 KV₀</text>
+<text x="840.0" y="344.0" text-anchor="middle" fill="#555" font-size="14" >算一部分</text>
+<line x1="532.0" y1="151.0" x2="548.0" y2="193.0" stroke="#1f5fa8" stroke-width="2" marker-end="url(#ab)"/>
+<line x1="652.0" y1="213.0" x2="668.0" y2="255.0" stroke="#1f5fa8" stroke-width="2" marker-end="url(#ab)"/>
+<line x1="772.0" y1="275.0" x2="788.0" y2="317.0" stroke="#1f5fa8" stroke-width="2" marker-end="url(#ab)"/>
+<text x="420.0" y="384.0" text-anchor="start" fill="#1f5fa8" font-size="14" >蓝色斜箭头跟踪 KV₀ 这一块：第 0 步在卡 0，然后依次交给卡 1、卡 2、卡 3。</text>
+<text x="420.0" y="408.0" text-anchor="start" fill="#222222" font-size="14" >看任意一行：四步里颜色各不相同，说明这张卡用自己的 Q 见过了全部 4 块 KV；</text>
+<text x="420.0" y="430.0" text-anchor="start" fill="#222222" font-size="14" >每步的结果用在线 softmax 累积，转完一圈就得到完整的注意力输出。</text>
+</svg>

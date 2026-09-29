@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" font-family="sans-serif" font-size="15">
+<rect x="0" y="0" width="960" height="520" fill="#ffffff"/>
+<defs><pattern id="h" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="#f2f2f2"/><line x1="0" y1="0" x2="0" y2="8" stroke="#bbb" stroke-width="2"/></pattern></defs>
+<text x="20" y="30" font-size="17" font-weight="bold">同一组指令的两种排列：一个线程从开始到算完要多少拍（示意数字：读显存 400 拍，乘加 4 拍）</text>
+<text x="20" y="70" font-weight="bold">排列一：保持 PTX 的顺序（读、读、算，重复四轮）</text>
+<text x="140" y="105" text-anchor="end" font-size="14">指令发射</text>
+<rect x="150.0" y="85" width="4.0" height="28" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5"/>
+<rect x="150.9" y="85" width="181.2" height="28" fill="url(#h)" stroke="#555" stroke-width="1.5"/>
+<rect x="333.9" y="85" width="181.2" height="28" fill="url(#h)" stroke="#555" stroke-width="1.5"/>
+<rect x="516.9" y="85" width="181.2" height="28" fill="url(#h)" stroke="#555" stroke-width="1.5"/>
+<rect x="699.9" y="85" width="181.2" height="28" fill="url(#h)" stroke="#555" stroke-width="1.5"/>
+<rect x="332.1" y="85" width="4.0" height="28" fill="#fde2c4" stroke="#d9822b" stroke-width="1.5"/>
+<rect x="515.1" y="85" width="4.0" height="28" fill="#fde2c4" stroke="#d9822b" stroke-width="1.5"/>
+<rect x="698.1" y="85" width="4.0" height="28" fill="#fde2c4" stroke="#d9822b" stroke-width="1.5"/>
+<rect x="881.0" y="85" width="4.0" height="28" fill="#fde2c4" stroke="#d9822b" stroke-width="1.5"/>
+<text x="241.5" y="104" text-anchor="middle" font-size="13" fill="#444">等第 1 对数</text>
+<text x="424.5" y="104" text-anchor="middle" font-size="13" fill="#444">等第 2 对数</text>
+<text x="607.5" y="104" text-anchor="middle" font-size="13" fill="#444">等第 3 对数</text>
+<text x="790.5" y="104" text-anchor="middle" font-size="13" fill="#444">等第 4 对数</text>
+<text x="140" y="145" text-anchor="end" font-size="14">在路上的读取</text>
+<rect x="150.9" y="125" width="181.2" height="12" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5"/>
+<rect x="150.9" y="139" width="181.2" height="12" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5"/>
+<text x="241.5" y="169" text-anchor="middle" font-size="13" fill="#1f5fa8">同时只有 2 个</text>
+<rect x="333.9" y="125" width="181.2" height="12" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5"/>
+<rect x="333.9" y="139" width="181.2" height="12" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5"/>
+<text x="424.5" y="169" text-anchor="middle" font-size="13" fill="#1f5fa8">同时只有 2 个</text>
+<rect x="516.9" y="125" width="181.2" height="12" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5"/>
+<rect x="516.9" y="139" width="181.2" height="12" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5"/>
+<text x="607.5" y="169" text-anchor="middle" font-size="13" fill="#1f5fa8">同时只有 2 个</text>
+<rect x="699.9" y="125" width="181.2" height="12" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5"/>
+<rect x="699.9" y="139" width="181.2" height="12" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5"/>
+<text x="790.5" y="169" text-anchor="middle" font-size="13" fill="#1f5fa8">同时只有 2 个</text>
+<line x1="883.8" y1="77" x2="883.8" y2="155" stroke="#c0392b" stroke-width="2"/>
+<text x="877.8" y="73" text-anchor="end" fill="#c0392b" font-weight="bold">约 1620 拍完成</text>
+<text x="20" y="260" font-weight="bold">排列二：把 8 次读取全部提到最前面</text>
+<text x="140" y="295" text-anchor="end" font-size="14">指令发射</text>
+<rect x="150.0" y="275" width="4.0" height="28" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5"/>
+<rect x="153.6" y="275" width="181.2" height="28" fill="url(#h)" stroke="#555" stroke-width="1.5"/>
+<rect x="334.8" y="275" width="7.2" height="28" fill="#fde2c4" stroke="#d9822b" stroke-width="1.5"/>
+<rect x="342.0" y="275" width="4.0" height="28" fill="#fde2c4" stroke="#d9822b" stroke-width="1.5"/>
+<text x="244.2" y="294" text-anchor="middle" font-size="13" fill="#444">一起等 8 个数</text>
+<text x="140" y="335" text-anchor="end" font-size="14">在路上的读取</text>
+<rect x="150.0" y="315" width="181.2" height="6" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5"/>
+<rect x="150.5" y="322" width="181.2" height="6" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5"/>
+<rect x="150.9" y="329" width="181.2" height="6" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5"/>
+<rect x="151.4" y="336" width="181.2" height="6" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5"/>
+<rect x="151.8" y="343" width="181.2" height="6" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5"/>
+<rect x="152.3" y="350" width="181.2" height="6" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5"/>
+<rect x="152.7" y="357" width="181.2" height="6" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5"/>
+<rect x="153.2" y="364" width="181.2" height="6" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5"/>
+<text x="354.8" y="347" font-size="13" fill="#1f5fa8">8 个同时在路上，等待互相重叠</text>
+<line x1="344.8" y1="267" x2="344.8" y2="373" stroke="#2e8b57" stroke-width="2"/>
+<text x="350.8" y="263" fill="#2e8b57" font-weight="bold">约 430 拍完成</text>
+<line x1="150" y1="400" x2="920" y2="400" stroke="#333" stroke-width="1.5"/>
+<line x1="150.0" y1="400" x2="150.0" y2="406" stroke="#333" stroke-width="1.5"/>
+<text x="150.0" y="422" text-anchor="middle" font-size="13">0</text>
+<line x1="240.6" y1="400" x2="240.6" y2="406" stroke="#333" stroke-width="1.5"/>
+<text x="240.6" y="422" text-anchor="middle" font-size="13">200</text>
+<line x1="331.2" y1="400" x2="331.2" y2="406" stroke="#333" stroke-width="1.5"/>
+<text x="331.2" y="422" text-anchor="middle" font-size="13">400</text>
+<line x1="421.8" y1="400" x2="421.8" y2="406" stroke="#333" stroke-width="1.5"/>
+<text x="421.8" y="422" text-anchor="middle" font-size="13">600</text>
+<line x1="512.4" y1="400" x2="512.4" y2="406" stroke="#333" stroke-width="1.5"/>
+<text x="512.4" y="422" text-anchor="middle" font-size="13">800</text>
+<line x1="602.9" y1="400" x2="602.9" y2="406" stroke="#333" stroke-width="1.5"/>
+<text x="602.9" y="422" text-anchor="middle" font-size="13">1000</text>
+<line x1="693.5" y1="400" x2="693.5" y2="406" stroke="#333" stroke-width="1.5"/>
+<text x="693.5" y="422" text-anchor="middle" font-size="13">1200</text>
+<line x1="784.1" y1="400" x2="784.1" y2="406" stroke="#333" stroke-width="1.5"/>
+<text x="784.1" y="422" text-anchor="middle" font-size="13">1400</text>
+<line x1="874.7" y1="400" x2="874.7" y2="406" stroke="#333" stroke-width="1.5"/>
+<text x="874.7" y="422" text-anchor="middle" font-size="13">1600</text>
+<text x="920" y="442" text-anchor="end" font-size="14">时间（拍，即时钟周期）</text>
+<rect x="150" y="460" width="26" height="18" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5"/>
+<text x="184" y="474" font-size="14">发出读取指令</text>
+<rect x="400" y="460" width="26" height="18" fill="url(#h)" stroke="#555" stroke-width="1.5"/>
+<text x="434" y="474" font-size="14">等数据回来，无事可做</text>
+<rect x="650" y="460" width="26" height="18" fill="#fde2c4" stroke="#d9822b" stroke-width="1.5"/>
+<text x="684" y="474" font-size="14">乘加、取最大值、写回</text>
+<text x="150" y="504" font-size="13" fill="#555">乘加只有 4 拍，按比例画出来太窄，图中按最小宽度显示</text>
+</svg>

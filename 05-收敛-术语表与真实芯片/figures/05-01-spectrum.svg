@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 420" width="1000" height="420">
+<rect x="0" y="0" width="1000" height="420" fill="#ffffff"/>
+<g font-family="sans-serif">
+<text x="30" y="34" font-size="20" fill="#111" text-anchor="start" font-weight="bold">四家芯片在"谁来决定时序"这根轴上的位置</text>
+<text x="30" y="58" font-size="15" fill="#333" text-anchor="start" font-weight="normal">往左：开跑之后由硬件临场决定谁先谁后。往右：开跑之前由编译器把每一拍排死。</text>
+<line x1="70" y1="120" x2="930" y2="120" stroke="#111" stroke-width="3" marker-end="url(#ag)"/>
+<line x1="70" y1="120" x2="930" y2="120" stroke="#111" stroke-width="3"/>
+<text x="70" y="104" font-size="16" fill="#111" text-anchor="start" font-weight="bold">◄ 灵活 / 动态</text>
+<text x="930" y="104" font-size="16" fill="#111" text-anchor="end" font-weight="bold">高效 / 静态 ►</text>
+<circle cx="170" cy="120" r="9" fill="#c23b22" stroke="#ffffff" stroke-width="2"/>
+<line x1="170" y1="129" x2="170" y2="156" stroke="#c23b22" stroke-width="1.5" stroke-dasharray="4 3"/>
+<rect x="65" y="160" width="210" height="116" fill="#fafafa" stroke="#c23b22" stroke-width="2"/>
+<text x="170" y="184" font-size="16" fill="#c23b22" text-anchor="middle" font-weight="bold">NVIDIA GPU</text>
+<text x="76" y="206" font-size="13" fill="#111" text-anchor="start" font-weight="normal">动态为体、静态为用。</text>
+<text x="76" y="226" font-size="13" fill="#111" text-anchor="start" font-weight="normal">底盘是线程、warp、运行时调度；</text>
+<text x="76" y="246" font-size="13" fill="#111" text-anchor="start" font-weight="normal">矩阵算力靠每个 SM 里的小引擎。</text>
+<text x="76" y="266" font-size="13" fill="#111" text-anchor="start" font-weight="normal">赌真实负载永远混杂。</text>
+<circle cx="400" cy="120" r="9" fill="#c23b22" stroke="#ffffff" stroke-width="2"/>
+<line x1="400" y1="129" x2="400" y2="156" stroke="#c23b22" stroke-width="1.5" stroke-dasharray="4 3"/>
+<rect x="295" y="160" width="210" height="116" fill="#fafafa" stroke="#c23b22" stroke-width="2"/>
+<text x="400" y="184" font-size="16" fill="#c23b22" text-anchor="middle" font-weight="bold">AMD GPU</text>
+<text x="306" y="206" font-size="13" fill="#111" text-anchor="start" font-weight="normal">与 NVIDIA 同一路线，</text>
+<text x="306" y="226" font-size="13" fill="#111" text-anchor="start" font-weight="normal">换了名字（CU、wavefront 64）；</text>
+<text x="306" y="246" font-size="13" fill="#111" text-anchor="start" font-weight="normal">指令集完全公开。</text>
+<text x="306" y="266" font-size="13" fill="#111" text-anchor="start" font-weight="normal">机制差异小于名字差异。</text>
+<circle cx="630" cy="120" r="9" fill="#7a5195" stroke="#ffffff" stroke-width="2"/>
+<line x1="630" y1="129" x2="630" y2="156" stroke="#7a5195" stroke-width="1.5" stroke-dasharray="4 3"/>
+<rect x="525" y="160" width="210" height="116" fill="#fafafa" stroke="#7a5195" stroke-width="2"/>
+<text x="630" y="184" font-size="16" fill="#7a5195" text-anchor="middle" font-weight="bold">华为昇腾</text>
+<text x="536" y="206" font-size="13" fill="#111" text-anchor="start" font-weight="normal">一核三引擎、手动挡后勤。</text>
+<text x="536" y="226" font-size="13" fill="#111" text-anchor="start" font-weight="normal">核内是静态流水，</text>
+<text x="536" y="246" font-size="13" fill="#111" text-anchor="start" font-weight="normal">片上存储分级全部暴露，</text>
+<text x="536" y="266" font-size="13" fill="#111" text-anchor="start" font-weight="normal">搬运要自己写指令。</text>
+<circle cx="860" cy="120" r="9" fill="#2a5d9c" stroke="#ffffff" stroke-width="2"/>
+<line x1="860" y1="129" x2="860" y2="156" stroke="#2a5d9c" stroke-width="1.5" stroke-dasharray="4 3"/>
+<rect x="755" y="160" width="210" height="116" fill="#fafafa" stroke="#2a5d9c" stroke-width="2"/>
+<text x="860" y="184" font-size="16" fill="#2a5d9c" text-anchor="middle" font-weight="bold">谷歌 TPU</text>
+<text x="766" y="206" font-size="13" fill="#111" text-anchor="start" font-weight="normal">教科书式的空间架构。</text>
+<text x="766" y="226" font-size="13" fill="#111" text-anchor="start" font-weight="normal">大脉动阵列，无线程、无缓存，</text>
+<text x="766" y="246" font-size="13" fill="#111" text-anchor="start" font-weight="normal">一切时序编译期排定。</text>
+<text x="766" y="266" font-size="13" fill="#111" text-anchor="start" font-weight="normal">赌云上负载形状可控。</text>
+<rect x="30" y="300" width="940" height="96" fill="#f6f6f6" stroke="#555" stroke-width="1.5"/>
+<text x="46" y="328" font-size="15" fill="#111" text-anchor="start" font-weight="bold">同一根轴上还可以读出三件事：</text>
+<text x="46" y="354" font-size="15" fill="#111" text-anchor="start" font-weight="normal">越往左，片上存储越多地交给硬件缓存自动管；越往右，越要程序或编译器指名道姓地搬。</text>
+<text x="46" y="380" font-size="15" fill="#111" text-anchor="start" font-weight="normal">越往左，形状不规整的代价越小；越往右，峰值能效越高，但形状对不齐时浪费越狠。</text>
+</g><defs><marker id="ar" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#c23b22"/></marker><marker id="ag" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#555"/></marker></defs></svg>

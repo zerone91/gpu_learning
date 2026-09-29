@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="560" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222222"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f6db5"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777777"/></marker><marker id="o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c77a12"/></marker><marker id="n" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e8b57"/></marker><marker id="p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7a4fb0"/></marker></defs>
+<text x="480" y="30" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold">五层并不总是依次经过：同一行代码的两条通路</text>
+<text x="250" y="66" font-size="16" text-anchor="middle" fill="#c77a12" font-weight="bold">默认：逐算子即时执行（eager）</text>
+<rect x="60" y="90" width="220" height="58" rx="6" fill="#f8e3c4" stroke="#c77a12" stroke-width="2.5"/>
+<text x="170" y="126" font-size="16" text-anchor="middle" fill="#222222" font-weight="bold">① 框架层</text>
+<rect x="60" y="174" width="220" height="58" rx="6" fill="#ffffff" stroke="#bbbbbb" stroke-width="1.5" stroke-dasharray="6,5"/>
+<text x="170" y="200" font-size="16" text-anchor="middle" fill="#999999">② 图编译层</text>
+<rect x="60" y="258" width="220" height="58" rx="6" fill="#f8e3c4" stroke="#c77a12" stroke-width="2.5"/>
+<text x="170" y="294" font-size="16" text-anchor="middle" fill="#222222" font-weight="bold">③ kernel 层</text>
+<rect x="60" y="342" width="220" height="58" rx="6" fill="#ffffff" stroke="#bbbbbb" stroke-width="1.5" stroke-dasharray="6,5"/>
+<text x="170" y="368" font-size="16" text-anchor="middle" fill="#999999">④ 底层编译层</text>
+<rect x="60" y="426" width="220" height="58" rx="6" fill="#f8e3c4" stroke="#c77a12" stroke-width="2.5"/>
+<text x="170" y="462" font-size="16" text-anchor="middle" fill="#222222" font-weight="bold">⑤ 运行时层</text>
+<rect x="60" y="510" width="220" height="44" rx="6" fill="#f2f2f2" stroke="#222222" stroke-width="2"/>
+<text x="170" y="538" font-size="16" text-anchor="middle" fill="#222222" font-weight="bold">GPU</text>
+<text x="710" y="66" font-size="16" text-anchor="middle" fill="#2f6db5" font-weight="bold">开启 torch.compile 之后</text>
+<rect x="520" y="90" width="220" height="58" rx="6" fill="#dbe7f5" stroke="#2f6db5" stroke-width="2.5"/>
+<text x="630" y="126" font-size="16" text-anchor="middle" fill="#222222" font-weight="bold">① 框架层</text>
+<rect x="520" y="174" width="220" height="58" rx="6" fill="#dbe7f5" stroke="#2f6db5" stroke-width="2.5"/>
+<text x="630" y="210" font-size="16" text-anchor="middle" fill="#222222" font-weight="bold">② 图编译层</text>
+<rect x="520" y="258" width="220" height="58" rx="6" fill="#dbe7f5" stroke="#2f6db5" stroke-width="2.5"/>
+<text x="630" y="294" font-size="16" text-anchor="middle" fill="#222222" font-weight="bold">③ kernel 层</text>
+<rect x="520" y="342" width="220" height="58" rx="6" fill="#dbe7f5" stroke="#2f6db5" stroke-width="2.5"/>
+<text x="630" y="378" font-size="16" text-anchor="middle" fill="#222222" font-weight="bold">④ 底层编译层</text>
+<rect x="520" y="426" width="220" height="58" rx="6" fill="#dbe7f5" stroke="#2f6db5" stroke-width="2.5"/>
+<text x="630" y="462" font-size="16" text-anchor="middle" fill="#222222" font-weight="bold">⑤ 运行时层</text>
+<rect x="520" y="510" width="220" height="44" rx="6" fill="#f2f2f2" stroke="#222222" stroke-width="2"/>
+<text x="630" y="538" font-size="16" text-anchor="middle" fill="#222222" font-weight="bold">GPU</text>
+<path d="M 280 119.0 C 350 119.0, 350 287.0, 284 287.0" stroke="#c77a12" stroke-width="2.5" fill="none" marker-end="url(#o)"/>
+<path d="M 280 295.0 C 350 295.0, 350 455.0, 284 455.0" stroke="#c77a12" stroke-width="2.5" fill="none" marker-end="url(#o)"/>
+<line x1="170" y1="484" x2="170" y2="508" stroke="#c77a12" stroke-width="2.5" marker-end="url(#o)"/>
+<text x="356" y="207.0" font-size="13" text-anchor="start" fill="#c77a12"><tspan x="356" dy="0">每个算子直接找到</tspan><tspan x="356" dy="17.55">一个预先写好的 kernel</tspan><tspan x="356" dy="17.55">（如 cuBLAS 里的矩阵乘）</tspan></text>
+<text x="356" y="367.0" font-size="13" text-anchor="start" fill="#c77a12"><tspan x="356" dy="0">④ 的工作在算子库</tspan><tspan x="356" dy="17.55">发布之前就做完了</tspan></text>
+<text x="170" y="223.0" font-size="13" text-anchor="middle" fill="#777777">被跳过：没人看整张图</text>
+<text x="170" y="391.0" font-size="13" text-anchor="middle" fill="#777777">发布前已离线做完</text>
+<line x1="630" y1="148" x2="630" y2="172" stroke="#2f6db5" stroke-width="2.5" marker-end="url(#b)"/>
+<line x1="630" y1="232" x2="630" y2="256" stroke="#2f6db5" stroke-width="2.5" marker-end="url(#b)"/>
+<line x1="630" y1="316" x2="630" y2="340" stroke="#2f6db5" stroke-width="2.5" marker-end="url(#b)"/>
+<line x1="630" y1="400" x2="630" y2="424" stroke="#2f6db5" stroke-width="2.5" marker-end="url(#b)"/>
+<line x1="630" y1="484" x2="630" y2="508" stroke="#2f6db5" stroke-width="2.5" marker-end="url(#b)"/>
+<text x="756" y="207.0" font-size="13" text-anchor="start" fill="#2f6db5">抓整张图，决定融合</text>
+<text x="756" y="291.0" font-size="13" text-anchor="start" fill="#2f6db5"><tspan x="756" dy="0">为融合组现场生成</tspan><tspan x="756" dy="17.55">Triton kernel</tspan></text>
+<text x="756" y="375.0" font-size="13" text-anchor="start" fill="#2f6db5"><tspan x="756" dy="0">把生成的 kernel</tspan><tspan x="756" dy="17.55">编译成机器码</tspan></text>
+<text x="756" y="113.0" font-size="13" text-anchor="start" fill="#2f6db5"><tspan x="756" dy="0">首次调用时</tspan><tspan x="756" dy="17.55">②③④ 现场工作</tspan></text>
+</svg>

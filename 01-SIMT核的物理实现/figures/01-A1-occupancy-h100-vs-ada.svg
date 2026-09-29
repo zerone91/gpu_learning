@@ -1,0 +1,174 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470" width="960" height="470" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="470" fill="#ffffff"/>
+<defs><pattern id="h" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="#fff"/><line x1="0" y1="0" x2="0" y2="8" stroke="#c0392b" stroke-width="2"/></pattern></defs>
+<text x="480" y="28" font-size="18" text-anchor="middle" fill="#222" font-weight="bold">同一个 kernel（每线程 48 个寄存器、每块 256 线程）在 H100 和 Ada 上的驻留账</text>
+<text x="30" y="72" font-size="16" fill="#222" font-weight="bold">第一步：寄存器堆能放下几个线程块？（两种卡都是每 SM 65536 个寄存器）</text>
+<rect x="100.0" y="88" width="131.2" height="44" fill="#dbe8f6" stroke="#222" stroke-width="1.5"/>
+<text x="165.6" y="108" font-size="15" text-anchor="middle" fill="#222">块 1</text>
+<text x="165.6" y="126" font-size="14" text-anchor="middle" fill="#555">12288 个</text>
+<rect x="231.2" y="88" width="131.2" height="44" fill="#dbe8f6" stroke="#222" stroke-width="1.5"/>
+<text x="296.9" y="108" font-size="15" text-anchor="middle" fill="#222">块 2</text>
+<text x="296.9" y="126" font-size="14" text-anchor="middle" fill="#555">12288 个</text>
+<rect x="362.5" y="88" width="131.2" height="44" fill="#dbe8f6" stroke="#222" stroke-width="1.5"/>
+<text x="428.1" y="108" font-size="15" text-anchor="middle" fill="#222">块 3</text>
+<text x="428.1" y="126" font-size="14" text-anchor="middle" fill="#555">12288 个</text>
+<rect x="493.8" y="88" width="131.2" height="44" fill="#dbe8f6" stroke="#222" stroke-width="1.5"/>
+<text x="559.4" y="108" font-size="15" text-anchor="middle" fill="#222">块 4</text>
+<text x="559.4" y="126" font-size="14" text-anchor="middle" fill="#555">12288 个</text>
+<rect x="625.0" y="88" width="131.2" height="44" fill="#dbe8f6" stroke="#222" stroke-width="1.5"/>
+<text x="690.6" y="108" font-size="15" text-anchor="middle" fill="#222">块 5</text>
+<text x="690.6" y="126" font-size="14" text-anchor="middle" fill="#555">12288 个</text>
+<rect x="756.2" y="88" width="43.8" height="44" fill="url(#h)" stroke="#222" stroke-width="1.5"/>
+<text x="90" y="116" font-size="15" text-anchor="end" fill="#222">寄存器堆</text>
+<text x="100" y="154" font-size="14" fill="#555">每块需要 48 × 256 = 12288 个寄存器；65536 ÷ 12288 = 5.33，只能放下 5 个整块。</text>
+<text x="810" y="106" font-size="14" fill="#c0392b">斜线：剩 4096 个，</text>
+<text x="810" y="125" font-size="14" fill="#c0392b">不够第 6 块</text>
+<text x="30" y="206" font-size="16" fill="#222" font-weight="bold">第二步：5 个块 × 8 个 warp = 40 个 warp，放进各自的 warp 槽位</text>
+<text x="90" y="250" font-size="15" text-anchor="end" fill="#222">H100</text>
+<rect x="100.0" y="224" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="110.9" y="224" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="121.9" y="224" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="132.8" y="224" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="143.8" y="224" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="154.7" y="224" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="165.6" y="224" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="176.6" y="224" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="187.5" y="224" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="198.4" y="224" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="209.4" y="224" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="220.3" y="224" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="231.2" y="224" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="242.2" y="224" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="253.1" y="224" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="264.1" y="224" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="275.0" y="224" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="285.9" y="224" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="296.9" y="224" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="307.8" y="224" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="318.8" y="224" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="329.7" y="224" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="340.6" y="224" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="351.6" y="224" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="362.5" y="224" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="373.4" y="224" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="384.4" y="224" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="395.3" y="224" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="406.2" y="224" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="417.2" y="224" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="428.1" y="224" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="439.1" y="224" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="450.0" y="224" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="460.9" y="224" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="471.9" y="224" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="482.8" y="224" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="493.8" y="224" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="504.7" y="224" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="515.6" y="224" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="526.6" y="224" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="537.5" y="224" width="10.9" height="40" fill="#ffffff" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="548.4" y="224" width="10.9" height="40" fill="#ffffff" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="559.4" y="224" width="10.9" height="40" fill="#ffffff" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="570.3" y="224" width="10.9" height="40" fill="#ffffff" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="581.2" y="224" width="10.9" height="40" fill="#ffffff" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="592.2" y="224" width="10.9" height="40" fill="#ffffff" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="603.1" y="224" width="10.9" height="40" fill="#ffffff" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="614.1" y="224" width="10.9" height="40" fill="#ffffff" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="625.0" y="224" width="10.9" height="40" fill="#ffffff" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="635.9" y="224" width="10.9" height="40" fill="#ffffff" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="646.9" y="224" width="10.9" height="40" fill="#ffffff" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="657.8" y="224" width="10.9" height="40" fill="#ffffff" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="668.8" y="224" width="10.9" height="40" fill="#ffffff" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="679.7" y="224" width="10.9" height="40" fill="#ffffff" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="690.6" y="224" width="10.9" height="40" fill="#ffffff" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="701.6" y="224" width="10.9" height="40" fill="#ffffff" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="712.5" y="224" width="10.9" height="40" fill="#ffffff" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="723.4" y="224" width="10.9" height="40" fill="#ffffff" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="734.4" y="224" width="10.9" height="40" fill="#ffffff" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="745.3" y="224" width="10.9" height="40" fill="#ffffff" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="756.2" y="224" width="10.9" height="40" fill="#ffffff" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="767.2" y="224" width="10.9" height="40" fill="#ffffff" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="778.1" y="224" width="10.9" height="40" fill="#ffffff" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="789.1" y="224" width="10.9" height="40" fill="#ffffff" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="100.0" y="224" width="87.5" height="40" fill="none" stroke="#222" stroke-width="2"/>
+<text x="143.8" y="250" font-size="14" text-anchor="middle" fill="#222">块 1</text>
+<rect x="187.5" y="224" width="87.5" height="40" fill="none" stroke="#222" stroke-width="2"/>
+<text x="231.2" y="250" font-size="14" text-anchor="middle" fill="#222">块 2</text>
+<rect x="275.0" y="224" width="87.5" height="40" fill="none" stroke="#222" stroke-width="2"/>
+<text x="318.8" y="250" font-size="14" text-anchor="middle" fill="#222">块 3</text>
+<rect x="362.5" y="224" width="87.5" height="40" fill="none" stroke="#222" stroke-width="2"/>
+<text x="406.2" y="250" font-size="14" text-anchor="middle" fill="#222">块 4</text>
+<rect x="450.0" y="224" width="87.5" height="40" fill="none" stroke="#222" stroke-width="2"/>
+<text x="493.8" y="250" font-size="14" text-anchor="middle" fill="#222">块 5</text>
+<rect x="100" y="224" width="700.0" height="40" fill="none" stroke="#222" stroke-width="2"/>
+<text x="810.0" y="242" font-size="15" fill="#2c6fb7" font-weight="bold">40 ÷ 64 = 62.5%</text>
+<text x="810.0" y="261" font-size="14" fill="#555">64 个槽位</text>
+<text x="90" y="316" font-size="15" text-anchor="end" fill="#222">Ada</text>
+<rect x="100.0" y="290" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="110.9" y="290" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="121.9" y="290" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="132.8" y="290" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="143.8" y="290" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="154.7" y="290" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="165.6" y="290" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="176.6" y="290" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="187.5" y="290" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="198.4" y="290" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="209.4" y="290" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="220.3" y="290" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="231.2" y="290" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="242.2" y="290" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="253.1" y="290" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="264.1" y="290" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="275.0" y="290" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="285.9" y="290" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="296.9" y="290" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="307.8" y="290" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="318.8" y="290" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="329.7" y="290" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="340.6" y="290" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="351.6" y="290" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="362.5" y="290" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="373.4" y="290" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="384.4" y="290" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="395.3" y="290" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="406.2" y="290" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="417.2" y="290" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="428.1" y="290" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="439.1" y="290" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="450.0" y="290" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="460.9" y="290" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="471.9" y="290" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="482.8" y="290" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="493.8" y="290" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="504.7" y="290" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="515.6" y="290" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="526.6" y="290" width="10.9" height="40" fill="#fbe3c4" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="537.5" y="290" width="10.9" height="40" fill="#ffffff" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="548.4" y="290" width="10.9" height="40" fill="#ffffff" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="559.4" y="290" width="10.9" height="40" fill="#ffffff" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="570.3" y="290" width="10.9" height="40" fill="#ffffff" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="581.2" y="290" width="10.9" height="40" fill="#ffffff" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="592.2" y="290" width="10.9" height="40" fill="#ffffff" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="603.1" y="290" width="10.9" height="40" fill="#ffffff" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="614.1" y="290" width="10.9" height="40" fill="#ffffff" stroke="#d0d0d0" stroke-width="1"/>
+<rect x="100.0" y="290" width="87.5" height="40" fill="none" stroke="#222" stroke-width="2"/>
+<text x="143.8" y="316" font-size="14" text-anchor="middle" fill="#222">块 1</text>
+<rect x="187.5" y="290" width="87.5" height="40" fill="none" stroke="#222" stroke-width="2"/>
+<text x="231.2" y="316" font-size="14" text-anchor="middle" fill="#222">块 2</text>
+<rect x="275.0" y="290" width="87.5" height="40" fill="none" stroke="#222" stroke-width="2"/>
+<text x="318.8" y="316" font-size="14" text-anchor="middle" fill="#222">块 3</text>
+<rect x="362.5" y="290" width="87.5" height="40" fill="none" stroke="#222" stroke-width="2"/>
+<text x="406.2" y="316" font-size="14" text-anchor="middle" fill="#222">块 4</text>
+<rect x="450.0" y="290" width="87.5" height="40" fill="none" stroke="#222" stroke-width="2"/>
+<text x="493.8" y="316" font-size="14" text-anchor="middle" fill="#222">块 5</text>
+<rect x="100" y="290" width="525.0" height="40" fill="none" stroke="#222" stroke-width="2"/>
+<text x="635.0" y="308" font-size="15" fill="#b86a0c" font-weight="bold">40 ÷ 48 = 83%</text>
+<text x="635.0" y="327" font-size="14" fill="#555">48 个槽位</text>
+<line x1="537.5" y1="216" x2="537.5" y2="342" stroke="#222" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="537.5" y="360" font-size="14" text-anchor="middle" fill="#222">两边都驻留 40 个 warp</text>
+<text x="100" y="360" font-size="14" fill="#555">橙色：已驻留的 warp</text>
+<text x="100" y="380" font-size="14" fill="#555">白色：空着的槽位</text>
+<rect x="30" y="400" width="900" height="54" fill="#f6f6f6" stroke="#222" stroke-width="1.5" rx="6"/>
+<text x="480" y="423" font-size="15" text-anchor="middle" fill="#222">分子（实际驻留的 40 个 warp）完全相同，只是分母（槽位数）不同，百分比才不一样。</text>
+<text x="480" y="444" font-size="15" text-anchor="middle" fill="#222">跨架构比较时，应该比驻留 warp 的绝对数，而不是占用率百分比。</text>
+</svg>

@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="540" fill="#ffffff"/>
+<defs><marker id="k" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222222"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777777"/></marker><marker id="o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c77a12"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f6db5"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="n" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e8b57"/></marker><marker id="p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7a4fb0"/></marker></defs>
+<text x="480.0" y="32.0" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold">lazy rescale：一行分数扫 4 块，三种写法各对累加器做几次修正（数字为示意）</text>
+<rect x="220.0" y="56.0" width="144.0" height="34.0" rx="3" fill="#f3f3f3" stroke="#777777" stroke-width="1.5"/>
+<text x="292.0" y="78.4" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">块 1</text>
+<rect x="370.0" y="56.0" width="144.0" height="34.0" rx="3" fill="#f3f3f3" stroke="#777777" stroke-width="1.5"/>
+<text x="442.0" y="78.4" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">块 2</text>
+<rect x="520.0" y="56.0" width="144.0" height="34.0" rx="3" fill="#f3f3f3" stroke="#777777" stroke-width="1.5"/>
+<text x="592.0" y="78.4" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">块 3</text>
+<rect x="670.0" y="56.0" width="144.0" height="34.0" rx="3" fill="#f3f3f3" stroke="#777777" stroke-width="1.5"/>
+<text x="742.0" y="78.4" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">块 4</text>
+<rect x="820.0" y="56.0" width="116.0" height="34.0" rx="3" fill="#ffffff" stroke="#222222" stroke-width="1.5"/>
+<text x="878.0" y="78.4" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">修正次数</text>
+<text x="30.0" y="126.0" font-size="15" text-anchor="start" fill="#222222" font-weight="bold">本块最大分数</text>
+<text x="292.0" y="126.0" font-size="17" text-anchor="middle" fill="#222222" font-weight="bold">8.0</text>
+<text x="442.0" y="126.0" font-size="17" text-anchor="middle" fill="#222222" font-weight="bold">8.1</text>
+<text x="592.0" y="126.0" font-size="17" text-anchor="middle" fill="#222222" font-weight="bold">8.05</text>
+<text x="742.0" y="126.0" font-size="17" text-anchor="middle" fill="#222222" font-weight="bold">8.12</text>
+<text x="30.0" y="168.0" font-size="15" text-anchor="start" fill="#222222" font-weight="bold">教科书写法</text>
+<text x="30.0" y="190.0" font-size="14" text-anchor="start" fill="#777777">（B1 代码：每块都乘）</text>
+<rect x="220.0" y="146.0" width="144.0" height="58.0" rx="3" fill="#f5d0cb" stroke="#c0392b" stroke-width="1.5"/>
+<text x="292.0" y="169.0" font-size="14" text-anchor="middle" fill="#222222">参考 max 8.0</text>
+<text x="292.0" y="191.0" font-size="14" text-anchor="middle" fill="#c0392b" font-weight="bold">acc × 0</text>
+<rect x="370.0" y="146.0" width="144.0" height="58.0" rx="3" fill="#f5d0cb" stroke="#c0392b" stroke-width="1.5"/>
+<text x="442.0" y="169.0" font-size="14" text-anchor="middle" fill="#222222">参考 max 8.1</text>
+<text x="442.0" y="191.0" font-size="14" text-anchor="middle" fill="#c0392b" font-weight="bold">acc × 0.905</text>
+<rect x="520.0" y="146.0" width="144.0" height="58.0" rx="3" fill="#f5d0cb" stroke="#c0392b" stroke-width="1.5"/>
+<text x="592.0" y="169.0" font-size="14" text-anchor="middle" fill="#222222">参考 max 8.1</text>
+<text x="592.0" y="191.0" font-size="14" text-anchor="middle" fill="#c0392b" font-weight="bold">acc × 1.000</text>
+<rect x="670.0" y="146.0" width="144.0" height="58.0" rx="3" fill="#f5d0cb" stroke="#c0392b" stroke-width="1.5"/>
+<text x="742.0" y="169.0" font-size="14" text-anchor="middle" fill="#222222">参考 max 8.12</text>
+<text x="742.0" y="191.0" font-size="14" text-anchor="middle" fill="#c0392b" font-weight="bold">acc × 0.980</text>
+<text x="878.0" y="182.0" font-size="20" text-anchor="middle" fill="#222222" font-weight="bold">4</text>
+<text x="30.0" y="244.0" font-size="15" text-anchor="start" fill="#222222" font-weight="bold">严格按需</text>
+<text x="30.0" y="266.0" font-size="14" text-anchor="start" fill="#777777">（max 变了才乘）</text>
+<rect x="220.0" y="222.0" width="144.0" height="58.0" rx="3" fill="#ffffff" stroke="#bbbbbb" stroke-width="1.5" stroke-dasharray="4,3"/>
+<text x="292.0" y="245.0" font-size="14" text-anchor="middle" fill="#222222">参考 max 8.0</text>
+<text x="292.0" y="267.0" font-size="14" text-anchor="middle" fill="#777777">首块，无旧值</text>
+<rect x="370.0" y="222.0" width="144.0" height="58.0" rx="3" fill="#f5d0cb" stroke="#c0392b" stroke-width="1.5"/>
+<text x="442.0" y="245.0" font-size="14" text-anchor="middle" fill="#222222">8.1 &gt; 8.0</text>
+<text x="442.0" y="267.0" font-size="14" text-anchor="middle" fill="#c0392b" font-weight="bold">acc × 0.905</text>
+<rect x="520.0" y="222.0" width="144.0" height="58.0" rx="3" fill="#ffffff" stroke="#bbbbbb" stroke-width="1.5" stroke-dasharray="4,3"/>
+<text x="592.0" y="245.0" font-size="14" text-anchor="middle" fill="#222222">8.05 &lt; 8.1</text>
+<text x="592.0" y="267.0" font-size="14" text-anchor="middle" fill="#777777">不用修正</text>
+<rect x="670.0" y="222.0" width="144.0" height="58.0" rx="3" fill="#f5d0cb" stroke="#c0392b" stroke-width="1.5"/>
+<text x="742.0" y="245.0" font-size="14" text-anchor="middle" fill="#222222">8.12 &gt; 8.1</text>
+<text x="742.0" y="267.0" font-size="14" text-anchor="middle" fill="#c0392b" font-weight="bold">acc × 0.980</text>
+<text x="878.0" y="258.0" font-size="20" text-anchor="middle" fill="#222222" font-weight="bold">2</text>
+<text x="30.0" y="320.0" font-size="15" text-anchor="start" fill="#c0392b" font-weight="bold">lazy rescale</text>
+<text x="30.0" y="342.0" font-size="14" text-anchor="start" fill="#777777">（涨幅 ≤ 阈值 0.1 就欠着）</text>
+<rect x="220.0" y="298.0" width="144.0" height="58.0" rx="3" fill="#ffffff" stroke="#bbbbbb" stroke-width="1.5" stroke-dasharray="4,3"/>
+<text x="292.0" y="321.0" font-size="14" text-anchor="middle" fill="#222222">参考 max 8.0</text>
+<text x="292.0" y="343.0" font-size="14" text-anchor="middle" fill="#777777">首块，无旧值</text>
+<rect x="370.0" y="298.0" width="144.0" height="58.0" rx="3" fill="#ffffff" stroke="#bbbbbb" stroke-width="1.5" stroke-dasharray="4,3"/>
+<text x="442.0" y="321.0" font-size="14" text-anchor="middle" fill="#222222">涨 0.10 ≤ 0.1</text>
+<text x="442.0" y="343.0" font-size="14" text-anchor="middle" fill="#777777">跳过</text>
+<rect x="520.0" y="298.0" width="144.0" height="58.0" rx="3" fill="#ffffff" stroke="#bbbbbb" stroke-width="1.5" stroke-dasharray="4,3"/>
+<text x="592.0" y="321.0" font-size="14" text-anchor="middle" fill="#222222">涨 0.05 ≤ 0.1</text>
+<text x="592.0" y="343.0" font-size="14" text-anchor="middle" fill="#777777">跳过</text>
+<rect x="670.0" y="298.0" width="144.0" height="58.0" rx="3" fill="#f5d0cb" stroke="#c0392b" stroke-width="1.5"/>
+<text x="742.0" y="321.0" font-size="14" text-anchor="middle" fill="#222222">涨 0.12 &gt; 0.1</text>
+<text x="742.0" y="343.0" font-size="14" text-anchor="middle" fill="#c0392b" font-weight="bold">acc × 0.887</text>
+<text x="878.0" y="334.0" font-size="20" text-anchor="middle" fill="#c0392b" font-weight="bold">1</text>
+<rect x="30.0" y="380.0" width="900.0" height="140.0" rx="3" fill="#f3f3f3" stroke="#777777" stroke-width="1.5"/>
+<text x="46.0" y="406.0" font-size="15" text-anchor="start" fill="#222222" font-weight="bold">为什么欠着也不出错：</text>
+<text x="46.0" y="432.0" font-size="14" text-anchor="start" fill="#222222">① 跳过时继续拿旧参考 8.0 算 p = e^(s − 8.0)。s 最多比 8.0 大 0.1，p 最大 e^0.1 ≈ 1.105，远不会溢出。</text>
+<text x="46.0" y="458.0" font-size="14" text-anchor="start" fill="#222222">② 输出累加器 acc 和分母 l 始终用同一个参考值累加。收尾算 O = acc ÷ l 时，e^(−参考值) 这个公共因子上下抵消，</text>
+<text x="66.0" y="482.0" font-size="14" text-anchor="start" fill="#222222">所以结果与严格算法完全相同。三种写法收尾都要做这一次除法，它不算在修正次数里。</text>
+<text x="46.0" y="508.0" font-size="14" text-anchor="start" fill="#222222">③ 块 4 涨幅超过阈值才还账：acc × e^(8.0 − 8.12) = acc × 0.887，参考值换成 8.12。</text>
+</svg>

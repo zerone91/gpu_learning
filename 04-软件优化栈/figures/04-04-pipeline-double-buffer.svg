@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 400" width="960" height="400" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="400" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222222"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f6db5"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777777"/></marker><marker id="o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c77a12"/></marker><marker id="n" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e8b57"/></marker><marker id="p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7a4fb0"/></marker></defs>
+<text x="480" y="30" font-size="17" text-anchor="middle" fill="#222222" font-weight="bold">朴素循环与双缓冲（N=2）的时间线：K=4 块，每块搬 250 拍、算 300 拍（示意）</text>
+<text x="20" y="68" font-size="15" text-anchor="start" fill="#c77a12" font-weight="bold">朴素写法：搬一块、算一块，两者首尾相接</text>
+<text x="100" y="102" font-size="13" text-anchor="end" fill="#444">搬→缓冲甲</text>
+<text x="100" y="136" font-size="13" text-anchor="end" fill="#444" font-weight="bold">计算</text>
+<rect x="110.0" y="84" width="82.5" height="26" rx="3" fill="#f8e3c4" stroke="#c77a12" stroke-width="1.5"/>
+<text x="151.25" y="103" font-size="12" text-anchor="middle" fill="#222222">搬块 0</text>
+<rect x="291.5" y="84" width="82.5" height="26" rx="3" fill="#f8e3c4" stroke="#c77a12" stroke-width="1.5"/>
+<text x="332.75" y="103" font-size="12" text-anchor="middle" fill="#222222">搬块 1</text>
+<rect x="473.0" y="84" width="82.5" height="26" rx="3" fill="#f8e3c4" stroke="#c77a12" stroke-width="1.5"/>
+<text x="514.25" y="103" font-size="12" text-anchor="middle" fill="#222222">搬块 2</text>
+<rect x="654.5" y="84" width="82.5" height="26" rx="3" fill="#f8e3c4" stroke="#c77a12" stroke-width="1.5"/>
+<text x="695.75" y="103" font-size="12" text-anchor="middle" fill="#222222">搬块 3</text>
+<rect x="192.5" y="118" width="99.0" height="26" rx="3" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="242.0" y="137" font-size="12" text-anchor="middle" fill="#222222">算块 0</text>
+<rect x="374.0" y="118" width="99.0" height="26" rx="3" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="423.5" y="137" font-size="12" text-anchor="middle" fill="#222222">算块 1</text>
+<rect x="555.5" y="118" width="99.0" height="26" rx="3" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="605.0" y="137" font-size="12" text-anchor="middle" fill="#222222">算块 2</text>
+<rect x="737.0" y="118" width="99.0" height="26" rx="3" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="786.5" y="137" font-size="12" text-anchor="middle" fill="#222222">算块 3</text>
+<line x1="836.0" y1="78" x2="836.0" y2="152" stroke="#c77a12" stroke-width="2" stroke-dasharray="5,4"/>
+<text x="842.0" y="150" font-size="13" text-anchor="start" fill="#c77a12" font-weight="bold">共 2200 拍</text>
+<text x="20" y="198" font-size="15" text-anchor="start" fill="#2f6db5" font-weight="bold">双缓冲：算第 k 块时，第 k+1 块已经在路上</text>
+<text x="100" y="232" font-size="13" text-anchor="end" fill="#444">搬→缓冲甲</text>
+<text x="100" y="266" font-size="13" text-anchor="end" fill="#444">搬→缓冲乙</text>
+<text x="100" y="300" font-size="13" text-anchor="end" fill="#444" font-weight="bold">计算</text>
+<rect x="110.0" y="214" width="82.5" height="26" rx="3" fill="#f8e3c4" stroke="#c77a12" stroke-width="1.5"/>
+<text x="151.25" y="233" font-size="12" text-anchor="middle" fill="#222222">搬块 0</text>
+<rect x="192.5" y="248" width="82.5" height="26" rx="3" fill="#f8e3c4" stroke="#c77a12" stroke-width="1.5"/>
+<text x="233.75" y="267" font-size="12" text-anchor="middle" fill="#222222">搬块 1</text>
+<rect x="291.5" y="214" width="82.5" height="26" rx="3" fill="#f8e3c4" stroke="#c77a12" stroke-width="1.5"/>
+<text x="332.75" y="233" font-size="12" text-anchor="middle" fill="#222222">搬块 2</text>
+<rect x="390.5" y="248" width="82.5" height="26" rx="3" fill="#f8e3c4" stroke="#c77a12" stroke-width="1.5"/>
+<text x="431.75" y="267" font-size="12" text-anchor="middle" fill="#222222">搬块 3</text>
+<rect x="192.5" y="282" width="99.0" height="26" rx="3" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="242.0" y="301" font-size="12" text-anchor="middle" fill="#222222">算块 0（甲）</text>
+<rect x="291.5" y="282" width="99.0" height="26" rx="3" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="341.0" y="301" font-size="12" text-anchor="middle" fill="#222222">算块 1（乙）</text>
+<rect x="390.5" y="282" width="99.0" height="26" rx="3" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="440.0" y="301" font-size="12" text-anchor="middle" fill="#222222">算块 2（甲）</text>
+<rect x="489.5" y="282" width="99.0" height="26" rx="3" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="539.0" y="301" font-size="12" text-anchor="middle" fill="#222222">算块 3（乙）</text>
+<line x1="588.5" y1="208" x2="588.5" y2="316" stroke="#2f6db5" stroke-width="2" stroke-dasharray="5,4"/>
+<text x="594.5" y="314" font-size="13" text-anchor="start" fill="#2f6db5" font-weight="bold">共 1450 拍</text>
+<line x1="110.0" y1="350" x2="110.0" y2="356" stroke="#777777" stroke-width="1.5"/>
+<text x="110.0" y="374" font-size="12" text-anchor="middle" fill="#777777">0</text>
+<line x1="275.0" y1="350" x2="275.0" y2="356" stroke="#777777" stroke-width="1.5"/>
+<text x="275.0" y="374" font-size="12" text-anchor="middle" fill="#777777">500</text>
+<line x1="440.0" y1="350" x2="440.0" y2="356" stroke="#777777" stroke-width="1.5"/>
+<text x="440.0" y="374" font-size="12" text-anchor="middle" fill="#777777">1000</text>
+<line x1="605.0" y1="350" x2="605.0" y2="356" stroke="#777777" stroke-width="1.5"/>
+<text x="605.0" y="374" font-size="12" text-anchor="middle" fill="#777777">1500</text>
+<line x1="770.0" y1="350" x2="770.0" y2="356" stroke="#777777" stroke-width="1.5"/>
+<text x="770.0" y="374" font-size="12" text-anchor="middle" fill="#777777">2000</text>
+<line x1="110" y1="350" x2="836.0" y2="350" stroke="#777777" stroke-width="1.5"/>
+<text x="96" y="374" font-size="12" text-anchor="end" fill="#777777">时间（拍）</text>
+</svg>

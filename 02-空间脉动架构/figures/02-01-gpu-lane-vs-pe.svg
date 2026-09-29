@@ -1,0 +1,173 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 470" width="920" height="470" font-family="sans-serif">
+<rect x="0" y="0" width="920" height="470" fill="#ffffff"/>
+<defs><marker id="mk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e6fb7"/></marker><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f8a4a"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d9822b"/></marker><marker id="my" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777"/></marker><marker id="mp" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7b4fa0"/></marker></defs>
+<text x="460" y="33.6" font-size="16" text-anchor="middle" fill="#222" font-weight="bold">同样一块硅片：GPU 把大部分面积给了“管理”，脉动阵列几乎全给了乘加（示意，比例非实测）</text>
+<rect x="30" y="60" width="400" height="340" rx="0" fill="#fff" stroke="#222" stroke-width="2" />
+<text x="230.0" y="430.6" font-size="16" text-anchor="middle" fill="#222" font-weight="bold">GPU：一个 SM 的一角</text>
+<rect x="45" y="75" width="175" height="60" rx="0" fill="#e9ddf3" stroke="#7b4fa0" stroke-width="1.5" />
+<text x="132.5" y="100.8" font-size="14" text-anchor="middle" fill="#222">warp 调度器</text>
+<text x="132.5" y="119.0" font-size="14" text-anchor="middle" fill="#222">（每拍挑一个 warp）</text>
+<rect x="240" y="75" width="175" height="60" rx="0" fill="#e9ddf3" stroke="#7b4fa0" stroke-width="1.5" />
+<text x="327.5" y="109.9" font-size="14" text-anchor="middle" fill="#222">指令缓冲、取指、译码</text>
+<rect x="45" y="150" width="370" height="90" rx="0" fill="#e8e8e8" stroke="#777" stroke-width="1.5" />
+<text x="230.0" y="190.8" font-size="14" text-anchor="middle" fill="#222">寄存器堆</text>
+<text x="230.0" y="209.0" font-size="14" text-anchor="middle" fill="#222">（存几千个线程各自的变量）</text>
+<rect x="45" y="255" width="175" height="60" rx="0" fill="#e8e8e8" stroke="#777" stroke-width="1.5" />
+<text x="132.5" y="280.8" font-size="14" text-anchor="middle" fill="#222">访存单元</text>
+<text x="132.5" y="299.0" font-size="14" text-anchor="middle" fill="#222">（算地址、发读写请求）</text>
+<rect x="240" y="255" width="175" height="60" rx="0" fill="#e8e8e8" stroke="#777" stroke-width="1.5" />
+<text x="327.5" y="289.9" font-size="14" text-anchor="middle" fill="#222">缓存 / 共享内存</text>
+<rect x="45.0" y="332" width="40" height="52" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="65.0" y="362.9" font-size="14" text-anchor="middle" fill="#222">ALU</text>
+<rect x="91.5" y="332" width="40" height="52" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="111.5" y="362.9" font-size="14" text-anchor="middle" fill="#222">ALU</text>
+<rect x="138.0" y="332" width="40" height="52" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="158.0" y="362.9" font-size="14" text-anchor="middle" fill="#222">ALU</text>
+<rect x="184.5" y="332" width="40" height="52" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="204.5" y="362.9" font-size="14" text-anchor="middle" fill="#222">ALU</text>
+<rect x="231.0" y="332" width="40" height="52" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="251.0" y="362.9" font-size="14" text-anchor="middle" fill="#222">ALU</text>
+<rect x="277.5" y="332" width="40" height="52" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="297.5" y="362.9" font-size="14" text-anchor="middle" fill="#222">ALU</text>
+<rect x="324.0" y="332" width="40" height="52" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="344.0" y="362.9" font-size="14" text-anchor="middle" fill="#222">ALU</text>
+<rect x="370.5" y="332" width="40" height="52" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="390.5" y="362.9" font-size="14" text-anchor="middle" fill="#222">ALU</text>
+<rect x="490" y="60" width="400" height="340" rx="0" fill="#fff" stroke="#222" stroke-width="2" />
+<text x="690.0" y="430.6" font-size="16" text-anchor="middle" fill="#222" font-weight="bold">脉动阵列：同样面积铺满 PE</text>
+<rect x="508.0" y="78.0" width="55.666666666666664" height="39.0" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="535.8333333333334" y="102.4" font-size="14" text-anchor="middle" fill="#222">PE</text>
+<line x1="563.6666666666666" y1="97.5" x2="569.6666666666666" y2="97.5" stroke="#222" stroke-width="1.5"/>
+<line x1="535.8333333333334" y1="117.0" x2="535.8333333333334" y2="123.0" stroke="#222" stroke-width="1.5"/>
+<rect x="569.6666666666666" y="78.0" width="55.666666666666664" height="39.0" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="597.5" y="102.4" font-size="14" text-anchor="middle" fill="#222">PE</text>
+<line x1="625.3333333333333" y1="97.5" x2="631.3333333333333" y2="97.5" stroke="#222" stroke-width="1.5"/>
+<line x1="597.5" y1="117.0" x2="597.5" y2="123.0" stroke="#222" stroke-width="1.5"/>
+<rect x="631.3333333333334" y="78.0" width="55.666666666666664" height="39.0" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="659.1666666666667" y="102.4" font-size="14" text-anchor="middle" fill="#222">PE</text>
+<line x1="687.0" y1="97.5" x2="693.0" y2="97.5" stroke="#222" stroke-width="1.5"/>
+<line x1="659.1666666666667" y1="117.0" x2="659.1666666666667" y2="123.0" stroke="#222" stroke-width="1.5"/>
+<rect x="693.0" y="78.0" width="55.666666666666664" height="39.0" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="720.8333333333334" y="102.4" font-size="14" text-anchor="middle" fill="#222">PE</text>
+<line x1="748.6666666666666" y1="97.5" x2="754.6666666666666" y2="97.5" stroke="#222" stroke-width="1.5"/>
+<line x1="720.8333333333334" y1="117.0" x2="720.8333333333334" y2="123.0" stroke="#222" stroke-width="1.5"/>
+<rect x="754.6666666666666" y="78.0" width="55.666666666666664" height="39.0" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="782.5" y="102.4" font-size="14" text-anchor="middle" fill="#222">PE</text>
+<line x1="810.3333333333333" y1="97.5" x2="816.3333333333333" y2="97.5" stroke="#222" stroke-width="1.5"/>
+<line x1="782.5" y1="117.0" x2="782.5" y2="123.0" stroke="#222" stroke-width="1.5"/>
+<rect x="816.3333333333333" y="78.0" width="55.666666666666664" height="39.0" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="844.1666666666666" y="102.4" font-size="14" text-anchor="middle" fill="#222">PE</text>
+<line x1="844.1666666666666" y1="117.0" x2="844.1666666666666" y2="123.0" stroke="#222" stroke-width="1.5"/>
+<rect x="508.0" y="123.0" width="55.666666666666664" height="39.0" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="535.8333333333334" y="147.4" font-size="14" text-anchor="middle" fill="#222">PE</text>
+<line x1="563.6666666666666" y1="142.5" x2="569.6666666666666" y2="142.5" stroke="#222" stroke-width="1.5"/>
+<line x1="535.8333333333334" y1="162.0" x2="535.8333333333334" y2="168.0" stroke="#222" stroke-width="1.5"/>
+<rect x="569.6666666666666" y="123.0" width="55.666666666666664" height="39.0" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="597.5" y="147.4" font-size="14" text-anchor="middle" fill="#222">PE</text>
+<line x1="625.3333333333333" y1="142.5" x2="631.3333333333333" y2="142.5" stroke="#222" stroke-width="1.5"/>
+<line x1="597.5" y1="162.0" x2="597.5" y2="168.0" stroke="#222" stroke-width="1.5"/>
+<rect x="631.3333333333334" y="123.0" width="55.666666666666664" height="39.0" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="659.1666666666667" y="147.4" font-size="14" text-anchor="middle" fill="#222">PE</text>
+<line x1="687.0" y1="142.5" x2="693.0" y2="142.5" stroke="#222" stroke-width="1.5"/>
+<line x1="659.1666666666667" y1="162.0" x2="659.1666666666667" y2="168.0" stroke="#222" stroke-width="1.5"/>
+<rect x="693.0" y="123.0" width="55.666666666666664" height="39.0" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="720.8333333333334" y="147.4" font-size="14" text-anchor="middle" fill="#222">PE</text>
+<line x1="748.6666666666666" y1="142.5" x2="754.6666666666666" y2="142.5" stroke="#222" stroke-width="1.5"/>
+<line x1="720.8333333333334" y1="162.0" x2="720.8333333333334" y2="168.0" stroke="#222" stroke-width="1.5"/>
+<rect x="754.6666666666666" y="123.0" width="55.666666666666664" height="39.0" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="782.5" y="147.4" font-size="14" text-anchor="middle" fill="#222">PE</text>
+<line x1="810.3333333333333" y1="142.5" x2="816.3333333333333" y2="142.5" stroke="#222" stroke-width="1.5"/>
+<line x1="782.5" y1="162.0" x2="782.5" y2="168.0" stroke="#222" stroke-width="1.5"/>
+<rect x="816.3333333333333" y="123.0" width="55.666666666666664" height="39.0" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="844.1666666666666" y="147.4" font-size="14" text-anchor="middle" fill="#222">PE</text>
+<line x1="844.1666666666666" y1="162.0" x2="844.1666666666666" y2="168.0" stroke="#222" stroke-width="1.5"/>
+<rect x="508.0" y="168.0" width="55.666666666666664" height="39.0" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="535.8333333333334" y="192.4" font-size="14" text-anchor="middle" fill="#222">PE</text>
+<line x1="563.6666666666666" y1="187.5" x2="569.6666666666666" y2="187.5" stroke="#222" stroke-width="1.5"/>
+<line x1="535.8333333333334" y1="207.0" x2="535.8333333333334" y2="213.0" stroke="#222" stroke-width="1.5"/>
+<rect x="569.6666666666666" y="168.0" width="55.666666666666664" height="39.0" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="597.5" y="192.4" font-size="14" text-anchor="middle" fill="#222">PE</text>
+<line x1="625.3333333333333" y1="187.5" x2="631.3333333333333" y2="187.5" stroke="#222" stroke-width="1.5"/>
+<line x1="597.5" y1="207.0" x2="597.5" y2="213.0" stroke="#222" stroke-width="1.5"/>
+<rect x="631.3333333333334" y="168.0" width="55.666666666666664" height="39.0" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="659.1666666666667" y="192.4" font-size="14" text-anchor="middle" fill="#222">PE</text>
+<line x1="687.0" y1="187.5" x2="693.0" y2="187.5" stroke="#222" stroke-width="1.5"/>
+<line x1="659.1666666666667" y1="207.0" x2="659.1666666666667" y2="213.0" stroke="#222" stroke-width="1.5"/>
+<rect x="693.0" y="168.0" width="55.666666666666664" height="39.0" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="720.8333333333334" y="192.4" font-size="14" text-anchor="middle" fill="#222">PE</text>
+<line x1="748.6666666666666" y1="187.5" x2="754.6666666666666" y2="187.5" stroke="#222" stroke-width="1.5"/>
+<line x1="720.8333333333334" y1="207.0" x2="720.8333333333334" y2="213.0" stroke="#222" stroke-width="1.5"/>
+<rect x="754.6666666666666" y="168.0" width="55.666666666666664" height="39.0" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="782.5" y="192.4" font-size="14" text-anchor="middle" fill="#222">PE</text>
+<line x1="810.3333333333333" y1="187.5" x2="816.3333333333333" y2="187.5" stroke="#222" stroke-width="1.5"/>
+<line x1="782.5" y1="207.0" x2="782.5" y2="213.0" stroke="#222" stroke-width="1.5"/>
+<rect x="816.3333333333333" y="168.0" width="55.666666666666664" height="39.0" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="844.1666666666666" y="192.4" font-size="14" text-anchor="middle" fill="#222">PE</text>
+<line x1="844.1666666666666" y1="207.0" x2="844.1666666666666" y2="213.0" stroke="#222" stroke-width="1.5"/>
+<rect x="508.0" y="213.0" width="55.666666666666664" height="39.0" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="535.8333333333334" y="237.4" font-size="14" text-anchor="middle" fill="#222">PE</text>
+<line x1="563.6666666666666" y1="232.5" x2="569.6666666666666" y2="232.5" stroke="#222" stroke-width="1.5"/>
+<line x1="535.8333333333334" y1="252.0" x2="535.8333333333334" y2="258.0" stroke="#222" stroke-width="1.5"/>
+<rect x="569.6666666666666" y="213.0" width="55.666666666666664" height="39.0" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="597.5" y="237.4" font-size="14" text-anchor="middle" fill="#222">PE</text>
+<line x1="625.3333333333333" y1="232.5" x2="631.3333333333333" y2="232.5" stroke="#222" stroke-width="1.5"/>
+<line x1="597.5" y1="252.0" x2="597.5" y2="258.0" stroke="#222" stroke-width="1.5"/>
+<rect x="631.3333333333334" y="213.0" width="55.666666666666664" height="39.0" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="659.1666666666667" y="237.4" font-size="14" text-anchor="middle" fill="#222">PE</text>
+<line x1="687.0" y1="232.5" x2="693.0" y2="232.5" stroke="#222" stroke-width="1.5"/>
+<line x1="659.1666666666667" y1="252.0" x2="659.1666666666667" y2="258.0" stroke="#222" stroke-width="1.5"/>
+<rect x="693.0" y="213.0" width="55.666666666666664" height="39.0" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="720.8333333333334" y="237.4" font-size="14" text-anchor="middle" fill="#222">PE</text>
+<line x1="748.6666666666666" y1="232.5" x2="754.6666666666666" y2="232.5" stroke="#222" stroke-width="1.5"/>
+<line x1="720.8333333333334" y1="252.0" x2="720.8333333333334" y2="258.0" stroke="#222" stroke-width="1.5"/>
+<rect x="754.6666666666666" y="213.0" width="55.666666666666664" height="39.0" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="782.5" y="237.4" font-size="14" text-anchor="middle" fill="#222">PE</text>
+<line x1="810.3333333333333" y1="232.5" x2="816.3333333333333" y2="232.5" stroke="#222" stroke-width="1.5"/>
+<line x1="782.5" y1="252.0" x2="782.5" y2="258.0" stroke="#222" stroke-width="1.5"/>
+<rect x="816.3333333333333" y="213.0" width="55.666666666666664" height="39.0" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="844.1666666666666" y="237.4" font-size="14" text-anchor="middle" fill="#222">PE</text>
+<line x1="844.1666666666666" y1="252.0" x2="844.1666666666666" y2="258.0" stroke="#222" stroke-width="1.5"/>
+<rect x="508.0" y="258.0" width="55.666666666666664" height="39.0" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="535.8333333333334" y="282.4" font-size="14" text-anchor="middle" fill="#222">PE</text>
+<line x1="563.6666666666666" y1="277.5" x2="569.6666666666666" y2="277.5" stroke="#222" stroke-width="1.5"/>
+<line x1="535.8333333333334" y1="297.0" x2="535.8333333333334" y2="303.0" stroke="#222" stroke-width="1.5"/>
+<rect x="569.6666666666666" y="258.0" width="55.666666666666664" height="39.0" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="597.5" y="282.4" font-size="14" text-anchor="middle" fill="#222">PE</text>
+<line x1="625.3333333333333" y1="277.5" x2="631.3333333333333" y2="277.5" stroke="#222" stroke-width="1.5"/>
+<line x1="597.5" y1="297.0" x2="597.5" y2="303.0" stroke="#222" stroke-width="1.5"/>
+<rect x="631.3333333333334" y="258.0" width="55.666666666666664" height="39.0" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="659.1666666666667" y="282.4" font-size="14" text-anchor="middle" fill="#222">PE</text>
+<line x1="687.0" y1="277.5" x2="693.0" y2="277.5" stroke="#222" stroke-width="1.5"/>
+<line x1="659.1666666666667" y1="297.0" x2="659.1666666666667" y2="303.0" stroke="#222" stroke-width="1.5"/>
+<rect x="693.0" y="258.0" width="55.666666666666664" height="39.0" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="720.8333333333334" y="282.4" font-size="14" text-anchor="middle" fill="#222">PE</text>
+<line x1="748.6666666666666" y1="277.5" x2="754.6666666666666" y2="277.5" stroke="#222" stroke-width="1.5"/>
+<line x1="720.8333333333334" y1="297.0" x2="720.8333333333334" y2="303.0" stroke="#222" stroke-width="1.5"/>
+<rect x="754.6666666666666" y="258.0" width="55.666666666666664" height="39.0" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="782.5" y="282.4" font-size="14" text-anchor="middle" fill="#222">PE</text>
+<line x1="810.3333333333333" y1="277.5" x2="816.3333333333333" y2="277.5" stroke="#222" stroke-width="1.5"/>
+<line x1="782.5" y1="297.0" x2="782.5" y2="303.0" stroke="#222" stroke-width="1.5"/>
+<rect x="816.3333333333333" y="258.0" width="55.666666666666664" height="39.0" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="844.1666666666666" y="282.4" font-size="14" text-anchor="middle" fill="#222">PE</text>
+<line x1="844.1666666666666" y1="297.0" x2="844.1666666666666" y2="303.0" stroke="#222" stroke-width="1.5"/>
+<rect x="508.0" y="303.0" width="55.666666666666664" height="39.0" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="535.8333333333334" y="327.4" font-size="14" text-anchor="middle" fill="#222">PE</text>
+<line x1="563.6666666666666" y1="322.5" x2="569.6666666666666" y2="322.5" stroke="#222" stroke-width="1.5"/>
+<rect x="569.6666666666666" y="303.0" width="55.666666666666664" height="39.0" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="597.5" y="327.4" font-size="14" text-anchor="middle" fill="#222">PE</text>
+<line x1="625.3333333333333" y1="322.5" x2="631.3333333333333" y2="322.5" stroke="#222" stroke-width="1.5"/>
+<rect x="631.3333333333334" y="303.0" width="55.666666666666664" height="39.0" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="659.1666666666667" y="327.4" font-size="14" text-anchor="middle" fill="#222">PE</text>
+<line x1="687.0" y1="322.5" x2="693.0" y2="322.5" stroke="#222" stroke-width="1.5"/>
+<rect x="693.0" y="303.0" width="55.666666666666664" height="39.0" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="720.8333333333334" y="327.4" font-size="14" text-anchor="middle" fill="#222">PE</text>
+<line x1="748.6666666666666" y1="322.5" x2="754.6666666666666" y2="322.5" stroke="#222" stroke-width="1.5"/>
+<rect x="754.6666666666666" y="303.0" width="55.666666666666664" height="39.0" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="782.5" y="327.4" font-size="14" text-anchor="middle" fill="#222">PE</text>
+<line x1="810.3333333333333" y1="322.5" x2="816.3333333333333" y2="322.5" stroke="#222" stroke-width="1.5"/>
+<rect x="816.3333333333333" y="303.0" width="55.666666666666664" height="39.0" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="844.1666666666666" y="327.4" font-size="14" text-anchor="middle" fill="#222">PE</text>
+<rect x="505" y="352" width="370" height="36" rx="0" fill="#e8e8e8" stroke="#777" stroke-width="1.5" />
+<text x="690.0" y="374.9" font-size="14" text-anchor="middle" fill="#222">边缘：一块朴素的缓冲存储，只和阵列边上的 PE 交换数据</text>
+<text x="460" y="459.9" font-size="14" text-anchor="middle" fill="#777">绿色 = 真正做乘加的电路；紫色、灰色 = 为“随时能算任何东西”付出的支持系统</text>
+</svg>

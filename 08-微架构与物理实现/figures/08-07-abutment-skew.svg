@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 580" width="980" height="580" font-family="sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/></marker></defs>
+<rect x="0" y="0" width="980" height="580" fill="#ffffff"/>
+<text x="490" y="28" font-size="18" text-anchor="middle" font-weight="bold" fill="#111">脉动阵列的物理实现：一块 PE 版图复制拼接，时钟也顺着数据流方向"斜着"送</text>
+<text x="235" y="62" font-size="15" text-anchor="middle" font-weight="bold" fill="#111">① 边对边拼接：引脚天然对齐，不用布线</text>
+<rect x="60" y="90" width="90" height="90" fill="#fff4d6" stroke="#9a6b00" stroke-width="1.6"/>
+<text x="105.0" y="140.0" font-size="14" text-anchor="middle" fill="#9a6b00">PE</text>
+<rect x="145" y="123.0" width="10" height="8" fill="#1f5fa8"/>
+<rect x="113.0" y="175" width="8" height="10" fill="#b5451b"/>
+<rect x="150" y="90" width="90" height="90" fill="#fff4d6" stroke="#9a6b00" stroke-width="1.6"/>
+<text x="195.0" y="140.0" font-size="14" text-anchor="middle" fill="#9a6b00">PE</text>
+<rect x="235" y="123.0" width="10" height="8" fill="#1f5fa8"/>
+<rect x="203.0" y="175" width="8" height="10" fill="#b5451b"/>
+<rect x="240" y="90" width="90" height="90" fill="#fff4d6" stroke="#9a6b00" stroke-width="1.6"/>
+<text x="285.0" y="140.0" font-size="14" text-anchor="middle" fill="#9a6b00">PE</text>
+<rect x="325" y="123.0" width="10" height="8" fill="#1f5fa8"/>
+<rect x="293.0" y="175" width="8" height="10" fill="#b5451b"/>
+<rect x="330" y="90" width="90" height="90" fill="#fff4d6" stroke="#9a6b00" stroke-width="1.6"/>
+<text x="375.0" y="140.0" font-size="14" text-anchor="middle" fill="#9a6b00">PE</text>
+<rect x="415" y="123.0" width="10" height="8" fill="#1f5fa8"/>
+<rect x="383.0" y="175" width="8" height="10" fill="#b5451b"/>
+<rect x="60" y="180" width="90" height="90" fill="#fff4d6" stroke="#9a6b00" stroke-width="1.6"/>
+<text x="105.0" y="230.0" font-size="14" text-anchor="middle" fill="#9a6b00">PE</text>
+<rect x="145" y="213.0" width="10" height="8" fill="#1f5fa8"/>
+<rect x="113.0" y="265" width="8" height="10" fill="#b5451b"/>
+<rect x="150" y="180" width="90" height="90" fill="#fff4d6" stroke="#9a6b00" stroke-width="1.6"/>
+<text x="195.0" y="230.0" font-size="14" text-anchor="middle" fill="#9a6b00">PE</text>
+<rect x="235" y="213.0" width="10" height="8" fill="#1f5fa8"/>
+<rect x="203.0" y="265" width="8" height="10" fill="#b5451b"/>
+<rect x="240" y="180" width="90" height="90" fill="#fff4d6" stroke="#9a6b00" stroke-width="1.6"/>
+<text x="285.0" y="230.0" font-size="14" text-anchor="middle" fill="#9a6b00">PE</text>
+<rect x="325" y="213.0" width="10" height="8" fill="#1f5fa8"/>
+<rect x="293.0" y="265" width="8" height="10" fill="#b5451b"/>
+<rect x="330" y="180" width="90" height="90" fill="#fff4d6" stroke="#9a6b00" stroke-width="1.6"/>
+<text x="375.0" y="230.0" font-size="14" text-anchor="middle" fill="#9a6b00">PE</text>
+<rect x="415" y="213.0" width="10" height="8" fill="#1f5fa8"/>
+<rect x="383.0" y="265" width="8" height="10" fill="#b5451b"/>
+<rect x="60" y="270" width="90" height="90" fill="#fff4d6" stroke="#9a6b00" stroke-width="1.6"/>
+<text x="105.0" y="320.0" font-size="14" text-anchor="middle" fill="#9a6b00">PE</text>
+<rect x="145" y="303.0" width="10" height="8" fill="#1f5fa8"/>
+<rect x="113.0" y="355" width="8" height="10" fill="#b5451b"/>
+<rect x="150" y="270" width="90" height="90" fill="#fff4d6" stroke="#9a6b00" stroke-width="1.6"/>
+<text x="195.0" y="320.0" font-size="14" text-anchor="middle" fill="#9a6b00">PE</text>
+<rect x="235" y="303.0" width="10" height="8" fill="#1f5fa8"/>
+<rect x="203.0" y="355" width="8" height="10" fill="#b5451b"/>
+<rect x="240" y="270" width="90" height="90" fill="#fff4d6" stroke="#9a6b00" stroke-width="1.6"/>
+<text x="285.0" y="320.0" font-size="14" text-anchor="middle" fill="#9a6b00">PE</text>
+<rect x="325" y="303.0" width="10" height="8" fill="#1f5fa8"/>
+<rect x="293.0" y="355" width="8" height="10" fill="#b5451b"/>
+<rect x="330" y="270" width="90" height="90" fill="#fff4d6" stroke="#9a6b00" stroke-width="1.6"/>
+<text x="375.0" y="320.0" font-size="14" text-anchor="middle" fill="#9a6b00">PE</text>
+<rect x="415" y="303.0" width="10" height="8" fill="#1f5fa8"/>
+<rect x="383.0" y="355" width="8" height="10" fill="#b5451b"/>
+<rect x="60" y="360" width="90" height="90" fill="#fff4d6" stroke="#9a6b00" stroke-width="1.6"/>
+<text x="105.0" y="410.0" font-size="14" text-anchor="middle" fill="#9a6b00">PE</text>
+<rect x="145" y="393.0" width="10" height="8" fill="#1f5fa8"/>
+<rect x="113.0" y="445" width="8" height="10" fill="#b5451b"/>
+<rect x="150" y="360" width="90" height="90" fill="#fff4d6" stroke="#9a6b00" stroke-width="1.6"/>
+<text x="195.0" y="410.0" font-size="14" text-anchor="middle" fill="#9a6b00">PE</text>
+<rect x="235" y="393.0" width="10" height="8" fill="#1f5fa8"/>
+<rect x="203.0" y="445" width="8" height="10" fill="#b5451b"/>
+<rect x="240" y="360" width="90" height="90" fill="#fff4d6" stroke="#9a6b00" stroke-width="1.6"/>
+<text x="285.0" y="410.0" font-size="14" text-anchor="middle" fill="#9a6b00">PE</text>
+<rect x="325" y="393.0" width="10" height="8" fill="#1f5fa8"/>
+<rect x="293.0" y="445" width="8" height="10" fill="#b5451b"/>
+<rect x="330" y="360" width="90" height="90" fill="#fff4d6" stroke="#9a6b00" stroke-width="1.6"/>
+<text x="375.0" y="410.0" font-size="14" text-anchor="middle" fill="#9a6b00">PE</text>
+<rect x="415" y="393.0" width="10" height="8" fill="#1f5fa8"/>
+<rect x="383.0" y="445" width="8" height="10" fill="#b5451b"/>
+<text x="240" y="476" font-size="14" text-anchor="middle" fill="#1f5fa8">蓝色小块：激活值右传的引脚，正好压在右邻居的输入上</text>
+<text x="240" y="496" font-size="14" text-anchor="middle" fill="#b5451b">红色小块：部分和下传的引脚，正好压在下邻居的输入上</text>
+<text x="240" y="522" font-size="14" text-anchor="middle" fill="#111">每条线只有一个 PE 那么长（几十微米）：没有长线、</text>
+<text x="240" y="542" font-size="14" text-anchor="middle" fill="#111">不插中继缓冲器，也没有给布线让出的空隙</text>
+<line x1="490" y1="50" x2="490" y2="565" stroke="#ccc" stroke-width="1.5"/>
+<text x="735" y="62" font-size="15" text-anchor="middle" font-weight="bold" fill="#111">② 时钟随数据流：到达时刻逐格推迟一点</text>
+<rect x="560" y="125" width="78" height="78" fill="rgb(255,255,255)" stroke="#1f5fa8" stroke-width="1.4"/>
+<text x="599.0" y="170.0" font-size="15" text-anchor="middle" fill="#111">0 ps</text>
+<rect x="638" y="125" width="78" height="78" fill="rgb(237,237,255)" stroke="#1f5fa8" stroke-width="1.4"/>
+<text x="677.0" y="170.0" font-size="15" text-anchor="middle" fill="#111">15 ps</text>
+<rect x="716" y="125" width="78" height="78" fill="rgb(219,219,255)" stroke="#1f5fa8" stroke-width="1.4"/>
+<text x="755.0" y="170.0" font-size="15" text-anchor="middle" fill="#111">30 ps</text>
+<rect x="794" y="125" width="78" height="78" fill="rgb(201,201,255)" stroke="#1f5fa8" stroke-width="1.4"/>
+<text x="833.0" y="170.0" font-size="15" text-anchor="middle" fill="#111">45 ps</text>
+<rect x="560" y="203" width="78" height="78" fill="rgb(237,237,255)" stroke="#1f5fa8" stroke-width="1.4"/>
+<text x="599.0" y="248.0" font-size="15" text-anchor="middle" fill="#111">15 ps</text>
+<rect x="638" y="203" width="78" height="78" fill="rgb(219,219,255)" stroke="#1f5fa8" stroke-width="1.4"/>
+<text x="677.0" y="248.0" font-size="15" text-anchor="middle" fill="#111">30 ps</text>
+<rect x="716" y="203" width="78" height="78" fill="rgb(201,201,255)" stroke="#1f5fa8" stroke-width="1.4"/>
+<text x="755.0" y="248.0" font-size="15" text-anchor="middle" fill="#111">45 ps</text>
+<rect x="794" y="203" width="78" height="78" fill="rgb(183,183,255)" stroke="#1f5fa8" stroke-width="1.4"/>
+<text x="833.0" y="248.0" font-size="15" text-anchor="middle" fill="#111">60 ps</text>
+<rect x="560" y="281" width="78" height="78" fill="rgb(219,219,255)" stroke="#1f5fa8" stroke-width="1.4"/>
+<text x="599.0" y="326.0" font-size="15" text-anchor="middle" fill="#111">30 ps</text>
+<rect x="638" y="281" width="78" height="78" fill="rgb(201,201,255)" stroke="#1f5fa8" stroke-width="1.4"/>
+<text x="677.0" y="326.0" font-size="15" text-anchor="middle" fill="#111">45 ps</text>
+<rect x="716" y="281" width="78" height="78" fill="rgb(183,183,255)" stroke="#1f5fa8" stroke-width="1.4"/>
+<text x="755.0" y="326.0" font-size="15" text-anchor="middle" fill="#111">60 ps</text>
+<rect x="794" y="281" width="78" height="78" fill="rgb(165,165,255)" stroke="#1f5fa8" stroke-width="1.4"/>
+<text x="833.0" y="326.0" font-size="15" text-anchor="middle" fill="#111">75 ps</text>
+<rect x="560" y="359" width="78" height="78" fill="rgb(201,201,255)" stroke="#1f5fa8" stroke-width="1.4"/>
+<text x="599.0" y="404.0" font-size="15" text-anchor="middle" fill="#111">45 ps</text>
+<rect x="638" y="359" width="78" height="78" fill="rgb(183,183,255)" stroke="#1f5fa8" stroke-width="1.4"/>
+<text x="677.0" y="404.0" font-size="15" text-anchor="middle" fill="#111">60 ps</text>
+<rect x="716" y="359" width="78" height="78" fill="rgb(165,165,255)" stroke="#1f5fa8" stroke-width="1.4"/>
+<text x="755.0" y="404.0" font-size="15" text-anchor="middle" fill="#111">75 ps</text>
+<rect x="794" y="359" width="78" height="78" fill="rgb(147,147,255)" stroke="#1f5fa8" stroke-width="1.4"/>
+<text x="833.0" y="404.0" font-size="15" text-anchor="middle" fill="#111">90 ps</text>
+<line x1="530" y1="93" x2="566" y2="131" stroke="#1f5fa8" stroke-width="2.5" marker-end="url(#ab)"/>
+<text x="520" y="85" font-size="14" fill="#1f5fa8">时钟从左上角进</text>
+<line x1="560" y1="459" x2="872" y2="459" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<text x="716" y="479" font-size="14" text-anchor="middle" fill="#111">激活值往右流</text>
+<line x1="894" y1="125" x2="894" y2="437" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<text x="902" y="273" font-size="14" fill="#111">部分和</text>
+<text x="902" y="293" font-size="14" fill="#111">往下流</text>
+<text x="520" y="515" font-size="14" fill="#111">格里的数字：时钟沿到达这个 PE 的时刻（示意）。</text>
+<text x="520" y="535" font-size="14" fill="#111">有连线的相邻两格只差 15 ps；左上与右下差 90 ps，</text>
+<text x="520" y="555" font-size="14" fill="#111">但它们之间没有直接连线，差多少都无所谓。</text>
+</svg>

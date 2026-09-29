@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="600" fill="#ffffff"/>
+<defs><marker id="ah-dddddd" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#dddddd"/></marker><marker id="ahs-dddddd" viewBox="0 0 10 10" refX="1" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#dddddd"/></marker></defs>
+<text x="480" y="30" font-size="19" text-anchor="middle" fill="#222222" font-weight="bold" >数据加载与计算重叠不重叠：用正文的视频训练例子（准备 190 ms，计算 150 ms）</text>
+<text x="30" y="70" font-size="16" text-anchor="start" fill="#c0392b" font-weight="bold" >A. 不预取：准备完一批才算，算完才准备下一批</text>
+<text x="205" y="101" font-size="14" text-anchor="end" fill="#222222" font-weight="normal" >数据准备（CPU）</text>
+<text x="205" y="141" font-size="14" text-anchor="end" fill="#222222" font-weight="normal" >GPU 计算</text>
+<line x1="215" y1="110" x2="929.4" y2="110" stroke="#dddddd" stroke-width="1"/>
+<line x1="215" y1="150" x2="929.4" y2="150" stroke="#dddddd" stroke-width="1"/>
+<rect x="215.0" y="80" width="178.6" height="30" rx="0" fill="#fdeedd" stroke="#c8650a" stroke-width="1.2" />
+<text x="304.3" y="101" font-size="14" text-anchor="middle" fill="#c8650a" font-weight="normal" >准备第 1 批</text>
+<rect x="393.6" y="120" width="141.0" height="30" rx="0" fill="#e3eef9" stroke="#1f6fb2" stroke-width="1.2" />
+<text x="464.1" y="141" font-size="14" text-anchor="middle" fill="#1f6fb2" font-weight="normal" >算第 1 批</text>
+<rect x="215.0" y="120" width="178.6" height="30" rx="0" fill="#ffffff" stroke="#c0392b" stroke-width="1.2" stroke-dasharray="4 3" />
+<text x="304.3" y="141" font-size="14" text-anchor="middle" fill="#c0392b" font-weight="normal" >GPU 空等 190 ms</text>
+<rect x="534.5999999999999" y="80" width="178.6" height="30" rx="0" fill="#fdeedd" stroke="#c8650a" stroke-width="1.2" />
+<text x="623.9" y="101" font-size="14" text-anchor="middle" fill="#c8650a" font-weight="normal" >准备第 2 批</text>
+<rect x="713.2" y="120" width="141.0" height="30" rx="0" fill="#e3eef9" stroke="#1f6fb2" stroke-width="1.2" />
+<text x="783.6999999999999" y="141" font-size="14" text-anchor="middle" fill="#1f6fb2" font-weight="normal" >算第 2 批</text>
+<rect x="534.5999999999999" y="120" width="178.6" height="30" rx="0" fill="#ffffff" stroke="#c0392b" stroke-width="1.2" stroke-dasharray="4 3" />
+<text x="623.9" y="141" font-size="14" text-anchor="middle" fill="#c0392b" font-weight="normal" >GPU 空等 190 ms</text>
+<text x="30" y="180" font-size="15" text-anchor="start" fill="#c0392b" font-weight="normal" >每步 340 ms，GPU 只忙 150 ms（约 44%）。时间线上每步开头都有一段固定的空白。</text>
+<text x="30" y="240" font-size="16" text-anchor="start" fill="#c8650a" font-weight="bold" >B. 预取（num_workers &gt; 0 且 pin_memory=True）：算第 k 批时，后台已在准备第 k+1 批</text>
+<text x="205" y="271" font-size="14" text-anchor="end" fill="#222222" font-weight="normal" >数据准备（CPU）</text>
+<text x="205" y="311" font-size="14" text-anchor="end" fill="#222222" font-weight="normal" >GPU 计算</text>
+<line x1="215" y1="280" x2="929.4" y2="280" stroke="#dddddd" stroke-width="1"/>
+<line x1="215" y1="320" x2="929.4" y2="320" stroke="#dddddd" stroke-width="1"/>
+<rect x="215.0" y="250" width="178.6" height="30" rx="0" fill="#fdeedd" stroke="#c8650a" stroke-width="1.2" />
+<text x="304.3" y="271" font-size="14" text-anchor="middle" fill="#c8650a" font-weight="normal" >准备第 1 批</text>
+<rect x="393.6" y="250" width="178.6" height="30" rx="0" fill="#fdeedd" stroke="#c8650a" stroke-width="1.2" />
+<text x="482.9" y="271" font-size="14" text-anchor="middle" fill="#c8650a" font-weight="normal" >准备第 2 批</text>
+<rect x="572.2" y="250" width="178.6" height="30" rx="0" fill="#fdeedd" stroke="#c8650a" stroke-width="1.2" />
+<text x="661.5" y="271" font-size="14" text-anchor="middle" fill="#c8650a" font-weight="normal" >准备第 3 批</text>
+<rect x="750.8" y="250" width="178.6" height="30" rx="0" fill="#fdeedd" stroke="#c8650a" stroke-width="1.2" />
+<text x="840.0999999999999" y="271" font-size="14" text-anchor="middle" fill="#c8650a" font-weight="normal" >准备第 4 批</text>
+<rect x="393.6" y="290" width="141.0" height="30" rx="0" fill="#e3eef9" stroke="#1f6fb2" stroke-width="1.2" />
+<text x="464.1" y="311" font-size="14" text-anchor="middle" fill="#1f6fb2" font-weight="normal" >算第 1 批</text>
+<rect x="534.5999999999999" y="290" width="37.599999999999994" height="30" rx="0" fill="#ffffff" stroke="#c0392b" stroke-width="1.2" stroke-dasharray="4 3" />
+<rect x="572.2" y="290" width="141.0" height="30" rx="0" fill="#e3eef9" stroke="#1f6fb2" stroke-width="1.2" />
+<text x="642.7" y="311" font-size="14" text-anchor="middle" fill="#1f6fb2" font-weight="normal" >算第 2 批</text>
+<rect x="713.2" y="290" width="37.599999999999994" height="30" rx="0" fill="#ffffff" stroke="#c0392b" stroke-width="1.2" stroke-dasharray="4 3" />
+<rect x="750.8" y="290" width="141.0" height="30" rx="0" fill="#e3eef9" stroke="#1f6fb2" stroke-width="1.2" />
+<text x="821.3" y="311" font-size="14" text-anchor="middle" fill="#1f6fb2" font-weight="normal" >算第 3 批</text>
+<rect x="891.8" y="290" width="37.599999999999994" height="30" rx="0" fill="#ffffff" stroke="#c0392b" stroke-width="1.2" stroke-dasharray="4 3" />
+<text x="553.4" y="342" font-size="14" text-anchor="middle" fill="#c0392b" font-weight="normal" >↑ 仍空 40 ms</text>
+<text x="30" y="370" font-size="15" text-anchor="start" fill="#c8650a" font-weight="normal" >每步 190 ms，GPU 忙 150 ms（约 79%）：准备比计算慢，重叠之后仍有约 21% 的时间在饿着。</text>
+<text x="30" y="420" font-size="16" text-anchor="start" fill="#2e7d4f" font-weight="bold" >C. 示意：把 CPU 的活减到 100 ms（离线预处理、GPU 解码）之后</text>
+<text x="205" y="451" font-size="14" text-anchor="end" fill="#222222" font-weight="normal" >数据准备（CPU）</text>
+<text x="205" y="491" font-size="14" text-anchor="end" fill="#222222" font-weight="normal" >GPU 计算</text>
+<line x1="215" y1="460" x2="929.4" y2="460" stroke="#dddddd" stroke-width="1"/>
+<line x1="215" y1="500" x2="929.4" y2="500" stroke="#dddddd" stroke-width="1"/>
+<rect x="215.0" y="430" width="94.0" height="30" rx="0" fill="#fdeedd" stroke="#c8650a" stroke-width="1.2" />
+<text x="262.0" y="451" font-size="14" text-anchor="middle" fill="#c8650a" font-weight="normal" >准备 100</text>
+<rect x="356.0" y="430" width="94.0" height="30" rx="0" fill="#fdeedd" stroke="#c8650a" stroke-width="1.2" />
+<text x="403.0" y="451" font-size="14" text-anchor="middle" fill="#c8650a" font-weight="normal" >准备 100</text>
+<rect x="497.0" y="430" width="94.0" height="30" rx="0" fill="#fdeedd" stroke="#c8650a" stroke-width="1.2" />
+<text x="544.0" y="451" font-size="14" text-anchor="middle" fill="#c8650a" font-weight="normal" >准备 100</text>
+<rect x="638.0" y="430" width="94.0" height="30" rx="0" fill="#fdeedd" stroke="#c8650a" stroke-width="1.2" />
+<text x="685.0" y="451" font-size="14" text-anchor="middle" fill="#c8650a" font-weight="normal" >准备 100</text>
+<rect x="779.0" y="430" width="94.0" height="30" rx="0" fill="#fdeedd" stroke="#c8650a" stroke-width="1.2" />
+<text x="826.0" y="451" font-size="14" text-anchor="middle" fill="#c8650a" font-weight="normal" >准备 100</text>
+<rect x="309.0" y="470" width="141.0" height="30" rx="0" fill="#e3eef9" stroke="#1f6fb2" stroke-width="1.2" />
+<text x="379.5" y="491" font-size="14" text-anchor="middle" fill="#1f6fb2" font-weight="normal" >算第 1 批</text>
+<rect x="450.0" y="470" width="141.0" height="30" rx="0" fill="#e3eef9" stroke="#1f6fb2" stroke-width="1.2" />
+<text x="520.5" y="491" font-size="14" text-anchor="middle" fill="#1f6fb2" font-weight="normal" >算第 2 批</text>
+<rect x="591.0" y="470" width="141.0" height="30" rx="0" fill="#e3eef9" stroke="#1f6fb2" stroke-width="1.2" />
+<text x="661.5" y="491" font-size="14" text-anchor="middle" fill="#1f6fb2" font-weight="normal" >算第 3 批</text>
+<rect x="732.0" y="470" width="141.0" height="30" rx="0" fill="#e3eef9" stroke="#1f6fb2" stroke-width="1.2" />
+<text x="802.5" y="491" font-size="14" text-anchor="middle" fill="#1f6fb2" font-weight="normal" >算第 4 批</text>
+<text x="30" y="530" font-size="15" text-anchor="start" fill="#2e7d4f" font-weight="normal" >准备时间小于计算时间，数据加载被完全藏住，GPU 连续工作。</text>
+<text x="215.0" y="590" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >0</text>
+<text x="309.0" y="590" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >100</text>
+<text x="403.0" y="590" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >200</text>
+<text x="497.0" y="590" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >300</text>
+<text x="591.0" y="590" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >400</text>
+<text x="685.0" y="590" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >500</text>
+<text x="779.0" y="590" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >600</text>
+<text x="873.0" y="590" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >700</text>
+<text x="933.4" y="590" font-size="14" text-anchor="start" fill="#666666" font-weight="normal" >ms</text>
+<text x="30" y="590" font-size="14" text-anchor="start" fill="#666666" font-weight="normal" >横轴：时间</text>
+</svg>

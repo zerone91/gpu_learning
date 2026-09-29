@@ -1,0 +1,149 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 700" width="960" height="700" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="700" fill="#ffffff"/>
+<defs><marker id="ah-1f6fb2" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f6fb2"/></marker><marker id="ahs-1f6fb2" viewBox="0 0 10 10" refX="1" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f6fb2"/></marker><marker id="ah-666666" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#666666"/></marker><marker id="ahs-666666" viewBox="0 0 10 10" refX="1" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#666666"/></marker><marker id="ah-c0392b" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="ahs-c0392b" viewBox="0 0 10 10" refX="1" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker></defs>
+<text x="480" y="30" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold" >L2 切成许多 slice：普通访问被哈希撒开，同一地址的原子操作只能在一个 slice 排队</text>
+<text x="480" y="54" font-size="15" text-anchor="middle" fill="#666666" font-weight="normal" >示意：画 8 个 SM、16 个 slice（H100 实际有 132 个 SM、几十个 slice）</text>
+<text x="40" y="90" font-size="16" text-anchor="start" fill="#222222" font-weight="bold" >A. 普通读写：连续地址经过哈希，散到所有 slice，16 个 slice 一起干活（下排小方框 = slice）</text>
+<rect x="90" y="106" width="80" height="34" rx="4" fill="#f0f0f0" stroke="#444444" stroke-width="1.5" />
+<text x="130" y="129" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >SM 0</text>
+<rect x="190" y="106" width="80" height="34" rx="4" fill="#f0f0f0" stroke="#444444" stroke-width="1.5" />
+<text x="230" y="129" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >SM 1</text>
+<rect x="290" y="106" width="80" height="34" rx="4" fill="#f0f0f0" stroke="#444444" stroke-width="1.5" />
+<text x="330" y="129" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >SM 2</text>
+<rect x="390" y="106" width="80" height="34" rx="4" fill="#f0f0f0" stroke="#444444" stroke-width="1.5" />
+<text x="430" y="129" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >SM 3</text>
+<rect x="490" y="106" width="80" height="34" rx="4" fill="#f0f0f0" stroke="#444444" stroke-width="1.5" />
+<text x="530" y="129" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >SM 4</text>
+<rect x="590" y="106" width="80" height="34" rx="4" fill="#f0f0f0" stroke="#444444" stroke-width="1.5" />
+<text x="630" y="129" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >SM 5</text>
+<rect x="690" y="106" width="80" height="34" rx="4" fill="#f0f0f0" stroke="#444444" stroke-width="1.5" />
+<text x="730" y="129" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >SM 6</text>
+<rect x="790" y="106" width="80" height="34" rx="4" fill="#f0f0f0" stroke="#444444" stroke-width="1.5" />
+<text x="830" y="129" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >SM 7</text>
+<rect x="50" y="170" width="890" height="30" rx="2" fill="#f7f7f7" stroke="#bbbbbb" stroke-width="1" />
+<line x1="130" y1="141" x2="92" y2="240" stroke="#1f6fb2" stroke-width="1.8"/>
+<line x1="130" y1="141" x2="548" y2="240" stroke="#1f6fb2" stroke-width="1.8"/>
+<line x1="230" y1="141" x2="352" y2="240" stroke="#1f6fb2" stroke-width="1.8"/>
+<line x1="230" y1="141" x2="808" y2="240" stroke="#1f6fb2" stroke-width="1.8"/>
+<line x1="330" y1="141" x2="652" y2="240" stroke="#1f6fb2" stroke-width="1.8"/>
+<line x1="330" y1="141" x2="196" y2="240" stroke="#1f6fb2" stroke-width="1.8"/>
+<line x1="430" y1="141" x2="912" y2="240" stroke="#1f6fb2" stroke-width="1.8"/>
+<line x1="430" y1="141" x2="456" y2="240" stroke="#1f6fb2" stroke-width="1.8"/>
+<line x1="530" y1="141" x2="300" y2="240" stroke="#1f6fb2" stroke-width="1.8"/>
+<line x1="530" y1="141" x2="756" y2="240" stroke="#1f6fb2" stroke-width="1.8"/>
+<line x1="630" y1="141" x2="600" y2="240" stroke="#1f6fb2" stroke-width="1.8"/>
+<line x1="630" y1="141" x2="144" y2="240" stroke="#1f6fb2" stroke-width="1.8"/>
+<line x1="730" y1="141" x2="860" y2="240" stroke="#1f6fb2" stroke-width="1.8"/>
+<line x1="730" y1="141" x2="404" y2="240" stroke="#1f6fb2" stroke-width="1.8"/>
+<line x1="830" y1="141" x2="248" y2="240" stroke="#1f6fb2" stroke-width="1.8"/>
+<line x1="830" y1="141" x2="704" y2="240" stroke="#1f6fb2" stroke-width="1.8"/>
+<rect x="52" y="174" width="200" height="22" rx="2" fill="#ffffff" stroke="none" stroke-width="1.5" />
+<text x="58" y="191" font-size="14" text-anchor="start" fill="#666666" font-weight="normal" >crossbar（片上交叉开关）</text>
+<rect x="70" y="242" width="44" height="34" rx="4" fill="#e0f2e7" stroke="#444444" stroke-width="1.5" />
+<text x="92" y="265" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >0</text>
+<rect x="122" y="242" width="44" height="34" rx="4" fill="#e0f2e7" stroke="#444444" stroke-width="1.5" />
+<text x="144" y="265" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >1</text>
+<rect x="174" y="242" width="44" height="34" rx="4" fill="#e0f2e7" stroke="#444444" stroke-width="1.5" />
+<text x="196" y="265" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >2</text>
+<rect x="226" y="242" width="44" height="34" rx="4" fill="#e0f2e7" stroke="#444444" stroke-width="1.5" />
+<text x="248" y="265" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >3</text>
+<rect x="278" y="242" width="44" height="34" rx="4" fill="#e0f2e7" stroke="#444444" stroke-width="1.5" />
+<text x="300" y="265" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >4</text>
+<rect x="330" y="242" width="44" height="34" rx="4" fill="#e0f2e7" stroke="#444444" stroke-width="1.5" />
+<text x="352" y="265" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >5</text>
+<rect x="382" y="242" width="44" height="34" rx="4" fill="#e0f2e7" stroke="#444444" stroke-width="1.5" />
+<text x="404" y="265" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >6</text>
+<rect x="434" y="242" width="44" height="34" rx="4" fill="#e0f2e7" stroke="#444444" stroke-width="1.5" />
+<text x="456" y="265" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >7</text>
+<rect x="526" y="242" width="44" height="34" rx="4" fill="#e0f2e7" stroke="#444444" stroke-width="1.5" />
+<text x="548" y="265" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >8</text>
+<rect x="578" y="242" width="44" height="34" rx="4" fill="#e0f2e7" stroke="#444444" stroke-width="1.5" />
+<text x="600" y="265" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >9</text>
+<rect x="630" y="242" width="44" height="34" rx="4" fill="#e0f2e7" stroke="#444444" stroke-width="1.5" />
+<text x="652" y="265" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >10</text>
+<rect x="682" y="242" width="44" height="34" rx="4" fill="#e0f2e7" stroke="#444444" stroke-width="1.5" />
+<text x="704" y="265" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >11</text>
+<rect x="734" y="242" width="44" height="34" rx="4" fill="#e0f2e7" stroke="#444444" stroke-width="1.5" />
+<text x="756" y="265" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >12</text>
+<rect x="786" y="242" width="44" height="34" rx="4" fill="#e0f2e7" stroke="#444444" stroke-width="1.5" />
+<text x="808" y="265" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >13</text>
+<rect x="838" y="242" width="44" height="34" rx="4" fill="#e0f2e7" stroke="#444444" stroke-width="1.5" />
+<text x="860" y="265" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >14</text>
+<rect x="890" y="242" width="44" height="34" rx="4" fill="#e0f2e7" stroke="#444444" stroke-width="1.5" />
+<text x="912" y="265" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >15</text>
+<path d="M 70 284 v 8 H 478 v -8" fill="none" stroke="#666666" stroke-width="1.5"/>
+<path d="M 526 284 v 8 H 934 v -8" fill="none" stroke="#666666" stroke-width="1.5"/>
+<text x="274.0" y="312" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >L2 分区 0：挂一半的 HBM 通道</text>
+<text x="730.0" y="312" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >L2 分区 1：挂另一半通道</text>
+<line x1="480" y1="259" x2="524" y2="259" stroke="#666666" stroke-width="2" marker-end="url(#ah-666666)" marker-start="url(#ahs-666666)"/>
+<text x="480" y="336" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >两个分区之间有互联；SM 访问“远”分区时带宽略低。每个 slice 有自己的标签、数据阵列和原子运算单元。</text>
+<text x="40" y="400" font-size="16" text-anchor="start" fill="#222222" font-weight="bold" >B. 4096 个线程 atomicAdd 同一个计数器：这个地址只属于 slice 5</text>
+<rect x="90" y="416" width="80" height="34" rx="4" fill="#f0f0f0" stroke="#444444" stroke-width="1.5" />
+<text x="130" y="439" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >SM 0</text>
+<rect x="190" y="416" width="80" height="34" rx="4" fill="#f0f0f0" stroke="#444444" stroke-width="1.5" />
+<text x="230" y="439" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >SM 1</text>
+<rect x="290" y="416" width="80" height="34" rx="4" fill="#f0f0f0" stroke="#444444" stroke-width="1.5" />
+<text x="330" y="439" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >SM 2</text>
+<rect x="390" y="416" width="80" height="34" rx="4" fill="#f0f0f0" stroke="#444444" stroke-width="1.5" />
+<text x="430" y="439" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >SM 3</text>
+<rect x="490" y="416" width="80" height="34" rx="4" fill="#f0f0f0" stroke="#444444" stroke-width="1.5" />
+<text x="530" y="439" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >SM 4</text>
+<rect x="590" y="416" width="80" height="34" rx="4" fill="#f0f0f0" stroke="#444444" stroke-width="1.5" />
+<text x="630" y="439" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >SM 5</text>
+<rect x="690" y="416" width="80" height="34" rx="4" fill="#f0f0f0" stroke="#444444" stroke-width="1.5" />
+<text x="730" y="439" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >SM 6</text>
+<rect x="790" y="416" width="80" height="34" rx="4" fill="#f0f0f0" stroke="#444444" stroke-width="1.5" />
+<text x="830" y="439" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >SM 7</text>
+<rect x="50" y="480" width="890" height="30" rx="2" fill="#f7f7f7" stroke="#bbbbbb" stroke-width="1" />
+<line x1="130" y1="451" x2="352" y2="550" stroke="#c0392b" stroke-width="1.8"/>
+<line x1="230" y1="451" x2="352" y2="550" stroke="#c0392b" stroke-width="1.8"/>
+<line x1="330" y1="451" x2="352" y2="550" stroke="#c0392b" stroke-width="1.8"/>
+<line x1="430" y1="451" x2="352" y2="550" stroke="#c0392b" stroke-width="1.8"/>
+<line x1="530" y1="451" x2="352" y2="550" stroke="#c0392b" stroke-width="1.8"/>
+<line x1="630" y1="451" x2="352" y2="550" stroke="#c0392b" stroke-width="1.8"/>
+<line x1="730" y1="451" x2="352" y2="550" stroke="#c0392b" stroke-width="1.8"/>
+<line x1="830" y1="451" x2="352" y2="550" stroke="#c0392b" stroke-width="1.8"/>
+<rect x="52" y="484" width="200" height="22" rx="2" fill="#ffffff" stroke="none" stroke-width="1.5" />
+<text x="58" y="501" font-size="14" text-anchor="start" fill="#666666" font-weight="normal" >crossbar（片上交叉开关）</text>
+<rect x="70" y="552" width="44" height="34" rx="4" fill="#e0f2e7" stroke="#444444" stroke-width="1.5" />
+<text x="92" y="575" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >0</text>
+<rect x="122" y="552" width="44" height="34" rx="4" fill="#e0f2e7" stroke="#444444" stroke-width="1.5" />
+<text x="144" y="575" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >1</text>
+<rect x="174" y="552" width="44" height="34" rx="4" fill="#e0f2e7" stroke="#444444" stroke-width="1.5" />
+<text x="196" y="575" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >2</text>
+<rect x="226" y="552" width="44" height="34" rx="4" fill="#e0f2e7" stroke="#444444" stroke-width="1.5" />
+<text x="248" y="575" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >3</text>
+<rect x="278" y="552" width="44" height="34" rx="4" fill="#e0f2e7" stroke="#444444" stroke-width="1.5" />
+<text x="300" y="575" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >4</text>
+<rect x="330" y="552" width="44" height="34" rx="4" fill="#f9e0dd" stroke="#444444" stroke-width="1.5" />
+<text x="352" y="575" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >5</text>
+<rect x="382" y="552" width="44" height="34" rx="4" fill="#e0f2e7" stroke="#444444" stroke-width="1.5" />
+<text x="404" y="575" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >6</text>
+<rect x="434" y="552" width="44" height="34" rx="4" fill="#e0f2e7" stroke="#444444" stroke-width="1.5" />
+<text x="456" y="575" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >7</text>
+<rect x="526" y="552" width="44" height="34" rx="4" fill="#e0f2e7" stroke="#444444" stroke-width="1.5" />
+<text x="548" y="575" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >8</text>
+<rect x="578" y="552" width="44" height="34" rx="4" fill="#e0f2e7" stroke="#444444" stroke-width="1.5" />
+<text x="600" y="575" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >9</text>
+<rect x="630" y="552" width="44" height="34" rx="4" fill="#e0f2e7" stroke="#444444" stroke-width="1.5" />
+<text x="652" y="575" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >10</text>
+<rect x="682" y="552" width="44" height="34" rx="4" fill="#e0f2e7" stroke="#444444" stroke-width="1.5" />
+<text x="704" y="575" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >11</text>
+<rect x="734" y="552" width="44" height="34" rx="4" fill="#e0f2e7" stroke="#444444" stroke-width="1.5" />
+<text x="756" y="575" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >12</text>
+<rect x="786" y="552" width="44" height="34" rx="4" fill="#e0f2e7" stroke="#444444" stroke-width="1.5" />
+<text x="808" y="575" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >13</text>
+<rect x="838" y="552" width="44" height="34" rx="4" fill="#e0f2e7" stroke="#444444" stroke-width="1.5" />
+<text x="860" y="575" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >14</text>
+<rect x="890" y="552" width="44" height="34" rx="4" fill="#e0f2e7" stroke="#444444" stroke-width="1.5" />
+<text x="912" y="575" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >15</text>
+<rect x="334" y="592" width="36" height="10" rx="1" fill="#f9e0dd" stroke="#c0392b" stroke-width="1" />
+<rect x="337" y="604" width="36" height="10" rx="1" fill="#f9e0dd" stroke="#c0392b" stroke-width="1" />
+<rect x="340" y="616" width="36" height="10" rx="1" fill="#f9e0dd" stroke="#c0392b" stroke-width="1" />
+<rect x="343" y="628" width="36" height="10" rx="1" fill="#f9e0dd" stroke="#c0392b" stroke-width="1" />
+<text x="352" y="660" font-size="16" text-anchor="middle" fill="#c0392b" font-weight="normal" >…</text>
+<text x="494" y="606" font-size="15" text-anchor="start" fill="#c0392b" font-weight="bold" >4096 个请求在 slice 5 的原子单元前排队，一次做一个；</text>
+<text x="494" y="627" font-size="15" text-anchor="start" fill="#222222" font-weight="normal" >其余 15 个 slice 帮不上忙。</text>
+<text x="494" y="648" font-size="15" text-anchor="start" fill="#222222" font-weight="normal" >修法（分层归约）：每个线程块先在块内把部分和加好，</text>
+<text x="494" y="669" font-size="15" text-anchor="start" fill="#222222" font-weight="normal" >每块只发 1 次 atomicAdd，队伍从 4096 缩短到线程块的个数。</text>
+</svg>

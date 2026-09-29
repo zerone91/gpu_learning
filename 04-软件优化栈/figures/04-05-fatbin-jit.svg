@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" font-family="sans-serif" font-size="15">
+  <rect x="0" y="0" width="960" height="560" fill="#ffffff"/>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#333"/></marker>
+    <marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker>
+  </defs>
+  <text x="20" y="30" font-size="17" font-weight="bold">同一个可执行文件，在三代 GPU 上被加载的三种方式</text>
+
+  <!-- executable -->
+  <rect x="200" y="50" width="560" height="120" rx="6" fill="#f5f5f5" stroke="#333" stroke-width="2"/>
+  <text x="220" y="75" font-weight="bold">可执行文件（编译时指定了 sm_80、sm_90 两个目标，并附带一份 PTX）</text>
+  <g stroke="#333" stroke-width="1.5">
+    <rect x="225" y="95" width="160" height="56" fill="#e8e8e8"/>
+    <rect x="400" y="95" width="160" height="56" fill="#e8e8e8"/>
+    <rect x="575" y="95" width="160" height="56" fill="#fde2c4"/>
+  </g>
+  <g text-anchor="middle">
+    <text x="305" y="119">sm_80 的 SASS</text><text x="305" y="140" font-size="14">现成机器码</text>
+    <text x="480" y="119">sm_90 的 SASS</text><text x="480" y="140" font-size="14">现成机器码</text>
+    <text x="655" y="119">PTX</text><text x="655" y="140" font-size="14">虚拟指令，备用</text>
+  </g>
+
+  <!-- three machines -->
+  <g stroke="#333" stroke-width="2" fill="#ffffff">
+    <rect x="40" y="270" width="250" height="170" rx="6"/>
+    <rect x="355" y="270" width="250" height="170" rx="6"/>
+    <rect x="650" y="270" width="280" height="255" rx="6"/>
+  </g>
+  <text x="165" y="296" text-anchor="middle" font-weight="bold">A100（芯片代号 sm_80）</text>
+  <text x="480" y="296" text-anchor="middle" font-weight="bold">H100（芯片代号 sm_90）</text>
+  <text x="790" y="296" text-anchor="middle" font-weight="bold">B200（芯片代号 sm_100）</text>
+
+  <!-- arrows from file -->
+  <g stroke="#333" stroke-width="2" fill="none" marker-end="url(#a)">
+    <path d="M305,151 L165,266"/>
+    <path d="M480,151 L480,266"/>
+  </g>
+  <path d="M655,151 L790,266" stroke="#c0392b" stroke-width="2" fill="none" marker-end="url(#r)"/>
+  <text x="170" y="215" font-size="14">找到匹配的 SASS</text>
+  <text x="490" y="215" font-size="14">找到匹配的 SASS</text>
+  <text x="745" y="200" font-size="14" fill="#c0392b">没有 sm_100 的 SASS，</text>
+  <text x="745" y="219" font-size="14" fill="#c0392b">只能拿 PTX</text>
+
+  <g font-size="14">
+    <text x="58" y="330">1. 驱动直接把 sm_80 的</text>
+    <text x="76" y="351">SASS 装进 GPU</text>
+    <text x="58" y="380">2. 不需要编译，</text>
+    <text x="76" y="401">首次启动不额外变慢</text>
+
+    <text x="373" y="330">1. 驱动直接把 sm_90 的</text>
+    <text x="391" y="351">SASS 装进 GPU</text>
+    <text x="373" y="380">2. 不需要编译，</text>
+    <text x="391" y="401">首次启动不额外变慢</text>
+
+    <text x="668" y="330">1. 先查本机的编译缓存</text>
+    <text x="668" y="359">2. 缓存里没有：调用驱动内置的</text>
+    <text x="686" y="380">ptxas，把 PTX 现场编译成</text>
+    <text x="686" y="401">sm_100 的 SASS</text>
+    <text x="668" y="430">3. 把结果写进磁盘缓存（位置</text>
+    <text x="686" y="451">由 CUDA_CACHE_PATH 指定）</text>
+    <text x="668" y="480">4. 装进 GPU</text>
+    <text x="668" y="507" fill="#c0392b">首次启动变慢；以后命中缓存</text>
+  </g>
+  <text x="40" y="480" font-size="14" fill="#555">左边两台走的是"现成机器码"；右边一台走的是</text>
+  <text x="40" y="501" font-size="14" fill="#555">"PTX 现场编译"，这正是 PTX 这层虚拟指令集存在的理由</text>
+</svg>

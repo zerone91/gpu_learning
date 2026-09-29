@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" width="960" height="500" font-family="sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker></defs>
+<rect x="0" y="0" width="960" height="500" fill="#ffffff"/>
+<text x="480" y="30" font-size="18" text-anchor="middle" font-weight="bold" fill="#111">“一个 SM”在设计流程里的三种形态，最后在整颗芯片上被复制上百遍</text>
+
+<!-- 1 RTL -->
+<rect x="20" y="60" width="200" height="330" rx="6" fill="#eef3fb" stroke="#222" stroke-width="1.8"/>
+<text x="120" y="86" font-size="15" text-anchor="middle" font-weight="bold" fill="#111">形态一：RTL 源码</text>
+<text x="120" y="106" font-size="14" text-anchor="middle" fill="#555">几万到几十万行</text>
+<g font-size="14" fill="#111">
+<text x="36" y="140" font-weight="bold">sm</text>
+<text x="52" y="164">├ sm_subpartition ×4</text>
+<text x="68" y="188">├ warp_sched</text>
+<text x="68" y="212">├ rf（寄存器堆）</text>
+<text x="68" y="236">├ fma_pipe <tspan fill="#b5451b" font-weight="bold">×32</tspan></text>
+<text x="68" y="260">├ tensor_core</text>
+<text x="68" y="284">└ lsu</text>
+</g>
+<text x="120" y="324" font-size="14" text-anchor="middle" fill="#b5451b">“×32”= 例化 32 份：</text>
+<text x="120" y="344" font-size="14" text-anchor="middle" fill="#b5451b">硅上真有 32 套电路</text>
+<text x="120" y="364" font-size="14" text-anchor="middle" fill="#b5451b">同时通电工作</text>
+
+<line x1="220" y1="220" x2="256" y2="220" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<text x="238" y="206" font-size="14" text-anchor="middle" fill="#1f5fa8">综合</text>
+
+<!-- 2 网表 -->
+<rect x="258" y="60" width="200" height="330" rx="6" fill="#fdf3e3" stroke="#222" stroke-width="1.8"/>
+<text x="358" y="86" font-size="15" text-anchor="middle" font-weight="bold" fill="#111">形态二（上）：门级网表</text>
+<text x="358" y="106" font-size="14" text-anchor="middle" fill="#555">几千万个标准单元的清单</text>
+<g font-size="14" fill="#111" font-family="monospace">
+<text x="272" y="140">u1  NAND2_X1</text>
+<text x="272" y="160">    A=n3 B=n7 Y=n9</text>
+<text x="272" y="184">u2  INV_X4</text>
+<text x="272" y="204">    A=n9 Y=n12</text>
+<text x="272" y="228">u3  DFF_X1</text>
+<text x="272" y="248">    D=n12 CK=clk</text>
+<text x="272" y="272">……</text>
+</g>
+<text x="358" y="310" font-size="14" text-anchor="middle" fill="#555">只说“用哪些单元、</text>
+<text x="358" y="330" font-size="14" text-anchor="middle" fill="#555">谁接谁”，还没有位置</text>
+<text x="358" y="360" font-size="14" text-anchor="middle" fill="#555">SRAM 宏另外生成</text>
+
+<line x1="458" y1="220" x2="494" y2="220" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<text x="476" y="198" font-size="14" text-anchor="middle" fill="#1f5fa8">布局</text>
+<text x="476" y="248" font-size="14" text-anchor="middle" fill="#1f5fa8">布线</text>
+
+<!-- 3 硬核 -->
+<rect x="496" y="60" width="200" height="330" rx="6" fill="#eaf5e9" stroke="#222" stroke-width="1.8"/>
+<text x="596" y="86" font-size="15" text-anchor="middle" font-weight="bold" fill="#111">形态二（下）：硬核版图</text>
+<text x="596" y="106" font-size="14" text-anchor="middle" fill="#555">约 3～4 mm² 的矩形</text>
+<rect x="516" y="122" width="160" height="170" fill="#ffffff" stroke="#222" stroke-width="1.8"/>
+<g stroke="#bbb" stroke-width="1"><line x1="516" y1="142" x2="676" y2="142"/><line x1="516" y1="162" x2="676" y2="162"/><line x1="516" y1="182" x2="676" y2="182"/><line x1="516" y1="202" x2="676" y2="202"/><line x1="516" y1="222" x2="676" y2="222"/><line x1="516" y1="242" x2="676" y2="242"/><line x1="516" y1="262" x2="676" y2="262"/></g>
+<rect x="526" y="130" width="54" height="64" fill="#d6e4f5" stroke="#1f5fa8" stroke-width="1.5"/>
+<text x="553" y="167" font-size="14" text-anchor="middle" fill="#1f5fa8">SRAM</text>
+<rect x="612" y="130" width="54" height="64" fill="#d6e4f5" stroke="#1f5fa8" stroke-width="1.5"/>
+<text x="639" y="167" font-size="14" text-anchor="middle" fill="#1f5fa8">SRAM</text>
+<g fill="#222"><rect x="512" y="150" width="8" height="6"/><rect x="512" y="190" width="8" height="6"/><rect x="512" y="230" width="8" height="6"/><rect x="672" y="170" width="8" height="6"/><rect x="672" y="210" width="8" height="6"/><rect x="672" y="250" width="8" height="6"/></g>
+<text x="596" y="312" font-size="14" text-anchor="middle" fill="#555">细横线 = 一行行标准单元</text>
+<text x="596" y="332" font-size="14" text-anchor="middle" fill="#555">边上小黑块 = 引脚，位置固定</text>
+<text x="596" y="358" font-size="14" text-anchor="middle" fill="#111">单独做完时序收敛</text>
+
+<line x1="696" y1="220" x2="732" y2="220" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<text x="714" y="198" font-size="14" text-anchor="middle" fill="#1f5fa8">摆</text>
+<text x="714" y="248" font-size="14" text-anchor="middle" fill="#1f5fa8">N 次</text>
+
+<!-- 4 芯片 -->
+<rect x="734" y="60" width="206" height="330" rx="6" fill="#f4f4f4" stroke="#222" stroke-width="1.8"/>
+<text x="837" y="86" font-size="15" text-anchor="middle" font-weight="bold" fill="#111">形态三：整颗芯片</text>
+<text x="837" y="106" font-size="14" text-anchor="middle" fill="#555">GH100：144 个 SM</text>
+<rect x="750" y="122" width="174" height="170" fill="#ffffff" stroke="#222" stroke-width="1.8"/>
+<g fill="#eaf5e9" stroke="#2e7d32" stroke-width="1">
+<rect x="756" y="128" width="17" height="14"/><rect x="777" y="128" width="17" height="14"/><rect x="798" y="128" width="17" height="14"/><rect x="819" y="128" width="17" height="14"/><rect x="840" y="128" width="17" height="14"/><rect x="861" y="128" width="17" height="14"/><rect x="882" y="128" width="17" height="14"/><rect x="903" y="128" width="17" height="14"/>
+<rect x="756" y="146" width="17" height="14"/><rect x="777" y="146" width="17" height="14"/><rect x="798" y="146" width="17" height="14"/><rect x="819" y="146" width="17" height="14"/><rect x="840" y="146" width="17" height="14"/><rect x="861" y="146" width="17" height="14"/><rect x="882" y="146" width="17" height="14"/><rect x="903" y="146" width="17" height="14"/>
+<rect x="756" y="164" width="17" height="14"/><rect x="777" y="164" width="17" height="14"/><rect x="798" y="164" width="17" height="14"/><rect x="819" y="164" width="17" height="14"/><rect x="840" y="164" width="17" height="14"/><rect x="861" y="164" width="17" height="14"/><rect x="882" y="164" width="17" height="14"/><rect x="903" y="164" width="17" height="14"/>
+<rect x="756" y="236" width="17" height="14"/><rect x="777" y="236" width="17" height="14"/><rect x="798" y="236" width="17" height="14"/><rect x="819" y="236" width="17" height="14"/><rect x="840" y="236" width="17" height="14"/><rect x="861" y="236" width="17" height="14"/><rect x="882" y="236" width="17" height="14"/><rect x="903" y="236" width="17" height="14"/>
+<rect x="756" y="254" width="17" height="14"/><rect x="777" y="254" width="17" height="14"/><rect x="798" y="254" width="17" height="14"/><rect x="819" y="254" width="17" height="14"/><rect x="840" y="254" width="17" height="14"/><rect x="861" y="254" width="17" height="14"/><rect x="882" y="254" width="17" height="14"/><rect x="903" y="254" width="17" height="14"/>
+<rect x="756" y="272" width="17" height="14"/><rect x="777" y="272" width="17" height="14"/><rect x="798" y="272" width="17" height="14"/><rect x="819" y="272" width="17" height="14"/><rect x="840" y="272" width="17" height="14"/><rect x="861" y="272" width="17" height="14"/><rect x="882" y="272" width="17" height="14"/><rect x="903" y="272" width="17" height="14"/>
+</g>
+<rect x="756" y="186" width="164" height="42" fill="#d6e4f5" stroke="#1f5fa8" stroke-width="1.2"/>
+<text x="838" y="212" font-size="14" text-anchor="middle" fill="#1f5fa8">L2、互连等</text>
+<text x="837" y="312" font-size="14" text-anchor="middle" fill="#555">绿块 = 同一个 SM 硬核</text>
+<text x="837" y="332" font-size="14" text-anchor="middle" fill="#555">（只画了 48 个示意）</text>
+<text x="837" y="358" font-size="14" text-anchor="middle" fill="#111">每份只改坐标和朝向</text>
+
+<text x="480" y="430" font-size="15" text-anchor="middle" fill="#111">软件里“调用函数 32 次”只有一份代码；硬件里“例化 32 次”就是 32 份实体电路</text>
+<text x="480" y="456" font-size="15" text-anchor="middle" fill="#111">一个硬核做一次时序收敛，顶层摆 144 份——这就是所有 SM 必须一模一样的工程原因</text>
+<text x="480" y="486" font-size="14" text-anchor="middle" fill="#555">网表里的单元名与连线名为示意；芯片布局为示意，不对应 GH100 的真实平面图</text>
+</svg>

@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 580" width="980" height="580" font-family="sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker></defs>
+<rect x="0" y="0" width="980" height="580" fill="#ffffff"/>
+<text x="490" y="28" font-size="18" text-anchor="middle" font-weight="bold" fill="#111">累加器要多宽：int8 × int8 累加 256 次，最坏要 24 位，工程上取 32 位</text>
+<text x="198" y="77" font-size="14" text-anchor="end" fill="#111">激活值 a</text>
+<text x="198" y="95" font-size="13" text-anchor="end" fill="#555">int8：−128～127</text>
+<rect x="210" y="60" width="20" height="26" fill="#cfe2f3" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="230" y="60" width="20" height="26" fill="#cfe2f3" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="250" y="60" width="20" height="26" fill="#cfe2f3" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="270" y="60" width="20" height="26" fill="#cfe2f3" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="290" y="60" width="20" height="26" fill="#cfe2f3" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="310" y="60" width="20" height="26" fill="#cfe2f3" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="330" y="60" width="20" height="26" fill="#cfe2f3" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="350" y="60" width="20" height="26" fill="#cfe2f3" stroke="#1f5fa8" stroke-width="1"/>
+<text x="380" y="78" font-size="14" fill="#1f5fa8">8 位</text>
+<text x="198" y="125" font-size="14" text-anchor="end" fill="#111">权重 w</text>
+<text x="198" y="143" font-size="13" text-anchor="end" fill="#555">int8：−128～127</text>
+<rect x="210" y="108" width="20" height="26" fill="#cfe2f3" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="230" y="108" width="20" height="26" fill="#cfe2f3" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="250" y="108" width="20" height="26" fill="#cfe2f3" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="270" y="108" width="20" height="26" fill="#cfe2f3" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="290" y="108" width="20" height="26" fill="#cfe2f3" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="310" y="108" width="20" height="26" fill="#cfe2f3" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="330" y="108" width="20" height="26" fill="#cfe2f3" stroke="#1f5fa8" stroke-width="1"/>
+<rect x="350" y="108" width="20" height="26" fill="#cfe2f3" stroke="#1f5fa8" stroke-width="1"/>
+<text x="380" y="126" font-size="14" fill="#1f5fa8">8 位</text>
+<text x="198" y="183" font-size="14" text-anchor="end" fill="#111">一次乘积 a × w</text>
+<text x="198" y="201" font-size="13" text-anchor="end" fill="#555">最大 (−128)×(−128) = 16384</text>
+<rect x="210" y="166" width="20" height="26" fill="#d6ecd2" stroke="#2e7d32" stroke-width="1"/>
+<rect x="230" y="166" width="20" height="26" fill="#d6ecd2" stroke="#2e7d32" stroke-width="1"/>
+<rect x="250" y="166" width="20" height="26" fill="#d6ecd2" stroke="#2e7d32" stroke-width="1"/>
+<rect x="270" y="166" width="20" height="26" fill="#d6ecd2" stroke="#2e7d32" stroke-width="1"/>
+<rect x="290" y="166" width="20" height="26" fill="#d6ecd2" stroke="#2e7d32" stroke-width="1"/>
+<rect x="310" y="166" width="20" height="26" fill="#d6ecd2" stroke="#2e7d32" stroke-width="1"/>
+<rect x="330" y="166" width="20" height="26" fill="#d6ecd2" stroke="#2e7d32" stroke-width="1"/>
+<rect x="350" y="166" width="20" height="26" fill="#d6ecd2" stroke="#2e7d32" stroke-width="1"/>
+<rect x="370" y="166" width="20" height="26" fill="#d6ecd2" stroke="#2e7d32" stroke-width="1"/>
+<rect x="390" y="166" width="20" height="26" fill="#d6ecd2" stroke="#2e7d32" stroke-width="1"/>
+<rect x="410" y="166" width="20" height="26" fill="#d6ecd2" stroke="#2e7d32" stroke-width="1"/>
+<rect x="430" y="166" width="20" height="26" fill="#d6ecd2" stroke="#2e7d32" stroke-width="1"/>
+<rect x="450" y="166" width="20" height="26" fill="#d6ecd2" stroke="#2e7d32" stroke-width="1"/>
+<rect x="470" y="166" width="20" height="26" fill="#d6ecd2" stroke="#2e7d32" stroke-width="1"/>
+<rect x="490" y="166" width="20" height="26" fill="#d6ecd2" stroke="#2e7d32" stroke-width="1"/>
+<rect x="510" y="166" width="20" height="26" fill="#d6ecd2" stroke="#2e7d32" stroke-width="1"/>
+<text x="540" y="184" font-size="14" fill="#2e7d32">16 位</text>
+<text x="590" y="184" font-size="14" fill="#2e7d32">位数相加：8 + 8 = 16</text>
+<text x="198" y="241" font-size="14" text-anchor="end" fill="#111">256 个乘积相加</text>
+<text x="198" y="259" font-size="13" text-anchor="end" fill="#555">最大 256 × 16384 = 4194304</text>
+<rect x="210" y="224" width="20" height="26" fill="#f3c9b5" stroke="#b5451b" stroke-width="1"/>
+<rect x="230" y="224" width="20" height="26" fill="#f3c9b5" stroke="#b5451b" stroke-width="1"/>
+<rect x="250" y="224" width="20" height="26" fill="#f3c9b5" stroke="#b5451b" stroke-width="1"/>
+<rect x="270" y="224" width="20" height="26" fill="#f3c9b5" stroke="#b5451b" stroke-width="1"/>
+<rect x="290" y="224" width="20" height="26" fill="#f3c9b5" stroke="#b5451b" stroke-width="1"/>
+<rect x="310" y="224" width="20" height="26" fill="#f3c9b5" stroke="#b5451b" stroke-width="1"/>
+<rect x="330" y="224" width="20" height="26" fill="#f3c9b5" stroke="#b5451b" stroke-width="1"/>
+<rect x="350" y="224" width="20" height="26" fill="#f3c9b5" stroke="#b5451b" stroke-width="1"/>
+<rect x="370" y="224" width="20" height="26" fill="#f3c9b5" stroke="#b5451b" stroke-width="1"/>
+<rect x="390" y="224" width="20" height="26" fill="#f3c9b5" stroke="#b5451b" stroke-width="1"/>
+<rect x="410" y="224" width="20" height="26" fill="#f3c9b5" stroke="#b5451b" stroke-width="1"/>
+<rect x="430" y="224" width="20" height="26" fill="#f3c9b5" stroke="#b5451b" stroke-width="1"/>
+<rect x="450" y="224" width="20" height="26" fill="#f3c9b5" stroke="#b5451b" stroke-width="1"/>
+<rect x="470" y="224" width="20" height="26" fill="#f3c9b5" stroke="#b5451b" stroke-width="1"/>
+<rect x="490" y="224" width="20" height="26" fill="#f3c9b5" stroke="#b5451b" stroke-width="1"/>
+<rect x="510" y="224" width="20" height="26" fill="#f3c9b5" stroke="#b5451b" stroke-width="1"/>
+<rect x="530" y="224" width="20" height="26" fill="#f3c9b5" stroke="#b5451b" stroke-width="1"/>
+<rect x="550" y="224" width="20" height="26" fill="#f3c9b5" stroke="#b5451b" stroke-width="1"/>
+<rect x="570" y="224" width="20" height="26" fill="#f3c9b5" stroke="#b5451b" stroke-width="1"/>
+<rect x="590" y="224" width="20" height="26" fill="#f3c9b5" stroke="#b5451b" stroke-width="1"/>
+<rect x="610" y="224" width="20" height="26" fill="#f3c9b5" stroke="#b5451b" stroke-width="1"/>
+<rect x="630" y="224" width="20" height="26" fill="#f3c9b5" stroke="#b5451b" stroke-width="1"/>
+<rect x="650" y="224" width="20" height="26" fill="#f3c9b5" stroke="#b5451b" stroke-width="1"/>
+<rect x="670" y="224" width="20" height="26" fill="#f3c9b5" stroke="#b5451b" stroke-width="1"/>
+<text x="700" y="242" font-size="14" fill="#b5451b">24 位</text>
+<text x="534" y="218" font-size="13" fill="#b5451b">← 多出 8 位 = log₂256</text>
+<line x1="530" y1="222" x2="530" y2="254" stroke="#b5451b" stroke-width="2"/>
+<text x="198" y="299" font-size="14" text-anchor="end" fill="#111">实际的累加器</text>
+<text x="198" y="317" font-size="13" text-anchor="end" fill="#555">再留 8 位余量</text>
+<rect x="210" y="282" width="20" height="26" fill="#f3c9b5" stroke="#b5451b" stroke-width="1"/>
+<rect x="230" y="282" width="20" height="26" fill="#f3c9b5" stroke="#b5451b" stroke-width="1"/>
+<rect x="250" y="282" width="20" height="26" fill="#f3c9b5" stroke="#b5451b" stroke-width="1"/>
+<rect x="270" y="282" width="20" height="26" fill="#f3c9b5" stroke="#b5451b" stroke-width="1"/>
+<rect x="290" y="282" width="20" height="26" fill="#f3c9b5" stroke="#b5451b" stroke-width="1"/>
+<rect x="310" y="282" width="20" height="26" fill="#f3c9b5" stroke="#b5451b" stroke-width="1"/>
+<rect x="330" y="282" width="20" height="26" fill="#f3c9b5" stroke="#b5451b" stroke-width="1"/>
+<rect x="350" y="282" width="20" height="26" fill="#f3c9b5" stroke="#b5451b" stroke-width="1"/>
+<rect x="370" y="282" width="20" height="26" fill="#f3c9b5" stroke="#b5451b" stroke-width="1"/>
+<rect x="390" y="282" width="20" height="26" fill="#f3c9b5" stroke="#b5451b" stroke-width="1"/>
+<rect x="410" y="282" width="20" height="26" fill="#f3c9b5" stroke="#b5451b" stroke-width="1"/>
+<rect x="430" y="282" width="20" height="26" fill="#f3c9b5" stroke="#b5451b" stroke-width="1"/>
+<rect x="450" y="282" width="20" height="26" fill="#f3c9b5" stroke="#b5451b" stroke-width="1"/>
+<rect x="470" y="282" width="20" height="26" fill="#f3c9b5" stroke="#b5451b" stroke-width="1"/>
+<rect x="490" y="282" width="20" height="26" fill="#f3c9b5" stroke="#b5451b" stroke-width="1"/>
+<rect x="510" y="282" width="20" height="26" fill="#f3c9b5" stroke="#b5451b" stroke-width="1"/>
+<rect x="530" y="282" width="20" height="26" fill="#f3c9b5" stroke="#b5451b" stroke-width="1"/>
+<rect x="550" y="282" width="20" height="26" fill="#f3c9b5" stroke="#b5451b" stroke-width="1"/>
+<rect x="570" y="282" width="20" height="26" fill="#f3c9b5" stroke="#b5451b" stroke-width="1"/>
+<rect x="590" y="282" width="20" height="26" fill="#f3c9b5" stroke="#b5451b" stroke-width="1"/>
+<rect x="610" y="282" width="20" height="26" fill="#f3c9b5" stroke="#b5451b" stroke-width="1"/>
+<rect x="630" y="282" width="20" height="26" fill="#f3c9b5" stroke="#b5451b" stroke-width="1"/>
+<rect x="650" y="282" width="20" height="26" fill="#f3c9b5" stroke="#b5451b" stroke-width="1"/>
+<rect x="670" y="282" width="20" height="26" fill="#f3c9b5" stroke="#b5451b" stroke-width="1"/>
+<rect x="690" y="282" width="20" height="26" fill="#ffffff" stroke="#b5451b" stroke-width="1" stroke-dasharray="3,2"/>
+<rect x="710" y="282" width="20" height="26" fill="#ffffff" stroke="#b5451b" stroke-width="1" stroke-dasharray="3,2"/>
+<rect x="730" y="282" width="20" height="26" fill="#ffffff" stroke="#b5451b" stroke-width="1" stroke-dasharray="3,2"/>
+<rect x="750" y="282" width="20" height="26" fill="#ffffff" stroke="#b5451b" stroke-width="1" stroke-dasharray="3,2"/>
+<rect x="770" y="282" width="20" height="26" fill="#ffffff" stroke="#b5451b" stroke-width="1" stroke-dasharray="3,2"/>
+<rect x="790" y="282" width="20" height="26" fill="#ffffff" stroke="#b5451b" stroke-width="1" stroke-dasharray="3,2"/>
+<rect x="810" y="282" width="20" height="26" fill="#ffffff" stroke="#b5451b" stroke-width="1" stroke-dasharray="3,2"/>
+<rect x="830" y="282" width="20" height="26" fill="#ffffff" stroke="#b5451b" stroke-width="1" stroke-dasharray="3,2"/>
+<text x="860" y="300" font-size="14" fill="#b5451b">32 位</text>
+<text x="210" y="328" font-size="13" fill="#b5451b">虚线的 8 位是余量：矩阵的 K 超过阵列高度、要分多轮再累加时用</text>
+<line x1="20" y1="354" x2="960" y2="354" stroke="#ccc" stroke-width="1.5"/>
+<text x="30" y="378" font-size="15" font-weight="bold" fill="#111">如果累加器只有 16 位：不是精度差一点，是直接算错</text>
+<line x1="60" y1="432" x2="620" y2="432" stroke="#222" stroke-width="2"/>
+<line x1="60.0" y1="426" x2="60.0" y2="438" stroke="#222" stroke-width="1.6"/><text x="60.0" y="456" font-size="14" text-anchor="middle" fill="#111">−32768</text>
+<line x1="340.0042725261311" y1="426" x2="340.0042725261311" y2="438" stroke="#222" stroke-width="1.6"/><text x="340.0042725261311" y="456" font-size="14" text-anchor="middle" fill="#111">0</text>
+<line x1="480.0064087891966" y1="426" x2="480.0064087891966" y2="438" stroke="#222" stroke-width="1.6"/><text x="480.0064087891966" y="456" font-size="14" text-anchor="middle" fill="#111">16384</text>
+<line x1="620.0" y1="426" x2="620.0" y2="438" stroke="#222" stroke-width="1.6"/><text x="620.0" y="456" font-size="14" text-anchor="middle" fill="#111">32767</text>
+<path d="M480.0064087891966,424 Q550.0032043945982,382 620,424" fill="none" stroke="#b5451b" stroke-width="2" marker-end="url(#a)"/>
+<text x="550.0032043945982" y="386" font-size="14" text-anchor="middle" fill="#b5451b">再加 16384</text>
+<path d="M620,462 Q340.0,512 64,462" fill="none" stroke="#b5451b" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#a)"/>
+<text x="340.0" y="508" font-size="14" text-anchor="middle" fill="#b5451b">超过 32767，从最小的负数那头绕回来</text>
+<text x="660" y="412" font-size="14" fill="#111">16384 + 16384 = 32768</text>
+<text x="660" y="434" font-size="14" fill="#111">16 位有符号数最大只到 32767</text>
+<text x="660" y="456" font-size="14" fill="#b5451b">结果变成 −32768</text>
+<text x="660" y="478" font-size="14" fill="#b5451b">正数变负数，而且没有任何报错</text>
+<text x="660" y="522" font-size="14" fill="#111">累加器位宽是正确性参数，</text>
+<text x="660" y="544" font-size="14" fill="#111">不是性能参数</text>
+</svg>

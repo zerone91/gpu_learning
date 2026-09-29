@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" font-family="sans-serif" font-size="15">
+<rect x="0" y="0" width="960" height="560" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#444"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/></marker><marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d9822b"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e7d32"/></marker><pattern id="h" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="#f4f4f4"/><line x1="0" y1="0" x2="0" y2="8" stroke="#bbb" stroke-width="2"/></pattern></defs>
+<text x="20.0" y="32.0" text-anchor="start" fill="#222222" font-size="19" font-weight="bold" >同一块 45 GB 的 KV 预算，能同时装下几个请求</text>
+<text x="20.0" y="58.0" text-anchor="start" fill="#555" font-size="15" >70B 级模型用 4 张 H100 做张量并行，每卡放 35 GB 权重后剩约 45 GB；每个小格是一个请求的 KV cache</text>
+<text x="236.0" y="122.0" text-anchor="end" fill="#222222" font-size="15" font-weight="bold" >MHA · 64 个 KV 头</text>
+<text x="236.0" y="142.0" text-anchor="end" fill="#555" font-size="14" >上下文 4K，每请求 10.7 GB</text>
+<rect x="250.0" y="100.0" width="640.0" height="50.0" rx="0" fill="url(#h)" stroke="#999" stroke-width="1" />
+<rect x="250.0" y="100.0" width="152.2" height="50.0" rx="0" fill="#f6c6c0" stroke="#c0392b" stroke-width="1.2" />
+<rect x="402.2" y="100.0" width="152.2" height="50.0" rx="0" fill="#f6c6c0" stroke="#c0392b" stroke-width="1.2" />
+<rect x="554.4" y="100.0" width="152.2" height="50.0" rx="0" fill="#f6c6c0" stroke="#c0392b" stroke-width="1.2" />
+<rect x="706.5" y="100.0" width="152.2" height="50.0" rx="0" fill="#f6c6c0" stroke="#c0392b" stroke-width="1.2" />
+<text x="326.1" y="131.0" text-anchor="middle" fill="#222222" font-size="14" >请求 1</text>
+<text x="478.3" y="131.0" text-anchor="middle" fill="#222222" font-size="14" >请求 2</text>
+<text x="630.4" y="131.0" text-anchor="middle" fill="#222222" font-size="14" >请求 3</text>
+<text x="782.6" y="131.0" text-anchor="middle" fill="#222222" font-size="14" >请求 4</text>
+<text x="900.0" y="131.0" text-anchor="start" fill="#c0392b" font-size="17" font-weight="bold" >4 个</text>
+<text x="236.0" y="212.0" text-anchor="end" fill="#222222" font-size="15" font-weight="bold" >GQA · 8 个 KV 头</text>
+<text x="236.0" y="232.0" text-anchor="end" fill="#555" font-size="14" >上下文 4K，每请求 1.34 GB</text>
+<rect x="250.0" y="190.0" width="640.0" height="50.0" rx="0" fill="url(#h)" stroke="#999" stroke-width="1" />
+<rect x="250.0" y="190.0" width="19.1" height="50.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="269.1" y="190.0" width="19.1" height="50.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="288.1" y="190.0" width="19.1" height="50.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="307.2" y="190.0" width="19.1" height="50.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="326.2" y="190.0" width="19.1" height="50.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="345.3" y="190.0" width="19.1" height="50.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="364.3" y="190.0" width="19.1" height="50.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="383.4" y="190.0" width="19.1" height="50.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="402.5" y="190.0" width="19.1" height="50.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="421.5" y="190.0" width="19.1" height="50.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="440.6" y="190.0" width="19.1" height="50.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="459.6" y="190.0" width="19.1" height="50.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="478.7" y="190.0" width="19.1" height="50.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="497.8" y="190.0" width="19.1" height="50.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="516.8" y="190.0" width="19.1" height="50.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="535.9" y="190.0" width="19.1" height="50.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="554.9" y="190.0" width="19.1" height="50.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="574.0" y="190.0" width="19.1" height="50.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="593.0" y="190.0" width="19.1" height="50.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="612.1" y="190.0" width="19.1" height="50.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="631.2" y="190.0" width="19.1" height="50.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="650.2" y="190.0" width="19.1" height="50.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="669.3" y="190.0" width="19.1" height="50.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="688.3" y="190.0" width="19.1" height="50.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="707.4" y="190.0" width="19.1" height="50.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="726.4" y="190.0" width="19.1" height="50.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="745.5" y="190.0" width="19.1" height="50.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="764.6" y="190.0" width="19.1" height="50.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="783.6" y="190.0" width="19.1" height="50.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="802.7" y="190.0" width="19.1" height="50.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="821.7" y="190.0" width="19.1" height="50.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="840.8" y="190.0" width="19.1" height="50.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="859.8" y="190.0" width="19.1" height="50.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<text x="900.0" y="221.0" text-anchor="start" fill="#1f5fa8" font-size="17" font-weight="bold" >33 个</text>
+<text x="236.0" y="302.0" text-anchor="end" fill="#222222" font-size="15" font-weight="bold" >GQA · 8 个 KV 头</text>
+<text x="236.0" y="322.0" text-anchor="end" fill="#555" font-size="14" >上下文 32K，每请求 10.7 GB</text>
+<rect x="250.0" y="280.0" width="640.0" height="50.0" rx="0" fill="url(#h)" stroke="#999" stroke-width="1" />
+<rect x="250.0" y="280.0" width="152.2" height="50.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="402.2" y="280.0" width="152.2" height="50.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="554.4" y="280.0" width="152.2" height="50.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="706.5" y="280.0" width="152.2" height="50.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<text x="326.1" y="311.0" text-anchor="middle" fill="#222222" font-size="14" >请求 1</text>
+<text x="478.3" y="311.0" text-anchor="middle" fill="#222222" font-size="14" >请求 2</text>
+<text x="630.4" y="311.0" text-anchor="middle" fill="#222222" font-size="14" >请求 3</text>
+<text x="782.6" y="311.0" text-anchor="middle" fill="#222222" font-size="14" >请求 4</text>
+<text x="900.0" y="311.0" text-anchor="start" fill="#1f5fa8" font-size="17" font-weight="bold" >4 个</text>
+<text x="236.0" y="392.0" text-anchor="end" fill="#222222" font-size="15" font-weight="bold" >GQA · 8 个 KV 头</text>
+<text x="236.0" y="412.0" text-anchor="end" fill="#555" font-size="14" >上下文 128K，每请求 43 GB</text>
+<rect x="250.0" y="370.0" width="640.0" height="50.0" rx="0" fill="url(#h)" stroke="#999" stroke-width="1" />
+<rect x="250.0" y="370.0" width="611.6" height="50.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<text x="555.8" y="401.0" text-anchor="middle" fill="#222222" font-size="14" >请求 1</text>
+<text x="900.0" y="401.0" text-anchor="start" fill="#1f5fa8" font-size="17" font-weight="bold" >1 个</text>
+<rect x="250.0" y="450.0" width="20.0" height="16.0" rx="0" fill="url(#h)" stroke="#999" stroke-width="1" />
+<text x="278.0" y="464.0" text-anchor="start" fill="#222222" font-size="14" >斜线：剩下的零头，不够再装一个请求</text>
+<text x="20.0" y="500.0" text-anchor="start" fill="#222222" font-size="14" >第一行到第二行：只改注意力结构（KV 头从 64 个减到 8 个），并发数从 4 变 33，约八倍。</text>
+<text x="20.0" y="524.0" text-anchor="start" fill="#222222" font-size="14" >第二行往下：结构不变，只把上下文拉长，每个请求的 KV 按长度成正比变大，并发数从 33 塌到 1。</text>
+</svg>

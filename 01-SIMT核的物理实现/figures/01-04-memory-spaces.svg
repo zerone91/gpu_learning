@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="560" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker></defs>
+<text x="480" y="28" font-size="18" text-anchor="middle" fill="#222" font-weight="bold">从程序看“谁能用哪块存储”，以及它们物理上放在哪</text>
+<text x="290" y="60" font-size="16" text-anchor="middle" fill="#222" font-weight="bold">程序里的可见范围</text>
+<text x="800" y="60" font-size="16" text-anchor="middle" fill="#222" font-weight="bold">物理上在哪</text>
+<rect x="20" y="74" width="540" height="420" rx="8" fill="#fafafa" stroke="#222" stroke-width="2"/>
+<text x="34" y="96" font-size="15" fill="#222" font-weight="bold">grid（一次 kernel 启动的全部线程）</text>
+<rect x="36" y="108" width="244" height="290" rx="6" fill="#ffffff" stroke="#222" stroke-width="2"/>
+<text x="48" y="130" font-size="15" fill="#222" font-weight="bold">线程块 0</text>
+<rect x="48" y="140" width="220" height="40" rx="4" fill="#d4eddc" stroke="#2e8b57" stroke-width="2"/>
+<text x="158" y="165" font-size="14" text-anchor="middle" fill="#222">shared memory：本块线程共用</text>
+<rect x="48" y="196" width="106" height="190" rx="4" fill="#ffffff" stroke="#555" stroke-width="1.5"/>
+<text x="101" y="216" font-size="14" text-anchor="middle" fill="#222">线程 0</text>
+<rect x="56" y="226" width="90" height="62" rx="4" fill="#dbe8f6" stroke="#2c6fb7" stroke-width="2"/>
+<text x="101" y="252" font-size="14" text-anchor="middle" fill="#222">寄存器</text>
+<text x="101" y="274" font-size="14" text-anchor="middle" fill="#222">自己私有</text>
+<rect x="56" y="298" width="90" height="74" rx="4" fill="#fbe3c4" stroke="#c0392b" stroke-width="2" stroke-dasharray="5 3"/>
+<text x="101" y="322" font-size="14" text-anchor="middle" fill="#222">local</text>
+<text x="101" y="342" font-size="14" text-anchor="middle" fill="#222">memory</text>
+<text x="101" y="362" font-size="14" text-anchor="middle" fill="#222">自己私有</text>
+<rect x="162" y="196" width="106" height="190" rx="4" fill="#ffffff" stroke="#555" stroke-width="1.5"/>
+<text x="215" y="216" font-size="14" text-anchor="middle" fill="#222">线程 1</text>
+<rect x="170" y="226" width="90" height="62" rx="4" fill="#dbe8f6" stroke="#2c6fb7" stroke-width="2"/>
+<text x="215" y="252" font-size="14" text-anchor="middle" fill="#222">寄存器</text>
+<text x="215" y="274" font-size="14" text-anchor="middle" fill="#222">自己私有</text>
+<rect x="170" y="298" width="90" height="74" rx="4" fill="#fbe3c4" stroke="#c0392b" stroke-width="2" stroke-dasharray="5 3"/>
+<text x="215" y="322" font-size="14" text-anchor="middle" fill="#222">local</text>
+<text x="215" y="342" font-size="14" text-anchor="middle" fill="#222">memory</text>
+<text x="215" y="362" font-size="14" text-anchor="middle" fill="#222">自己私有</text>
+<rect x="300" y="108" width="244" height="290" rx="6" fill="#ffffff" stroke="#222" stroke-width="2"/>
+<text x="312" y="130" font-size="15" fill="#222" font-weight="bold">线程块 1</text>
+<rect x="312" y="140" width="220" height="40" rx="4" fill="#d4eddc" stroke="#2e8b57" stroke-width="2"/>
+<text x="422" y="165" font-size="14" text-anchor="middle" fill="#222">shared memory：本块线程共用</text>
+<rect x="312" y="196" width="106" height="190" rx="4" fill="#ffffff" stroke="#555" stroke-width="1.5"/>
+<text x="365" y="216" font-size="14" text-anchor="middle" fill="#222">线程 0</text>
+<rect x="320" y="226" width="90" height="62" rx="4" fill="#dbe8f6" stroke="#2c6fb7" stroke-width="2"/>
+<text x="365" y="252" font-size="14" text-anchor="middle" fill="#222">寄存器</text>
+<text x="365" y="274" font-size="14" text-anchor="middle" fill="#222">自己私有</text>
+<rect x="320" y="298" width="90" height="74" rx="4" fill="#fbe3c4" stroke="#c0392b" stroke-width="2" stroke-dasharray="5 3"/>
+<text x="365" y="322" font-size="14" text-anchor="middle" fill="#222">local</text>
+<text x="365" y="342" font-size="14" text-anchor="middle" fill="#222">memory</text>
+<text x="365" y="362" font-size="14" text-anchor="middle" fill="#222">自己私有</text>
+<rect x="426" y="196" width="106" height="190" rx="4" fill="#ffffff" stroke="#555" stroke-width="1.5"/>
+<text x="479" y="216" font-size="14" text-anchor="middle" fill="#222">线程 1</text>
+<rect x="434" y="226" width="90" height="62" rx="4" fill="#dbe8f6" stroke="#2c6fb7" stroke-width="2"/>
+<text x="479" y="252" font-size="14" text-anchor="middle" fill="#222">寄存器</text>
+<text x="479" y="274" font-size="14" text-anchor="middle" fill="#222">自己私有</text>
+<rect x="434" y="298" width="90" height="74" rx="4" fill="#fbe3c4" stroke="#c0392b" stroke-width="2" stroke-dasharray="5 3"/>
+<text x="479" y="322" font-size="14" text-anchor="middle" fill="#222">local</text>
+<text x="479" y="342" font-size="14" text-anchor="middle" fill="#222">memory</text>
+<text x="479" y="362" font-size="14" text-anchor="middle" fill="#222">自己私有</text>
+<rect x="36" y="412" width="508" height="66" rx="4" fill="#fbe3c4" stroke="#b86a0c" stroke-width="2"/>
+<text x="290" y="438" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">global memory</text>
+<text x="290" y="462" font-size="14" text-anchor="middle" fill="#222">所有块的所有线程都能读写；kernel 结束后数据还在</text>
+<rect x="636" y="74" width="318" height="222" rx="8" fill="none" stroke="#2c6fb7" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text x="946" y="92" font-size="14" text-anchor="end" fill="#2c6fb7">SM 内部（每个 SM 一份）</text>
+<rect x="650" y="196" width="290" height="86" rx="6" fill="#dbe8f6" stroke="#2c6fb7" stroke-width="2"/>
+<text x="795" y="220" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">寄存器堆</text>
+<text x="795" y="244" font-size="14" text-anchor="middle" fill="#222">编译器按线程分配</text>
+<text x="795" y="266" font-size="14" text-anchor="middle" fill="#555">线程结束即释放</text>
+<rect x="650" y="102" width="290" height="80" rx="6" fill="#d4eddc" stroke="#2e8b57" stroke-width="2"/>
+<text x="795" y="126" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">shared memory</text>
+<text x="795" y="150" font-size="14" text-anchor="middle" fill="#222">与 L1 缓存共用一块 SRAM</text>
+<text x="795" y="172" font-size="14" text-anchor="middle" fill="#555">线程块结束即释放</text>
+<rect x="650" y="330" width="290" height="150" rx="6" fill="#fbe3c4" stroke="#b86a0c" stroke-width="2"/>
+<text x="795" y="354" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">显存（HBM）</text>
+<text x="795" y="378" font-size="14" text-anchor="middle" fill="#222">global memory 在这里</text>
+<text x="795" y="400" font-size="14" text-anchor="middle" fill="#c0392b">local memory 也在这里</text>
+<text x="795" y="424" font-size="14" text-anchor="middle" fill="#555">读写都经过 L2（可能还有 L1）缓存</text>
+<text x="795" y="446" font-size="14" text-anchor="middle" fill="#555">全芯片共用一份</text>
+<line x1="518" y1="256" x2="646" y2="246" stroke="#2c6fb7" stroke-width="2.5" marker-end="url(#a)"/>
+<line x1="532" y1="160" x2="646" y2="146" stroke="#2e8b57" stroke-width="2.5" marker-end="url(#a)"/>
+<line x1="544" y1="444" x2="646" y2="420" stroke="#b86a0c" stroke-width="2.5" marker-end="url(#a)"/>
+<path d="M518,340 C 590,340 600,372 646,372" fill="none" stroke="#c0392b" stroke-width="2.5" stroke-dasharray="6 4" marker-end="url(#r)"/>
+<text x="30" y="522" font-size="15" fill="#c0392b">红色虚线：local memory 名字叫“局部”，只是说它归一个线程私有；数据本身放在显存里，访问和显存一样慢。</text>
+<text x="30" y="546" font-size="14" fill="#555">寄存器不够用时，编译器把放不下的变量挪到 local memory，这叫溢出（spill）。</text>
+</svg>

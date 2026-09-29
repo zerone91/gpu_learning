@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="560" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222222"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f6db5"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777777"/></marker><marker id="o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c77a12"/></marker><marker id="n" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e8b57"/></marker><marker id="p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7a4fb0"/></marker></defs>
+<text x="480" y="32" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold">循环融合与分裂：中间结果 t 要不要落到显存</text>
+<rect x="30" y="56" width="400" height="380" rx="8" fill="#fcfcfc" stroke="#bbbbbb" stroke-width="1.5"/>
+<text x="230.0" y="84" font-size="17" text-anchor="middle" fill="#222222" font-weight="bold">融合前：两个循环</text>
+<rect x="50" y="108" width="210" height="44" rx="6" fill="#dbe7f5" stroke="#2f6db5" stroke-width="2"/>
+<text x="155.0" y="134.9" font-size="14" text-anchor="middle" fill="#222222">循环 1：t[i] = x[i] + b</text>
+<rect x="210" y="210" width="210" height="44" rx="6" fill="#dbe7f5" stroke="#2f6db5" stroke-width="2"/>
+<text x="315.0" y="236.9" font-size="14" text-anchor="middle" fill="#222222">循环 2：y[i] = max(t[i], 0)</text>
+<rect x="40" y="350" width="380" height="70" rx="6" fill="#eeeeee" stroke="#777777" stroke-width="1.5"/>
+<text x="54" y="372" font-size="14" text-anchor="start" fill="#444444" font-weight="bold">显存（HBM）</text>
+<rect x="70" y="380" width="70" height="30" rx="6" fill="#ffffff" stroke="#777777" stroke-width="2"/>
+<text x="105.0" y="400.25" font-size="15" text-anchor="middle" fill="#222222">x</text>
+<rect x="200" y="380" width="70" height="30" rx="6" fill="#f6dcd8" stroke="#c0392b" stroke-width="2"/>
+<text x="235.0" y="400.25" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">t</text>
+<rect x="330" y="380" width="70" height="30" rx="6" fill="#ffffff" stroke="#777777" stroke-width="2"/>
+<text x="365.0" y="400.25" font-size="15" text-anchor="middle" fill="#222222">y</text>
+<line x1="105" y1="378" x2="105" y2="154" stroke="#444444" stroke-width="1.5" marker-end="url(#a)"/>
+<text x="112" y="290" font-size="13" text-anchor="start" fill="#444444">① 读 x</text>
+<line x1="190" y1="152" x2="216" y2="377" stroke="#c0392b" stroke-width="2" marker-end="url(#r)"/>
+<text x="154" y="200" font-size="13" text-anchor="end" fill="#c0392b">② 写 t</text>
+<line x1="255" y1="378" x2="255" y2="256" stroke="#c0392b" stroke-width="2" marker-end="url(#r)"/>
+<text x="262" y="320" font-size="13" text-anchor="start" fill="#c0392b">③ 读 t</text>
+<line x1="370" y1="254" x2="370" y2="377" stroke="#444444" stroke-width="1.5" marker-end="url(#a)"/>
+<text x="377" y="320" font-size="13" text-anchor="start" fill="#444444">④ 写 y</text>
+<rect x="530" y="56" width="400" height="380" rx="8" fill="#fcfcfc" stroke="#bbbbbb" stroke-width="1.5"/>
+<text x="730.0" y="84" font-size="17" text-anchor="middle" fill="#222222" font-weight="bold">融合后：一个循环</text>
+<rect x="560" y="108" width="340" height="150" rx="6" fill="#d9efe2" stroke="#2e8b57" stroke-width="2"/>
+<text x="576" y="134" font-size="15" text-anchor="start" fill="#2e8b57" font-weight="bold">for i：</text>
+<text x="596" y="166" font-size="15" text-anchor="start" fill="#222222" font-family="monospace">t = x[i] + b</text>
+<text x="596" y="196" font-size="15" text-anchor="start" fill="#222222" font-family="monospace">y[i] = max(t, 0)</text>
+<rect x="770" y="150" width="110" height="34" rx="6" fill="#ffffff" stroke="#2e8b57" stroke-width="2"/>
+<text x="825.0" y="171.9" font-size="14" text-anchor="middle" fill="#222222">t 在寄存器</text>
+<text x="576" y="238" font-size="14" text-anchor="start" fill="#2e8b57">t 只活在一次迭代里，用完即弃</text>
+<rect x="540" y="350" width="380" height="70" rx="6" fill="#eeeeee" stroke="#777777" stroke-width="1.5"/>
+<text x="554" y="372" font-size="14" text-anchor="start" fill="#444444" font-weight="bold">显存（HBM）</text>
+<rect x="570" y="380" width="70" height="30" rx="6" fill="#ffffff" stroke="#777777" stroke-width="2"/>
+<text x="605.0" y="400.25" font-size="15" text-anchor="middle" fill="#222222">x</text>
+<rect x="830" y="380" width="70" height="30" rx="6" fill="#ffffff" stroke="#777777" stroke-width="2"/>
+<text x="865.0" y="400.25" font-size="15" text-anchor="middle" fill="#222222">y</text>
+<line x1="605" y1="378" x2="630" y2="260" stroke="#444444" stroke-width="1.5" marker-end="url(#a)"/>
+<text x="620" y="320" font-size="13" text-anchor="start" fill="#444444">① 读 x</text>
+<line x1="850" y1="260" x2="865" y2="378" stroke="#444444" stroke-width="1.5" marker-end="url(#a)"/>
+<text x="868" y="330" font-size="13" text-anchor="start" fill="#444444">② 写 y</text>
+<line x1="438" y1="170" x2="522" y2="170" stroke="#2e8b57" stroke-width="2.5" marker-end="url(#n)"/>
+<text x="480.0" y="160" font-size="15" text-anchor="middle" fill="#2e8b57" font-weight="bold">融合</text>
+<line x1="522" y1="230" x2="438" y2="230" stroke="#c77a12" stroke-width="2.5" marker-end="url(#o)"/>
+<text x="480.0" y="254" font-size="15" text-anchor="middle" fill="#c77a12" font-weight="bold">分裂</text>
+<text x="230.0" y="470" font-size="15" text-anchor="middle" fill="#222222">N = 100 万个 fp32（每个数组 4 MB）：</text>
+<text x="230.0" y="496" font-size="16" text-anchor="middle" fill="#c0392b" font-weight="bold">显存读写 4 次 × 4 MB = 16 MB</text>
+<text x="730.0" y="470" font-size="15" text-anchor="middle" fill="#222222">同样的 N：</text>
+<text x="730.0" y="496" font-size="16" text-anchor="middle" fill="#2e8b57" font-weight="bold">显存读写 2 次 × 4 MB = 8 MB</text>
+<text x="480" y="540" font-size="14" text-anchor="middle" fill="#c77a12">分裂是反方向：循环体太大、寄存器不够用时拆开，或者把其中能向量化的一半单独拆出来。</text>
+</svg>

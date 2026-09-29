@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="560" fill="#ffffff"/>
+<text x="480" y="28" font-size="18" text-anchor="middle" fill="#222" font-weight="bold">在 SASS 里认出流水：排好的主循环 与 没排的主循环（示意，非真实编译输出）</text>
+<text x="30" y="62" font-size="16" fill="#222" font-weight="bold">左：排好流水的 GEMM 主循环（Ampere 风格）</text>
+<text x="630" y="62" font-size="16" fill="#222" font-weight="bold">右：没排流水的循环</text>
+<text x="34" y="93" font-family="monospace" font-size="14" fill="#222">.L_LOOP:</text>
+<rect x="30" y="100" width="392" height="20" fill="#dbe8f6"/>
+<text x="46" y="115" font-family="monospace" font-size="14" fill="#222">LDGSTS.E.128 [R22], [R2.64]</text>
+<rect x="30" y="122" width="392" height="20" fill="#dbe8f6"/>
+<text x="46" y="137" font-family="monospace" font-size="14" fill="#222">LDGSTS.E.128 [R22+0x800], [R2.64+0x80]</text>
+<rect x="30" y="144" width="392" height="20" fill="#dbe8f6"/>
+<text x="46" y="159" font-family="monospace" font-size="14" fill="#222">LDGSTS.E.128 [R24], [R4.64]</text>
+<rect x="30" y="166" width="392" height="20" fill="#dbe8f6"/>
+<text x="46" y="181" font-family="monospace" font-size="14" fill="#222">LDGSTS.E.128 [R24+0x800], [R4.64+0x80]</text>
+<rect x="30" y="188" width="392" height="20" fill="#e8e8e8"/>
+<text x="46" y="203" font-family="monospace" font-size="14" fill="#222">LDGDEPBAR</text>
+<rect x="30" y="210" width="392" height="20" fill="#e8e8e8"/>
+<text x="46" y="225" font-family="monospace" font-size="14" fill="#222">DEPBAR.LE SB0, 0x1</text>
+<rect x="30" y="232" width="392" height="20" fill="#e8e8e8"/>
+<text x="46" y="247" font-family="monospace" font-size="14" fill="#222">BAR.SYNC 0x0</text>
+<text x="46" y="269" font-family="monospace" font-size="14" fill="#222">LDS.128 R8, [R20]</text>
+<text x="46" y="291" font-family="monospace" font-size="14" fill="#222">LDS.128 R12, [R20+0x2000]</text>
+<rect x="30" y="298" width="392" height="20" fill="#fbe3c4"/>
+<text x="46" y="313" font-family="monospace" font-size="14" fill="#222">HMMA.16816.F32.BF16 R32, R8, R12, R32</text>
+<rect x="30" y="320" width="392" height="20" fill="#fbe3c4"/>
+<text x="46" y="335" font-family="monospace" font-size="14" fill="#222">HMMA.16816.F32.BF16 R36, R8, R14, R36</text>
+<rect x="30" y="342" width="392" height="20" fill="#fbe3c4"/>
+<text x="46" y="357" font-family="monospace" font-size="14" fill="#222">HMMA.16816.F32.BF16 R40, R10, R12, R40</text>
+<rect x="30" y="364" width="392" height="20" fill="#fbe3c4"/>
+<text x="46" y="379" font-family="monospace" font-size="14" fill="#222">HMMA.16816.F32.BF16 R44, R10, R14, R44</text>
+<rect x="30" y="386" width="392" height="20" fill="#fbe3c4"/>
+<text x="46" y="401" font-family="sans-serif" font-size="14" fill="#222">……（还有十几条 HMMA）</text>
+<rect x="30" y="408" width="392" height="20" fill="#e8e8e8"/>
+<text x="46" y="423" font-family="monospace" font-size="14" fill="#222">BAR.SYNC 0x0</text>
+<rect x="30" y="430" width="392" height="20" fill="#e8e8e8"/>
+<text x="46" y="445" font-family="monospace" font-size="14" fill="#222">LOP3.LUT R20, R20, 0x4000, RZ, 0x3c, !PT</text>
+<text x="46" y="467" font-family="monospace" font-size="14" fill="#222">ISETP.NE.AND P0, PT, R26, RZ, PT</text>
+<text x="46" y="489" font-family="monospace" font-size="14" fill="#222">@P0 BRA .L_LOOP</text>
+<rect x="30" y="78" width="392" height="418" fill="none" stroke="#222" stroke-width="1.5"/>
+<path d="M430,102 h8 V184 h-8" fill="none" stroke="#2c6fb7" stroke-width="2"/>
+<line x1="438" y1="143.0" x2="448" y2="143.0" stroke="#2c6fb7" stroke-width="2"/>
+<text x="452" y="139.0" font-size="14" fill="#2c6fb7">① 顶部一簇 LDGSTS：</text>
+<text x="452" y="157.0" font-size="14" fill="#2c6fb7">预取下一块，不经寄存器</text>
+<path d="M430,190 h8 V250 h-8" fill="none" stroke="#555" stroke-width="2"/>
+<line x1="438" y1="220.0" x2="448" y2="220.0" stroke="#555" stroke-width="2"/>
+<text x="452" y="216.0" font-size="14" fill="#555">③ 少量等待与屏障：</text>
+<text x="452" y="234.0" font-size="14" fill="#555">等上一块到货、块内对齐</text>
+<path d="M430,300 h8 V404 h-8" fill="none" stroke="#b86a0c" stroke-width="2"/>
+<line x1="438" y1="352.0" x2="448" y2="352.0" stroke="#b86a0c" stroke-width="2"/>
+<text x="452" y="348.0" font-size="14" fill="#b86a0c">② 中部一长串 HMMA：</text>
+<text x="452" y="366.0" font-size="14" fill="#b86a0c">Tensor Core 主计算</text>
+<path d="M430,410 h8 V448 h-8" fill="none" stroke="#555" stroke-width="2"/>
+<line x1="438" y1="429.0" x2="448" y2="429.0" stroke="#555" stroke-width="2"/>
+<text x="452" y="425.0" font-size="14" fill="#555">③ 再对齐一次；R20 异或 0x4000，</text>
+<text x="452" y="443.0" font-size="14" fill="#555">下一轮换用另一块缓冲区</text>
+<text x="634" y="93" font-family="monospace" font-size="14" fill="#222">.L_LOOP:</text>
+<rect x="630" y="100" width="300" height="20" fill="#dbe8f6"/>
+<text x="646" y="115" font-family="monospace" font-size="14" fill="#222">LDG.E R4, [R2.64]</text>
+<rect x="630" y="122" width="300" height="20" fill="#dbe8f6"/>
+<text x="646" y="137" font-family="monospace" font-size="14" fill="#222">LDG.E R5, [R6.64]</text>
+<rect x="630" y="144" width="300" height="20" fill="#fbe3c4" stroke="#c0392b" stroke-width="2"/>
+<text x="646" y="159" font-family="monospace" font-size="14" fill="#222">FFMA R0, R4, R5, R0</text>
+<text x="646" y="181" font-family="monospace" font-size="14" fill="#222">IADD3 R2, R2, 0x4, RZ</text>
+<text x="646" y="203" font-family="monospace" font-size="14" fill="#222">IADD3 R6, R6, 0x4, RZ</text>
+<text x="646" y="225" font-family="monospace" font-size="14" fill="#222">ISETP.NE.AND P0, PT, R7, RZ, PT</text>
+<text x="646" y="247" font-family="monospace" font-size="14" fill="#222">@P0 BRA .L_LOOP</text>
+<rect x="630" y="78" width="300" height="176" fill="none" stroke="#222" stroke-width="1.5"/>
+<text x="630" y="280" font-size="14" fill="#c0392b">这条 FFMA 要用刚读回的 R4、R5，</text>
+<text x="630" y="300" font-size="14" fill="#c0392b">只能停下来等两条 LDG 从显存回来，</text>
+<text x="630" y="320" font-size="14" fill="#c0392b">一等就是几百个周期（控制位里的</text>
+<text x="630" y="340" font-size="14" fill="#c0392b">stall 计数很大）。每轮都这样：</text>
+<text x="630" y="360" font-size="14" fill="#c0392b">读 → 等 → 算一次 → 再读。</text>
+<text x="630" y="380" font-size="14" fill="#c0392b">没有预取，没有第二块缓冲区，</text>
+<text x="630" y="400" font-size="14" fill="#c0392b">计算和搬运完全串行。</text>
+<rect x="30" y="518" width="18" height="14" fill="#dbe8f6" stroke="#222" stroke-width="1"/><text x="54" y="530" font-size="14" fill="#222">搬运</text>
+<rect x="110" y="518" width="18" height="14" fill="#fbe3c4" stroke="#222" stroke-width="1"/><text x="134" y="530" font-size="14" fill="#222">计算</text>
+<rect x="190" y="518" width="18" height="14" fill="#e8e8e8" stroke="#222" stroke-width="1"/><text x="214" y="530" font-size="14" fill="#222">同步与换缓冲</text>
+<text x="330" y="530" font-size="14" fill="#222">白底：取共享内存、循环控制</text>
+</svg>

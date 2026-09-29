@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 830" width="960" height="830" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="830" fill="#ffffff"/>
+<defs><marker id="mk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e6fb7"/></marker><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f8a4a"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d9822b"/></marker><marker id="my" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777"/></marker><marker id="mp" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7b4fa0"/></marker></defs>
+<text x="480" y="31.9" font-size="17" text-anchor="middle" fill="#222" font-weight="bold">2×2 权重固定阵列算 C = A×B：逐拍快照（与正文 §3 的表格一一对应）</text>
+<rect x="8" y="50" width="464" height="358" rx="8" fill="#fff" stroke="#bbb" stroke-width="1.5" />
+<text x="30" y="79.0" font-size="17" text-anchor="start" fill="#222" font-weight="bold">第 0 拍</text>
+<rect x="110" y="105" width="150" height="92" rx="5" fill="#d7efdc" stroke="#2f8a4a" stroke-width="2" />
+<text x="185.0" y="127.9" font-size="14" text-anchor="middle" fill="#777">PE(0,0) 存 b00</text>
+<text x="185.0" y="156.9" font-size="14" text-anchor="middle" fill="#222">a00·b00</text>
+<rect x="310" y="105" width="150" height="92" rx="5" fill="#f4f4f4" stroke="#aaa" stroke-width="2" />
+<text x="385.0" y="127.9" font-size="14" text-anchor="middle" fill="#777">PE(0,1) 存 b01</text>
+<text x="385.0" y="161.9" font-size="14" text-anchor="middle" fill="#999">空闲</text>
+<line x1="60" y1="151.0" x2="107" y2="151.0" stroke="#2e6fb7" stroke-width="2" marker-end="url(#mb)"/>
+<text x="35" y="156.2" font-size="15" text-anchor="middle" fill="#2e6fb7" font-weight="bold">a00</text>
+<text x="35" y="175.9" font-size="14" text-anchor="middle" fill="#2e6fb7">进入</text>
+<line x1="263" y1="151.0" x2="307" y2="151.0" stroke="#ccc" stroke-width="1.5" stroke-dasharray="4 3"/>
+<rect x="110" y="249" width="150" height="92" rx="5" fill="#f4f4f4" stroke="#aaa" stroke-width="2" />
+<text x="185.0" y="271.9" font-size="14" text-anchor="middle" fill="#777">PE(1,0) 存 b10</text>
+<text x="185.0" y="305.9" font-size="14" text-anchor="middle" fill="#999">空闲</text>
+<rect x="310" y="249" width="150" height="92" rx="5" fill="#f4f4f4" stroke="#aaa" stroke-width="2" />
+<text x="385.0" y="271.9" font-size="14" text-anchor="middle" fill="#777">PE(1,1) 存 b11</text>
+<text x="385.0" y="305.9" font-size="14" text-anchor="middle" fill="#999">空闲</text>
+<text x="50" y="300.2" font-size="15" text-anchor="middle" fill="#aaa">—</text>
+<line x1="263" y1="295.0" x2="307" y2="295.0" stroke="#ccc" stroke-width="1.5" stroke-dasharray="4 3"/>
+<line x1="185.0" y1="200" x2="185.0" y2="246" stroke="#ccc" stroke-width="1.5" stroke-dasharray="4 3"/>
+<line x1="385.0" y1="200" x2="385.0" y2="246" stroke="#ccc" stroke-width="1.5" stroke-dasharray="4 3"/>
+<rect x="488" y="50" width="464" height="358" rx="8" fill="#fff" stroke="#bbb" stroke-width="1.5" />
+<text x="510" y="79.0" font-size="17" text-anchor="start" fill="#222" font-weight="bold">第 1 拍</text>
+<rect x="590" y="105" width="150" height="92" rx="5" fill="#d7efdc" stroke="#2f8a4a" stroke-width="2" />
+<text x="665.0" y="127.9" font-size="14" text-anchor="middle" fill="#777">PE(0,0) 存 b00</text>
+<text x="665.0" y="156.9" font-size="14" text-anchor="middle" fill="#222">a10·b00</text>
+<rect x="790" y="105" width="150" height="92" rx="5" fill="#d7efdc" stroke="#2f8a4a" stroke-width="2" />
+<text x="865.0" y="127.9" font-size="14" text-anchor="middle" fill="#777">PE(0,1) 存 b01</text>
+<text x="865.0" y="156.9" font-size="14" text-anchor="middle" fill="#222">a00·b01</text>
+<line x1="540" y1="151.0" x2="587" y2="151.0" stroke="#2e6fb7" stroke-width="2" marker-end="url(#mb)"/>
+<text x="515" y="156.2" font-size="15" text-anchor="middle" fill="#2e6fb7" font-weight="bold">a10</text>
+<text x="515" y="175.9" font-size="14" text-anchor="middle" fill="#2e6fb7">进入</text>
+<line x1="743" y1="151.0" x2="787" y2="151.0" stroke="#2e6fb7" stroke-width="2" marker-end="url(#mb)"/>
+<text x="765.0" y="141.9" font-size="14" text-anchor="middle" fill="#2e6fb7" font-weight="bold">a00</text>
+<rect x="590" y="249" width="150" height="92" rx="5" fill="#f6d5d1" stroke="#c0392b" stroke-width="2" />
+<text x="665.0" y="271.9" font-size="14" text-anchor="middle" fill="#777">PE(1,0) 存 b10</text>
+<text x="665.0" y="300.9" font-size="14" text-anchor="middle" fill="#222">a00·b00 + a01·b10</text>
+<text x="665.0" y="326.2" font-size="15" text-anchor="middle" fill="#c0392b" font-weight="bold">= c00 完成</text>
+<rect x="790" y="249" width="150" height="92" rx="5" fill="#f4f4f4" stroke="#aaa" stroke-width="2" />
+<text x="865.0" y="271.9" font-size="14" text-anchor="middle" fill="#777">PE(1,1) 存 b11</text>
+<text x="865.0" y="305.9" font-size="14" text-anchor="middle" fill="#999">空闲</text>
+<line x1="540" y1="295.0" x2="587" y2="295.0" stroke="#2e6fb7" stroke-width="2" marker-end="url(#mb)"/>
+<text x="515" y="300.2" font-size="15" text-anchor="middle" fill="#2e6fb7" font-weight="bold">a01</text>
+<text x="515" y="319.9" font-size="14" text-anchor="middle" fill="#2e6fb7">进入</text>
+<line x1="743" y1="295.0" x2="787" y2="295.0" stroke="#ccc" stroke-width="1.5" stroke-dasharray="4 3"/>
+<line x1="665.0" y1="200" x2="665.0" y2="246" stroke="#c0392b" stroke-width="2" marker-end="url(#mr)"/>
+<text x="673.0" y="227.9" font-size="14" text-anchor="start" fill="#c0392b" font-weight="bold">a00·b00</text>
+<line x1="665.0" y1="344" x2="665.0" y2="373" stroke="#c0392b" stroke-width="2" marker-end="url(#mr)"/>
+<text x="665.0" y="391.9" font-size="14" text-anchor="middle" fill="#c0392b" font-weight="bold">c00 流出底边</text>
+<line x1="865.0" y1="200" x2="865.0" y2="246" stroke="#ccc" stroke-width="1.5" stroke-dasharray="4 3"/>
+<rect x="8" y="420" width="464" height="358" rx="8" fill="#fff" stroke="#bbb" stroke-width="1.5" />
+<text x="30" y="448.9" font-size="17" text-anchor="start" fill="#222" font-weight="bold">第 2 拍</text>
+<rect x="110" y="475" width="150" height="92" rx="5" fill="#f4f4f4" stroke="#aaa" stroke-width="2" />
+<text x="185.0" y="497.9" font-size="14" text-anchor="middle" fill="#777">PE(0,0) 存 b00</text>
+<text x="185.0" y="531.9" font-size="14" text-anchor="middle" fill="#999">空闲</text>
+<rect x="310" y="475" width="150" height="92" rx="5" fill="#d7efdc" stroke="#2f8a4a" stroke-width="2" />
+<text x="385.0" y="497.9" font-size="14" text-anchor="middle" fill="#777">PE(0,1) 存 b01</text>
+<text x="385.0" y="526.9" font-size="14" text-anchor="middle" fill="#222">a10·b01</text>
+<text x="50" y="526.2" font-size="15" text-anchor="middle" fill="#aaa">—</text>
+<line x1="263" y1="521.0" x2="307" y2="521.0" stroke="#2e6fb7" stroke-width="2" marker-end="url(#mb)"/>
+<text x="285.0" y="511.9" font-size="14" text-anchor="middle" fill="#2e6fb7" font-weight="bold">a10</text>
+<rect x="110" y="619" width="150" height="92" rx="5" fill="#f6d5d1" stroke="#c0392b" stroke-width="2" />
+<text x="185.0" y="641.9" font-size="14" text-anchor="middle" fill="#777">PE(1,0) 存 b10</text>
+<text x="185.0" y="670.9" font-size="14" text-anchor="middle" fill="#222">a10·b00 + a11·b10</text>
+<text x="185.0" y="696.2" font-size="15" text-anchor="middle" fill="#c0392b" font-weight="bold">= c10 完成</text>
+<rect x="310" y="619" width="150" height="92" rx="5" fill="#f6d5d1" stroke="#c0392b" stroke-width="2" />
+<text x="385.0" y="641.9" font-size="14" text-anchor="middle" fill="#777">PE(1,1) 存 b11</text>
+<text x="385.0" y="670.9" font-size="14" text-anchor="middle" fill="#222">a00·b01 + a01·b11</text>
+<text x="385.0" y="696.2" font-size="15" text-anchor="middle" fill="#c0392b" font-weight="bold">= c01 完成</text>
+<line x1="60" y1="665.0" x2="107" y2="665.0" stroke="#2e6fb7" stroke-width="2" marker-end="url(#mb)"/>
+<text x="35" y="670.2" font-size="15" text-anchor="middle" fill="#2e6fb7" font-weight="bold">a11</text>
+<text x="35" y="689.9" font-size="14" text-anchor="middle" fill="#2e6fb7">进入</text>
+<line x1="263" y1="665.0" x2="307" y2="665.0" stroke="#2e6fb7" stroke-width="2" marker-end="url(#mb)"/>
+<text x="285.0" y="655.9" font-size="14" text-anchor="middle" fill="#2e6fb7" font-weight="bold">a01</text>
+<line x1="185.0" y1="570" x2="185.0" y2="616" stroke="#c0392b" stroke-width="2" marker-end="url(#mr)"/>
+<text x="193.0" y="597.9" font-size="14" text-anchor="start" fill="#c0392b" font-weight="bold">a10·b00</text>
+<line x1="185.0" y1="714" x2="185.0" y2="743" stroke="#c0392b" stroke-width="2" marker-end="url(#mr)"/>
+<text x="185.0" y="761.9" font-size="14" text-anchor="middle" fill="#c0392b" font-weight="bold">c10 流出底边</text>
+<line x1="385.0" y1="570" x2="385.0" y2="616" stroke="#c0392b" stroke-width="2" marker-end="url(#mr)"/>
+<text x="393.0" y="597.9" font-size="14" text-anchor="start" fill="#c0392b" font-weight="bold">a00·b01</text>
+<line x1="385.0" y1="714" x2="385.0" y2="743" stroke="#c0392b" stroke-width="2" marker-end="url(#mr)"/>
+<text x="385.0" y="761.9" font-size="14" text-anchor="middle" fill="#c0392b" font-weight="bold">c01 流出底边</text>
+<rect x="488" y="420" width="464" height="358" rx="8" fill="#fff" stroke="#bbb" stroke-width="1.5" />
+<text x="510" y="448.9" font-size="17" text-anchor="start" fill="#222" font-weight="bold">第 3 拍</text>
+<rect x="590" y="475" width="150" height="92" rx="5" fill="#f4f4f4" stroke="#aaa" stroke-width="2" />
+<text x="665.0" y="497.9" font-size="14" text-anchor="middle" fill="#777">PE(0,0) 存 b00</text>
+<text x="665.0" y="531.9" font-size="14" text-anchor="middle" fill="#999">空闲</text>
+<rect x="790" y="475" width="150" height="92" rx="5" fill="#f4f4f4" stroke="#aaa" stroke-width="2" />
+<text x="865.0" y="497.9" font-size="14" text-anchor="middle" fill="#777">PE(0,1) 存 b01</text>
+<text x="865.0" y="531.9" font-size="14" text-anchor="middle" fill="#999">空闲</text>
+<text x="530" y="526.2" font-size="15" text-anchor="middle" fill="#aaa">—</text>
+<line x1="743" y1="521.0" x2="787" y2="521.0" stroke="#ccc" stroke-width="1.5" stroke-dasharray="4 3"/>
+<rect x="590" y="619" width="150" height="92" rx="5" fill="#f4f4f4" stroke="#aaa" stroke-width="2" />
+<text x="665.0" y="641.9" font-size="14" text-anchor="middle" fill="#777">PE(1,0) 存 b10</text>
+<text x="665.0" y="675.9" font-size="14" text-anchor="middle" fill="#999">空闲</text>
+<rect x="790" y="619" width="150" height="92" rx="5" fill="#f6d5d1" stroke="#c0392b" stroke-width="2" />
+<text x="865.0" y="641.9" font-size="14" text-anchor="middle" fill="#777">PE(1,1) 存 b11</text>
+<text x="865.0" y="670.9" font-size="14" text-anchor="middle" fill="#222">a10·b01 + a11·b11</text>
+<text x="865.0" y="696.2" font-size="15" text-anchor="middle" fill="#c0392b" font-weight="bold">= c11 完成</text>
+<text x="530" y="670.2" font-size="15" text-anchor="middle" fill="#aaa">—</text>
+<line x1="743" y1="665.0" x2="787" y2="665.0" stroke="#2e6fb7" stroke-width="2" marker-end="url(#mb)"/>
+<text x="765.0" y="655.9" font-size="14" text-anchor="middle" fill="#2e6fb7" font-weight="bold">a11</text>
+<line x1="665.0" y1="570" x2="665.0" y2="616" stroke="#ccc" stroke-width="1.5" stroke-dasharray="4 3"/>
+<line x1="865.0" y1="570" x2="865.0" y2="616" stroke="#c0392b" stroke-width="2" marker-end="url(#mr)"/>
+<text x="873.0" y="597.9" font-size="14" text-anchor="start" fill="#c0392b" font-weight="bold">a10·b01</text>
+<line x1="865.0" y1="714" x2="865.0" y2="743" stroke="#c0392b" stroke-width="2" marker-end="url(#mr)"/>
+<text x="865.0" y="761.9" font-size="14" text-anchor="middle" fill="#c0392b" font-weight="bold">c11 流出底边</text>
+<rect x="40" y="793" width="24" height="20" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="72" y="807.9" font-size="14" text-anchor="start" fill="#222">本拍在做乘加</text>
+<rect x="200" y="793" width="24" height="20" rx="0" fill="#f6d5d1" stroke="#c0392b" stroke-width="1.5" />
+<text x="232" y="807.9" font-size="14" text-anchor="start" fill="#222">本拍完成一个结果</text>
+<text x="390" y="807.9" font-size="14" text-anchor="start" fill="#222">蓝字：本拍到达的输入 a（从左边来）　红字：本拍到达的部分和（从上面来）</text>
+</svg>

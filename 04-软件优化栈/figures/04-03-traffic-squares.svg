@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 440" width="960" height="440" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="440" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222222"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f6db5"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777777"/></marker><marker id="o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c77a12"/></marker><marker id="n" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e8b57"/></marker><marker id="p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7a4fb0"/></marker></defs>
+<text x="480" y="30" font-size="17" text-anchor="middle" fill="#222222" font-weight="bold">矩阵乘之后那一段的显存流量：每个方块是一次 64 MB 的整张量读或写</text>
+<text x="30" y="98" font-size="15" text-anchor="start" fill="#c77a12" font-weight="bold">不融合（8 个 kernel）</text>
+<rect x="270" y="74" width="44" height="44" rx="2" fill="#f5d0cb" stroke="#c0392b" stroke-width="1.5"/>
+<text x="292.0" y="101" font-size="14" text-anchor="middle" fill="#222222">读</text>
+<rect x="318" y="74" width="44" height="44" rx="2" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="340.0" y="101" font-size="14" text-anchor="middle" fill="#222222">写</text>
+<text x="316.0" y="138" font-size="13" text-anchor="middle" fill="#444">add</text>
+<rect x="380" y="74" width="44" height="44" rx="2" fill="#f5d0cb" stroke="#c0392b" stroke-width="1.5"/>
+<text x="402.0" y="101" font-size="14" text-anchor="middle" fill="#222222">读</text>
+<rect x="428" y="74" width="44" height="44" rx="2" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="450.0" y="101" font-size="14" text-anchor="middle" fill="#222222">写</text>
+<text x="426.0" y="138" font-size="13" text-anchor="middle" fill="#444">relu</text>
+<rect x="490" y="74" width="44" height="44" rx="2" fill="#f5d0cb" stroke="#c0392b" stroke-width="1.5"/>
+<text x="512.0" y="101" font-size="14" text-anchor="middle" fill="#222222">读</text>
+<rect x="538" y="74" width="44" height="44" rx="2" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="560.0" y="101" font-size="14" text-anchor="middle" fill="#222222">写</text>
+<text x="536.0" y="138" font-size="13" text-anchor="middle" fill="#444">pow</text>
+<rect x="600" y="74" width="44" height="44" rx="2" fill="#f5d0cb" stroke="#c0392b" stroke-width="1.5"/>
+<text x="622.0" y="101" font-size="14" text-anchor="middle" fill="#222222">读</text>
+<text x="622.0" y="138" font-size="13" text-anchor="middle" fill="#444">mean</text>
+<rect x="662" y="74" width="44" height="44" rx="2" fill="#f5d0cb" stroke="#c0392b" stroke-width="1.5"/>
+<text x="684.0" y="101" font-size="14" text-anchor="middle" fill="#222222">读</text>
+<rect x="710" y="74" width="44" height="44" rx="2" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="732.0" y="101" font-size="14" text-anchor="middle" fill="#222222">写</text>
+<text x="708.0" y="138" font-size="13" text-anchor="middle" fill="#444">mul</text>
+<rect x="772" y="74" width="44" height="44" rx="2" fill="#f5d0cb" stroke="#c0392b" stroke-width="1.5"/>
+<text x="794.0" y="101" font-size="14" text-anchor="middle" fill="#222222">读</text>
+<rect x="820" y="74" width="44" height="44" rx="2" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="842.0" y="101" font-size="14" text-anchor="middle" fill="#222222">写</text>
+<text x="818.0" y="138" font-size="13" text-anchor="middle" fill="#444">mul</text>
+<text x="30" y="126" font-size="16" text-anchor="start" fill="#c77a12" font-weight="bold">11 × 64 = 704 MB</text>
+<text x="30" y="208" font-size="15" text-anchor="start" fill="#2f6db5" font-weight="bold">融合成 K1、K2、K3</text>
+<rect x="270" y="184" width="44" height="44" rx="2" fill="#f5d0cb" stroke="#c0392b" stroke-width="1.5"/>
+<text x="292.0" y="211" font-size="14" text-anchor="middle" fill="#222222">读</text>
+<rect x="318" y="184" width="44" height="44" rx="2" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="340.0" y="211" font-size="14" text-anchor="middle" fill="#222222">写</text>
+<text x="316.0" y="248" font-size="13" text-anchor="middle" fill="#444">K1</text>
+<rect x="380" y="184" width="44" height="44" rx="2" fill="#f5d0cb" stroke="#c0392b" stroke-width="1.5"/>
+<text x="402.0" y="211" font-size="14" text-anchor="middle" fill="#222222">读</text>
+<text x="402.0" y="248" font-size="13" text-anchor="middle" fill="#444">K2</text>
+<rect x="442" y="184" width="44" height="44" rx="2" fill="#f5d0cb" stroke="#c0392b" stroke-width="1.5"/>
+<text x="464.0" y="211" font-size="14" text-anchor="middle" fill="#222222">读</text>
+<rect x="490" y="184" width="44" height="44" rx="2" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="512.0" y="211" font-size="14" text-anchor="middle" fill="#222222">写</text>
+<text x="488.0" y="248" font-size="13" text-anchor="middle" fill="#444">K3</text>
+<text x="30" y="236" font-size="16" text-anchor="start" fill="#2f6db5" font-weight="bold">5 × 64 = 320 MB</text>
+<text x="30" y="318" font-size="15" text-anchor="start" fill="#2e8b57" font-weight="bold">K1 再并入矩阵乘</text>
+<rect x="270" y="294" width="44" height="44" rx="2" fill="#f5d0cb" stroke="#c0392b" stroke-width="1.5"/>
+<text x="292.0" y="321" font-size="14" text-anchor="middle" fill="#222222">读</text>
+<text x="292.0" y="358" font-size="13" text-anchor="middle" fill="#444">K2</text>
+<rect x="332" y="294" width="44" height="44" rx="2" fill="#f5d0cb" stroke="#c0392b" stroke-width="1.5"/>
+<text x="354.0" y="321" font-size="14" text-anchor="middle" fill="#222222">读</text>
+<rect x="380" y="294" width="44" height="44" rx="2" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="402.0" y="321" font-size="14" text-anchor="middle" fill="#222222">写</text>
+<text x="378.0" y="358" font-size="13" text-anchor="middle" fill="#444">K3</text>
+<text x="30" y="346" font-size="16" text-anchor="start" fill="#2e8b57" font-weight="bold">3 × 64 = 192 MB</text>
+<text x="480" y="410" font-size="13" text-anchor="middle" fill="#777777">红=读显存，蓝=写显存。每行一个数的小张量（约 16 KB）和两个只作用在它上面的小算子（add 1e-6、rsqrt）忽略不计</text>
+</svg>

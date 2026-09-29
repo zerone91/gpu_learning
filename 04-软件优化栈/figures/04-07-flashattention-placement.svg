@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" font-family="sans-serif" font-size="15">
+<rect x="0" y="0" width="960" height="560" fill="#ffffff"/>
+<defs><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/></marker></defs>
+<text x="20" y="30" font-size="17" font-weight="bold">注意力的中间矩阵放在哪里：朴素映射放显存，FlashAttention 只让它以小块活在片上</text>
+<text x="20" y="66" font-weight="bold">朴素映射</text>
+<rect x="20" y="80" width="450" height="120" fill="#eef5ec" stroke="#2e8b57" stroke-width="1.5" rx="4"/>
+<text x="28" y="98" font-size="13" fill="#2e8b57">片上（shared memory 与寄存器）：快，但只有几百 KB</text>
+<rect x="20" y="290" width="450" height="170" fill="#f5f5f5" stroke="#555" stroke-width="1.5" rx="4"/>
+<text x="28" y="452" font-size="13" fill="#555">显存（HBM）：大，但每读写一个字节都很贵</text>
+<rect x="40" y="120" width="110" height="50" fill="#ffffff" stroke="#555" stroke-width="1.5"/>
+<text x="95.0" y="150.0" text-anchor="middle" font-size="14" fill="#222">S = Q·Kᵀ</text>
+<rect x="180" y="120" width="110" height="50" fill="#ffffff" stroke="#555" stroke-width="1.5"/>
+<text x="235.0" y="150.0" text-anchor="middle" font-size="13" fill="#222">P = softmax(S)</text>
+<rect x="320" y="120" width="110" height="50" fill="#ffffff" stroke="#555" stroke-width="1.5"/>
+<text x="375.0" y="150.0" text-anchor="middle" font-size="14" fill="#222">O = P·V</text>
+<rect x="40" y="310" width="30" height="60" fill="#ffffff" stroke="#555" stroke-width="1.5"/>
+<text x="55.0" y="345.0" text-anchor="middle" font-size="14" fill="#222">Q</text>
+<rect x="76" y="310" width="30" height="60" fill="#ffffff" stroke="#555" stroke-width="1.5"/>
+<text x="91.0" y="345.0" text-anchor="middle" font-size="14" fill="#222">K</text>
+<rect x="130" y="305" width="100" height="100" fill="#f6d5d0" stroke="#c0392b" stroke-width="1.5"/>
+<text x="180.0" y="360.0" text-anchor="middle" font-size="16" fill="#222">S</text>
+<rect x="245" y="305" width="100" height="100" fill="#f6d5d0" stroke="#c0392b" stroke-width="1.5"/>
+<text x="295.0" y="360.0" text-anchor="middle" font-size="16" fill="#222">P</text>
+<rect x="360" y="310" width="30" height="60" fill="#ffffff" stroke="#555" stroke-width="1.5"/>
+<text x="375.0" y="345.0" text-anchor="middle" font-size="14" fill="#222">V</text>
+<rect x="400" y="310" width="30" height="60" fill="#ffffff" stroke="#555" stroke-width="1.5"/>
+<text x="415.0" y="345.0" text-anchor="middle" font-size="14" fill="#222">O</text>
+<text x="180" y="425" text-anchor="middle" font-size="12" fill="#c0392b">N × N</text>
+<text x="295" y="425" text-anchor="middle" font-size="12" fill="#c0392b">N × N</text>
+<line x1="70" y1="308" x2="80" y2="174" stroke="#c0392b" stroke-width="2" marker-end="url(#r)"/>
+<text x="46" y="250" font-size="12" fill="#c0392b">① 读</text>
+<line x1="95" y1="308" x2="100" y2="174" stroke="#c0392b" stroke-width="2" marker-end="url(#r)"/>
+<line x1="170" y1="172" x2="170" y2="301" stroke="#c0392b" stroke-width="2" marker-end="url(#r)"/>
+<text x="140" y="240" font-size="12" fill="#c0392b">② 写</text>
+<line x1="210" y1="303" x2="225" y2="174" stroke="#c0392b" stroke-width="2" marker-end="url(#r)"/>
+<text x="222" y="250" font-size="12" fill="#c0392b">③ 读</text>
+<line x1="270" y1="172" x2="285" y2="301" stroke="#c0392b" stroke-width="2" marker-end="url(#r)"/>
+<text x="250" y="284" font-size="12" fill="#c0392b">④ 写</text>
+<line x1="320" y1="303" x2="345" y2="174" stroke="#c0392b" stroke-width="2" marker-end="url(#r)"/>
+<text x="326" y="284" font-size="12" fill="#c0392b">⑤ 读</text>
+<line x1="372" y1="308" x2="365" y2="174" stroke="#c0392b" stroke-width="2" marker-end="url(#r)"/>
+<line x1="390" y1="172" x2="415" y2="306" stroke="#c0392b" stroke-width="2" marker-end="url(#r)"/>
+<text x="412" y="240" font-size="12" fill="#c0392b">⑥ 写</text>
+<text x="490" y="66" font-weight="bold">FlashAttention</text>
+<rect x="490" y="80" width="450" height="120" fill="#eef5ec" stroke="#2e8b57" stroke-width="1.5" rx="4"/>
+<text x="498" y="98" font-size="13" fill="#2e8b57">片上（shared memory 与寄存器）：快，但只有几百 KB</text>
+<rect x="490" y="290" width="450" height="170" fill="#f5f5f5" stroke="#555" stroke-width="1.5" rx="4"/>
+<text x="498" y="452" font-size="13" fill="#555">显存（HBM）：大，但每读写一个字节都很贵</text>
+<rect x="510" y="110" width="410" height="82" fill="#ffffff" stroke="#2e8b57" stroke-width="1.5" stroke-dasharray="5,3" rx="4"/>
+<text x="520" y="127" font-size="12" fill="#2e8b57">对 K、V 的每一块重复：</text>
+<rect x="520" y="138" width="62" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5"/>
+<text x="551.0" y="163.0" text-anchor="middle" font-size="13" fill="#222">Q 块</text>
+<rect x="592" y="138" width="70" height="40" fill="#f6d5d0" stroke="#c0392b" stroke-width="1.5"/>
+<text x="627.0" y="163.0" text-anchor="middle" font-size="13" fill="#222">S 小块</text>
+<rect x="672" y="138" width="90" height="40" fill="#ffffff" stroke="#555" stroke-width="1.5"/>
+<text x="717.0" y="163.0" text-anchor="middle" font-size="12" fill="#222">在线 softmax</text>
+<rect x="772" y="138" width="62" height="40" fill="#f6d5d0" stroke="#c0392b" stroke-width="1.5"/>
+<text x="803.0" y="163.0" text-anchor="middle" font-size="13" fill="#222">P 小块</text>
+<rect x="844" y="138" width="66" height="40" fill="#d8efd8" stroke="#2e8b57" stroke-width="1.5"/>
+<text x="877.0" y="163.0" text-anchor="middle" font-size="13" fill="#222">O 累加</text>
+<rect x="510" y="310" width="30" height="60" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5"/>
+<text x="525.0" y="345.0" text-anchor="middle" font-size="14" fill="#222">Q</text>
+<rect x="560" y="310" width="30" height="60" fill="#ffffff" stroke="#555" stroke-width="1.5"/>
+<text x="575.0" y="345.0" text-anchor="middle" font-size="14" fill="#222">K</text>
+<rect x="600" y="310" width="30" height="60" fill="#ffffff" stroke="#555" stroke-width="1.5"/>
+<text x="615.0" y="345.0" text-anchor="middle" font-size="14" fill="#222">V</text>
+<rect x="870" y="310" width="30" height="60" fill="#d8efd8" stroke="#2e8b57" stroke-width="1.5"/>
+<text x="885.0" y="345.0" text-anchor="middle" font-size="14" fill="#222">O</text>
+<rect x="660" y="305" width="180" height="100" fill="#ffffff" stroke="#555" stroke-width="1.5" stroke-dasharray="6,4"/>
+<text x="750.0" y="360.0" text-anchor="middle" font-size="13" fill="#777">S、P 从不出现在这里</text>
+<line x1="525" y1="308" x2="540" y2="182" stroke="#1f5fa8" stroke-width="2" marker-end="url(#b)"/>
+<text x="490" y="250" font-size="12" fill="#1f5fa8">读一次</text>
+<line x1="580" y1="308" x2="610" y2="182" stroke="#1f5fa8" stroke-width="2" marker-end="url(#b)"/>
+<text x="634" y="270" font-size="12" fill="#1f5fa8">K、V 逐块流入</text>
+<line x1="612" y1="308" x2="622" y2="182" stroke="#1f5fa8" stroke-width="2" marker-end="url(#b)"/>
+<line x1="880" y1="182" x2="885" y2="306" stroke="#1f5fa8" stroke-width="2" marker-end="url(#b)"/>
+<text x="890" y="250" font-size="12" fill="#1f5fa8">写一次</text>
+<text x="20" y="522" font-size="13" fill="#555">N 是序列长度。朴素映射中 S、P 各有 N × N 个元素，要在显存里完整地写一遍、读一遍（红色 ②③④⑤）；</text>
+<text x="20" y="544" font-size="13" fill="#555">FlashAttention 中它们每次只算出一小块，用完即弃，显存里只剩 Q、K、V、O 的读写（蓝色）。</text>
+</svg>

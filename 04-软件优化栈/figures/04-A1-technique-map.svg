@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" width="1000" height="700" font-family="sans-serif">
+<rect x="0" y="0" width="1000" height="700" fill="#ffffff"/>
+<defs><marker id="k" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222222"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777777"/></marker><marker id="o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c77a12"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f6db5"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="n" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e8b57"/></marker><marker id="p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7a4fb0"/></marker></defs>
+<text x="500.0" y="30.0" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold">技术地图：每个技巧对付的是哪个瓶颈、用的是哪种办法</text>
+<rect x="210.0" y="50.0" width="190.0" height="36.0" rx="3" fill="#f3f3f3" stroke="#222222" stroke-width="1.5"/>
+<text x="305.0" y="73.4" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">少做</text>
+<rect x="406.0" y="50.0" width="190.0" height="36.0" rx="3" fill="#f3f3f3" stroke="#222222" stroke-width="1.5"/>
+<text x="501.0" y="73.4" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">藏起来（与别的活重叠）</text>
+<rect x="602.0" y="50.0" width="190.0" height="36.0" rx="3" fill="#f3f3f3" stroke="#222222" stroke-width="1.5"/>
+<text x="697.0" y="73.4" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">换到更闲的资源</text>
+<rect x="798.0" y="50.0" width="190.0" height="36.0" rx="3" fill="#f3f3f3" stroke="#222222" stroke-width="1.5"/>
+<text x="893.0" y="73.4" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">重新分活</text>
+<rect x="14.0" y="94.0" width="190.0" height="106.0" rx="3" fill="#ffffff" stroke="#222222" stroke-width="1.5"/>
+<text x="109.0" y="142.0" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">显存与片上搬运</text>
+<text x="109.0" y="164.0" font-size="14" text-anchor="middle" fill="#777777">显存 ↔ SM、shared 流量</text>
+<rect x="210.0" y="94.0" width="190.0" height="106.0" rx="3" fill="#ffffff" stroke="#bbbbbb" stroke-width="1.5"/>
+<text x="305.0" y="123.0" font-size="14" text-anchor="middle" fill="#2f6db5">FA-1：分块扫描，</text>
+<text x="305.0" y="140.0" font-size="14" text-anchor="middle" fill="#2f6db5">N×N 矩阵不落显存</text>
+<text x="305.0" y="163.0" font-size="14" text-anchor="middle" fill="#2f6db5">FA-4：TMEM、2-CTA</text>
+<text x="305.0" y="180.0" font-size="14" text-anchor="middle" fill="#2f6db5">MMA 减 shared 流量</text>
+<rect x="406.0" y="94.0" width="190.0" height="106.0" rx="3" fill="#ffffff" stroke="#bbbbbb" stroke-width="1.5"/>
+<text x="501.0" y="123.0" font-size="14" text-anchor="middle" fill="#2f6db5">FA-2：num_stages</text>
+<text x="501.0" y="140.0" font-size="14" text-anchor="middle" fill="#2f6db5">软件流水</text>
+<text x="501.0" y="163.0" font-size="14" text-anchor="middle" fill="#2f6db5">FA-3：TMA + 环形缓冲</text>
+<text x="501.0" y="180.0" font-size="14" text-anchor="middle" fill="#2f6db5">+ mbarrier</text>
+<rect x="602.0" y="94.0" width="190.0" height="106.0" rx="3" fill="#ffffff" stroke="#bbbbbb" stroke-width="1.5"/>
+<text x="697.0" y="143.0" font-size="14" text-anchor="middle" fill="#2f6db5">FA-3：搬运交给 TMA</text>
+<text x="697.0" y="160.0" font-size="14" text-anchor="middle" fill="#2f6db5">引擎，不占线程</text>
+<rect x="798.0" y="94.0" width="190.0" height="106.0" rx="3" fill="#ffffff" stroke="#bbbbbb" stroke-width="1.5"/>
+<text x="893.0" y="143.0" font-size="14" text-anchor="middle" fill="#2f6db5">FA-3：专设生产者</text>
+<text x="893.0" y="160.0" font-size="14" text-anchor="middle" fill="#2f6db5">warpgroup 发订单</text>
+<rect x="14.0" y="206.0" width="190.0" height="106.0" rx="3" fill="#ffffff" stroke="#222222" stroke-width="1.5"/>
+<text x="109.0" y="254.0" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">softmax 的非矩阵计算</text>
+<text x="109.0" y="276.0" font-size="14" text-anchor="middle" fill="#777777">exp 走 MUFU、重缩放</text>
+<rect x="210.0" y="206.0" width="190.0" height="106.0" rx="3" fill="#ffffff" stroke="#bbbbbb" stroke-width="1.5"/>
+<text x="305.0" y="243.5" font-size="14" text-anchor="middle" fill="#2f6db5">FA-2：重缩放攒到</text>
+<text x="305.0" y="260.5" font-size="14" text-anchor="middle" fill="#2f6db5">循环外做</text>
+<text x="305.0" y="283.5" font-size="14" text-anchor="middle" fill="#2f6db5">FA-4：lazy rescale</text>
+<rect x="406.0" y="206.0" width="190.0" height="106.0" rx="3" fill="#ffffff" stroke="#bbbbbb" stroke-width="1.5"/>
+<text x="501.0" y="255.0" font-size="14" text-anchor="middle" fill="#2f6db5">FA-3：两组消费者</text>
+<text x="501.0" y="272.0" font-size="14" text-anchor="middle" fill="#2f6db5">ping-pong</text>
+<rect x="602.0" y="206.0" width="190.0" height="106.0" rx="3" fill="#ffffff" stroke="#bbbbbb" stroke-width="1.5"/>
+<text x="697.0" y="255.0" font-size="14" text-anchor="middle" fill="#2f6db5">FA-4：软件 exp，</text>
+<text x="697.0" y="272.0" font-size="14" text-anchor="middle" fill="#2f6db5">MUFU → FMA</text>
+<rect x="798.0" y="206.0" width="190.0" height="106.0" rx="3" fill="#ffffff" stroke="#bbbbbb" stroke-width="1.5"/>
+<text x="893.0" y="255.0" font-size="14" text-anchor="middle" fill="#2f6db5">FA-4：修正、softmax</text>
+<text x="893.0" y="272.0" font-size="14" text-anchor="middle" fill="#2f6db5">各设专职 warp</text>
+<rect x="14.0" y="318.0" width="190.0" height="106.0" rx="3" fill="#ffffff" stroke="#222222" stroke-width="1.5"/>
+<text x="109.0" y="366.0" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">SM 闲置、负载不均</text>
+<text x="109.0" y="388.0" font-size="14" text-anchor="middle" fill="#777777">并行度不够、尾波</text>
+<rect x="210.0" y="318.0" width="190.0" height="106.0" rx="3" fill="#ffffff" stroke="#bbbbbb" stroke-width="1.5"/>
+<text x="305.0" y="367.0" font-size="14" text-anchor="middle" fill="#c77a12">DeepGEMM：块尺寸 112，</text>
+<text x="305.0" y="384.0" font-size="14" text-anchor="middle" fill="#c77a12">少一轮半空的尾波</text>
+<rect x="406.0" y="318.0" width="190.0" height="106.0" rx="3" fill="#ffffff" stroke="#bbbbbb" stroke-width="1.5"/>
+<rect x="602.0" y="318.0" width="190.0" height="106.0" rx="3" fill="#ffffff" stroke="#bbbbbb" stroke-width="1.5"/>
+<rect x="798.0" y="318.0" width="190.0" height="106.0" rx="3" fill="#ffffff" stroke="#bbbbbb" stroke-width="1.5"/>
+<text x="893.0" y="335.5" font-size="14" text-anchor="middle" fill="#2f6db5">FA-2：序列维切进网格</text>
+<text x="893.0" y="358.5" font-size="14" text-anchor="middle" fill="#c77a12">DeepGEMM：常驻块</text>
+<text x="893.0" y="375.5" font-size="14" text-anchor="middle" fill="#c77a12">动态领活</text>
+<text x="893.0" y="398.5" font-size="14" text-anchor="middle" fill="#c77a12">FlashMLA：decode</text>
+<text x="893.0" y="415.5" font-size="14" text-anchor="middle" fill="#c77a12">序列维并行</text>
+<rect x="14.0" y="430.0" width="190.0" height="106.0" rx="3" fill="#ffffff" stroke="#222222" stroke-width="1.5"/>
+<text x="109.0" y="478.0" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">FP8 累加的精度</text>
+<text x="109.0" y="500.0" font-size="14" text-anchor="middle" fill="#777777">长累加链丢小数</text>
+<rect x="210.0" y="430.0" width="190.0" height="106.0" rx="3" fill="#ffffff" stroke="#bbbbbb" stroke-width="1.5"/>
+<text x="305.0" y="479.0" font-size="14" text-anchor="middle" fill="#c77a12">DeepGEMM：缩放乘法</text>
+<text x="305.0" y="496.0" font-size="14" text-anchor="middle" fill="#c77a12">每 128 深才做一次</text>
+<rect x="406.0" y="430.0" width="190.0" height="106.0" rx="3" fill="#ffffff" stroke="#bbbbbb" stroke-width="1.5"/>
+<text x="501.0" y="479.0" font-size="14" text-anchor="middle" fill="#c77a12">DeepGEMM：晋升与</text>
+<text x="501.0" y="496.0" font-size="14" text-anchor="middle" fill="#c77a12">矩阵单元的活重叠</text>
+<rect x="602.0" y="430.0" width="190.0" height="106.0" rx="3" fill="#ffffff" stroke="#bbbbbb" stroke-width="1.5"/>
+<text x="697.0" y="479.0" font-size="14" text-anchor="middle" fill="#c77a12">DeepGEMM：两级累加，</text>
+<text x="697.0" y="496.0" font-size="14" text-anchor="middle" fill="#c77a12">收账挪到 FMA 通道</text>
+<rect x="798.0" y="430.0" width="190.0" height="106.0" rx="3" fill="#ffffff" stroke="#bbbbbb" stroke-width="1.5"/>
+<rect x="14.0" y="542.0" width="190.0" height="106.0" rx="3" fill="#ffffff" stroke="#222222" stroke-width="1.5"/>
+<text x="109.0" y="590.0" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">跨卡网络</text>
+<text x="109.0" y="612.0" font-size="14" text-anchor="middle" fill="#777777">MoE 的 all-to-all</text>
+<rect x="210.0" y="542.0" width="190.0" height="106.0" rx="3" fill="#ffffff" stroke="#bbbbbb" stroke-width="1.5"/>
+<text x="305.0" y="591.0" font-size="14" text-anchor="middle" fill="#c77a12">DeepEP：dispatch</text>
+<text x="305.0" y="608.0" font-size="14" text-anchor="middle" fill="#c77a12">发 FP8，字节减半</text>
+<rect x="406.0" y="542.0" width="190.0" height="106.0" rx="3" fill="#ffffff" stroke="#bbbbbb" stroke-width="1.5"/>
+<text x="501.0" y="579.5" font-size="14" text-anchor="middle" fill="#c77a12">TBO / SBO / DualPipe</text>
+<text x="501.0" y="602.5" font-size="14" text-anchor="middle" fill="#c77a12">DeepEP：hook 式</text>
+<text x="501.0" y="619.5" font-size="14" text-anchor="middle" fill="#c77a12">发出即返回</text>
+<rect x="602.0" y="542.0" width="190.0" height="106.0" rx="3" fill="#ffffff" stroke="#bbbbbb" stroke-width="1.5"/>
+<text x="697.0" y="571.0" font-size="14" text-anchor="middle" fill="#c77a12">IBGDA：GPU 按门铃，</text>
+<text x="697.0" y="588.0" font-size="14" text-anchor="middle" fill="#c77a12">不占 SM、不经 CPU</text>
+<text x="697.0" y="611.0" font-size="14" text-anchor="middle" fill="#c77a12">normal：大头流量</text>
+<text x="697.0" y="628.0" font-size="14" text-anchor="middle" fill="#c77a12">走 NVLink</text>
+<rect x="798.0" y="542.0" width="190.0" height="106.0" rx="3" fill="#ffffff" stroke="#bbbbbb" stroke-width="1.5"/>
+<text x="893.0" y="591.0" font-size="14" text-anchor="middle" fill="#c77a12">normal：warp 按</text>
+<text x="893.0" y="608.0" font-size="14" text-anchor="middle" fill="#c77a12">目标卡分工</text>
+<text x="14.0" y="672.0" font-size="15" text-anchor="start" fill="#222222" font-weight="bold">蓝字 = FlashAttention 系；橙字 = DeepSeek 开源栈。</text>
+<text x="404.0" y="672.0" font-size="14" text-anchor="start" fill="#777777">FA 系集中在上两行（单卡 kernel 内），DeepSeek 栈集中在下三行（精度、调度、网络）。</text>
+</svg>

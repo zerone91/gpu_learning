@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="560" fill="#ffffff"/>
+<defs>
+<marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker>
+</defs>
+<text x="480" y="30" font-size="18" text-anchor="middle" fill="#222" font-weight="bold">硅通孔（TSV）剖面：在减薄的硅里打一根铜柱，把信号从“面”引到“背”</text>
+
+<!-- LEFT: die cross-section -->
+<text x="270" y="64" font-size="15" text-anchor="middle" fill="#555">一颗裸片竖着切开（示意）</text>
+<!-- metal layers (face) -->
+<rect x="40" y="80" width="460" height="50" fill="#f3e3b3" stroke="#222" stroke-width="1.5"/>
+<g stroke="#b8860b" stroke-width="3">
+<line x1="50" y1="92" x2="200" y2="92"/><line x1="230" y1="92" x2="480" y2="92"/>
+<line x1="60" y1="106" x2="150" y2="106"/><line x1="180" y1="106" x2="330" y2="106"/><line x1="360" y1="106" x2="490" y2="106"/>
+<line x1="50" y1="120" x2="120" y2="120"/><line x1="140" y1="120" x2="260" y2="120"/><line x1="300" y1="120" x2="430" y2="120"/>
+</g>
+<text x="510" y="100" font-size="14" fill="#222">金属互连层</text>
+<!-- transistor layer -->
+<rect x="40" y="130" width="460" height="16" fill="#d6d6d6" stroke="#222" stroke-width="1.5"/>
+<text x="510" y="143" font-size="14" fill="#222">晶体管层</text>
+<text x="510" y="122" font-size="14" fill="#2c5d8a" font-weight="bold">↑ 这一侧是“面”</text>
+<!-- silicon substrate -->
+<rect x="40" y="146" width="460" height="250" fill="#e9eef4" stroke="#222" stroke-width="1.5"/>
+<text x="510" y="275" font-size="14" fill="#222">硅衬底，已从几百微米</text>
+<text x="510" y="293" font-size="14" fill="#222">减薄到约 50 微米</text>
+<text x="510" y="400" font-size="14" fill="#2c5d8a" font-weight="bold">↓ 这一侧是“背”</text>
+
+<!-- keep out zones -->
+<rect x="116" y="128" width="78" height="20" fill="#fbe3e0" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="5,4"/>
+<rect x="336" y="128" width="78" height="20" fill="#fbe3e0" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="5,4"/>
+<!-- transistors outside KOZ -->
+<g fill="#666">
+<rect x="55" y="134" width="12" height="8"/><rect x="80" y="134" width="12" height="8"/><rect x="100" y="134" width="10" height="8"/>
+<rect x="205" y="134" width="12" height="8"/><rect x="230" y="134" width="12" height="8"/><rect x="255" y="134" width="12" height="8"/><rect x="280" y="134" width="12" height="8"/><rect x="305" y="134" width="12" height="8"/>
+<rect x="425" y="134" width="12" height="8"/><rect x="450" y="134" width="12" height="8"/><rect x="475" y="134" width="12" height="8"/>
+</g>
+<!-- TSVs -->
+<g>
+<rect x="145" y="130" width="20" height="266" fill="#1f5fa8"/>
+<rect x="148" y="130" width="14" height="266" fill="#333"/>
+<rect x="150" y="130" width="10" height="266" fill="#d9822b"/>
+<rect x="365" y="130" width="20" height="266" fill="#1f5fa8"/>
+<rect x="368" y="130" width="14" height="266" fill="#333"/>
+<rect x="370" y="130" width="10" height="266" fill="#d9822b"/>
+</g>
+<!-- back side pads / bumps -->
+<rect x="138" y="396" width="34" height="8" fill="#b8860b"/>
+<rect x="358" y="396" width="34" height="8" fill="#b8860b"/>
+<circle cx="155" cy="416" r="11" fill="#b8860b" stroke="#6b4e00"/>
+<circle cx="375" cy="416" r="11" fill="#b8860b" stroke="#6b4e00"/>
+<text x="270" y="420" font-size="14" text-anchor="middle" fill="#222">背面的凸块，接下一层</text>
+<!-- dims -->
+<line x1="30" y1="146" x2="30" y2="396" stroke="#222" stroke-width="1.5" marker-start="url(#a)" marker-end="url(#a)"/>
+<text x="18" y="275" font-size="14" text-anchor="middle" fill="#222" transform="rotate(-90 18 275)">约 50 微米</text>
+<line x1="145" y1="440" x2="165" y2="440" stroke="#222" stroke-width="1.5"/>
+<text x="155" y="460" font-size="14" text-anchor="middle" fill="#222">直径约 5 微米</text>
+<text x="155" y="478" font-size="13" text-anchor="middle" fill="#555">（深宽比约 10 比 1）</text>
+<line x1="155" y1="500" x2="375" y2="500" stroke="#222" stroke-width="1.5" marker-start="url(#a)" marker-end="url(#a)"/>
+<text x="265" y="522" font-size="14" text-anchor="middle" fill="#222">TSV 之间的间距：比键合间距粗一个数量级</text>
+<text x="265" y="542" font-size="13" text-anchor="middle" fill="#c0392b">红色虚线框 = 禁布区，不能放晶体管</text>
+
+<!-- RIGHT: zoom (top view of a TSV ring) -->
+<text x="800" y="64" font-size="15" text-anchor="middle" fill="#555">横切一根 TSV（放大）</text>
+<circle cx="800" cy="200" r="100" fill="#e9eef4" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="5,4"/>
+<circle cx="800" cy="200" r="58" fill="#1f5fa8"/>
+<circle cx="800" cy="200" r="50" fill="#333"/>
+<circle cx="800" cy="200" r="44" fill="#d9822b"/>
+<text x="800" y="205" font-size="15" text-anchor="middle" fill="#fff" font-weight="bold">铜</text>
+<g font-size="14" fill="#222">
+<line x1="853" y1="178" x2="875" y2="120" stroke="#777" stroke-width="1.2"/>
+<text x="770" y="92" >氧化硅绝缘层（蓝）：</text>
+<text x="770" y="110">防止电流漏进硅</text>
+<line x1="840" y1="228" x2="895" y2="300" stroke="#777" stroke-width="1.2"/>
+<text x="780" y="322">钽 / 氮化钽阻挡层（黑）：</text>
+<text x="780" y="340">防止铜原子扩散进硅</text>
+<text x="800" y="370" font-size="14" text-anchor="middle" fill="#c0392b">外圈虚线：禁布区边界</text>
+</g>
+<rect x="640" y="395" width="310" height="120" fill="#fbe3e0" stroke="#c0392b" stroke-width="1.5"/>
+<text x="795" y="420" font-size="14" text-anchor="middle" fill="#222" font-weight="bold">为什么要留禁布区</text>
+<text x="795" y="444" font-size="14" text-anchor="middle" fill="#222">铜的热膨胀系数约为硅的 6～7 倍，</text>
+<text x="795" y="466" font-size="14" text-anchor="middle" fill="#222">温度一变就挤压周围的硅，</text>
+<text x="795" y="488" font-size="14" text-anchor="middle" fill="#222">附近晶体管的特性随之改变</text>
+</svg>

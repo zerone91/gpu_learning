@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="540" fill="#ffffff"/>
+<defs><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e8b57"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2c6fb7"/></marker></defs>
+<text x="480" y="26" font-size="18" text-anchor="middle" fill="#222" font-weight="bold">4096 个线程（16 块 × 256）给同一个计数器加一：两种写法</text>
+<line x1="480" y1="44" x2="480" y2="460" stroke="#ddd" stroke-width="1.5"/>
+<text x="240" y="62" font-size="16" text-anchor="middle" fill="#c0392b" font-weight="bold">写法一：每个线程直接加全局计数器</text>
+<rect x="30" y="84" width="100" height="60" rx="6" fill="#f2f2f2" stroke="#222" stroke-width="2"/>
+<text x="80" y="106" font-size="14" text-anchor="middle" fill="#222" font-weight="bold">块 0</text>
+<text x="80" y="128" font-size="14" text-anchor="middle" fill="#555">256 个线程</text>
+<line x1="44" y1="146" x2="200" y2="268" stroke="#c0392b" stroke-width="1.5" marker-end="url(#r)"/>
+<line x1="56" y1="146" x2="212" y2="268" stroke="#c0392b" stroke-width="1.5" marker-end="url(#r)"/>
+<line x1="68" y1="146" x2="224" y2="268" stroke="#c0392b" stroke-width="1.5" marker-end="url(#r)"/>
+<line x1="80" y1="146" x2="236" y2="268" stroke="#c0392b" stroke-width="1.5" marker-end="url(#r)"/>
+<line x1="92" y1="146" x2="248" y2="268" stroke="#c0392b" stroke-width="1.5" marker-end="url(#r)"/>
+<line x1="104" y1="146" x2="260" y2="268" stroke="#c0392b" stroke-width="1.5" marker-end="url(#r)"/>
+<line x1="116" y1="146" x2="272" y2="268" stroke="#c0392b" stroke-width="1.5" marker-end="url(#r)"/>
+<rect x="140" y="84" width="100" height="60" rx="6" fill="#f2f2f2" stroke="#222" stroke-width="2"/>
+<text x="190" y="106" font-size="14" text-anchor="middle" fill="#222" font-weight="bold">块 1</text>
+<text x="190" y="128" font-size="14" text-anchor="middle" fill="#555">256 个线程</text>
+<line x1="154" y1="146" x2="200" y2="268" stroke="#c0392b" stroke-width="1.5" marker-end="url(#r)"/>
+<line x1="166" y1="146" x2="212" y2="268" stroke="#c0392b" stroke-width="1.5" marker-end="url(#r)"/>
+<line x1="178" y1="146" x2="224" y2="268" stroke="#c0392b" stroke-width="1.5" marker-end="url(#r)"/>
+<line x1="190" y1="146" x2="236" y2="268" stroke="#c0392b" stroke-width="1.5" marker-end="url(#r)"/>
+<line x1="202" y1="146" x2="248" y2="268" stroke="#c0392b" stroke-width="1.5" marker-end="url(#r)"/>
+<line x1="214" y1="146" x2="260" y2="268" stroke="#c0392b" stroke-width="1.5" marker-end="url(#r)"/>
+<line x1="226" y1="146" x2="272" y2="268" stroke="#c0392b" stroke-width="1.5" marker-end="url(#r)"/>
+<rect x="250" y="84" width="100" height="60" rx="6" fill="#f2f2f2" stroke="#222" stroke-width="2"/>
+<text x="300" y="106" font-size="14" text-anchor="middle" fill="#222" font-weight="bold">块 2</text>
+<text x="300" y="128" font-size="14" text-anchor="middle" fill="#555">256 个线程</text>
+<line x1="264" y1="146" x2="200" y2="268" stroke="#c0392b" stroke-width="1.5" marker-end="url(#r)"/>
+<line x1="276" y1="146" x2="212" y2="268" stroke="#c0392b" stroke-width="1.5" marker-end="url(#r)"/>
+<line x1="288" y1="146" x2="224" y2="268" stroke="#c0392b" stroke-width="1.5" marker-end="url(#r)"/>
+<line x1="300" y1="146" x2="236" y2="268" stroke="#c0392b" stroke-width="1.5" marker-end="url(#r)"/>
+<line x1="312" y1="146" x2="248" y2="268" stroke="#c0392b" stroke-width="1.5" marker-end="url(#r)"/>
+<line x1="324" y1="146" x2="260" y2="268" stroke="#c0392b" stroke-width="1.5" marker-end="url(#r)"/>
+<line x1="336" y1="146" x2="272" y2="268" stroke="#c0392b" stroke-width="1.5" marker-end="url(#r)"/>
+<text x="365" y="120" font-size="15" fill="#222">…… 共 16 块</text>
+<line x1="400" y1="140" x2="270" y2="268" stroke="#c0392b" stroke-width="1.5" marker-end="url(#r)"/>
+<line x1="410" y1="140" x2="278" y2="268" stroke="#c0392b" stroke-width="1.5" marker-end="url(#r)"/>
+<line x1="420" y1="140" x2="286" y2="268" stroke="#c0392b" stroke-width="1.5" marker-end="url(#r)"/>
+<line x1="430" y1="140" x2="294" y2="268" stroke="#c0392b" stroke-width="1.5" marker-end="url(#r)"/>
+<rect x="160" y="270" width="160" height="44" rx="6" fill="#fbe3c4" stroke="#222" stroke-width="2"/>
+<text x="240" y="298" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">全局计数器</text>
+<text x="720" y="62" font-size="16" text-anchor="middle" fill="#2e8b57" font-weight="bold">写法二：先块内汇总，再每块提交一次</text>
+<rect x="510" y="84" width="100" height="110" rx="6" fill="#f2f2f2" stroke="#222" stroke-width="2"/>
+<text x="560" y="106" font-size="14" text-anchor="middle" fill="#222" font-weight="bold">块 0</text>
+<text x="560" y="128" font-size="14" text-anchor="middle" fill="#555">256 个线程</text>
+<rect x="520" y="146" width="80" height="36" rx="4" fill="#dbe8f6" stroke="#2c6fb7" stroke-width="1.5"/>
+<text x="560" y="162" font-size="14" text-anchor="middle" fill="#222">shared 里</text>
+<text x="560" y="178" font-size="14" text-anchor="middle" fill="#222">局部计数</text>
+<line x1="560" y1="196" x2="720" y2="268" stroke="#2e8b57" stroke-width="2.5" marker-end="url(#g)"/>
+<rect x="620" y="84" width="100" height="110" rx="6" fill="#f2f2f2" stroke="#222" stroke-width="2"/>
+<text x="670" y="106" font-size="14" text-anchor="middle" fill="#222" font-weight="bold">块 1</text>
+<text x="670" y="128" font-size="14" text-anchor="middle" fill="#555">256 个线程</text>
+<rect x="630" y="146" width="80" height="36" rx="4" fill="#dbe8f6" stroke="#2c6fb7" stroke-width="1.5"/>
+<text x="670" y="162" font-size="14" text-anchor="middle" fill="#222">shared 里</text>
+<text x="670" y="178" font-size="14" text-anchor="middle" fill="#222">局部计数</text>
+<line x1="670" y1="196" x2="720" y2="268" stroke="#2e8b57" stroke-width="2.5" marker-end="url(#g)"/>
+<rect x="730" y="84" width="100" height="110" rx="6" fill="#f2f2f2" stroke="#222" stroke-width="2"/>
+<text x="780" y="106" font-size="14" text-anchor="middle" fill="#222" font-weight="bold">块 2</text>
+<text x="780" y="128" font-size="14" text-anchor="middle" fill="#555">256 个线程</text>
+<rect x="740" y="146" width="80" height="36" rx="4" fill="#dbe8f6" stroke="#2c6fb7" stroke-width="1.5"/>
+<text x="780" y="162" font-size="14" text-anchor="middle" fill="#222">shared 里</text>
+<text x="780" y="178" font-size="14" text-anchor="middle" fill="#222">局部计数</text>
+<line x1="780" y1="196" x2="720" y2="268" stroke="#2e8b57" stroke-width="2.5" marker-end="url(#g)"/>
+<text x="845" y="120" font-size="15" fill="#222">…… 共 16 块</text>
+<line x1="890" y1="130" x2="760" y2="268" stroke="#2e8b57" stroke-width="2.5" marker-end="url(#g)"/>
+<rect x="640" y="270" width="160" height="44" rx="6" fill="#fbe3c4" stroke="#222" stroke-width="2"/>
+<text x="720" y="298" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">全局计数器</text>
+<text x="30" y="352" font-size="15" fill="#222">全局地址上的排队长度：</text>
+<rect x="30" y="364" width="420" height="26" fill="#f5cccc" stroke="#c0392b" stroke-width="2"/>
+<text x="38" y="383" font-size="14" fill="#222">4096 次，一个接一个</text>
+<text x="30" y="416" font-size="14" fill="#222">每一次都要走全 GPU 作用域的路径（贵）</text>
+<text x="510" y="352" font-size="15" fill="#222">第 1 步，每块 shared 里的排队长度：</text>
+<rect x="510" y="364" width="26" height="26" fill="#dbe8f6" stroke="#2c6fb7" stroke-width="2"/>
+<text x="544" y="383" font-size="14" fill="#222">256 次，但便宜；16 块同时进行</text>
+<text x="510" y="416" font-size="15" fill="#222">第 2 步，全局地址上的排队长度：</text>
+<rect x="510" y="428" width="4" height="26" fill="#d4eddc" stroke="#2e8b57" stroke-width="2"/>
+<text x="522" y="447" font-size="14" fill="#222">16 次（每块派 1 个线程提交）</text>
+<text x="480" y="496" font-size="15" text-anchor="middle" fill="#222">最长的一串排队：左边是 4096 次贵的操作；右边是 256 次便宜的 + 16 次贵的。</text>
+<text x="480" y="522" font-size="14" text-anchor="middle" fill="#555">三条排队条的长度大致按次数的比例画（4096 : 256 : 16）</text>
+</svg>

@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 720" width="960" height="720" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="720" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222222"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f6db5"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777777"/></marker><marker id="o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c77a12"/></marker><marker id="n" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e8b57"/></marker><marker id="p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7a4fb0"/></marker></defs>
+<text x="480" y="32" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold">fp32、fp16、bf16：位怎么分，决定了能表示多大多小的数</text>
+<text x="30" y="84" font-size="16" text-anchor="start" fill="#222222" font-weight="bold">fp32</text>
+<rect x="150" y="60" width="22" height="34" rx="0" fill="#eeeeee" stroke="#777777" stroke-width="1.5"/>
+<rect x="172" y="60" width="176" height="34" rx="0" fill="#d9efe2" stroke="#2e8b57" stroke-width="1.5"/>
+<line x1="194" y1="82" x2="194" y2="94" stroke="#2e8b57" stroke-width="1"/>
+<line x1="216" y1="82" x2="216" y2="94" stroke="#2e8b57" stroke-width="1"/>
+<line x1="238" y1="82" x2="238" y2="94" stroke="#2e8b57" stroke-width="1"/>
+<line x1="260" y1="82" x2="260" y2="94" stroke="#2e8b57" stroke-width="1"/>
+<line x1="282" y1="82" x2="282" y2="94" stroke="#2e8b57" stroke-width="1"/>
+<line x1="304" y1="82" x2="304" y2="94" stroke="#2e8b57" stroke-width="1"/>
+<line x1="326" y1="82" x2="326" y2="94" stroke="#2e8b57" stroke-width="1"/>
+<text x="260.0" y="78" font-size="13" text-anchor="middle" fill="#222222">指数 8 位</text>
+<rect x="348" y="60" width="506" height="34" rx="0" fill="#f6dcd8" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="370" y1="82" x2="370" y2="94" stroke="#c0392b" stroke-width="1"/>
+<line x1="392" y1="82" x2="392" y2="94" stroke="#c0392b" stroke-width="1"/>
+<line x1="414" y1="82" x2="414" y2="94" stroke="#c0392b" stroke-width="1"/>
+<line x1="436" y1="82" x2="436" y2="94" stroke="#c0392b" stroke-width="1"/>
+<line x1="458" y1="82" x2="458" y2="94" stroke="#c0392b" stroke-width="1"/>
+<line x1="480" y1="82" x2="480" y2="94" stroke="#c0392b" stroke-width="1"/>
+<line x1="502" y1="82" x2="502" y2="94" stroke="#c0392b" stroke-width="1"/>
+<line x1="524" y1="82" x2="524" y2="94" stroke="#c0392b" stroke-width="1"/>
+<line x1="546" y1="82" x2="546" y2="94" stroke="#c0392b" stroke-width="1"/>
+<line x1="568" y1="82" x2="568" y2="94" stroke="#c0392b" stroke-width="1"/>
+<line x1="590" y1="82" x2="590" y2="94" stroke="#c0392b" stroke-width="1"/>
+<line x1="612" y1="82" x2="612" y2="94" stroke="#c0392b" stroke-width="1"/>
+<line x1="634" y1="82" x2="634" y2="94" stroke="#c0392b" stroke-width="1"/>
+<line x1="656" y1="82" x2="656" y2="94" stroke="#c0392b" stroke-width="1"/>
+<line x1="678" y1="82" x2="678" y2="94" stroke="#c0392b" stroke-width="1"/>
+<line x1="700" y1="82" x2="700" y2="94" stroke="#c0392b" stroke-width="1"/>
+<line x1="722" y1="82" x2="722" y2="94" stroke="#c0392b" stroke-width="1"/>
+<line x1="744" y1="82" x2="744" y2="94" stroke="#c0392b" stroke-width="1"/>
+<line x1="766" y1="82" x2="766" y2="94" stroke="#c0392b" stroke-width="1"/>
+<line x1="788" y1="82" x2="788" y2="94" stroke="#c0392b" stroke-width="1"/>
+<line x1="810" y1="82" x2="810" y2="94" stroke="#c0392b" stroke-width="1"/>
+<line x1="832" y1="82" x2="832" y2="94" stroke="#c0392b" stroke-width="1"/>
+<text x="601.0" y="78" font-size="13" text-anchor="middle" fill="#222222">尾数 23 位</text>
+<text x="866" y="83" font-size="13" text-anchor="start" fill="#444444">共 32 位</text>
+<text x="30" y="136" font-size="16" text-anchor="start" fill="#222222" font-weight="bold">fp16</text>
+<rect x="150" y="112" width="22" height="34" rx="0" fill="#eeeeee" stroke="#777777" stroke-width="1.5"/>
+<rect x="172" y="112" width="110" height="34" rx="0" fill="#d9efe2" stroke="#2e8b57" stroke-width="1.5"/>
+<line x1="194" y1="134" x2="194" y2="146" stroke="#2e8b57" stroke-width="1"/>
+<line x1="216" y1="134" x2="216" y2="146" stroke="#2e8b57" stroke-width="1"/>
+<line x1="238" y1="134" x2="238" y2="146" stroke="#2e8b57" stroke-width="1"/>
+<line x1="260" y1="134" x2="260" y2="146" stroke="#2e8b57" stroke-width="1"/>
+<text x="227.0" y="130" font-size="13" text-anchor="middle" fill="#222222">指数 5 位</text>
+<rect x="282" y="112" width="220" height="34" rx="0" fill="#f6dcd8" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="304" y1="134" x2="304" y2="146" stroke="#c0392b" stroke-width="1"/>
+<line x1="326" y1="134" x2="326" y2="146" stroke="#c0392b" stroke-width="1"/>
+<line x1="348" y1="134" x2="348" y2="146" stroke="#c0392b" stroke-width="1"/>
+<line x1="370" y1="134" x2="370" y2="146" stroke="#c0392b" stroke-width="1"/>
+<line x1="392" y1="134" x2="392" y2="146" stroke="#c0392b" stroke-width="1"/>
+<line x1="414" y1="134" x2="414" y2="146" stroke="#c0392b" stroke-width="1"/>
+<line x1="436" y1="134" x2="436" y2="146" stroke="#c0392b" stroke-width="1"/>
+<line x1="458" y1="134" x2="458" y2="146" stroke="#c0392b" stroke-width="1"/>
+<line x1="480" y1="134" x2="480" y2="146" stroke="#c0392b" stroke-width="1"/>
+<text x="392.0" y="130" font-size="13" text-anchor="middle" fill="#222222">尾数 10 位</text>
+<text x="514" y="135" font-size="13" text-anchor="start" fill="#444444">共 16 位</text>
+<text x="30" y="188" font-size="16" text-anchor="start" fill="#222222" font-weight="bold">bf16</text>
+<rect x="150" y="164" width="22" height="34" rx="0" fill="#eeeeee" stroke="#777777" stroke-width="1.5"/>
+<rect x="172" y="164" width="176" height="34" rx="0" fill="#d9efe2" stroke="#2e8b57" stroke-width="1.5"/>
+<line x1="194" y1="186" x2="194" y2="198" stroke="#2e8b57" stroke-width="1"/>
+<line x1="216" y1="186" x2="216" y2="198" stroke="#2e8b57" stroke-width="1"/>
+<line x1="238" y1="186" x2="238" y2="198" stroke="#2e8b57" stroke-width="1"/>
+<line x1="260" y1="186" x2="260" y2="198" stroke="#2e8b57" stroke-width="1"/>
+<line x1="282" y1="186" x2="282" y2="198" stroke="#2e8b57" stroke-width="1"/>
+<line x1="304" y1="186" x2="304" y2="198" stroke="#2e8b57" stroke-width="1"/>
+<line x1="326" y1="186" x2="326" y2="198" stroke="#2e8b57" stroke-width="1"/>
+<text x="260.0" y="182" font-size="13" text-anchor="middle" fill="#222222">指数 8 位</text>
+<rect x="348" y="164" width="154" height="34" rx="0" fill="#f6dcd8" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="370" y1="186" x2="370" y2="198" stroke="#c0392b" stroke-width="1"/>
+<line x1="392" y1="186" x2="392" y2="198" stroke="#c0392b" stroke-width="1"/>
+<line x1="414" y1="186" x2="414" y2="198" stroke="#c0392b" stroke-width="1"/>
+<line x1="436" y1="186" x2="436" y2="198" stroke="#c0392b" stroke-width="1"/>
+<line x1="458" y1="186" x2="458" y2="198" stroke="#c0392b" stroke-width="1"/>
+<line x1="480" y1="186" x2="480" y2="198" stroke="#c0392b" stroke-width="1"/>
+<text x="425.0" y="182" font-size="13" text-anchor="middle" fill="#222222">尾数 7 位</text>
+<text x="514" y="187" font-size="13" text-anchor="start" fill="#444444">共 16 位</text>
+<text x="150" y="226" font-size="14" text-anchor="start" fill="#444444">绿色（指数位数）决定范围，红色（尾数位数）决定精度。bf16 就是把 fp32 的尾数砍掉 16 位，指数原样保留。</text>
+<text x="30" y="274" font-size="15" text-anchor="start" fill="#222222" font-weight="bold">能表示的正数范围（横轴是 10 的几次方，对数刻度）：</text>
+<line x1="110.0" y1="360" x2="110.0" y2="366" stroke="#444444" stroke-width="1.5"/>
+<text x="110.0" y="384" font-size="12" text-anchor="middle" fill="#444444">10⁻⁴⁰</text>
+<line x1="210.0" y1="360" x2="210.0" y2="366" stroke="#444444" stroke-width="1.5"/>
+<text x="210.0" y="384" font-size="12" text-anchor="middle" fill="#444444">10⁻³⁰</text>
+<line x1="310.0" y1="360" x2="310.0" y2="366" stroke="#444444" stroke-width="1.5"/>
+<text x="310.0" y="384" font-size="12" text-anchor="middle" fill="#444444">10⁻²⁰</text>
+<line x1="410.0" y1="360" x2="410.0" y2="366" stroke="#444444" stroke-width="1.5"/>
+<text x="410.0" y="384" font-size="12" text-anchor="middle" fill="#444444">10⁻¹⁰</text>
+<line x1="510.0" y1="360" x2="510.0" y2="366" stroke="#444444" stroke-width="1.5"/>
+<text x="510.0" y="384" font-size="12" text-anchor="middle" fill="#444444">1</text>
+<line x1="610.0" y1="360" x2="610.0" y2="366" stroke="#444444" stroke-width="1.5"/>
+<text x="610.0" y="384" font-size="12" text-anchor="middle" fill="#444444">10¹⁰</text>
+<line x1="710.0" y1="360" x2="710.0" y2="366" stroke="#444444" stroke-width="1.5"/>
+<text x="710.0" y="384" font-size="12" text-anchor="middle" fill="#444444">10²⁰</text>
+<line x1="810.0" y1="360" x2="810.0" y2="366" stroke="#444444" stroke-width="1.5"/>
+<text x="810.0" y="384" font-size="12" text-anchor="middle" fill="#444444">10³⁰</text>
+<line x1="910.0" y1="360" x2="910.0" y2="366" stroke="#444444" stroke-width="1.5"/>
+<text x="910.0" y="384" font-size="12" text-anchor="middle" fill="#444444">10⁴⁰</text>
+<line x1="110" y1="360" x2="910" y2="360" stroke="#444444" stroke-width="1.5"/>
+<rect x="130.71882007306124" y="294" width="764.5959690973613" height="24" rx="0" fill="#d9efe2" stroke="#2e8b57" stroke-width="1.5"/>
+<text x="122.71882007306124" y="311" font-size="13" text-anchor="end" fill="#222222" font-weight="bold">fp32 / bf16</text>
+<text x="513.0168046217418" y="311" font-size="13" text-anchor="middle" fill="#222222">约 10⁻³⁸ ～ 3×10³⁸</text>
+<rect x="467.8532983501077" y="326" width="90.30937985971639" height="24" rx="0" fill="#f8e8cf" stroke="#c77a12" stroke-width="1.5"/>
+<text x="459.8532983501077" y="343" font-size="13" text-anchor="end" fill="#222222" font-weight="bold">fp16</text>
+<text x="566.1626782098241" y="343" font-size="13" text-anchor="start" fill="#222222">约 6×10⁻⁵ ～ 6.5×10⁴</text>
+<text x="30" y="430" font-size="15" text-anchor="start" fill="#222222" font-weight="bold">放大到梯度常落的区间：fp16 表示不了的梯度会变成 0（梯度分布为示意）</text>
+<rect x="110.0" y="450" width="212.36227779482863" height="180" rx="0" fill="#f6dcd8" fill-opacity="0.6" stroke="none" stroke-width="1.5"/>
+<rect x="322.36227779482863" y="450" width="133.6523815389832" height="180" rx="0" fill="#fff4c2" fill-opacity="0.8" stroke="none" stroke-width="1.5"/>
+<text x="216.18113889741431" y="470" font-size="13" text-anchor="middle" fill="#c0392b" font-weight="bold">fp16 里变成 0</text>
+<text x="389.18846856432026" y="470" font-size="13" text-anchor="middle" fill="#c77a12" font-weight="bold">非规格数：位数少、</text>
+<text x="389.18846856432026" y="488" font-size="13" text-anchor="middle" fill="#c77a12" font-weight="bold">可能被直接归零</text>
+<text x="683.0073296669059" y="470" font-size="13" text-anchor="middle" fill="#2e8b57" font-weight="bold">fp16 正常表示</text>
+<line x1="322.36227779482863" y1="450" x2="322.36227779482863" y2="630" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="5 4"/>
+<line x1="456.01465933381184" y1="450" x2="456.01465933381184" y2="630" stroke="#c77a12" stroke-width="1.5" stroke-dasharray="5 4"/>
+<path d="M207.8,617.8 L210.7,617.1 L213.6,616.5 L216.6,615.8 L219.5,615.0 L222.4,614.1 L225.4,613.3 L228.3,612.3 L231.2,611.3 L234.2,610.2 L237.1,609.1 L240.0,607.9 L243.0,606.7 L245.9,605.4 L248.8,604.0 L251.8,602.6 L254.7,601.1 L257.6,599.6 L260.6,598.0 L263.5,596.4 L266.4,594.7 L269.4,593.0 L272.3,591.2 L275.2,589.4 L278.2,587.6 L281.1,585.8 L284.0,583.9 L287.0,582.1 L289.9,580.2 L292.8,578.3 L295.8,576.5 L298.7,574.6 L301.6,572.8 L304.6,571.1 L307.5,569.4 L310.4,567.7 L313.4,566.1 L316.3,564.6 L319.2,563.1 L322.2,561.7 L325.1,560.5 L328.0,559.3 L331.0,558.2 L333.9,557.2 L336.8,556.4 L339.8,555.7 L342.7,555.1 L345.6,554.6 L348.6,554.3 L351.5,554.1 L354.4,554.0 L357.4,554.1 L360.3,554.3 L363.2,554.6 L366.2,555.1 L369.1,555.7 L372.0,556.4 L375.0,557.2 L377.9,558.2 L380.8,559.3 L383.8,560.5 L386.7,561.7 L389.6,563.1 L392.6,564.6 L395.5,566.1 L398.4,567.7 L401.4,569.4 L404.3,571.1 L407.2,572.8 L410.2,574.6 L413.1,576.5 L416.0,578.3 L419.0,580.2 L421.9,582.1 L424.8,583.9 L427.8,585.8 L430.7,587.6 L433.6,589.4 L436.6,591.2 L439.5,593.0 L442.4,594.7 L445.4,596.4 L448.3,598.0 L451.2,599.6 L454.2,601.1 L457.1,602.6 L460.0,604.0 L463.0,605.4 L465.9,606.7 L468.8,607.9 L471.8,609.1 L474.7,610.2 L477.6,611.3 L480.6,612.3 L483.5,613.3 L486.4,614.1 L489.4,615.0 L492.3,615.8 L495.2,616.5 L498.2,617.1 L501.1,617.8" fill="none" stroke="#444444" stroke-width="2.5"/>
+<text x="334.44444444444446" y="546" font-size="13" text-anchor="end" fill="#444444" font-weight="bold">原始梯度（约 10⁻¹⁰ ～ 10⁻³）</text>
+<path d="M341.1,617.8 L344.0,617.1 L347.0,616.5 L349.9,615.8 L352.8,615.0 L355.8,614.1 L358.7,613.3 L361.6,612.3 L364.6,611.3 L367.5,610.2 L370.4,609.1 L373.4,607.9 L376.3,606.7 L379.2,605.4 L382.2,604.0 L385.1,602.6 L388.0,601.1 L391.0,599.6 L393.9,598.0 L396.8,596.4 L399.8,594.7 L402.7,593.0 L405.6,591.2 L408.6,589.4 L411.5,587.6 L414.4,585.8 L417.4,583.9 L420.3,582.1 L423.2,580.2 L426.2,578.3 L429.1,576.5 L432.0,574.6 L435.0,572.8 L437.9,571.1 L440.8,569.4 L443.8,567.7 L446.7,566.1 L449.6,564.6 L452.6,563.1 L455.5,561.7 L458.4,560.5 L461.4,559.3 L464.3,558.2 L467.2,557.2 L470.2,556.4 L473.1,555.7 L476.0,555.1 L479.0,554.6 L481.9,554.3 L484.8,554.1 L487.8,554.0 L490.7,554.1 L493.6,554.3 L496.6,554.6 L499.5,555.1 L502.4,555.7 L505.4,556.4 L508.3,557.2 L511.2,558.2 L514.2,559.3 L517.1,560.5 L520.0,561.7 L523.0,563.1 L525.9,564.6 L528.8,566.1 L531.8,567.7 L534.7,569.4 L537.6,571.1 L540.6,572.8 L543.5,574.6 L546.4,576.5 L549.4,578.3 L552.3,580.2 L555.2,582.1 L558.2,583.9 L561.1,585.8 L564.0,587.6 L567.0,589.4 L569.9,591.2 L572.8,593.0 L575.8,594.7 L578.7,596.4 L581.6,598.0 L584.6,599.6 L587.5,601.1 L590.4,602.6 L593.4,604.0 L596.3,605.4 L599.2,606.7 L602.2,607.9 L605.1,609.1 L608.0,610.2 L611.0,611.3 L613.9,612.3 L616.8,613.3 L619.8,614.1 L622.7,615.0 L625.6,615.8 L628.6,616.5 L631.5,617.1 L634.4,617.8" fill="none" stroke="#2f6db5" stroke-width="2.5"/>
+<text x="507.77777777777777" y="546" font-size="13" text-anchor="start" fill="#2f6db5" font-weight="bold">乘以 S = 1024 之后</text>
+<line x1="364.44444444444446" y1="590" x2="477.77777777777777" y2="590" stroke="#2f6db5" stroke-width="2" marker-end="url(#b)"/>
+<line x1="110" y1="630" x2="910" y2="630" stroke="#444444" stroke-width="1.5"/>
+<line x1="110.0" y1="630" x2="110.0" y2="636" stroke="#444444" stroke-width="1.5"/>
+<text x="110.0" y="652" font-size="12" text-anchor="middle" fill="#444444">10⁻¹²</text>
+<line x1="198.88888888888889" y1="630" x2="198.88888888888889" y2="636" stroke="#444444" stroke-width="1.5"/>
+<text x="198.88888888888889" y="652" font-size="12" text-anchor="middle" fill="#444444">10⁻¹⁰</text>
+<line x1="287.77777777777777" y1="630" x2="287.77777777777777" y2="636" stroke="#444444" stroke-width="1.5"/>
+<text x="287.77777777777777" y="652" font-size="12" text-anchor="middle" fill="#444444">10⁻⁸</text>
+<line x1="376.66666666666663" y1="630" x2="376.66666666666663" y2="636" stroke="#444444" stroke-width="1.5"/>
+<text x="376.66666666666663" y="652" font-size="12" text-anchor="middle" fill="#444444">10⁻⁶</text>
+<line x1="465.55555555555554" y1="630" x2="465.55555555555554" y2="636" stroke="#444444" stroke-width="1.5"/>
+<text x="465.55555555555554" y="652" font-size="12" text-anchor="middle" fill="#444444">10⁻⁴</text>
+<line x1="554.4444444444445" y1="630" x2="554.4444444444445" y2="636" stroke="#444444" stroke-width="1.5"/>
+<text x="554.4444444444445" y="652" font-size="12" text-anchor="middle" fill="#444444">10⁻²</text>
+<line x1="643.3333333333333" y1="630" x2="643.3333333333333" y2="636" stroke="#444444" stroke-width="1.5"/>
+<text x="643.3333333333333" y="652" font-size="12" text-anchor="middle" fill="#444444">1</text>
+<line x1="732.2222222222223" y1="630" x2="732.2222222222223" y2="636" stroke="#444444" stroke-width="1.5"/>
+<text x="732.2222222222223" y="652" font-size="12" text-anchor="middle" fill="#444444">10²</text>
+<line x1="821.1111111111111" y1="630" x2="821.1111111111111" y2="636" stroke="#444444" stroke-width="1.5"/>
+<text x="821.1111111111111" y="652" font-size="12" text-anchor="middle" fill="#444444">10⁴</text>
+<line x1="910.0" y1="630" x2="910.0" y2="636" stroke="#444444" stroke-width="1.5"/>
+<text x="910.0" y="652" font-size="12" text-anchor="middle" fill="#444444">10⁶</text>
+<text x="30" y="680" font-size="14" text-anchor="start" fill="#444444">乘 1024 等于整条分布右移约 3 个数量级（log₁₀1024 ≈ 3），大部分梯度进入 fp16 能正常表示的区域；更新参数前再除以 1024。</text>
+<text x="30" y="704" font-size="14" text-anchor="start" fill="#444444">bf16 的范围与 fp32 相同，这些梯度原本就在它的范围内，不需要这一步。</text>
+</svg>

@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="560" fill="#ffffff"/>
+<defs><marker id="ah-1f6fb2" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f6fb2"/></marker><marker id="ahs-1f6fb2" viewBox="0 0 10 10" refX="1" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f6fb2"/></marker><marker id="ah-2e7d4f" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e7d4f"/></marker><marker id="ahs-2e7d4f" viewBox="0 0 10 10" refX="1" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e7d4f"/></marker><marker id="ah-c0392b" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="ahs-c0392b" viewBox="0 0 10 10" refX="1" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker></defs>
+<text x="480" y="30" font-size="19" text-anchor="middle" fill="#222222" font-weight="bold" >为什么普通内存不能直接交给 DMA：下单和开搬之间，物理页可能已经换了主人</text>
+<rect x="15" y="50" width="300" height="390" rx="4" fill="#fcfcfc" stroke="#cccccc" stroke-width="1" />
+<text x="165" y="76" font-size="16" text-anchor="middle" fill="#222222" font-weight="bold" >时刻 1：驱动下单</text>
+<rect x="35" y="95" width="150" height="46" rx="4" fill="#fff6cc" stroke="#444444" stroke-width="1.5" />
+<text x="110" y="116" font-size="14" text-anchor="middle" fill="#222222" font-weight="bold" >你的缓冲</text>
+<text x="110" y="134" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >虚拟页 A</text>
+<text x="35" y="190" font-size="14" text-anchor="start" fill="#666666" font-weight="normal" >物理内存</text>
+<rect x="35" y="200" width="150" height="46" rx="4" fill="#e0f2e7" stroke="#444444" stroke-width="1.5" />
+<text x="45" y="219" font-size="14" text-anchor="start" fill="#666666" font-weight="normal" >#1234</text>
+<text x="110" y="238" font-size="14" text-anchor="middle" fill="#222222" font-weight="normal" >A 的数据</text>
+<rect x="35" y="256" width="150" height="46" rx="4" fill="#ffffff" stroke="#444444" stroke-width="1.5" />
+<text x="45" y="275" font-size="14" text-anchor="start" fill="#666666" font-weight="normal" >#5678</text>
+<text x="110" y="294" font-size="14" text-anchor="middle" fill="#222222" font-weight="normal" >空闲</text>
+<rect x="35" y="330" width="150" height="40" rx="4" fill="#f0f0f0" stroke="#444444" stroke-width="1.5" />
+<text x="110" y="355" font-size="14" text-anchor="middle" fill="#222222" font-weight="normal" >磁盘（换出区）</text>
+<rect x="205" y="200" width="95" height="64" rx="4" fill="#e3eef9" stroke="#1f6fb2" stroke-width="1.5" />
+<text x="252" y="222" font-size="14" text-anchor="middle" fill="#1f6fb2" font-weight="bold" >DMA 订单</text>
+<text x="252" y="242" font-size="14" text-anchor="middle" fill="#1f6fb2" font-weight="normal" >从 #1234</text>
+<text x="252" y="258" font-size="14" text-anchor="middle" fill="#1f6fb2" font-weight="normal" >搬 4 KB</text>
+<rect x="330" y="50" width="300" height="390" rx="4" fill="#fcfcfc" stroke="#cccccc" stroke-width="1" />
+<text x="480" y="76" font-size="16" text-anchor="middle" fill="#222222" font-weight="bold" >时刻 2：操作系统换出这一页</text>
+<rect x="350" y="95" width="150" height="46" rx="4" fill="#fff6cc" stroke="#444444" stroke-width="1.5" />
+<text x="425" y="116" font-size="14" text-anchor="middle" fill="#222222" font-weight="bold" >你的缓冲</text>
+<text x="425" y="134" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >虚拟页 A</text>
+<text x="350" y="190" font-size="14" text-anchor="start" fill="#666666" font-weight="normal" >物理内存</text>
+<rect x="350" y="200" width="150" height="46" rx="4" fill="#f9e0dd" stroke="#444444" stroke-width="1.5" />
+<text x="360" y="219" font-size="14" text-anchor="start" fill="#666666" font-weight="normal" >#1234</text>
+<text x="425" y="238" font-size="14" text-anchor="middle" fill="#c0392b" font-weight="normal" >别的进程的数据</text>
+<rect x="350" y="256" width="150" height="46" rx="4" fill="#ffffff" stroke="#444444" stroke-width="1.5" />
+<text x="360" y="275" font-size="14" text-anchor="start" fill="#666666" font-weight="normal" >#5678</text>
+<text x="425" y="294" font-size="14" text-anchor="middle" fill="#222222" font-weight="normal" >空闲</text>
+<rect x="350" y="330" width="150" height="40" rx="4" fill="#f0f0f0" stroke="#444444" stroke-width="1.5" />
+<text x="425" y="355" font-size="14" text-anchor="middle" fill="#222222" font-weight="normal" >磁盘：A 的数据在这</text>
+<rect x="520" y="200" width="95" height="64" rx="4" fill="#e3eef9" stroke="#1f6fb2" stroke-width="1.5" />
+<text x="567" y="222" font-size="14" text-anchor="middle" fill="#1f6fb2" font-weight="bold" >DMA 订单</text>
+<text x="567" y="242" font-size="14" text-anchor="middle" fill="#1f6fb2" font-weight="normal" >从 #1234</text>
+<text x="567" y="258" font-size="14" text-anchor="middle" fill="#1f6fb2" font-weight="normal" >搬 4 KB</text>
+<rect x="645" y="50" width="300" height="390" rx="4" fill="#fcfcfc" stroke="#cccccc" stroke-width="1" />
+<text x="795" y="76" font-size="16" text-anchor="middle" fill="#222222" font-weight="bold" >时刻 3：DMA 引擎开始搬</text>
+<rect x="665" y="95" width="150" height="46" rx="4" fill="#fff6cc" stroke="#444444" stroke-width="1.5" />
+<text x="740" y="116" font-size="14" text-anchor="middle" fill="#222222" font-weight="bold" >你的缓冲</text>
+<text x="740" y="134" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >虚拟页 A</text>
+<text x="665" y="190" font-size="14" text-anchor="start" fill="#666666" font-weight="normal" >物理内存</text>
+<rect x="665" y="200" width="150" height="46" rx="4" fill="#f9e0dd" stroke="#444444" stroke-width="1.5" />
+<text x="675" y="219" font-size="14" text-anchor="start" fill="#666666" font-weight="normal" >#1234</text>
+<text x="740" y="238" font-size="14" text-anchor="middle" fill="#c0392b" font-weight="normal" >别的进程的数据</text>
+<rect x="665" y="256" width="150" height="46" rx="4" fill="#ffffff" stroke="#444444" stroke-width="1.5" />
+<text x="675" y="275" font-size="14" text-anchor="start" fill="#666666" font-weight="normal" >#5678</text>
+<text x="740" y="294" font-size="14" text-anchor="middle" fill="#222222" font-weight="normal" >空闲</text>
+<rect x="665" y="330" width="150" height="40" rx="4" fill="#f0f0f0" stroke="#444444" stroke-width="1.5" />
+<text x="740" y="355" font-size="14" text-anchor="middle" fill="#222222" font-weight="normal" >磁盘：A 的数据在这</text>
+<rect x="835" y="200" width="95" height="64" rx="4" fill="#e3eef9" stroke="#1f6fb2" stroke-width="1.5" />
+<text x="882" y="222" font-size="14" text-anchor="middle" fill="#1f6fb2" font-weight="bold" >DMA 订单</text>
+<text x="882" y="242" font-size="14" text-anchor="middle" fill="#1f6fb2" font-weight="normal" >从 #1234</text>
+<text x="882" y="258" font-size="14" text-anchor="middle" fill="#1f6fb2" font-weight="normal" >搬 4 KB</text>
+<line x1="110" y1="143" x2="110" y2="198" stroke="#2e7d4f" stroke-width="2.5" marker-end="url(#ah-2e7d4f)"/>
+<text x="118" y="176" font-size="14" text-anchor="start" fill="#2e7d4f" font-weight="normal" >页表：A → #1234</text>
+<line x1="187" y1="222" x2="203" y2="222" stroke="#1f6fb2" stroke-width="2" marker-end="url(#ah-1f6fb2)"/>
+<text x="35" y="400" font-size="14" text-anchor="start" fill="#222222" font-weight="normal" >驱动把虚拟地址翻译成物理页号，</text>
+<text x="35" y="419" font-size="14" text-anchor="start" fill="#222222" font-weight="normal" >写进订单交给 DMA 引擎</text>
+<path d="M 502 118 C 518 118, 518 350, 502 350" fill="none" stroke="#c0392b" stroke-width="2.5" marker-end="url(#ah-c0392b)"/>
+<text x="522" y="300" font-size="14" text-anchor="start" fill="#c0392b" font-weight="normal" >换出</text>
+<text x="350" y="400" font-size="14" text-anchor="start" fill="#222222" font-weight="normal" >内存紧张，A 被换到磁盘；</text>
+<text x="350" y="419" font-size="14" text-anchor="start" fill="#222222" font-weight="normal" >#1234 转手给了别的进程。订单没变</text>
+<line x1="817" y1="232" x2="833" y2="232" stroke="#1f6fb2" stroke-width="2.5" marker-end="url(#ah-1f6fb2)"/>
+<text x="882" y="290" font-size="14" text-anchor="middle" fill="#1f6fb2" font-weight="normal" >照单从 #1234 读</text>
+<text x="665" y="400" font-size="14" text-anchor="start" fill="#c0392b" font-weight="bold" >搬进显存的是别人的数据，</text>
+<text x="665" y="419" font-size="14" text-anchor="start" fill="#c0392b" font-weight="bold" >而且没有任何报错</text>
+<rect x="15" y="460" width="930" height="80" rx="4" fill="#e0f2e7" stroke="#2e7d4f" stroke-width="1.5" />
+<text x="35" y="490" font-size="15" text-anchor="start" fill="#222222" font-weight="normal" >锁页（cudaHostAlloc / pin_memory=True）：告诉操作系统这一页不许换出、不许挪动，时刻 2 就不会发生，</text>
+<text x="35" y="518" font-size="15" text-anchor="start" fill="#222222" font-weight="normal" >#1234 在整个生命周期里都属于你，DMA 可以放心直接搬。不锁页时，驱动只好先把数据拷进它自己的锁页缓冲再搬。</text>
+</svg>

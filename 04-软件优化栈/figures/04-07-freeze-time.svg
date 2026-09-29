@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" font-family="sans-serif" font-size="15">
+<rect x="0" y="0" width="960" height="520" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#333"/></marker></defs>
+<text x="20" y="30" font-size="17" font-weight="bold">同一个矩阵乘的四个映射决策，在 GPU 和脉动阵列（TPU 式）上分别何时定死</text>
+<rect x="210" y="60" width="240" height="56" fill="#f0f0f0" stroke="#999" stroke-width="1.5"/>
+<text x="330.0" y="84" text-anchor="middle" font-weight="bold">设计期</text>
+<text x="330.0" y="104" text-anchor="middle" font-size="13" fill="#555">焊进硅片</text>
+<rect x="450" y="60" width="240" height="56" fill="#f0f0f0" stroke="#999" stroke-width="1.5"/>
+<text x="570.0" y="84" text-anchor="middle" font-weight="bold">编译期</text>
+<text x="570.0" y="104" text-anchor="middle" font-size="13" fill="#555">写进机器码或时刻表</text>
+<rect x="690" y="60" width="240" height="56" fill="#f0f0f0" stroke="#999" stroke-width="1.5"/>
+<text x="810.0" y="84" text-anchor="middle" font-weight="bold">运行时</text>
+<text x="810.0" y="104" text-anchor="middle" font-size="13" fill="#555">执行时现场决定</text>
+<rect x="20" y="116" width="910" height="74" fill="#fafafa" stroke="#ccc" stroke-width="1"/>
+<text x="34" y="148" font-weight="bold">① 切分</text>
+<text x="34" y="170" font-size="13" fill="#555">块多大</text>
+<rect x="20" y="190" width="910" height="74" fill="#ffffff" stroke="#ccc" stroke-width="1"/>
+<text x="34" y="222" font-weight="bold">② 顺序</text>
+<text x="34" y="244" font-size="13" fill="#555">按什么次序</text>
+<rect x="20" y="264" width="910" height="74" fill="#fafafa" stroke="#ccc" stroke-width="1"/>
+<text x="34" y="296" font-weight="bold">③ 放置</text>
+<text x="34" y="318" font-size="13" fill="#555">数据放哪级存储</text>
+<rect x="20" y="338" width="910" height="74" fill="#ffffff" stroke="#ccc" stroke-width="1"/>
+<text x="34" y="370" font-weight="bold">④ 绑定</text>
+<text x="34" y="392" font-size="13" fill="#555">哪个单元算哪块</text>
+<line x1="210" y1="60" x2="210" y2="412" stroke="#ccc" stroke-width="1"/>
+<line x1="450" y1="60" x2="450" y2="412" stroke="#ccc" stroke-width="1"/>
+<line x1="690" y1="60" x2="690" y2="412" stroke="#ccc" stroke-width="1"/>
+<line x1="930" y1="60" x2="930" y2="412" stroke="#ccc" stroke-width="1"/>
+<circle cx="480" cy="140" r="11" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="2"/>
+<text x="498" y="145" font-size="13" fill="#1f5fa8">GPU：kernel 里选定块尺寸</text>
+<rect x="230" y="156" width="20" height="20" fill="#fde2c4" stroke="#d9822b" stroke-width="2"/>
+<text x="258" y="171" font-size="13" fill="#b5651d">TPU：最内层 = 阵列边长</text>
+<rect x="470" y="156" width="20" height="20" fill="#fde2c4" stroke="#d9822b" stroke-width="2"/>
+<text x="498" y="171" font-size="13" fill="#b5651d">TPU：外层按片上容量定</text>
+<circle cx="480" cy="214" r="11" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="2"/>
+<text x="498" y="219" font-size="13" fill="#1f5fa8">GPU：流水线、发放次序</text>
+<rect x="470" y="230" width="20" height="20" fill="#fde2c4" stroke="#d9822b" stroke-width="2"/>
+<text x="498" y="245" font-size="13" fill="#b5651d">TPU：静态时刻表，精确到拍</text>
+<circle cx="480" cy="288" r="11" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="2"/>
+<text x="498" y="293" font-size="13" fill="#1f5fa8">GPU：每个 kernel 自选</text>
+<rect x="230" y="304" width="20" height="20" fill="#fde2c4" stroke="#d9822b" stroke-width="2"/>
+<text x="258" y="319" font-size="13" fill="#b5651d">TPU：权重钉在 PE 上</text>
+<circle cx="720" cy="362" r="11" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="2"/>
+<text x="738" y="367" font-size="13" fill="#1f5fa8">GPU：分发器按空位派块</text>
+<rect x="230" y="378" width="20" height="20" fill="#fde2c4" stroke="#d9822b" stroke-width="2"/>
+<text x="258" y="393" font-size="13" fill="#b5651d">TPU：第 (k,n) 号 PE 固定</text>
+<line x1="220" y1="448" x2="920" y2="448" stroke="#333" stroke-width="2" marker-end="url(#a)"/>
+<text x="210" y="474" font-size="14">定得越早：执行越高效，也越死板</text>
+<text x="930" y="474" font-size="14" text-anchor="end">定得越晚：越灵活，管理开销越大</text>
+<text x="20" y="504" font-size="13" fill="#555">圆点是 GPU，方块是脉动阵列（TPU 式）。PE 是阵列里的一个乘加单元。GPU 的点集中在中间和右边，TPU 的方块集中在左边和中间。</text>
+</svg>

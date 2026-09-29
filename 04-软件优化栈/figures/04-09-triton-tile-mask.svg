@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="600" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222222"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f6db5"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777777"/></marker><marker id="o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c77a12"/></marker><marker id="n" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e8b57"/></marker><marker id="p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7a4fb0"/></marker></defs>
+<text x="480" y="32" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold">tile 级：你的程序只描述“这一块”，块内怎么分给线程由编译器决定</text>
+<text x="40" y="76" font-size="16" text-anchor="start" fill="#222222" font-weight="bold">① 你写的：program 5 负责一整块，offs = 5 × 1024 + arange(0, 1024)</text>
+<rect x="60" y="90" width="840" height="40" rx="0" fill="#dbe7f5" stroke="#2f6db5" stroke-width="2"/>
+<text x="480.0" y="116" font-size="15" text-anchor="middle" fill="#222222">下标 5120 … 6143（一个长 1024 的向量，整体 load、整体 ×2、整体 store）</text>
+<text x="60" y="150" font-size="14" text-anchor="start" fill="#444444">mask = offs &lt; n：这 1024 个位置全是 True</text>
+<text x="40" y="190" font-size="15" text-anchor="start" fill="#222222" font-weight="bold">② 边界是数据不是分支：若 n = 1,000,000，共 ⌈1,000,000 ÷ 1024⌉ = 977 个 program，最后一个是 program 976</text>
+<rect x="60" y="204" width="472.5" height="40" rx="0" fill="#d9efe2" stroke="#2e8b57" stroke-width="2"/>
+<text x="296.25" y="230" font-size="15" text-anchor="middle" fill="#222222">576 个位置 mask = True：照常读写</text>
+<rect x="532.5" y="204" width="367.5" height="40" rx="0" fill="#eeeeee" stroke="#777777" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="716.25" y="230" font-size="15" text-anchor="middle" fill="#444444">448 个位置 mask = False：load/store 跳过</text>
+<text x="60" y="264" font-size="14" text-anchor="start" fill="#2e8b57">下标 999,424</text>
+<text x="532.5" y="264" font-size="14" text-anchor="middle" fill="#777777">1,000,000</text>
+<text x="900" y="264" font-size="14" text-anchor="end" fill="#777777">1,000,447</text>
+<line x1="20" y1="296" x2="940" y2="296" stroke="#c77a12" stroke-width="2" stroke-dasharray="8 5"/>
+<text x="480" y="288" font-size="14" text-anchor="middle" fill="#c77a12" font-weight="bold">↑ 源码里写的</text>
+<text x="480" y="316" font-size="14" text-anchor="middle" fill="#c77a12" font-weight="bold">↓ 编译器替你决定（源码里看不到，要看生成的 PTX 才知道）</text>
+<text x="40" y="352" font-size="15" text-anchor="start" fill="#222222" font-weight="bold">③ 典型分法（示意）：num_warps = 4 → 4 × 32 = 128 个线程分这 1024 个元素，每人 8 个</text>
+<rect x="60.0" y="370" width="420.0" height="44" rx="0" fill="#ffffff" stroke="#444444" stroke-width="1.5"/>
+<rect x="60.0" y="370" width="38" height="44" rx="0" fill="#f8e8cf" stroke="#c77a12" stroke-width="1.5"/>
+<text x="79.0" y="397" font-size="14" text-anchor="middle" fill="#222222" font-weight="bold">t0</text>
+<rect x="98.0" y="370" width="38" height="44" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1.5"/>
+<text x="117.0" y="397" font-size="14" text-anchor="middle" fill="#222222">t1</text>
+<rect x="136.0" y="370" width="38" height="44" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1.5"/>
+<text x="155.0" y="397" font-size="14" text-anchor="middle" fill="#222222">t2</text>
+<rect x="174.0" y="370" width="38" height="44" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1.5"/>
+<text x="193.0" y="397" font-size="14" text-anchor="middle" fill="#222222">t3</text>
+<text x="327.0" y="397" font-size="16" text-anchor="middle" fill="#222222">…</text>
+<rect x="426.8" y="370" width="53.199999999999996" height="44" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1.5"/>
+<text x="453.40000000000003" y="397" font-size="14" text-anchor="middle" fill="#222222">t127</text>
+<text x="270.0" y="434" font-size="14" text-anchor="middle" fill="#444444">元素 0 … 511：每格 4 个相邻元素</text>
+<rect x="480.0" y="370" width="420.0" height="44" rx="0" fill="#ffffff" stroke="#444444" stroke-width="1.5"/>
+<rect x="480.0" y="370" width="38" height="44" rx="0" fill="#f8e8cf" stroke="#c77a12" stroke-width="1.5"/>
+<text x="499.0" y="397" font-size="14" text-anchor="middle" fill="#222222" font-weight="bold">t0</text>
+<rect x="518.0" y="370" width="38" height="44" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1.5"/>
+<text x="537.0" y="397" font-size="14" text-anchor="middle" fill="#222222">t1</text>
+<rect x="556.0" y="370" width="38" height="44" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1.5"/>
+<text x="575.0" y="397" font-size="14" text-anchor="middle" fill="#222222">t2</text>
+<rect x="594.0" y="370" width="38" height="44" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1.5"/>
+<text x="613.0" y="397" font-size="14" text-anchor="middle" fill="#222222">t3</text>
+<text x="747.0" y="397" font-size="16" text-anchor="middle" fill="#222222">…</text>
+<rect x="846.8" y="370" width="53.199999999999996" height="44" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1.5"/>
+<text x="873.4" y="397" font-size="14" text-anchor="middle" fill="#222222">t127</text>
+<text x="690.0" y="434" font-size="14" text-anchor="middle" fill="#444444">元素 512 … 1023：每格 4 个相邻元素</text>
+<line x1="79" y1="414" x2="79" y2="470" stroke="#c77a12" stroke-width="1.5"/>
+<line x1="499.0" y1="414" x2="499.0" y2="470" stroke="#c77a12" stroke-width="1.5"/>
+<line x1="79" y1="470" x2="499.0" y2="470" stroke="#c77a12" stroke-width="1.5"/>
+<text x="90" y="492" font-size="14" text-anchor="start" fill="#c77a12">线程 t0 拿到元素 0～3 和 512～515 两段：每段 4 个 fp32 = 16 字节，用一条 128 位宽的加载指令一次读完</text>
+<text x="40" y="540" font-size="14" text-anchor="start" fill="#444444">对照 CUDA 版：同样的 1024 个元素，那里要你写 threadIdx、自己决定每线程几个元素、自己写 if 防越界；</text>
+<text x="40" y="562" font-size="14" text-anchor="start" fill="#444444">这里三件事都不出现在源码里。代价是你也无法指定它们——换个 Triton 版本，分法可能变。</text>
+</svg>

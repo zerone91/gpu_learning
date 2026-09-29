@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 610" width="960" height="610" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="610" fill="#ffffff"/>
+<defs><marker id="k" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222222"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777777"/></marker><marker id="o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c77a12"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f6db5"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="n" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e8b57"/></marker><marker id="p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7a4fb0"/></marker></defs>
+<text x="480.0" y="30.0" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold">低延迟 dispatch 的一次发送：GPU 自己按网卡门铃，数据直接写进对方显存的约定位置</text>
+<rect x="20.0" y="60.0" width="380.0" height="270.0" rx="3" fill="#ffffff" stroke="#222222" stroke-width="1.5" stroke-dasharray="6,4"/>
+<text x="34.0" y="82.0" font-size="15" text-anchor="start" fill="#222222" font-weight="bold">发送卡 GPU（节点 A）</text>
+<rect x="40.0" y="100.0" width="160.0" height="60.0" rx="3" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="120.0" y="127.0" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">SM 上的线程</text>
+<text x="120.0" y="145.0" font-size="14" text-anchor="middle" fill="#777777">每个 token 一小组</text>
+<rect x="40.0" y="200.0" width="340.0" height="110.0" rx="3" fill="#f8e3c4" stroke="#c77a12" stroke-width="1.5"/>
+<text x="52.0" y="222.0" font-size="14" text-anchor="start" fill="#c77a12" font-weight="bold">显存：对称缓冲区</text>
+<rect x="60.0" y="234.0" width="300.0" height="30.0" rx="3" fill="#ffffff" stroke="#c77a12" stroke-width="1.5"/>
+<text x="210.0" y="254.0" font-size="14" text-anchor="middle" fill="#222222">发送缓冲[目标卡 3][槽 5]</text>
+<text x="60.0" y="290.0" font-size="14" text-anchor="start" fill="#777777">目标地址 = 卡 3 的基址 + 本地算出的偏移</text>
+<line x1="120.0" y1="162.0" x2="150.0" y2="232.0" stroke="#2f6db5" stroke-width="1.5" marker-end="url(#b)"/>
+<text x="140.0" y="186.0" font-size="14" text-anchor="start" fill="#2f6db5">① 打包写入</text>
+<rect x="220.0" y="100.0" width="160.0" height="60.0" rx="3" fill="#f5d0cb" stroke="#c0392b" stroke-width="1.5"/>
+<text x="300.0" y="124.0" font-size="14" text-anchor="middle" fill="#222222" font-family="monospace">fence.release</text>
+<text x="300.0" y="144.0" font-size="14" text-anchor="middle" fill="#222222" font-family="monospace">.sys</text>
+<text x="300.0" y="180.0" font-size="14" text-anchor="middle" fill="#c0392b" font-weight="bold">② 系统级栅栏</text>
+<rect x="40.0" y="350.0" width="150.0" height="44.0" rx="3" fill="#f3f3f3" stroke="#222222" stroke-width="1.5"/>
+<text x="115.0" y="377.4" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">网卡 A</text>
+<path d="M38,130 L28,130 L28,372 L38,372" fill="none" stroke="#2f6db5" stroke-width="1.5" marker-end="url(#b)"/>
+<text x="20.0" y="416.0" font-size="14" text-anchor="start" fill="#2f6db5">③ 线程直接写网卡的门铃寄存器（IBGDA）</text>
+<rect x="560.0" y="60.0" width="380.0" height="270.0" rx="3" fill="#ffffff" stroke="#222222" stroke-width="1.5" stroke-dasharray="6,4"/>
+<text x="574.0" y="82.0" font-size="15" text-anchor="start" fill="#222222" font-weight="bold">接收卡 GPU3（节点 B）</text>
+<rect x="580.0" y="200.0" width="340.0" height="110.0" rx="3" fill="#f8e3c4" stroke="#c77a12" stroke-width="1.5"/>
+<text x="592.0" y="222.0" font-size="14" text-anchor="start" fill="#c77a12" font-weight="bold">显存：对称缓冲区（布局与发送卡完全相同）</text>
+<rect x="600.0" y="234.0" width="300.0" height="30.0" rx="3" fill="#ffffff" stroke="#c77a12" stroke-width="1.5"/>
+<text x="750.0" y="254.0" font-size="14" text-anchor="middle" fill="#222222">接收缓冲[来自卡 0][槽 5]</text>
+<rect x="600.0" y="272.0" width="120.0" height="28.0" rx="3" fill="#ffffff" stroke="#2e8b57" stroke-width="2"/>
+<text x="660.0" y="291.0" font-size="14" text-anchor="middle" fill="#2e8b57">完成标志</text>
+<rect x="580.0" y="100.0" width="170.0" height="60.0" rx="3" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="665.0" y="127.0" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">SM：其它计算</text>
+<text x="665.0" y="145.0" font-size="14" text-anchor="middle" fill="#777777">不被传输打扰</text>
+<rect x="770.0" y="100.0" width="150.0" height="60.0" rx="3" fill="#d5eddf" stroke="#2e8b57" stroke-width="1.5"/>
+<text x="845.0" y="127.0" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">收尾钩子</text>
+<text x="845.0" y="145.0" font-size="14" text-anchor="middle" fill="#777777">轮询完成标志</text>
+<line x1="845.0" y1="162.0" x2="700.0" y2="270.0" stroke="#2e8b57" stroke-width="1.5" marker-end="url(#n)"/>
+<text x="790.0" y="196.0" font-size="14" text-anchor="start" fill="#2e8b57">⑥ 货齐才往下走</text>
+<rect x="770.0" y="350.0" width="150.0" height="44.0" rx="3" fill="#f3f3f3" stroke="#222222" stroke-width="1.5"/>
+<text x="845.0" y="377.4" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">网卡 B</text>
+<path d="M192,372 L766,372" fill="none" stroke="#c77a12" stroke-width="3" marker-end="url(#o)"/>
+<text x="480.0" y="362.0" font-size="14" text-anchor="middle" fill="#c77a12" font-weight="bold">④ 网卡 A 从显存读出这段数据，RDMA 写到对方</text>
+<line x1="820.0" y1="348.0" x2="800.0" y2="268.0" stroke="#c77a12" stroke-width="3" marker-end="url(#o)"/>
+<line x1="780.0" y1="350.0" x2="690.0" y2="302.0" stroke="#2e8b57" stroke-width="2" marker-end="url(#n)"/>
+<text x="480.0" y="392.0" font-size="14" text-anchor="middle" fill="#2e8b57" font-weight="bold">⑤ 数据写完后，再写对方的完成标志</text>
+<line x1="110.0" y1="266.0" x2="110.0" y2="348.0" stroke="#c77a12" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#o)"/>
+<rect x="20.0" y="432.0" width="920.0" height="160.0" rx="3" fill="#f3f3f3" stroke="#777777" stroke-width="1.5"/>
+<text x="36.0" y="458.0" font-size="15" text-anchor="start" fill="#222222" font-weight="bold">对照：常规路径多出一整段</text>
+<rect x="60.0" y="478.0" width="200.0" height="56.0" rx="3" fill="#ffffff" stroke="#777777" stroke-width="1.5"/>
+<text x="160.0" y="503.0" font-size="15" text-anchor="middle" fill="#222222">GPU</text>
+<text x="160.0" y="521.0" font-size="14" text-anchor="middle" fill="#777777">写好数据，通知 CPU</text>
+<line x1="262.0" y1="506.0" x2="348.0" y2="506.0" stroke="#777777" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#g)"/>
+<rect x="350.0" y="478.0" width="200.0" height="56.0" rx="3" fill="#ffffff" stroke="#777777" stroke-width="1.5"/>
+<text x="450.0" y="503.0" font-size="15" text-anchor="middle" fill="#222222">CPU 代理线程</text>
+<text x="450.0" y="521.0" font-size="14" text-anchor="middle" fill="#777777">轮询到通知</text>
+<line x1="552.0" y1="506.0" x2="638.0" y2="506.0" stroke="#777777" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#g)"/>
+<rect x="640.0" y="478.0" width="200.0" height="56.0" rx="3" fill="#ffffff" stroke="#777777" stroke-width="1.5"/>
+<text x="740.0" y="503.0" font-size="15" text-anchor="middle" fill="#222222">网卡</text>
+<text x="740.0" y="521.0" font-size="14" text-anchor="middle" fill="#777777">由 CPU 下达传输命令</text>
+<text x="36.0" y="568.0" font-size="14" text-anchor="start" fill="#222222">IBGDA 去掉了中间的 CPU：发起传输的就是打包数据的那几个 GPU 线程，没有常驻的通信 kernel 占着 SM。</text>
+</svg>

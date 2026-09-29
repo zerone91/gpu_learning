@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 800" width="960" height="800" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="800" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222222"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f6db5"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777777"/></marker><marker id="o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c77a12"/></marker><marker id="n" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e8b57"/></marker><marker id="p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7a4fb0"/></marker></defs>
+<text x="480" y="30" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold">五层地图：每层接过什么、交出什么、还看得见什么</text>
+<text x="240" y="66" font-size="15" text-anchor="middle" fill="#2f6db5" font-weight="bold">你写的：y = relu(x @ W + b)</text>
+<line x1="240" y1="74" x2="240" y2="96" stroke="#2f6db5" stroke-width="2" marker-end="url(#b)"/>
+<text x="610" y="90" font-size="15" text-anchor="middle" fill="#777777" font-weight="bold">这一层还看得见什么</text>
+<rect x="40" y="100" width="400" height="82" rx="6" fill="#dbe7f5" stroke="#2f6db5" stroke-width="2"/>
+<text x="60" y="128" font-size="17" text-anchor="start" fill="#222222" font-weight="bold">① 框架层</text>
+<text x="60" y="152" font-size="14" text-anchor="start" fill="#333">PyTorch · JAX · TensorFlow · MindSpore</text>
+<text x="470" y="134" font-size="14" text-anchor="start" fill="#222222"><tspan x="470" dy="0">整个模型的结构、训练语义</tspan><tspan x="470" dy="18.900000000000002">（哪些张量要梯度、训练还是推理）</tspan></text>
+<line x1="450" y1="141.0" x2="462" y2="141.0" stroke="#bbbbbb" stroke-width="1.5"/>
+<line x1="240" y1="182" x2="240" y2="218" stroke="#222222" stroke-width="2" marker-end="url(#a)"/>
+<text x="254" y="206" font-size="14" text-anchor="start" fill="#2f6db5">计算图（FX 图、StableHLO 等），或逐个算子调用</text>
+<rect x="40" y="220" width="400" height="82" rx="6" fill="#dbe7f5" stroke="#2f6db5" stroke-width="2"/>
+<text x="60" y="248" font-size="17" text-anchor="start" fill="#222222" font-weight="bold">② 图编译层</text>
+<text x="60" y="272" font-size="14" text-anchor="start" fill="#333"><tspan x="60" dy="0">torch.compile（Inductor）· XLA</tspan><tspan x="60" dy="18.900000000000002">TensorRT · CANN</tspan></text>
+<text x="470" y="254" font-size="14" text-anchor="start" fill="#222222"><tspan x="470" dy="0">算子之间谁连着谁、</tspan><tspan x="470" dy="18.900000000000002">每个中间结果活多久</tspan></text>
+<line x1="450" y1="261.0" x2="462" y2="261.0" stroke="#bbbbbb" stroke-width="1.5"/>
+<line x1="240" y1="302" x2="240" y2="338" stroke="#222222" stroke-width="2" marker-end="url(#a)"/>
+<text x="254" y="326" font-size="14" text-anchor="start" fill="#2f6db5">融合组：每组对应一个待生成的 kernel 或一次库调用</text>
+<rect x="40" y="340" width="400" height="82" rx="6" fill="#eeeeee" stroke="#777777" stroke-width="2"/>
+<text x="60" y="368" font-size="17" text-anchor="start" fill="#222222" font-weight="bold">③ kernel 层</text>
+<text x="60" y="392" font-size="14" text-anchor="start" fill="#333"><tspan x="60" dy="0">Triton · CUTLASS · cuBLAS / cuDNN</tspan><tspan x="60" dy="18.900000000000002">FlashAttention 库</tspan></text>
+<text x="470" y="374" font-size="14" text-anchor="start" fill="#222222"><tspan x="470" dy="0">一个算子内部的循环结构、</tspan><tspan x="470" dy="18.900000000000002">数据访问模式（还没有物理寄存器）</tspan></text>
+<line x1="450" y1="381.0" x2="462" y2="381.0" stroke="#bbbbbb" stroke-width="1.5"/>
+<line x1="240" y1="422" x2="240" y2="458" stroke="#222222" stroke-width="2" marker-end="url(#a)"/>
+<text x="254" y="446" font-size="14" text-anchor="start" fill="#2f6db5">kernel 程序（Triton → PTX）+ 启动配置</text>
+<rect x="40" y="460" width="400" height="82" rx="6" fill="#f8e3c4" stroke="#c77a12" stroke-width="2"/>
+<text x="60" y="488" font-size="17" text-anchor="start" fill="#222222" font-weight="bold">④ 底层编译层</text>
+<text x="60" y="512" font-size="14" text-anchor="start" fill="#333">nvcc / NVVM · LLVM 后端 · ptxas</text>
+<text x="470" y="494" font-size="14" text-anchor="start" fill="#222222"><tspan x="470" dy="0">每一条指令、物理寄存器</tspan><tspan x="470" dy="18.900000000000002">（已看不出这是哪个模型）</tspan></text>
+<line x1="450" y1="501.0" x2="462" y2="501.0" stroke="#bbbbbb" stroke-width="1.5"/>
+<line x1="240" y1="542" x2="240" y2="578" stroke="#222222" stroke-width="2" marker-end="url(#a)"/>
+<text x="254" y="566" font-size="14" text-anchor="start" fill="#2f6db5">机器码（NVIDIA 叫 SASS）</text>
+<rect x="40" y="580" width="400" height="82" rx="6" fill="#f8e3c4" stroke="#c77a12" stroke-width="2"/>
+<text x="60" y="608" font-size="17" text-anchor="start" fill="#222222" font-weight="bold">⑤ 运行时层</text>
+<text x="60" y="632" font-size="14" text-anchor="start" fill="#333"><tspan x="60" dy="0">CUDA 运行时与驱动 · 显存分配器</tspan><tspan x="60" dy="18.900000000000002">CUDA Graph · NCCL</tspan></text>
+<text x="470" y="614" font-size="14" text-anchor="start" fill="#222222"><tspan x="470" dy="0">任务队列、显存块、</tspan><tspan x="470" dy="18.900000000000002">同时在用 GPU 的多个使用者</tspan></text>
+<line x1="450" y1="621.0" x2="462" y2="621.0" stroke="#bbbbbb" stroke-width="1.5"/>
+<line x1="240" y1="662" x2="240" y2="698" stroke="#222222" stroke-width="2" marker-end="url(#a)"/>
+<text x="254" y="686" font-size="14" text-anchor="start" fill="#2f6db5">kernel 启动命令、显存地址</text>
+<rect x="40" y="700" width="400" height="56" rx="6" fill="#f2f2f2" stroke="#222222" stroke-width="2.5"/>
+<text x="240" y="734" font-size="16" text-anchor="middle" fill="#222222" font-weight="bold">硬件：GPU / NPU（模块 01–03）</text>
+<text x="470" y="734" font-size="14" text-anchor="start" fill="#222222">真正执行计算的硅片</text>
+<polygon points="790,100 856,100 823,662" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<polygon points="897,100 864,662 930,662" fill="#f8e3c4" stroke="#c77a12" stroke-width="1.5"/>
+<text x="823" y="70" font-size="15" text-anchor="middle" fill="#2f6db5" font-weight="bold">全局视野</text>
+<text x="823" y="88" font-size="13" text-anchor="middle" fill="#2f6db5">往下越来越少</text>
+<text x="897" y="684" font-size="15" text-anchor="middle" fill="#c77a12" font-weight="bold">硬件细节</text>
+<text x="897" y="702" font-size="13" text-anchor="middle" fill="#c77a12">往下越来越多</text>
+</svg>

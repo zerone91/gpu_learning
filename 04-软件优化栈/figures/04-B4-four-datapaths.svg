@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="1000" height="600" font-family="sans-serif">
+<rect x="0" y="0" width="1000" height="600" fill="#ffffff"/>
+<defs><marker id="k" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222222"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777777"/></marker><marker id="o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c77a12"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f6db5"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="n" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e8b57"/></marker><marker id="p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7a4fb0"/></marker></defs>
+<text x="500.0" y="30.0" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold">四份源码在硬件上的数据路径：显存 → shared → 寄存器 → 计算单元</text>
+<text x="95.0" y="70.0" font-size="14" text-anchor="middle" fill="#777777" font-weight="bold">写法</text>
+<text x="250.0" y="70.0" font-size="14" text-anchor="middle" fill="#777777" font-weight="bold">显存 → shared</text>
+<text x="400.0" y="70.0" font-size="14" text-anchor="middle" fill="#777777" font-weight="bold">shared</text>
+<text x="555.0" y="70.0" font-size="14" text-anchor="middle" fill="#777777" font-weight="bold">shared → 寄存器</text>
+<text x="710.0" y="70.0" font-size="14" text-anchor="middle" fill="#777777" font-weight="bold">累加器（寄存器）</text>
+<text x="870.0" y="70.0" font-size="14" text-anchor="middle" fill="#777777" font-weight="bold">计算单元</text>
+<rect x="20.0" y="86.0" width="150.0" height="56.0" rx="3" fill="#f3f3f3" stroke="#222222" stroke-width="1.5"/>
+<text x="95.0" y="111.0" font-size="16" text-anchor="middle" fill="#222222" font-weight="bold">CUDA C++</text>
+<text x="95.0" y="129.0" font-size="14" text-anchor="middle" fill="#777777">FP32</text>
+<rect x="330.0" y="86.0" width="140.0" height="56.0" rx="3" fill="#e6dcf3" stroke="#7a4fb0" stroke-width="1.5"/>
+<text x="400.0" y="111.0" font-size="15" text-anchor="middle" fill="#222222">As / Bs</text>
+<text x="400.0" y="129.0" font-size="14" text-anchor="middle" fill="#777777">1 份，32 KB</text>
+<rect x="640.0" y="86.0" width="140.0" height="56.0" rx="3" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="710.0" y="111.0" font-size="15" text-anchor="middle" fill="#222222">acc[8][8]</text>
+<text x="710.0" y="129.0" font-size="14" text-anchor="middle" fill="#777777">每线程 64 个</text>
+<rect x="820.0" y="86.0" width="160.0" height="56.0" rx="3" fill="#f5d0cb" stroke="#c0392b" stroke-width="1.5"/>
+<text x="900.0" y="111.0" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">FMA 管线</text>
+<text x="900.0" y="129.0" font-size="14" text-anchor="middle" fill="#777777">SIMT，非 Tensor</text>
+<line x1="172.0" y1="132.0" x2="328.0" y2="132.0" stroke="#c77a12" stroke-width="1.5" marker-end="url(#o)"/>
+<text x="250.0" y="102.0" font-size="14" text-anchor="middle" fill="#c77a12">线程逐个元素</text>
+<text x="250.0" y="120.0" font-size="14" text-anchor="middle" fill="#c77a12">load 再 store</text>
+<line x1="472.0" y1="132.0" x2="638.0" y2="132.0" stroke="#7a4fb0" stroke-width="1.5" marker-end="url(#p)"/>
+<text x="555.0" y="120.0" font-size="14" text-anchor="middle" fill="#7a4fb0">逐元素读</text>
+<line x1="818.0" y1="114.0" x2="784.0" y2="114.0" stroke="#2f6db5" stroke-width="1.5" marker-end="url(#b)"/>
+<text x="172.0" y="170.0" font-size="14" text-anchor="start" fill="#222222">流水：无：两道屏障，搬完才算</text>
+<text x="640.0" y="170.0" font-size="14" text-anchor="start" fill="#c0392b" font-weight="bold">预期瓶颈：FMA 管线</text>
+<rect x="20.0" y="210.0" width="150.0" height="56.0" rx="3" fill="#f3f3f3" stroke="#222222" stroke-width="1.5"/>
+<text x="95.0" y="235.0" font-size="16" text-anchor="middle" fill="#222222" font-weight="bold">Triton</text>
+<text x="95.0" y="253.0" font-size="14" text-anchor="middle" fill="#777777">fp16 / bf16</text>
+<rect x="330.0" y="210.0" width="140.0" height="56.0" rx="3" fill="#e6dcf3" stroke="#7a4fb0" stroke-width="1.5"/>
+<text x="400.0" y="235.0" font-size="15" text-anchor="middle" fill="#222222">编译器分配</text>
+<text x="400.0" y="253.0" font-size="14" text-anchor="middle" fill="#777777">3 份轮转</text>
+<rect x="640.0" y="210.0" width="140.0" height="56.0" rx="3" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="710.0" y="235.0" font-size="15" text-anchor="middle" fill="#222222">acc</text>
+<text x="710.0" y="253.0" font-size="14" text-anchor="middle" fill="#777777">编译器切给线程</text>
+<rect x="820.0" y="210.0" width="160.0" height="56.0" rx="3" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="900.0" y="235.0" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">Tensor Core</text>
+<text x="900.0" y="253.0" font-size="14" text-anchor="middle" fill="#777777">mma.sync / wgmma</text>
+<line x1="172.0" y1="256.0" x2="328.0" y2="256.0" stroke="#c77a12" stroke-width="1.5" marker-end="url(#o)"/>
+<text x="250.0" y="226.0" font-size="14" text-anchor="middle" fill="#c77a12">编译器选：</text>
+<text x="250.0" y="244.0" font-size="14" text-anchor="middle" fill="#c77a12">cp.async 或 TMA</text>
+<line x1="472.0" y1="256.0" x2="638.0" y2="256.0" stroke="#7a4fb0" stroke-width="1.5" marker-end="url(#p)"/>
+<text x="555.0" y="226.0" font-size="14" text-anchor="middle" fill="#7a4fb0">编译器插入</text>
+<text x="555.0" y="244.0" font-size="14" text-anchor="middle" fill="#7a4fb0">读取指令</text>
+<line x1="818.0" y1="238.0" x2="784.0" y2="238.0" stroke="#2f6db5" stroke-width="1.5" marker-end="url(#b)"/>
+<text x="172.0" y="294.0" font-size="14" text-anchor="start" fill="#222222">流水：num_stages=3</text>
+<text x="640.0" y="294.0" font-size="14" text-anchor="start" fill="#2f6db5" font-weight="bold">预期瓶颈：Tensor 管线</text>
+<rect x="20.0" y="334.0" width="150.0" height="56.0" rx="3" fill="#f3f3f3" stroke="#222222" stroke-width="1.5"/>
+<text x="95.0" y="359.0" font-size="16" text-anchor="middle" fill="#222222" font-weight="bold">TileLang</text>
+<text x="95.0" y="377.0" font-size="14" text-anchor="middle" fill="#777777">fp16</text>
+<rect x="330.0" y="334.0" width="140.0" height="56.0" rx="3" fill="#e6dcf3" stroke="#7a4fb0" stroke-width="1.5"/>
+<text x="400.0" y="359.0" font-size="15" text-anchor="middle" fill="#222222">A/B_shared</text>
+<text x="400.0" y="377.0" font-size="14" text-anchor="middle" fill="#777777">3 份，48 KB</text>
+<rect x="640.0" y="334.0" width="140.0" height="56.0" rx="3" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="710.0" y="359.0" font-size="15" text-anchor="middle" fill="#222222">C_local</text>
+<text x="710.0" y="377.0" font-size="14" text-anchor="middle" fill="#777777">alloc_fragment</text>
+<rect x="820.0" y="334.0" width="160.0" height="56.0" rx="3" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="900.0" y="359.0" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">Tensor Core</text>
+<text x="900.0" y="377.0" font-size="14" text-anchor="middle" fill="#777777">自动选指令</text>
+<line x1="172.0" y1="380.0" x2="328.0" y2="380.0" stroke="#c77a12" stroke-width="1.5" marker-end="url(#o)"/>
+<text x="250.0" y="350.0" font-size="14" text-anchor="middle" fill="#c77a12">T.copy：</text>
+<text x="250.0" y="368.0" font-size="14" text-anchor="middle" fill="#c77a12">Hopper 上走 TMA</text>
+<line x1="472.0" y1="380.0" x2="638.0" y2="380.0" stroke="#7a4fb0" stroke-width="1.5" marker-end="url(#p)"/>
+<text x="555.0" y="368.0" font-size="14" text-anchor="middle" fill="#7a4fb0">T.gemm</text>
+<line x1="818.0" y1="362.0" x2="784.0" y2="362.0" stroke="#2f6db5" stroke-width="1.5" marker-end="url(#b)"/>
+<text x="172.0" y="418.0" font-size="14" text-anchor="start" fill="#222222">流水：T.Pipelined(…, 3)</text>
+<text x="640.0" y="418.0" font-size="14" text-anchor="start" fill="#2f6db5" font-weight="bold">预期瓶颈：Tensor 管线</text>
+<rect x="20.0" y="458.0" width="150.0" height="56.0" rx="3" fill="#f3f3f3" stroke="#222222" stroke-width="1.5"/>
+<text x="95.0" y="483.0" font-size="16" text-anchor="middle" fill="#222222" font-weight="bold">CuTe（SM80）</text>
+<text x="95.0" y="501.0" font-size="14" text-anchor="middle" fill="#777777">16 位</text>
+<rect x="330.0" y="458.0" width="140.0" height="56.0" rx="3" fill="#e6dcf3" stroke="#7a4fb0" stroke-width="1.5"/>
+<text x="400.0" y="483.0" font-size="15" text-anchor="middle" fill="#222222">sA（swizzle）</text>
+<text x="400.0" y="501.0" font-size="14" text-anchor="middle" fill="#777777">骨架 1 份</text>
+<rect x="640.0" y="458.0" width="140.0" height="56.0" rx="3" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="710.0" y="483.0" font-size="15" text-anchor="middle" fill="#222222">tCrC</text>
+<text x="710.0" y="501.0" font-size="14" text-anchor="middle" fill="#777777">fragment 契约</text>
+<rect x="820.0" y="458.0" width="160.0" height="56.0" rx="3" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="900.0" y="483.0" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">Tensor Core</text>
+<text x="900.0" y="501.0" font-size="14" text-anchor="middle" fill="#777777">mma.sync 16×8×16</text>
+<line x1="172.0" y1="504.0" x2="328.0" y2="504.0" stroke="#c77a12" stroke-width="1.5" marker-end="url(#o)"/>
+<text x="250.0" y="474.0" font-size="14" text-anchor="middle" fill="#c77a12">TiledCopy：</text>
+<text x="250.0" y="492.0" font-size="14" text-anchor="middle" fill="#c77a12">cp.async 128 bit</text>
+<line x1="472.0" y1="504.0" x2="638.0" y2="504.0" stroke="#7a4fb0" stroke-width="1.5" marker-end="url(#p)"/>
+<text x="555.0" y="492.0" font-size="14" text-anchor="middle" fill="#7a4fb0">partition_A</text>
+<line x1="818.0" y1="486.0" x2="784.0" y2="486.0" stroke="#2f6db5" stroke-width="1.5" marker-end="url(#b)"/>
+<text x="172.0" y="542.0" font-size="14" text-anchor="start" fill="#222222">流水：骨架无；完整版手排</text>
+<text x="640.0" y="542.0" font-size="14" text-anchor="start" fill="#2f6db5" font-weight="bold">预期瓶颈：Tensor 管线</text>
+<text x="20.0" y="584.0" font-size="14" text-anchor="start" fill="#777777">Triton 一行里“编译器……”的格子，就是 Triton 替你做的决定；TileLang、CuTe 把其中一部分重新写回了源码。</text>
+</svg>

@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" width="960" height="640" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="640" fill="#ffffff"/>
+<defs><marker id="k" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222222"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777777"/></marker><marker id="o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c77a12"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f6db5"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="n" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e8b57"/></marker><marker id="p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7a4fb0"/></marker></defs>
+<text x="480.0" y="32.0" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold">FlashAttention 四代：数学不变，每一代跟着新的硬件器件重写调度</text>
+<rect x="40.0" y="50.0" width="880.0" height="40.0" rx="3" fill="#f3f3f3" stroke="#777777" stroke-width="1.5"/>
+<text x="480.0" y="76.0" font-size="15" text-anchor="middle" fill="#222222">数学（2022 年定型，四代一字未改）：K/V 分块扫描 + 在线 softmax，N×N 分数矩阵不落显存</text>
+<rect x="40.0" y="104.0" width="208.0" height="50.0" rx="3" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="144.0" y="126.0" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold">FA-1</text>
+<text x="144.0" y="144.0" font-size="14" text-anchor="middle" fill="#777777">2022 · A100</text>
+<text x="48.0" y="180.0" font-size="14" text-anchor="start" fill="#c77a12" font-weight="bold">新器件</text>
+<rect x="40.0" y="188.0" width="208.0" height="96.0" rx="3" fill="#f8e3c4" stroke="#c77a12" stroke-width="1.5"/>
+<text x="144.0" y="210.0" font-size="14" text-anchor="middle" fill="#777777">（Ampere）</text>
+<text x="144.0" y="231.0" font-size="14" text-anchor="middle" fill="#222222">异步拷贝 cp.async</text>
+<text x="48.0" y="306.0" font-size="14" text-anchor="start" fill="#2f6db5" font-weight="bold">调度上改了什么</text>
+<rect x="40.0" y="314.0" width="208.0" height="96.0" rx="3" fill="#ffffff" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="144.0" y="337.0" font-size="14" text-anchor="middle" fill="#222222">确立分块 + 在线 softmax</text>
+<text x="144.0" y="359.0" font-size="14" text-anchor="middle" fill="#222222">按 批量×头 分线程块</text>
+<line x1="250.0" y1="236.0" x2="262.0" y2="236.0" stroke="#777777" stroke-width="1.5" marker-end="url(#g)"/>
+<rect x="264.0" y="104.0" width="208.0" height="50.0" rx="3" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="368.0" y="126.0" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold">FA-2</text>
+<text x="368.0" y="144.0" font-size="14" text-anchor="middle" fill="#777777">2023 · A100</text>
+<text x="272.0" y="180.0" font-size="14" text-anchor="start" fill="#c77a12" font-weight="bold">新器件</text>
+<rect x="264.0" y="188.0" width="208.0" height="96.0" rx="3" fill="#f8e3c4" stroke="#c77a12" stroke-width="1.5"/>
+<text x="368.0" y="210.0" font-size="14" text-anchor="middle" fill="#777777">（Ampere）</text>
+<text x="368.0" y="231.0" font-size="14" text-anchor="middle" fill="#222222">与 FA-1 同一代硬件</text>
+<text x="368.0" y="252.0" font-size="14" text-anchor="middle" fill="#222222">没有新器件</text>
+<text x="272.0" y="306.0" font-size="14" text-anchor="start" fill="#2f6db5" font-weight="bold">调度上改了什么</text>
+<rect x="264.0" y="314.0" width="208.0" height="96.0" rx="3" fill="#ffffff" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="368.0" y="337.0" font-size="14" text-anchor="middle" fill="#222222">序列维也切进网格</text>
+<text x="368.0" y="359.0" font-size="14" text-anchor="middle" fill="#222222">重缩放攒到循环外</text>
+<text x="368.0" y="381.0" font-size="14" text-anchor="middle" fill="#222222">warp 间分工重排</text>
+<line x1="474.0" y1="236.0" x2="486.0" y2="236.0" stroke="#777777" stroke-width="1.5" marker-end="url(#g)"/>
+<rect x="488.0" y="104.0" width="208.0" height="50.0" rx="3" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="592.0" y="126.0" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold">FA-3</text>
+<text x="592.0" y="144.0" font-size="14" text-anchor="middle" fill="#777777">2024 · H100</text>
+<text x="496.0" y="180.0" font-size="14" text-anchor="start" fill="#c77a12" font-weight="bold">新器件</text>
+<rect x="488.0" y="188.0" width="208.0" height="96.0" rx="3" fill="#f8e3c4" stroke="#c77a12" stroke-width="1.5"/>
+<text x="592.0" y="210.0" font-size="14" text-anchor="middle" fill="#777777">（Hopper）</text>
+<text x="592.0" y="231.0" font-size="14" text-anchor="middle" fill="#222222">TMA 搬运引擎</text>
+<text x="592.0" y="252.0" font-size="14" text-anchor="middle" fill="#222222">wgmma 异步矩阵乘</text>
+<text x="496.0" y="306.0" font-size="14" text-anchor="start" fill="#2f6db5" font-weight="bold">调度上改了什么</text>
+<rect x="488.0" y="314.0" width="208.0" height="96.0" rx="3" fill="#ffffff" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="592.0" y="337.0" font-size="14" text-anchor="middle" fill="#222222">生产者 / 消费者分工</text>
+<text x="592.0" y="359.0" font-size="14" text-anchor="middle" fill="#222222">两组消费者 ping-pong</text>
+<text x="592.0" y="381.0" font-size="14" text-anchor="middle" fill="#222222">softmax 藏进矩阵乘</text>
+<line x1="698.0" y1="236.0" x2="710.0" y2="236.0" stroke="#777777" stroke-width="1.5" marker-end="url(#g)"/>
+<rect x="712.0" y="104.0" width="208.0" height="50.0" rx="3" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="816.0" y="126.0" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold">FA-4</text>
+<text x="816.0" y="144.0" font-size="14" text-anchor="middle" fill="#777777">2025–26 · B200</text>
+<text x="720.0" y="180.0" font-size="14" text-anchor="start" fill="#c77a12" font-weight="bold">新器件</text>
+<rect x="712.0" y="188.0" width="208.0" height="96.0" rx="3" fill="#f8e3c4" stroke="#c77a12" stroke-width="1.5"/>
+<text x="816.0" y="210.0" font-size="14" text-anchor="middle" fill="#777777">（Blackwell）</text>
+<text x="816.0" y="231.0" font-size="14" text-anchor="middle" fill="#222222">tcgen05 矩阵指令</text>
+<text x="816.0" y="252.0" font-size="14" text-anchor="middle" fill="#222222">TMEM 累加器存储</text>
+<text x="816.0" y="273.0" font-size="14" text-anchor="middle" fill="#222222">2-CTA MMA</text>
+<text x="720.0" y="306.0" font-size="14" text-anchor="start" fill="#2f6db5" font-weight="bold">调度上改了什么</text>
+<rect x="712.0" y="314.0" width="208.0" height="96.0" rx="3" fill="#ffffff" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="816.0" y="337.0" font-size="14" text-anchor="middle" fill="#222222">更细的 warp 分工</text>
+<text x="816.0" y="359.0" font-size="14" text-anchor="middle" fill="#222222">软件 exp（绕开 MUFU）</text>
+<text x="816.0" y="381.0" font-size="14" text-anchor="middle" fill="#222222">lazy rescale</text>
+<text x="816.0" y="403.0" font-size="14" text-anchor="middle" fill="#222222">CuTe-DSL 编写</text>
+<text x="40.0" y="436.0" font-size="15" text-anchor="start" fill="#222222" font-weight="bold">矩阵单元利用率：空框 = 该卡 BF16 峰值，实心 = 实测达到（TFLOPS，约数）</text>
+<line x1="40.0" y1="590.0" x2="920.0" y2="590.0" stroke="#777777" stroke-width="1.5"/>
+<text x="144.0" y="550.0" font-size="14" text-anchor="middle" fill="#777777">正文未给利用率</text>
+<text x="144.0" y="572.0" font-size="14" text-anchor="middle" fill="#777777">（跑在 A100 上）</text>
+<rect x="333.0" y="532.3" width="70.0" height="57.7" rx="3" fill="#ffffff" stroke="#222222" stroke-width="1.5" stroke-dasharray="5,3"/>
+<rect x="333.0" y="569.8" width="70.0" height="20.2" rx="3" fill="#2f6db5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="409.0" y="548.3" font-size="14" text-anchor="start" fill="#777777">峰值 989</text>
+<text x="409.0" y="585.8" font-size="14" text-anchor="start" fill="#2f6db5" font-weight="bold">346</text>
+<text x="368.0" y="563.8" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">约 35%</text>
+<text x="368.0" y="612.0" font-size="14" text-anchor="middle" fill="#777777">在 H100 上</text>
+<rect x="557.0" y="532.3" width="70.0" height="57.7" rx="3" fill="#ffffff" stroke="#222222" stroke-width="1.5" stroke-dasharray="5,3"/>
+<rect x="557.0" y="546.7" width="70.0" height="43.3" rx="3" fill="#2f6db5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="633.0" y="548.3" font-size="14" text-anchor="start" fill="#777777">峰值 989</text>
+<text x="633.0" y="562.7" font-size="14" text-anchor="start" fill="#2f6db5" font-weight="bold">742</text>
+<text x="592.0" y="526.3" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">约 75%</text>
+<text x="592.0" y="612.0" font-size="14" text-anchor="middle" fill="#777777">在 H100 上</text>
+<rect x="781.0" y="457.6" width="70.0" height="132.4" rx="3" fill="#ffffff" stroke="#222222" stroke-width="1.5" stroke-dasharray="5,3"/>
+<rect x="781.0" y="496.0" width="70.0" height="94.0" rx="3" fill="#2f6db5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="857.0" y="473.6" font-size="14" text-anchor="start" fill="#777777">峰值约 2270</text>
+<text x="857.0" y="512.0" font-size="14" text-anchor="start" fill="#2f6db5" font-weight="bold">1613</text>
+<text x="816.0" y="490.0" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">约 71%</text>
+<text x="816.0" y="612.0" font-size="14" text-anchor="middle" fill="#777777">在 B200 上</text>
+</svg>

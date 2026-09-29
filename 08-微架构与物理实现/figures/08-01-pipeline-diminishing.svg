@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 480" width="960" height="480" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="480" fill="#ffffff"/>
+<text x="480" y="30" font-size="18" text-anchor="middle" font-weight="bold" fill="#111">150 ps 的逻辑切成 N 段：逻辑越切越短，每段固定的 60 ps 开销却一点不少</text>
+<text x="480" y="54" font-size="14" text-anchor="middle" fill="#555">每一行是一段流水线的时长（= 一拍的最短长度），按比例画：1 ps = 3 像素</text>
+<g font-size="15" fill="#111">
+<text x="30" y="98" font-weight="bold">N = 1</text>
+<text x="30" y="168" font-weight="bold">N = 2</text>
+<text x="30" y="238" font-weight="bold">N = 4</text>
+<text x="30" y="308" font-weight="bold">N = 8</text>
+<text x="30" y="378" font-weight="bold">N = 16</text>
+</g>
+<g stroke="#222" stroke-width="1.2" font-size="14" text-anchor="middle">
+<rect x="100" y="76" width="450" height="34" fill="#fdf3e3"/><text x="325" y="98" stroke="none" fill="#111">逻辑 150</text>
+<rect x="550" y="76" width="180" height="34" fill="#9cc3ea"/><text x="640" y="98" stroke="none" fill="#111">开销 60</text>
+<rect x="100" y="146" width="225" height="34" fill="#fdf3e3"/><text x="212" y="168" stroke="none" fill="#111">逻辑 75</text>
+<rect x="325" y="146" width="180" height="34" fill="#9cc3ea"/><text x="415" y="168" stroke="none" fill="#111">开销 60</text>
+<rect x="100" y="216" width="112" height="34" fill="#fdf3e3"/><text x="156" y="238" stroke="none" fill="#111">37.5</text>
+<rect x="212" y="216" width="180" height="34" fill="#9cc3ea"/><text x="302" y="238" stroke="none" fill="#111">开销 60</text>
+<rect x="100" y="286" width="57" height="34" fill="#fdf3e3"/><text x="128" y="308" stroke="none" fill="#111">19</text>
+<rect x="157" y="286" width="180" height="34" fill="#9cc3ea"/><text x="247" y="308" stroke="none" fill="#111">开销 60</text>
+<rect x="100" y="356" width="27" height="34" fill="#fdf3e3"/>
+<rect x="127" y="356" width="180" height="34" fill="#9cc3ea"/><text x="217" y="378" stroke="none" fill="#111">开销 60</text>
+</g>
+<text x="113" y="410" font-size="14" text-anchor="middle" fill="#111">9</text>
+<g font-size="14" fill="#111">
+<text x="745" y="90">210 ps → <tspan font-weight="bold">4.8 GHz</tspan></text><text x="745" y="110" fill="#555">触发器 1 倍</text>
+<text x="520" y="160">135 ps → <tspan font-weight="bold">7.4 GHz</tspan></text><text x="520" y="180" fill="#2e7d32">+54%，触发器 2 倍</text>
+<text x="407" y="230">97.5 ps → <tspan font-weight="bold">10.3 GHz</tspan></text><text x="407" y="250" fill="#555">触发器 4 倍</text>
+<text x="352" y="300">79 ps → <tspan font-weight="bold">12.7 GHz</tspan></text><text x="352" y="320" fill="#555">触发器 8 倍</text>
+<text x="322" y="370">69 ps → <tspan font-weight="bold">14.5 GHz</tspan></text><text x="322" y="390" fill="#b5451b">只 +14%，触发器却翻倍到 16 倍</text>
+</g>
+<rect x="100" y="428" width="20" height="16" fill="#fdf3e3" stroke="#222"/><text x="128" y="441" font-size="14" fill="#111">每段分到的逻辑延迟</text>
+<rect x="300" y="428" width="20" height="16" fill="#9cc3ea" stroke="#222"/><text x="328" y="441" font-size="14" fill="#111">固定开销：触发器 40 ps（t_cq + 建立时间）+ 偏斜余量 20 ps</text>
+<text x="480" y="470" font-size="14" text-anchor="middle" fill="#555">蓝色块从头到尾一样长；N 越大，它在每拍里的占比越高，加段换来的频率越来越少</text>
+</svg>

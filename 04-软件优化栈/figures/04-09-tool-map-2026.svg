@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 720" width="960" height="720" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="720" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222222"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f6db5"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777777"/></marker><marker id="o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c77a12"/></marker><marker id="n" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e8b57"/></marker><marker id="p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7a4fb0"/></marker></defs>
+<text x="480" y="32" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold">2026 年的海拔轴：新工具大多挤在 Triton 与 CUTLASS 之间</text>
+<text x="315.0" y="72" font-size="16" text-anchor="middle" fill="#444444" font-weight="bold">Python 里写</text>
+<text x="610.0" y="72" font-size="16" text-anchor="middle" fill="#444444" font-weight="bold">C++ 里写</text>
+<text x="845.0" y="72" font-size="16" text-anchor="middle" fill="#444444" font-weight="bold">编译后端</text>
+<rect x="20" y="88" width="920" height="56" rx="4" fill="#fafafa" stroke="#eeeeee" stroke-width="1.5"/>
+<text x="34" y="121.0" font-size="14" text-anchor="start" fill="#777777" font-weight="bold">库</text>
+<rect x="150" y="96" width="570" height="40" rx="6" fill="#dbe7f5" stroke="#2f6db5" stroke-width="2"/>
+<text x="435.0" y="121.25" font-size="15" text-anchor="middle" fill="#222222">cuBLAS / cuDNN / flash-attn：只做选择题</text>
+<rect x="20" y="152" width="920" height="56" rx="4" fill="#fafafa" stroke="#eeeeee" stroke-width="1.5"/>
+<text x="34" y="185.0" font-size="14" text-anchor="start" fill="#777777" font-weight="bold">高</text>
+<rect x="150" y="160" width="200" height="40" rx="6" fill="#d9efe2" stroke="#2e8b57" stroke-width="2"/>
+<text x="250.0" y="185.25" font-size="15" text-anchor="middle" fill="#222222">Helion（PyTorch 侧）</text>
+<text x="362" y="185" font-size="13" text-anchor="start" fill="#444444">生成 Triton 代码</text>
+<rect x="20" y="216" width="920" height="76" rx="4" fill="#fafafa" stroke="#eeeeee" stroke-width="1.5"/>
+<text x="34" y="259.0" font-size="14" text-anchor="start" fill="#777777" font-weight="bold"></text>
+<rect x="150" y="224" width="200" height="40" rx="6" fill="#dbe7f5" stroke="#2f6db5" stroke-width="2"/>
+<text x="250.0" y="249.6" font-size="16" text-anchor="middle" fill="#222222" font-weight="bold">Triton</text>
+<rect x="750" y="224" width="190" height="40" rx="6" fill="#d9efe2" stroke="#2e8b57" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="845.0" y="249.25" font-size="15" text-anchor="middle" fill="#222222">CUDA Tile IR</text>
+<line x1="350" y1="244" x2="746" y2="244" stroke="#2e8b57" stroke-width="2" marker-end="url(#n)" stroke-dasharray="6 4"/>
+<text x="368" y="238" font-size="13" text-anchor="start" fill="#2e8b57">Triton 的可选后端</text>
+<text x="845.0" y="283" font-size="13" text-anchor="middle" fill="#2e8b57">需 CUDA 13.1+、Blackwell</text>
+<rect x="20" y="300" width="920" height="124" rx="4" fill="#fafafa" stroke="#eeeeee" stroke-width="1.5"/>
+<text x="34" y="367.0" font-size="14" text-anchor="start" fill="#777777" font-weight="bold">中段</text>
+<rect x="150" y="312" width="150" height="44" rx="6" fill="#d9efe2" stroke="#2e8b57" stroke-width="2"/>
+<text x="225.0" y="339.6" font-size="16" text-anchor="middle" fill="#222222" font-weight="bold">Gluon</text>
+<text x="225" y="378" font-size="14" text-anchor="middle" fill="#2e8b57" font-weight="bold">还给你：绑定</text>
+<text x="225" y="398" font-size="13" text-anchor="middle" fill="#444444">（Linear Layout）</text>
+<rect x="330" y="312" width="150" height="44" rx="6" fill="#dbe7f5" stroke="#2f6db5" stroke-width="2"/>
+<text x="405.0" y="339.6" font-size="16" text-anchor="middle" fill="#222222" font-weight="bold">TileLang</text>
+<text x="405" y="378" font-size="14" text-anchor="middle" fill="#2f6db5" font-weight="bold">还给你：放置</text>
+<text x="405" y="398" font-size="13" text-anchor="middle" fill="#444444">（alloc_shared / fragment）</text>
+<rect x="500" y="312" width="220" height="44" rx="6" fill="#d9efe2" stroke="#2e8b57" stroke-width="2"/>
+<text x="610.0" y="339.25" font-size="15" text-anchor="middle" fill="#222222">ThunderKittens</text>
+<text x="610.0" y="378" font-size="13" text-anchor="middle" fill="#444444">学界方案，C++ 里的 tile 对象</text>
+<text x="610.0" y="398" font-size="13" text-anchor="middle" fill="#444444">理念近似 TileLang</text>
+<rect x="20" y="432" width="920" height="110" rx="4" fill="#fafafa" stroke="#eeeeee" stroke-width="1.5"/>
+<text x="34" y="492.0" font-size="14" text-anchor="start" fill="#777777" font-weight="bold">低</text>
+<rect x="150" y="444" width="200" height="44" rx="6" fill="#d9efe2" stroke="#2e8b57" stroke-width="2"/>
+<text x="250.0" y="471.6" font-size="16" text-anchor="middle" fill="#222222" font-weight="bold">CuTe-DSL</text>
+<text x="250" y="510" font-size="14" text-anchor="middle" fill="#2e8b57" font-weight="bold">还给你：四维全部</text>
+<text x="250" y="530" font-size="13" text-anchor="middle" fill="#444444">FA-4 用它写成；编译比 C++ 模板快 20～30 倍</text>
+<rect x="500" y="444" width="220" height="44" rx="6" fill="#dbe7f5" stroke="#2f6db5" stroke-width="2"/>
+<text x="610.0" y="471.6" font-size="16" text-anchor="middle" fill="#222222" font-weight="bold">CuTe / CUTLASS</text>
+<line x1="350" y1="466" x2="496" y2="466" stroke="#777777" stroke-width="1.5" stroke-dasharray="4 3"/>
+<text x="425.0" y="458" font-size="13" text-anchor="middle" fill="#444444">同一套 Layout 代数</text>
+<rect x="20" y="550" width="920" height="56" rx="4" fill="#fafafa" stroke="#eeeeee" stroke-width="1.5"/>
+<text x="34" y="583.0" font-size="14" text-anchor="start" fill="#777777" font-weight="bold"></text>
+<rect x="500" y="558" width="220" height="40" rx="6" fill="#dbe7f5" stroke="#2f6db5" stroke-width="2"/>
+<text x="610.0" y="583.6" font-size="16" text-anchor="middle" fill="#222222" font-weight="bold">CUDA C++</text>
+<rect x="20" y="614" width="920" height="50" rx="4" fill="#fafafa" stroke="#eeeeee" stroke-width="1.5"/>
+<text x="34" y="644.0" font-size="14" text-anchor="start" fill="#777777" font-weight="bold"></text>
+<rect x="150" y="620" width="570" height="38" rx="6" fill="#ffffff" stroke="#bbbbbb" stroke-width="2"/>
+<text x="435.0" y="644.25" font-size="15" text-anchor="middle" fill="#222222">PTX / SASS</text>
+<rect x="150" y="682" width="30" height="22" rx="0" fill="#dbe7f5" stroke="#2f6db5" stroke-width="2"/>
+<text x="190" y="699" font-size="14" text-anchor="start" fill="#222222">§3～§7 逐层讲过的工具</text>
+<rect x="430" y="682" width="30" height="22" rx="0" fill="#d9efe2" stroke="#2e8b57" stroke-width="2"/>
+<text x="470" y="699" font-size="14" text-anchor="start" fill="#222222">§10 表里新进场的工具</text>
+</svg>

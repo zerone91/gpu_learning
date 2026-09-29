@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" width="960" height="640" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="640" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222222"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f6db5"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777777"/></marker><marker id="o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c77a12"/></marker><marker id="n" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e8b57"/></marker><marker id="p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7a4fb0"/></marker></defs>
+<text x="480" y="32" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold">线程级：每个线程用自己的编号算出“我负责第几个元素”</text>
+<text x="40" y="82" font-size="16" text-anchor="start" fill="#222222" font-weight="bold">① grid：4096 个 block</text>
+<rect x="250" y="60" width="62" height="34" rx="6" fill="#eeeeee" stroke="#777777" stroke-width="2"/>
+<text x="281.0" y="81.9" font-size="14" text-anchor="middle" fill="#222222">块 0</text>
+<rect x="324" y="60" width="62" height="34" rx="6" fill="#eeeeee" stroke="#777777" stroke-width="2"/>
+<text x="355.0" y="81.9" font-size="14" text-anchor="middle" fill="#222222">块 1</text>
+<rect x="398" y="60" width="62" height="34" rx="6" fill="#eeeeee" stroke="#777777" stroke-width="2"/>
+<text x="429.0" y="81.9" font-size="14" text-anchor="middle" fill="#222222">块 2</text>
+<text x="503.0" y="82" font-size="18" text-anchor="middle" fill="#222222">…</text>
+<rect x="546" y="60" width="62" height="34" rx="6" fill="#f8e8cf" stroke="#c77a12" stroke-width="2"/>
+<text x="577.0" y="81.9" font-size="14" text-anchor="middle" fill="#222222" font-weight="bold">块 7</text>
+<text x="651.0" y="82" font-size="18" text-anchor="middle" fill="#222222">…</text>
+<rect x="694" y="60" width="62" height="34" rx="6" fill="#eeeeee" stroke="#777777" stroke-width="2"/>
+<text x="725.0" y="81.9" font-size="14" text-anchor="middle" fill="#222222">块 4095</text>
+<line x1="546" y1="94" x2="120" y2="150" stroke="#c77a12" stroke-width="1.5" stroke-dasharray="5 4"/>
+<line x1="608" y1="94" x2="900" y2="150" stroke="#c77a12" stroke-width="1.5" stroke-dasharray="5 4"/>
+<rect x="40" y="150" width="880" height="120" rx="6" fill="#fffaf2" stroke="#c77a12" stroke-width="2"/>
+<text x="56" y="176" font-size="16" text-anchor="start" fill="#222222" font-weight="bold">② 块 7 内部：blockDim.x = 256 个线程，每 32 个编成一个 warp</text>
+<rect x="60" y="196" width="64" height="36" rx="6" fill="#ffffff" stroke="#777777" stroke-width="2"/>
+<text x="92.0" y="218.9" font-size="14" text-anchor="middle" fill="#222222">t0</text>
+<rect x="146" y="196" width="64" height="36" rx="6" fill="#ffffff" stroke="#777777" stroke-width="2"/>
+<text x="178.0" y="218.9" font-size="14" text-anchor="middle" fill="#222222">t1</text>
+<rect x="232" y="196" width="64" height="36" rx="6" fill="#ffffff" stroke="#777777" stroke-width="2"/>
+<text x="264.0" y="218.9" font-size="14" text-anchor="middle" fill="#222222">t2</text>
+<rect x="318" y="196" width="64" height="36" rx="6" fill="#dbe7f5" stroke="#2f6db5" stroke-width="2"/>
+<text x="350.0" y="218.9" font-size="14" text-anchor="middle" fill="#222222" font-weight="bold">t3</text>
+<rect x="404" y="196" width="64" height="36" rx="6" fill="#ffffff" stroke="#777777" stroke-width="2"/>
+<text x="436.0" y="218.9" font-size="14" text-anchor="middle" fill="#222222">t4</text>
+<text x="512.0" y="222" font-size="18" text-anchor="middle" fill="#222222">…</text>
+<rect x="576" y="196" width="64" height="36" rx="6" fill="#ffffff" stroke="#777777" stroke-width="2"/>
+<text x="608.0" y="218.9" font-size="14" text-anchor="middle" fill="#222222">t31</text>
+<rect x="662" y="196" width="64" height="36" rx="6" fill="#ffffff" stroke="#777777" stroke-width="2"/>
+<text x="694.0" y="218.9" font-size="14" text-anchor="middle" fill="#222222">t32</text>
+<text x="770.0" y="222" font-size="18" text-anchor="middle" fill="#222222">…</text>
+<rect x="834" y="196" width="64" height="36" rx="6" fill="#ffffff" stroke="#777777" stroke-width="2"/>
+<text x="866.0" y="218.9" font-size="14" text-anchor="middle" fill="#222222">t255</text>
+<path d="M60,242 L60,250 L640,250 L640,242" fill="none" stroke="#444444" stroke-width="1.5"/>
+<text x="180" y="266" font-size="14" text-anchor="middle" fill="#444444">warp 0（t0～t31）</text>
+<path d="M662,242 L662,250 L898,250 L898,242" fill="none" stroke="#444444" stroke-width="1.5"/>
+<text x="780.0" y="266" font-size="14" text-anchor="middle" fill="#444444">warp 1～7</text>
+<rect x="40" y="290" width="880" height="56" rx="6" fill="#fff4c2" stroke="#444444" stroke-width="1.5"/>
+<text x="480" y="324" font-size="16" text-anchor="middle" fill="#222222" font-weight="bold">③ 线程 t3 算自己的下标：i = blockIdx.x × blockDim.x + threadIdx.x = 7 × 256 + 3 = 1795</text>
+<text x="500" y="392" font-size="15" text-anchor="start" fill="#222222" font-weight="bold">④ 数组 y：块 7 的 256 个线程覆盖 y[1792]～y[2047]</text>
+<rect x="60" y="400" width="60" height="40" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1.5"/>
+<text x="90.0" y="426" font-size="14" text-anchor="middle" fill="#222222">1792</text>
+<rect x="120" y="400" width="60" height="40" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1.5"/>
+<text x="150.0" y="426" font-size="14" text-anchor="middle" fill="#222222">1793</text>
+<rect x="180" y="400" width="60" height="40" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1.5"/>
+<text x="210.0" y="426" font-size="14" text-anchor="middle" fill="#222222">1794</text>
+<rect x="240" y="400" width="60" height="40" rx="0" fill="#dbe7f5" stroke="#2f6db5" stroke-width="2.5"/>
+<text x="270.0" y="426" font-size="14" text-anchor="middle" fill="#222222" font-weight="bold">1795</text>
+<rect x="300" y="400" width="60" height="40" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1.5"/>
+<text x="330.0" y="426" font-size="14" text-anchor="middle" fill="#222222">1796</text>
+<rect x="360" y="400" width="60" height="40" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1.5"/>
+<text x="390.0" y="426" font-size="16" text-anchor="middle" fill="#222222">…</text>
+<rect x="420" y="400" width="60" height="40" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1.5"/>
+<text x="450.0" y="426" font-size="14" text-anchor="middle" fill="#222222">2047</text>
+<line x1="350" y1="232" x2="350" y2="288" stroke="#2f6db5" stroke-width="2" marker-end="url(#b)"/>
+<line x1="270" y1="346" x2="270" y2="398" stroke="#2f6db5" stroke-width="2" marker-end="url(#b)"/>
+<text x="500" y="418" font-size="14" text-anchor="start" fill="#444444">相邻线程写相邻地址：一个 warp 的 32 个线程</text>
+<text x="500" y="438" font-size="14" text-anchor="start" fill="#444444">正好读写连续 128 字节，凑成一次合并访存</text>
+<rect x="40" y="470" width="880" height="150" rx="6" fill="#ffffff" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text x="56" y="498" font-size="15" text-anchor="start" fill="#c0392b" font-weight="bold">⑤ 边界要自己防：若 n = 1,000,000，块数 = ⌈1,000,000 ÷ 256⌉ = 3907，共启动 1,000,192 个线程</text>
+<text x="60" y="530" font-size="14" text-anchor="start" fill="#444444">最后一块（块 3906）：</text>
+<rect x="220" y="516" width="170.0" height="30" rx="0" fill="#d9efe2" stroke="#2e8b57" stroke-width="1.5"/>
+<text x="305.0" y="536" font-size="14" text-anchor="middle" fill="#222222">64 个线程：i &lt; n，正常写</text>
+<rect x="390.0" y="516" width="510.0" height="30" rx="0" fill="#f6dcd8" stroke="#c0392b" stroke-width="1.5"/>
+<text x="645.0" y="536" font-size="14" text-anchor="middle" fill="#222222">192 个线程：i ≥ n，没有 if (i &lt; n) 就会越界写</text>
+<text x="224" y="570" font-size="14" text-anchor="start" fill="#2e8b57">i = 999,936 … 999,999</text>
+<text x="390.0" y="570" font-size="14" text-anchor="start" fill="#c0392b">i = 1,000,000 … 1,000,191</text>
+<text x="56" y="604" font-size="14" text-anchor="start" fill="#444444">正文的启动配置取 n = 2²⁰ = 1,048,576 = 4096 × 256，刚好整除，没有多余线程；n 不整除时才会出现上面这种尾巴</text>
+</svg>

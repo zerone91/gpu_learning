@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 610" width="960" height="610" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="610" fill="#ffffff"/>
+<defs><marker id="ah-c0392b" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="ahs-c0392b" viewBox="0 0 10 10" refX="1" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="ah-e2e2e2" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e2e2"/></marker><marker id="ahs-e2e2e2" viewBox="0 0 10 10" refX="1" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e2e2e2"/></marker></defs>
+<text x="480" y="30" font-size="19" text-anchor="middle" fill="#222222" font-weight="bold" >把 PCIe 放进层级链里：它比显存窄约 50 倍，比 NVLink 窄约 14 倍</text>
+<text x="480" y="54" font-size="15" text-anchor="middle" fill="#666666" font-weight="normal" >横轴是对数刻度：每往右一格，带宽乘以 10</text>
+<line x1="250" y1="80" x2="250" y2="500" stroke="#e2e2e2" stroke-width="1"/>
+<text x="250" y="520" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >10 GB/s</text>
+<line x1="344" y1="80" x2="344" y2="500" stroke="#e2e2e2" stroke-width="1"/>
+<text x="344" y="520" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >100 GB/s</text>
+<line x1="438" y1="80" x2="438" y2="500" stroke="#e2e2e2" stroke-width="1"/>
+<text x="438" y="520" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >1 TB/s</text>
+<line x1="532" y1="80" x2="532" y2="500" stroke="#e2e2e2" stroke-width="1"/>
+<text x="532" y="520" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >10 TB/s</text>
+<line x1="626" y1="80" x2="626" y2="500" stroke="#e2e2e2" stroke-width="1"/>
+<text x="626" y="520" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >100 TB/s</text>
+<line x1="720" y1="80" x2="720" y2="500" stroke="#e2e2e2" stroke-width="1"/>
+<text x="720" y="520" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >1 PB/s</text>
+<text x="870" y="74" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >相对 PCIe 5.0</text>
+<text x="238" y="112" font-size="15" text-anchor="end" fill="#222222" font-weight="normal" >寄存器堆（全片）</text>
+<rect x="250" y="88" width="427.14239616892587" height="34" rx="0" fill="#f0f0f0" stroke="#666666" stroke-width="1.2" />
+<text x="685.1423961689259" y="111" font-size="15" text-anchor="start" fill="#222222" font-weight="normal" >约 350 TB/s</text>
+<text x="870" y="111" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold" >5500×</text>
+<text x="238" y="164" font-size="15" text-anchor="end" fill="#222222" font-weight="normal" >shared memory / L1</text>
+<rect x="250" y="140" width="326.8493979436482" height="34" rx="0" fill="#f0f0f0" stroke="#666666" stroke-width="1.2" />
+<text x="584.8493979436482" y="163" font-size="15" text-anchor="start" fill="#222222" font-weight="normal" >几十 TB/s</text>
+<text x="870" y="163" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold" >几百×</text>
+<text x="238" y="216" font-size="15" text-anchor="end" fill="#222222" font-weight="normal" >显存 HBM3（H100）</text>
+<rect x="250" y="192" width="237.35421186146345" height="34" rx="0" fill="#e3eef9" stroke="#1f6fb2" stroke-width="1.2" />
+<text x="495.35421186146345" y="215" font-size="15" text-anchor="start" fill="#1f6fb2" font-weight="normal" >3.35 TB/s</text>
+<text x="870" y="215" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold" >53×</text>
+<text x="238" y="268" font-size="15" text-anchor="end" fill="#222222" font-weight="normal" >NVLink 5（每 GPU 单向）</text>
+<rect x="250" y="244" width="183.69879588729657" height="34" rx="0" fill="#e3eef9" stroke="#1f6fb2" stroke-width="1.2" />
+<text x="441.69879588729657" y="267" font-size="15" text-anchor="start" fill="#1f6fb2" font-weight="normal" >900 GB/s</text>
+<text x="870" y="267" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold" >14×</text>
+<text x="238" y="320" font-size="15" text-anchor="end" fill="#222222" font-weight="normal" >NVLink-C2C（单向）</text>
+<rect x="250" y="296" width="155.40197629488227" height="34" rx="0" fill="#e3eef9" stroke="#1f6fb2" stroke-width="1.2" />
+<text x="413.4019762948823" y="319" font-size="15" text-anchor="start" fill="#1f6fb2" font-weight="normal" >450 GB/s</text>
+<text x="870" y="319" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold" >7×</text>
+<text x="238" y="372" font-size="15" text-anchor="end" fill="#c0392b" font-weight="bold" >PCIe 5.0 x16</text>
+<rect x="250" y="348" width="75.13801164863668" height="34" rx="0" fill="#f9e0dd" stroke="#c0392b" stroke-width="2" />
+<text x="333.1380116486367" y="371" font-size="15" text-anchor="start" fill="#c0392b" font-weight="normal" >63 GB/s</text>
+<text x="870" y="371" font-size="15" text-anchor="middle" fill="#c0392b" font-weight="bold" >1×</text>
+<text x="238" y="424" font-size="15" text-anchor="end" fill="#222222" font-weight="normal" >单块 NVMe（PCIe 5 x4）</text>
+<rect x="250" y="400" width="13.736035353754346" height="34" rx="0" fill="#f0f0f0" stroke="#666666" stroke-width="1.2" />
+<text x="271.73603535375435" y="423" font-size="15" text-anchor="start" fill="#222222" font-weight="normal" >约 14 GB/s</text>
+<text x="870" y="423" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold" >0.22×</text>
+<text x="238" y="476" font-size="15" text-anchor="end" fill="#222222" font-weight="normal" >100 GbE 网卡</text>
+<rect x="250" y="452" width="9.109541222757287" height="34" rx="0" fill="#f0f0f0" stroke="#666666" stroke-width="1.2" />
+<text x="267.1095412227573" y="475" font-size="15" text-anchor="start" fill="#222222" font-weight="normal" >12.5 GB/s</text>
+<text x="870" y="475" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold" >0.2×</text>
+<line x1="325.1380116486367" y1="76" x2="325.1380116486367" y2="346" stroke="#c0392b" stroke-width="1.8" stroke-dasharray="6 4"/>
+<text x="40" y="560" font-size="15" text-anchor="start" fill="#666666" font-weight="normal" >shared memory 那一行正文只给了“几十 TB/s”，柱长按 30 TB/s 示意画出。</text>
+<text x="40" y="584" font-size="15" text-anchor="start" fill="#666666" font-weight="normal" >每步都要完整读一遍的数据（例如模型权重）若放在 PCIe 那一侧，速度会按这个比例掉下去。</text>
+</svg>

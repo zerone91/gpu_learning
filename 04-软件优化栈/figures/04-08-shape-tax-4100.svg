@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 400" width="960" height="400" font-family="sans-serif" font-size="15">
+<rect x="0" y="0" width="960" height="400" fill="#ffffff"/>
+<defs><pattern id="h" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="#fbe3df"/><line x1="0" y1="0" x2="0" y2="6" stroke="#d98b80" stroke-width="2"/></pattern></defs>
+<text x="20" y="30" font-size="17" font-weight="bold">d_model 取 4096 还是 4100：按 128 一块切开后，最后一块的差别</text>
+<text x="40" y="70" font-weight="bold">维度 4096：4096 ÷ 128 = 32，需要 32 块</text>
+<rect x="40.0" y="80" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="63.5" y="80" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="87.0" y="80" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="110.5" y="80" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="134.0" y="80" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="157.5" y="80" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="181.0" y="80" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="204.5" y="80" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="228.0" y="80" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="251.5" y="80" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="275.0" y="80" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="298.5" y="80" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="322.0" y="80" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="345.5" y="80" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="369.0" y="80" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="392.5" y="80" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="416.0" y="80" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="439.5" y="80" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="463.0" y="80" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="486.5" y="80" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="510.0" y="80" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="533.5" y="80" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="557.0" y="80" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="580.5" y="80" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="604.0" y="80" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="627.5" y="80" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="651.0" y="80" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="674.5" y="80" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="698.0" y="80" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="721.5" y="80" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="745.0" y="80" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="768.5" y="80" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<text x="802.0" y="105" font-size="14">利用率 100%</text>
+<text x="40" y="170" font-weight="bold">维度 4100：4100 ÷ 128 = 32.03…，需要 33 块</text>
+<rect x="40.0" y="180" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="63.5" y="180" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="87.0" y="180" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="110.5" y="180" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="134.0" y="180" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="157.5" y="180" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="181.0" y="180" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="204.5" y="180" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="228.0" y="180" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="251.5" y="180" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="275.0" y="180" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="298.5" y="180" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="322.0" y="180" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="345.5" y="180" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="369.0" y="180" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="392.5" y="180" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="416.0" y="180" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="439.5" y="180" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="463.0" y="180" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="486.5" y="180" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="510.0" y="180" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="533.5" y="180" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="557.0" y="180" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="580.5" y="180" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="604.0" y="180" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="627.5" y="180" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="651.0" y="180" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="674.5" y="180" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="698.0" y="180" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="721.5" y="180" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="745.0" y="180" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="768.5" y="180" width="23.5" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2"/>
+<rect x="792.0" y="180" width="23.5" height="40" fill="url(#h)" stroke="#c0392b" stroke-width="1.5"/>
+<rect x="792.0" y="180" width="0.7" height="40" fill="#1f5fa8"/>
+<text x="825.5" y="205" font-size="14" fill="#c0392b">第 33 块</text>
+<line x1="792.0" y1="220" x2="520" y2="270" stroke="#999" stroke-width="1.2" stroke-dasharray="4,3"/>
+<line x1="815.5" y1="220" x2="904" y2="270" stroke="#999" stroke-width="1.2" stroke-dasharray="4,3"/>
+<rect x="520" y="270" width="384" height="60" fill="url(#h)" stroke="#c0392b" stroke-width="2"/>
+<rect x="520" y="270" width="12.0" height="60" fill="#1f5fa8"/>
+<rect x="536.0" y="278" width="300" height="46" fill="#ffffff" opacity="0.92"/>
+<text x="540.0" y="296" font-size="14">← 只有 4 个位置是真数据</text>
+<text x="540.0" y="318" font-size="14">其余 124 个位置填零，照样占用计算时间</text>
+<text x="520" y="352" font-size="13" fill="#555">放大的第 33 块（128 个位置）</text>
+<text x="40" y="280" font-size="14">实际算了 33 × 128 = 4224 个位置</text>
+<text x="40" y="304" font-size="14">有用的只有 4100 个</text>
+<text x="40" y="328" font-size="14">利用率 4100 ÷ 4224 ≈ 97%，形状税约 3%</text>
+<text x="40" y="362" font-size="13" fill="#555">另外：4100 ÷ 16 = 256.25，</text>
+<text x="40" y="382" font-size="13" fill="#555">连矩阵指令要求的 16 对齐也破了</text>
+</svg>

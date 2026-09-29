@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" width="960" height="620" font-family="sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker></defs>
+<rect x="0" y="0" width="960" height="620" fill="#ffffff"/>
+<text x="480" y="28" font-size="18" text-anchor="middle" font-weight="bold" fill="#111">warp 调度器的电路：16 个五输入与门算出就绪位，再用优先编码器挑一个，全程要在一拍里跑完</text>
+<text x="50" y="70" font-size="14" fill="#111" transform="rotate(-35 50 70)"></text>
+<text x="106" y="70" font-size="14" fill="#111" transform="rotate(-35 106 70)"></text>
+<text x="162" y="70" font-size="14" fill="#111" transform="rotate(-35 162 70)"></text>
+<text x="218" y="70" font-size="14" fill="#111" transform="rotate(-35 218 70)"></text>
+<text x="274" y="70" font-size="14" fill="#111" transform="rotate(-35 274 70)"></text>
+<text x="40" y="62" font-size="14" fill="#111">输入 1：缓冲非空</text>
+<text x="40" y="80" font-size="14" fill="#111">输入 2：stall 数到 0</text>
+<text x="40" y="98" font-size="14" fill="#111">输入 3：所等屏障已清</text>
+<text x="40" y="116" font-size="14" fill="#111">输入 4：目标管线空闲</text>
+<text x="40" y="134" font-size="14" fill="#111">输入 5：不在等同步</text>
+<text x="40" y="175" font-size="14" fill="#111">w0</text>
+<line x1="70" y1="154" x2="150" y2="154" stroke="#555" stroke-width="1.3"/>
+<line x1="70" y1="162" x2="150" y2="162" stroke="#555" stroke-width="1.3"/>
+<line x1="70" y1="170" x2="150" y2="170" stroke="#555" stroke-width="1.3"/>
+<line x1="70" y1="178" x2="150" y2="178" stroke="#555" stroke-width="1.3"/>
+<line x1="70" y1="186" x2="150" y2="186" stroke="#555" stroke-width="1.3"/>
+<path d="M150,148 h22 a22,22 0 0 1 0,44 h-22 z" fill="#fdf3e3" stroke="#222" stroke-width="1.6"/>
+<text x="166" y="175" font-size="14" text-anchor="middle" fill="#111">与</text>
+<line x1="194" y1="170" x2="262" y2="170" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<text x="226" y="164" font-size="14" text-anchor="middle" fill="#999" font-weight="bold">0</text>
+<text x="40" y="220" font-size="14" fill="#111">w1</text>
+<line x1="70" y1="199" x2="150" y2="199" stroke="#555" stroke-width="1.3"/>
+<line x1="70" y1="207" x2="150" y2="207" stroke="#555" stroke-width="1.3"/>
+<line x1="70" y1="215" x2="150" y2="215" stroke="#555" stroke-width="1.3"/>
+<line x1="70" y1="223" x2="150" y2="223" stroke="#555" stroke-width="1.3"/>
+<line x1="70" y1="231" x2="150" y2="231" stroke="#555" stroke-width="1.3"/>
+<path d="M150,193 h22 a22,22 0 0 1 0,44 h-22 z" fill="#fdf3e3" stroke="#222" stroke-width="1.6"/>
+<text x="166" y="220" font-size="14" text-anchor="middle" fill="#111">与</text>
+<line x1="194" y1="215" x2="262" y2="215" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<text x="226" y="209" font-size="14" text-anchor="middle" fill="#999" font-weight="bold">0</text>
+<text x="40" y="265" font-size="14" fill="#111">w2</text>
+<line x1="70" y1="244" x2="150" y2="244" stroke="#555" stroke-width="1.3"/>
+<line x1="70" y1="252" x2="150" y2="252" stroke="#555" stroke-width="1.3"/>
+<line x1="70" y1="260" x2="150" y2="260" stroke="#555" stroke-width="1.3"/>
+<line x1="70" y1="268" x2="150" y2="268" stroke="#555" stroke-width="1.3"/>
+<line x1="70" y1="276" x2="150" y2="276" stroke="#555" stroke-width="1.3"/>
+<path d="M150,238 h22 a22,22 0 0 1 0,44 h-22 z" fill="#fdf3e3" stroke="#222" stroke-width="1.6"/>
+<text x="166" y="265" font-size="14" text-anchor="middle" fill="#111">与</text>
+<line x1="194" y1="260" x2="262" y2="260" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<text x="226" y="254" font-size="14" text-anchor="middle" fill="#999" font-weight="bold">0</text>
+<text x="40" y="310" font-size="14" fill="#111">w3</text>
+<line x1="70" y1="289" x2="150" y2="289" stroke="#555" stroke-width="1.3"/>
+<line x1="70" y1="297" x2="150" y2="297" stroke="#555" stroke-width="1.3"/>
+<line x1="70" y1="305" x2="150" y2="305" stroke="#555" stroke-width="1.3"/>
+<line x1="70" y1="313" x2="150" y2="313" stroke="#555" stroke-width="1.3"/>
+<line x1="70" y1="321" x2="150" y2="321" stroke="#555" stroke-width="1.3"/>
+<path d="M150,283 h22 a22,22 0 0 1 0,44 h-22 z" fill="#fdf3e3" stroke="#222" stroke-width="1.6"/>
+<text x="166" y="310" font-size="14" text-anchor="middle" fill="#111">与</text>
+<line x1="194" y1="305" x2="262" y2="305" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<text x="226" y="299" font-size="14" text-anchor="middle" fill="#2e7d32" font-weight="bold">1</text>
+<text x="40" y="395" font-size="14" fill="#111">w15</text>
+<line x1="70" y1="374" x2="150" y2="374" stroke="#555" stroke-width="1.3"/>
+<line x1="70" y1="382" x2="150" y2="382" stroke="#555" stroke-width="1.3"/>
+<line x1="70" y1="390" x2="150" y2="390" stroke="#555" stroke-width="1.3"/>
+<line x1="70" y1="398" x2="150" y2="398" stroke="#555" stroke-width="1.3"/>
+<line x1="70" y1="406" x2="150" y2="406" stroke="#555" stroke-width="1.3"/>
+<path d="M150,368 h22 a22,22 0 0 1 0,44 h-22 z" fill="#fdf3e3" stroke="#222" stroke-width="1.6"/>
+<text x="166" y="395" font-size="14" text-anchor="middle" fill="#111">与</text>
+<line x1="194" y1="390" x2="262" y2="390" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<text x="226" y="384" font-size="14" text-anchor="middle" fill="#2e7d32" font-weight="bold">1</text>
+<text x="110" y="355" font-size="20" text-anchor="middle" fill="#555">⋮</text>
+<text x="110" y="440" font-size="14" text-anchor="middle" fill="#555">16 份，一样的电路</text>
+<text x="226" y="440" font-size="14" text-anchor="middle" fill="#555">就绪位</text>
+<rect x="264" y="150" width="250" height="260" rx="6" fill="#eef3fb" stroke="#222" stroke-width="1.8"/>
+<text x="389" y="176" font-size="15" text-anchor="middle" font-weight="bold" fill="#111">GTO 选择</text>
+<text x="280" y="206" font-size="14" fill="#111">一个寄存器记着上拍发的 warp</text>
+<text x="280" y="230" font-size="14" fill="#111">它这拍还就绪？</text>
+<text x="280" y="254" font-size="14" fill="#111">是 → 继续发它（贪心）</text>
+<text x="280" y="278" font-size="14" fill="#111">否 → 在其余就绪的 warp 里</text>
+<text x="280" y="302" font-size="14" fill="#111">　　　选最老的一个</text>
+<text x="280" y="326" font-size="14" fill="#111">（年龄计数器 + 优先编码器）</text>
+<text x="389" y="380" font-size="14" text-anchor="middle" fill="#b5451b">合计约 6～8 级门</text>
+<line x1="514" y1="280" x2="552" y2="280" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<rect x="554" y="240" width="140" height="80" rx="6" fill="#fdf3e3" stroke="#222" stroke-width="1.8"/>
+<text x="624" y="270" font-size="15" text-anchor="middle" font-weight="bold" fill="#111">选中 w3</text>
+<text x="624" y="294" font-size="14" text-anchor="middle" fill="#111">4 位 warp 号</text>
+<line x1="694" y1="280" x2="732" y2="280" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<rect x="734" y="232" width="200" height="96" rx="6" fill="#ffffff" stroke="#222" stroke-width="1.8"/>
+<text x="834" y="258" font-size="14" text-anchor="middle" fill="#111">译成各种使能信号，</text>
+<text x="834" y="280" font-size="14" text-anchor="middle" fill="#111">经较长的线送到</text>
+<text x="834" y="302" font-size="14" text-anchor="middle" fill="#111">操作数收集器</text>
+<text x="560" y="370" font-size="14" fill="#555">例（示意）：上拍发的是 w1，这拍它刚被</text>
+<text x="560" y="392" font-size="14" fill="#555">挂起（0），不能继续发；就绪的只有 w3</text>
+<text x="560" y="414" font-size="14" fill="#555">和 w15，其中 w3 更老，于是选 w3</text>
+<text x="30" y="468" font-size="15" font-weight="bold" fill="#111">这条路径的时间账（2 GHz，一拍 500 ps，按比例画，1 级门按 7 ps 粗算）</text>
+<rect x="80" y="480" width="56.0" height="40" fill="#e6e6e6" stroke="#222" stroke-width="1.2"/>
+<text x="108.0" y="505" font-size="14" text-anchor="middle" fill="#111">35</text>
+<rect x="136.0" y="480" width="22.400000000000002" height="40" fill="#fdf3e3" stroke="#222" stroke-width="1.2"/>
+<text x="147.2" y="505" font-size="14" text-anchor="middle" fill="#111">14</text>
+<rect x="158.4" y="480" width="78.4" height="40" fill="#eef3fb" stroke="#222" stroke-width="1.2"/>
+<text x="197.60000000000002" y="505" font-size="14" text-anchor="middle" fill="#111">49</text>
+<rect x="236.8" y="480" width="160.0" height="40" fill="#f2e3a0" stroke="#222" stroke-width="1.2"/>
+<text x="316.8" y="505" font-size="14" text-anchor="middle" fill="#111">100</text>
+<rect x="396.8" y="480" width="96.0" height="40" fill="#9cc3ea" stroke="#222" stroke-width="1.2"/>
+<text x="444.8" y="505" font-size="14" text-anchor="middle" fill="#111">60</text>
+<rect x="492.8" y="480" width="387.2" height="40" fill="#ffffff" stroke="#222" stroke-width="1.2" stroke-dasharray="5,3"/>
+<text x="686.4" y="505" font-size="14" text-anchor="middle" fill="#2e7d32">富余约 240 ps</text>
+<rect x="80" y="530" width="18" height="14" fill="#e6e6e6" stroke="#222"/>
+<text x="104" y="542" font-size="14" fill="#111">部分译码 35</text>
+<rect x="240" y="530" width="18" height="14" fill="#fdf3e3" stroke="#222"/>
+<text x="264" y="542" font-size="14" fill="#111">与运算 14</text>
+<rect x="400" y="530" width="18" height="14" fill="#eef3fb" stroke="#222"/>
+<text x="424" y="542" font-size="14" fill="#111">GTO+编码 49</text>
+<rect x="560" y="530" width="18" height="14" fill="#f2e3a0" stroke="#222"/>
+<text x="584" y="542" font-size="14" fill="#111">使能+长线 100</text>
+<rect x="720" y="530" width="18" height="14" fill="#9cc3ea" stroke="#222"/>
+<text x="744" y="542" font-size="14" fill="#111">触发器等 60</text>
+<text x="80" y="574" font-size="14" fill="#111">合计约 260 ps。warp 槽位加倍，就绪向量和优先编码器都变宽、多一两级门，这条路径随之变长——槽位数不能随便加。</text>
+<text x="80" y="598" font-size="14" fill="#555">数值取自正文 §5 的时间账表；五个输入的真实实现细节未公开，此处按正文的逻辑表达式示意。</text>
+</svg>

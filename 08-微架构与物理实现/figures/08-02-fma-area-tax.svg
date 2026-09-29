@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="520" fill="#ffffff"/>
+<text x="480" y="28" font-size="18" text-anchor="middle" font-weight="bold" fill="#111">FMA 的面积构成：尾数从 24 位砍到 4 位，乘法器缩得最狠，“浮点税”成了大头</text>
+<text x="30" y="72" font-size="16" font-weight="bold" fill="#111">FP32（尾数 24 位）：合计 100（按正文的面积分布）</text>
+<rect x="80" y="86" width="320" height="50" fill="#1f5fa8" stroke="#222" stroke-width="1.2"/>
+<text x="240.0" y="116" font-size="15" text-anchor="middle" fill="#ffffff" font-weight="bold">40</text>
+<rect x="400" y="86" width="120" height="50" fill="#f5c79b" stroke="#222" stroke-width="1.2"/>
+<text x="460.0" y="116" font-size="15" text-anchor="middle" fill="#111" font-weight="bold">15</text>
+<rect x="520" y="86" width="120" height="50" fill="#f2e3a0" stroke="#222" stroke-width="1.2"/>
+<text x="580.0" y="116" font-size="15" text-anchor="middle" fill="#111" font-weight="bold">15</text>
+<rect x="640" y="86" width="160" height="50" fill="#e8b4b4" stroke="#222" stroke-width="1.2"/>
+<text x="720.0" y="116" font-size="15" text-anchor="middle" fill="#111" font-weight="bold">20</text>
+<rect x="800" y="86" width="80" height="50" fill="#cfcfcf" stroke="#222" stroke-width="1.2"/>
+<text x="840.0" y="116" font-size="15" text-anchor="middle" fill="#111" font-weight="bold">10</text>
+<text x="240.0" y="158" font-size="14" text-anchor="middle" fill="#111">乘法器（①②）</text>
+<text x="460.0" y="180" font-size="14" text-anchor="middle" fill="#111">对阶移位（③）</text>
+<text x="580.0" y="158" font-size="14" text-anchor="middle" fill="#111">大加法器（④）</text>
+<text x="720.0" y="180" font-size="14" text-anchor="middle" fill="#111">前导零预测+归一化（⑤⑥）</text>
+<text x="840.0" y="158" font-size="14" text-anchor="middle" fill="#111">舍入+异常（⑦）</text>
+
+<text x="30" y="230" font-size="16" font-weight="bold" fill="#111">FP8（尾数 4 位）同比例尺：合计约 11</text>
+<rect x="80" y="244" width="8.88888888888889" height="50" fill="#1f5fa8" stroke="#222" stroke-width="1"/>
+<rect x="88.88888888888889" y="244" width="20.0" height="50" fill="#f5c79b" stroke="#222" stroke-width="1"/>
+<rect x="108.88888888888889" y="244" width="20.0" height="50" fill="#f2e3a0" stroke="#222" stroke-width="1"/>
+<rect x="128.88888888888889" y="244" width="26.666666666666668" height="50" fill="#e8b4b4" stroke="#222" stroke-width="1"/>
+<rect x="155.55555555555554" y="244" width="13.333333333333334" height="50" fill="#cfcfcf" stroke="#222" stroke-width="1"/>
+<text x="180.88888888888889" y="275" font-size="14" fill="#111">只有 FP32 的九分之一左右：同样的硅面积能摆下约 9 个</text>
+<text x="30" y="340" font-size="16" font-weight="bold" fill="#111">同一根 FP8 条放大 6 倍看构成：</text>
+<rect x="80" y="354" width="53.333333333333336" height="50" fill="#1f5fa8" stroke="#222" stroke-width="1.2"/>
+<text x="106.66666666666667" y="384" font-size="15" text-anchor="middle" fill="#ffffff" font-weight="bold">1.1</text>
+<rect x="133.33333333333334" y="354" width="120.0" height="50" fill="#f5c79b" stroke="#222" stroke-width="1.2"/>
+<text x="193.33333333333334" y="384" font-size="15" text-anchor="middle" fill="#111" font-weight="bold">2.5</text>
+<rect x="253.33333333333334" y="354" width="120.0" height="50" fill="#f2e3a0" stroke="#222" stroke-width="1.2"/>
+<text x="313.33333333333337" y="384" font-size="15" text-anchor="middle" fill="#111" font-weight="bold">2.5</text>
+<rect x="373.33333333333337" y="354" width="160.0" height="50" fill="#e8b4b4" stroke="#222" stroke-width="1.2"/>
+<text x="453.33333333333337" y="384" font-size="15" text-anchor="middle" fill="#111" font-weight="bold">3.3</text>
+<rect x="533.3333333333334" y="354" width="80.0" height="50" fill="#cfcfcf" stroke="#222" stroke-width="1.2"/>
+<text x="573.3333333333334" y="384" font-size="15" text-anchor="middle" fill="#111" font-weight="bold">1.7</text>
+<text x="625.3333333333334" y="376" font-size="14" fill="#111">乘法器只剩约 10%</text>
+<text x="625.3333333333334" y="396" font-size="14" fill="#b5451b">其余约 90% 是浮点税</text>
+<text x="30" y="444" font-size="14" fill="#111">缩放规律：乘法器面积随尾数位宽的平方缩小（24 → 4 位，缩到 (4/24)² = 1/36）；其余几块随位宽线性缩小（缩到 4/24 = 1/6）。</text>
+<text x="30" y="468" font-size="14" fill="#111">所以单纯堆低精度 FMA，收益会被这几块卡住；Tensor Core 的做法是让很多次乘法共用一次对阶、归一化、舍入（§5）。</text>
+<text x="30" y="500" font-size="14" fill="#555">示意：FP32 各块比例取正文 §3 的粗略分布；FP8 一栏假设“除乘法器外全部线性缩小”，实际上指数处理等部分缩得更少，浮点税占比只会更高。</text>
+</svg>

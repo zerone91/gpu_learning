@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="600" fill="#ffffff"/>
+<defs><marker id="k" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222222"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777777"/></marker><marker id="o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c77a12"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f6db5"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="n" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e8b57"/></marker><marker id="p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7a4fb0"/></marker></defs>
+<text x="480.0" y="30.0" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold">MoE 一层的时间线：计算单元和网络能不能同时忙（时长为示意单位）</text>
+<text x="30.0" y="62.0" font-size="16" text-anchor="start" fill="#222222" font-weight="bold">① 单批、不重叠</text>
+<text x="140.0" y="94.0" font-size="14" text-anchor="end" fill="#222222">计算单元</text>
+<text x="140.0" y="132.0" font-size="14" text-anchor="end" fill="#222222">网络</text>
+<rect x="150.0" y="74.0" width="192.0" height="30.0" rx="3" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="246.0" y="94.0" font-size="14" text-anchor="middle" fill="#222222">注意力</text>
+<rect x="342.0" y="74.0" width="144.0" height="30.0" rx="3" fill="#f5d0cb" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="4,3"/>
+<text x="414.0" y="94.0" font-size="14" text-anchor="middle" fill="#c0392b">空等</text>
+<rect x="486.0" y="74.0" width="96.0" height="30.0" rx="3" fill="#d5eddf" stroke="#2e8b57" stroke-width="1.5"/>
+<text x="534.0" y="94.0" font-size="14" text-anchor="middle" fill="#222222">共享专家</text>
+<rect x="582.0" y="74.0" width="192.0" height="30.0" rx="3" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="678.0" y="94.0" font-size="14" text-anchor="middle" fill="#222222">路由专家 FFN</text>
+<rect x="774.0" y="74.0" width="144.0" height="30.0" rx="3" fill="#f5d0cb" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="4,3"/>
+<text x="846.0" y="94.0" font-size="14" text-anchor="middle" fill="#c0392b">空等</text>
+<rect x="342.0" y="112.0" width="144.0" height="30.0" rx="3" fill="#f8e3c4" stroke="#c77a12" stroke-width="1.5"/>
+<text x="414.0" y="132.0" font-size="14" text-anchor="middle" fill="#222222">dispatch</text>
+<rect x="774.0" y="112.0" width="144.0" height="30.0" rx="3" fill="#f8e3c4" stroke="#c77a12" stroke-width="1.5"/>
+<text x="846.0" y="132.0" font-size="14" text-anchor="middle" fill="#222222">combine</text>
+<line x1="918.0" y1="68.0" x2="918.0" y2="150.0" stroke="#222222" stroke-width="1.5" stroke-dasharray="5,4"/>
+<text x="924.0" y="162.0" font-size="14" text-anchor="start" fill="#222222" font-weight="bold">共 16</text>
+<text x="150.0" y="166.0" font-size="14" text-anchor="start" fill="#777777">网络在传时计算单元没事做，6 个单位白白等过去</text>
+<text x="30.0" y="222.0" font-size="16" text-anchor="start" fill="#222222" font-weight="bold">② TBO：切成两个微批 A、B（每段时长减半）</text>
+<text x="140.0" y="254.0" font-size="14" text-anchor="end" fill="#222222">计算单元</text>
+<text x="140.0" y="292.0" font-size="14" text-anchor="end" fill="#222222">网络</text>
+<rect x="150.0" y="234.0" width="96.0" height="30.0" rx="3" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="198.0" y="254.0" font-size="14" text-anchor="middle" fill="#222222">A 注意力</text>
+<rect x="246.0" y="234.0" width="96.0" height="30.0" rx="3" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="294.0" y="254.0" font-size="14" text-anchor="middle" fill="#222222">B 注意力</text>
+<rect x="342.0" y="234.0" width="48.0" height="30.0" rx="3" fill="#d5eddf" stroke="#2e8b57" stroke-width="1.5"/>
+<text x="366.0" y="254.0" font-size="14" text-anchor="middle" fill="#222222">A共享</text>
+<rect x="390.0" y="234.0" width="96.0" height="30.0" rx="3" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="438.0" y="254.0" font-size="14" text-anchor="middle" fill="#222222">A 专家</text>
+<rect x="486.0" y="234.0" width="48.0" height="30.0" rx="3" fill="#d5eddf" stroke="#2e8b57" stroke-width="1.5"/>
+<text x="510.0" y="254.0" font-size="14" text-anchor="middle" fill="#222222">B共享</text>
+<rect x="534.0" y="234.0" width="96.0" height="30.0" rx="3" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="582.0" y="254.0" font-size="14" text-anchor="middle" fill="#222222">B 专家</text>
+<rect x="630.0" y="234.0" width="96.0" height="30.0" rx="3" fill="#ffffff" stroke="#777777" stroke-width="1.5" stroke-dasharray="4,3"/>
+<text x="678.0" y="254.0" font-size="14" text-anchor="middle" fill="#777777">下层 A…</text>
+<rect x="246.0" y="272.0" width="72.0" height="30.0" rx="3" fill="#f8e3c4" stroke="#c77a12" stroke-width="1.5"/>
+<text x="282.0" y="292.0" font-size="14" text-anchor="middle" fill="#222222">A disp</text>
+<rect x="342.0" y="272.0" width="72.0" height="30.0" rx="3" fill="#f8e3c4" stroke="#c77a12" stroke-width="1.5"/>
+<text x="378.0" y="292.0" font-size="14" text-anchor="middle" fill="#222222">B disp</text>
+<rect x="486.0" y="272.0" width="72.0" height="30.0" rx="3" fill="#f8e3c4" stroke="#c77a12" stroke-width="1.5"/>
+<text x="522.0" y="292.0" font-size="14" text-anchor="middle" fill="#222222">A comb</text>
+<rect x="630.0" y="272.0" width="72.0" height="30.0" rx="3" fill="#f8e3c4" stroke="#c77a12" stroke-width="1.5"/>
+<text x="666.0" y="292.0" font-size="14" text-anchor="middle" fill="#222222">B comb</text>
+<line x1="630.0" y1="228.0" x2="630.0" y2="310.0" stroke="#222222" stroke-width="1.5" stroke-dasharray="5,4"/>
+<text x="736.0" y="254.0" font-size="14" text-anchor="start" fill="#222222" font-weight="bold">本层共 10；B comb 被下一层盖住</text>
+<text x="150.0" y="326.0" font-size="14" text-anchor="start" fill="#777777">A 的通信都落在 B 的计算里，反之亦然；代价：两份激活同时驻留，显存约翻倍</text>
+<text x="30.0" y="382.0" font-size="16" text-anchor="start" fill="#222222" font-weight="bold">③ SBO：不切批，dispatch 期间先算不依赖路由结果的共享专家</text>
+<text x="140.0" y="414.0" font-size="14" text-anchor="end" fill="#222222">计算单元</text>
+<text x="140.0" y="452.0" font-size="14" text-anchor="end" fill="#222222">网络</text>
+<rect x="150.0" y="394.0" width="192.0" height="30.0" rx="3" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="246.0" y="414.0" font-size="14" text-anchor="middle" fill="#222222">注意力</text>
+<rect x="342.0" y="394.0" width="96.0" height="30.0" rx="3" fill="#d5eddf" stroke="#2e8b57" stroke-width="1.5"/>
+<text x="390.0" y="414.0" font-size="14" text-anchor="middle" fill="#222222">共享专家</text>
+<rect x="438.0" y="394.0" width="48.0" height="30.0" rx="3" fill="#f5d0cb" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="4,3"/>
+<text x="462.0" y="414.0" font-size="14" text-anchor="middle" fill="#c0392b">等</text>
+<rect x="486.0" y="394.0" width="192.0" height="30.0" rx="3" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="582.0" y="414.0" font-size="14" text-anchor="middle" fill="#222222">路由专家 FFN</text>
+<rect x="678.0" y="394.0" width="144.0" height="30.0" rx="3" fill="#f5d0cb" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="4,3"/>
+<text x="750.0" y="414.0" font-size="14" text-anchor="middle" fill="#c0392b">空等</text>
+<rect x="342.0" y="432.0" width="144.0" height="30.0" rx="3" fill="#f8e3c4" stroke="#c77a12" stroke-width="1.5"/>
+<text x="414.0" y="452.0" font-size="14" text-anchor="middle" fill="#222222">dispatch</text>
+<rect x="678.0" y="432.0" width="144.0" height="30.0" rx="3" fill="#f8e3c4" stroke="#c77a12" stroke-width="1.5"/>
+<text x="750.0" y="452.0" font-size="14" text-anchor="middle" fill="#222222">combine</text>
+<line x1="822.0" y1="388.0" x2="822.0" y2="470.0" stroke="#222222" stroke-width="1.5" stroke-dasharray="5,4"/>
+<text x="828.0" y="482.0" font-size="14" text-anchor="start" fill="#222222" font-weight="bold">共 14</text>
+<text x="150.0" y="486.0" font-size="14" text-anchor="start" fill="#777777">不多占显存；但能拿来盖通信的计算只有共享专家这一小段，窗口更碎</text>
+<line x1="150.0" y1="540.0" x2="918.0" y2="540.0" stroke="#777777" stroke-width="1.5"/>
+<line x1="150.0" y1="540.0" x2="150.0" y2="546.0" stroke="#777777" stroke-width="1.5"/>
+<text x="150.0" y="564.0" font-size="14" text-anchor="middle" fill="#777777">0</text>
+<line x1="246.0" y1="540.0" x2="246.0" y2="546.0" stroke="#777777" stroke-width="1.5"/>
+<text x="246.0" y="564.0" font-size="14" text-anchor="middle" fill="#777777">2</text>
+<line x1="342.0" y1="540.0" x2="342.0" y2="546.0" stroke="#777777" stroke-width="1.5"/>
+<text x="342.0" y="564.0" font-size="14" text-anchor="middle" fill="#777777">4</text>
+<line x1="438.0" y1="540.0" x2="438.0" y2="546.0" stroke="#777777" stroke-width="1.5"/>
+<text x="438.0" y="564.0" font-size="14" text-anchor="middle" fill="#777777">6</text>
+<line x1="534.0" y1="540.0" x2="534.0" y2="546.0" stroke="#777777" stroke-width="1.5"/>
+<text x="534.0" y="564.0" font-size="14" text-anchor="middle" fill="#777777">8</text>
+<line x1="630.0" y1="540.0" x2="630.0" y2="546.0" stroke="#777777" stroke-width="1.5"/>
+<text x="630.0" y="564.0" font-size="14" text-anchor="middle" fill="#777777">10</text>
+<line x1="726.0" y1="540.0" x2="726.0" y2="546.0" stroke="#777777" stroke-width="1.5"/>
+<text x="726.0" y="564.0" font-size="14" text-anchor="middle" fill="#777777">12</text>
+<line x1="822.0" y1="540.0" x2="822.0" y2="546.0" stroke="#777777" stroke-width="1.5"/>
+<text x="822.0" y="564.0" font-size="14" text-anchor="middle" fill="#777777">14</text>
+<line x1="918.0" y1="540.0" x2="918.0" y2="546.0" stroke="#777777" stroke-width="1.5"/>
+<text x="918.0" y="564.0" font-size="14" text-anchor="middle" fill="#777777">16</text>
+<text x="928.0" y="564.0" font-size="14" text-anchor="start" fill="#777777">时间</text>
+<rect x="150.0" y="572.0" width="20.0" height="14.0" rx="3" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="176.0" y="584.0" font-size="14" text-anchor="start" fill="#222222">计算</text>
+<rect x="230.0" y="572.0" width="20.0" height="14.0" rx="3" fill="#d5eddf" stroke="#2e8b57" stroke-width="1.5"/>
+<text x="256.0" y="584.0" font-size="14" text-anchor="start" fill="#222222">共享专家（每个 token 都过，不等路由）</text>
+<rect x="540.0" y="572.0" width="20.0" height="14.0" rx="3" fill="#f8e3c4" stroke="#c77a12" stroke-width="1.5"/>
+<text x="566.0" y="584.0" font-size="14" text-anchor="start" fill="#222222">跨卡通信</text>
+<rect x="660.0" y="572.0" width="20.0" height="14.0" rx="3" fill="#f5d0cb" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="4,3"/>
+<text x="686.0" y="584.0" font-size="14" text-anchor="start" fill="#222222">计算单元空等</text>
+</svg>

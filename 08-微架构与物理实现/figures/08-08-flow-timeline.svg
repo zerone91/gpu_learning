@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 545" width="980" height="545" font-family="sans-serif">
+<rect x="0" y="0" width="980" height="545" fill="#ffffff"/>
+<text x="490" y="28" font-size="18" text-anchor="middle" font-weight="bold" fill="#111">一颗大芯片从架构探索到出货约 45 个月；流片那一刻之后，硅片就改不动了</text>
+<line x1="210.0" y1="85" x2="210.0" y2="447" stroke="#e5e5e5" stroke-width="1"/>
+<text x="210.0" y="467" font-size="14" text-anchor="middle" fill="#111">0</text>
+<line x1="302.5" y1="85" x2="302.5" y2="447" stroke="#e5e5e5" stroke-width="1"/>
+<text x="302.5" y="467" font-size="14" text-anchor="middle" fill="#111">6</text>
+<line x1="395.0" y1="85" x2="395.0" y2="447" stroke="#e5e5e5" stroke-width="1"/>
+<text x="395.0" y="467" font-size="14" text-anchor="middle" fill="#111">12</text>
+<line x1="487.5" y1="85" x2="487.5" y2="447" stroke="#e5e5e5" stroke-width="1"/>
+<text x="487.5" y="467" font-size="14" text-anchor="middle" fill="#111">18</text>
+<line x1="580.0" y1="85" x2="580.0" y2="447" stroke="#e5e5e5" stroke-width="1"/>
+<text x="580.0" y="467" font-size="14" text-anchor="middle" fill="#111">24</text>
+<line x1="672.5" y1="85" x2="672.5" y2="447" stroke="#e5e5e5" stroke-width="1"/>
+<text x="672.5" y="467" font-size="14" text-anchor="middle" fill="#111">30</text>
+<line x1="765.0" y1="85" x2="765.0" y2="447" stroke="#e5e5e5" stroke-width="1"/>
+<text x="765.0" y="467" font-size="14" text-anchor="middle" fill="#111">36</text>
+<line x1="857.5" y1="85" x2="857.5" y2="447" stroke="#e5e5e5" stroke-width="1"/>
+<text x="857.5" y="467" font-size="14" text-anchor="middle" fill="#111">42</text>
+<line x1="950.0" y1="85" x2="950.0" y2="447" stroke="#e5e5e5" stroke-width="1"/>
+<text x="950.0" y="467" font-size="14" text-anchor="middle" fill="#111">48</text>
+<text x="580.0" y="489" font-size="14" text-anchor="middle" fill="#111">从架构探索开始算的月数（典型值，各家有出入）</text>
+<text x="198" y="115" font-size="14" text-anchor="end" fill="#111">架构探索</text>
+<rect x="210.0" y="97" width="138.8" height="26" rx="4" fill="#e6dcf0" stroke="#6a3d9a" stroke-width="1.6"/>
+<text x="356.8" y="115" font-size="13" fill="#555">性能模型、周期精确模拟器</text>
+<text x="198" y="159" font-size="14" text-anchor="end" fill="#111">微架构与 RTL</text>
+<rect x="317.9" y="141" width="185.0" height="26" rx="4" fill="#cfe2f3" stroke="#1f5fa8" stroke-width="1.6"/>
+<text x="510.9" y="159" font-size="13" fill="#555">写成可综合的代码</text>
+<text x="198" y="203" font-size="14" text-anchor="end" fill="#111">功能验证</text>
+<rect x="333.3" y="185" width="339.2" height="26" rx="4" fill="#f9d9c8" stroke="#b5451b" stroke-width="1.6"/>
+<text x="502.9" y="203" font-size="13" text-anchor="middle" fill="#333">贯穿 18～24 个月，工作量最大</text>
+<text x="198" y="247" font-size="14" text-anchor="end" fill="#111">综合与物理实现</text>
+<rect x="487.5" y="229" width="169.6" height="26" rx="4" fill="#d6ecd2" stroke="#2e7d32" stroke-width="1.6"/>
+<text x="572.3" y="247" font-size="13" text-anchor="middle" fill="#333">布局、时钟树、布线</text>
+<text x="198" y="291" font-size="14" text-anchor="end" fill="#111">签核</text>
+<rect x="657.1" y="273" width="38.5" height="26" rx="4" fill="#fff4d6" stroke="#9a6b00" stroke-width="1.6"/>
+<text x="198" y="335" font-size="14" text-anchor="end" fill="#111">制造</text>
+<rect x="695.6" y="317" width="46.2" height="26" rx="4" fill="#eeeeee" stroke="#555" stroke-width="1.6"/>
+<text x="749.9" y="335" font-size="13" fill="#555">2.5～3 个月，什么都做不了</text>
+<text x="198" y="379" font-size="14" text-anchor="end" fill="#111">bring-up</text>
+<rect x="741.9" y="361" width="38.5" height="26" rx="4" fill="#cfe2f3" stroke="#1f5fa8" stroke-width="1.6"/>
+<text x="788.4" y="379" font-size="13" fill="#555">第一批硅片上电</text>
+<text x="198" y="423" font-size="14" text-anchor="end" fill="#111">修版与量产准备</text>
+<rect x="780.4" y="405" width="138.8" height="26" rx="4" fill="#f4f4f4" stroke="#555" stroke-width="1.6"/>
+<line x1="695.625" y1="73" x2="695.625" y2="447" stroke="#b5451b" stroke-width="2.5"/>
+<text x="695.625" y="67" font-size="15" text-anchor="middle" font-weight="bold" fill="#b5451b">流片</text>
+<line x1="348.75" y1="73" x2="348.75" y2="447" stroke="#6a3d9a" stroke-width="2" stroke-dasharray="6,4"/>
+<text x="348.75" y="67" font-size="15" text-anchor="middle" font-weight="bold" fill="#6a3d9a">架构定案</text>
+<text x="919.1666666666666" y="67" font-size="15" text-anchor="middle" font-weight="bold" fill="#111">出货</text>
+<line x1="919.1666666666666" y1="73" x2="919.1666666666666" y2="447" stroke="#111" stroke-width="2" stroke-dasharray="3,3"/>
+<text x="40" y="517" font-size="14" fill="#111">架构定案之后还要约三年才出货：2026 年出货的芯片，SM 数量、矩阵单元形状、片上存储容量、支持哪些数据格式，是 2022～2023 年定的。</text>
+<text x="40" y="539" font-size="14" fill="#b5451b">流片之后发现的硬 bug：重新流片要几千万美元加三到六个月。</text>
+</svg>

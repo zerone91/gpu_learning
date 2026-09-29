@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="520" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222222"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f6db5"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777777"/></marker><marker id="o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c77a12"/></marker><marker id="n" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e8b57"/></marker><marker id="p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7a4fb0"/></marker></defs>
+<text x="480" y="30" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold">配置 128×128×64、8 warp、3 级流水在 H100 上的资源账</text>
+<text x="180" y="96" font-size="14" text-anchor="end" fill="#222222">一个 SM 的</text>
+<text x="180" y="114" font-size="14" text-anchor="end" fill="#222222">shared memory</text>
+<text x="180" y="132" font-size="14" text-anchor="end" fill="#222222" font-weight="bold">228 KB</text>
+<rect x="200.0" y="84" width="98.24561403508773" height="54" rx="0" fill="#f8e3c4" stroke="#c77a12" stroke-width="1.5"/>
+<text x="249.12280701754386" y="106" font-size="12" text-anchor="middle" fill="#222222">第 1 级</text>
+<text x="249.12280701754386" y="126" font-size="12" text-anchor="middle" fill="#444">32 KB</text>
+<rect x="298.2456140350877" y="84" width="98.24561403508773" height="54" rx="0" fill="#f8e3c4" stroke="#c77a12" stroke-width="1.5"/>
+<text x="347.36842105263156" y="106" font-size="12" text-anchor="middle" fill="#222222">第 2 级</text>
+<text x="347.36842105263156" y="126" font-size="12" text-anchor="middle" fill="#444">32 KB</text>
+<rect x="396.49122807017545" y="84" width="98.24561403508773" height="54" rx="0" fill="#f8e3c4" stroke="#c77a12" stroke-width="1.5"/>
+<text x="445.61403508771934" y="106" font-size="12" text-anchor="middle" fill="#222222">第 3 级</text>
+<text x="445.61403508771934" y="126" font-size="12" text-anchor="middle" fill="#444">32 KB</text>
+<text x="347.36842105263156" y="158" font-size="13" text-anchor="middle" fill="#c77a12">线程块 1：3 × 32 KB = 96 KB</text>
+<rect x="494.7368421052632" y="84" width="98.24561403508773" height="54" rx="0" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="543.859649122807" y="106" font-size="12" text-anchor="middle" fill="#222222">第 1 级</text>
+<text x="543.859649122807" y="126" font-size="12" text-anchor="middle" fill="#444">32 KB</text>
+<rect x="592.9824561403509" y="84" width="98.24561403508773" height="54" rx="0" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="642.1052631578948" y="106" font-size="12" text-anchor="middle" fill="#222222">第 2 级</text>
+<text x="642.1052631578948" y="126" font-size="12" text-anchor="middle" fill="#444">32 KB</text>
+<rect x="691.2280701754387" y="84" width="98.24561403508773" height="54" rx="0" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="740.3508771929826" y="106" font-size="12" text-anchor="middle" fill="#222222">第 3 级</text>
+<text x="740.3508771929826" y="126" font-size="12" text-anchor="middle" fill="#444">32 KB</text>
+<text x="642.1052631578948" y="158" font-size="13" text-anchor="middle" fill="#2f6db5">线程块 2：3 × 32 KB = 96 KB</text>
+<rect x="789.4736842105264" y="84" width="110.5263157894737" height="54" rx="0" fill="#eeeeee" stroke="#777777" stroke-width="1.5" stroke-dasharray="4,3"/>
+<text x="844.7368421052632" y="116" font-size="12" text-anchor="middle" fill="#777777">剩 36 KB</text>
+<text x="844.7368421052632" y="158" font-size="12" text-anchor="middle" fill="#c0392b">放不下第 3 块</text>
+<text x="180" y="206" font-size="14" text-anchor="end" fill="#222222">一个 SM 的寄存器</text>
+<text x="180" y="224" font-size="14" text-anchor="end" fill="#222222" font-weight="bold">65536 个</text>
+<rect x="200.0" y="190" width="262.5" height="40" rx="0" fill="#f8e3c4" stroke="#c77a12" stroke-width="1.5"/>
+<text x="331.25" y="215" font-size="12" text-anchor="middle" fill="#222222">线程块 1：256 线程 × 约 96 = 24576</text>
+<rect x="462.5" y="190" width="262.5" height="40" rx="0" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="593.75" y="215" font-size="12" text-anchor="middle" fill="#222222">线程块 2：256 线程 × 约 96 = 24576</text>
+<rect x="725.0" y="190" width="175.0" height="40" rx="0" fill="#eeeeee" stroke="#777777" stroke-width="1.5" stroke-dasharray="4,3"/>
+<text x="812.5" y="215" font-size="12" text-anchor="middle" fill="#777777">剩 16384</text>
+<text x="550.0" y="254" font-size="13" text-anchor="middle" fill="#444">两种资源给出的上限都是每 SM 2 块（每线程约 96 个寄存器为估算，其中累加器占 64 个）</text>
+<text x="480" y="300" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">1024 个线程块 ÷ 整机每波 132 SM × 2 = 264 个位置 ≈ 3.9 波</text>
+<text x="180" y="344" font-size="14" text-anchor="end" fill="#222222">第 1 波</text>
+<rect x="200" y="322" width="700.0" height="30" rx="0" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="550.0" y="342" font-size="13" text-anchor="middle" fill="#222222">264 块</text>
+<text x="180" y="384" font-size="14" text-anchor="end" fill="#222222">第 2 波</text>
+<rect x="200" y="362" width="700.0" height="30" rx="0" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="550.0" y="382" font-size="13" text-anchor="middle" fill="#222222">264 块</text>
+<text x="180" y="424" font-size="14" text-anchor="end" fill="#222222">第 3 波</text>
+<rect x="200" y="402" width="700.0" height="30" rx="0" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="550.0" y="422" font-size="13" text-anchor="middle" fill="#222222">264 块</text>
+<text x="180" y="464" font-size="14" text-anchor="end" fill="#222222">第 4 波</text>
+<rect x="200" y="442" width="615.1515151515151" height="30" rx="0" fill="#f8e3c4" stroke="#c77a12" stroke-width="1.5"/>
+<text x="507.57575757575756" y="462" font-size="13" text-anchor="middle" fill="#222222">232 块</text>
+<rect x="815.1515151515151" y="442" width="84.84848484848484" height="30" rx="0" fill="#ffffff" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="4,3"/>
+<text x="857.5757575757575" y="462" font-size="12" text-anchor="middle" fill="#c0392b">空 32</text>
+<text x="480" y="496" font-size="14" text-anchor="middle" fill="#c0392b">最后一波只有 232 ÷ 264 ≈ 88% 的位置在干活：这就是尾效应造成的少量浪费</text>
+</svg>

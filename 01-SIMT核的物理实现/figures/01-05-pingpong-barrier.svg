@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 536" width="960" height="536" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="536" fill="#ffffff"/>
+<defs><pattern id="h" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="#f4f4f4"/><line x1="0" y1="0" x2="0" y2="8" stroke="#999" stroke-width="2"/></pattern><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker></defs>
+<text x="480" y="26" font-size="18" text-anchor="middle" fill="#222" font-weight="bold">多加一对屏障反而更快：让两组线程错开半拍，轮流用两种硬件（示意）</text>
+<text x="30" y="66" font-size="16" fill="#c0392b" font-weight="bold">不加屏障：两组碰巧同步，一起挤矩阵乘、又一起做 softmax</text>
+<text x="30" y="102" font-size="15" fill="#222">第 1 组 warp</text>
+<rect x="210" y="82" width="280" height="30" fill="#dbe8f6" stroke="#222" stroke-width="1.5"/>
+<text x="350.0" y="102.0" font-size="14" text-anchor="middle" fill="#222">矩阵乘</text>
+<rect x="490" y="82" width="140" height="30" fill="#fbe3c4" stroke="#222" stroke-width="1.5"/>
+<text x="560.0" y="102.0" font-size="14" text-anchor="middle" fill="#222">softmax</text>
+<rect x="630" y="82" width="280" height="30" fill="#dbe8f6" stroke="#222" stroke-width="1.5"/>
+<text x="770.0" y="102.0" font-size="14" text-anchor="middle" fill="#222">矩阵乘</text>
+<text x="30" y="142" font-size="15" fill="#222">第 2 组 warp</text>
+<rect x="210" y="122" width="280" height="30" fill="#dbe8f6" stroke="#222" stroke-width="1.5"/>
+<text x="350.0" y="142.0" font-size="14" text-anchor="middle" fill="#222">矩阵乘</text>
+<rect x="490" y="122" width="140" height="30" fill="#fbe3c4" stroke="#222" stroke-width="1.5"/>
+<text x="560.0" y="142.0" font-size="14" text-anchor="middle" fill="#222">softmax</text>
+<rect x="630" y="122" width="280" height="30" fill="#dbe8f6" stroke="#222" stroke-width="1.5"/>
+<text x="770.0" y="142.0" font-size="14" text-anchor="middle" fill="#222">矩阵乘</text>
+<text x="30" y="179" font-size="14" fill="#555">Tensor Core 忙</text>
+<rect x="210" y="166" width="700" height="16" fill="#ffffff" stroke="#aaa" stroke-width="1"/>
+<rect x="210" y="166" width="280" height="16" fill="#555"/>
+<rect x="630" y="166" width="280" height="16" fill="#555"/>
+<text x="30" y="205" font-size="14" fill="#555">特殊函数单元忙</text>
+<rect x="210" y="192" width="700" height="16" fill="#ffffff" stroke="#aaa" stroke-width="1"/>
+<rect x="490" y="192" width="140" height="16" fill="#555"/>
+<text x="30" y="234" font-size="14" fill="#c0392b">两组抢同一个 Tensor Core，各自的矩阵乘都变慢一倍；做 softmax 时 Tensor Core 整段闲着</text>
+<text x="30" y="300" font-size="16" fill="#2e8b57" font-weight="bold">加一对屏障：第 2 组先等半拍，此后两组轮流</text>
+<text x="30" y="336" font-size="15" fill="#222">第 1 组 warp</text>
+<rect x="210" y="316" width="140" height="30" fill="#dbe8f6" stroke="#222" stroke-width="1.5"/>
+<text x="280.0" y="336.0" font-size="14" text-anchor="middle" fill="#222">矩阵乘</text>
+<rect x="350" y="316" width="140" height="30" fill="#fbe3c4" stroke="#222" stroke-width="1.5"/>
+<text x="420.0" y="336.0" font-size="14" text-anchor="middle" fill="#222">softmax</text>
+<rect x="490" y="316" width="140" height="30" fill="#dbe8f6" stroke="#222" stroke-width="1.5"/>
+<text x="560.0" y="336.0" font-size="14" text-anchor="middle" fill="#222">矩阵乘</text>
+<rect x="630" y="316" width="140" height="30" fill="#fbe3c4" stroke="#222" stroke-width="1.5"/>
+<text x="700.0" y="336.0" font-size="14" text-anchor="middle" fill="#222">softmax</text>
+<rect x="770" y="316" width="140" height="30" fill="#dbe8f6" stroke="#222" stroke-width="1.5"/>
+<text x="840.0" y="336.0" font-size="14" text-anchor="middle" fill="#222">矩阵乘</text>
+<text x="30" y="376" font-size="15" fill="#222">第 2 组 warp</text>
+<rect x="210" y="356" width="140" height="30" fill="url(#h)" stroke="#222" stroke-width="1.5"/>
+<rect x="262.0" y="362" width="36" height="18" fill="#ffffff"/>
+<text x="280.0" y="376.0" font-size="14" text-anchor="middle" fill="#222">等</text>
+<rect x="350" y="356" width="140" height="30" fill="#dbe8f6" stroke="#222" stroke-width="1.5"/>
+<text x="420.0" y="376.0" font-size="14" text-anchor="middle" fill="#222">矩阵乘</text>
+<rect x="490" y="356" width="140" height="30" fill="#fbe3c4" stroke="#222" stroke-width="1.5"/>
+<text x="560.0" y="376.0" font-size="14" text-anchor="middle" fill="#222">softmax</text>
+<rect x="630" y="356" width="140" height="30" fill="#dbe8f6" stroke="#222" stroke-width="1.5"/>
+<text x="700.0" y="376.0" font-size="14" text-anchor="middle" fill="#222">矩阵乘</text>
+<rect x="770" y="356" width="140" height="30" fill="#fbe3c4" stroke="#222" stroke-width="1.5"/>
+<text x="840.0" y="376.0" font-size="14" text-anchor="middle" fill="#222">softmax</text>
+<text x="30" y="413" font-size="14" fill="#555">Tensor Core 忙</text>
+<rect x="210" y="400" width="700" height="16" fill="#ffffff" stroke="#aaa" stroke-width="1"/>
+<rect x="210" y="400" width="700" height="16" fill="#555"/>
+<text x="30" y="439" font-size="14" fill="#555">特殊函数单元忙</text>
+<rect x="210" y="426" width="700" height="16" fill="#ffffff" stroke="#aaa" stroke-width="1"/>
+<rect x="350" y="426" width="560" height="16" fill="#555"/>
+<text x="30" y="468" font-size="14" fill="#2e8b57">一组做矩阵乘时，另一组正好做 softmax：Tensor Core 从头忙到尾</text>
+<line x1="210" y1="496" x2="920" y2="496" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<text x="910" y="520" font-size="14" text-anchor="end" fill="#222">时间</text>
+<text x="210" y="520" font-size="14" fill="#555">同样 10 个时间单位：上面完成 4 次矩阵乘，下面完成 5 次</text>
+</svg>

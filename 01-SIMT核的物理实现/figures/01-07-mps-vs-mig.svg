@@ -1,0 +1,233 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="560" fill="#ffffff"/>
+<text x="480" y="26" font-size="18" text-anchor="middle" fill="#222" font-weight="bold">多个进程怎样分一块 GPU：轮流、合租、隔断</text>
+<text x="160" y="62" font-size="16" text-anchor="middle" fill="#222" font-weight="bold">默认：时间片轮流</text>
+<text x="160" y="84" font-size="14" text-anchor="middle" fill="#555">此刻整块卡归 A，下一段归 B</text>
+<rect x="20" y="96" width="280" height="250" rx="8" fill="#ffffff" stroke="#222" stroke-width="2.5"/>
+<text x="160" y="116" font-size="14" text-anchor="middle" fill="#222">SM</text>
+<rect x="34" y="124" width="30" height="26" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<text x="49" y="142" font-size="13" text-anchor="middle" fill="#222">A</text>
+<rect x="34" y="156" width="30" height="26" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<text x="49" y="174" font-size="13" text-anchor="middle" fill="#222">A</text>
+<rect x="34" y="188" width="30" height="26" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<text x="49" y="206" font-size="13" text-anchor="middle" fill="#222">A</text>
+<rect x="34" y="220" width="30" height="26" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<text x="49" y="238" font-size="13" text-anchor="middle" fill="#222">A</text>
+<rect x="70" y="124" width="30" height="26" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<text x="85" y="142" font-size="13" text-anchor="middle" fill="#222">A</text>
+<rect x="70" y="156" width="30" height="26" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<text x="85" y="174" font-size="13" text-anchor="middle" fill="#222">A</text>
+<rect x="70" y="188" width="30" height="26" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<text x="85" y="206" font-size="13" text-anchor="middle" fill="#222">A</text>
+<rect x="70" y="220" width="30" height="26" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<text x="85" y="238" font-size="13" text-anchor="middle" fill="#222">A</text>
+<rect x="106" y="124" width="30" height="26" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<text x="121" y="142" font-size="13" text-anchor="middle" fill="#222">A</text>
+<rect x="106" y="156" width="30" height="26" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<text x="121" y="174" font-size="13" text-anchor="middle" fill="#222">A</text>
+<rect x="106" y="188" width="30" height="26" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<text x="121" y="206" font-size="13" text-anchor="middle" fill="#222">A</text>
+<rect x="106" y="220" width="30" height="26" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<text x="121" y="238" font-size="13" text-anchor="middle" fill="#222">A</text>
+<rect x="142" y="124" width="30" height="26" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<text x="157" y="142" font-size="13" text-anchor="middle" fill="#222">A</text>
+<rect x="142" y="156" width="30" height="26" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<text x="157" y="174" font-size="13" text-anchor="middle" fill="#222">A</text>
+<rect x="142" y="188" width="30" height="26" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<text x="157" y="206" font-size="13" text-anchor="middle" fill="#222">A</text>
+<rect x="142" y="220" width="30" height="26" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<text x="157" y="238" font-size="13" text-anchor="middle" fill="#222">A</text>
+<rect x="178" y="124" width="30" height="26" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<text x="193" y="142" font-size="13" text-anchor="middle" fill="#222">A</text>
+<rect x="178" y="156" width="30" height="26" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<text x="193" y="174" font-size="13" text-anchor="middle" fill="#222">A</text>
+<rect x="178" y="188" width="30" height="26" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<text x="193" y="206" font-size="13" text-anchor="middle" fill="#222">A</text>
+<rect x="178" y="220" width="30" height="26" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<text x="193" y="238" font-size="13" text-anchor="middle" fill="#222">A</text>
+<rect x="214" y="124" width="30" height="26" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<text x="229" y="142" font-size="13" text-anchor="middle" fill="#222">A</text>
+<rect x="214" y="156" width="30" height="26" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<text x="229" y="174" font-size="13" text-anchor="middle" fill="#222">A</text>
+<rect x="214" y="188" width="30" height="26" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<text x="229" y="206" font-size="13" text-anchor="middle" fill="#222">A</text>
+<rect x="214" y="220" width="30" height="26" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<text x="229" y="238" font-size="13" text-anchor="middle" fill="#222">A</text>
+<rect x="250" y="124" width="30" height="26" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<text x="265" y="142" font-size="13" text-anchor="middle" fill="#222">A</text>
+<rect x="250" y="156" width="30" height="26" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<text x="265" y="174" font-size="13" text-anchor="middle" fill="#222">A</text>
+<rect x="250" y="188" width="30" height="26" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<text x="265" y="206" font-size="13" text-anchor="middle" fill="#222">A</text>
+<rect x="250" y="220" width="30" height="26" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<text x="265" y="238" font-size="13" text-anchor="middle" fill="#222">A</text>
+<rect x="34" y="258" width="246" height="30" fill="#eeeeee" stroke="#222" stroke-width="1.5"/>
+<text x="157" y="278" font-size="14" text-anchor="middle" fill="#222">L2 缓存（大家共用）</text>
+<rect x="34" y="302" width="246" height="30" fill="#eeeeee" stroke="#222" stroke-width="1.5"/>
+<text x="157" y="322" font-size="14" text-anchor="middle" fill="#222">显存（大家共用）</text>
+<text x="480" y="62" font-size="16" text-anchor="middle" fill="#222" font-weight="bold">MPS：合租</text>
+<text x="480" y="84" font-size="14" text-anchor="middle" fill="#555">A、B 的 kernel 同时在跑，各占一些 SM</text>
+<rect x="340" y="96" width="280" height="250" rx="8" fill="#ffffff" stroke="#222" stroke-width="2.5"/>
+<text x="480" y="116" font-size="14" text-anchor="middle" fill="#222">SM</text>
+<rect x="354" y="124" width="30" height="26" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<text x="369" y="142" font-size="13" text-anchor="middle" fill="#222">A</text>
+<rect x="354" y="156" width="30" height="26" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<text x="369" y="174" font-size="13" text-anchor="middle" fill="#222">A</text>
+<rect x="354" y="188" width="30" height="26" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<text x="369" y="206" font-size="13" text-anchor="middle" fill="#222">A</text>
+<rect x="354" y="220" width="30" height="26" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<text x="369" y="238" font-size="13" text-anchor="middle" fill="#222">A</text>
+<rect x="390" y="124" width="30" height="26" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<text x="405" y="142" font-size="13" text-anchor="middle" fill="#222">A</text>
+<rect x="390" y="156" width="30" height="26" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<text x="405" y="174" font-size="13" text-anchor="middle" fill="#222">A</text>
+<rect x="390" y="188" width="30" height="26" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<text x="405" y="206" font-size="13" text-anchor="middle" fill="#222">A</text>
+<rect x="390" y="220" width="30" height="26" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<text x="405" y="238" font-size="13" text-anchor="middle" fill="#222">A</text>
+<rect x="426" y="124" width="30" height="26" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<text x="441" y="142" font-size="13" text-anchor="middle" fill="#222">A</text>
+<rect x="426" y="156" width="30" height="26" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<text x="441" y="174" font-size="13" text-anchor="middle" fill="#222">A</text>
+<rect x="426" y="188" width="30" height="26" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<text x="441" y="206" font-size="13" text-anchor="middle" fill="#222">A</text>
+<rect x="426" y="220" width="30" height="26" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<text x="441" y="238" font-size="13" text-anchor="middle" fill="#222">A</text>
+<rect x="462" y="124" width="30" height="26" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<text x="477" y="142" font-size="13" text-anchor="middle" fill="#222">A</text>
+<rect x="462" y="156" width="30" height="26" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<text x="477" y="174" font-size="13" text-anchor="middle" fill="#222">A</text>
+<rect x="462" y="188" width="30" height="26" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<text x="477" y="206" font-size="13" text-anchor="middle" fill="#222">A</text>
+<rect x="462" y="220" width="30" height="26" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<text x="477" y="238" font-size="13" text-anchor="middle" fill="#222">A</text>
+<rect x="498" y="124" width="30" height="26" fill="#fbe3c4" stroke="#222" stroke-width="1.2"/>
+<text x="513" y="142" font-size="13" text-anchor="middle" fill="#222">B</text>
+<rect x="498" y="156" width="30" height="26" fill="#fbe3c4" stroke="#222" stroke-width="1.2"/>
+<text x="513" y="174" font-size="13" text-anchor="middle" fill="#222">B</text>
+<rect x="498" y="188" width="30" height="26" fill="#fbe3c4" stroke="#222" stroke-width="1.2"/>
+<text x="513" y="206" font-size="13" text-anchor="middle" fill="#222">B</text>
+<rect x="498" y="220" width="30" height="26" fill="#fbe3c4" stroke="#222" stroke-width="1.2"/>
+<text x="513" y="238" font-size="13" text-anchor="middle" fill="#222">B</text>
+<rect x="534" y="124" width="30" height="26" fill="#fbe3c4" stroke="#222" stroke-width="1.2"/>
+<text x="549" y="142" font-size="13" text-anchor="middle" fill="#222">B</text>
+<rect x="534" y="156" width="30" height="26" fill="#fbe3c4" stroke="#222" stroke-width="1.2"/>
+<text x="549" y="174" font-size="13" text-anchor="middle" fill="#222">B</text>
+<rect x="534" y="188" width="30" height="26" fill="#fbe3c4" stroke="#222" stroke-width="1.2"/>
+<text x="549" y="206" font-size="13" text-anchor="middle" fill="#222">B</text>
+<rect x="534" y="220" width="30" height="26" fill="#fbe3c4" stroke="#222" stroke-width="1.2"/>
+<text x="549" y="238" font-size="13" text-anchor="middle" fill="#222">B</text>
+<rect x="570" y="124" width="30" height="26" fill="#fbe3c4" stroke="#222" stroke-width="1.2"/>
+<text x="585" y="142" font-size="13" text-anchor="middle" fill="#222">B</text>
+<rect x="570" y="156" width="30" height="26" fill="#fbe3c4" stroke="#222" stroke-width="1.2"/>
+<text x="585" y="174" font-size="13" text-anchor="middle" fill="#222">B</text>
+<rect x="570" y="188" width="30" height="26" fill="#fbe3c4" stroke="#222" stroke-width="1.2"/>
+<text x="585" y="206" font-size="13" text-anchor="middle" fill="#222">B</text>
+<rect x="570" y="220" width="30" height="26" fill="#fbe3c4" stroke="#222" stroke-width="1.2"/>
+<text x="585" y="238" font-size="13" text-anchor="middle" fill="#222">B</text>
+<rect x="354" y="258" width="246" height="30" fill="#eeeeee" stroke="#222" stroke-width="1.5"/>
+<text x="477" y="278" font-size="14" text-anchor="middle" fill="#222">L2 缓存（大家共用）</text>
+<rect x="354" y="302" width="246" height="30" fill="#eeeeee" stroke="#222" stroke-width="1.5"/>
+<text x="477" y="322" font-size="14" text-anchor="middle" fill="#222">显存（大家共用）</text>
+<text x="800" y="62" font-size="16" text-anchor="middle" fill="#222" font-weight="bold">MIG：隔断间</text>
+<text x="800" y="84" font-size="14" text-anchor="middle" fill="#555">切成 7 份，分给 A、B、C、D 四个实例</text>
+<rect x="660" y="96" width="280" height="250" rx="8" fill="#ffffff" stroke="#222" stroke-width="2.5"/>
+<text x="800" y="116" font-size="14" text-anchor="middle" fill="#222">SM</text>
+<rect x="674" y="124" width="30" height="26" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<text x="689" y="142" font-size="13" text-anchor="middle" fill="#222">A</text>
+<rect x="674" y="156" width="30" height="26" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<text x="689" y="174" font-size="13" text-anchor="middle" fill="#222">A</text>
+<rect x="674" y="188" width="30" height="26" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<text x="689" y="206" font-size="13" text-anchor="middle" fill="#222">A</text>
+<rect x="674" y="220" width="30" height="26" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<text x="689" y="238" font-size="13" text-anchor="middle" fill="#222">A</text>
+<rect x="710" y="124" width="30" height="26" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<text x="725" y="142" font-size="13" text-anchor="middle" fill="#222">A</text>
+<rect x="710" y="156" width="30" height="26" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<text x="725" y="174" font-size="13" text-anchor="middle" fill="#222">A</text>
+<rect x="710" y="188" width="30" height="26" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<text x="725" y="206" font-size="13" text-anchor="middle" fill="#222">A</text>
+<rect x="710" y="220" width="30" height="26" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<text x="725" y="238" font-size="13" text-anchor="middle" fill="#222">A</text>
+<rect x="746" y="124" width="30" height="26" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<text x="761" y="142" font-size="13" text-anchor="middle" fill="#222">A</text>
+<rect x="746" y="156" width="30" height="26" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<text x="761" y="174" font-size="13" text-anchor="middle" fill="#222">A</text>
+<rect x="746" y="188" width="30" height="26" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<text x="761" y="206" font-size="13" text-anchor="middle" fill="#222">A</text>
+<rect x="746" y="220" width="30" height="26" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<text x="761" y="238" font-size="13" text-anchor="middle" fill="#222">A</text>
+<rect x="782" y="124" width="30" height="26" fill="#fbe3c4" stroke="#222" stroke-width="1.2"/>
+<text x="797" y="142" font-size="13" text-anchor="middle" fill="#222">B</text>
+<rect x="782" y="156" width="30" height="26" fill="#fbe3c4" stroke="#222" stroke-width="1.2"/>
+<text x="797" y="174" font-size="13" text-anchor="middle" fill="#222">B</text>
+<rect x="782" y="188" width="30" height="26" fill="#fbe3c4" stroke="#222" stroke-width="1.2"/>
+<text x="797" y="206" font-size="13" text-anchor="middle" fill="#222">B</text>
+<rect x="782" y="220" width="30" height="26" fill="#fbe3c4" stroke="#222" stroke-width="1.2"/>
+<text x="797" y="238" font-size="13" text-anchor="middle" fill="#222">B</text>
+<rect x="818" y="124" width="30" height="26" fill="#fbe3c4" stroke="#222" stroke-width="1.2"/>
+<text x="833" y="142" font-size="13" text-anchor="middle" fill="#222">B</text>
+<rect x="818" y="156" width="30" height="26" fill="#fbe3c4" stroke="#222" stroke-width="1.2"/>
+<text x="833" y="174" font-size="13" text-anchor="middle" fill="#222">B</text>
+<rect x="818" y="188" width="30" height="26" fill="#fbe3c4" stroke="#222" stroke-width="1.2"/>
+<text x="833" y="206" font-size="13" text-anchor="middle" fill="#222">B</text>
+<rect x="818" y="220" width="30" height="26" fill="#fbe3c4" stroke="#222" stroke-width="1.2"/>
+<text x="833" y="238" font-size="13" text-anchor="middle" fill="#222">B</text>
+<rect x="854" y="124" width="30" height="26" fill="#d4eddc" stroke="#222" stroke-width="1.2"/>
+<text x="869" y="142" font-size="13" text-anchor="middle" fill="#222">C</text>
+<rect x="854" y="156" width="30" height="26" fill="#d4eddc" stroke="#222" stroke-width="1.2"/>
+<text x="869" y="174" font-size="13" text-anchor="middle" fill="#222">C</text>
+<rect x="854" y="188" width="30" height="26" fill="#d4eddc" stroke="#222" stroke-width="1.2"/>
+<text x="869" y="206" font-size="13" text-anchor="middle" fill="#222">C</text>
+<rect x="854" y="220" width="30" height="26" fill="#d4eddc" stroke="#222" stroke-width="1.2"/>
+<text x="869" y="238" font-size="13" text-anchor="middle" fill="#222">C</text>
+<rect x="890" y="124" width="30" height="26" fill="#eadcf2" stroke="#222" stroke-width="1.2"/>
+<text x="905" y="142" font-size="13" text-anchor="middle" fill="#222">D</text>
+<rect x="890" y="156" width="30" height="26" fill="#eadcf2" stroke="#222" stroke-width="1.2"/>
+<text x="905" y="174" font-size="13" text-anchor="middle" fill="#222">D</text>
+<rect x="890" y="188" width="30" height="26" fill="#eadcf2" stroke="#222" stroke-width="1.2"/>
+<text x="905" y="206" font-size="13" text-anchor="middle" fill="#222">D</text>
+<rect x="890" y="220" width="30" height="26" fill="#eadcf2" stroke="#222" stroke-width="1.2"/>
+<text x="905" y="238" font-size="13" text-anchor="middle" fill="#222">D</text>
+<rect x="674" y="258" width="30" height="30" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<rect x="710" y="258" width="30" height="30" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<rect x="746" y="258" width="30" height="30" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<rect x="782" y="258" width="30" height="30" fill="#fbe3c4" stroke="#222" stroke-width="1.2"/>
+<rect x="818" y="258" width="30" height="30" fill="#fbe3c4" stroke="#222" stroke-width="1.2"/>
+<rect x="854" y="258" width="30" height="30" fill="#d4eddc" stroke="#222" stroke-width="1.2"/>
+<rect x="890" y="258" width="30" height="30" fill="#eadcf2" stroke="#222" stroke-width="1.2"/>
+<text x="668" y="278" font-size="13" text-anchor="end" fill="#222"> </text>
+<rect x="674" y="302" width="30" height="30" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<rect x="710" y="302" width="30" height="30" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<rect x="746" y="302" width="30" height="30" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<rect x="782" y="302" width="30" height="30" fill="#fbe3c4" stroke="#222" stroke-width="1.2"/>
+<rect x="818" y="302" width="30" height="30" fill="#fbe3c4" stroke="#222" stroke-width="1.2"/>
+<rect x="854" y="302" width="30" height="30" fill="#d4eddc" stroke="#222" stroke-width="1.2"/>
+<rect x="890" y="302" width="30" height="30" fill="#eadcf2" stroke="#222" stroke-width="1.2"/>
+<text x="668" y="322" font-size="13" text-anchor="end" fill="#222"> </text>
+<line x1="779" y1="120" x2="779" y2="336" stroke="#c0392b" stroke-width="4"/>
+<line x1="851" y1="120" x2="851" y2="336" stroke="#c0392b" stroke-width="4"/>
+<line x1="887" y1="120" x2="887" y2="336" stroke="#c0392b" stroke-width="4"/>
+<text x="660" y="372" font-size="14" fill="#222">SM 下面两排：每个实例自己的</text>
+<text x="660" y="394" font-size="14" fill="#222">L2 切片和显存切片（颜色同 SM）</text>
+<text x="20" y="378" font-size="14" fill="#222">时间线：</text>
+<rect x="80" y="364" width="50" height="22" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<text x="105" y="380" font-size="13" text-anchor="middle" fill="#222">A</text>
+<rect x="134" y="364" width="50" height="22" fill="#fbe3c4" stroke="#222" stroke-width="1.2"/>
+<text x="159" y="380" font-size="13" text-anchor="middle" fill="#222">B</text>
+<rect x="188" y="364" width="50" height="22" fill="#dbe8f6" stroke="#222" stroke-width="1.2"/>
+<text x="213" y="380" font-size="13" text-anchor="middle" fill="#222">A</text>
+<rect x="242" y="364" width="50" height="22" fill="#fbe3c4" stroke="#222" stroke-width="1.2"/>
+<text x="267" y="380" font-size="13" text-anchor="middle" fill="#222">B</text>
+<text x="20" y="404" font-size="13" fill="#555">每次换人都要切换上下文，开销大</text>
+<text x="20" y="436" font-size="14" fill="#2e8b57">✔ 互不干扰（同一时刻只有一个）</text>
+<text x="20" y="460" font-size="14" fill="#c0392b">✘ 单个进程喂不满时，</text>
+<text x="20" y="484" font-size="14" fill="#c0392b">　 其余 SM 也只能闲着</text>
+<text x="340" y="436" font-size="14" fill="#2e8b57">✔ SM 利用率高、开销低</text>
+<text x="340" y="460" font-size="14" fill="#c0392b">✘ 共用一个上下文：一个进程出错</text>
+<text x="340" y="484" font-size="14" fill="#c0392b">　 可能连累别人；L2、带宽互相抢</text>
+<text x="660" y="436" font-size="14" fill="#2e8b57">✔ SM、L2、显存带宽都各归各</text>
+<text x="660" y="460" font-size="14" fill="#2e8b57">　 （红线是硬隔断），故障与性能隔离</text>
+<text x="660" y="484" font-size="14" fill="#c0392b">✘ 切分粒度固定，重分要先清空 GPU</text>
+<text x="480" y="530" font-size="14" text-anchor="middle" fill="#555">格子里的字母 = 这部分资源此刻归哪个进程；SM 数量为示意（H100 有 132 个）</text>
+</svg>

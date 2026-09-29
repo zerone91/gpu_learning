@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 650" width="960" height="650" font-family="sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker></defs>
+<rect x="0" y="0" width="960" height="650" fill="#ffffff"/>
+<text x="480" y="28" font-size="18" text-anchor="middle" font-weight="bold" fill="#111">同一个长度 16 的点积：16 条 FMA 付 16 次浮点税，一条矩阵指令只付 1 次</text>
+<text x="220" y="62" font-size="16" text-anchor="middle" font-weight="bold" fill="#111">① 16 条 FMA 串成依赖链</text>
+<text x="220" y="84" font-size="14" text-anchor="middle" fill="#555">每条都要用上一条的累加值</text>
+<text x="40" y="134" font-size="14" fill="#111">FMA 1</text>
+<rect x="100" y="108" width="58" height="38" fill="#1f5fa8" stroke="#222" stroke-width="1.2"/>
+<text x="129" y="133" font-size="14" text-anchor="middle" fill="#fff">乘</text>
+<rect x="158" y="108" width="58" height="38" fill="#f5c79b" stroke="#222" stroke-width="1.2"/>
+<text x="187" y="133" font-size="14" text-anchor="middle" fill="#111">对阶</text>
+<rect x="216" y="108" width="58" height="38" fill="#f2e3a0" stroke="#222" stroke-width="1.2"/>
+<text x="245" y="133" font-size="14" text-anchor="middle" fill="#111">加</text>
+<rect x="274" y="108" width="58" height="38" fill="#e8b4b4" stroke="#222" stroke-width="1.2"/>
+<text x="303" y="133" font-size="14" text-anchor="middle" fill="#111">归一</text>
+<rect x="332" y="108" width="58" height="38" fill="#cfcfcf" stroke="#222" stroke-width="1.2"/>
+<text x="361" y="133" font-size="14" text-anchor="middle" fill="#111">舍入</text>
+<polyline points="390,127 405,127 405,166 90,166 90,186 98,186" fill="none" stroke="#b5451b" stroke-width="1.6" marker-end="url(#a)"/>
+<text x="40" y="204" font-size="14" fill="#111">FMA 2</text>
+<rect x="100" y="178" width="58" height="38" fill="#1f5fa8" stroke="#222" stroke-width="1.2"/>
+<text x="129" y="203" font-size="14" text-anchor="middle" fill="#fff">乘</text>
+<rect x="158" y="178" width="58" height="38" fill="#f5c79b" stroke="#222" stroke-width="1.2"/>
+<text x="187" y="203" font-size="14" text-anchor="middle" fill="#111">对阶</text>
+<rect x="216" y="178" width="58" height="38" fill="#f2e3a0" stroke="#222" stroke-width="1.2"/>
+<text x="245" y="203" font-size="14" text-anchor="middle" fill="#111">加</text>
+<rect x="274" y="178" width="58" height="38" fill="#e8b4b4" stroke="#222" stroke-width="1.2"/>
+<text x="303" y="203" font-size="14" text-anchor="middle" fill="#111">归一</text>
+<rect x="332" y="178" width="58" height="38" fill="#cfcfcf" stroke="#222" stroke-width="1.2"/>
+<text x="361" y="203" font-size="14" text-anchor="middle" fill="#111">舍入</text>
+<polyline points="390,197 405,197 405,236 90,236 90,256 98,256" fill="none" stroke="#b5451b" stroke-width="1.6" marker-end="url(#a)"/>
+<text x="40" y="274" font-size="14" fill="#111">FMA 3</text>
+<rect x="100" y="248" width="58" height="38" fill="#1f5fa8" stroke="#222" stroke-width="1.2"/>
+<text x="129" y="273" font-size="14" text-anchor="middle" fill="#fff">乘</text>
+<rect x="158" y="248" width="58" height="38" fill="#f5c79b" stroke="#222" stroke-width="1.2"/>
+<text x="187" y="273" font-size="14" text-anchor="middle" fill="#111">对阶</text>
+<rect x="216" y="248" width="58" height="38" fill="#f2e3a0" stroke="#222" stroke-width="1.2"/>
+<text x="245" y="273" font-size="14" text-anchor="middle" fill="#111">加</text>
+<rect x="274" y="248" width="58" height="38" fill="#e8b4b4" stroke="#222" stroke-width="1.2"/>
+<text x="303" y="273" font-size="14" text-anchor="middle" fill="#111">归一</text>
+<rect x="332" y="248" width="58" height="38" fill="#cfcfcf" stroke="#222" stroke-width="1.2"/>
+<text x="361" y="273" font-size="14" text-anchor="middle" fill="#111">舍入</text>
+<text x="220" y="330" font-size="20" text-anchor="middle" fill="#555">⋮  共 16 条  ⋮</text>
+<text x="40" y="376" font-size="14" fill="#111">FMA 16</text>
+<rect x="100" y="350" width="58" height="38" fill="#1f5fa8" stroke="#222" stroke-width="1.2"/>
+<text x="129" y="375" font-size="14" text-anchor="middle" fill="#fff">乘</text>
+<rect x="158" y="350" width="58" height="38" fill="#f5c79b" stroke="#222" stroke-width="1.2"/>
+<text x="187" y="375" font-size="14" text-anchor="middle" fill="#111">对阶</text>
+<rect x="216" y="350" width="58" height="38" fill="#f2e3a0" stroke="#222" stroke-width="1.2"/>
+<text x="245" y="375" font-size="14" text-anchor="middle" fill="#111">加</text>
+<rect x="274" y="350" width="58" height="38" fill="#e8b4b4" stroke="#222" stroke-width="1.2"/>
+<text x="303" y="375" font-size="14" text-anchor="middle" fill="#111">归一</text>
+<rect x="332" y="350" width="58" height="38" fill="#cfcfcf" stroke="#222" stroke-width="1.2"/>
+<text x="361" y="375" font-size="14" text-anchor="middle" fill="#111">舍入</text>
+<line x1="390" y1="369" x2="410" y2="369" stroke="#222" stroke-width="1.6" marker-end="url(#a)"/>
+<text x="220" y="422" font-size="14" text-anchor="middle" fill="#b5451b">红线：累加值必须等上一条算完才能进下一条</text>
+<text x="40" y="456" font-size="14" fill="#111">对阶 16 次、大加法 16 次、</text>
+<text x="40" y="478" font-size="14" fill="#111">归一化 16 次、舍入 16 次</text>
+<text x="40" y="500" font-size="14" fill="#111">串行延迟约 16 × 4 = 64 拍</text>
+<text x="40" y="522" font-size="14" fill="#111">舍入误差累积 16 次</text>
+<line x1="440" y1="50" x2="440" y2="595" stroke="#ccc" stroke-width="1.5"/>
+<text x="700" y="62" font-size="16" text-anchor="middle" font-weight="bold" fill="#111">② 一条 K=16 的矩阵指令，内部一次做完</text>
+<rect x="470" y="96" width="24" height="36" fill="#1f5fa8" stroke="#222" stroke-width="1"/>
+<text x="482" y="119" font-size="14" text-anchor="middle" fill="#fff">×</text>
+<rect x="498" y="96" width="24" height="36" fill="#1f5fa8" stroke="#222" stroke-width="1"/>
+<text x="510" y="119" font-size="14" text-anchor="middle" fill="#fff">×</text>
+<rect x="526" y="96" width="24" height="36" fill="#1f5fa8" stroke="#222" stroke-width="1"/>
+<text x="538" y="119" font-size="14" text-anchor="middle" fill="#fff">×</text>
+<rect x="554" y="96" width="24" height="36" fill="#1f5fa8" stroke="#222" stroke-width="1"/>
+<text x="566" y="119" font-size="14" text-anchor="middle" fill="#fff">×</text>
+<rect x="582" y="96" width="24" height="36" fill="#1f5fa8" stroke="#222" stroke-width="1"/>
+<text x="594" y="119" font-size="14" text-anchor="middle" fill="#fff">×</text>
+<rect x="610" y="96" width="24" height="36" fill="#1f5fa8" stroke="#222" stroke-width="1"/>
+<text x="622" y="119" font-size="14" text-anchor="middle" fill="#fff">×</text>
+<rect x="638" y="96" width="24" height="36" fill="#1f5fa8" stroke="#222" stroke-width="1"/>
+<text x="650" y="119" font-size="14" text-anchor="middle" fill="#fff">×</text>
+<rect x="666" y="96" width="24" height="36" fill="#1f5fa8" stroke="#222" stroke-width="1"/>
+<text x="678" y="119" font-size="14" text-anchor="middle" fill="#fff">×</text>
+<rect x="694" y="96" width="24" height="36" fill="#1f5fa8" stroke="#222" stroke-width="1"/>
+<text x="706" y="119" font-size="14" text-anchor="middle" fill="#fff">×</text>
+<rect x="722" y="96" width="24" height="36" fill="#1f5fa8" stroke="#222" stroke-width="1"/>
+<text x="734" y="119" font-size="14" text-anchor="middle" fill="#fff">×</text>
+<rect x="750" y="96" width="24" height="36" fill="#1f5fa8" stroke="#222" stroke-width="1"/>
+<text x="762" y="119" font-size="14" text-anchor="middle" fill="#fff">×</text>
+<rect x="778" y="96" width="24" height="36" fill="#1f5fa8" stroke="#222" stroke-width="1"/>
+<text x="790" y="119" font-size="14" text-anchor="middle" fill="#fff">×</text>
+<rect x="806" y="96" width="24" height="36" fill="#1f5fa8" stroke="#222" stroke-width="1"/>
+<text x="818" y="119" font-size="14" text-anchor="middle" fill="#fff">×</text>
+<rect x="834" y="96" width="24" height="36" fill="#1f5fa8" stroke="#222" stroke-width="1"/>
+<text x="846" y="119" font-size="14" text-anchor="middle" fill="#fff">×</text>
+<rect x="862" y="96" width="24" height="36" fill="#1f5fa8" stroke="#222" stroke-width="1"/>
+<text x="874" y="119" font-size="14" text-anchor="middle" fill="#fff">×</text>
+<rect x="890" y="96" width="24" height="36" fill="#1f5fa8" stroke="#222" stroke-width="1"/>
+<text x="902" y="119" font-size="14" text-anchor="middle" fill="#fff">×</text>
+<text x="700" y="88" font-size="14" text-anchor="middle" fill="#111">16 对尾数同时相乘（这是真正的算力，省不了）</text>
+<line x1="700" y1="132" x2="700" y2="156" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<rect x="470" y="158" width="444" height="54" fill="#f5c79b" stroke="#222" stroke-width="1.5"/>
+<text x="692" y="181" font-size="14" text-anchor="middle" fill="#111" font-weight="bold">找出 16 个乘积里最大的指数，其余各自右移对齐</text>
+<text x="692" y="202" font-size="14" text-anchor="middle" fill="#111">16 个移位器同时动，只做一轮</text>
+<line x1="700" y1="212" x2="700" y2="236" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<polygon points="470,238 880,238 760,330 620,330" fill="#fdf3e3" stroke="#222" stroke-width="1.5"/>
+<text x="675" y="266" font-size="14" text-anchor="middle" fill="#111" font-weight="bold">一棵 CSA 树：17 个数 → 2 行</text>
+<text x="675" y="288" font-size="14" text-anchor="middle" fill="#111">（16 个乘积 + 累加器 C）</text>
+<text x="690" y="312" font-size="14" text-anchor="middle" fill="#111">约 7 级、14 个门</text>
+<polyline points="930,254 930,284 826,284" fill="none" stroke="#222" stroke-width="1.6" marker-end="url(#a)"/>
+<text x="945" y="246" font-size="14" text-anchor="end" fill="#111">累加器 C</text>
+<line x1="700" y1="330" x2="700" y2="348" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<rect x="570" y="350" width="260" height="36" fill="#f2e3a0" stroke="#222" stroke-width="1.5"/>
+<text x="700" y="374" font-size="14" text-anchor="middle" fill="#111">1 次大加法（CPA）</text>
+<line x1="700" y1="386" x2="700" y2="402" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<rect x="570" y="404" width="260" height="36" fill="#e8b4b4" stroke="#222" stroke-width="1.5"/>
+<text x="700" y="428" font-size="14" text-anchor="middle" fill="#111">1 次前导零预测 + 归一化</text>
+<line x1="700" y1="440" x2="700" y2="456" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<rect x="570" y="458" width="260" height="36" fill="#cfcfcf" stroke="#222" stroke-width="1.5"/>
+<text x="700" y="482" font-size="14" text-anchor="middle" fill="#111">1 次舍入</text>
+<line x1="700" y1="494" x2="700" y2="516" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<text x="700" y="534" font-size="14" text-anchor="middle" fill="#111" font-weight="bold">结果 D</text>
+<text x="470" y="566" font-size="14" fill="#111">对阶 1 轮、大加法 1 次、归一化 1 次、舍入 1 次</text>
+<text x="470" y="588" font-size="14" fill="#111">约 4～8 拍；内部全精度累加，只舍入 1 次</text>
+<rect x="40" y="612" width="22" height="16" fill="#1f5fa8" stroke="#222"/>
+<text x="70" y="625" font-size="14" fill="#111">乘法器</text>
+<rect x="170" y="612" width="22" height="16" fill="#f5c79b" stroke="#222"/>
+<text x="200" y="625" font-size="14" fill="#111">对阶移位</text>
+<rect x="300" y="612" width="22" height="16" fill="#f2e3a0" stroke="#222"/>
+<text x="330" y="625" font-size="14" fill="#111">大加法</text>
+<rect x="430" y="612" width="22" height="16" fill="#e8b4b4" stroke="#222"/>
+<text x="460" y="625" font-size="14" fill="#111">归一化</text>
+<rect x="560" y="612" width="22" height="16" fill="#cfcfcf" stroke="#222"/>
+<text x="590" y="625" font-size="14" fill="#111">舍入</text>
+<text x="700" y="625" font-size="14" fill="#555">颜色与图 2-4 一致；拍数取正文 §5 的表</text>
+</svg>

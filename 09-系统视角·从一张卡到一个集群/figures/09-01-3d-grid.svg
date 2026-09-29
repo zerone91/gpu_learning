@@ -1,0 +1,181 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 700" width="960" height="700" font-family="sans-serif" font-size="15">
+<rect x="0" y="0" width="960" height="700" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#444"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/></marker><marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d9822b"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e7d32"/></marker><pattern id="h" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="#f4f4f4"/><line x1="0" y1="0" x2="0" y2="8" stroke="#bbb" stroke-width="2"/></pattern></defs>
+<text x="20.0" y="32.0" text-anchor="start" fill="#222222" font-size="19" font-weight="bold" >1024 张卡的三维并行：TP 在机内，PP 串起 4 台机器，DP 复制 32 条流水线</text>
+<text x="20.0" y="58.0" text-anchor="start" fill="#555" font-size="14" >TP=8、PP=4、DP=32；每个大框是一台 8 卡服务器，小方块是一张卡；编号规则 rank = 32×副本号 + 8×阶段号 + 机内序号</text>
+<text x="20.0" y="100.0" text-anchor="start" fill="#222222" font-size="15" font-weight="bold" >副本 0（一条完整的流水线，32 张卡）</text>
+<rect x="50.0" y="110.0" width="196.0" height="96.0" rx="6" fill="#fafafa" stroke="#222222" stroke-width="2" />
+<rect x="60.0" y="158.0" width="176.0" height="8.0" rx="0" fill="#f6c6c0" stroke="#c0392b" stroke-width="1" />
+<rect x="62.0" y="124.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="84.0" y="124.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="106.0" y="124.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="128.0" y="124.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="150.0" y="124.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="172.0" y="124.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="194.0" y="124.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="216.0" y="124.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<text x="148.0" y="186.0" text-anchor="middle" fill="#222222" font-size="14" >阶段 0：层 1–20</text>
+<text x="148.0" y="224.0" text-anchor="middle" fill="#555" font-size="14" >rank 0–7</text>
+<line x1="248.0" y1="158.0" x2="278.0" y2="158.0" stroke="#2e7d32" stroke-width="2.5" marker-end="url(#ag)"/>
+<rect x="280.0" y="110.0" width="196.0" height="96.0" rx="6" fill="#fafafa" stroke="#222222" stroke-width="2" />
+<rect x="290.0" y="158.0" width="176.0" height="8.0" rx="0" fill="#f6c6c0" stroke="#c0392b" stroke-width="1" />
+<rect x="292.0" y="124.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="314.0" y="124.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="336.0" y="124.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="358.0" y="124.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="380.0" y="124.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="402.0" y="124.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="424.0" y="124.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="446.0" y="124.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<text x="378.0" y="186.0" text-anchor="middle" fill="#222222" font-size="14" >阶段 1：层 21–40</text>
+<text x="378.0" y="224.0" text-anchor="middle" fill="#555" font-size="14" >rank 8–15</text>
+<line x1="478.0" y1="158.0" x2="508.0" y2="158.0" stroke="#2e7d32" stroke-width="2.5" marker-end="url(#ag)"/>
+<rect x="510.0" y="110.0" width="196.0" height="96.0" rx="6" fill="#fafafa" stroke="#222222" stroke-width="2" />
+<rect x="520.0" y="158.0" width="176.0" height="8.0" rx="0" fill="#f6c6c0" stroke="#c0392b" stroke-width="1" />
+<rect x="522.0" y="124.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="544.0" y="124.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="566.0" y="124.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="588.0" y="124.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="610.0" y="124.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="632.0" y="124.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="654.0" y="124.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="676.0" y="124.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<text x="608.0" y="186.0" text-anchor="middle" fill="#222222" font-size="14" >阶段 2：层 41–60</text>
+<text x="608.0" y="224.0" text-anchor="middle" fill="#555" font-size="14" >rank 16–23</text>
+<line x1="708.0" y1="158.0" x2="738.0" y2="158.0" stroke="#2e7d32" stroke-width="2.5" marker-end="url(#ag)"/>
+<rect x="740.0" y="110.0" width="196.0" height="96.0" rx="6" fill="#fafafa" stroke="#222222" stroke-width="2" />
+<rect x="750.0" y="158.0" width="176.0" height="8.0" rx="0" fill="#f6c6c0" stroke="#c0392b" stroke-width="1" />
+<rect x="752.0" y="124.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="774.0" y="124.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="796.0" y="124.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="818.0" y="124.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="840.0" y="124.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="862.0" y="124.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="884.0" y="124.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="906.0" y="124.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<text x="838.0" y="186.0" text-anchor="middle" fill="#222222" font-size="14" >阶段 3：层 61–80</text>
+<text x="838.0" y="224.0" text-anchor="middle" fill="#555" font-size="14" >rank 24–31</text>
+<text x="20.0" y="280.0" text-anchor="start" fill="#222222" font-size="15" font-weight="bold" >副本 1（处理另一批数据）</text>
+<rect x="50.0" y="290.0" width="196.0" height="96.0" rx="6" fill="#fafafa" stroke="#222222" stroke-width="2" />
+<rect x="60.0" y="338.0" width="176.0" height="8.0" rx="0" fill="#f6c6c0" stroke="#c0392b" stroke-width="1" />
+<rect x="62.0" y="304.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="84.0" y="304.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="106.0" y="304.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="128.0" y="304.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="150.0" y="304.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="172.0" y="304.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="194.0" y="304.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="216.0" y="304.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<text x="148.0" y="366.0" text-anchor="middle" fill="#222222" font-size="14" >阶段 0：层 1–20</text>
+<text x="148.0" y="404.0" text-anchor="middle" fill="#555" font-size="14" >rank 32–39</text>
+<line x1="248.0" y1="338.0" x2="278.0" y2="338.0" stroke="#2e7d32" stroke-width="2.5" marker-end="url(#ag)"/>
+<rect x="280.0" y="290.0" width="196.0" height="96.0" rx="6" fill="#fafafa" stroke="#222222" stroke-width="2" />
+<rect x="290.0" y="338.0" width="176.0" height="8.0" rx="0" fill="#f6c6c0" stroke="#c0392b" stroke-width="1" />
+<rect x="292.0" y="304.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="314.0" y="304.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="336.0" y="304.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="358.0" y="304.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="380.0" y="304.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="402.0" y="304.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="424.0" y="304.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="446.0" y="304.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<text x="378.0" y="366.0" text-anchor="middle" fill="#222222" font-size="14" >阶段 1：层 21–40</text>
+<text x="378.0" y="404.0" text-anchor="middle" fill="#555" font-size="14" >rank 40–47</text>
+<line x1="478.0" y1="338.0" x2="508.0" y2="338.0" stroke="#2e7d32" stroke-width="2.5" marker-end="url(#ag)"/>
+<rect x="510.0" y="290.0" width="196.0" height="96.0" rx="6" fill="#fafafa" stroke="#222222" stroke-width="2" />
+<rect x="520.0" y="338.0" width="176.0" height="8.0" rx="0" fill="#f6c6c0" stroke="#c0392b" stroke-width="1" />
+<rect x="522.0" y="304.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="544.0" y="304.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="566.0" y="304.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="588.0" y="304.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="610.0" y="304.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="632.0" y="304.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="654.0" y="304.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="676.0" y="304.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<text x="608.0" y="366.0" text-anchor="middle" fill="#222222" font-size="14" >阶段 2：层 41–60</text>
+<text x="608.0" y="404.0" text-anchor="middle" fill="#555" font-size="14" >rank 48–55</text>
+<line x1="708.0" y1="338.0" x2="738.0" y2="338.0" stroke="#2e7d32" stroke-width="2.5" marker-end="url(#ag)"/>
+<rect x="740.0" y="290.0" width="196.0" height="96.0" rx="6" fill="#fafafa" stroke="#222222" stroke-width="2" />
+<rect x="750.0" y="338.0" width="176.0" height="8.0" rx="0" fill="#f6c6c0" stroke="#c0392b" stroke-width="1" />
+<rect x="752.0" y="304.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="774.0" y="304.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="796.0" y="304.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="818.0" y="304.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="840.0" y="304.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="862.0" y="304.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="884.0" y="304.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="906.0" y="304.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<text x="838.0" y="366.0" text-anchor="middle" fill="#222222" font-size="14" >阶段 3：层 61–80</text>
+<text x="838.0" y="404.0" text-anchor="middle" fill="#555" font-size="14" >rank 56–63</text>
+<text x="480.0" y="455.0" text-anchor="middle" fill="#222222" font-size="16" font-weight="bold" >⋮　共 32 条这样的流水线　⋮</text>
+<text x="20.0" y="510.0" text-anchor="start" fill="#222222" font-size="15" font-weight="bold" >副本 31</text>
+<rect x="50.0" y="520.0" width="196.0" height="96.0" rx="6" fill="#fafafa" stroke="#222222" stroke-width="2" />
+<rect x="60.0" y="568.0" width="176.0" height="8.0" rx="0" fill="#f6c6c0" stroke="#c0392b" stroke-width="1" />
+<rect x="62.0" y="534.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="84.0" y="534.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="106.0" y="534.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="128.0" y="534.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="150.0" y="534.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="172.0" y="534.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="194.0" y="534.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="216.0" y="534.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<text x="148.0" y="596.0" text-anchor="middle" fill="#222222" font-size="14" >阶段 0：层 1–20</text>
+<text x="148.0" y="634.0" text-anchor="middle" fill="#555" font-size="14" >rank 992–999</text>
+<line x1="248.0" y1="568.0" x2="278.0" y2="568.0" stroke="#2e7d32" stroke-width="2.5" marker-end="url(#ag)"/>
+<rect x="280.0" y="520.0" width="196.0" height="96.0" rx="6" fill="#fafafa" stroke="#222222" stroke-width="2" />
+<rect x="290.0" y="568.0" width="176.0" height="8.0" rx="0" fill="#f6c6c0" stroke="#c0392b" stroke-width="1" />
+<rect x="292.0" y="534.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="314.0" y="534.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="336.0" y="534.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="358.0" y="534.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="380.0" y="534.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="402.0" y="534.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="424.0" y="534.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="446.0" y="534.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<text x="378.0" y="596.0" text-anchor="middle" fill="#222222" font-size="14" >阶段 1：层 21–40</text>
+<text x="378.0" y="634.0" text-anchor="middle" fill="#555" font-size="14" >rank 1000–1007</text>
+<line x1="478.0" y1="568.0" x2="508.0" y2="568.0" stroke="#2e7d32" stroke-width="2.5" marker-end="url(#ag)"/>
+<rect x="510.0" y="520.0" width="196.0" height="96.0" rx="6" fill="#fafafa" stroke="#222222" stroke-width="2" />
+<rect x="520.0" y="568.0" width="176.0" height="8.0" rx="0" fill="#f6c6c0" stroke="#c0392b" stroke-width="1" />
+<rect x="522.0" y="534.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="544.0" y="534.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="566.0" y="534.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="588.0" y="534.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="610.0" y="534.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="632.0" y="534.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="654.0" y="534.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="676.0" y="534.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<text x="608.0" y="596.0" text-anchor="middle" fill="#222222" font-size="14" >阶段 2：层 41–60</text>
+<text x="608.0" y="634.0" text-anchor="middle" fill="#555" font-size="14" >rank 1008–1015</text>
+<line x1="708.0" y1="568.0" x2="738.0" y2="568.0" stroke="#2e7d32" stroke-width="2.5" marker-end="url(#ag)"/>
+<rect x="740.0" y="520.0" width="196.0" height="96.0" rx="6" fill="#fafafa" stroke="#222222" stroke-width="2" />
+<rect x="750.0" y="568.0" width="176.0" height="8.0" rx="0" fill="#f6c6c0" stroke="#c0392b" stroke-width="1" />
+<rect x="752.0" y="534.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="774.0" y="534.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="796.0" y="534.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="818.0" y="534.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="840.0" y="534.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="862.0" y="534.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="884.0" y="534.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="906.0" y="534.0" width="18.0" height="30.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<text x="838.0" y="596.0" text-anchor="middle" fill="#222222" font-size="14" >阶段 3：层 61–80</text>
+<text x="838.0" y="634.0" text-anchor="middle" fill="#555" font-size="14" >rank 1016–1023</text>
+<line x1="230.0" y1="230.0" x2="230.0" y2="286.0" stroke="#d9822b" stroke-width="2.5" stroke-dasharray="6,4"/>
+<line x1="230.0" y1="410.0" x2="230.0" y2="430.0" stroke="#d9822b" stroke-width="2.5" stroke-dasharray="6,4"/>
+<line x1="230.0" y1="470.0" x2="230.0" y2="516.0" stroke="#d9822b" stroke-width="2.5" stroke-dasharray="6,4"/>
+<line x1="460.0" y1="230.0" x2="460.0" y2="286.0" stroke="#d9822b" stroke-width="2.5" stroke-dasharray="6,4"/>
+<line x1="460.0" y1="410.0" x2="460.0" y2="430.0" stroke="#d9822b" stroke-width="2.5" stroke-dasharray="6,4"/>
+<line x1="460.0" y1="470.0" x2="460.0" y2="516.0" stroke="#d9822b" stroke-width="2.5" stroke-dasharray="6,4"/>
+<line x1="690.0" y1="230.0" x2="690.0" y2="286.0" stroke="#d9822b" stroke-width="2.5" stroke-dasharray="6,4"/>
+<line x1="690.0" y1="410.0" x2="690.0" y2="430.0" stroke="#d9822b" stroke-width="2.5" stroke-dasharray="6,4"/>
+<line x1="690.0" y1="470.0" x2="690.0" y2="516.0" stroke="#d9822b" stroke-width="2.5" stroke-dasharray="6,4"/>
+<line x1="920.0" y1="230.0" x2="920.0" y2="286.0" stroke="#d9822b" stroke-width="2.5" stroke-dasharray="6,4"/>
+<line x1="920.0" y1="410.0" x2="920.0" y2="430.0" stroke="#d9822b" stroke-width="2.5" stroke-dasharray="6,4"/>
+<line x1="920.0" y1="470.0" x2="920.0" y2="516.0" stroke="#d9822b" stroke-width="2.5" stroke-dasharray="6,4"/>
+<rect x="20.0" y="676.0" width="30.0" height="8.0" rx="0" fill="#f6c6c0" stroke="#c0392b" stroke-width="1" />
+<text x="58.0" y="685.0" text-anchor="start" fill="#c0392b" font-size="14" >TP：机内 NVLink，每层 2 次 all-reduce</text>
+<line x1="340.0" y1="680.0" x2="380.0" y2="680.0" stroke="#2e7d32" stroke-width="2.5" marker-end="url(#ag)"/>
+<text x="388.0" y="685.0" text-anchor="start" fill="#2e7d32" font-size="14" >PP：机间网络，每个微批传一次激活</text>
+<line x1="660.0" y1="680.0" x2="700.0" y2="680.0" stroke="#d9822b" stroke-width="2.5" stroke-dasharray="6,4"/>
+<text x="708.0" y="685.0" text-anchor="start" fill="#d9822b" font-size="14" >DP：跨副本，每步一次梯度同步</text>
+</svg>

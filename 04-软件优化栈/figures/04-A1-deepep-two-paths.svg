@@ -1,0 +1,149 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 672" width="960" height="672" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="672" fill="#ffffff"/>
+<defs><marker id="k" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222222"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777777"/></marker><marker id="o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c77a12"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f6db5"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="n" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e8b57"/></marker><marker id="p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7a4fb0"/></marker></defs>
+<text x="480.0" y="30.0" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold">DeepEP 的两套 kernel：同样把一个 token 从节点 A 的 GPU0 发到节点 B 的 GPU3</text>
+<text x="30.0" y="64.0" font-size="16" text-anchor="start" fill="#c77a12" font-weight="bold">上：normal kernel（prefill、训练用；目标是吞吐）</text>
+<rect x="30.0" y="76.0" width="350.0" height="228.0" rx="3" fill="#ffffff" stroke="#777777" stroke-width="1.5" stroke-dasharray="6,4"/>
+<text x="205.0" y="296.0" font-size="14" text-anchor="middle" fill="#777777">节点 A（示意画 4 张卡，实际 8 张）</text>
+<rect x="52.0" y="110.0" width="66.0" height="30.0" rx="3" fill="#f3f3f3" stroke="#777777" stroke-width="1.5"/>
+<text x="85.0" y="130.0" font-size="14" text-anchor="middle" fill="#222222">网卡0</text>
+<line x1="85.0" y1="140.0" x2="85.0" y2="164.0" stroke="#777777" stroke-width="1.5"/>
+<rect x="52.0" y="164.0" width="66.0" height="40.0" rx="3" fill="#ffffff" stroke="#222222" stroke-width="1.5"/>
+<text x="85.0" y="189.4" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">GPU0</text>
+<line x1="85.0" y1="204.0" x2="85.0" y2="234.0" stroke="#777777" stroke-width="1.5"/>
+<rect x="134.0" y="110.0" width="66.0" height="30.0" rx="3" fill="#f3f3f3" stroke="#777777" stroke-width="1.5"/>
+<text x="167.0" y="130.0" font-size="14" text-anchor="middle" fill="#222222">网卡1</text>
+<line x1="167.0" y1="140.0" x2="167.0" y2="164.0" stroke="#777777" stroke-width="1.5"/>
+<rect x="134.0" y="164.0" width="66.0" height="40.0" rx="3" fill="#ffffff" stroke="#222222" stroke-width="1.5"/>
+<text x="167.0" y="189.4" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">GPU1</text>
+<line x1="167.0" y1="204.0" x2="167.0" y2="234.0" stroke="#777777" stroke-width="1.5"/>
+<rect x="216.0" y="110.0" width="66.0" height="30.0" rx="3" fill="#f3f3f3" stroke="#777777" stroke-width="1.5"/>
+<text x="249.0" y="130.0" font-size="14" text-anchor="middle" fill="#222222">网卡2</text>
+<line x1="249.0" y1="140.0" x2="249.0" y2="164.0" stroke="#777777" stroke-width="1.5"/>
+<rect x="216.0" y="164.0" width="66.0" height="40.0" rx="3" fill="#ffffff" stroke="#222222" stroke-width="1.5"/>
+<text x="249.0" y="189.4" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">GPU2</text>
+<line x1="249.0" y1="204.0" x2="249.0" y2="234.0" stroke="#777777" stroke-width="1.5"/>
+<rect x="298.0" y="110.0" width="66.0" height="30.0" rx="3" fill="#f3f3f3" stroke="#777777" stroke-width="1.5"/>
+<text x="331.0" y="130.0" font-size="14" text-anchor="middle" fill="#222222">网卡3</text>
+<line x1="331.0" y1="140.0" x2="331.0" y2="164.0" stroke="#777777" stroke-width="1.5"/>
+<rect x="298.0" y="164.0" width="66.0" height="40.0" rx="3" fill="#ffffff" stroke="#222222" stroke-width="1.5"/>
+<text x="331.0" y="189.4" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">GPU3</text>
+<line x1="331.0" y1="204.0" x2="331.0" y2="234.0" stroke="#777777" stroke-width="1.5"/>
+<rect x="52.0" y="234.0" width="312.0" height="40.0" rx="3" fill="#e6dcf3" stroke="#7a4fb0" stroke-width="1.5"/>
+<text x="208.0" y="267.0" font-size="14" text-anchor="middle" fill="#7a4fb0">NVLink 交换（节点内，最宽的一层）</text>
+<rect x="580.0" y="76.0" width="350.0" height="228.0" rx="3" fill="#ffffff" stroke="#777777" stroke-width="1.5" stroke-dasharray="6,4"/>
+<text x="755.0" y="296.0" font-size="14" text-anchor="middle" fill="#777777">节点 B（示意画 4 张卡，实际 8 张）</text>
+<rect x="602.0" y="110.0" width="66.0" height="30.0" rx="3" fill="#f3f3f3" stroke="#777777" stroke-width="1.5"/>
+<text x="635.0" y="130.0" font-size="14" text-anchor="middle" fill="#222222">网卡0</text>
+<line x1="635.0" y1="140.0" x2="635.0" y2="164.0" stroke="#777777" stroke-width="1.5"/>
+<rect x="602.0" y="164.0" width="66.0" height="40.0" rx="3" fill="#ffffff" stroke="#222222" stroke-width="1.5"/>
+<text x="635.0" y="189.4" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">GPU0</text>
+<line x1="635.0" y1="204.0" x2="635.0" y2="234.0" stroke="#777777" stroke-width="1.5"/>
+<rect x="684.0" y="110.0" width="66.0" height="30.0" rx="3" fill="#f3f3f3" stroke="#777777" stroke-width="1.5"/>
+<text x="717.0" y="130.0" font-size="14" text-anchor="middle" fill="#222222">网卡1</text>
+<line x1="717.0" y1="140.0" x2="717.0" y2="164.0" stroke="#777777" stroke-width="1.5"/>
+<rect x="684.0" y="164.0" width="66.0" height="40.0" rx="3" fill="#ffffff" stroke="#222222" stroke-width="1.5"/>
+<text x="717.0" y="189.4" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">GPU1</text>
+<line x1="717.0" y1="204.0" x2="717.0" y2="234.0" stroke="#777777" stroke-width="1.5"/>
+<rect x="766.0" y="110.0" width="66.0" height="30.0" rx="3" fill="#f3f3f3" stroke="#777777" stroke-width="1.5"/>
+<text x="799.0" y="130.0" font-size="14" text-anchor="middle" fill="#222222">网卡2</text>
+<line x1="799.0" y1="140.0" x2="799.0" y2="164.0" stroke="#777777" stroke-width="1.5"/>
+<rect x="766.0" y="164.0" width="66.0" height="40.0" rx="3" fill="#ffffff" stroke="#222222" stroke-width="1.5"/>
+<text x="799.0" y="189.4" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">GPU2</text>
+<line x1="799.0" y1="204.0" x2="799.0" y2="234.0" stroke="#777777" stroke-width="1.5"/>
+<rect x="848.0" y="110.0" width="66.0" height="30.0" rx="3" fill="#f3f3f3" stroke="#777777" stroke-width="1.5"/>
+<text x="881.0" y="130.0" font-size="14" text-anchor="middle" fill="#222222">网卡3</text>
+<line x1="881.0" y1="140.0" x2="881.0" y2="164.0" stroke="#777777" stroke-width="1.5"/>
+<rect x="848.0" y="164.0" width="66.0" height="40.0" rx="3" fill="#ffffff" stroke="#222222" stroke-width="1.5"/>
+<text x="881.0" y="189.4" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">GPU3</text>
+<line x1="881.0" y1="204.0" x2="881.0" y2="234.0" stroke="#777777" stroke-width="1.5"/>
+<rect x="602.0" y="234.0" width="312.0" height="40.0" rx="3" fill="#e6dcf3" stroke="#7a4fb0" stroke-width="1.5"/>
+<text x="758.0" y="267.0" font-size="14" text-anchor="middle" fill="#7a4fb0">NVLink 交换（节点内，最宽的一层）</text>
+<rect x="410.0" y="80.0" width="140.0" height="30.0" rx="3" fill="#f3f3f3" stroke="#222222" stroke-width="1.5"/>
+<text x="480.0" y="100.0" font-size="14" text-anchor="middle" fill="#222222">InfiniBand 交换机</text>
+<text x="480.0" y="130.0" font-size="14" text-anchor="middle" fill="#777777">跨节点网络</text>
+<rect x="52.0" y="164.0" width="66.0" height="40.0" rx="3" fill="none" stroke="#c77a12" stroke-width="3"/>
+<rect x="848.0" y="164.0" width="66.0" height="40.0" rx="3" fill="none" stroke="#c77a12" stroke-width="3"/>
+<text x="85.0" y="224.0" font-size="14" text-anchor="middle" fill="#c77a12" font-weight="bold">发送方</text>
+<text x="901.0" y="224.0" font-size="14" text-anchor="start" fill="#c77a12" font-weight="bold">目标</text>
+<line x1="85.0" y1="163.0" x2="85.0" y2="141.0" stroke="#c77a12" stroke-width="3"/>
+<path d="M85,110 L85,95 L408,95" fill="none" stroke="#c77a12" stroke-width="3" marker-end="url(#o)"/>
+<path d="M550,95 L635,95 L635,108" fill="none" stroke="#c77a12" stroke-width="3" marker-end="url(#o)"/>
+<line x1="635.0" y1="141.0" x2="635.0" y2="162.0" stroke="#c77a12" stroke-width="3" marker-end="url(#o)"/>
+<text x="300.0" y="89.0" font-size="15" text-anchor="middle" fill="#c77a12" font-weight="bold">①</text>
+<path d="M649,205 L649,246 L867,246 L867,207" fill="none" stroke="#c77a12" stroke-width="3" marker-end="url(#o)"/>
+<text x="657.0" y="224.0" font-size="14" text-anchor="start" fill="#c77a12" font-weight="bold">中转</text>
+<text x="760.0" y="241.0" font-size="15" text-anchor="middle" fill="#c77a12" font-weight="bold">②</text>
+<text x="30.0" y="326.0" font-size="14" text-anchor="start" fill="#222222">① 先用 RDMA 发到对面节点的同号卡 GPU0；② 再由 GPU0 经 NVLink 转发给 GPU3。</text>
+<text x="30.0" y="348.0" font-size="14" text-anchor="start" fill="#222222">代价：要划出一部分 SM 跑通信 kernel（例如 20 个）。好处：跨节点网络和节点内 NVLink 两层带宽都用上。</text>
+<text x="30.0" y="381.0" font-size="16" text-anchor="start" fill="#2f6db5" font-weight="bold">下：low-latency kernel（decode 用；目标是延迟）</text>
+<rect x="30.0" y="393.0" width="350.0" height="228.0" rx="3" fill="#ffffff" stroke="#777777" stroke-width="1.5" stroke-dasharray="6,4"/>
+<text x="205.0" y="613.0" font-size="14" text-anchor="middle" fill="#777777">节点 A（示意画 4 张卡，实际 8 张）</text>
+<rect x="52.0" y="427.0" width="66.0" height="30.0" rx="3" fill="#f3f3f3" stroke="#777777" stroke-width="1.5"/>
+<text x="85.0" y="447.0" font-size="14" text-anchor="middle" fill="#222222">网卡0</text>
+<line x1="85.0" y1="457.0" x2="85.0" y2="481.0" stroke="#777777" stroke-width="1.5"/>
+<rect x="52.0" y="481.0" width="66.0" height="40.0" rx="3" fill="#ffffff" stroke="#222222" stroke-width="1.5"/>
+<text x="85.0" y="506.4" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">GPU0</text>
+<line x1="85.0" y1="521.0" x2="85.0" y2="551.0" stroke="#777777" stroke-width="1.5"/>
+<rect x="134.0" y="427.0" width="66.0" height="30.0" rx="3" fill="#f3f3f3" stroke="#777777" stroke-width="1.5"/>
+<text x="167.0" y="447.0" font-size="14" text-anchor="middle" fill="#222222">网卡1</text>
+<line x1="167.0" y1="457.0" x2="167.0" y2="481.0" stroke="#777777" stroke-width="1.5"/>
+<rect x="134.0" y="481.0" width="66.0" height="40.0" rx="3" fill="#ffffff" stroke="#222222" stroke-width="1.5"/>
+<text x="167.0" y="506.4" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">GPU1</text>
+<line x1="167.0" y1="521.0" x2="167.0" y2="551.0" stroke="#777777" stroke-width="1.5"/>
+<rect x="216.0" y="427.0" width="66.0" height="30.0" rx="3" fill="#f3f3f3" stroke="#777777" stroke-width="1.5"/>
+<text x="249.0" y="447.0" font-size="14" text-anchor="middle" fill="#222222">网卡2</text>
+<line x1="249.0" y1="457.0" x2="249.0" y2="481.0" stroke="#777777" stroke-width="1.5"/>
+<rect x="216.0" y="481.0" width="66.0" height="40.0" rx="3" fill="#ffffff" stroke="#222222" stroke-width="1.5"/>
+<text x="249.0" y="506.4" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">GPU2</text>
+<line x1="249.0" y1="521.0" x2="249.0" y2="551.0" stroke="#777777" stroke-width="1.5"/>
+<rect x="298.0" y="427.0" width="66.0" height="30.0" rx="3" fill="#f3f3f3" stroke="#777777" stroke-width="1.5"/>
+<text x="331.0" y="447.0" font-size="14" text-anchor="middle" fill="#222222">网卡3</text>
+<line x1="331.0" y1="457.0" x2="331.0" y2="481.0" stroke="#777777" stroke-width="1.5"/>
+<rect x="298.0" y="481.0" width="66.0" height="40.0" rx="3" fill="#ffffff" stroke="#222222" stroke-width="1.5"/>
+<text x="331.0" y="506.4" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">GPU3</text>
+<line x1="331.0" y1="521.0" x2="331.0" y2="551.0" stroke="#777777" stroke-width="1.5"/>
+<rect x="52.0" y="551.0" width="312.0" height="40.0" rx="3" fill="#e6dcf3" stroke="#7a4fb0" stroke-width="1.5"/>
+<text x="208.0" y="584.0" font-size="14" text-anchor="middle" fill="#7a4fb0">NVLink 交换（节点内，最宽的一层）</text>
+<rect x="580.0" y="393.0" width="350.0" height="228.0" rx="3" fill="#ffffff" stroke="#777777" stroke-width="1.5" stroke-dasharray="6,4"/>
+<text x="755.0" y="613.0" font-size="14" text-anchor="middle" fill="#777777">节点 B（示意画 4 张卡，实际 8 张）</text>
+<rect x="602.0" y="427.0" width="66.0" height="30.0" rx="3" fill="#f3f3f3" stroke="#777777" stroke-width="1.5"/>
+<text x="635.0" y="447.0" font-size="14" text-anchor="middle" fill="#222222">网卡0</text>
+<line x1="635.0" y1="457.0" x2="635.0" y2="481.0" stroke="#777777" stroke-width="1.5"/>
+<rect x="602.0" y="481.0" width="66.0" height="40.0" rx="3" fill="#ffffff" stroke="#222222" stroke-width="1.5"/>
+<text x="635.0" y="506.4" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">GPU0</text>
+<line x1="635.0" y1="521.0" x2="635.0" y2="551.0" stroke="#777777" stroke-width="1.5"/>
+<rect x="684.0" y="427.0" width="66.0" height="30.0" rx="3" fill="#f3f3f3" stroke="#777777" stroke-width="1.5"/>
+<text x="717.0" y="447.0" font-size="14" text-anchor="middle" fill="#222222">网卡1</text>
+<line x1="717.0" y1="457.0" x2="717.0" y2="481.0" stroke="#777777" stroke-width="1.5"/>
+<rect x="684.0" y="481.0" width="66.0" height="40.0" rx="3" fill="#ffffff" stroke="#222222" stroke-width="1.5"/>
+<text x="717.0" y="506.4" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">GPU1</text>
+<line x1="717.0" y1="521.0" x2="717.0" y2="551.0" stroke="#777777" stroke-width="1.5"/>
+<rect x="766.0" y="427.0" width="66.0" height="30.0" rx="3" fill="#f3f3f3" stroke="#777777" stroke-width="1.5"/>
+<text x="799.0" y="447.0" font-size="14" text-anchor="middle" fill="#222222">网卡2</text>
+<line x1="799.0" y1="457.0" x2="799.0" y2="481.0" stroke="#777777" stroke-width="1.5"/>
+<rect x="766.0" y="481.0" width="66.0" height="40.0" rx="3" fill="#ffffff" stroke="#222222" stroke-width="1.5"/>
+<text x="799.0" y="506.4" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">GPU2</text>
+<line x1="799.0" y1="521.0" x2="799.0" y2="551.0" stroke="#777777" stroke-width="1.5"/>
+<rect x="848.0" y="427.0" width="66.0" height="30.0" rx="3" fill="#f3f3f3" stroke="#777777" stroke-width="1.5"/>
+<text x="881.0" y="447.0" font-size="14" text-anchor="middle" fill="#222222">网卡3</text>
+<line x1="881.0" y1="457.0" x2="881.0" y2="481.0" stroke="#777777" stroke-width="1.5"/>
+<rect x="848.0" y="481.0" width="66.0" height="40.0" rx="3" fill="#ffffff" stroke="#222222" stroke-width="1.5"/>
+<text x="881.0" y="506.4" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">GPU3</text>
+<line x1="881.0" y1="521.0" x2="881.0" y2="551.0" stroke="#777777" stroke-width="1.5"/>
+<rect x="602.0" y="551.0" width="312.0" height="40.0" rx="3" fill="#e6dcf3" stroke="#7a4fb0" stroke-width="1.5"/>
+<text x="758.0" y="584.0" font-size="14" text-anchor="middle" fill="#7a4fb0">NVLink 交换（节点内，最宽的一层）</text>
+<rect x="410.0" y="397.0" width="140.0" height="30.0" rx="3" fill="#f3f3f3" stroke="#222222" stroke-width="1.5"/>
+<text x="480.0" y="417.0" font-size="14" text-anchor="middle" fill="#222222">InfiniBand 交换机</text>
+<text x="480.0" y="447.0" font-size="14" text-anchor="middle" fill="#777777">跨节点网络</text>
+<rect x="52.0" y="481.0" width="66.0" height="40.0" rx="3" fill="none" stroke="#2f6db5" stroke-width="3"/>
+<rect x="848.0" y="481.0" width="66.0" height="40.0" rx="3" fill="none" stroke="#2f6db5" stroke-width="3"/>
+<text x="85.0" y="541.0" font-size="14" text-anchor="middle" fill="#2f6db5" font-weight="bold">发送方</text>
+<text x="901.0" y="541.0" font-size="14" text-anchor="start" fill="#2f6db5" font-weight="bold">目标</text>
+<line x1="85.0" y1="480.0" x2="85.0" y2="458.0" stroke="#2f6db5" stroke-width="3"/>
+<path d="M85,427 L85,412 L408,412" fill="none" stroke="#2f6db5" stroke-width="3" marker-end="url(#b)"/>
+<path d="M550,412 L881,412 L881,425" fill="none" stroke="#2f6db5" stroke-width="3" marker-end="url(#b)"/>
+<line x1="881.0" y1="458.0" x2="881.0" y2="479.0" stroke="#2f6db5" stroke-width="3" marker-end="url(#b)"/>
+<text x="30.0" y="643.0" font-size="14" text-anchor="start" fill="#222222">RDMA 直达目标卡自己的网卡，不经中转，少一跳转发延迟。</text>
+<text x="30.0" y="665.0" font-size="14" text-anchor="start" fill="#222222">SM 占用为 0：GPU 直接写网卡的门铃寄存器（IBGDA）发起传输，不经 CPU；数据以 FP8 发送，字节数减半。</text>
+</svg>

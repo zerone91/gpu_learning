@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 440" width="960" height="440" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="440" fill="#ffffff"/>
+<defs><marker id="mk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e6fb7"/></marker><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f8a4a"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d9822b"/></marker><marker id="my" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777"/></marker><marker id="mp" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7b4fa0"/></marker></defs>
+<text x="480" y="31.9" font-size="17" text-anchor="middle" fill="#222" font-weight="bold">阵列在第 5000 拍要用输入块 X：两种片上存储的经历</text>
+<text x="30" y="85.6" font-size="16" text-anchor="start" fill="#222" font-weight="bold">缓存（硬件自动决定留什么）</text>
+<line x1="150" y1="190" x2="920" y2="190" stroke="#222" stroke-width="1.5"/>
+<line x1="185.0" y1="185" x2="185.0" y2="195" stroke="#222" stroke-width="1.5"/>
+<text x="185.0" y="214.9" font-size="14" text-anchor="middle" fill="#777">3600</text>
+<line x1="255.0" y1="185" x2="255.0" y2="195" stroke="#222" stroke-width="1.5"/>
+<text x="255.0" y="214.9" font-size="14" text-anchor="middle" fill="#777">3800</text>
+<line x1="325.0" y1="185" x2="325.0" y2="195" stroke="#222" stroke-width="1.5"/>
+<text x="325.0" y="214.9" font-size="14" text-anchor="middle" fill="#777">4000</text>
+<line x1="395.0" y1="185" x2="395.0" y2="195" stroke="#222" stroke-width="1.5"/>
+<text x="395.0" y="214.9" font-size="14" text-anchor="middle" fill="#777">4200</text>
+<line x1="465.0" y1="185" x2="465.0" y2="195" stroke="#222" stroke-width="1.5"/>
+<text x="465.0" y="214.9" font-size="14" text-anchor="middle" fill="#777">4400</text>
+<line x1="535.0" y1="185" x2="535.0" y2="195" stroke="#222" stroke-width="1.5"/>
+<text x="535.0" y="214.9" font-size="14" text-anchor="middle" fill="#777">4600</text>
+<line x1="605.0" y1="185" x2="605.0" y2="195" stroke="#222" stroke-width="1.5"/>
+<text x="605.0" y="214.9" font-size="14" text-anchor="middle" fill="#777">4800</text>
+<line x1="675.0" y1="185" x2="675.0" y2="195" stroke="#222" stroke-width="1.5"/>
+<text x="675.0" y="214.9" font-size="14" text-anchor="middle" fill="#777">5000</text>
+<line x1="745.0" y1="185" x2="745.0" y2="195" stroke="#222" stroke-width="1.5"/>
+<text x="745.0" y="214.9" font-size="14" text-anchor="middle" fill="#777">5200</text>
+<line x1="815.0" y1="185" x2="815.0" y2="195" stroke="#222" stroke-width="1.5"/>
+<text x="815.0" y="214.9" font-size="14" text-anchor="middle" fill="#777">5400</text>
+<line x1="885.0" y1="185" x2="885.0" y2="195" stroke="#222" stroke-width="1.5"/>
+<text x="885.0" y="214.9" font-size="14" text-anchor="middle" fill="#777">5600</text>
+<line x1="675.0" y1="98" x2="675.0" y2="190" stroke="#c0392b" stroke-width="2" stroke-dasharray="5 4"/>
+<text x="681.0" y="106.9" font-size="14" text-anchor="start" fill="#c0392b">第 5000 拍：要用 X</text>
+<text x="30" y="275.6" font-size="16" text-anchor="start" fill="#222" font-weight="bold">scratchpad（编译器排好时刻表）</text>
+<line x1="150" y1="380" x2="920" y2="380" stroke="#222" stroke-width="1.5"/>
+<line x1="185.0" y1="375" x2="185.0" y2="385" stroke="#222" stroke-width="1.5"/>
+<text x="185.0" y="404.9" font-size="14" text-anchor="middle" fill="#777">3600</text>
+<line x1="255.0" y1="375" x2="255.0" y2="385" stroke="#222" stroke-width="1.5"/>
+<text x="255.0" y="404.9" font-size="14" text-anchor="middle" fill="#777">3800</text>
+<line x1="325.0" y1="375" x2="325.0" y2="385" stroke="#222" stroke-width="1.5"/>
+<text x="325.0" y="404.9" font-size="14" text-anchor="middle" fill="#777">4000</text>
+<line x1="395.0" y1="375" x2="395.0" y2="385" stroke="#222" stroke-width="1.5"/>
+<text x="395.0" y="404.9" font-size="14" text-anchor="middle" fill="#777">4200</text>
+<line x1="465.0" y1="375" x2="465.0" y2="385" stroke="#222" stroke-width="1.5"/>
+<text x="465.0" y="404.9" font-size="14" text-anchor="middle" fill="#777">4400</text>
+<line x1="535.0" y1="375" x2="535.0" y2="385" stroke="#222" stroke-width="1.5"/>
+<text x="535.0" y="404.9" font-size="14" text-anchor="middle" fill="#777">4600</text>
+<line x1="605.0" y1="375" x2="605.0" y2="385" stroke="#222" stroke-width="1.5"/>
+<text x="605.0" y="404.9" font-size="14" text-anchor="middle" fill="#777">4800</text>
+<line x1="675.0" y1="375" x2="675.0" y2="385" stroke="#222" stroke-width="1.5"/>
+<text x="675.0" y="404.9" font-size="14" text-anchor="middle" fill="#777">5000</text>
+<line x1="745.0" y1="375" x2="745.0" y2="385" stroke="#222" stroke-width="1.5"/>
+<text x="745.0" y="404.9" font-size="14" text-anchor="middle" fill="#777">5200</text>
+<line x1="815.0" y1="375" x2="815.0" y2="385" stroke="#222" stroke-width="1.5"/>
+<text x="815.0" y="404.9" font-size="14" text-anchor="middle" fill="#777">5400</text>
+<line x1="885.0" y1="375" x2="885.0" y2="385" stroke="#222" stroke-width="1.5"/>
+<text x="885.0" y="404.9" font-size="14" text-anchor="middle" fill="#777">5600</text>
+<line x1="675.0" y1="288" x2="675.0" y2="380" stroke="#c0392b" stroke-width="2" stroke-dasharray="5 4"/>
+<text x="681.0" y="296.9" font-size="14" text-anchor="start" fill="#c0392b">第 5000 拍：要用 X</text>
+<text x="140" y="134.9" font-size="14" text-anchor="end" fill="#2f8a4a">命中</text>
+<rect x="675.0" y="118" width="9.5" height="24" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="692.5" y="134.9" font-size="14" text-anchor="start" fill="#2f8a4a">几拍拿到（X 恰好还在缓存里）</text>
+<text x="140" y="168.9" font-size="14" text-anchor="end" fill="#c0392b">未命中</text>
+<rect x="675.0" y="152" width="140.0" height="24" rx="0" fill="#f6d5d1" stroke="#c0392b" stroke-width="1.5" />
+<text x="667.0" y="168.9" font-size="14" text-anchor="end" fill="#c0392b">去 DRAM 取，等几百拍</text>
+<text x="823.0" y="168.9" font-size="14" text-anchor="start" fill="#c0392b">阵列一直停着</text>
+<text x="155" y="134.9" font-size="14" text-anchor="start" fill="#777">同一行代码，</text>
+<text x="155" y="168.9" font-size="14" text-anchor="start" fill="#777">快慢看运气</text>
+<text x="140" y="324.9" font-size="14" text-anchor="end" fill="#7b4fa0">DMA</text>
+<rect x="255.0" y="308" width="385.0" height="24" rx="0" fill="#e9ddf3" stroke="#7b4fa0" stroke-width="1.5" />
+<text x="447.5" y="324.9" font-size="14" text-anchor="middle" fill="#222">第 3800 拍开始搬 X，第 4900 拍搬完</text>
+<text x="140" y="358.9" font-size="14" text-anchor="end" fill="#2f8a4a">阵列</text>
+<rect x="675.0" y="342" width="210.0" height="24" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="780.0" y="358.9" font-size="14" text-anchor="middle" fill="#222">直接开算，X 必然已就位</text>
+</svg>

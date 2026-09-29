@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 460" width="960" height="460" font-family="sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b5451b"/></marker></defs>
+<rect x="0" y="0" width="960" height="460" fill="#ffffff"/>
+<text x="480" y="28" font-size="18" text-anchor="middle" font-weight="bold" fill="#111">同样 32 个字节：变长编码要一条条“量出”边界，定长编码的边界一开始就知道</text>
+<text x="30" y="72" font-size="16" font-weight="bold" fill="#111">① x86：每条 1～15 字节</text>
+<rect x="160" y="92" width="22" height="34" fill="#fdf3e3" stroke="#999" stroke-width="1"/>
+<rect x="182" y="92" width="22" height="34" fill="#fdf3e3" stroke="#999" stroke-width="1"/>
+<rect x="204" y="92" width="22" height="34" fill="#fdf3e3" stroke="#999" stroke-width="1"/>
+<rect x="160" y="92" width="66" height="34" fill="none" stroke="#222" stroke-width="2"/>
+<text x="193.0" y="114" font-size="14" text-anchor="middle" fill="#111">3</text>
+<rect x="226" y="92" width="22" height="34" fill="#d6e4f5" stroke="#999" stroke-width="1"/>
+<rect x="248" y="92" width="22" height="34" fill="#d6e4f5" stroke="#999" stroke-width="1"/>
+<rect x="270" y="92" width="22" height="34" fill="#d6e4f5" stroke="#999" stroke-width="1"/>
+<rect x="292" y="92" width="22" height="34" fill="#d6e4f5" stroke="#999" stroke-width="1"/>
+<rect x="314" y="92" width="22" height="34" fill="#d6e4f5" stroke="#999" stroke-width="1"/>
+<rect x="226" y="92" width="110" height="34" fill="none" stroke="#222" stroke-width="2"/>
+<text x="281.0" y="114" font-size="14" text-anchor="middle" fill="#111">5</text>
+<rect x="336" y="92" width="22" height="34" fill="#eaf5e9" stroke="#999" stroke-width="1"/>
+<rect x="358" y="92" width="22" height="34" fill="#eaf5e9" stroke="#999" stroke-width="1"/>
+<rect x="336" y="92" width="44" height="34" fill="none" stroke="#222" stroke-width="2"/>
+<text x="358.0" y="114" font-size="14" text-anchor="middle" fill="#111">2</text>
+<rect x="380" y="92" width="22" height="34" fill="#f7dada" stroke="#999" stroke-width="1"/>
+<rect x="402" y="92" width="22" height="34" fill="#f7dada" stroke="#999" stroke-width="1"/>
+<rect x="424" y="92" width="22" height="34" fill="#f7dada" stroke="#999" stroke-width="1"/>
+<rect x="446" y="92" width="22" height="34" fill="#f7dada" stroke="#999" stroke-width="1"/>
+<rect x="468" y="92" width="22" height="34" fill="#f7dada" stroke="#999" stroke-width="1"/>
+<rect x="490" y="92" width="22" height="34" fill="#f7dada" stroke="#999" stroke-width="1"/>
+<rect x="512" y="92" width="22" height="34" fill="#f7dada" stroke="#999" stroke-width="1"/>
+<rect x="380" y="92" width="154" height="34" fill="none" stroke="#222" stroke-width="2"/>
+<text x="457.0" y="114" font-size="14" text-anchor="middle" fill="#111">7</text>
+<rect x="534" y="92" width="22" height="34" fill="#efe3f5" stroke="#999" stroke-width="1"/>
+<rect x="556" y="92" width="22" height="34" fill="#efe3f5" stroke="#999" stroke-width="1"/>
+<rect x="578" y="92" width="22" height="34" fill="#efe3f5" stroke="#999" stroke-width="1"/>
+<rect x="600" y="92" width="22" height="34" fill="#efe3f5" stroke="#999" stroke-width="1"/>
+<rect x="534" y="92" width="88" height="34" fill="none" stroke="#222" stroke-width="2"/>
+<text x="578.0" y="114" font-size="14" text-anchor="middle" fill="#111">4</text>
+<rect x="622" y="92" width="22" height="34" fill="#f2e3a0" stroke="#999" stroke-width="1"/>
+<rect x="622" y="92" width="22" height="34" fill="none" stroke="#222" stroke-width="2"/>
+<text x="633.0" y="114" font-size="14" text-anchor="middle" fill="#111">1</text>
+<rect x="644" y="92" width="22" height="34" fill="#e6e6e6" stroke="#999" stroke-width="1"/>
+<rect x="666" y="92" width="22" height="34" fill="#e6e6e6" stroke="#999" stroke-width="1"/>
+<rect x="688" y="92" width="22" height="34" fill="#e6e6e6" stroke="#999" stroke-width="1"/>
+<rect x="710" y="92" width="22" height="34" fill="#e6e6e6" stroke="#999" stroke-width="1"/>
+<rect x="732" y="92" width="22" height="34" fill="#e6e6e6" stroke="#999" stroke-width="1"/>
+<rect x="754" y="92" width="22" height="34" fill="#e6e6e6" stroke="#999" stroke-width="1"/>
+<rect x="644" y="92" width="132" height="34" fill="none" stroke="#222" stroke-width="2"/>
+<text x="710.0" y="114" font-size="14" text-anchor="middle" fill="#111">6</text>
+<rect x="776" y="92" width="22" height="34" fill="#d8efd6" stroke="#999" stroke-width="1"/>
+<rect x="798" y="92" width="22" height="34" fill="#d8efd6" stroke="#999" stroke-width="1"/>
+<rect x="820" y="92" width="22" height="34" fill="#d8efd6" stroke="#999" stroke-width="1"/>
+<rect x="842" y="92" width="22" height="34" fill="#d8efd6" stroke="#999" stroke-width="1"/>
+<rect x="776" y="92" width="88" height="34" fill="none" stroke="#222" stroke-width="2"/>
+<text x="820.0" y="114" font-size="14" text-anchor="middle" fill="#111">4</text>
+<text x="30" y="114" font-size="14" fill="#555">字节流</text>
+<path d="M168,128 C168,160 234,160 234,130" fill="none" stroke="#b5451b" stroke-width="1.8" marker-end="url(#ar)"/>
+<path d="M234,128 C234,160 344,160 344,130" fill="none" stroke="#b5451b" stroke-width="1.8" marker-end="url(#ar)"/>
+<path d="M344,128 C344,160 388,160 388,130" fill="none" stroke="#b5451b" stroke-width="1.8" marker-end="url(#ar)"/>
+<path d="M388,128 C388,160 542,160 542,130" fill="none" stroke="#b5451b" stroke-width="1.8" marker-end="url(#ar)"/>
+<text x="160" y="184" font-size="14" fill="#b5451b">必须先译出第 1 条、知道它长 3 字节，才知道第 2 条从哪开始；再译第 2 条，才知道第 3 条……</text>
+<text x="160" y="206" font-size="14" fill="#111">硬件的对策：同时从很多个可能的起点试着译，再挑出对的那几个——一整块难以加宽的“长度译码”电路</text>
+<text x="160" y="228" font-size="14" fill="#555">（格子里的数字是该条指令的字节数；译码之前，这些粗框的位置是未知的）</text>
+<line x1="30" y1="250" x2="930" y2="250" stroke="#ccc" stroke-width="1.5"/>
+<text x="30" y="284" font-size="16" font-weight="bold" fill="#111">② GPU 的 SASS：每条固定 16 字节</text>
+<rect x="160" y="304" width="22" height="34" fill="#fdf3e3" stroke="#999" stroke-width="1"/>
+<rect x="182" y="304" width="22" height="34" fill="#fdf3e3" stroke="#999" stroke-width="1"/>
+<rect x="204" y="304" width="22" height="34" fill="#fdf3e3" stroke="#999" stroke-width="1"/>
+<rect x="226" y="304" width="22" height="34" fill="#fdf3e3" stroke="#999" stroke-width="1"/>
+<rect x="248" y="304" width="22" height="34" fill="#fdf3e3" stroke="#999" stroke-width="1"/>
+<rect x="270" y="304" width="22" height="34" fill="#fdf3e3" stroke="#999" stroke-width="1"/>
+<rect x="292" y="304" width="22" height="34" fill="#fdf3e3" stroke="#999" stroke-width="1"/>
+<rect x="314" y="304" width="22" height="34" fill="#fdf3e3" stroke="#999" stroke-width="1"/>
+<rect x="336" y="304" width="22" height="34" fill="#fdf3e3" stroke="#999" stroke-width="1"/>
+<rect x="358" y="304" width="22" height="34" fill="#fdf3e3" stroke="#999" stroke-width="1"/>
+<rect x="380" y="304" width="22" height="34" fill="#fdf3e3" stroke="#999" stroke-width="1"/>
+<rect x="402" y="304" width="22" height="34" fill="#fdf3e3" stroke="#999" stroke-width="1"/>
+<rect x="424" y="304" width="22" height="34" fill="#fdf3e3" stroke="#999" stroke-width="1"/>
+<rect x="446" y="304" width="22" height="34" fill="#fdf3e3" stroke="#999" stroke-width="1"/>
+<rect x="468" y="304" width="22" height="34" fill="#fdf3e3" stroke="#999" stroke-width="1"/>
+<rect x="490" y="304" width="22" height="34" fill="#fdf3e3" stroke="#999" stroke-width="1"/>
+<rect x="160" y="304" width="352" height="34" fill="none" stroke="#222" stroke-width="2"/>
+<text x="336" y="326" font-size="14" text-anchor="middle" fill="#111">第 1 条：16 字节</text>
+<line x1="336" y1="340" x2="336" y2="370" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<rect x="276" y="372" width="120" height="30" rx="4" fill="#ffffff" stroke="#222" stroke-width="1.5"/>
+<text x="336" y="392" font-size="14" text-anchor="middle" fill="#111">译码器 1</text>
+<rect x="512" y="304" width="22" height="34" fill="#d6e4f5" stroke="#999" stroke-width="1"/>
+<rect x="534" y="304" width="22" height="34" fill="#d6e4f5" stroke="#999" stroke-width="1"/>
+<rect x="556" y="304" width="22" height="34" fill="#d6e4f5" stroke="#999" stroke-width="1"/>
+<rect x="578" y="304" width="22" height="34" fill="#d6e4f5" stroke="#999" stroke-width="1"/>
+<rect x="600" y="304" width="22" height="34" fill="#d6e4f5" stroke="#999" stroke-width="1"/>
+<rect x="622" y="304" width="22" height="34" fill="#d6e4f5" stroke="#999" stroke-width="1"/>
+<rect x="644" y="304" width="22" height="34" fill="#d6e4f5" stroke="#999" stroke-width="1"/>
+<rect x="666" y="304" width="22" height="34" fill="#d6e4f5" stroke="#999" stroke-width="1"/>
+<rect x="688" y="304" width="22" height="34" fill="#d6e4f5" stroke="#999" stroke-width="1"/>
+<rect x="710" y="304" width="22" height="34" fill="#d6e4f5" stroke="#999" stroke-width="1"/>
+<rect x="732" y="304" width="22" height="34" fill="#d6e4f5" stroke="#999" stroke-width="1"/>
+<rect x="754" y="304" width="22" height="34" fill="#d6e4f5" stroke="#999" stroke-width="1"/>
+<rect x="776" y="304" width="22" height="34" fill="#d6e4f5" stroke="#999" stroke-width="1"/>
+<rect x="798" y="304" width="22" height="34" fill="#d6e4f5" stroke="#999" stroke-width="1"/>
+<rect x="820" y="304" width="22" height="34" fill="#d6e4f5" stroke="#999" stroke-width="1"/>
+<rect x="842" y="304" width="22" height="34" fill="#d6e4f5" stroke="#999" stroke-width="1"/>
+<rect x="512" y="304" width="352" height="34" fill="none" stroke="#222" stroke-width="2"/>
+<text x="688" y="326" font-size="14" text-anchor="middle" fill="#111">第 2 条：16 字节</text>
+<line x1="688" y1="340" x2="688" y2="370" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<rect x="628" y="372" width="120" height="30" rx="4" fill="#ffffff" stroke="#222" stroke-width="1.5"/>
+<text x="688" y="392" font-size="14" text-anchor="middle" fill="#111">译码器 2</text>
+<text x="30" y="326" font-size="14" fill="#555">字节流</text>
+<text x="160" y="430" font-size="14" fill="#2e7d32">第 k 条永远从第 16k 个字节开始：取指不用算边界，几个译码器可以同时各译各的</text>
+<text x="160" y="452" font-size="14" fill="#555">代价：很多指令用不满 128 位，空着的位白占指令缓存和带宽</text>
+</svg>

@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="600" fill="#ffffff"/>
+<text x="480" y="28" font-size="18" text-anchor="middle" fill="#222" font-weight="bold">y = 2x 的 SASS 逐行走查：以“第 2 号线程块里的第 5 号线程”为例</text>
+<g font-size="15" fill="#555" font-weight="bold">
+<text x="24" y="62">SASS 指令</text>
+<text x="408" y="62">这一行在干嘛</text>
+<text x="520" y="62">读了什么 → 得到什么（示例数值）</text>
+</g>
+<line x1="20" y1="72" x2="940" y2="72" stroke="#222" stroke-width="1.5"/>
+
+<!-- row backgrounds by category -->
+<!-- rows: y0 = 78 + 58*i, height 54 -->
+<g stroke="none">
+<rect x="20" y="78"  width="920" height="54" fill="#eeeeee"/>
+<rect x="20" y="136" width="920" height="54" fill="#eeeeee"/>
+<rect x="20" y="194" width="920" height="54" fill="#eeeeee"/>
+<rect x="20" y="252" width="920" height="54" fill="#eeeeee"/>
+<rect x="20" y="310" width="920" height="54" fill="#dbe8f6"/>
+<rect x="20" y="368" width="920" height="54" fill="#fbe3c4"/>
+<rect x="20" y="426" width="920" height="54" fill="#dbe8f6"/>
+<rect x="20" y="484" width="920" height="40" fill="#f6f6f6"/>
+</g>
+
+<g font-family="monospace" font-size="16" fill="#222">
+<text x="28" y="111">S2R  R0, SR_CTAID.X</text>
+<text x="28" y="169">S2R  R3, SR_TID.X</text>
+<text x="28" y="227">IMAD R0, R0, c[0x0][0x0], R3</text>
+<text x="28" y="277">IMAD.WIDE R2, R0, 0x4,</text>
+<text x="124" y="297">c[0x0][0x160]</text>
+<text x="28" y="343">LDG.E R4, [R2]</text>
+<text x="28" y="401">FADD R5, R4, R4</text>
+<text x="28" y="459">STG.E [R2+0x100000], R5</text>
+<text x="28" y="510">EXIT</text>
+</g>
+
+<g font-size="15" fill="#222" font-weight="bold">
+<text x="408" y="111">线程自我定位</text>
+<text x="408" y="169">线程自我定位</text>
+<text x="408" y="227">造地址</text>
+<text x="408" y="285">造地址</text>
+<text x="408" y="343" fill="#2c6fb7">访存：读</text>
+<text x="408" y="401" fill="#b86a0c">真正的计算</text>
+<text x="408" y="459" fill="#2c6fb7">访存：写</text>
+<text x="408" y="510" fill="#555">结束</text>
+</g>
+
+<g font-size="14" fill="#555">
+<text x="520" y="98">读：特殊寄存器 SR_CTAID.X（我在第几号块）</text>
+<text x="520" y="156">读：特殊寄存器 SR_TID.X（我是块里第几号线程）</text>
+<text x="520" y="214">读：R0，常量区里的 blockDim.x = 256，R3</text>
+<text x="520" y="272">读：R0，常数 4（float 占 4 字节），常量区里的指针参数 x</text>
+<text x="520" y="330">读：显存里地址 0x10000814 处的 4 字节</text>
+<text x="520" y="388">读：R4 两次</text>
+<text x="520" y="446">读：R5；地址 = R2 再加一段偏移（数组 y 所在处）</text>
+</g>
+<g font-size="15" fill="#222">
+<text x="520" y="120">得：R0 = 2</text>
+<text x="520" y="178">得：R3 = 5</text>
+<text x="520" y="235">得：R0 = 2 × 256 + 5 = 517（全局下标 i）</text>
+<text x="520" y="293">得：R2:R3 = x（设为 0x10000000）+ 517×4 = 0x10000814</text>
+<text x="520" y="351">得：R4 = x[517]（设为 1.5）</text>
+<text x="520" y="409">得：R5 = 1.5 + 1.5 = 3.0（2x 被写成 x + x）</text>
+<text x="520" y="467">得：显存里 y[517] = 3.0</text>
+</g>
+
+<!-- summary -->
+<rect x="20" y="538" width="920" height="46" fill="#ffffff" stroke="#222" stroke-width="1.5" rx="6"/>
+<text x="480" y="567" font-size="16" text-anchor="middle" fill="#222">8 条指令里：定位 2 条、造地址 2 条、访存 2 条，<tspan fill="#b86a0c" font-weight="bold">真正“乘 2”的只有 1 条</tspan></text>
+</svg>

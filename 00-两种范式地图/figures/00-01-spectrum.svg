@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 456" width="960" height="456">
+<rect x="0" y="0" width="960" height="456" fill="#ffffff"/>
+<defs><marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777"/></marker><marker id="alg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#bbb"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="agr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e7d32"/></marker><marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b9770e"/></marker><marker id="ap" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7d3c98"/></marker></defs>
+<text x="480.0" y="32.0" font-family="sans-serif" font-size="17" fill="#222" text-anchor="middle" font-weight="bold">光谱：真实芯片在“时序何时决定”这条轴上各选一个位置，两头正在互相靠近</text>
+<line x1="60.0" y1="200.0" x2="900.0" y2="200.0" stroke="#222" stroke-width="3" marker-end="url(#ak)" marker-start="url(#ak)"/>
+<text x="40.0" y="236.0" font-family="sans-serif" font-size="16" fill="#1f5fa8" text-anchor="start" font-weight="bold">全动态</text>
+<text x="920.0" y="236.0" font-family="sans-serif" font-size="16" fill="#b9770e" text-anchor="end" font-weight="bold">全静态</text>
+<line x1="110.0" y1="124.0" x2="110.0" y2="189.0" stroke="#1f5fa8" stroke-width="1.5"/>
+<circle cx="110.0" cy="200.0" r="9" fill="#dbe9f7" stroke="#1f5fa8" stroke-width="3"/>
+<rect x="12.0" y="70.0" width="196.0" height="54.0" rx="4" fill="#dbe9f7" stroke="#1f5fa8" stroke-width="2"/>
+<text x="110.0" y="93.0" font-family="sans-serif" font-size="15" fill="#222" text-anchor="middle" font-weight="bold">早期 GPU</text>
+<text x="110.0" y="114.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">纯 SIMT</text>
+<line x1="300.0" y1="184.0" x2="300.0" y2="189.0" stroke="#1f5fa8" stroke-width="1.5"/>
+<circle cx="300.0" cy="200.0" r="9" fill="#dbe9f7" stroke="#1f5fa8" stroke-width="3"/>
+<rect x="202.0" y="130.0" width="196.0" height="54.0" rx="4" fill="#dbe9f7" stroke="#1f5fa8" stroke-width="2"/>
+<text x="300.0" y="153.0" font-family="sans-serif" font-size="15" fill="#222" text-anchor="middle" font-weight="bold">现代 GPU 高性能 kernel</text>
+<text x="300.0" y="174.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">软件流水把时序半排死</text>
+<line x1="500.0" y1="124.0" x2="500.0" y2="189.0" stroke="#7d3c98" stroke-width="1.5"/>
+<circle cx="500.0" cy="200.0" r="9" fill="#e8daef" stroke="#7d3c98" stroke-width="3"/>
+<rect x="402.0" y="70.0" width="196.0" height="54.0" rx="4" fill="#e8daef" stroke="#7d3c98" stroke-width="2"/>
+<text x="500.0" y="93.0" font-family="sans-serif" font-size="15" fill="#222" text-anchor="middle" font-weight="bold">Tensor Core</text>
+<text x="500.0" y="114.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">SIMT 核里的矩阵引擎</text>
+<line x1="680.0" y1="184.0" x2="680.0" y2="189.0" stroke="#b9770e" stroke-width="1.5"/>
+<circle cx="680.0" cy="200.0" r="9" fill="#fdebd0" stroke="#b9770e" stroke-width="3"/>
+<rect x="582.0" y="130.0" width="196.0" height="54.0" rx="4" fill="#fdebd0" stroke="#b9770e" stroke-width="2"/>
+<text x="680.0" y="153.0" font-family="sans-serif" font-size="15" fill="#222" text-anchor="middle" font-weight="bold">TPU</text>
+<text x="680.0" y="174.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">大脉动阵列</text>
+<line x1="850.0" y1="124.0" x2="850.0" y2="189.0" stroke="#b9770e" stroke-width="1.5"/>
+<circle cx="850.0" cy="200.0" r="9" fill="#fdebd0" stroke="#b9770e" stroke-width="3"/>
+<rect x="752.0" y="70.0" width="196.0" height="54.0" rx="4" fill="#fdebd0" stroke="#b9770e" stroke-width="2"/>
+<text x="850.0" y="93.0" font-family="sans-serif" font-size="15" fill="#222" text-anchor="middle" font-weight="bold">Groq</text>
+<text x="850.0" y="114.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">连芯片间网络都排定</text>
+<path d="M 118 214 C 150 310, 260 310, 296 222" stroke="#1f5fa8" stroke-width="2.5" fill="none" marker-end="url(#ab)"/>
+<text x="150.0" y="350.0" font-family="sans-serif" font-size="15" fill="#1f5fa8" text-anchor="start">GPU 的重负载主动向右挪：</text>
+<text x="150.0" y="372.0" font-family="sans-serif" font-size="14" fill="#1f5fa8" text-anchor="start">用 TMA、多级缓冲、warp 分工把搬运与计算排成流水</text>
+<path d="M 672 214 C 640 310, 530 310, 496 222" stroke="#b9770e" stroke-width="2.5" fill="none" marker-end="url(#ao)"/>
+<text x="560.0" y="350.0" font-family="sans-serif" font-size="15" fill="#b9770e" text-anchor="start">静态的矩阵引擎被塞进 GPU 核心，</text>
+<text x="560.0" y="372.0" font-family="sans-serif" font-size="14" fill="#b9770e" text-anchor="start">由 SIMT 的调度体系喂数据</text>
+<rect x="60.0" y="386.0" width="840.0" height="60.0" rx="4" fill="#eeeeee" stroke="none" stroke-width="0"/>
+<text x="480.0" y="407.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">越往右越高效，但越挑负载：分支、变长、稀疏把天平拉向左，规则的稠密大矩阵乘把天平拉向右</text>
+<text x="480.0" y="432.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">全动态 = 每一拍在运行时现场挑谁执行；全静态 = 编译期或设计期就把每一拍排好</text>
+</svg>

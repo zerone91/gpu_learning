@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 440" width="960" height="440" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="440" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222222"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f6db5"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777777"/></marker><marker id="o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c77a12"/></marker><marker id="n" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e8b57"/></marker><marker id="p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7a4fb0"/></marker></defs>
+<text x="480" y="30" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold">提交是异步的：直接计时只量到 CPU 那一小段</text>
+<text x="150" y="108" font-size="16" text-anchor="end" fill="#222222" font-weight="bold">CPU</text>
+<text x="150" y="188" font-size="16" text-anchor="end" fill="#222222" font-weight="bold">GPU</text>
+<line x1="170" y1="130" x2="930" y2="130" stroke="#bbbbbb" stroke-width="1.5"/>
+<line x1="170" y1="210" x2="930" y2="210" stroke="#bbbbbb" stroke-width="1.5"/>
+<rect x="190" y="86" width="90" height="38" rx="6" fill="#dbe7f5" stroke="#2f6db5" stroke-width="2"/>
+<text x="235" y="110" font-size="14" text-anchor="middle" fill="#222222">六站</text>
+<text x="235" y="78" font-size="13" text-anchor="middle" fill="#2f6db5">约 10 μs</text>
+<rect x="280" y="86" width="150" height="38" rx="6" fill="#ffffff" stroke="#777777" stroke-width="2" stroke-dasharray="5,4"/>
+<text x="355" y="110" font-size="13" text-anchor="middle" fill="#777777">Python 继续往下跑</text>
+<rect x="300" y="166" width="600" height="38" rx="6" fill="#f8e3c4" stroke="#c77a12" stroke-width="2"/>
+<text x="600" y="190" font-size="14" text-anchor="middle" fill="#222222">矩阵乘 kernel（4096×4096：约几毫秒）</text>
+<line x1="280" y1="124" x2="302" y2="164" stroke="#c77a12" stroke-width="2" marker-end="url(#o)"/>
+<text x="308" y="150" font-size="12" text-anchor="start" fill="#c77a12">启动命令入队</text>
+<line x1="190" y1="260" x2="280" y2="260" stroke="#c0392b" stroke-width="2.5" marker-end="url(#r)" marker-start="url(#r)"/>
+<line x1="190" y1="80" x2="190" y2="268" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="4,4"/>
+<line x1="280" y1="124" x2="280" y2="268" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="4,4"/>
+<text x="294" y="265" font-size="14" text-anchor="start" fill="#c0392b">① 直接用 time.time() 包住这一行：量到约 10 μs，只是 CPU 的六站</text>
+<line x1="190" y1="320" x2="900" y2="320" stroke="#2e8b57" stroke-width="2.5" marker-end="url(#n)" marker-start="url(#n)"/>
+<line x1="900" y1="204" x2="900" y2="328" stroke="#2e8b57" stroke-width="1.5" stroke-dasharray="4,4"/>
+<line x1="190" y1="268" x2="190" y2="328" stroke="#2e8b57" stroke-width="1.5" stroke-dasharray="4,4"/>
+<text x="545" y="346" font-size="14" text-anchor="middle" fill="#2e8b57">② 结束前先调用 torch.cuda.synchronize()，等 GPU 做完：量到的才是真实耗时</text>
+<text x="480" y="400" font-size="13" text-anchor="middle" fill="#777777">示意，横轴未按比例：几毫秒的 kernel 实际比 10 μs 的六站长几百倍</text>
+</svg>

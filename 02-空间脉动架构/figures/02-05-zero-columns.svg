@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 530" width="960" height="530" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="530" fill="#ffffff"/>
+<defs><marker id="mk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e6fb7"/></marker><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f8a4a"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d9822b"/></marker><marker id="my" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777"/></marker><marker id="mp" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7b4fa0"/></marker></defs>
+<defs><pattern id="h" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="#f0f0f0"/><line x1="0" y1="0" x2="0" y2="8" stroke="#bbb" stroke-width="2"/></pattern></defs>
+<text x="480" y="31.9" font-size="17" text-anchor="middle" fill="#222" font-weight="bold">128 列的阵列算只有 100 列的权重：右边 28 列装的是零，但它们照样每拍工作</text>
+<rect x="150" y="90" width="500.0" height="280" rx="0" fill="#fbe3c8" stroke="none" stroke-width="1.5" />
+<rect x="650.0" y="90" width="140.0" height="280" rx="0" fill="url(#h)" stroke="none" stroke-width="1.5" />
+<rect x="150" y="90" width="640" height="280" rx="0" fill="none" stroke="#222" stroke-width="2" />
+<line x1="650.0" y1="90" x2="650.0" y2="390" stroke="#222" stroke-width="2.5" stroke-dasharray="8 5"/>
+<text x="400.0" y="81.2" font-size="15" text-anchor="middle" fill="#d9822b" font-weight="bold">第 0～99 列：真实权重</text>
+<text x="720.0" y="81.2" font-size="15" text-anchor="middle" fill="#777" font-weight="bold">第 100～127 列：填 0</text>
+<line x1="90" y1="125" x2="840" y2="125" stroke="#2e6fb7" stroke-width="2" marker-end="url(#mb)"/>
+<line x1="90" y1="195" x2="840" y2="195" stroke="#2e6fb7" stroke-width="2" marker-end="url(#mb)"/>
+<line x1="90" y1="265" x2="840" y2="265" stroke="#2e6fb7" stroke-width="2" marker-end="url(#mb)"/>
+<line x1="90" y1="335" x2="840" y2="335" stroke="#2e6fb7" stroke-width="2" marker-end="url(#mb)"/>
+<text x="80" y="129.9" font-size="14" text-anchor="end" fill="#2e6fb7">输入</text>
+<text x="80" y="151.9" font-size="14" text-anchor="end" fill="#2e6fb7">每拍右移</text>
+<line x1="180" y1="88" x2="180" y2="410" stroke="#c0392b" stroke-width="2" marker-end="url(#mr)"/>
+<line x1="250" y1="88" x2="250" y2="410" stroke="#c0392b" stroke-width="2" marker-end="url(#mr)"/>
+<line x1="320" y1="88" x2="320" y2="410" stroke="#c0392b" stroke-width="2" marker-end="url(#mr)"/>
+<line x1="390" y1="88" x2="390" y2="410" stroke="#c0392b" stroke-width="2" marker-end="url(#mr)"/>
+<line x1="460" y1="88" x2="460" y2="410" stroke="#c0392b" stroke-width="2" marker-end="url(#mr)"/>
+<line x1="530" y1="88" x2="530" y2="410" stroke="#c0392b" stroke-width="2" marker-end="url(#mr)"/>
+<line x1="600" y1="88" x2="600" y2="410" stroke="#c0392b" stroke-width="2" marker-end="url(#mr)"/>
+<line x1="666.0" y1="88" x2="666.0" y2="410" stroke="#777" stroke-width="2" marker-end="url(#my)"/>
+<line x1="774" y1="88" x2="774" y2="410" stroke="#777" stroke-width="2" marker-end="url(#my)"/>
+<text x="400.0" y="437.2" font-size="15" text-anchor="middle" fill="#c0392b" font-weight="bold">底边流出 100 个有效结果</text>
+<text x="720.0" y="437.2" font-size="15" text-anchor="middle" fill="#777" font-weight="bold">28 个结果恒为 0，丢弃</text>
+<text x="720.0" y="225.2" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">乘 0、加 0</text>
+<text x="720.0" y="249.2" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">照常传递</text>
+<text x="480" y="474.9" font-size="14" text-anchor="middle" fill="#222">虚线处没有开关，也没有旁路：输入要一直走到右边缘，部分和要一直走到底边，路上每个 PE 都得在排定的那一拍接收、计算、传递</text>
+<text x="480" y="500.9" font-size="14" text-anchor="middle" fill="#777">这 28 列的时钟照走、电照耗，产出为零；列方向的利用率 = 100 ÷ 128 ≈ 78%</text>
+</svg>

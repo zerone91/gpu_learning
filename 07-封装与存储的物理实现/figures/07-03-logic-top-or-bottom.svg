@@ -1,0 +1,173 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="580" fill="#ffffff"/>
+<defs><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/></marker></defs>
+<text x="480" y="28" font-size="18" text-anchor="middle" fill="#222" font-weight="bold">逻辑裸片放下面还是上面：一边坏在散热，一边坏在供电（剖面示意）</text>
+<line x1="480" y1="45" x2="480" y2="470" stroke="#aaa" stroke-width="1.5" stroke-dasharray="6,5"/>
+<text x="240" y="64" font-size="16" text-anchor="middle" font-weight="bold">（a）逻辑在下：DRAM 叠在逻辑上</text>
+<rect x="90" y="80" width="300" height="34" fill="#d5d5d5" stroke="#222" stroke-width="1.5"/>
+<text x="240.0" y="102" font-size="13" text-anchor="middle">散热器</text>
+<rect x="90" y="124" width="300" height="34" fill="#c9b3dd" stroke="#222" stroke-width="1.5"/>
+<rect x="105" y="124" width="4" height="34" fill="#d9822b"/>
+<rect x="132" y="124" width="4" height="34" fill="#d9822b"/>
+<rect x="159" y="124" width="4" height="34" fill="#d9822b"/>
+<rect x="186" y="124" width="4" height="34" fill="#d9822b"/>
+<rect x="213" y="124" width="4" height="34" fill="#d9822b"/>
+<rect x="240" y="124" width="4" height="34" fill="#d9822b"/>
+<rect x="267" y="124" width="4" height="34" fill="#d9822b"/>
+<rect x="294" y="124" width="4" height="34" fill="#d9822b"/>
+<rect x="321" y="124" width="4" height="34" fill="#d9822b"/>
+<rect x="348" y="124" width="4" height="34" fill="#d9822b"/>
+<text x="240.0" y="146.0" font-size="14" text-anchor="middle" font-weight="bold" stroke="#c9b3dd" stroke-width="5" paint-order="stroke">DRAM 裸片</text>
+<circle cx="100.0" cy="161" r="3" fill="#b8860b"/>
+<circle cx="121.53846153846155" cy="161" r="3" fill="#b8860b"/>
+<circle cx="143.0769230769231" cy="161" r="3" fill="#b8860b"/>
+<circle cx="164.6153846153846" cy="161" r="3" fill="#b8860b"/>
+<circle cx="186.15384615384616" cy="161" r="3" fill="#b8860b"/>
+<circle cx="207.69230769230768" cy="161" r="3" fill="#b8860b"/>
+<circle cx="229.23076923076923" cy="161" r="3" fill="#b8860b"/>
+<circle cx="250.76923076923077" cy="161" r="3" fill="#b8860b"/>
+<circle cx="272.3076923076923" cy="161" r="3" fill="#b8860b"/>
+<circle cx="293.8461538461538" cy="161" r="3" fill="#b8860b"/>
+<circle cx="315.38461538461536" cy="161" r="3" fill="#b8860b"/>
+<circle cx="336.9230769230769" cy="161" r="3" fill="#b8860b"/>
+<circle cx="358.46153846153845" cy="161" r="3" fill="#b8860b"/>
+<circle cx="380.0" cy="161" r="3" fill="#b8860b"/>
+<rect x="90" y="164" width="300" height="34" fill="#c9b3dd" stroke="#222" stroke-width="1.5"/>
+<rect x="105" y="164" width="4" height="34" fill="#d9822b"/>
+<rect x="132" y="164" width="4" height="34" fill="#d9822b"/>
+<rect x="159" y="164" width="4" height="34" fill="#d9822b"/>
+<rect x="186" y="164" width="4" height="34" fill="#d9822b"/>
+<rect x="213" y="164" width="4" height="34" fill="#d9822b"/>
+<rect x="240" y="164" width="4" height="34" fill="#d9822b"/>
+<rect x="267" y="164" width="4" height="34" fill="#d9822b"/>
+<rect x="294" y="164" width="4" height="34" fill="#d9822b"/>
+<rect x="321" y="164" width="4" height="34" fill="#d9822b"/>
+<rect x="348" y="164" width="4" height="34" fill="#d9822b"/>
+<text x="240.0" y="186.0" font-size="14" text-anchor="middle" font-weight="bold" stroke="#c9b3dd" stroke-width="5" paint-order="stroke">DRAM 裸片</text>
+<circle cx="100.0" cy="201" r="3" fill="#b8860b"/>
+<circle cx="121.53846153846155" cy="201" r="3" fill="#b8860b"/>
+<circle cx="143.0769230769231" cy="201" r="3" fill="#b8860b"/>
+<circle cx="164.6153846153846" cy="201" r="3" fill="#b8860b"/>
+<circle cx="186.15384615384616" cy="201" r="3" fill="#b8860b"/>
+<circle cx="207.69230769230768" cy="201" r="3" fill="#b8860b"/>
+<circle cx="229.23076923076923" cy="201" r="3" fill="#b8860b"/>
+<circle cx="250.76923076923077" cy="201" r="3" fill="#b8860b"/>
+<circle cx="272.3076923076923" cy="201" r="3" fill="#b8860b"/>
+<circle cx="293.8461538461538" cy="201" r="3" fill="#b8860b"/>
+<circle cx="315.38461538461536" cy="201" r="3" fill="#b8860b"/>
+<circle cx="336.9230769230769" cy="201" r="3" fill="#b8860b"/>
+<circle cx="358.46153846153845" cy="201" r="3" fill="#b8860b"/>
+<circle cx="380.0" cy="201" r="3" fill="#b8860b"/>
+<rect x="90" y="204" width="300" height="34" fill="#c9b3dd" stroke="#222" stroke-width="1.5"/>
+<rect x="105" y="204" width="4" height="34" fill="#d9822b"/>
+<rect x="132" y="204" width="4" height="34" fill="#d9822b"/>
+<rect x="159" y="204" width="4" height="34" fill="#d9822b"/>
+<rect x="186" y="204" width="4" height="34" fill="#d9822b"/>
+<rect x="213" y="204" width="4" height="34" fill="#d9822b"/>
+<rect x="240" y="204" width="4" height="34" fill="#d9822b"/>
+<rect x="267" y="204" width="4" height="34" fill="#d9822b"/>
+<rect x="294" y="204" width="4" height="34" fill="#d9822b"/>
+<rect x="321" y="204" width="4" height="34" fill="#d9822b"/>
+<rect x="348" y="204" width="4" height="34" fill="#d9822b"/>
+<text x="240.0" y="226.0" font-size="14" text-anchor="middle" font-weight="bold" stroke="#c9b3dd" stroke-width="5" paint-order="stroke">DRAM 裸片</text>
+<circle cx="100.0" cy="241" r="3" fill="#b8860b"/>
+<circle cx="121.53846153846155" cy="241" r="3" fill="#b8860b"/>
+<circle cx="143.0769230769231" cy="241" r="3" fill="#b8860b"/>
+<circle cx="164.6153846153846" cy="241" r="3" fill="#b8860b"/>
+<circle cx="186.15384615384616" cy="241" r="3" fill="#b8860b"/>
+<circle cx="207.69230769230768" cy="241" r="3" fill="#b8860b"/>
+<circle cx="229.23076923076923" cy="241" r="3" fill="#b8860b"/>
+<circle cx="250.76923076923077" cy="241" r="3" fill="#b8860b"/>
+<circle cx="272.3076923076923" cy="241" r="3" fill="#b8860b"/>
+<circle cx="293.8461538461538" cy="241" r="3" fill="#b8860b"/>
+<circle cx="315.38461538461536" cy="241" r="3" fill="#b8860b"/>
+<circle cx="336.9230769230769" cy="241" r="3" fill="#b8860b"/>
+<circle cx="358.46153846153845" cy="241" r="3" fill="#b8860b"/>
+<circle cx="380.0" cy="241" r="3" fill="#b8860b"/>
+<rect x="90" y="244" width="300" height="50" fill="#9bb7d4" stroke="#222" stroke-width="1.5"/>
+<text x="240.0" y="274.0" font-size="14" text-anchor="middle" font-weight="bold" stroke="#9bb7d4" stroke-width="5" paint-order="stroke">逻辑裸片（几百瓦）</text>
+<circle cx="100.0" cy="300" r="5" fill="#b8860b"/>
+<circle cx="121.53846153846155" cy="300" r="5" fill="#b8860b"/>
+<circle cx="143.0769230769231" cy="300" r="5" fill="#b8860b"/>
+<circle cx="164.6153846153846" cy="300" r="5" fill="#b8860b"/>
+<circle cx="186.15384615384616" cy="300" r="5" fill="#b8860b"/>
+<circle cx="207.69230769230768" cy="300" r="5" fill="#b8860b"/>
+<circle cx="229.23076923076923" cy="300" r="5" fill="#b8860b"/>
+<circle cx="250.76923076923077" cy="300" r="5" fill="#b8860b"/>
+<circle cx="272.3076923076923" cy="300" r="5" fill="#b8860b"/>
+<circle cx="293.8461538461538" cy="300" r="5" fill="#b8860b"/>
+<circle cx="315.38461538461536" cy="300" r="5" fill="#b8860b"/>
+<circle cx="336.9230769230769" cy="300" r="5" fill="#b8860b"/>
+<circle cx="358.46153846153845" cy="300" r="5" fill="#b8860b"/>
+<circle cx="380.0" cy="300" r="5" fill="#b8860b"/>
+<rect x="90" y="306" width="300" height="34" fill="#cfe3c4" stroke="#222" stroke-width="1.5"/>
+<text x="240.0" y="328" font-size="13" text-anchor="middle">封装基板（电流从这里进来）</text>
+<line x1="99" y1="262" x2="99" y2="124" stroke="#c0392b" stroke-width="4"/>
+<path d="M95,126 L99,112 L103,126 z" fill="#c0392b"/>
+<text x="30" y="365" font-size="13" fill="#c0392b" font-weight="bold">热：要穿过整摞 DRAM</text>
+<line x1="420" y1="330" x2="420" y2="275" stroke="#1f5fa8" stroke-width="4" marker-end="url(#b)"/>
+<text x="330" y="365" font-size="13" fill="#1f5fa8" font-weight="bold">电：直接进来，最短</text>
+<text x="30" y="400" font-size="14" fill="#1f5fa8">✓ 供电最优：电流不用穿过 DRAM</text>
+<text x="30" y="422" font-size="14" fill="#c0392b">✗ 散热最差：唯一向上的散热路被 DRAM 堵住，</text>
+<text x="30" y="444" font-size="14" fill="#c0392b">   而 DRAM 超过约 85～95 °C 就出错，</text>
+<text x="30" y="466" font-size="14" fill="#c0392b">   这条路的温度上限还被卡死</text>
+<text x="720" y="64" font-size="16" text-anchor="middle" font-weight="bold">（b）逻辑在上：Raptor 的选择</text>
+<rect x="570" y="80" width="300" height="34" fill="#d5d5d5" stroke="#222" stroke-width="1.5"/>
+<text x="720.0" y="102" font-size="13" text-anchor="middle">散热器</text>
+<rect x="570" y="124" width="300" height="60" fill="#9bb7d4" stroke="#222" stroke-width="1.5"/>
+<text x="720.0" y="159.0" font-size="14" text-anchor="middle" font-weight="bold" stroke="#9bb7d4" stroke-width="5" paint-order="stroke">逻辑裸片（几百瓦）</text>
+<circle cx="580.0" cy="190" r="4" fill="#b8860b"/>
+<circle cx="601.5384615384615" cy="190" r="4" fill="#b8860b"/>
+<circle cx="623.0769230769231" cy="190" r="4" fill="#b8860b"/>
+<circle cx="644.6153846153846" cy="190" r="4" fill="#b8860b"/>
+<circle cx="666.1538461538462" cy="190" r="4" fill="#b8860b"/>
+<circle cx="687.6923076923077" cy="190" r="4" fill="#b8860b"/>
+<circle cx="709.2307692307693" cy="190" r="4" fill="#b8860b"/>
+<circle cx="730.7692307692307" cy="190" r="4" fill="#b8860b"/>
+<circle cx="752.3076923076924" cy="190" r="4" fill="#b8860b"/>
+<circle cx="773.8461538461538" cy="190" r="4" fill="#b8860b"/>
+<circle cx="795.3846153846154" cy="190" r="4" fill="#b8860b"/>
+<circle cx="816.9230769230769" cy="190" r="4" fill="#b8860b"/>
+<circle cx="838.4615384615385" cy="190" r="4" fill="#b8860b"/>
+<circle cx="860.0" cy="190" r="4" fill="#b8860b"/>
+<rect x="570" y="196" width="300" height="60" fill="#c9b3dd" stroke="#222" stroke-width="1.5"/>
+<rect x="585" y="196" width="4" height="60" fill="#d9822b"/>
+<rect x="612" y="196" width="4" height="60" fill="#d9822b"/>
+<rect x="639" y="196" width="4" height="60" fill="#d9822b"/>
+<rect x="666" y="196" width="4" height="60" fill="#d9822b"/>
+<rect x="693" y="196" width="4" height="60" fill="#d9822b"/>
+<rect x="720" y="196" width="4" height="60" fill="#d9822b"/>
+<rect x="747" y="196" width="4" height="60" fill="#d9822b"/>
+<rect x="774" y="196" width="4" height="60" fill="#d9822b"/>
+<rect x="801" y="196" width="4" height="60" fill="#d9822b"/>
+<rect x="828" y="196" width="4" height="60" fill="#d9822b"/>
+<text x="720.0" y="231.0" font-size="14" text-anchor="middle" font-weight="bold" stroke="#c9b3dd" stroke-width="5" paint-order="stroke">DRAM 裸片（兼作中介层）</text>
+<circle cx="580.0" cy="262" r="5" fill="#b8860b"/>
+<circle cx="601.5384615384615" cy="262" r="5" fill="#b8860b"/>
+<circle cx="623.0769230769231" cy="262" r="5" fill="#b8860b"/>
+<circle cx="644.6153846153846" cy="262" r="5" fill="#b8860b"/>
+<circle cx="666.1538461538462" cy="262" r="5" fill="#b8860b"/>
+<circle cx="687.6923076923077" cy="262" r="5" fill="#b8860b"/>
+<circle cx="709.2307692307693" cy="262" r="5" fill="#b8860b"/>
+<circle cx="730.7692307692307" cy="262" r="5" fill="#b8860b"/>
+<circle cx="752.3076923076924" cy="262" r="5" fill="#b8860b"/>
+<circle cx="773.8461538461538" cy="262" r="5" fill="#b8860b"/>
+<circle cx="795.3846153846154" cy="262" r="5" fill="#b8860b"/>
+<circle cx="816.9230769230769" cy="262" r="5" fill="#b8860b"/>
+<circle cx="838.4615384615385" cy="262" r="5" fill="#b8860b"/>
+<circle cx="860.0" cy="262" r="5" fill="#b8860b"/>
+<rect x="570" y="268" width="300" height="34" fill="#cfe3c4" stroke="#222" stroke-width="1.5"/>
+<text x="720.0" y="290" font-size="13" text-anchor="middle">封装基板（电流从这里进来）</text>
+<line x1="540" y1="184" x2="540" y2="107" stroke="#c0392b" stroke-width="5"/>
+<path d="M535,109 L540,95 L545,109 z" fill="#c0392b"/>
+<text x="505" y="330" font-size="13" fill="#c0392b" font-weight="bold">热：直接进散热器</text>
+<line x1="592" y1="300" x2="592" y2="188" stroke="#1f5fa8" stroke-width="3" marker-end="url(#b)"/>
+<line x1="848" y1="300" x2="848" y2="188" stroke="#1f5fa8" stroke-width="3" marker-end="url(#b)"/>
+<text x="700" y="330" font-size="13" fill="#1f5fa8" font-weight="bold">电：几百安培穿过 DRAM 的 TSV</text>
+<text x="500" y="400" font-size="14" fill="#c0392b">✓ 散热最优：逻辑裸片直接贴散热器</text>
+<text x="500" y="422" font-size="14" fill="#1f5fa8">✗ 供电难：电流要挤过 DRAM 裸片里的 TSV，</text>
+<text x="500" y="444" font-size="14" fill="#1f5fa8">   供电 TSV 越多，留给信号和存储的面积越少</text>
+<text x="500" y="466" font-size="14" fill="#222">→ Raptor 只堆 1 层 DRAM，容量因此只有 32 GB</text>
+<text x="480" y="520" font-size="14" text-anchor="middle" fill="#555">红色箭头 = 热往外走的路；蓝色箭头 = 供电电流进来的路；橙色竖条 = TSV（在硅里竖着打穿、填铜的孔）</text>
+<text x="480" y="545" font-size="14" text-anchor="middle" fill="#555">左图画了 3 层 DRAM 只为示意“多层会更糟”；两图厚度都不按比例</text>
+</svg>

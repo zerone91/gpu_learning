@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="540" fill="#ffffff"/>
+<defs><marker id="mk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e6fb7"/></marker><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f8a4a"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d9822b"/></marker><marker id="my" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777"/></marker><marker id="mp" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7b4fa0"/></marker></defs>
+<defs><pattern id="h" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="#f0f0f0"/><line x1="0" y1="0" x2="0" y2="8" stroke="#bbb" stroke-width="2"/></pattern></defs>
+<text x="480" y="31.9" font-size="17" text-anchor="middle" fill="#222" font-weight="bold">130×130 的矩阵乘在 128×128 阵列上：要按 2×2 块、256×256 的位置来算</text>
+<rect x="90" y="80" width="371.2" height="371.2" rx="0" fill="url(#h)" stroke="none" stroke-width="0" />
+<rect x="90" y="80" width="188.5" height="188.5" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="2" />
+<line x1="275.6" y1="80" x2="275.6" y2="451.2" stroke="#222" stroke-width="2.5" stroke-dasharray="8 5"/>
+<line x1="90" y1="265.6" x2="461.2" y2="265.6" stroke="#222" stroke-width="2.5" stroke-dasharray="8 5"/>
+<rect x="90" y="80" width="371.2" height="371.2" rx="0" fill="none" stroke="#222" stroke-width="2" />
+<text x="182.8" y="168.4" font-size="16" text-anchor="middle" fill="#222" font-weight="bold">块①</text>
+<text x="182.8" y="191.7" font-size="14" text-anchor="middle" fill="#222">128×128 全是真数据</text>
+<text x="368.4" y="168.6" font-size="14" text-anchor="middle" fill="#222">块②：128×2 真数据</text>
+<text x="368.4" y="186.8" font-size="14" text-anchor="middle" fill="#222">其余全是填的零</text>
+<text x="182.8" y="354.2" font-size="14" text-anchor="middle" fill="#222">块③：2×128 真数据</text>
+<text x="182.8" y="372.4" font-size="14" text-anchor="middle" fill="#222">其余全是填的零</text>
+<text x="368.4" y="363.3" font-size="14" text-anchor="middle" fill="#222">块④：2×2 真数据</text>
+<text x="184.25" y="72.9" font-size="14" text-anchor="middle" fill="#2f8a4a">130</text>
+<text x="68" y="179.2" font-size="14" text-anchor="middle" fill="#2f8a4a">130</text>
+<text x="275.6" y="476.1" font-size="14" text-anchor="middle" fill="#222">128</text>
+<text x="461.2" y="476.1" font-size="14" text-anchor="middle" fill="#222">256</text>
+<text x="72" y="270.5" font-size="14" text-anchor="end" fill="#222">128</text>
+<text x="560" y="105.2" font-size="15" text-anchor="start" fill="#222" font-weight="bold">按块数拍数，四块代价一样：</text>
+<text x="560" y="143.2" font-size="15" text-anchor="start" fill="#222">块①</text>
+<text x="620" y="142.9" font-size="14" text-anchor="start" fill="#777">128×128 / 128×128</text>
+<text x="890" y="143.2" font-size="15" text-anchor="end" fill="#2f8a4a" font-weight="bold">100%</text>
+<text x="560" y="177.2" font-size="15" text-anchor="start" fill="#222">块②</text>
+<text x="620" y="176.9" font-size="14" text-anchor="start" fill="#777">128×2 / 128×128</text>
+<text x="890" y="177.2" font-size="15" text-anchor="end" fill="#c0392b" font-weight="bold">1.6%</text>
+<text x="560" y="211.2" font-size="15" text-anchor="start" fill="#222">块③</text>
+<text x="620" y="210.9" font-size="14" text-anchor="start" fill="#777">2×128 / 128×128</text>
+<text x="890" y="211.2" font-size="15" text-anchor="end" fill="#c0392b" font-weight="bold">1.6%</text>
+<text x="560" y="245.2" font-size="15" text-anchor="start" fill="#222">块④</text>
+<text x="620" y="244.9" font-size="14" text-anchor="start" fill="#777">2×2 / 128×128</text>
+<text x="890" y="245.2" font-size="15" text-anchor="end" fill="#c0392b" font-weight="bold">0.02%</text>
+<text x="560" y="295.2" font-size="15" text-anchor="start" fill="#222">总利用率 = 真数据 ÷ 全部位置</text>
+<text x="560" y="323.2" font-size="15" text-anchor="start" fill="#222">= (130 × 130) ÷ (256 × 256)</text>
+<text x="560" y="351.2" font-size="15" text-anchor="start" fill="#c0392b" font-weight="bold">= 51% × 51% ≈ 26%</text>
+<text x="560" y="397.2" font-size="15" text-anchor="start" fill="#222">只多出 2 行 2 列，</text>
+<text x="560" y="423.2" font-size="15" text-anchor="start" fill="#222">却要为 3 整块的空位付拍数和电</text>
+<rect x="90" y="505" width="24" height="20" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.5" />
+<text x="122" y="519.9" font-size="14" text-anchor="start" fill="#222">真实数据（130×130）</text>
+<rect x="340" y="505" width="24" height="20" rx="0" fill="url(#h)" stroke="#999" stroke-width="1.5" />
+<text x="372" y="519.9" font-size="14" text-anchor="start" fill="#222">填零凑整的部分：照常乘零加零，产出为零</text>
+<text x="730" y="519.9" font-size="14" text-anchor="start" fill="#222">虚线：128 的块边界</text>
+</svg>

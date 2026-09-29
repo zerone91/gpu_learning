@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="560" fill="#ffffff"/>
+<defs>
+<marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker>
+<marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2c6fb7"/></marker>
+</defs>
+<text x="480" y="28" font-size="18" text-anchor="middle" fill="#222" font-weight="bold">GPU 的四级存储（H100 的数量级）：越往下越大，也越慢</text>
+<text x="330" y="56" font-size="15" text-anchor="middle" fill="#555">层级（宽度示意容量，不按比例）</text>
+<text x="700" y="56" font-size="15" text-anchor="middle" fill="#555">等多久</text>
+<text x="860" y="56" font-size="15" text-anchor="middle" fill="#555">谁来管</text>
+<!-- layers -->
+<rect x="210" y="66" width="240" height="52" fill="#dbe8f6" stroke="#222" stroke-width="2"/>
+<text x="330" y="88" font-size="16" text-anchor="middle" fill="#222" font-weight="bold">寄存器</text>
+<text x="330" y="109" font-size="14" text-anchor="middle" fill="#222">256 KB / SM · 每个线程私有</text>
+<rect x="160" y="136" width="340" height="52" fill="#dbe8f6" stroke="#222" stroke-width="2"/>
+<text x="330" y="158" font-size="16" text-anchor="middle" fill="#222" font-weight="bold">shared memory / L1 缓存</text>
+<text x="330" y="179" font-size="14" text-anchor="middle" fill="#222">256 KB / SM · 同一线程块共享</text>
+<rect x="110" y="216" width="440" height="52" fill="#fbe3c4" stroke="#222" stroke-width="2"/>
+<text x="330" y="238" font-size="16" text-anchor="middle" fill="#222" font-weight="bold">L2 缓存</text>
+<text x="330" y="259" font-size="14" text-anchor="middle" fill="#222">约 50 MB · 全芯片共享</text>
+<rect x="60" y="286" width="540" height="52" fill="#fbe3c4" stroke="#222" stroke-width="2"/>
+<text x="330" y="308" font-size="16" text-anchor="middle" fill="#222" font-weight="bold">显存 HBM</text>
+<text x="330" y="329" font-size="14" text-anchor="middle" fill="#222">80 GB · 全芯片共享 · 带宽约 3.35 TB/s</text>
+<!-- SM boundary -->
+<line x1="20" y1="202" x2="610" y2="202" stroke="#555" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text x="20" y="194" font-size="14" fill="#2c6fb7">▲ 在 SM 里</text>
+<text x="20" y="222" font-size="14" fill="#b86a0c">▼ 在 SM 外</text>
+<!-- right columns -->
+<text x="700" y="98" font-size="15" text-anchor="middle" fill="#222">约 0 周期</text>
+<text x="700" y="168" font-size="15" text-anchor="middle" fill="#222">约 20~30 周期</text>
+<text x="700" y="248" font-size="15" text-anchor="middle" fill="#222">约 200 周期</text>
+<text x="700" y="318" font-size="15" text-anchor="middle" fill="#c0392b" font-weight="bold">约 400~800 周期</text>
+<text x="860" y="98" font-size="15" text-anchor="middle" fill="#222">编译器</text>
+<text x="860" y="160" font-size="15" text-anchor="middle" fill="#222">shared：程序员</text>
+<text x="860" y="180" font-size="15" text-anchor="middle" fill="#222">L1：硬件自动</text>
+<text x="860" y="248" font-size="15" text-anchor="middle" fill="#222">硬件自动</text>
+<text x="860" y="318" font-size="15" text-anchor="middle" fill="#222">硬件自动</text>
+<line x1="620" y1="126" x2="940" y2="126" stroke="#ddd" stroke-width="1.5"/>
+<line x1="620" y1="206" x2="940" y2="206" stroke="#ddd" stroke-width="1.5"/>
+<line x1="620" y1="277" x2="940" y2="277" stroke="#ddd" stroke-width="1.5"/>
+<!-- journey -->
+<text x="20" y="384" font-size="16" fill="#222" font-weight="bold">一条 x = data[i] 的旅程（没命中才往下走）</text>
+<rect x="20" y="398" width="200" height="86" rx="6" fill="#ffffff" stroke="#222" stroke-width="2"/>
+<text x="120" y="422" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">① 访存单元 LSU</text>
+<text x="120" y="446" font-size="14" text-anchor="middle" fill="#222">把 32 个线程的地址</text>
+<text x="120" y="468" font-size="14" text-anchor="middle" fill="#222">合并成若干 32 字节段</text>
+<rect x="260" y="398" width="200" height="86" rx="6" fill="#dbe8f6" stroke="#222" stroke-width="2"/>
+<text x="360" y="422" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">② 查 L1</text>
+<text x="360" y="446" font-size="14" text-anchor="middle" fill="#222">命中：约 30 周期返回</text>
+<text x="360" y="468" font-size="14" text-anchor="middle" fill="#222">旅程到此结束</text>
+<rect x="500" y="398" width="200" height="86" rx="6" fill="#fbe3c4" stroke="#222" stroke-width="2"/>
+<text x="600" y="422" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">③ 查 L2</text>
+<text x="600" y="446" font-size="14" text-anchor="middle" fill="#222">命中：约 200 周期返回</text>
+<text x="600" y="468" font-size="14" text-anchor="middle" fill="#222">顺手在 L1 留副本</text>
+<rect x="740" y="398" width="200" height="86" rx="6" fill="#fbe3c4" stroke="#222" stroke-width="2"/>
+<text x="840" y="422" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">④ 去显存</text>
+<text x="840" y="446" font-size="14" text-anchor="middle" fill="#222">几百周期后数据回来</text>
+<text x="840" y="468" font-size="14" text-anchor="middle" fill="#222">这期间 warp 在等</text>
+<line x1="220" y1="428" x2="258" y2="428" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<line x1="460" y1="428" x2="498" y2="428" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<line x1="700" y1="428" x2="738" y2="428" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<text x="239" y="420" font-size="13" text-anchor="middle" fill="#555"> </text>
+<text x="479" y="420" font-size="14" text-anchor="middle" fill="#555">未中</text>
+<text x="719" y="420" font-size="14" text-anchor="middle" fill="#555">未中</text>
+<path d="M840,486 L840,520 L120,520 L120,488" fill="none" stroke="#2c6fb7" stroke-width="2" marker-end="url(#b)"/>
+<text x="480" y="544" font-size="14" text-anchor="middle" fill="#2c6fb7">⑤ 数据一路向上填进 L2、L1，写进目标寄存器，记分牌销账，这个 warp 重新就绪</text>
+</svg>

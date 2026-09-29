@@ -1,0 +1,212 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 610" width="960" height="610" font-family="sans-serif" font-size="15">
+<rect x="0" y="0" width="960" height="610" fill="#ffffff"/>
+<text x="20" y="30" font-size="17" font-weight="bold">每个浮点值的活跃区间：从被读进来（或算出来）到最后一次被用掉</text>
+<text x="30" y="70" font-weight="bold">排列一：读、读、算交替</text>
+<text x="103.5" y="88" text-anchor="middle" font-size="12">1</text>
+<text x="103.5" y="106" text-anchor="middle" font-size="13" fill="#1f5fa8">读</text>
+<text x="126.5" y="88" text-anchor="middle" font-size="12">2</text>
+<text x="126.5" y="106" text-anchor="middle" font-size="13" fill="#1f5fa8">读</text>
+<text x="149.5" y="88" text-anchor="middle" font-size="12">3</text>
+<text x="149.5" y="106" text-anchor="middle" font-size="13" fill="#d9822b">乘</text>
+<text x="172.5" y="88" text-anchor="middle" font-size="12">4</text>
+<text x="172.5" y="106" text-anchor="middle" font-size="13" fill="#1f5fa8">读</text>
+<text x="195.5" y="88" text-anchor="middle" font-size="12">5</text>
+<text x="195.5" y="106" text-anchor="middle" font-size="13" fill="#1f5fa8">读</text>
+<text x="218.5" y="88" text-anchor="middle" font-size="12">6</text>
+<text x="218.5" y="106" text-anchor="middle" font-size="13" fill="#d9822b">加</text>
+<text x="241.5" y="88" text-anchor="middle" font-size="12">7</text>
+<text x="241.5" y="106" text-anchor="middle" font-size="13" fill="#1f5fa8">读</text>
+<text x="264.5" y="88" text-anchor="middle" font-size="12">8</text>
+<text x="264.5" y="106" text-anchor="middle" font-size="13" fill="#1f5fa8">读</text>
+<text x="287.5" y="88" text-anchor="middle" font-size="12">9</text>
+<text x="287.5" y="106" text-anchor="middle" font-size="13" fill="#d9822b">加</text>
+<text x="310.5" y="88" text-anchor="middle" font-size="12">10</text>
+<text x="310.5" y="106" text-anchor="middle" font-size="13" fill="#1f5fa8">读</text>
+<text x="333.5" y="88" text-anchor="middle" font-size="12">11</text>
+<text x="333.5" y="106" text-anchor="middle" font-size="13" fill="#1f5fa8">读</text>
+<text x="356.5" y="88" text-anchor="middle" font-size="12">12</text>
+<text x="356.5" y="106" text-anchor="middle" font-size="13" fill="#d9822b">加</text>
+<text x="379.5" y="88" text-anchor="middle" font-size="12">13</text>
+<text x="379.5" y="106" text-anchor="middle" font-size="13" fill="#d9822b">大</text>
+<text x="402.5" y="88" text-anchor="middle" font-size="12">14</text>
+<text x="402.5" y="106" text-anchor="middle" font-size="13" fill="#333">写</text>
+<text x="30" y="88" font-size="12" fill="#555">第几条</text>
+<text x="30" y="106" font-size="12" fill="#555">指令</text>
+<text x="80" y="127" text-anchor="end" font-size="13">a0</text>
+<line x1="92" y1="134" x2="414" y2="134" stroke="#eee" stroke-width="1"/>
+<rect x="103.5" y="115" width="46.0" height="14" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5"/>
+<circle cx="103.5" cy="122.0" r="3.5" fill="#1f5fa8"/>
+<text x="80" y="151" text-anchor="end" font-size="13">b0</text>
+<line x1="92" y1="158" x2="414" y2="158" stroke="#eee" stroke-width="1"/>
+<rect x="126.5" y="139" width="23.0" height="14" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5"/>
+<circle cx="126.5" cy="146.0" r="3.5" fill="#1f5fa8"/>
+<text x="80" y="175" text-anchor="end" font-size="13">a1</text>
+<line x1="92" y1="182" x2="414" y2="182" stroke="#eee" stroke-width="1"/>
+<rect x="172.5" y="163" width="46.0" height="14" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5"/>
+<circle cx="172.5" cy="170.0" r="3.5" fill="#1f5fa8"/>
+<text x="80" y="199" text-anchor="end" font-size="13">b1</text>
+<line x1="92" y1="206" x2="414" y2="206" stroke="#eee" stroke-width="1"/>
+<rect x="195.5" y="187" width="23.0" height="14" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5"/>
+<circle cx="195.5" cy="194.0" r="3.5" fill="#1f5fa8"/>
+<text x="80" y="223" text-anchor="end" font-size="13">a2</text>
+<line x1="92" y1="230" x2="414" y2="230" stroke="#eee" stroke-width="1"/>
+<rect x="241.5" y="211" width="46.0" height="14" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5"/>
+<circle cx="241.5" cy="218.0" r="3.5" fill="#1f5fa8"/>
+<text x="80" y="247" text-anchor="end" font-size="13">b2</text>
+<line x1="92" y1="254" x2="414" y2="254" stroke="#eee" stroke-width="1"/>
+<rect x="264.5" y="235" width="23.0" height="14" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5"/>
+<circle cx="264.5" cy="242.0" r="3.5" fill="#1f5fa8"/>
+<text x="80" y="271" text-anchor="end" font-size="13">a3</text>
+<line x1="92" y1="278" x2="414" y2="278" stroke="#eee" stroke-width="1"/>
+<rect x="310.5" y="259" width="46.0" height="14" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5"/>
+<circle cx="310.5" cy="266.0" r="3.5" fill="#1f5fa8"/>
+<text x="80" y="295" text-anchor="end" font-size="13">b3</text>
+<line x1="92" y1="302" x2="414" y2="302" stroke="#eee" stroke-width="1"/>
+<rect x="333.5" y="283" width="23.0" height="14" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5"/>
+<circle cx="333.5" cy="290.0" r="3.5" fill="#1f5fa8"/>
+<text x="80" y="319" text-anchor="end" font-size="13">acc</text>
+<line x1="92" y1="326" x2="414" y2="326" stroke="#eee" stroke-width="1"/>
+<rect x="149.5" y="307" width="230.0" height="14" fill="#fde2c4" stroke="#d9822b" stroke-width="1.5"/>
+<circle cx="149.5" cy="314.0" r="3.5" fill="#d9822b"/>
+<text x="80" y="343" text-anchor="end" font-size="13">y</text>
+<line x1="92" y1="350" x2="414" y2="350" stroke="#eee" stroke-width="1"/>
+<rect x="379.5" y="331" width="23.0" height="14" fill="#fde2c4" stroke="#d9822b" stroke-width="1.5"/>
+<circle cx="379.5" cy="338.0" r="3.5" fill="#d9822b"/>
+<text x="30" y="382" font-size="12" fill="#555">同时</text>
+<text x="30" y="398" font-size="12" fill="#555">活跃数</text>
+<rect x="95" y="470" width="17" height="14" fill="#999"/>
+<text x="103.5" y="500" text-anchor="middle" font-size="12">1</text>
+<rect x="118" y="456" width="17" height="28" fill="#999"/>
+<text x="126.5" y="500" text-anchor="middle" font-size="12">2</text>
+<rect x="141" y="470" width="17" height="14" fill="#999"/>
+<text x="149.5" y="500" text-anchor="middle" font-size="12">1</text>
+<rect x="164" y="456" width="17" height="28" fill="#999"/>
+<text x="172.5" y="500" text-anchor="middle" font-size="12">2</text>
+<rect x="187" y="442" width="17" height="42" fill="#c0392b"/>
+<text x="195.5" y="500" text-anchor="middle" font-size="12">3</text>
+<rect x="210" y="470" width="17" height="14" fill="#999"/>
+<text x="218.5" y="500" text-anchor="middle" font-size="12">1</text>
+<rect x="233" y="456" width="17" height="28" fill="#999"/>
+<text x="241.5" y="500" text-anchor="middle" font-size="12">2</text>
+<rect x="256" y="442" width="17" height="42" fill="#c0392b"/>
+<text x="264.5" y="500" text-anchor="middle" font-size="12">3</text>
+<rect x="279" y="470" width="17" height="14" fill="#999"/>
+<text x="287.5" y="500" text-anchor="middle" font-size="12">1</text>
+<rect x="302" y="456" width="17" height="28" fill="#999"/>
+<text x="310.5" y="500" text-anchor="middle" font-size="12">2</text>
+<rect x="325" y="442" width="17" height="42" fill="#c0392b"/>
+<text x="333.5" y="500" text-anchor="middle" font-size="12">3</text>
+<rect x="348" y="470" width="17" height="14" fill="#999"/>
+<text x="356.5" y="500" text-anchor="middle" font-size="12">1</text>
+<rect x="371" y="470" width="17" height="14" fill="#999"/>
+<text x="379.5" y="500" text-anchor="middle" font-size="12">1</text>
+<rect x="394" y="484" width="17" height="0" fill="#999"/>
+<text x="402.5" y="500" text-anchor="middle" font-size="12">0</text>
+<line x1="92" y1="484" x2="414" y2="484" stroke="#333" stroke-width="1.5"/>
+<text x="414" y="524" text-anchor="end" font-weight="bold" fill="#c0392b">最多同时 3 个 → 至少要 3 个寄存器</text>
+<text x="500" y="70" font-weight="bold">排列二：8 次读取全部提前</text>
+<text x="573.5" y="88" text-anchor="middle" font-size="12">1</text>
+<text x="573.5" y="106" text-anchor="middle" font-size="13" fill="#1f5fa8">读</text>
+<text x="596.5" y="88" text-anchor="middle" font-size="12">2</text>
+<text x="596.5" y="106" text-anchor="middle" font-size="13" fill="#1f5fa8">读</text>
+<text x="619.5" y="88" text-anchor="middle" font-size="12">3</text>
+<text x="619.5" y="106" text-anchor="middle" font-size="13" fill="#1f5fa8">读</text>
+<text x="642.5" y="88" text-anchor="middle" font-size="12">4</text>
+<text x="642.5" y="106" text-anchor="middle" font-size="13" fill="#1f5fa8">读</text>
+<text x="665.5" y="88" text-anchor="middle" font-size="12">5</text>
+<text x="665.5" y="106" text-anchor="middle" font-size="13" fill="#1f5fa8">读</text>
+<text x="688.5" y="88" text-anchor="middle" font-size="12">6</text>
+<text x="688.5" y="106" text-anchor="middle" font-size="13" fill="#1f5fa8">读</text>
+<text x="711.5" y="88" text-anchor="middle" font-size="12">7</text>
+<text x="711.5" y="106" text-anchor="middle" font-size="13" fill="#1f5fa8">读</text>
+<text x="734.5" y="88" text-anchor="middle" font-size="12">8</text>
+<text x="734.5" y="106" text-anchor="middle" font-size="13" fill="#1f5fa8">读</text>
+<text x="757.5" y="88" text-anchor="middle" font-size="12">9</text>
+<text x="757.5" y="106" text-anchor="middle" font-size="13" fill="#d9822b">乘</text>
+<text x="780.5" y="88" text-anchor="middle" font-size="12">10</text>
+<text x="780.5" y="106" text-anchor="middle" font-size="13" fill="#d9822b">加</text>
+<text x="803.5" y="88" text-anchor="middle" font-size="12">11</text>
+<text x="803.5" y="106" text-anchor="middle" font-size="13" fill="#d9822b">加</text>
+<text x="826.5" y="88" text-anchor="middle" font-size="12">12</text>
+<text x="826.5" y="106" text-anchor="middle" font-size="13" fill="#d9822b">加</text>
+<text x="849.5" y="88" text-anchor="middle" font-size="12">13</text>
+<text x="849.5" y="106" text-anchor="middle" font-size="13" fill="#d9822b">大</text>
+<text x="872.5" y="88" text-anchor="middle" font-size="12">14</text>
+<text x="872.5" y="106" text-anchor="middle" font-size="13" fill="#333">写</text>
+<text x="500" y="88" font-size="12" fill="#555">第几条</text>
+<text x="500" y="106" font-size="12" fill="#555">指令</text>
+<text x="550" y="127" text-anchor="end" font-size="13">a0</text>
+<line x1="562" y1="134" x2="884" y2="134" stroke="#eee" stroke-width="1"/>
+<rect x="573.5" y="115" width="184.0" height="14" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5"/>
+<circle cx="573.5" cy="122.0" r="3.5" fill="#1f5fa8"/>
+<text x="550" y="151" text-anchor="end" font-size="13">b0</text>
+<line x1="562" y1="158" x2="884" y2="158" stroke="#eee" stroke-width="1"/>
+<rect x="596.5" y="139" width="161.0" height="14" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5"/>
+<circle cx="596.5" cy="146.0" r="3.5" fill="#1f5fa8"/>
+<text x="550" y="175" text-anchor="end" font-size="13">a1</text>
+<line x1="562" y1="182" x2="884" y2="182" stroke="#eee" stroke-width="1"/>
+<rect x="619.5" y="163" width="161.0" height="14" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5"/>
+<circle cx="619.5" cy="170.0" r="3.5" fill="#1f5fa8"/>
+<text x="550" y="199" text-anchor="end" font-size="13">b1</text>
+<line x1="562" y1="206" x2="884" y2="206" stroke="#eee" stroke-width="1"/>
+<rect x="642.5" y="187" width="138.0" height="14" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5"/>
+<circle cx="642.5" cy="194.0" r="3.5" fill="#1f5fa8"/>
+<text x="550" y="223" text-anchor="end" font-size="13">a2</text>
+<line x1="562" y1="230" x2="884" y2="230" stroke="#eee" stroke-width="1"/>
+<rect x="665.5" y="211" width="138.0" height="14" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5"/>
+<circle cx="665.5" cy="218.0" r="3.5" fill="#1f5fa8"/>
+<text x="550" y="247" text-anchor="end" font-size="13">b2</text>
+<line x1="562" y1="254" x2="884" y2="254" stroke="#eee" stroke-width="1"/>
+<rect x="688.5" y="235" width="115.0" height="14" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5"/>
+<circle cx="688.5" cy="242.0" r="3.5" fill="#1f5fa8"/>
+<text x="550" y="271" text-anchor="end" font-size="13">a3</text>
+<line x1="562" y1="278" x2="884" y2="278" stroke="#eee" stroke-width="1"/>
+<rect x="711.5" y="259" width="115.0" height="14" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5"/>
+<circle cx="711.5" cy="266.0" r="3.5" fill="#1f5fa8"/>
+<text x="550" y="295" text-anchor="end" font-size="13">b3</text>
+<line x1="562" y1="302" x2="884" y2="302" stroke="#eee" stroke-width="1"/>
+<rect x="734.5" y="283" width="92.0" height="14" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5"/>
+<circle cx="734.5" cy="290.0" r="3.5" fill="#1f5fa8"/>
+<text x="550" y="319" text-anchor="end" font-size="13">acc</text>
+<line x1="562" y1="326" x2="884" y2="326" stroke="#eee" stroke-width="1"/>
+<rect x="757.5" y="307" width="92.0" height="14" fill="#fde2c4" stroke="#d9822b" stroke-width="1.5"/>
+<circle cx="757.5" cy="314.0" r="3.5" fill="#d9822b"/>
+<text x="550" y="343" text-anchor="end" font-size="13">y</text>
+<line x1="562" y1="350" x2="884" y2="350" stroke="#eee" stroke-width="1"/>
+<rect x="849.5" y="331" width="23.0" height="14" fill="#fde2c4" stroke="#d9822b" stroke-width="1.5"/>
+<circle cx="849.5" cy="338.0" r="3.5" fill="#d9822b"/>
+<text x="500" y="382" font-size="12" fill="#555">同时</text>
+<text x="500" y="398" font-size="12" fill="#555">活跃数</text>
+<rect x="565" y="470" width="17" height="14" fill="#999"/>
+<text x="573.5" y="500" text-anchor="middle" font-size="12">1</text>
+<rect x="588" y="456" width="17" height="28" fill="#999"/>
+<text x="596.5" y="500" text-anchor="middle" font-size="12">2</text>
+<rect x="611" y="442" width="17" height="42" fill="#999"/>
+<text x="619.5" y="500" text-anchor="middle" font-size="12">3</text>
+<rect x="634" y="428" width="17" height="56" fill="#999"/>
+<text x="642.5" y="500" text-anchor="middle" font-size="12">4</text>
+<rect x="657" y="414" width="17" height="70" fill="#999"/>
+<text x="665.5" y="500" text-anchor="middle" font-size="12">5</text>
+<rect x="680" y="400" width="17" height="84" fill="#999"/>
+<text x="688.5" y="500" text-anchor="middle" font-size="12">6</text>
+<rect x="703" y="386" width="17" height="98" fill="#999"/>
+<text x="711.5" y="500" text-anchor="middle" font-size="12">7</text>
+<rect x="726" y="372" width="17" height="112" fill="#c0392b"/>
+<text x="734.5" y="500" text-anchor="middle" font-size="12">8</text>
+<rect x="749" y="386" width="17" height="98" fill="#999"/>
+<text x="757.5" y="500" text-anchor="middle" font-size="12">7</text>
+<rect x="772" y="414" width="17" height="70" fill="#999"/>
+<text x="780.5" y="500" text-anchor="middle" font-size="12">5</text>
+<rect x="795" y="442" width="17" height="42" fill="#999"/>
+<text x="803.5" y="500" text-anchor="middle" font-size="12">3</text>
+<rect x="818" y="470" width="17" height="14" fill="#999"/>
+<text x="826.5" y="500" text-anchor="middle" font-size="12">1</text>
+<rect x="841" y="470" width="17" height="14" fill="#999"/>
+<text x="849.5" y="500" text-anchor="middle" font-size="12">1</text>
+<rect x="864" y="484" width="17" height="0" fill="#999"/>
+<text x="872.5" y="500" text-anchor="middle" font-size="12">0</text>
+<line x1="562" y1="484" x2="884" y2="484" stroke="#333" stroke-width="1.5"/>
+<text x="884" y="524" text-anchor="end" font-weight="bold" fill="#c0392b">最多同时 8 个 → 至少要 8 个寄存器</text>
+<text x="30" y="572" font-size="13" fill="#555">指令一栏：读 = 从显存读一个数，乘 = 乘法，加 = 乘加，大 = 取最大值（relu），写 = 写回显存。</text>
+<text x="30" y="594" font-size="13" fill="#555">圆点是这个值出生的位置，条的右端是它最后一次被用到的位置；底部柱子数的是"这条指令执行完后，有几个值还得留着"。</text>
+</svg>

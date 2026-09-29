@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 736" width="960" height="736" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="736" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222222"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f6db5"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777777"/></marker><marker id="o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c77a12"/></marker><marker id="n" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e8b57"/></marker><marker id="p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7a4fb0"/></marker></defs>
+<text x="480" y="30" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold">y = relu(x @ W + b) 穿过五层时，每层手里的东西长什么样</text>
+<rect x="20" y="64" width="130" height="110" rx="6" fill="#dbe7f5" stroke="#2f6db5" stroke-width="2"/>
+<text x="85" y="123.0" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">① 框架层</text>
+<line x1="85" y1="174" x2="85" y2="194" stroke="#222222" stroke-width="2" marker-end="url(#a)"/>
+<line x1="160" y1="184" x2="940" y2="184" stroke="#dddddd" stroke-width="1.5"/>
+<rect x="20" y="196" width="130" height="110" rx="6" fill="#dbe7f5" stroke="#2f6db5" stroke-width="2"/>
+<text x="85" y="255.0" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">② 图编译层</text>
+<line x1="85" y1="306" x2="85" y2="326" stroke="#222222" stroke-width="2" marker-end="url(#a)"/>
+<line x1="160" y1="316" x2="940" y2="316" stroke="#dddddd" stroke-width="1.5"/>
+<rect x="20" y="328" width="130" height="110" rx="6" fill="#eeeeee" stroke="#777777" stroke-width="2"/>
+<text x="85" y="387.0" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">③ kernel 层</text>
+<line x1="85" y1="438" x2="85" y2="458" stroke="#222222" stroke-width="2" marker-end="url(#a)"/>
+<line x1="160" y1="448" x2="940" y2="448" stroke="#dddddd" stroke-width="1.5"/>
+<rect x="20" y="460" width="130" height="110" rx="6" fill="#f8e3c4" stroke="#c77a12" stroke-width="2"/>
+<text x="85" y="519.0" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">④ 底层编译层</text>
+<line x1="85" y1="570" x2="85" y2="590" stroke="#222222" stroke-width="2" marker-end="url(#a)"/>
+<line x1="160" y1="580" x2="940" y2="580" stroke="#dddddd" stroke-width="1.5"/>
+<rect x="20" y="592" width="130" height="110" rx="6" fill="#f8e3c4" stroke="#c77a12" stroke-width="2"/>
+<text x="85" y="651.0" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">⑤ 运行时层</text>
+<line x1="160" y1="712" x2="940" y2="712" stroke="#dddddd" stroke-width="1.5"/>
+<rect x="190" y="94" width="100" height="44" rx="6" fill="#ffffff" stroke="#222222" stroke-width="2"/>
+<text x="240" y="122" font-size="15" text-anchor="middle" fill="#222222">矩阵乘</text>
+<line x1="290" y1="116" x2="328" y2="116" stroke="#222222" stroke-width="2" marker-end="url(#a)"/>
+<rect x="330" y="94" width="100" height="44" rx="6" fill="#ffffff" stroke="#222222" stroke-width="2"/>
+<text x="380" y="122" font-size="15" text-anchor="middle" fill="#222222">加偏置</text>
+<line x1="430" y1="116" x2="468" y2="116" stroke="#222222" stroke-width="2" marker-end="url(#a)"/>
+<rect x="470" y="94" width="100" height="44" rx="6" fill="#ffffff" stroke="#222222" stroke-width="2"/>
+<text x="520" y="122" font-size="15" text-anchor="middle" fill="#222222">relu</text>
+<text x="610" y="106" font-size="14" text-anchor="start" fill="#222222">三个算子连成的计算图。</text>
+<text x="610" y="128" font-size="14" text-anchor="start" fill="#444"><tspan x="610" dy="0">框架还知道：这是训练还是推理、</tspan><tspan x="610" dy="18.900000000000002">要不要为反向传播保留中间结果。</tspan></text>
+<rect x="190" y="220" width="380" height="56" rx="6" fill="#dbe7f5" stroke="#2f6db5" stroke-width="2.5"/>
+<text x="380" y="244" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">一个融合组：矩阵乘 + 加偏置 + relu</text>
+<text x="380" y="266" font-size="13" text-anchor="middle" fill="#444">加偏置和 relu 在矩阵乘写回结果前顺带完成</text>
+<text x="610" y="238" font-size="14" text-anchor="start" fill="#222222">三个节点变成一个。</text>
+<text x="610" y="260" font-size="14" text-anchor="start" fill="#444"><tspan x="610" dy="0">两个中间结果不再写进显存，</tspan><tspan x="610" dy="18.900000000000002">也就不用再读回来。</tspan></text>
+<rect x="190" y="338" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="203" y="338" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="216" y="338" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="229" y="338" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="242" y="338" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="255" y="338" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="268" y="338" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="281" y="338" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="190" y="351" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="203" y="351" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="216" y="351" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="229" y="351" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="242" y="351" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="255" y="351" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="268" y="351" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="281" y="351" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="190" y="364" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="203" y="364" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="216" y="364" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="229" y="364" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="242" y="364" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="255" y="364" width="13" height="13" rx="0" fill="#f8e3c4" stroke="#777777" stroke-width="1"/>
+<rect x="268" y="364" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="281" y="364" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="190" y="377" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="203" y="377" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="216" y="377" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="229" y="377" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="242" y="377" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="255" y="377" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="268" y="377" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="281" y="377" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="190" y="390" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="203" y="390" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="216" y="390" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="229" y="390" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="242" y="390" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="255" y="390" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="268" y="390" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="281" y="390" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="190" y="403" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="203" y="403" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="216" y="403" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="229" y="403" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="242" y="403" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="255" y="403" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="268" y="403" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="281" y="403" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="190" y="416" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="203" y="416" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="216" y="416" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="229" y="416" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="242" y="416" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="255" y="416" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="268" y="416" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="281" y="416" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="190" y="429" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="203" y="429" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="216" y="429" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="229" y="429" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="242" y="429" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="255" y="429" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="268" y="429" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="281" y="429" width="13" height="13" rx="0" fill="#ffffff" stroke="#777777" stroke-width="1"/>
+<rect x="190" y="338" width="104" height="104" rx="0" fill="none" stroke="#222222" stroke-width="2"/>
+<text x="242" y="462" font-size="13" text-anchor="middle" fill="#444">输出 y</text>
+<text x="310" y="376" font-size="14" text-anchor="start" fill="#c77a12"><tspan x="310" dy="0">← 一个线程块负责</tspan><tspan x="310" dy="18.900000000000002">    其中一块（如 128×128）</tspan></text>
+<text x="610" y="362" font-size="14" text-anchor="start" fill="#222222">决定块切多大、数据放哪一级存储、</text>
+<text x="610" y="384" font-size="14" text-anchor="start" fill="#444"><tspan x="610" dy="0">怎样用上 Tensor Core，</tspan><tspan x="610" dy="18.900000000000002">产出一份 kernel 程序（Triton → PTX）。</tspan></text>
+<rect x="190" y="482" width="36" height="30" rx="3" fill="#ffffff" stroke="#777777" stroke-width="1.5"/>
+<text x="208" y="503" font-size="12" text-anchor="middle" fill="#222222">%r1</text>
+<rect x="232" y="482" width="36" height="30" rx="3" fill="#ffffff" stroke="#777777" stroke-width="1.5"/>
+<text x="250" y="503" font-size="12" text-anchor="middle" fill="#222222">%r2</text>
+<rect x="274" y="482" width="36" height="30" rx="3" fill="#ffffff" stroke="#777777" stroke-width="1.5"/>
+<text x="292" y="503" font-size="12" text-anchor="middle" fill="#222222">%r3</text>
+<rect x="316" y="482" width="36" height="30" rx="3" fill="#ffffff" stroke="#777777" stroke-width="1.5"/>
+<text x="334" y="503" font-size="12" text-anchor="middle" fill="#222222">%r4</text>
+<rect x="358" y="482" width="36" height="30" rx="3" fill="#ffffff" stroke="#777777" stroke-width="1.5"/>
+<text x="376" y="503" font-size="12" text-anchor="middle" fill="#222222">%r5</text>
+<rect x="400" y="482" width="36" height="30" rx="3" fill="#ffffff" stroke="#777777" stroke-width="1.5"/>
+<text x="418" y="503" font-size="12" text-anchor="middle" fill="#222222">%r6</text>
+<text x="446" y="503" font-size="13" text-anchor="start" fill="#444">… 无限多</text>
+<rect x="190" y="532" width="36" height="30" rx="3" fill="#f8e3c4" stroke="#c77a12" stroke-width="1.5"/>
+<text x="208" y="553" font-size="12" text-anchor="middle" fill="#222222">R0</text>
+<rect x="232" y="532" width="36" height="30" rx="3" fill="#f8e3c4" stroke="#c77a12" stroke-width="1.5"/>
+<text x="250" y="553" font-size="12" text-anchor="middle" fill="#222222">R1</text>
+<rect x="274" y="532" width="36" height="30" rx="3" fill="#f8e3c4" stroke="#c77a12" stroke-width="1.5"/>
+<text x="292" y="553" font-size="12" text-anchor="middle" fill="#222222">R2</text>
+<rect x="316" y="532" width="36" height="30" rx="3" fill="#f8e3c4" stroke="#c77a12" stroke-width="1.5"/>
+<text x="334" y="553" font-size="12" text-anchor="middle" fill="#222222">R3</text>
+<text x="362" y="553" font-size="13" text-anchor="start" fill="#444">… 每线程至多 255 个</text>
+<line x1="300" y1="514" x2="300" y2="530" stroke="#c77a12" stroke-width="2" marker-end="url(#o)"/>
+<text x="610" y="502" font-size="14" text-anchor="start" fill="#222222">把 PTX 里的虚拟寄存器（编号不限）</text>
+<text x="610" y="524" font-size="14" text-anchor="start" fill="#444"><tspan x="610" dy="0">分配到真实的物理寄存器，</tspan><tspan x="610" dy="18.900000000000002">排好指令顺序，产出机器码。</tspan></text>
+<rect x="190" y="620" width="124" height="44" rx="6" fill="#ffffff" stroke="#222222" stroke-width="2"/>
+<text x="252" y="648" font-size="14" text-anchor="middle" fill="#222222">申请 y 的显存</text>
+<line x1="314" y1="642" x2="340" y2="642" stroke="#222222" stroke-width="2" marker-end="url(#a)"/>
+<rect x="344" y="620" width="124" height="44" rx="6" fill="#f8e3c4" stroke="#222222" stroke-width="2"/>
+<text x="406" y="648" font-size="14" text-anchor="middle" fill="#222222">启动 kernel</text>
+<line x1="468" y1="642" x2="494" y2="642" stroke="#222222" stroke-width="2" marker-end="url(#a)"/>
+<rect x="498" y="614" width="80" height="56" rx="6" fill="#f2f2f2" stroke="#222222" stroke-width="2.5"/>
+<text x="538" y="648" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">GPU</text>
+<text x="610" y="636" font-size="14" text-anchor="start" fill="#222222">它看不见模型，只看见</text>
+<text x="610" y="658" font-size="14" text-anchor="start" fill="#444">一串待执行的任务，依次提交给 GPU。</text>
+</svg>

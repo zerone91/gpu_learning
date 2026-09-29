@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470" width="960" height="470" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="470" fill="#ffffff"/>
+<defs><marker id="mk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e6fb7"/></marker><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f8a4a"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d9822b"/></marker><marker id="my" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777"/></marker><marker id="mp" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7b4fa0"/></marker></defs>
+<text x="480" y="31.9" font-size="17" text-anchor="middle" fill="#222" font-weight="bold">双缓冲：阵列算“甲”里的块时，DMA 往“乙”里搬下一块</text>
+<text x="30" y="69.2" font-size="15" text-anchor="start" fill="#2f8a4a" font-weight="bold">① 每块搬运时间 ≤ 每块计算时间：从 t1 起搬运完全藏在计算后面</text>
+<text x="245.0" y="97.2" font-size="15" text-anchor="middle" fill="#777">t0</text>
+<text x="395.0" y="97.2" font-size="15" text-anchor="middle" fill="#777">t1</text>
+<text x="545.0" y="97.2" font-size="15" text-anchor="middle" fill="#777">t2</text>
+<text x="695.0" y="97.2" font-size="15" text-anchor="middle" fill="#777">t3</text>
+<text x="845.0" y="97.2" font-size="15" text-anchor="middle" fill="#777">t4</text>
+<text x="156" y="127.2" font-size="15" text-anchor="end" fill="#222" font-weight="bold">DMA</text>
+<rect x="173" y="104" width="144" height="36" rx="4" fill="#e9ddf3" stroke="#7b4fa0" stroke-width="1.6" />
+<text x="245.0" y="126.9" font-size="14" text-anchor="middle" fill="#222">块0 → 甲</text>
+<rect x="323" y="104" width="144" height="36" rx="4" fill="#fff" stroke="#7b4fa0" stroke-width="1.6" />
+<text x="395.0" y="126.9" font-size="14" text-anchor="middle" fill="#222">块1 → 乙</text>
+<rect x="473" y="104" width="144" height="36" rx="4" fill="#e9ddf3" stroke="#7b4fa0" stroke-width="1.6" />
+<text x="545.0" y="126.9" font-size="14" text-anchor="middle" fill="#222">块2 → 甲</text>
+<rect x="623" y="104" width="144" height="36" rx="4" fill="#fff" stroke="#7b4fa0" stroke-width="1.6" />
+<text x="695.0" y="126.9" font-size="14" text-anchor="middle" fill="#222">块3 → 乙</text>
+<rect x="773" y="104" width="144" height="36" rx="4" fill="#e9ddf3" stroke="#7b4fa0" stroke-width="1.6" />
+<text x="845.0" y="126.9" font-size="14" text-anchor="middle" fill="#222">块4 → 甲</text>
+<text x="156" y="173.2" font-size="15" text-anchor="end" fill="#222" font-weight="bold">阵列</text>
+<rect x="173" y="150" width="144" height="36" rx="4" fill="#eee" stroke="#777" stroke-width="1.6" />
+<text x="245.0" y="172.9" font-size="14" text-anchor="middle" fill="#222">等第一块</text>
+<rect x="323" y="150" width="144" height="36" rx="4" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.6" />
+<text x="395.0" y="172.9" font-size="14" text-anchor="middle" fill="#222">算甲（块0）</text>
+<rect x="473" y="150" width="144" height="36" rx="4" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.6" />
+<text x="545.0" y="172.9" font-size="14" text-anchor="middle" fill="#222">算乙（块1）</text>
+<rect x="623" y="150" width="144" height="36" rx="4" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.6" />
+<text x="695.0" y="172.9" font-size="14" text-anchor="middle" fill="#222">算甲（块2）</text>
+<rect x="773" y="150" width="144" height="36" rx="4" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.6" />
+<text x="845.0" y="172.9" font-size="14" text-anchor="middle" fill="#222">算乙（块3）</text>
+<text x="30" y="243.2" font-size="15" text-anchor="start" fill="#c0392b" font-weight="bold">② 搬运比计算慢（示意：搬一块要 1.5 个时段）：两份缓冲不够，阵列周期性挨饿</text>
+<text x="156" y="291.2" font-size="15" text-anchor="end" fill="#222" font-weight="bold">DMA</text>
+<rect x="173" y="268" width="219.0" height="36" rx="4" fill="#e9ddf3" stroke="#7b4fa0" stroke-width="1.6" />
+<text x="282.5" y="290.9" font-size="14" text-anchor="middle" fill="#222">块0 → 甲</text>
+<rect x="398.0" y="268" width="219.0" height="36" rx="4" fill="#fff" stroke="#7b4fa0" stroke-width="1.6" />
+<text x="507.5" y="290.9" font-size="14" text-anchor="middle" fill="#222">块1 → 乙</text>
+<rect x="623" y="268" width="219.0" height="36" rx="4" fill="#e9ddf3" stroke="#7b4fa0" stroke-width="1.6" />
+<text x="732.5" y="290.9" font-size="14" text-anchor="middle" fill="#222">块2 → 甲</text>
+<text x="156" y="337.2" font-size="15" text-anchor="end" fill="#222" font-weight="bold">阵列</text>
+<rect x="173" y="314" width="219.0" height="36" rx="4" fill="#eee" stroke="#777" stroke-width="1.6" />
+<text x="282.5" y="336.9" font-size="14" text-anchor="middle" fill="#222">等第一块</text>
+<rect x="398.0" y="314" width="144.0" height="36" rx="4" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.6" />
+<text x="470.0" y="336.9" font-size="14" text-anchor="middle" fill="#222">算甲（块0）</text>
+<rect x="548.0" y="314" width="69.0" height="36" rx="4" fill="#f6d5d1" stroke="#c0392b" stroke-width="1.6" />
+<text x="582.5" y="336.9" font-size="14" text-anchor="middle" fill="#222">等</text>
+<rect x="623" y="314" width="144" height="36" rx="4" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.6" />
+<text x="695.0" y="336.9" font-size="14" text-anchor="middle" fill="#222">算乙（块1）</text>
+<rect x="773" y="314" width="69.0" height="36" rx="4" fill="#f6d5d1" stroke="#c0392b" stroke-width="1.6" />
+<text x="807.5" y="336.9" font-size="14" text-anchor="middle" fill="#222">等</text>
+<text x="480" y="396.9" font-size="14" text-anchor="middle" fill="#222">判据：每块搬运时间 ≤ 每块计算时间。以 1024 边长的块为例：一块算约 65000 拍（1 GHz 下约 65 微秒），</text>
+<text x="480" y="420.9" font-size="14" text-anchor="middle" fill="#222">同期要搬入的下一块约 4 MB，4 MB ÷ 65 微秒 ≈ 60 GB/s——普通显存就能满足，属于情形 ①</text>
+<text x="480" y="452.9" font-size="14" text-anchor="middle" fill="#777">甲、乙是 scratchpad 里轮流使用的两份空间；白底的 DMA 块表示正在装乙</text>
+</svg>

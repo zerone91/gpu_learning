@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="580" fill="#ffffff"/>
+<text x="480" y="28" font-size="18" text-anchor="middle" fill="#222" font-weight="bold">同一个算子的两种命运：prefill 落在平顶上，decode 落在斜线上（H100，BF16）</text>
+<line x1="212.1" y1="60" x2="212.1" y2="500" stroke="#eee" stroke-width="1.5"/>
+<text x="212.1" y="522" font-size="14" text-anchor="middle" fill="#222">1</text>
+<line x1="388.4" y1="60" x2="388.4" y2="500" stroke="#eee" stroke-width="1.5"/>
+<text x="388.4" y="522" font-size="14" text-anchor="middle" fill="#222">10</text>
+<line x1="564.6" y1="60" x2="564.6" y2="500" stroke="#eee" stroke-width="1.5"/>
+<text x="564.6" y="522" font-size="14" text-anchor="middle" fill="#222">100</text>
+<line x1="740.8" y1="60" x2="740.8" y2="500" stroke="#eee" stroke-width="1.5"/>
+<text x="740.8" y="522" font-size="14" text-anchor="middle" fill="#222">1000</text>
+<line x1="120" y1="464.9" x2="900" y2="464.9" stroke="#eee" stroke-width="1.5"/>
+<text x="112" y="469.9" font-size="14" text-anchor="end" fill="#222">1</text>
+<line x1="120" y1="348.5" x2="900" y2="348.5" stroke="#eee" stroke-width="1.5"/>
+<text x="112" y="353.5" font-size="14" text-anchor="end" fill="#222">10</text>
+<line x1="120" y1="232.0" x2="900" y2="232.0" stroke="#eee" stroke-width="1.5"/>
+<text x="112" y="237.0" font-size="14" text-anchor="end" fill="#222">100</text>
+<line x1="120" y1="115.6" x2="900" y2="115.6" stroke="#eee" stroke-width="1.5"/>
+<text x="112" y="120.6" font-size="14" text-anchor="end" fill="#222">1000</text>
+<rect x="120" y="60" width="780" height="440" fill="none" stroke="#222" stroke-width="1.5"/>
+<text x="510.0" y="546" font-size="15" text-anchor="middle" fill="#222">算术强度 AI（FLOP/byte，对数刻度）</text>
+<text x="40" y="280.0" font-size="15" text-anchor="middle" fill="#222" transform="rotate(-90 40 280.0)">能达到的算力（TFLOP/s，对数刻度）</text>
+<line x1="120.0" y1="464.7" x2="647.5" y2="116.1" stroke="#2c6fb7" stroke-width="3"/>
+<line x1="647.5" y1="116.1" x2="900" y2="116.1" stroke="#b86a0c" stroke-width="3"/>
+<text x="892" y="106.1" font-size="14" text-anchor="end" fill="#b86a0c">BF16 Tensor Core 峰值 约 990</text>
+<text x="402.3" y="266.1" font-size="14" fill="#2c6fb7" transform="rotate(-33.5 402.3 266.1)">带宽 3.35 TB/s 的斜线</text>
+<line x1="647.5" y1="116.1" x2="647.5" y2="500" stroke="#888" stroke-width="1.5" stroke-dasharray="3 4"/>
+<text x="653.5" y="474" font-size="14" fill="#555">平衡点 约 295</text>
+<text x="653.5" y="492" font-size="14" fill="#555">＝ MoE 翻转阈值 M*</text>
+<circle cx="212.1" cy="403.8" r="8" fill="#c0392b" stroke="#fff" stroke-width="2"/>
+<text x="226.1" y="425.8" font-size="14" fill="#c0392b" font-weight="bold">FlashAttention decode</text>
+<text x="226.1" y="443.8" font-size="14" fill="#c0392b">AI ≈ 1：每步把 KV cache 读一遍</text>
+<rect x="363.3" y="290.6" width="16" height="16" fill="#555" stroke="#fff" stroke-width="2"/>
+<text x="385.3" y="320.6" font-size="14" fill="#333" font-weight="bold">MoE decode（Mixtral，批 32）</text>
+<text x="385.3" y="338.6" font-size="14" fill="#333">每专家 8 个 token，AI ≈ 8</text>
+<rect x="734.7" y="108.1" width="16" height="16" fill="#555" stroke="#fff" stroke-width="2"/>
+<circle cx="795.7" cy="116.1" r="8" fill="#c0392b" stroke="#fff" stroke-width="2"/>
+<line x1="742.7" y1="126.1" x2="702.7" y2="176.1" stroke="#333" stroke-width="1.5"/>
+<text x="698.7" y="192.1" font-size="14" text-anchor="end" fill="#333" font-weight="bold">MoE prefill</text>
+<text x="698.7" y="210.1" font-size="14" text-anchor="end" fill="#333">每专家 1024 个 token</text>
+<line x1="795.7" y1="126.1" x2="805.7" y2="176.1" stroke="#c0392b" stroke-width="1.5"/>
+<text x="894" y="192.1" font-size="14" text-anchor="end" fill="#c0392b" font-weight="bold">FlashAttention prefill</text>
+<text x="894" y="210.1" font-size="14" text-anchor="end" fill="#c0392b">N = 4096，AI = N/2 ≈ 2048</text>
+<circle cx="144" cy="86" r="7" fill="#c0392b"/><text x="158" y="91" font-size="14" fill="#222">FlashAttention（复用来自序列长 N）</text>
+<rect x="137" y="105" width="14" height="14" fill="#555"/><text x="158" y="117" font-size="14" fill="#222">MoE 专家矩阵乘（复用来自每专家 token 数 M_i）</text>
+</svg>

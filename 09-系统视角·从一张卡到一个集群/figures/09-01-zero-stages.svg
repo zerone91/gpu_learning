@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" font-family="sans-serif" font-size="15">
+<rect x="0" y="0" width="960" height="560" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#444"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/></marker><marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d9822b"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e7d32"/></marker><pattern id="h" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="#f4f4f4"/><line x1="0" y1="0" x2="0" y2="8" stroke="#bbb" stroke-width="2"/></pattern></defs>
+<text x="20.0" y="32.0" text-anchor="start" fill="#222222" font-size="19" font-weight="bold" >ZeRO 三个阶段：每张卡上的模型状态一级比一级少</text>
+<text x="20.0" y="58.0" text-anchor="start" fill="#555" font-size="15" >70B 模型，数据并行 16 张卡（D = 16）；每条横条是一张卡要存的东西，长度按 GB 比例画</text>
+<text x="158.0" y="122.0" text-anchor="end" fill="#222222" font-size="15" font-weight="bold" >朴素数据并行</text>
+<text x="158.0" y="142.0" text-anchor="end" fill="#555" font-size="14" >每卡一份完整的</text>
+<rect x="170.0" y="108.0" width="87.5" height="38.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5" />
+<rect x="257.5" y="108.0" width="87.5" height="38.0" rx="0" fill="#fde2c4" stroke="#d9822b" stroke-width="1.5" />
+<rect x="345.0" y="108.0" width="525.0" height="38.0" rx="0" fill="#e8e8e8" stroke="#666666" stroke-width="1.5" />
+<text x="886.0" y="132.0" text-anchor="start" fill="#222222" font-size="15" font-weight="bold" >1120 GB</text>
+<text x="170.0" y="168.0" text-anchor="start" fill="#1f5fa8" font-size="14" >每步末尾一次梯度 all-reduce</text>
+<line x1="220.0" y1="101.0" x2="220.0" y2="153.0" stroke="#c0392b" stroke-width="2.5" stroke-dasharray="5,3"/>
+<text x="213.8" y="132.0" text-anchor="middle" fill="#222222" font-size="14" stroke="#ffffff" stroke-width="5" paint-order="stroke">参数 140</text>
+<text x="301.2" y="132.0" text-anchor="middle" fill="#222222" font-size="14" stroke="#ffffff" stroke-width="5" paint-order="stroke">梯度 140</text>
+<text x="607.5" y="132.0" text-anchor="middle" fill="#222222" font-size="14" stroke="#ffffff" stroke-width="5" paint-order="stroke">优化器状态 840（主权重 + m + v）</text>
+<text x="158.0" y="222.0" text-anchor="end" fill="#222222" font-size="15" font-weight="bold" >ZeRO-1</text>
+<text x="158.0" y="242.0" text-anchor="end" fill="#555" font-size="14" >切优化器状态</text>
+<rect x="170.0" y="208.0" width="87.5" height="38.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5" />
+<rect x="257.5" y="208.0" width="87.5" height="38.0" rx="0" fill="#fde2c4" stroke="#d9822b" stroke-width="1.5" />
+<rect x="345.0" y="208.0" width="32.8" height="38.0" rx="0" fill="#e8e8e8" stroke="#666666" stroke-width="1.5" />
+<text x="393.8" y="232.0" text-anchor="start" fill="#222222" font-size="15" font-weight="bold" >332.5 GB</text>
+<text x="170.0" y="268.0" text-anchor="start" fill="#1f5fa8" font-size="14" >all-reduce 换成 reduce-scatter，通信几乎不增加</text>
+<line x1="220.0" y1="201.0" x2="220.0" y2="253.0" stroke="#c0392b" stroke-width="2.5" stroke-dasharray="5,3"/>
+<text x="213.8" y="232.0" text-anchor="middle" fill="#222222" font-size="14" stroke="#ffffff" stroke-width="5" paint-order="stroke">参数 140</text>
+<text x="301.2" y="232.0" text-anchor="middle" fill="#222222" font-size="14" stroke="#ffffff" stroke-width="5" paint-order="stroke">梯度 140</text>
+<text x="158.0" y="322.0" text-anchor="end" fill="#222222" font-size="15" font-weight="bold" >ZeRO-2</text>
+<text x="158.0" y="342.0" text-anchor="end" fill="#555" font-size="14" >再切梯度</text>
+<rect x="170.0" y="308.0" width="87.5" height="38.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5" />
+<rect x="257.5" y="308.0" width="5.5" height="38.0" rx="0" fill="#fde2c4" stroke="#d9822b" stroke-width="1.5" />
+<rect x="263.0" y="308.0" width="32.8" height="38.0" rx="0" fill="#e8e8e8" stroke="#666666" stroke-width="1.5" />
+<text x="311.8" y="332.0" text-anchor="start" fill="#222222" font-size="15" font-weight="bold" >201.25 GB</text>
+<text x="170.0" y="368.0" text-anchor="start" fill="#1f5fa8" font-size="14" >同上</text>
+<line x1="220.0" y1="301.0" x2="220.0" y2="353.0" stroke="#c0392b" stroke-width="2.5" stroke-dasharray="5,3"/>
+<text x="213.8" y="332.0" text-anchor="middle" fill="#222222" font-size="14" stroke="#ffffff" stroke-width="5" paint-order="stroke">参数 140</text>
+<text x="158.0" y="422.0" text-anchor="end" fill="#222222" font-size="15" font-weight="bold" >ZeRO-3 / FSDP</text>
+<text x="158.0" y="442.0" text-anchor="end" fill="#555" font-size="14" >连参数也切</text>
+<rect x="170.0" y="408.0" width="5.5" height="38.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5" />
+<rect x="175.5" y="408.0" width="5.5" height="38.0" rx="0" fill="#fde2c4" stroke="#d9822b" stroke-width="1.5" />
+<rect x="180.9" y="408.0" width="32.8" height="38.0" rx="0" fill="#e8e8e8" stroke="#666666" stroke-width="1.5" />
+<text x="229.8" y="432.0" text-anchor="start" fill="#222222" font-size="15" font-weight="bold" >70 GB</text>
+<text x="170.0" y="468.0" text-anchor="start" fill="#1f5fa8" font-size="14" >每层前向、反向前各 all-gather 一次参数</text>
+<line x1="220.0" y1="401.0" x2="220.0" y2="453.0" stroke="#c0392b" stroke-width="2.5" stroke-dasharray="5,3"/>
+<text x="216.0" y="92.0" text-anchor="start" fill="#c0392b" font-size="14" >红色虚线：一张 H100 的 80 GB，只有 ZeRO-3 落在它左边</text>
+<text x="20.0" y="530.0" text-anchor="start" fill="#555" font-size="14" >小段没写字的地方是被切成 1/16 的部分：优化器状态 840÷16 = 52.5 GB，梯度和参数各 140÷16 = 8.75 GB</text>
+</svg>

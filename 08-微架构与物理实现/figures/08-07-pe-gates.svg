@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 540" width="980" height="540" font-family="sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker></defs>
+<rect x="0" y="0" width="980" height="540" fill="#ffffff"/>
+<text x="490" y="28" font-size="18" text-anchor="middle" font-weight="bold" fill="#111">一个 int8 PE 综合出来是什么：三组寄存器、一个乘法器、一个加法器，约两千个门</text>
+<rect x="135" y="60" width="425" height="400" rx="8" fill="#fafafa" stroke="#222" stroke-width="1.8" stroke-dasharray="7,4"/>
+<text x="145" y="80" font-size="14" fill="#555">一个 PE（module pe）</text>
+<rect x="150" y="100" width="150" height="64" rx="5" fill="#fff4d6" stroke="#9a6b00" stroke-width="1.8"/>
+<text x="225.0" y="120" font-size="14" text-anchor="middle" fill="#111">权重寄存器</text>
+<text x="225.0" y="138" font-size="13" text-anchor="middle" fill="#555" font-family="monospace">w（8 位）</text>
+<text x="225.0" y="156" font-size="13" text-anchor="middle" fill="#9a6b00">约 50 门</text>
+<rect x="380" y="100" width="150" height="64" rx="5" fill="#fff4d6" stroke="#9a6b00" stroke-width="1.8"/>
+<text x="455.0" y="120" font-size="14" text-anchor="middle" fill="#111">激活值寄存器</text>
+<text x="455.0" y="138" font-size="13" text-anchor="middle" fill="#555" font-family="monospace">a_out（8 位）</text>
+<text x="455.0" y="156" font-size="13" text-anchor="middle" fill="#9a6b00">约 50 门</text>
+<rect x="150" y="215" width="150" height="64" rx="5" fill="#eef3fb" stroke="#1f5fa8" stroke-width="1.8"/>
+<text x="225.0" y="235" font-size="14" text-anchor="middle" fill="#111">8×8 乘法器</text>
+<text x="225.0" y="253" font-size="13" text-anchor="middle" fill="#555" font-family="monospace">a_in × w</text>
+<text x="225.0" y="271" font-size="13" text-anchor="middle" fill="#1f5fa8">约 32 个全加器，几百门</text>
+<rect x="380" y="215" width="150" height="64" rx="5" fill="#eef3fb" stroke="#1f5fa8" stroke-width="1.8"/>
+<text x="455.0" y="235" font-size="14" text-anchor="middle" fill="#111">32 位加法器</text>
+<text x="455.0" y="253" font-size="13" text-anchor="middle" fill="#555" font-family="monospace">psum_in + 乘积</text>
+<text x="455.0" y="271" font-size="13" text-anchor="middle" fill="#1f5fa8">约 1000 门</text>
+<rect x="380" y="340" width="150" height="64" rx="5" fill="#fff4d6" stroke="#9a6b00" stroke-width="1.8"/>
+<text x="455.0" y="360" font-size="14" text-anchor="middle" fill="#111">部分和寄存器</text>
+<text x="455.0" y="378" font-size="13" text-anchor="middle" fill="#555" font-family="monospace">psum_out（32 位）</text>
+<text x="455.0" y="396" font-size="13" text-anchor="middle" fill="#9a6b00">约 200 门</text>
+<line x1="10" y1="132" x2="148" y2="132" stroke="#222" stroke-width="1.6" marker-end="url(#a)"/><text x="10" y="124" font-size="14" fill="#111">w_load（装权重）</text>
+<line x1="10" y1="190" x2="345" y2="190" stroke="#222" stroke-width="1.6"/><text x="10" y="182" font-size="14" fill="#111">a_in（左邻居）</text>
+<line x1="345" y1="190" x2="345" y2="132" stroke="#222" stroke-width="1.6"/><line x1="345" y1="132" x2="378" y2="132" stroke="#222" stroke-width="1.6" marker-end="url(#a)"/>
+<line x1="225" y1="190" x2="225" y2="213" stroke="#222" stroke-width="1.6" marker-end="url(#a)"/><circle cx="225" cy="190" r="3.5" fill="#222"/><circle cx="345" cy="190" r="3.5" fill="#222"/>
+
+<polyline points="190,164 190,205 205,205 205,213" fill="none" stroke="#222" stroke-width="1.6" marker-end="url(#a)"/>
+<line x1="300" y1="247" x2="378" y2="247" stroke="#222" stroke-width="1.6" marker-end="url(#a)"/>
+
+<path d="M600,48 L600,124 A8,8 0 0 1 600,140 L600,200 L470,200 L470,213" fill="none" stroke="#222" stroke-width="1.6" marker-end="url(#a)"/>
+<text x="606" y="62" font-size="14" fill="#111">psum_in（上邻居）</text>
+<line x1="455" y1="279" x2="455" y2="338" stroke="#222" stroke-width="1.6" marker-end="url(#a)"/>
+<line x1="530" y1="132" x2="640" y2="132" stroke="#222" stroke-width="1.6" marker-end="url(#a)"/><text x="646" y="137" font-size="14" fill="#111">右邻居</text>
+<line x1="455" y1="404" x2="455" y2="490" stroke="#222" stroke-width="1.6" marker-end="url(#a)"/><text x="465" y="485" font-size="14" fill="#111">psum_out → 下邻居</text>
+<text x="150" y="330" font-size="14" fill="#555">三组寄存器共 8 + 8 + 32 = 48 位，</text>
+<text x="150" y="350" font-size="14" fill="#555">每个时钟上升沿同时更新一次</text>
+<text x="150" y="390" font-size="14" fill="#111" font-weight="bold">合计约 2000 门</text>
+<text x="150" y="410" font-size="14" fill="#555">没有取指、译码、调度、</text>
+<text x="150" y="430" font-size="14" fill="#555">寄存器堆、访存单元</text>
+<line x1="660" y1="160" x2="660" y2="520" stroke="#ccc" stroke-width="1.5"/>
+<text x="820" y="185" font-size="15" text-anchor="middle" font-weight="bold" fill="#111">同一比例尺下的门数</text>
+<text x="680" y="222" font-size="14" fill="#111">int8 PE</text>
+<rect x="680" y="230" width="12.0" height="24" fill="#fff4d6" stroke="#9a6b00" stroke-width="1.5"/><text x="700.0" y="247" font-size="14" fill="#9a6b00">约 2000</text>
+<text x="680" y="290" font-size="14" fill="#111">GPU 一条 FP32 通道</text>
+<rect x="680" y="298" width="90.0" height="24" fill="#cfe2f3" stroke="#1f5fa8" stroke-width="1.5"/>
+<rect x="770.0" y="298" width="90.0" height="24" fill="#eeeeee" stroke="#777" stroke-width="1.5" stroke-dasharray="4,3"/>
+<text x="684" y="342" font-size="13" fill="#1f5fa8">FMA 单元一万几千门</text>
+<text x="684" y="360" font-size="13" fill="#555">+ 分摊的操作数收集、寄存器堆端口、</text>
+<text x="684" y="378" font-size="13" fill="#555">调度器、访存单元（虚框，量级几万）</text>
+<text x="680" y="420" font-size="14" fill="#111">差距 = 位宽（8 对 32，</text>
+<text x="680" y="440" font-size="14" fill="#111">乘法器差三十多倍）</text>
+<text x="680" y="460" font-size="14" fill="#111">× 控制开销（PE 为零）</text>
+<text x="680" y="490" font-size="13" fill="#555">GPU 的虚框长度只示意"几万门"的量级</text>
+</svg>

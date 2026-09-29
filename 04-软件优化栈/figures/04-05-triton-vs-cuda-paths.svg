@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 760" width="960" height="760" font-family="sans-serif" font-size="15">
+  <rect x="0" y="0" width="960" height="760" fill="#ffffff"/>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#333"/></marker>
+  </defs>
+  <text x="20" y="30" font-size="17" font-weight="bold">两条路径在 PTX 汇合：CUDA C++ 经 nvcc，Triton 经自己的几级中间表示</text>
+
+  <!-- column titles -->
+  <text x="190" y="66" text-anchor="middle" font-weight="bold">CUDA C++ 路径</text>
+  <text x="670" y="66" text-anchor="middle" font-weight="bold">Triton 路径</text>
+
+  <!-- left column -->
+  <g stroke="#333" stroke-width="1.5">
+    <rect x="60" y="80" width="260" height="50" rx="4" fill="#f5f5f5"/>
+    <rect x="60" y="352" width="260" height="70" rx="4" fill="#cfe3f7"/>
+  </g>
+  <text x="190" y="110" text-anchor="middle">.cu 文件里的 CUDA C++ 源码</text>
+  <text x="190" y="380" text-anchor="middle">nvcc 的前端 + NVVM</text>
+  <text x="190" y="404" text-anchor="middle" font-size="14">C++ → NVVM IR → PTX</text>
+  <line x1="190" y1="130" x2="190" y2="350" stroke="#333" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="200" y="245" font-size="14" fill="#555">开发时，在</text>
+  <text x="200" y="265" font-size="14" fill="#555">开发者的机器上</text>
+
+  <!-- right column -->
+  <g stroke="#333" stroke-width="1.5">
+    <rect x="470" y="80" width="400" height="50" rx="4" fill="#f5f5f5"/>
+    <rect x="470" y="150" width="400" height="66" rx="4" fill="#eeeeee"/>
+    <rect x="470" y="236" width="400" height="86" rx="4" fill="#eeeeee"/>
+    <rect x="470" y="352" width="400" height="70" rx="4" fill="#cfe3f7"/>
+  </g>
+  <text x="670" y="110" text-anchor="middle">Python 函数（加了 @triton.jit）</text>
+  <text x="486" y="174" font-weight="bold">Triton IR（ttir）</text>
+  <text x="486" y="200" font-size="14">以整块数据为单位的运算，还没有"线程"的概念</text>
+  <text x="486" y="260" font-weight="bold">TritonGPU IR（ttgir）</text>
+  <text x="486" y="285" font-size="14">给每块数据定下布局：哪个 warp、哪个线程持有</text>
+  <text x="486" y="306" font-size="14">哪些元素，哪些块要放进 shared memory</text>
+  <text x="486" y="376" font-weight="bold">LLVM IR（llir）→ PTX</text>
+  <text x="486" y="402" font-size="14">拆成每个线程各自执行的指令，交给 LLVM 的 NVPTX 后端</text>
+  <g stroke="#333" stroke-width="1.5" marker-end="url(#a)">
+    <line x1="670" y1="130" x2="670" y2="148"/>
+    <line x1="670" y1="216" x2="670" y2="234"/>
+    <line x1="670" y1="322" x2="670" y2="350"/>
+  </g>
+
+  <!-- brackets on the right side -->
+  <g stroke="#777" stroke-width="2" fill="none">
+    <path d="M880,150 L895,150 L895,322 L880,322"/>
+  </g>
+  <text x="902" y="222" font-size="13" fill="#555">kernel</text>
+  <text x="902" y="240" font-size="13" fill="#555">层</text>
+  <g stroke="#1f5fa8" stroke-width="2" fill="none">
+    <path d="M880,352 L895,352 L895,422 L880,422"/>
+    <path d="M45,352 L30,352 L30,422 L45,422"/>
+  </g>
+  <text x="902" y="385" font-size="13" fill="#1f5fa8">本层</text>
+  <text x="902" y="403" font-size="13" fill="#1f5fa8">前半段</text>
+  <text x="328" y="395" font-size="14" fill="#1f5fa8" text-anchor="start">← 本层前半段 →</text>
+
+  <!-- converge to PTX -->
+  <g stroke="#333" stroke-width="1.5" fill="none" marker-end="url(#a)">
+    <path d="M190,422 L400,470"/>
+    <path d="M670,422 L560,470"/>
+  </g>
+  <rect x="330" y="472" width="300" height="50" rx="6" fill="#fde2c4" stroke="#d9822b" stroke-width="2.5"/>
+  <text x="480" y="503" text-anchor="middle" font-weight="bold" font-size="17">PTX（两条路径在这里汇合）</text>
+  <line x1="480" y1="522" x2="480" y2="548" stroke="#333" stroke-width="1.5" marker-end="url(#a)"/>
+  <rect x="330" y="550" width="300" height="50" rx="4" fill="#e8e8e8" stroke="#333" stroke-width="1.5"/>
+  <text x="480" y="580" text-anchor="middle">ptxas（本层后半段，两条路径共用）</text>
+  <line x1="480" y1="600" x2="480" y2="626" stroke="#333" stroke-width="1.5" marker-end="url(#a)"/>
+  <rect x="330" y="628" width="300" height="44" rx="4" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+  <text x="480" y="656" text-anchor="middle">cubin（SASS + 资源需求）</text>
+
+  <!-- where stored -->
+  <g stroke="#555" stroke-width="1.5" fill="none" marker-end="url(#a)" stroke-dasharray="5,4">
+    <path d="M330,650 L230,650 L230,690"/>
+    <path d="M630,650 L730,650 L730,690"/>
+  </g>
+  <rect x="60" y="692" width="340" height="50" rx="4" fill="#f5f5f5" stroke="#555" stroke-width="1.5"/>
+  <text x="230" y="714" text-anchor="middle" font-size="14">存进可执行文件</text>
+  <text x="230" y="733" text-anchor="middle" font-size="14">（开发时就编好，随程序发布）</text>
+  <rect x="560" y="692" width="340" height="50" rx="4" fill="#f5f5f5" stroke="#555" stroke-width="1.5"/>
+  <text x="730" y="714" text-anchor="middle" font-size="14">存进本机缓存目录 ~/.triton/cache</text>
+  <text x="730" y="733" text-anchor="middle" font-size="14">（程序运行时、kernel 第一次被调用时才编）</text>
+</svg>

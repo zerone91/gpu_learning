@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" width="960" height="620" font-family="sans-serif" font-size="15">
+<rect x="0" y="0" width="960" height="620" fill="#ffffff"/>
+<text x="20" y="30" font-size="17" font-weight="bold">分配器的切分与合并：一段 20 MB 的显存在五次操作后的样子（示意）</text>
+<text x="800" y="62" font-size="14" font-weight="bold" text-anchor="middle">已分配</text>
+<text x="880" y="62" font-size="14" font-weight="bold" text-anchor="middle">已保留</text>
+<text x="40" y="94" font-size="14">1. 申请 A（3 MB）：手里没有空闲块；3 MB 属于 1～10 MB 这一档，向驱动要一整段 20 MB，切下 3 MB 给 A</text>
+<rect x="40" y="106" width="54" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="2"/>
+<text x="67.0" y="131" text-anchor="middle" font-size="14">A 3</text>
+<rect x="94" y="106" width="306" height="40" fill="#ffffff" stroke="#888" stroke-width="2" stroke-dasharray="5,3"/>
+<text x="247.0" y="131" text-anchor="middle" font-size="14" fill="#777">空闲 17</text>
+<text x="800" y="132" text-anchor="middle">3 MB</text>
+<text x="880" y="132" text-anchor="middle">20 MB</text>
+<text x="412" y="132" font-size="13" fill="#c0392b">进入驱动</text>
+<text x="40" y="196" font-size="14">2. 申请 B（5 MB）：在那块 17 MB 的空闲块里再切一刀</text>
+<rect x="40" y="208" width="54" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="2"/>
+<text x="67.0" y="233" text-anchor="middle" font-size="14">A 3</text>
+<rect x="94" y="208" width="90" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="2"/>
+<text x="139.0" y="233" text-anchor="middle" font-size="14">B 5</text>
+<rect x="184" y="208" width="216" height="40" fill="#ffffff" stroke="#888" stroke-width="2" stroke-dasharray="5,3"/>
+<text x="292.0" y="233" text-anchor="middle" font-size="14" fill="#777">空闲 12</text>
+<text x="800" y="234" text-anchor="middle">8 MB</text>
+<text x="880" y="234" text-anchor="middle">20 MB</text>
+<text x="40" y="298" font-size="14">3. 释放 A：A 的 3 MB 变成空闲，但它右边的 B 还在用，隔开了，不能和 12 MB 合并</text>
+<rect x="40" y="310" width="54" height="40" fill="#ffffff" stroke="#888" stroke-width="2" stroke-dasharray="5,3"/>
+<text x="67.0" y="335" text-anchor="middle" font-size="14" fill="#777">空 3</text>
+<rect x="94" y="310" width="90" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="2"/>
+<text x="139.0" y="335" text-anchor="middle" font-size="14">B 5</text>
+<rect x="184" y="310" width="216" height="40" fill="#ffffff" stroke="#888" stroke-width="2" stroke-dasharray="5,3"/>
+<text x="292.0" y="335" text-anchor="middle" font-size="14" fill="#777">空闲 12</text>
+<text x="800" y="336" text-anchor="middle">5 MB</text>
+<text x="880" y="336" text-anchor="middle">20 MB</text>
+<text x="40" y="400" font-size="14">4. 申请 C（14 MB）：空闲合计 15 MB，可最大的一块只有 12 MB，只好向驱动再要一段 14 MB</text>
+<rect x="40" y="412" width="54" height="40" fill="#ffffff" stroke="#888" stroke-width="2" stroke-dasharray="5,3"/>
+<text x="67.0" y="437" text-anchor="middle" font-size="14" fill="#777">空 3</text>
+<rect x="94" y="412" width="90" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="2"/>
+<text x="139.0" y="437" text-anchor="middle" font-size="14">B 5</text>
+<rect x="184" y="412" width="216" height="40" fill="#ffffff" stroke="#888" stroke-width="2" stroke-dasharray="5,3"/>
+<text x="292.0" y="437" text-anchor="middle" font-size="14" fill="#777">空闲 12</text>
+<rect x="424" y="412" width="252" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="2"/>
+<text x="550.0" y="437" text-anchor="middle" font-size="14">C 14（新的一段）</text>
+<text x="800" y="438" text-anchor="middle">19 MB</text>
+<text x="880" y="438" text-anchor="middle">34 MB</text>
+<text x="688" y="438" font-size="13" fill="#c0392b">进入驱动</text>
+<text x="40" y="502" font-size="14">5. 释放 B：B 两侧都是空闲，而且同属第一段，三块合并成一整块 20 MB</text>
+<rect x="40" y="514" width="360" height="40" fill="#ffffff" stroke="#888" stroke-width="2" stroke-dasharray="5,3"/>
+<text x="220.0" y="539" text-anchor="middle" font-size="14" fill="#777">空闲 20（合并后）</text>
+<rect x="424" y="514" width="252" height="40" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="2"/>
+<text x="550.0" y="539" text-anchor="middle" font-size="14">C 14</text>
+<text x="800" y="540" text-anchor="middle">14 MB</text>
+<text x="880" y="540" text-anchor="middle">34 MB</text>
+<rect x="40" y="580" width="26" height="18" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="2"/><text x="74" y="594" font-size="14">正在被张量使用</text>
+<rect x="230" y="580" width="26" height="18" fill="#ffffff" stroke="#888" stroke-width="2" stroke-dasharray="5,3"/><text x="264" y="594" font-size="14">空闲块，留在分配器手里，没还给驱动</text>
+<text x="600" y="594" font-size="14" fill="#555">方框宽度与大小成正比（1 MB = 18 像素）</text>
+</svg>

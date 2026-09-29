@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="520" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222222"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f6db5"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777777"/></marker><marker id="o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c77a12"/></marker><marker id="n" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e8b57"/></marker><marker id="p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7a4fb0"/></marker></defs>
+<text x="480" y="30" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold">代数化简：六个节点的图只剩两个运算</text>
+<text x="280" y="64" font-size="16" text-anchor="middle" fill="#222222" font-weight="bold">化简前（抓到的图）</text>
+<text x="790" y="64" font-size="16" text-anchor="middle" fill="#222222" font-weight="bold">化简后</text>
+<line x1="600" y1="50" x2="600" y2="500" stroke="#bbbbbb" stroke-width="1.5" stroke-dasharray="6,5"/>
+<rect x="20" y="190" width="60" height="40" rx="6" fill="#eeeeee" stroke="#222222" stroke-width="2"/>
+<text x="50.0" y="215.0" font-size="14" text-anchor="middle" fill="#222222">x</text>
+<rect x="110" y="185" width="110" height="50" rx="6" fill="#f5d0cb" stroke="#c0392b" stroke-width="2" stroke-dasharray="6,4"/>
+<text x="165.0" y="215.0" font-size="13" text-anchor="middle" fill="#222222">① a = x.float()</text>
+<rect x="260" y="110" width="110" height="44" rx="6" fill="#ffffff" stroke="#222222" stroke-width="2"/>
+<text x="315.0" y="137.0" font-size="13" text-anchor="middle" fill="#222222">③ s = a*0.5</text>
+<rect x="260" y="185" width="110" height="44" rx="6" fill="#f8e3c4" stroke="#c77a12" stroke-width="2" stroke-dasharray="6,4"/>
+<text x="315.0" y="212.0" font-size="13" text-anchor="middle" fill="#222222">④ t = a*0.5</text>
+<rect x="260" y="265" width="110" height="44" rx="6" fill="#f5d0cb" stroke="#c0392b" stroke-width="2" stroke-dasharray="6,4"/>
+<text x="315.0" y="292.0" font-size="13" text-anchor="middle" fill="#222222">⑥ v = a.exp()</text>
+<rect x="110" y="360" width="150" height="44" rx="6" fill="#dbe7f5" stroke="#2f6db5" stroke-width="2"/>
+<text x="185.0" y="387.0" font-size="13" text-anchor="middle" fill="#222222">② m = ones(n,n).tril()</text>
+<rect x="420" y="180" width="130" height="50" rx="6" fill="#ffffff" stroke="#222222" stroke-width="2"/>
+<text x="485.0" y="210.0" font-size="13" text-anchor="middle" fill="#222222">⑤ u = (s+t)*m</text>
+<line x1="80" y1="210" x2="108" y2="210" stroke="#222222" stroke-width="2" marker-end="url(#a)"/>
+<line x1="220" y1="205" x2="258" y2="136" stroke="#222222" stroke-width="2" marker-end="url(#a)"/>
+<line x1="220" y1="210" x2="258" y2="207" stroke="#222222" stroke-width="2" marker-end="url(#a)"/>
+<line x1="220" y1="216" x2="258" y2="283" stroke="#222222" stroke-width="2" marker-end="url(#a)"/>
+<line x1="370" y1="132" x2="418" y2="196" stroke="#222222" stroke-width="2" marker-end="url(#a)"/>
+<line x1="370" y1="207" x2="418" y2="207" stroke="#222222" stroke-width="2" marker-end="url(#a)"/>
+<path d="M 260 382 C 380 382, 470 330, 482 234" stroke="#222222" stroke-width="2" fill="none" marker-end="url(#a)"/>
+<line x1="550" y1="205" x2="580" y2="205" stroke="#222222" stroke-width="2" marker-end="url(#a)"/>
+<text x="588" y="210" font-size="15" text-anchor="start" fill="#222222" font-weight="bold">u</text>
+<text x="315" y="330" font-size="12" text-anchor="middle" fill="#c0392b">输出 v 没有任何使用者</text>
+<text x="20" y="440" font-size="14" text-anchor="start" fill="#c0392b">①⑥ 删除：① 什么也没改（x 已是 fp32）；⑥ 的结果没人用（死代码消除）</text>
+<text x="20" y="464" font-size="14" text-anchor="start" fill="#c77a12">④ 合并进 ③：算子和输入都与 ③ 相同（公共子表达式消除）</text>
+<text x="20" y="488" font-size="14" text-anchor="start" fill="#2f6db5">② 编译时算好存成常量：它只依赖编译时已知的 n（常量折叠）</text>
+<rect x="630" y="190" width="60" height="40" rx="6" fill="#eeeeee" stroke="#222222" stroke-width="2"/>
+<text x="660.0" y="215.0" font-size="14" text-anchor="middle" fill="#222222">x</text>
+<rect x="720" y="185" width="100" height="50" rx="6" fill="#ffffff" stroke="#222222" stroke-width="2"/>
+<text x="770.0" y="215.0" font-size="14" text-anchor="middle" fill="#222222">s = x*0.5</text>
+<rect x="720" y="300" width="120" height="44" rx="6" fill="#dbe7f5" stroke="#2f6db5" stroke-width="2"/>
+<text x="780.0" y="327.0" font-size="12" text-anchor="middle" fill="#222222">m：预先算好的常量</text>
+<rect x="850" y="185" width="100" height="50" rx="6" fill="#ffffff" stroke="#222222" stroke-width="2"/>
+<text x="900.0" y="215.0" font-size="13" text-anchor="middle" fill="#222222">u = (s+s)*m</text>
+<line x1="690" y1="210" x2="718" y2="210" stroke="#222222" stroke-width="2" marker-end="url(#a)"/>
+<line x1="820" y1="210" x2="848" y2="210" stroke="#222222" stroke-width="2" marker-end="url(#a)"/>
+<line x1="820" y1="300" x2="880" y2="237" stroke="#222222" stroke-width="2" marker-end="url(#a)"/>
+<text x="790" y="130" font-size="14" text-anchor="middle" fill="#2e8b57">两个逐元素运算，</text>
+<text x="790" y="150" font-size="14" text-anchor="middle" fill="#2e8b57">下一步会融合成一个 kernel</text>
+</svg>

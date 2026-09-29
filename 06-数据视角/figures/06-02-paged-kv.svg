@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 630" width="960" height="630" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="630" fill="#ffffff"/>
+<defs><marker id="ah-888888" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#888888"/></marker><marker id="ahs-888888" viewBox="0 0 10 10" refX="1" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#888888"/></marker></defs>
+<text x="480" y="30" font-size="19" text-anchor="middle" fill="#222222" font-weight="bold" >paged KV cache：逻辑上连续的序列，物理上散落在各页，靠一张页表翻译</text>
+<text x="40" y="72" font-size="16" text-anchor="start" fill="#222222" font-weight="bold" >① 请求 A 已生成 700 个 token，按每页 16 个切成 ⌈700/16⌉ = 44 页（逻辑上连续）</text>
+<rect x="40" y="90" width="104" height="50" rx="4" fill="#fdeedd" stroke="#c8650a" stroke-width="1.5" />
+<text x="92" y="111" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold" >页 0</text>
+<text x="92" y="131" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >16 个 token</text>
+<rect x="150" y="90" width="104" height="50" rx="4" fill="#fdeedd" stroke="#c8650a" stroke-width="1.5" />
+<text x="202" y="111" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold" >页 1</text>
+<text x="202" y="131" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >16 个 token</text>
+<rect x="260" y="90" width="104" height="50" rx="4" fill="#fdeedd" stroke="#c8650a" stroke-width="1.5" />
+<text x="312" y="111" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold" >页 2</text>
+<text x="312" y="131" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >16 个 token</text>
+<rect x="370" y="90" width="104" height="50" rx="4" fill="#fdeedd" stroke="#c8650a" stroke-width="1.5" />
+<text x="422" y="111" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold" >页 3</text>
+<text x="422" y="131" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >16 个 token</text>
+<text x="505" y="118" font-size="18" text-anchor="middle" fill="#222222" font-weight="normal" >……</text>
+<rect x="530" y="90" width="104" height="50" rx="4" fill="#fdeedd" stroke="#c8650a" stroke-width="1.5" />
+<text x="582" y="111" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold" >页 42</text>
+<text x="582" y="131" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >16 个 token</text>
+<rect x="640" y="90" width="104" height="50" rx="4" fill="#fdeedd" stroke="#c8650a" stroke-width="1.5" />
+<text x="692" y="111" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold" >页 43</text>
+<text x="692" y="131" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >12 个 token</text>
+<text x="754" y="111" font-size="14" text-anchor="start" fill="#666666" font-weight="normal" >最后一页只用了 12 格，</text>
+<text x="754" y="131" font-size="14" text-anchor="start" fill="#666666" font-weight="normal" >空着 4 格</text>
+<text x="40" y="190" font-size="16" text-anchor="start" fill="#222222" font-weight="bold" >② 页表（每个请求一张）</text>
+<rect x="40" y="205" width="250" height="30" rx="0" fill="#f0f0f0" stroke="#444444" stroke-width="1.5" />
+<text x="105" y="226" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold" >逻辑页</text>
+<text x="225" y="226" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold" >物理页</text>
+<rect x="40" y="235" width="250" height="32" rx="0" fill="#ffffff" stroke="#444444" stroke-width="1.5" />
+<line x1="165" y1="235" x2="165" y2="267" stroke="#888888" stroke-width="1"/>
+<text x="105" y="257" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >0</text>
+<text x="225" y="257" font-size="15" text-anchor="middle" fill="#c8650a" font-weight="bold" >7</text>
+<rect x="40" y="267" width="250" height="32" rx="0" fill="#ffffff" stroke="#444444" stroke-width="1.5" />
+<line x1="165" y1="267" x2="165" y2="299" stroke="#888888" stroke-width="1"/>
+<text x="105" y="289" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >1</text>
+<text x="225" y="289" font-size="15" text-anchor="middle" fill="#c8650a" font-weight="bold" >2</text>
+<rect x="40" y="299" width="250" height="32" rx="0" fill="#ffffff" stroke="#444444" stroke-width="1.5" />
+<line x1="165" y1="299" x2="165" y2="331" stroke="#888888" stroke-width="1"/>
+<text x="105" y="321" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >2</text>
+<text x="225" y="321" font-size="15" text-anchor="middle" fill="#c8650a" font-weight="bold" >13</text>
+<rect x="40" y="331" width="250" height="32" rx="0" fill="#ffffff" stroke="#444444" stroke-width="1.5" />
+<line x1="165" y1="331" x2="165" y2="363" stroke="#888888" stroke-width="1"/>
+<text x="105" y="353" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >3</text>
+<text x="225" y="353" font-size="15" text-anchor="middle" fill="#c8650a" font-weight="bold" >5</text>
+<rect x="40" y="363" width="250" height="32" rx="0" fill="#ffffff" stroke="#444444" stroke-width="1.5" />
+<line x1="165" y1="363" x2="165" y2="395" stroke="#888888" stroke-width="1"/>
+<text x="105" y="385" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >…</text>
+<text x="225" y="385" font-size="15" text-anchor="middle" fill="#c8650a" font-weight="bold" >…</text>
+<rect x="40" y="395" width="250" height="32" rx="0" fill="#ffffff" stroke="#444444" stroke-width="1.5" />
+<line x1="165" y1="395" x2="165" y2="427" stroke="#888888" stroke-width="1"/>
+<text x="105" y="417" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >42</text>
+<text x="225" y="417" font-size="15" text-anchor="middle" fill="#c8650a" font-weight="bold" >20</text>
+<rect x="40" y="427" width="250" height="32" rx="0" fill="#ffffff" stroke="#444444" stroke-width="1.5" />
+<line x1="165" y1="427" x2="165" y2="459" stroke="#888888" stroke-width="1"/>
+<text x="105" y="449" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >43</text>
+<text x="225" y="449" font-size="15" text-anchor="middle" fill="#c8650a" font-weight="bold" >9</text>
+<text x="380" y="190" font-size="16" text-anchor="start" fill="#222222" font-weight="bold" >③ 显存里的 KV 池：24 个物理页（示意），多个请求混着用</text>
+<rect x="380" y="215" width="80" height="54" rx="4" fill="#e3eef9" stroke="#888888" stroke-width="1" />
+<text x="386" y="233" font-size="14" text-anchor="start" fill="#666666" font-weight="normal" >#0</text>
+<text x="420" y="257" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >B0</text>
+<rect x="468" y="215" width="80" height="54" rx="4" fill="#e3eef9" stroke="#888888" stroke-width="1" />
+<text x="474" y="233" font-size="14" text-anchor="start" fill="#666666" font-weight="normal" >#1</text>
+<text x="508" y="257" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >B1</text>
+<rect x="556" y="215" width="80" height="54" rx="4" fill="#fdeedd" stroke="#c8650a" stroke-width="2" />
+<text x="562" y="233" font-size="14" text-anchor="start" fill="#666666" font-weight="normal" >#2</text>
+<text x="596" y="257" font-size="15" text-anchor="middle" fill="#c8650a" font-weight="bold" >A1</text>
+<rect x="644" y="215" width="80" height="54" rx="4" fill="#e3eef9" stroke="#888888" stroke-width="1" />
+<text x="650" y="233" font-size="14" text-anchor="start" fill="#666666" font-weight="normal" >#3</text>
+<text x="684" y="257" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >C0</text>
+<rect x="732" y="215" width="80" height="54" rx="4" fill="#e3eef9" stroke="#888888" stroke-width="1" />
+<text x="738" y="233" font-size="14" text-anchor="start" fill="#666666" font-weight="normal" >#4</text>
+<text x="772" y="257" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >B2</text>
+<rect x="820" y="215" width="80" height="54" rx="4" fill="#fdeedd" stroke="#c8650a" stroke-width="2" />
+<text x="826" y="233" font-size="14" text-anchor="start" fill="#666666" font-weight="normal" >#5</text>
+<text x="860" y="257" font-size="15" text-anchor="middle" fill="#c8650a" font-weight="bold" >A3</text>
+<rect x="380" y="279" width="80" height="54" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" />
+<text x="386" y="297" font-size="14" text-anchor="start" fill="#666666" font-weight="normal" >#6</text>
+<text x="420" y="321" font-size="15" text-anchor="middle" fill="#999999" font-weight="normal" >空闲</text>
+<rect x="468" y="279" width="80" height="54" rx="4" fill="#fdeedd" stroke="#c8650a" stroke-width="2" />
+<text x="474" y="297" font-size="14" text-anchor="start" fill="#666666" font-weight="normal" >#7</text>
+<text x="508" y="321" font-size="15" text-anchor="middle" fill="#c8650a" font-weight="bold" >A0</text>
+<rect x="556" y="279" width="80" height="54" rx="4" fill="#e3eef9" stroke="#888888" stroke-width="1" />
+<text x="562" y="297" font-size="14" text-anchor="start" fill="#666666" font-weight="normal" >#8</text>
+<text x="596" y="321" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >C1</text>
+<rect x="644" y="279" width="80" height="54" rx="4" fill="#fdeedd" stroke="#c8650a" stroke-width="2" />
+<text x="650" y="297" font-size="14" text-anchor="start" fill="#666666" font-weight="normal" >#9</text>
+<text x="684" y="321" font-size="15" text-anchor="middle" fill="#c8650a" font-weight="bold" >A43</text>
+<rect x="732" y="279" width="80" height="54" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" />
+<text x="738" y="297" font-size="14" text-anchor="start" fill="#666666" font-weight="normal" >#10</text>
+<text x="772" y="321" font-size="15" text-anchor="middle" fill="#999999" font-weight="normal" >空闲</text>
+<rect x="820" y="279" width="80" height="54" rx="4" fill="#e3eef9" stroke="#888888" stroke-width="1" />
+<text x="826" y="297" font-size="14" text-anchor="start" fill="#666666" font-weight="normal" >#11</text>
+<text x="860" y="321" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >B3</text>
+<rect x="380" y="343" width="80" height="54" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" />
+<text x="386" y="361" font-size="14" text-anchor="start" fill="#666666" font-weight="normal" >#12</text>
+<text x="420" y="385" font-size="15" text-anchor="middle" fill="#999999" font-weight="normal" >空闲</text>
+<rect x="468" y="343" width="80" height="54" rx="4" fill="#fdeedd" stroke="#c8650a" stroke-width="2" />
+<text x="474" y="361" font-size="14" text-anchor="start" fill="#666666" font-weight="normal" >#13</text>
+<text x="508" y="385" font-size="15" text-anchor="middle" fill="#c8650a" font-weight="bold" >A2</text>
+<rect x="556" y="343" width="80" height="54" rx="4" fill="#e3eef9" stroke="#888888" stroke-width="1" />
+<text x="562" y="361" font-size="14" text-anchor="start" fill="#666666" font-weight="normal" >#14</text>
+<text x="596" y="385" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >B4</text>
+<rect x="644" y="343" width="80" height="54" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" />
+<text x="650" y="361" font-size="14" text-anchor="start" fill="#666666" font-weight="normal" >#15</text>
+<text x="684" y="385" font-size="15" text-anchor="middle" fill="#999999" font-weight="normal" >空闲</text>
+<rect x="732" y="343" width="80" height="54" rx="4" fill="#e3eef9" stroke="#888888" stroke-width="1" />
+<text x="738" y="361" font-size="14" text-anchor="start" fill="#666666" font-weight="normal" >#16</text>
+<text x="772" y="385" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >C2</text>
+<rect x="820" y="343" width="80" height="54" rx="4" fill="#e3eef9" stroke="#888888" stroke-width="1" />
+<text x="826" y="361" font-size="14" text-anchor="start" fill="#666666" font-weight="normal" >#17</text>
+<text x="860" y="385" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >B5</text>
+<rect x="380" y="407" width="80" height="54" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" />
+<text x="386" y="425" font-size="14" text-anchor="start" fill="#666666" font-weight="normal" >#18</text>
+<text x="420" y="449" font-size="15" text-anchor="middle" fill="#999999" font-weight="normal" >空闲</text>
+<rect x="468" y="407" width="80" height="54" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" />
+<text x="474" y="425" font-size="14" text-anchor="start" fill="#666666" font-weight="normal" >#19</text>
+<text x="508" y="449" font-size="15" text-anchor="middle" fill="#999999" font-weight="normal" >空闲</text>
+<rect x="556" y="407" width="80" height="54" rx="4" fill="#fdeedd" stroke="#c8650a" stroke-width="2" />
+<text x="562" y="425" font-size="14" text-anchor="start" fill="#666666" font-weight="normal" >#20</text>
+<text x="596" y="449" font-size="15" text-anchor="middle" fill="#c8650a" font-weight="bold" >A42</text>
+<rect x="644" y="407" width="80" height="54" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" />
+<text x="650" y="425" font-size="14" text-anchor="start" fill="#666666" font-weight="normal" >#21</text>
+<text x="684" y="449" font-size="15" text-anchor="middle" fill="#999999" font-weight="normal" >空闲</text>
+<rect x="732" y="407" width="80" height="54" rx="4" fill="#e3eef9" stroke="#888888" stroke-width="1" />
+<text x="738" y="425" font-size="14" text-anchor="start" fill="#666666" font-weight="normal" >#22</text>
+<text x="772" y="449" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >B6</text>
+<rect x="820" y="407" width="80" height="54" rx="4" fill="#ffffff" stroke="#888888" stroke-width="1" />
+<text x="826" y="425" font-size="14" text-anchor="start" fill="#666666" font-weight="normal" >#23</text>
+<text x="860" y="449" font-size="15" text-anchor="middle" fill="#999999" font-weight="normal" >空闲</text>
+<text x="380" y="495" font-size="14" text-anchor="start" fill="#666666" font-weight="normal" >橙色 = 请求 A 的页（A0 即 A 的逻辑页 0），蓝色 = 其他请求 B、C 的页。</text>
+<text x="380" y="515" font-size="14" text-anchor="start" fill="#666666" font-weight="normal" >A 的第 0、1、2 页分别在 #7、#2、#13，物理上互不相邻。</text>
+<text x="40" y="565" font-size="15" text-anchor="start" fill="#222222" font-weight="normal" >读 KV 时，attention kernel 先查页表“逻辑页 0 → 物理页 7”，再去 #7 取数：多一次间接寻址。</text>
+<text x="40" y="591" font-size="15" text-anchor="start" fill="#222222" font-weight="normal" >换来的是：请求生成一页才占一页，结束就还回去，不用为最长可能长度预留一整段连续显存。</text>
+</svg>

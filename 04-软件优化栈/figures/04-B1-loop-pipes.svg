@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="560" fill="#ffffff"/>
+<defs><marker id="k" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222222"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777777"/></marker><marker id="o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c77a12"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f6db5"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="n" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e8b57"/></marker><marker id="p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7a4fb0"/></marker></defs>
+<text x="480.0" y="30.0" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold">主循环一轮：每行代码落在哪条硬件管线上（BLOCK_M=128，BLOCK_N=64，HEAD_DIM=128）</text>
+<rect x="40.0" y="60.0" width="90.0" height="30.0" rx="3" fill="#ffffff" stroke="#777777" stroke-width="1.5"/>
+<text x="85.0" y="80.0" font-size="14" text-anchor="middle" fill="#222222">q（寄存器）</text>
+<rect x="150.0" y="60.0" width="90.0" height="30.0" rx="3" fill="#ffffff" stroke="#777777" stroke-width="1.5"/>
+<text x="195.0" y="80.0" font-size="14" text-anchor="middle" fill="#222222">k（shared）</text>
+<rect x="40.0" y="110.0" width="330.0" height="50.0" rx="3" fill="#dbe7f5" stroke="#2f6db5" stroke-width="2"/>
+<text x="50.0" y="131.0" font-size="14" text-anchor="start" fill="#222222" font-family="monospace">qk = tl.dot(q, k)</text>
+<text x="50.0" y="152.0" font-size="14" text-anchor="start" fill="#2f6db5" font-weight="bold">矩阵单元 Tensor Core · 128×64×128 次乘加</text>
+<line x1="85.0" y1="90.0" x2="85.0" y2="108.0" stroke="#777777" stroke-width="1.5" marker-end="url(#g)"/>
+<line x1="195.0" y1="90.0" x2="195.0" y2="108.0" stroke="#777777" stroke-width="1.5" marker-end="url(#g)"/>
+<rect x="40.0" y="186.0" width="470.0" height="50.0" rx="3" fill="#d5eddf" stroke="#2e8b57" stroke-width="2"/>
+<text x="50.0" y="207.0" font-size="14" text-anchor="start" fill="#222222" font-family="monospace">m_ij = maximum(m_i, max(qk, 1)*sm_scale)</text>
+<text x="50.0" y="228.0" font-size="14" text-anchor="start" fill="#2e8b57" font-weight="bold">FMA / 普通算术 · 8192 次比较</text>
+<rect x="40.0" y="262.0" width="470.0" height="50.0" rx="3" fill="#f5d0cb" stroke="#c0392b" stroke-width="2"/>
+<text x="50.0" y="283.0" font-size="14" text-anchor="start" fill="#222222" font-family="monospace">p = exp2((qk*sm_scale - m_ij)*1.4427)</text>
+<text x="50.0" y="304.0" font-size="14" text-anchor="start" fill="#c0392b" font-weight="bold">MUFU（特殊函数单元） · 8192 次 exp2</text>
+<rect x="40.0" y="338.0" width="250.0" height="50.0" rx="3" fill="#f5d0cb" stroke="#c0392b" stroke-width="2"/>
+<text x="50.0" y="359.0" font-size="14" text-anchor="start" fill="#222222" font-family="monospace">alpha = exp2(m_i - m_ij)…</text>
+<text x="50.0" y="380.0" font-size="14" text-anchor="start" fill="#c0392b" font-weight="bold">MUFU（特殊函数单元） · 128 次</text>
+<rect x="300.0" y="338.0" width="210.0" height="50.0" rx="3" fill="#d5eddf" stroke="#2e8b57" stroke-width="2"/>
+<text x="310.0" y="359.0" font-size="14" text-anchor="start" fill="#222222" font-family="monospace">acc = acc*alpha</text>
+<text x="310.0" y="380.0" font-size="14" text-anchor="start" fill="#2e8b57" font-weight="bold">FMA / 普通算术 · 16384 次</text>
+<rect x="40.0" y="414.0" width="470.0" height="50.0" rx="3" fill="#d5eddf" stroke="#2e8b57" stroke-width="2"/>
+<text x="50.0" y="435.0" font-size="14" text-anchor="start" fill="#222222" font-family="monospace">l_i = l_i*alpha + sum(p, 1)</text>
+<text x="50.0" y="456.0" font-size="14" text-anchor="start" fill="#2e8b57" font-weight="bold">FMA / 普通算术 · 约 8192 次加法</text>
+<rect x="420.0" y="480.0" width="90.0" height="30.0" rx="3" fill="#ffffff" stroke="#777777" stroke-width="1.5"/>
+<text x="465.0" y="500.0" font-size="14" text-anchor="middle" fill="#222222">v（shared）</text>
+<rect x="40.0" y="490.0" width="360.0" height="50.0" rx="3" fill="#dbe7f5" stroke="#2f6db5" stroke-width="2"/>
+<text x="50.0" y="511.0" font-size="14" text-anchor="start" fill="#222222" font-family="monospace">acc += tl.dot(p.to(fp16), v)</text>
+<text x="50.0" y="532.0" font-size="14" text-anchor="start" fill="#2f6db5" font-weight="bold">矩阵单元 Tensor Core · 128×64×128 次乘加</text>
+<line x1="200.0" y1="160.0" x2="200.0" y2="184.0" stroke="#222222" stroke-width="1.5" marker-end="url(#k)"/>
+<line x1="200.0" y1="236.0" x2="200.0" y2="260.0" stroke="#222222" stroke-width="1.5" marker-end="url(#k)"/>
+<line x1="200.0" y1="312.0" x2="200.0" y2="336.0" stroke="#222222" stroke-width="1.5" marker-end="url(#k)"/>
+<line x1="200.0" y1="388.0" x2="200.0" y2="412.0" stroke="#222222" stroke-width="1.5" marker-end="url(#k)"/>
+<line x1="200.0" y1="464.0" x2="200.0" y2="488.0" stroke="#222222" stroke-width="1.5" marker-end="url(#k)"/>
+<line x1="418.0" y1="505.0" x2="402.0" y2="510.0" stroke="#777777" stroke-width="1.5" marker-end="url(#g)"/>
+<text x="560.0" y="76.0" font-size="15" text-anchor="start" fill="#222222" font-weight="bold">这一轮在各管线上约要多少拍</text>
+<text x="560.0" y="98.0" font-size="14" text-anchor="start" fill="#777777">（H100 单个 SM，量级示意）</text>
+<text x="560.0" y="138.0" font-size="15" text-anchor="start" fill="#2f6db5" font-weight="bold">矩阵单元</text>
+<text x="636.0" y="138.0" font-size="14" text-anchor="start" fill="#777777">2×1,048,576 ÷ 每拍 2048</text>
+<rect x="560.0" y="148.0" width="270.0" height="28.0" rx="3" fill="#dbe7f5" stroke="#2f6db5" stroke-width="1.5"/>
+<text x="838.0" y="168.0" font-size="15" text-anchor="start" fill="#222222" font-weight="bold">≈ 1024 拍</text>
+<text x="560.0" y="216.0" font-size="15" text-anchor="start" fill="#c0392b" font-weight="bold">MUFU</text>
+<text x="636.0" y="216.0" font-size="14" text-anchor="start" fill="#777777">8320 ÷ 每拍 16</text>
+<rect x="560.0" y="226.0" width="137.1" height="28.0" rx="3" fill="#f5d0cb" stroke="#c0392b" stroke-width="1.5"/>
+<text x="705.1" y="246.0" font-size="15" text-anchor="start" fill="#222222" font-weight="bold">≈ 520 拍</text>
+<text x="560.0" y="294.0" font-size="15" text-anchor="start" fill="#2e8b57" font-weight="bold">FMA 等</text>
+<text x="636.0" y="294.0" font-size="14" text-anchor="start" fill="#777777">约 5 万次 ÷ 每拍 128</text>
+<rect x="560.0" y="304.0" width="105.5" height="28.0" rx="3" fill="#d5eddf" stroke="#2e8b57" stroke-width="1.5"/>
+<text x="673.5" y="324.0" font-size="15" text-anchor="start" fill="#222222" font-weight="bold">≈ 400 拍</text>
+<rect x="560.0" y="364.0" width="380.0" height="110.0" rx="3" fill="#f3f3f3" stroke="#777777" stroke-width="1.5"/>
+<text x="572.0" y="390.0" font-size="14" text-anchor="start" fill="#222222" font-weight="bold">这些行在代码里是先后依赖的：</text>
+<text x="572.0" y="414.0" font-size="14" text-anchor="start" fill="#222222">矩阵乘出 qk 才能算 exp2，exp2 出 p 才能做</text>
+<text x="572.0" y="436.0" font-size="14" text-anchor="start" fill="#222222">第二个矩阵乘。三段排成一条线共约 1900 拍，</text>
+<text x="572.0" y="458.0" font-size="14" text-anchor="start" fill="#222222">矩阵单元只在其中约 1024 拍里干活，近一半在等。</text>
+<text x="560.0" y="506.0" font-size="14" text-anchor="start" fill="#c0392b" font-weight="bold">这就是 B2 里 FA-3 要藏掉的那段 MUFU 时间。</text>
+</svg>

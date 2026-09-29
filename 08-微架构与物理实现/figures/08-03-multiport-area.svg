@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" font-family="sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker></defs>
+<rect x="0" y="0" width="960" height="560" fill="#ffffff"/>
+<text x="480" y="28" font-size="18" text-anchor="middle" font-weight="bold" fill="#111">端口越多，每个存储单元要穿过的线越多：横竖各翻倍，面积约翻四倍</text>
+<text x="150" y="66" font-size="16" text-anchor="middle" font-weight="bold" fill="#111">① 单端口单元（1RW）</text>
+<text x="150" y="88" font-size="14" text-anchor="middle" fill="#555">一拍读或写一次</text>
+<rect x="90" y="120" width="120" height="120" fill="#fdf3e3" stroke="#222" stroke-width="1.8"/>
+<text x="150.0" y="185.0" font-size="14" text-anchor="middle" fill="#111">存 1 位</text>
+<line x1="70" y1="142" x2="230" y2="142" stroke="#b5451b" stroke-width="3"/>
+<text x="66" y="147" font-size="14" text-anchor="end" fill="#b5451b">WL</text>
+<line x1="120" y1="100" x2="120" y2="260" stroke="#1f5fa8" stroke-width="3"/>
+<text x="120" y="280" font-size="14" text-anchor="middle" fill="#1f5fa8">BL</text>
+<line x1="180" y1="100" x2="180" y2="260" stroke="#1f5fa8" stroke-width="3"/>
+<text x="180" y="280" font-size="14" text-anchor="middle" fill="#1f5fa8">BLB</text>
+<text x="150" y="312" font-size="14" text-anchor="middle" fill="#111">横 1 根字线、竖 1 对位线</text>
+<text x="150" y="334" font-size="14" text-anchor="middle" fill="#111">面积记为 1</text>
+<text x="470" y="66" font-size="16" text-anchor="middle" font-weight="bold" fill="#111">② 三读一写单元（3R1W）</text>
+<text x="470" y="88" font-size="14" text-anchor="middle" fill="#555">一拍同时读 3 个、写 1 个</text>
+<rect x="350" y="120" width="240" height="240" fill="#fdf3e3" stroke="#222" stroke-width="1.8"/>
+<rect x="430" y="215" width="120" height="54.0" fill="#fff" stroke="#999" stroke-width="1" stroke-dasharray="4,3"/>
+<text x="490" y="248" font-size="14" text-anchor="middle" fill="#111">存 1 位</text>
+<line x1="330" y1="142" x2="610" y2="142" stroke="#b5451b" stroke-width="3"/>
+<text x="326" y="147" font-size="14" text-anchor="end" fill="#b5451b">WL 读 0</text>
+<line x1="330" y1="186" x2="610" y2="186" stroke="#b5451b" stroke-width="3"/>
+<text x="326" y="191" font-size="14" text-anchor="end" fill="#b5451b">WL 读 1</text>
+<line x1="330" y1="296" x2="610" y2="296" stroke="#b5451b" stroke-width="3"/>
+<text x="326" y="301" font-size="14" text-anchor="end" fill="#b5451b">WL 读 2</text>
+<line x1="330" y1="340" x2="610" y2="340" stroke="#b5451b" stroke-width="3"/>
+<text x="326" y="345" font-size="14" text-anchor="end" fill="#b5451b">WL 写</text>
+<line x1="380" y1="100" x2="380" y2="380" stroke="#1f5fa8" stroke-width="3"/>
+<text x="380" y="400" font-size="14" text-anchor="middle" fill="#1f5fa8">读0</text>
+<line x1="425" y1="100" x2="425" y2="380" stroke="#1f5fa8" stroke-width="3"/>
+<text x="425" y="400" font-size="14" text-anchor="middle" fill="#1f5fa8">读1</text>
+<line x1="515" y1="100" x2="515" y2="380" stroke="#1f5fa8" stroke-width="3"/>
+<text x="515" y="400" font-size="14" text-anchor="middle" fill="#1f5fa8">读2</text>
+<line x1="560" y1="100" x2="560" y2="380" stroke="#1f5fa8" stroke-width="3"/>
+<text x="560" y="400" font-size="14" text-anchor="middle" fill="#1f5fa8">写</text>
+<text x="470" y="432" font-size="14" text-anchor="middle" fill="#111">横 4 根字线、竖 4 组位线；</text>
+<text x="470" y="454" font-size="14" text-anchor="middle" fill="#111">单元边长约 2 倍 → 面积约 3～4 倍</text>
+<line x1="660" y1="50" x2="660" y2="480" stroke="#ccc" stroke-width="1.5"/>
+<text x="800" y="66" font-size="16" text-anchor="middle" font-weight="bold" fill="#111">③ 256 KB 寄存器堆的面积</text>
+<text x="800" y="88" font-size="14" text-anchor="middle" fill="#555">（示意，以单端口为 1）</text>
+<text x="680" y="120" font-size="14" fill="#111">单端口，但一拍只能取 1 个</text>
+<rect x="680" y="130" width="70" height="36" fill="#fdf3e3" stroke="#222" stroke-width="1.5"/>
+<text x="758" y="154" font-size="14" fill="#111">1</text>
+<text x="680" y="230" font-size="14" fill="#111">真 3R1W：三读一写</text>
+<rect x="680" y="240" width="245.0" height="36" fill="#f7dada" stroke="#222" stroke-width="1.5"/>
+<text x="685.0" y="298" font-size="14" fill="#111">约 3～4（≈ 1 MB 单端口的面积）</text>
+<text x="680" y="340" font-size="14" fill="#111">4 个单端口 bank + 收集器</text>
+<rect x="680" y="350" width="87.5" height="36" fill="#eaf5e9" stroke="#222" stroke-width="1.5"/>
+<text x="775.5" y="374" font-size="14" fill="#111">约 1 + 外围与收集器</text>
+<text x="680" y="460" font-size="14" fill="#111">GPU 选第三种：用“多花几拍”</text>
+<text x="680" y="480" font-size="14" fill="#111">换掉多端口的面积</text>
+<text x="480" y="530" font-size="14" text-anchor="middle" fill="#555">先进工艺里 SRAM 单元的面积主要由金属线的最小间距决定：每多一个端口，就多一根字线和一根（或一对）位线要从单元上穿过</text>
+</svg>

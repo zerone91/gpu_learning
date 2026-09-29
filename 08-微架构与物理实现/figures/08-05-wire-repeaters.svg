@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 600" width="980" height="600" font-family="sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker></defs>
+<rect x="0" y="0" width="980" height="600" fill="#ffffff"/>
+<text x="490" y="28" font-size="18" text-anchor="middle" font-weight="bold" fill="#111">长线为什么要切段：不切，延迟随长度的平方涨；切开插缓冲器，变成随长度线性涨</text>
+<text x="30" y="72" font-size="15" font-weight="bold" fill="#111">① 一根 4 mm 的线不切：一端推，另一端等</text>
+<polygon points="60,87 84,100 60,113" fill="#f4f4f4" stroke="#b5451b" stroke-width="1.8"/>
+<line x1="84" y1="100" x2="860" y2="100" stroke="#444" stroke-width="3"/>
+<line x1="122.8" y1="100" x2="122.8" y2="112" stroke="#999" stroke-width="1.5"/><line x1="116.8" y1="112" x2="128.8" y2="112" stroke="#999" stroke-width="1.5"/><line x1="116.8" y1="116" x2="128.8" y2="116" stroke="#999" stroke-width="1.5"/>
+<line x1="161.6" y1="100" x2="161.6" y2="112" stroke="#999" stroke-width="1.5"/><line x1="155.6" y1="112" x2="167.6" y2="112" stroke="#999" stroke-width="1.5"/><line x1="155.6" y1="116" x2="167.6" y2="116" stroke="#999" stroke-width="1.5"/>
+<line x1="200.4" y1="100" x2="200.4" y2="112" stroke="#999" stroke-width="1.5"/><line x1="194.4" y1="112" x2="206.4" y2="112" stroke="#999" stroke-width="1.5"/><line x1="194.4" y1="116" x2="206.4" y2="116" stroke="#999" stroke-width="1.5"/>
+<line x1="239.2" y1="100" x2="239.2" y2="112" stroke="#999" stroke-width="1.5"/><line x1="233.2" y1="112" x2="245.2" y2="112" stroke="#999" stroke-width="1.5"/><line x1="233.2" y1="116" x2="245.2" y2="116" stroke="#999" stroke-width="1.5"/>
+<line x1="278.0" y1="100" x2="278.0" y2="112" stroke="#999" stroke-width="1.5"/><line x1="272.0" y1="112" x2="284.0" y2="112" stroke="#999" stroke-width="1.5"/><line x1="272.0" y1="116" x2="284.0" y2="116" stroke="#999" stroke-width="1.5"/>
+<line x1="316.8" y1="100" x2="316.8" y2="112" stroke="#999" stroke-width="1.5"/><line x1="310.8" y1="112" x2="322.8" y2="112" stroke="#999" stroke-width="1.5"/><line x1="310.8" y1="116" x2="322.8" y2="116" stroke="#999" stroke-width="1.5"/>
+<line x1="355.6" y1="100" x2="355.6" y2="112" stroke="#999" stroke-width="1.5"/><line x1="349.6" y1="112" x2="361.6" y2="112" stroke="#999" stroke-width="1.5"/><line x1="349.6" y1="116" x2="361.6" y2="116" stroke="#999" stroke-width="1.5"/>
+<line x1="394.4" y1="100" x2="394.4" y2="112" stroke="#999" stroke-width="1.5"/><line x1="388.4" y1="112" x2="400.4" y2="112" stroke="#999" stroke-width="1.5"/><line x1="388.4" y1="116" x2="400.4" y2="116" stroke="#999" stroke-width="1.5"/>
+<line x1="433.2" y1="100" x2="433.2" y2="112" stroke="#999" stroke-width="1.5"/><line x1="427.2" y1="112" x2="439.2" y2="112" stroke="#999" stroke-width="1.5"/><line x1="427.2" y1="116" x2="439.2" y2="116" stroke="#999" stroke-width="1.5"/>
+<line x1="472.0" y1="100" x2="472.0" y2="112" stroke="#999" stroke-width="1.5"/><line x1="466.0" y1="112" x2="478.0" y2="112" stroke="#999" stroke-width="1.5"/><line x1="466.0" y1="116" x2="478.0" y2="116" stroke="#999" stroke-width="1.5"/>
+<line x1="510.8" y1="100" x2="510.8" y2="112" stroke="#999" stroke-width="1.5"/><line x1="504.8" y1="112" x2="516.8" y2="112" stroke="#999" stroke-width="1.5"/><line x1="504.8" y1="116" x2="516.8" y2="116" stroke="#999" stroke-width="1.5"/>
+<line x1="549.6" y1="100" x2="549.6" y2="112" stroke="#999" stroke-width="1.5"/><line x1="543.6" y1="112" x2="555.6" y2="112" stroke="#999" stroke-width="1.5"/><line x1="543.6" y1="116" x2="555.6" y2="116" stroke="#999" stroke-width="1.5"/>
+<line x1="588.4" y1="100" x2="588.4" y2="112" stroke="#999" stroke-width="1.5"/><line x1="582.4" y1="112" x2="594.4" y2="112" stroke="#999" stroke-width="1.5"/><line x1="582.4" y1="116" x2="594.4" y2="116" stroke="#999" stroke-width="1.5"/>
+<line x1="627.2" y1="100" x2="627.2" y2="112" stroke="#999" stroke-width="1.5"/><line x1="621.2" y1="112" x2="633.2" y2="112" stroke="#999" stroke-width="1.5"/><line x1="621.2" y1="116" x2="633.2" y2="116" stroke="#999" stroke-width="1.5"/>
+<line x1="666.0" y1="100" x2="666.0" y2="112" stroke="#999" stroke-width="1.5"/><line x1="660.0" y1="112" x2="672.0" y2="112" stroke="#999" stroke-width="1.5"/><line x1="660.0" y1="116" x2="672.0" y2="116" stroke="#999" stroke-width="1.5"/>
+<line x1="704.8" y1="100" x2="704.8" y2="112" stroke="#999" stroke-width="1.5"/><line x1="698.8" y1="112" x2="710.8" y2="112" stroke="#999" stroke-width="1.5"/><line x1="698.8" y1="116" x2="710.8" y2="116" stroke="#999" stroke-width="1.5"/>
+<line x1="743.6" y1="100" x2="743.6" y2="112" stroke="#999" stroke-width="1.5"/><line x1="737.6" y1="112" x2="749.6" y2="112" stroke="#999" stroke-width="1.5"/><line x1="737.6" y1="116" x2="749.6" y2="116" stroke="#999" stroke-width="1.5"/>
+<line x1="782.4" y1="100" x2="782.4" y2="112" stroke="#999" stroke-width="1.5"/><line x1="776.4" y1="112" x2="788.4" y2="112" stroke="#999" stroke-width="1.5"/><line x1="776.4" y1="116" x2="788.4" y2="116" stroke="#999" stroke-width="1.5"/>
+<line x1="821.2" y1="100" x2="821.2" y2="112" stroke="#999" stroke-width="1.5"/><line x1="815.2" y1="112" x2="827.2" y2="112" stroke="#999" stroke-width="1.5"/><line x1="815.2" y1="116" x2="827.2" y2="116" stroke="#999" stroke-width="1.5"/>
+<text x="880" y="105" font-size="14" fill="#111">终点</text>
+<text x="470" y="140" font-size="14" text-anchor="middle" fill="#555">线越长，电阻越大、要充的电容也越多：两者都正比于长度，延迟正比于两者之积 = 长度²</text>
+<text x="30" y="182" font-size="15" font-weight="bold" fill="#111">② 同一根线切成 4 段，每段前面放一个缓冲器（三角形）重新推一次</text>
+<polygon points="60,197 84,210 60,223" fill="#fdf0e8" stroke="#b5451b" stroke-width="1.8"/>
+<line x1="84" y1="210" x2="260" y2="210" stroke="#444" stroke-width="3"/>
+<line x1="119.2" y1="210" x2="119.2" y2="222" stroke="#999" stroke-width="1.5"/><line x1="113.2" y1="222" x2="125.2" y2="222" stroke="#999" stroke-width="1.5"/><line x1="113.2" y1="226" x2="125.2" y2="226" stroke="#999" stroke-width="1.5"/>
+<line x1="154.4" y1="210" x2="154.4" y2="222" stroke="#999" stroke-width="1.5"/><line x1="148.4" y1="222" x2="160.4" y2="222" stroke="#999" stroke-width="1.5"/><line x1="148.4" y1="226" x2="160.4" y2="226" stroke="#999" stroke-width="1.5"/>
+<line x1="189.6" y1="210" x2="189.6" y2="222" stroke="#999" stroke-width="1.5"/><line x1="183.6" y1="222" x2="195.6" y2="222" stroke="#999" stroke-width="1.5"/><line x1="183.6" y1="226" x2="195.6" y2="226" stroke="#999" stroke-width="1.5"/>
+<line x1="224.8" y1="210" x2="224.8" y2="222" stroke="#999" stroke-width="1.5"/><line x1="218.8" y1="222" x2="230.8" y2="222" stroke="#999" stroke-width="1.5"/><line x1="218.8" y1="226" x2="230.8" y2="226" stroke="#999" stroke-width="1.5"/>
+<polygon points="260,197 284,210 260,223" fill="#fdf0e8" stroke="#b5451b" stroke-width="1.8"/>
+<line x1="284" y1="210" x2="460" y2="210" stroke="#444" stroke-width="3"/>
+<line x1="319.2" y1="210" x2="319.2" y2="222" stroke="#999" stroke-width="1.5"/><line x1="313.2" y1="222" x2="325.2" y2="222" stroke="#999" stroke-width="1.5"/><line x1="313.2" y1="226" x2="325.2" y2="226" stroke="#999" stroke-width="1.5"/>
+<line x1="354.4" y1="210" x2="354.4" y2="222" stroke="#999" stroke-width="1.5"/><line x1="348.4" y1="222" x2="360.4" y2="222" stroke="#999" stroke-width="1.5"/><line x1="348.4" y1="226" x2="360.4" y2="226" stroke="#999" stroke-width="1.5"/>
+<line x1="389.6" y1="210" x2="389.6" y2="222" stroke="#999" stroke-width="1.5"/><line x1="383.6" y1="222" x2="395.6" y2="222" stroke="#999" stroke-width="1.5"/><line x1="383.6" y1="226" x2="395.6" y2="226" stroke="#999" stroke-width="1.5"/>
+<line x1="424.8" y1="210" x2="424.8" y2="222" stroke="#999" stroke-width="1.5"/><line x1="418.8" y1="222" x2="430.8" y2="222" stroke="#999" stroke-width="1.5"/><line x1="418.8" y1="226" x2="430.8" y2="226" stroke="#999" stroke-width="1.5"/>
+<polygon points="460,197 484,210 460,223" fill="#fdf0e8" stroke="#b5451b" stroke-width="1.8"/>
+<line x1="484" y1="210" x2="660" y2="210" stroke="#444" stroke-width="3"/>
+<line x1="519.2" y1="210" x2="519.2" y2="222" stroke="#999" stroke-width="1.5"/><line x1="513.2" y1="222" x2="525.2" y2="222" stroke="#999" stroke-width="1.5"/><line x1="513.2" y1="226" x2="525.2" y2="226" stroke="#999" stroke-width="1.5"/>
+<line x1="554.4" y1="210" x2="554.4" y2="222" stroke="#999" stroke-width="1.5"/><line x1="548.4" y1="222" x2="560.4" y2="222" stroke="#999" stroke-width="1.5"/><line x1="548.4" y1="226" x2="560.4" y2="226" stroke="#999" stroke-width="1.5"/>
+<line x1="589.6" y1="210" x2="589.6" y2="222" stroke="#999" stroke-width="1.5"/><line x1="583.6" y1="222" x2="595.6" y2="222" stroke="#999" stroke-width="1.5"/><line x1="583.6" y1="226" x2="595.6" y2="226" stroke="#999" stroke-width="1.5"/>
+<line x1="624.8" y1="210" x2="624.8" y2="222" stroke="#999" stroke-width="1.5"/><line x1="618.8" y1="222" x2="630.8" y2="222" stroke="#999" stroke-width="1.5"/><line x1="618.8" y1="226" x2="630.8" y2="226" stroke="#999" stroke-width="1.5"/>
+<polygon points="660,197 684,210 660,223" fill="#fdf0e8" stroke="#b5451b" stroke-width="1.8"/>
+<line x1="684" y1="210" x2="860" y2="210" stroke="#444" stroke-width="3"/>
+<line x1="719.2" y1="210" x2="719.2" y2="222" stroke="#999" stroke-width="1.5"/><line x1="713.2" y1="222" x2="725.2" y2="222" stroke="#999" stroke-width="1.5"/><line x1="713.2" y1="226" x2="725.2" y2="226" stroke="#999" stroke-width="1.5"/>
+<line x1="754.4" y1="210" x2="754.4" y2="222" stroke="#999" stroke-width="1.5"/><line x1="748.4" y1="222" x2="760.4" y2="222" stroke="#999" stroke-width="1.5"/><line x1="748.4" y1="226" x2="760.4" y2="226" stroke="#999" stroke-width="1.5"/>
+<line x1="789.6" y1="210" x2="789.6" y2="222" stroke="#999" stroke-width="1.5"/><line x1="783.6" y1="222" x2="795.6" y2="222" stroke="#999" stroke-width="1.5"/><line x1="783.6" y1="226" x2="795.6" y2="226" stroke="#999" stroke-width="1.5"/>
+<line x1="824.8" y1="210" x2="824.8" y2="222" stroke="#999" stroke-width="1.5"/><line x1="818.8" y1="222" x2="830.8" y2="222" stroke="#999" stroke-width="1.5"/><line x1="818.8" y1="226" x2="830.8" y2="226" stroke="#999" stroke-width="1.5"/>
+<text x="880" y="215" font-size="14" fill="#111">终点</text>
+<text x="470" y="250" font-size="14" text-anchor="middle" fill="#555">每段只有 1/4 长，延迟是原来的 1/16；4 段加起来是 4/16 = 1/4。代价：4 个缓冲器的面积，每次翻转都要给每段线充电</text>
+<line x1="110" y1="540" x2="580" y2="540" stroke="#222" stroke-width="1.6"/>
+<line x1="110" y1="540" x2="110" y2="280.0" stroke="#222" stroke-width="1.6"/>
+<line x1="110" y1="540" x2="110" y2="545" stroke="#222" stroke-width="1.5"/><text x="110" y="562" font-size="14" text-anchor="middle" fill="#111">0</text>
+<line x1="202" y1="540" x2="202" y2="545" stroke="#222" stroke-width="1.5"/><text x="202" y="562" font-size="14" text-anchor="middle" fill="#111">2</text>
+<line x1="294" y1="540" x2="294" y2="545" stroke="#222" stroke-width="1.5"/><text x="294" y="562" font-size="14" text-anchor="middle" fill="#111">4</text>
+<line x1="386" y1="540" x2="386" y2="545" stroke="#222" stroke-width="1.5"/><text x="386" y="562" font-size="14" text-anchor="middle" fill="#111">6</text>
+<line x1="478" y1="540" x2="478" y2="545" stroke="#222" stroke-width="1.5"/><text x="478" y="562" font-size="14" text-anchor="middle" fill="#111">8</text>
+<line x1="570" y1="540" x2="570" y2="545" stroke="#222" stroke-width="1.5"/><text x="570" y="562" font-size="14" text-anchor="middle" fill="#111">10</text>
+<text x="340" y="584" font-size="14" text-anchor="middle" fill="#111">线长（毫米）</text>
+<text x="102" y="545.0" font-size="14" text-anchor="end" fill="#111">0</text>
+<text x="102" y="465.0" font-size="14" text-anchor="end" fill="#111">500</text>
+<text x="102" y="385.0" font-size="14" text-anchor="end" fill="#111">1000</text>
+<text x="102" y="305.0" font-size="14" text-anchor="end" fill="#111">1500</text>
+<text x="102" y="272.0" font-size="14" text-anchor="end" fill="#111">延迟（皮秒）</text>
+<line x1="110" y1="460.0" x2="570" y2="460.0" stroke="#1f5fa8" stroke-width="1.5" stroke-dasharray="6,4"/>
+<text x="118" y="452.0" font-size="14" fill="#1f5fa8">一拍 = 500 ps（2 GHz）</text>
+<polyline points="110.0,540.0 114.6,540.0 119.2,539.8 123.8,539.6 128.4,539.4 133.0,539.0 137.6,538.6 142.2,538.0 146.8,537.4 151.4,536.8 156.0,536.0 160.6,535.2 165.2,534.2 169.8,533.2 174.4,532.2 179.0,531.0 183.6,529.8 188.2,528.4 192.8,527.0 197.4,525.6 202.0,524.0 206.6,522.4 211.2,520.6 215.8,518.8 220.4,517.0 225.0,515.0 229.6,513.0 234.2,510.8 238.8,508.6 243.4,506.4 248.0,504.0 252.6,501.6 257.2,499.0 261.8,496.4 266.4,493.8 271.0,491.0 275.6,488.2 280.2,485.2 284.8,482.2 289.4,479.2 294.0,476.0 298.6,472.8 303.2,469.4 307.8,466.0 312.4,462.6 317.0,459.0 321.6,455.4 326.2,451.6 330.8,447.8 335.4,444.0 340.0,440.0 344.6,436.0 349.2,431.8 353.8,427.6 358.4,423.4 363.0,419.0 367.6,414.6 372.2,410.0 376.8,405.4 381.4,400.8 386.0,396.0 390.6,391.2 395.2,386.2 399.8,381.2 404.4,376.2 409.0,371.0 413.6,365.8 418.2,360.4 422.8,355.0 427.4,349.6 432.0,344.0 436.6,338.4 441.2,332.6 445.8,326.8 450.4,321.0 455.0,315.0 459.6,309.0 464.2,302.8" fill="none" stroke="#b5451b" stroke-width="2.5"/>
+<text x="473.40000000000003" y="303.2" font-size="14" fill="#b5451b">不切：∝ 长度²</text>
+<line x1="110" y1="540" x2="570" y2="444.0" stroke="#2e7d32" stroke-width="2.5"/>
+<text x="576" y="449.0" font-size="14" fill="#2e7d32">插缓冲器：∝ 长度</text>
+<circle cx="294" cy="476.0" r="4" fill="#b5451b"/><line x1="294" y1="476.0" x2="264" y2="436.0" stroke="#b5451b" stroke-width="1.2"/><text x="260" y="432.0" font-size="14" text-anchor="end" fill="#b5451b">4 mm：400 ps</text>
+<circle cx="294" cy="501.6" r="4" fill="#2e7d32"/><text x="302" y="521.6" font-size="14" fill="#2e7d32">4 mm：240 ps</text>
+<circle cx="493.18" cy="460.0" r="4" fill="#1f5fa8"/>
+<line x1="493.18" y1="460.0" x2="493.18" y2="540" stroke="#1f5fa8" stroke-width="1.2" stroke-dasharray="3,3"/>
+<text x="700" y="320" font-size="14" fill="#111">读图：</text>
+<text x="700" y="341" font-size="14" fill="#111">横轴线长，纵轴信号从一端</text>
+<text x="700" y="362" font-size="14" fill="#111">到另一端要多久。</text>
+<text x="700" y="383" font-size="14" fill="#b5451b">红线：不切，长度翻倍延迟四倍。</text>
+<text x="700" y="404" font-size="14" fill="#2e7d32">绿线：插满缓冲器，长度翻倍</text>
+<text x="700" y="425" font-size="14" fill="#2e7d32">延迟翻倍。</text>
+<text x="700" y="446" font-size="14" fill="#1f5fa8">蓝虚线：一个时钟周期 500 ps。</text>
+<text x="700" y="467" font-size="14" fill="#1f5fa8">绿线在约 8 mm 处碰到它：更长</text>
+<text x="700" y="488" font-size="14" fill="#1f5fa8">的线一拍走不完，只能在中间</text>
+<text x="700" y="509" font-size="14" fill="#1f5fa8">加触发器，多出一级纯走线的</text>
+<text x="700" y="530" font-size="14" fill="#1f5fa8">流水级。</text>
+<text x="700" y="551" font-size="14" fill="#555">数值为示意：不切 25 ps×长度²，</text>
+<text x="700" y="572" font-size="14" fill="#555">插缓冲器 60 ps/毫米。</text>
+</svg>

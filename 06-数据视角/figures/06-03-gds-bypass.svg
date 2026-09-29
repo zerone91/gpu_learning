@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" width="960" height="620" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="620" fill="#ffffff"/>
+<defs><marker id="ah-2e7d4f" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e7d4f"/></marker><marker id="ahs-2e7d4f" viewBox="0 0 10 10" refX="1" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e7d4f"/></marker><marker id="ah-999999" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#999999"/></marker><marker id="ahs-999999" viewBox="0 0 10 10" refX="1" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#999999"/></marker><marker id="ah-c0392b" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="ahs-c0392b" viewBox="0 0 10 10" refX="1" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="ah-cccccc" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cccccc"/></marker><marker id="ahs-cccccc" viewBox="0 0 10 10" refX="1" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#cccccc"/></marker></defs>
+<text x="480" y="30" font-size="19" text-anchor="middle" fill="#222222" font-weight="bold" >GPUDirect Storage：让固态盘直接把数据写进显存，跳过主机内存这一站</text>
+<text x="240" y="66" font-size="16" text-anchor="middle" fill="#c0392b" font-weight="bold" >A. 传统路径：两次跨 PCIe，在主机内存落地一次</text>
+<rect x="60" y="90" width="360" height="52" rx="4" fill="#fff6cc" stroke="#444444" stroke-width="1.5" />
+<text x="240" y="122" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >主机内存（中转缓冲）</text>
+<rect x="80" y="170" width="320" height="52" rx="4" fill="#f0f0f0" stroke="#444444" stroke-width="1.5" />
+<text x="240" y="202" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >CPU（PCIe 根）</text>
+<rect x="60" y="280" width="360" height="42" rx="4" fill="#f0f0f0" stroke="#444444" stroke-width="1.5" />
+<text x="240" y="307" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >PCIe 交换芯片</text>
+<rect x="60" y="390" width="140" height="60" rx="4" fill="#f0f0f0" stroke="#444444" stroke-width="1.5" />
+<text x="130" y="418" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold" >NVMe 固态盘</text>
+<text x="130" y="438" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >盘的 DMA 引擎</text>
+<rect x="280" y="390" width="140" height="60" rx="4" fill="#e3eef9" stroke="#1f6fb2" stroke-width="1.5" />
+<text x="350" y="418" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold" >GPU 显存</text>
+<line x1="240" y1="222" x2="240" y2="280" stroke="#999999" stroke-width="1.5"/>
+<line x1="130" y1="322" x2="130" y2="390" stroke="#999999" stroke-width="1.5"/>
+<line x1="350" y1="322" x2="350" y2="390" stroke="#999999" stroke-width="1.5"/>
+<line x1="120" y1="388" x2="120" y2="324" stroke="#c0392b" stroke-width="3.5" marker-end="url(#ah-c0392b)"/>
+<line x1="120" y1="278" x2="120" y2="224" stroke="#c0392b" stroke-width="3.5" marker-end="url(#ah-c0392b)"/>
+<line x1="120" y1="168" x2="120" y2="144" stroke="#c0392b" stroke-width="3.5" marker-end="url(#ah-c0392b)"/>
+<line x1="360" y1="144" x2="360" y2="168" stroke="#c0392b" stroke-width="3.5" marker-end="url(#ah-c0392b)"/>
+<line x1="360" y1="224" x2="360" y2="278" stroke="#c0392b" stroke-width="3.5" marker-end="url(#ah-c0392b)"/>
+<line x1="360" y1="324" x2="360" y2="388" stroke="#c0392b" stroke-width="3.5" marker-end="url(#ah-c0392b)"/>
+<text x="110" y="358" font-size="16" text-anchor="end" fill="#c0392b" font-weight="bold" >①</text>
+<text x="370" y="358" font-size="16" text-anchor="start" fill="#c0392b" font-weight="bold" >②</text>
+<text x="30" y="490" font-size="14" text-anchor="start" fill="#c0392b" font-weight="normal" >① 盘 → 主机内存（第 1 次跨 PCIe，写一次主机内存）</text>
+<text x="30" y="512" font-size="14" text-anchor="start" fill="#c0392b" font-weight="normal" >② 主机内存 → 显存（第 2 次跨 PCIe，再读一次主机内存）</text>
+<text x="30" y="534" font-size="14" text-anchor="start" fill="#222222" font-weight="normal" >CPU 要管理中转缓冲，主机内存带宽也被占用</text>
+<text x="720" y="66" font-size="16" text-anchor="middle" fill="#2e7d4f" font-weight="bold" >B. GPUDirect Storage：盘的 DMA 直接以显存为目的地</text>
+<rect x="540" y="90" width="360" height="52" rx="4" fill="#f7f7f7" stroke="#999999" stroke-width="1.5" />
+<text x="720" y="122" font-size="15" text-anchor="middle" fill="#999999" font-weight="normal" >主机内存：不经过</text>
+<rect x="560" y="170" width="320" height="52" rx="4" fill="#f7f7f7" stroke="#999999" stroke-width="1.5" />
+<text x="720" y="202" font-size="15" text-anchor="middle" fill="#999999" font-weight="normal" >CPU：不参与</text>
+<rect x="540" y="280" width="360" height="42" rx="4" fill="#f0f0f0" stroke="#444444" stroke-width="1.5" />
+<text x="720" y="315" font-size="15" text-anchor="middle" fill="#222222" font-weight="normal" >PCIe 交换芯片</text>
+<rect x="540" y="390" width="140" height="60" rx="4" fill="#f0f0f0" stroke="#444444" stroke-width="1.5" />
+<text x="610" y="418" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold" >NVMe 固态盘</text>
+<text x="610" y="438" font-size="14" text-anchor="middle" fill="#666666" font-weight="normal" >盘的 DMA 引擎</text>
+<rect x="760" y="390" width="140" height="60" rx="4" fill="#e3eef9" stroke="#1f6fb2" stroke-width="1.5" />
+<text x="830" y="418" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold" >GPU 显存</text>
+<line x1="720" y1="222" x2="720" y2="280" stroke="#999999" stroke-width="1.5"/>
+<line x1="610" y1="322" x2="610" y2="390" stroke="#999999" stroke-width="1.5"/>
+<line x1="830" y1="322" x2="830" y2="390" stroke="#999999" stroke-width="1.5"/>
+<path d="M 610 388 V 290 H 830 V 388" fill="none" stroke="#2e7d4f" stroke-width="4" marker-end="url(#ah-2e7d4f)"/>
+<text x="510" y="490" font-size="14" text-anchor="start" fill="#2e7d4f" font-weight="bold" >数据经交换芯片直达显存，不碰主机内存和 CPU</text>
+<text x="510" y="512" font-size="14" text-anchor="start" fill="#222222" font-weight="normal" >最好 GPU 与盘挂在同一个交换芯片下</text>
+<text x="510" y="534" font-size="14" text-anchor="start" fill="#222222" font-weight="normal" >只搬字节、不做处理：要解码的数据用不上它；</text>
+<text x="510" y="556" font-size="14" text-anchor="start" fill="#222222" font-weight="normal" >适合检查点、预处理好的张量、大 embedding 表</text>
+<line x1="480" y1="60" x2="480" y2="590" stroke="#cccccc" stroke-width="1"/>
+</svg>

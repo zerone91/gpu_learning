@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" width="960" height="640" font-family="sans-serif" font-size="15">
+  <rect x="0" y="0" width="960" height="640" fill="#ffffff"/>
+  <defs>
+    <marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker>
+    <marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/></marker>
+  </defs>
+  <text x="20" y="30" font-size="17" font-weight="bold">运行时层的两条下行通路：申请显存要进内核，启动 kernel 不用</text>
+
+  <!-- layers -->
+  <g stroke="#333" stroke-width="1.5">
+    <rect x="40" y="55" width="620" height="44" rx="4" fill="#f5f5f5"/>
+    <rect x="40" y="115" width="620" height="44" rx="4" fill="#e6f0e6"/>
+    <rect x="40" y="175" width="620" height="44" rx="4" fill="#e8e8e8"/>
+    <rect x="40" y="235" width="620" height="44" rx="4" fill="#e8e8e8"/>
+    <rect x="40" y="345" width="620" height="44" rx="4" fill="#dcdcdc"/>
+    <rect x="40" y="480" width="890" height="110" rx="4" fill="#ffffff"/>
+  </g>
+  <text x="56" y="83">应用与框架（PyTorch、推理引擎）</text>
+  <text x="56" y="143">应用级运行时：显存分配器、推理引擎的调度器</text>
+  <text x="56" y="203">CUDA Runtime 库（cudaMalloc、cudaLaunchKernel）</text>
+  <text x="56" y="263">CUDA Driver 库（普通程序可直接调用）</text>
+  <text x="56" y="373">内核态驱动（运行在操作系统内核里）</text>
+  <text x="56" y="505" font-weight="bold">GPU 硬件</text>
+
+  <!-- user/kernel boundary -->
+  <line x1="20" y1="312" x2="940" y2="312" stroke="#555" stroke-width="2" stroke-dasharray="10,6"/>
+  <text x="56" y="303" font-size="14" fill="#555">↑ 用户态：普通程序自己的地盘</text>
+  <text x="56" y="333" font-size="14" fill="#555">↓ 内核态：程序每进来一次都要做一次切换</text>
+
+  <!-- GPU inside -->
+  <rect x="360" y="522" width="260" height="54" rx="4" fill="#fde2c4" stroke="#d9822b" stroke-width="1.5"/>
+  <text x="490" y="545" text-anchor="middle" font-size="14">显存与地址映射表</text>
+  <text x="490" y="565" text-anchor="middle" font-size="14">（哪段地址对应哪块显存）</text>
+  <rect x="690" y="522" width="230" height="54" rx="4" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5"/>
+  <text x="805" y="545" text-anchor="middle" font-size="14">命令处理器</text>
+  <text x="805" y="565" text-anchor="middle" font-size="14">（从命令队列里取命令执行）</text>
+
+  <!-- slow path (red) -->
+  <line x1="490" y1="99" x2="490" y2="518" stroke="#c0392b" stroke-width="3" marker-end="url(#r)"/>
+
+  <!-- command queue in user-mapped memory -->
+  <rect x="700" y="180" width="220" height="100" rx="4" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="2"/>
+  <text x="810" y="204" text-anchor="middle" font-weight="bold" fill="#1f5fa8">命令队列</text>
+  <text x="810" y="226" text-anchor="middle" font-size="13">驱动事先映射给程序的</text>
+  <text x="810" y="245" text-anchor="middle" font-size="13">一块内存，程序可直接写</text>
+  <g stroke="#1f5fa8" stroke-width="1.2" fill="#ffffff">
+    <rect x="725" y="254" width="34" height="18"/><rect x="759" y="254" width="34" height="18"/><rect x="793" y="254" width="34" height="18"/><rect x="827" y="254" width="34" height="18" fill="#9fc3ea"/><rect x="861" y="254" width="34" height="18" fill="#9fc3ea"/>
+  </g>
+
+  <!-- fast path (blue) -->
+  <path d="M620,99 L620,230 L696,230" stroke="#1f5fa8" stroke-width="3" fill="none" marker-end="url(#b)"/>
+  <line x1="810" y1="280" x2="810" y2="518" stroke="#1f5fa8" stroke-width="3" stroke-dasharray="8,5" marker-end="url(#b)"/>
+
+  <!-- path labels -->
+  <rect x="60" y="398" width="410" height="68" fill="#ffffff" stroke="#c0392b" stroke-width="1.5" rx="4"/>
+  <text x="72" y="420" font-size="14" fill="#c0392b" font-weight="bold">慢通路（红）：申请显存 cudaMalloc</text>
+  <text x="72" y="440" font-size="13" fill="#c0392b">系统调用进入内核 → 找一段空闲显存 → 改地址映射表</text>
+  <text x="72" y="457" font-size="13" fill="#c0392b">每次几十微秒到毫秒</text>
+  <rect x="680" y="52" width="260" height="110" fill="#ffffff" stroke="#1f5fa8" stroke-width="1.5" rx="4"/>
+  <text x="692" y="74" font-size="14" fill="#1f5fa8" font-weight="bold">快通路（蓝）：启动 kernel</text>
+  <text x="692" y="94" font-size="13" fill="#1f5fa8">cudaLaunchKernel 把一条命令</text>
+  <text x="692" y="112" font-size="13" fill="#1f5fa8">写进命令队列，再通知 GPU；</text>
+  <text x="692" y="130" font-size="13" fill="#1f5fa8">全程不进内核</text>
+  <text x="692" y="150" font-size="13" fill="#1f5fa8">每次几微秒</text>
+  <text x="820" y="420" font-size="13" fill="#1f5fa8">GPU 自己来取</text>
+  <text x="820" y="438" font-size="13" fill="#1f5fa8">（虚线）</text>
+  <text x="40" y="620" font-size="13" fill="#555">红线穿过了用户态与内核态的分界线；蓝色实线没有穿过，它写的那块内存本来就在程序手里。</text>
+</svg>

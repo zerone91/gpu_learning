@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="560" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker></defs>
+<text x="480" y="26" font-size="18" text-anchor="middle" fill="#222" font-weight="bold">寄存器堆分 bank：三个操作数撞在同一个 bank，就要分几拍读（示意）</text>
+<text x="480" y="50" font-size="14" text-anchor="middle" fill="#555">示意：4 个 bank，寄存器编号除以 4 的余数就是它所在的 bank；每个 bank 每拍只能读出一个寄存器</text>
+<line x1="480" y1="66" x2="480" y2="470" stroke="#ddd" stroke-width="1.5"/>
+<text x="230" y="84" font-size="16" text-anchor="middle" fill="#c0392b" font-weight="bold">FFMA R1, R4, R8, R12</text>
+<text x="95.0" y="112" font-size="14" text-anchor="middle" fill="#555">bank 0</text>
+<text x="185.0" y="112" font-size="14" text-anchor="middle" fill="#555">bank 1</text>
+<text x="275.0" y="112" font-size="14" text-anchor="middle" fill="#555">bank 2</text>
+<text x="365.0" y="112" font-size="14" text-anchor="middle" fill="#555">bank 3</text>
+<rect x="50" y="120" width="90" height="28" fill="#ffffff" stroke="#aaa" stroke-width="1"/>
+<text x="95.0" y="139" font-size="14" text-anchor="middle" fill="#222">R0</text>
+<rect x="140" y="120" width="90" height="28" fill="#ffffff" stroke="#aaa" stroke-width="1"/>
+<text x="185.0" y="139" font-size="14" text-anchor="middle" fill="#222">R1</text>
+<rect x="230" y="120" width="90" height="28" fill="#ffffff" stroke="#aaa" stroke-width="1"/>
+<text x="275.0" y="139" font-size="14" text-anchor="middle" fill="#222">R2</text>
+<rect x="320" y="120" width="90" height="28" fill="#ffffff" stroke="#aaa" stroke-width="1"/>
+<text x="365.0" y="139" font-size="14" text-anchor="middle" fill="#222">R3</text>
+<rect x="50" y="148" width="90" height="28" fill="#f5cccc" stroke="#aaa" stroke-width="1"/>
+<text x="95.0" y="167" font-size="14" text-anchor="middle" fill="#222" font-weight="bold">R4</text>
+<rect x="140" y="148" width="90" height="28" fill="#ffffff" stroke="#aaa" stroke-width="1"/>
+<text x="185.0" y="167" font-size="14" text-anchor="middle" fill="#222">R5</text>
+<rect x="230" y="148" width="90" height="28" fill="#ffffff" stroke="#aaa" stroke-width="1"/>
+<text x="275.0" y="167" font-size="14" text-anchor="middle" fill="#222">R6</text>
+<rect x="320" y="148" width="90" height="28" fill="#ffffff" stroke="#aaa" stroke-width="1"/>
+<text x="365.0" y="167" font-size="14" text-anchor="middle" fill="#222">R7</text>
+<rect x="50" y="176" width="90" height="28" fill="#f5cccc" stroke="#aaa" stroke-width="1"/>
+<text x="95.0" y="195" font-size="14" text-anchor="middle" fill="#222" font-weight="bold">R8</text>
+<rect x="140" y="176" width="90" height="28" fill="#ffffff" stroke="#aaa" stroke-width="1"/>
+<text x="185.0" y="195" font-size="14" text-anchor="middle" fill="#222">R9</text>
+<rect x="230" y="176" width="90" height="28" fill="#ffffff" stroke="#aaa" stroke-width="1"/>
+<text x="275.0" y="195" font-size="14" text-anchor="middle" fill="#222">R10</text>
+<rect x="320" y="176" width="90" height="28" fill="#ffffff" stroke="#aaa" stroke-width="1"/>
+<text x="365.0" y="195" font-size="14" text-anchor="middle" fill="#222">R11</text>
+<rect x="50" y="204" width="90" height="28" fill="#f5cccc" stroke="#aaa" stroke-width="1"/>
+<text x="95.0" y="223" font-size="14" text-anchor="middle" fill="#222" font-weight="bold">R12</text>
+<rect x="140" y="204" width="90" height="28" fill="#ffffff" stroke="#aaa" stroke-width="1"/>
+<text x="185.0" y="223" font-size="14" text-anchor="middle" fill="#222">R13</text>
+<rect x="230" y="204" width="90" height="28" fill="#ffffff" stroke="#aaa" stroke-width="1"/>
+<text x="275.0" y="223" font-size="14" text-anchor="middle" fill="#222">R14</text>
+<rect x="320" y="204" width="90" height="28" fill="#ffffff" stroke="#aaa" stroke-width="1"/>
+<text x="365.0" y="223" font-size="14" text-anchor="middle" fill="#222">R15</text>
+<rect x="50" y="120" width="360" height="112" fill="none" stroke="#222" stroke-width="2"/>
+<text x="230" y="256" font-size="14" text-anchor="middle" fill="#555">寄存器堆（只画了 R0～R15）</text>
+<line x1="230" y1="264" x2="230" y2="286" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<rect x="50" y="288" width="360" height="118" rx="6" fill="#f2f2f2" stroke="#222" stroke-width="2"/>
+<text x="230" y="310" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">操作数收集器</text>
+<text x="66" y="338" font-size="14" fill="#222">第 1 拍：从 bank 0 读 R4</text>
+<text x="66" y="366" font-size="14" fill="#222">第 2 拍：从 bank 0 读 R8</text>
+<text x="66" y="394" font-size="14" fill="#222">第 3 拍：从 bank 0 读 R12，凑齐（共 3 拍）</text>
+<line x1="230" y1="408" x2="230" y2="430" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<rect x="130" y="432" width="200" height="34" rx="6" fill="#dbe8f6" stroke="#222" stroke-width="2"/>
+<text x="230" y="454" font-size="14" text-anchor="middle" fill="#222">送进执行单元</text>
+<text x="710" y="84" font-size="16" text-anchor="middle" fill="#2e8b57" font-weight="bold">FFMA R1, R4, R5, R6</text>
+<text x="575.0" y="112" font-size="14" text-anchor="middle" fill="#555">bank 0</text>
+<text x="665.0" y="112" font-size="14" text-anchor="middle" fill="#555">bank 1</text>
+<text x="755.0" y="112" font-size="14" text-anchor="middle" fill="#555">bank 2</text>
+<text x="845.0" y="112" font-size="14" text-anchor="middle" fill="#555">bank 3</text>
+<rect x="530" y="120" width="90" height="28" fill="#ffffff" stroke="#aaa" stroke-width="1"/>
+<text x="575.0" y="139" font-size="14" text-anchor="middle" fill="#222">R0</text>
+<rect x="620" y="120" width="90" height="28" fill="#ffffff" stroke="#aaa" stroke-width="1"/>
+<text x="665.0" y="139" font-size="14" text-anchor="middle" fill="#222">R1</text>
+<rect x="710" y="120" width="90" height="28" fill="#ffffff" stroke="#aaa" stroke-width="1"/>
+<text x="755.0" y="139" font-size="14" text-anchor="middle" fill="#222">R2</text>
+<rect x="800" y="120" width="90" height="28" fill="#ffffff" stroke="#aaa" stroke-width="1"/>
+<text x="845.0" y="139" font-size="14" text-anchor="middle" fill="#222">R3</text>
+<rect x="530" y="148" width="90" height="28" fill="#d4eddc" stroke="#aaa" stroke-width="1"/>
+<text x="575.0" y="167" font-size="14" text-anchor="middle" fill="#222" font-weight="bold">R4</text>
+<rect x="620" y="148" width="90" height="28" fill="#d4eddc" stroke="#aaa" stroke-width="1"/>
+<text x="665.0" y="167" font-size="14" text-anchor="middle" fill="#222" font-weight="bold">R5</text>
+<rect x="710" y="148" width="90" height="28" fill="#d4eddc" stroke="#aaa" stroke-width="1"/>
+<text x="755.0" y="167" font-size="14" text-anchor="middle" fill="#222" font-weight="bold">R6</text>
+<rect x="800" y="148" width="90" height="28" fill="#ffffff" stroke="#aaa" stroke-width="1"/>
+<text x="845.0" y="167" font-size="14" text-anchor="middle" fill="#222">R7</text>
+<rect x="530" y="176" width="90" height="28" fill="#ffffff" stroke="#aaa" stroke-width="1"/>
+<text x="575.0" y="195" font-size="14" text-anchor="middle" fill="#222">R8</text>
+<rect x="620" y="176" width="90" height="28" fill="#ffffff" stroke="#aaa" stroke-width="1"/>
+<text x="665.0" y="195" font-size="14" text-anchor="middle" fill="#222">R9</text>
+<rect x="710" y="176" width="90" height="28" fill="#ffffff" stroke="#aaa" stroke-width="1"/>
+<text x="755.0" y="195" font-size="14" text-anchor="middle" fill="#222">R10</text>
+<rect x="800" y="176" width="90" height="28" fill="#ffffff" stroke="#aaa" stroke-width="1"/>
+<text x="845.0" y="195" font-size="14" text-anchor="middle" fill="#222">R11</text>
+<rect x="530" y="204" width="90" height="28" fill="#ffffff" stroke="#aaa" stroke-width="1"/>
+<text x="575.0" y="223" font-size="14" text-anchor="middle" fill="#222">R12</text>
+<rect x="620" y="204" width="90" height="28" fill="#ffffff" stroke="#aaa" stroke-width="1"/>
+<text x="665.0" y="223" font-size="14" text-anchor="middle" fill="#222">R13</text>
+<rect x="710" y="204" width="90" height="28" fill="#ffffff" stroke="#aaa" stroke-width="1"/>
+<text x="755.0" y="223" font-size="14" text-anchor="middle" fill="#222">R14</text>
+<rect x="800" y="204" width="90" height="28" fill="#ffffff" stroke="#aaa" stroke-width="1"/>
+<text x="845.0" y="223" font-size="14" text-anchor="middle" fill="#222">R15</text>
+<rect x="530" y="120" width="360" height="112" fill="none" stroke="#222" stroke-width="2"/>
+<text x="710" y="256" font-size="14" text-anchor="middle" fill="#555">寄存器堆（只画了 R0～R15）</text>
+<line x1="710" y1="264" x2="710" y2="286" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<rect x="530" y="288" width="360" height="90" rx="6" fill="#f2f2f2" stroke="#222" stroke-width="2"/>
+<text x="710" y="310" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">操作数收集器</text>
+<text x="546" y="338" font-size="14" fill="#222">第 1 拍：bank 0、1、2 同时读出 R4、R5、R6</text>
+<text x="546" y="366" font-size="14" fill="#222">凑齐（共 1 拍）</text>
+<line x1="710" y1="380" x2="710" y2="402" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<rect x="610" y="404" width="200" height="34" rx="6" fill="#dbe8f6" stroke="#222" stroke-width="2"/>
+<text x="710" y="426" font-size="14" text-anchor="middle" fill="#222">送进执行单元</text>
+<rect x="20" y="484" width="920" height="62" rx="6" fill="#ffffff" stroke="#222" stroke-width="1.5"/>
+<text x="36" y="508" font-size="15" fill="#222"><tspan font-weight="bold">编译器的另一招：复用标志。</tspan>下一条若写成 FFMA R2, R4.reuse, R9, R10，R4 直接取自操作数收集器里的</text>
+<text x="36" y="532" font-size="15" fill="#222">复用缓存（上一条刚读过它），不再去读 bank 0；寄存器堆只需读 R9、R10，两者分属 bank 1 和 bank 2，1 拍就够。</text>
+</svg>

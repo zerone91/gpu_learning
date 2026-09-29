@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" width="960" height="500" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="500" fill="#ffffff"/>
+<defs><marker id="o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b86a0c"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2c6fb7"/></marker>
+<pattern id="h" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="#f4f4f4"/><line x1="0" y1="0" x2="0" y2="8" stroke="#999" stroke-width="2"/></pattern></defs>
+<text x="480" y="26" font-size="18" text-anchor="middle" fill="#222" font-weight="bold">双缓冲流水线：两对 mbarrier 驱动“搬这块、算上块”</text>
+<text x="265.0" y="62" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">t0</text>
+<line x1="170" y1="70" x2="170" y2="380" stroke="#e6e6e6" stroke-width="1.5"/>
+<text x="455.0" y="62" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">t1</text>
+<line x1="360" y1="70" x2="360" y2="380" stroke="#e6e6e6" stroke-width="1.5"/>
+<text x="645.0" y="62" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">t2</text>
+<line x1="550" y1="70" x2="550" y2="380" stroke="#e6e6e6" stroke-width="1.5"/>
+<text x="835.0" y="62" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">t3</text>
+<line x1="740" y1="70" x2="740" y2="380" stroke="#e6e6e6" stroke-width="1.5"/>
+<line x1="930" y1="70" x2="930" y2="380" stroke="#e6e6e6" stroke-width="1.5"/>
+<text x="20" y="120" font-size="15" fill="#222" font-weight="bold">TMA 引擎</text>
+<text x="20" y="250" font-size="15" fill="#222" font-weight="bold">计算线程</text>
+<rect x="174" y="98" width="182" height="36" rx="4" fill="#fbe3c4" stroke="#222" stroke-width="1.5"/>
+<text x="265.0" y="122" font-size="14" text-anchor="middle" fill="#222">搬块 0 → 甲</text>
+<rect x="364" y="98" width="182" height="36" rx="4" fill="#fbe3c4" stroke="#222" stroke-width="1.5"/>
+<text x="455.0" y="122" font-size="14" text-anchor="middle" fill="#222">搬块 1 → 乙</text>
+<rect x="554" y="98" width="36" height="36" fill="url(#h)" stroke="#999" stroke-width="1.5"/>
+<rect x="594" y="98" width="142" height="36" rx="4" fill="#fbe3c4" stroke="#222" stroke-width="1.5"/>
+<text x="665.0" y="122" font-size="14" text-anchor="middle" fill="#222">搬块 2 → 甲</text>
+<rect x="744" y="98" width="182" height="36" rx="4" fill="#fbe3c4" stroke="#222" stroke-width="1.5"/>
+<text x="835.0" y="122" font-size="14" text-anchor="middle" fill="#222">搬块 3 → 乙</text>
+<rect x="174" y="228" width="182" height="36" fill="url(#h)" stroke="#999" stroke-width="1.5"/>
+<rect x="210" y="235" width="110" height="22" fill="#ffffff"/>
+<text x="265.0" y="252" font-size="14" text-anchor="middle" fill="#222">等“满_甲”</text>
+<rect x="364" y="228" width="182" height="36" rx="4" fill="#dbe8f6" stroke="#222" stroke-width="1.5"/>
+<text x="455.0" y="252" font-size="14" text-anchor="middle" fill="#222">算甲里的块 0</text>
+<rect x="554" y="228" width="182" height="36" rx="4" fill="#dbe8f6" stroke="#222" stroke-width="1.5"/>
+<text x="645.0" y="252" font-size="14" text-anchor="middle" fill="#222">算乙里的块 1</text>
+<rect x="744" y="228" width="182" height="36" rx="4" fill="#dbe8f6" stroke="#222" stroke-width="1.5"/>
+<text x="835.0" y="252" font-size="14" text-anchor="middle" fill="#222">算甲里的块 2</text>
+<line x1="350" y1="136" x2="358" y2="226" stroke="#b86a0c" stroke-width="2.5" marker-end="url(#o)"/>
+<text x="344" y="168" font-size="14" text-anchor="end" fill="#b86a0c">满_甲</text>
+<line x1="540" y1="136" x2="548" y2="226" stroke="#b86a0c" stroke-width="2.5" marker-end="url(#o)"/>
+<text x="534" y="168" font-size="14" text-anchor="end" fill="#b86a0c">满_乙</text>
+<line x1="730" y1="136" x2="738" y2="226" stroke="#b86a0c" stroke-width="2.5" marker-end="url(#o)"/>
+<text x="724" y="168" font-size="14" text-anchor="end" fill="#b86a0c">满_甲</text>
+<line x1="554" y1="226" x2="566" y2="136" stroke="#2c6fb7" stroke-width="2.5" marker-end="url(#b)"/>
+<text x="572" y="196" font-size="14" fill="#2c6fb7">空_甲</text>
+<line x1="744" y1="226" x2="756" y2="136" stroke="#2c6fb7" stroke-width="2.5" marker-end="url(#b)"/>
+<text x="762" y="196" font-size="14" fill="#2c6fb7">空_乙</text>
+<text x="20" y="330" font-size="15" fill="#222">“满_甲”的</text><text x="20" y="350" font-size="15" fill="#222">相位位</text>
+<rect x="174" y="318" width="182" height="30" fill="#ffffff" stroke="#222" stroke-width="1.5"/>
+<text x="265.0" y="339" font-size="15" text-anchor="middle" fill="#222">0</text>
+<rect x="356" y="318" width="380" height="30" fill="#f2f2f2" stroke="#222" stroke-width="1.5"/>
+<text x="550.0" y="339" font-size="15" text-anchor="middle" fill="#222">1（块 0 到齐时自动翻面）</text>
+<rect x="736" y="318" width="190" height="30" fill="#ffffff" stroke="#222" stroke-width="1.5"/>
+<text x="835.0" y="339" font-size="15" text-anchor="middle" fill="#222">0（块 2 到齐，再翻）</text>
+<line x1="30" y1="410" x2="70" y2="410" stroke="#b86a0c" stroke-width="2.5" marker-end="url(#o)"/>
+<text x="80" y="415" font-size="14" fill="#222">“满”屏障：TMA 把一块搬完、字节数凑够，放行计算线程</text>
+<line x1="30" y1="438" x2="70" y2="438" stroke="#2c6fb7" stroke-width="2.5" marker-end="url(#b)"/>
+<text x="80" y="443" font-size="14" fill="#222">“空”屏障：计算线程用完一个缓冲区，放行 TMA 往里写下一块</text>
+<rect x="30" y="456" width="40" height="18" fill="url(#h)" stroke="#999" stroke-width="1.5"/>
+<text x="80" y="471" font-size="14" fill="#222">停下等屏障。t2 开头 TMA 先等“空_甲”：块 0 还没算完，就不能用块 2 覆盖它</text>
+</svg>

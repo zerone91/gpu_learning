@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="600" fill="#ffffff"/>
+<defs>
+<marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker>
+<marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker>
+</defs>
+<text x="480" y="30" font-size="18" text-anchor="middle" fill="#222" font-weight="bold">一颗倒装芯片的剖面：从裸片到主板的几级台阶（示意，不按比例）</text>
+
+<!-- heat arrow -->
+<line x1="330" y1="150" x2="330" y2="95" stroke="#c0392b" stroke-width="3" marker-end="url(#r)"/>
+<text x="345" y="115" font-size="15" fill="#c0392b">热从裸片背面向上，去散热器</text>
+
+<!-- mold compound -->
+<rect x="170" y="160" width="320" height="95" fill="#555" stroke="#222" stroke-width="1.5"/>
+<text x="185" y="182" font-size="14" fill="#fff">注塑（环氧模塑料）</text>
+<!-- die -->
+<rect x="200" y="192" width="260" height="46" fill="#9bb7d4" stroke="#222" stroke-width="2"/>
+<rect x="200" y="230" width="260" height="8" fill="#2c5d8a"/>
+<text x="330" y="219" font-size="15" text-anchor="middle" fill="#111" font-weight="bold">① 裸片（面朝下）</text>
+<!-- underfill + bumps -->
+<rect x="196" y="238" width="268" height="17" fill="#e8dcb0"/>
+<g fill="#b8860b" stroke="#6b4e00" stroke-width="1">
+<circle cx="212" cy="246" r="6"/><circle cx="232" cy="246" r="6"/><circle cx="252" cy="246" r="6"/><circle cx="272" cy="246" r="6"/><circle cx="292" cy="246" r="6"/><circle cx="312" cy="246" r="6"/><circle cx="332" cy="246" r="6"/><circle cx="352" cy="246" r="6"/><circle cx="372" cy="246" r="6"/><circle cx="392" cy="246" r="6"/><circle cx="412" cy="246" r="6"/><circle cx="432" cy="246" r="6"/><circle cx="452" cy="246" r="6"/>
+</g>
+
+<!-- substrate -->
+<rect x="90" y="255" width="480" height="80" fill="#cfe3c4" stroke="#222" stroke-width="2"/>
+<g stroke="#8a6d1d" stroke-width="1.5" fill="none">
+<line x1="100" y1="275" x2="560" y2="275"/>
+<line x1="100" y1="315" x2="560" y2="315"/>
+</g>
+<g stroke="#b8860b" stroke-width="1.8" fill="none">
+<polyline points="212,255 212,268 125,300 125,335"/>
+<polyline points="232,255 232,270 185,300 185,335"/>
+<polyline points="332,255 332,335"/>
+<polyline points="432,255 432,270 475,300 475,335"/>
+<polyline points="452,255 452,268 535,300 535,335"/>
+</g>
+<text x="330" y="298" font-size="14" text-anchor="middle" fill="#111">封装基板（有机树脂 + 多层铜线）</text>
+
+<!-- BGA balls -->
+<g fill="#b8860b" stroke="#6b4e00" stroke-width="1.2">
+<circle cx="125" cy="349" r="14"/><circle cx="185" cy="349" r="14"/><circle cx="245" cy="349" r="14"/><circle cx="305" cy="349" r="14"/><circle cx="365" cy="349" r="14"/><circle cx="415" cy="349" r="14"/><circle cx="475" cy="349" r="14"/><circle cx="535" cy="349" r="14"/>
+</g>
+<!-- PCB -->
+<rect x="40" y="363" width="580" height="48" fill="#6f9a6a" stroke="#222" stroke-width="2"/>
+<text x="330" y="393" font-size="15" text-anchor="middle" fill="#fff" font-weight="bold">③ PCB（主板 / 显卡板）</text>
+
+<!-- bracket for package -->
+<line x1="70" y1="160" x2="70" y2="362" stroke="#222" stroke-width="2"/>
+<line x1="70" y1="160" x2="80" y2="160" stroke="#222" stroke-width="2"/>
+<line x1="70" y1="362" x2="80" y2="362" stroke="#222" stroke-width="2"/>
+<text x="58" y="255" font-size="15" text-anchor="middle" fill="#222" font-weight="bold" transform="rotate(-90 58 255)">② 封装体</text>
+
+<!-- right annotations -->
+<g font-size="14" fill="#222">
+<line x1="462" y1="234" x2="640" y2="160" stroke="#777" stroke-width="1.5"/>
+<text x="645" y="150">裸片的“面”：晶体管和金属层，</text>
+<text x="645" y="168">所有焊盘都在这一面</text>
+<line x1="466" y1="247" x2="640" y2="215" stroke="#777" stroke-width="1.5"/>
+<text x="645" y="210" font-weight="bold">倒装凸块（FC bump / C4）</text>
+<text x="645" y="228">间距约 130 微米，缝里灌底填料</text>
+<line x1="540" y1="300" x2="640" y2="275" stroke="#777" stroke-width="1.5"/>
+<text x="645" y="270" font-weight="bold">基板里的走线把点位摊开</text>
+<text x="645" y="288">（扇出），同一路电源并成铜平面</text>
+<line x1="552" y1="352" x2="640" y2="335" stroke="#777" stroke-width="1.5"/>
+<text x="645" y="330" font-weight="bold">BGA 焊球</text>
+<text x="645" y="348">间距 0.4～1 毫米，SMT 回流焊到板上</text>
+</g>
+
+<!-- bottom: pitch ladder -->
+<text x="480" y="452" font-size="16" text-anchor="middle" fill="#222" font-weight="bold">每下一级，连接点间距变粗一档，点数随之变少</text>
+<g font-size="14" fill="#222" text-anchor="middle">
+<rect x="60" y="470" width="250" height="100" fill="#eef3f9" stroke="#222" stroke-width="1.5"/>
+<text x="185" y="496" font-weight="bold">裸片表面的焊盘</text>
+<text x="185" y="520">间距几十微米</text>
+<rect x="355" y="470" width="250" height="100" fill="#fbf4e1" stroke="#222" stroke-width="1.5"/>
+<text x="480" y="496" font-weight="bold">倒装凸块，间距约 130 微米</text>
+<text x="480" y="520">25 × 25 毫米的裸片底面</text>
+<text x="480" y="542">约 37000 个点</text>
+<rect x="650" y="470" width="250" height="100" fill="#eaf3e6" stroke="#222" stroke-width="1.5"/>
+<text x="775" y="496" font-weight="bold">BGA 焊球，间距 1 毫米</text>
+<text x="775" y="520">50 × 50 毫米的封装底面</text>
+<text x="775" y="542">约 2500 个球</text>
+</g>
+<line x1="312" y1="520" x2="352" y2="520" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<line x1="607" y1="520" x2="647" y2="520" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<text x="627" y="590" font-size="14" text-anchor="middle" fill="#222">约 15 比 1 的收敛，靠的是大部分凸块是电源和地，在基板里并联</text>
+</svg>

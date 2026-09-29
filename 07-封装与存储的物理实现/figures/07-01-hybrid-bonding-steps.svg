@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470" width="960" height="470" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="470" fill="#ffffff"/>
+<defs><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker></defs>
+<text x="480" y="28" font-size="18" text-anchor="middle" fill="#222" font-weight="bold">混合键合的三个关键时刻（放大到一对铜焊盘，纵向尺寸夸张）</text>
+<text x="170.0" y="66" font-size="16" text-anchor="middle" fill="#222" font-weight="bold">① 磨平，铜故意低几纳米</text>
+<rect x="30" y="90" width="280" height="60" fill="#9bb7d4" stroke="#222" stroke-width="1.5"/>
+<rect x="30" y="150" width="280" height="40" fill="#cfd8e3" stroke="#222" stroke-width="1.5"/>
+<rect x="30" y="250" width="280" height="40" fill="#cfd8e3" stroke="#222" stroke-width="1.5"/>
+<rect x="30" y="290" width="280" height="60" fill="#9bb7d4" stroke="#222" stroke-width="1.5"/>
+<rect x="120.0" y="150" width="100" height="32" fill="#d9822b" stroke="#6b3a00" stroke-width="1.2"/>
+<rect x="120.0" y="258" width="100" height="32" fill="#d9822b" stroke="#6b3a00" stroke-width="1.2"/>
+<text x="170.0" y="125" font-size="14" text-anchor="middle">上层裸片</text>
+<text x="170.0" y="330" font-size="14" text-anchor="middle">下层裸片</text>
+<text x="480.0" y="66" font-size="16" text-anchor="middle" fill="#222" font-weight="bold">② 室温贴合：氧化硅先粘住</text>
+<rect x="340" y="110" width="280" height="60" fill="#9bb7d4" stroke="#222" stroke-width="1.5"/>
+<rect x="340" y="170" width="280" height="40" fill="#cfd8e3" stroke="#222" stroke-width="1.5"/>
+<rect x="340" y="210" width="280" height="40" fill="#cfd8e3" stroke="#222" stroke-width="1.5"/>
+<rect x="340" y="250" width="280" height="60" fill="#9bb7d4" stroke="#222" stroke-width="1.5"/>
+<rect x="430.0" y="170" width="100" height="32" fill="#d9822b" stroke="#6b3a00" stroke-width="1.2"/>
+<rect x="430.0" y="218" width="100" height="32" fill="#d9822b" stroke="#6b3a00" stroke-width="1.2"/>
+<text x="480.0" y="145" font-size="14" text-anchor="middle">上层裸片</text>
+<text x="480.0" y="290" font-size="14" text-anchor="middle">下层裸片</text>
+<text x="790.0" y="66" font-size="16" text-anchor="middle" fill="#222" font-weight="bold">③ 退火 250～350 °C：铜膨胀填缝</text>
+<rect x="650" y="110" width="280" height="60" fill="#9bb7d4" stroke="#222" stroke-width="1.5"/>
+<rect x="650" y="170" width="280" height="40" fill="#cfd8e3" stroke="#222" stroke-width="1.5"/>
+<rect x="650" y="210" width="280" height="40" fill="#cfd8e3" stroke="#222" stroke-width="1.5"/>
+<rect x="650" y="250" width="280" height="60" fill="#9bb7d4" stroke="#222" stroke-width="1.5"/>
+<rect x="740.0" y="170" width="100" height="80" fill="#d9822b" stroke="#6b3a00" stroke-width="1.2"/>
+<path d="M770.0,170 L780.0,205 L765.0,250" fill="none" stroke="#6b3a00" stroke-width="1.2"/>
+<path d="M810.0,170 L802.0,220 L818.0,250" fill="none" stroke="#6b3a00" stroke-width="1.2"/>
+<text x="790.0" y="145" font-size="14" text-anchor="middle">上层裸片</text>
+<text x="790.0" y="290" font-size="14" text-anchor="middle">下层裸片</text>
+<text x="170" y="214" font-size="13" fill="#222" text-anchor="middle">铜面凹下几纳米（图中夸张）</text>
+<text x="40" y="175" font-size="13" fill="#222">氧化硅</text>
+<text x="170" y="175" font-size="13" fill="#fff" text-anchor="middle">铜</text>
+<text x="170" y="275" font-size="13" fill="#fff" text-anchor="middle">铜</text>
+<text x="170" y="236" font-size="13" fill="#555" text-anchor="middle">其余表面起伏只有约 0.5 纳米</text>
+
+<rect x="430" y="202" width="100" height="16" fill="#ffffff" stroke="#c0392b" stroke-width="1.2" stroke-dasharray="4,3"/>
+<text x="480" y="372" font-size="13" text-anchor="middle" fill="#c0392b">红框：铜与铜之间还留着一道缝</text>
+<text x="480" y="392" font-size="13" text-anchor="middle" fill="#222">两侧氧化硅靠表面能自发粘合，</text>
+<text x="480" y="412" font-size="13" text-anchor="middle" fill="#222">不加压、不加热</text>
+<text x="790" y="372" font-size="13" text-anchor="middle" fill="#222">铜受热膨胀比氧化硅多得多，</text>
+<text x="790" y="392" font-size="13" text-anchor="middle" fill="#222">正好填满缝；两侧铜原子互相扩散，</text>
+<text x="790" y="412" font-size="13" text-anchor="middle" fill="#222">晶粒（棕线）跨过界面长到一起</text>
+<text x="170" y="372" font-size="13" text-anchor="middle" fill="#222">化学机械抛光把表面磨到极平，</text>
+<text x="170" y="392" font-size="13" text-anchor="middle" fill="#222">铜焊盘比周围氧化硅低几纳米，</text>
+<text x="170" y="412" font-size="13" text-anchor="middle" fill="#222">随后等离子活化、清洗</text>
+<text x="480" y="452" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">结果：界面上没有焊料也没有底填料，是一整根连续的铜；也因此拆不开、不能返修</text>
+</svg>

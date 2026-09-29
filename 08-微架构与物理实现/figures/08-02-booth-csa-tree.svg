@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 660" width="960" height="660" font-family="sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker></defs>
+<rect x="0" y="0" width="960" height="660" fill="#ffffff"/>
+<text x="480" y="28" font-size="18" text-anchor="middle" font-weight="bold" fill="#111">乘法器 = 生成一行行部分积 + 把很多行压成两行 + 最后加一次</text>
+<text x="30" y="62" font-size="16" font-weight="bold" fill="#111">先看小例子：1011 × 1101（11 × 13）</text>
+<text x="330" y="92" font-family="monospace" font-size="17" text-anchor="end" fill="#111" xml:space="preserve">1011</text>
+<text x="330" y="114" font-family="monospace" font-size="17" text-anchor="end" fill="#111" xml:space="preserve">× 1101</text>
+<line x1="200" y1="122" x2="334" y2="122" stroke="#222" stroke-width="1.5"/>
+<text x="330" y="142" font-family="monospace" font-size="17" text-anchor="end" fill="#1f5fa8" xml:space="preserve">1011</text>
+<text x="330" y="162" font-family="monospace" font-size="17" text-anchor="end" fill="#999" xml:space="preserve">0000 </text>
+<text x="330" y="182" font-family="monospace" font-size="17" text-anchor="end" fill="#1f5fa8" xml:space="preserve">1011  </text>
+<text x="330" y="202" font-family="monospace" font-size="17" text-anchor="end" fill="#1f5fa8" xml:space="preserve">1011   </text>
+<line x1="200" y1="210" x2="334" y2="210" stroke="#222" stroke-width="1.5"/>
+<text x="330" y="230" font-family="monospace" font-size="17" text-anchor="end" fill="#111" xml:space="preserve">10001111</text>
+<text x="345" y="142" font-size="14" fill="#555">← 乘数最低位 1：抄一份被乘数</text>
+<text x="345" y="162" font-size="14" fill="#555">← 这一位是 0：一行零</text>
+<text x="345" y="182" font-size="14" fill="#555">← 每行比上一行左移一位</text>
+<text x="345" y="230" font-size="14" fill="#555">= 143。蓝色这几行就是“部分积”，乘法就是把它们加起来</text>
+<text x="660" y="100" font-size="15" fill="#111" font-weight="bold">放大到 FP32 的 24 位尾数：</text>
+<text x="660" y="126" font-size="14" fill="#111">朴素做法：24 行部分积，要加 23 次</text>
+<text x="660" y="150" font-size="14" fill="#111">Booth 编码：每次看乘数 2 位（外加 1 位</text>
+<text x="660" y="170" font-size="14" fill="#111">重叠），换成 −2、−1、0、+1、+2 之一，</text>
+<text x="660" y="190" font-size="14" fill="#111">每 2 位只出 1 行 → <tspan font-weight="bold">12 行</tspan></text>
+<line x1="30" y1="252" x2="930" y2="252" stroke="#ccc" stroke-width="1.5"/>
+<text x="30" y="282" font-size="16" font-weight="bold" fill="#111">再看 24 位：12 行部分积经过 5 级 3:2 压缩（CSA）变成 2 行，最后一次普通加法（CPA）得到 48 位乘积</text>
+<rect x="50" y="310" width="78" height="12" fill="#9cc3ea" stroke="#222" stroke-width="1"/>
+<rect x="50" y="327" width="78" height="12" fill="#9cc3ea" stroke="#222" stroke-width="1"/>
+<rect x="50" y="344" width="78" height="12" fill="#9cc3ea" stroke="#222" stroke-width="1"/>
+<path d="M132,310 h5 v46 h-5" fill="none" stroke="#222" stroke-width="1.5"/>
+<rect x="50" y="361" width="78" height="12" fill="#f5c79b" stroke="#222" stroke-width="1"/>
+<rect x="50" y="378" width="78" height="12" fill="#f5c79b" stroke="#222" stroke-width="1"/>
+<rect x="50" y="395" width="78" height="12" fill="#f5c79b" stroke="#222" stroke-width="1"/>
+<path d="M132,361 h5 v46 h-5" fill="none" stroke="#222" stroke-width="1.5"/>
+<rect x="50" y="412" width="78" height="12" fill="#9cc3ea" stroke="#222" stroke-width="1"/>
+<rect x="50" y="429" width="78" height="12" fill="#9cc3ea" stroke="#222" stroke-width="1"/>
+<rect x="50" y="446" width="78" height="12" fill="#9cc3ea" stroke="#222" stroke-width="1"/>
+<path d="M132,412 h5 v46 h-5" fill="none" stroke="#222" stroke-width="1.5"/>
+<rect x="50" y="463" width="78" height="12" fill="#f5c79b" stroke="#222" stroke-width="1"/>
+<rect x="50" y="480" width="78" height="12" fill="#f5c79b" stroke="#222" stroke-width="1"/>
+<rect x="50" y="497" width="78" height="12" fill="#f5c79b" stroke="#222" stroke-width="1"/>
+<path d="M132,463 h5 v46 h-5" fill="none" stroke="#222" stroke-width="1.5"/>
+<text x="89.0" y="536" font-size="15" text-anchor="middle" font-weight="bold" fill="#111">12 行</text>
+<text x="89.0" y="558" font-size="14" text-anchor="middle" fill="#555">Booth 之后</text>
+<line x1="142" y1="370" x2="172" y2="370" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<text x="157.0" y="362" font-size="14" text-anchor="middle" fill="#1f5fa8">CSA</text>
+<rect x="178" y="310" width="78" height="12" fill="#9cc3ea" stroke="#222" stroke-width="1"/>
+<rect x="178" y="327" width="78" height="12" fill="#9cc3ea" stroke="#222" stroke-width="1"/>
+<rect x="178" y="344" width="78" height="12" fill="#9cc3ea" stroke="#222" stroke-width="1"/>
+<path d="M260,310 h5 v46 h-5" fill="none" stroke="#222" stroke-width="1.5"/>
+<rect x="178" y="361" width="78" height="12" fill="#f5c79b" stroke="#222" stroke-width="1"/>
+<rect x="178" y="378" width="78" height="12" fill="#f5c79b" stroke="#222" stroke-width="1"/>
+<rect x="178" y="395" width="78" height="12" fill="#f5c79b" stroke="#222" stroke-width="1"/>
+<path d="M260,361 h5 v46 h-5" fill="none" stroke="#222" stroke-width="1.5"/>
+<rect x="178" y="412" width="78" height="12" fill="#e6e6e6" stroke="#222" stroke-width="1"/>
+<rect x="178" y="429" width="78" height="12" fill="#e6e6e6" stroke="#222" stroke-width="1"/>
+<text x="217.0" y="536" font-size="15" text-anchor="middle" font-weight="bold" fill="#111">8 行</text>
+<text x="217.0" y="558" font-size="14" text-anchor="middle" fill="#555">第 1 级</text>
+<line x1="270" y1="370" x2="300" y2="370" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<text x="285.0" y="362" font-size="14" text-anchor="middle" fill="#1f5fa8">CSA</text>
+<rect x="306" y="310" width="78" height="12" fill="#9cc3ea" stroke="#222" stroke-width="1"/>
+<rect x="306" y="327" width="78" height="12" fill="#9cc3ea" stroke="#222" stroke-width="1"/>
+<rect x="306" y="344" width="78" height="12" fill="#9cc3ea" stroke="#222" stroke-width="1"/>
+<path d="M388,310 h5 v46 h-5" fill="none" stroke="#222" stroke-width="1.5"/>
+<rect x="306" y="361" width="78" height="12" fill="#f5c79b" stroke="#222" stroke-width="1"/>
+<rect x="306" y="378" width="78" height="12" fill="#f5c79b" stroke="#222" stroke-width="1"/>
+<rect x="306" y="395" width="78" height="12" fill="#f5c79b" stroke="#222" stroke-width="1"/>
+<path d="M388,361 h5 v46 h-5" fill="none" stroke="#222" stroke-width="1.5"/>
+<text x="345.0" y="536" font-size="15" text-anchor="middle" font-weight="bold" fill="#111">6 行</text>
+<text x="345.0" y="558" font-size="14" text-anchor="middle" fill="#555">第 2 级</text>
+<line x1="398" y1="370" x2="428" y2="370" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<text x="413.0" y="362" font-size="14" text-anchor="middle" fill="#1f5fa8">CSA</text>
+<rect x="434" y="310" width="78" height="12" fill="#9cc3ea" stroke="#222" stroke-width="1"/>
+<rect x="434" y="327" width="78" height="12" fill="#9cc3ea" stroke="#222" stroke-width="1"/>
+<rect x="434" y="344" width="78" height="12" fill="#9cc3ea" stroke="#222" stroke-width="1"/>
+<path d="M516,310 h5 v46 h-5" fill="none" stroke="#222" stroke-width="1.5"/>
+<rect x="434" y="361" width="78" height="12" fill="#e6e6e6" stroke="#222" stroke-width="1"/>
+<text x="473.0" y="536" font-size="15" text-anchor="middle" font-weight="bold" fill="#111">4 行</text>
+<text x="473.0" y="558" font-size="14" text-anchor="middle" fill="#555">第 3 级</text>
+<line x1="526" y1="370" x2="556" y2="370" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<text x="541.0" y="362" font-size="14" text-anchor="middle" fill="#1f5fa8">CSA</text>
+<rect x="562" y="310" width="78" height="12" fill="#9cc3ea" stroke="#222" stroke-width="1"/>
+<rect x="562" y="327" width="78" height="12" fill="#9cc3ea" stroke="#222" stroke-width="1"/>
+<rect x="562" y="344" width="78" height="12" fill="#9cc3ea" stroke="#222" stroke-width="1"/>
+<path d="M644,310 h5 v46 h-5" fill="none" stroke="#222" stroke-width="1.5"/>
+<text x="601.0" y="536" font-size="15" text-anchor="middle" font-weight="bold" fill="#111">3 行</text>
+<text x="601.0" y="558" font-size="14" text-anchor="middle" fill="#555">第 4 级</text>
+<line x1="654" y1="370" x2="684" y2="370" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<text x="669.0" y="362" font-size="14" text-anchor="middle" fill="#1f5fa8">CSA</text>
+<rect x="690" y="310" width="78" height="12" fill="#d9d9d9" stroke="#222" stroke-width="1"/>
+<rect x="690" y="327" width="78" height="12" fill="#d9d9d9" stroke="#222" stroke-width="1"/>
+<text x="729.0" y="536" font-size="15" text-anchor="middle" font-weight="bold" fill="#111">2 行</text>
+<text x="729.0" y="558" font-size="14" text-anchor="middle" fill="#555">第 5 级</text>
+<line x1="782" y1="370" x2="812" y2="370" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<text x="797.0" y="362" font-size="14" text-anchor="middle" fill="#b5451b">CPA</text>
+<rect x="818" y="310" width="78" height="12" fill="#8fcf8f" stroke="#222" stroke-width="1"/>
+<text x="857.0" y="536" font-size="15" text-anchor="middle" font-weight="bold" fill="#111">1 行</text>
+<text x="857.0" y="558" font-size="14" text-anchor="middle" fill="#555">CPA 之后</text>
+<text x="30" y="594" font-size="14" fill="#111">带括号的三行 = 送进同一排全加器的三个数，出来变两行；灰色的行这一级轮空，直接进下一级。行数按 12 → 8 → 6 → 4 → 3 → 2 递减。</text>
+<text x="30" y="618" font-size="14" fill="#111">每级 CSA 约 2 个门延迟，5 级共约 10 个门；最后 48 位 CPA 用并行前缀结构约 6 级。加 12 个数的延迟从“线性”压到了“对数”。</text>
+<text x="30" y="642" font-size="14" fill="#555">面积：全加器个数 ≈ 部分积的总位数 ≈ 12 行 × 24 位 = 288，按 n²/2 随尾数位宽平方增长。行的长短与错位未按比例画。</text>
+</svg>

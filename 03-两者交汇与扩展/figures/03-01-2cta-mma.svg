@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 580" width="1000" height="580">
+<rect x="0" y="0" width="1000" height="580" fill="#ffffff"/>
+<g font-family="sans-serif">
+<text x="30" y="34" font-size="20" fill="#111" text-anchor="start" font-weight="bold">一条 m256 n256 k16 的矩阵指令：两个块各干各的，还是结对共干</text>
+<text x="30" y="58" font-size="15" fill="#333" text-anchor="start" font-weight="normal">方框里的数字是这个块要从共享内存搬进矩阵引擎的元素个数（乘加总次数两边完全一样）</text>
+<rect x="30" y="78" width="440" height="400" fill="#fafafa" stroke="#555" stroke-width="2"/>
+<text x="250" y="104" font-size="17" fill="#555" text-anchor="middle" font-weight="bold">各做各的（cta_group::1）</text>
+<rect x="50" y="122" width="190" height="300" fill="#ffffff" stroke="#555" stroke-width="1.5"/>
+<text x="145" y="146" font-size="15" fill="#111" text-anchor="middle" font-weight="normal">SM 0 上的线程块</text>
+<rect x="70" y="160" width="150" height="56" fill="#eceff4" stroke="#555" stroke-width="1.5"/>
+<text x="145" y="182" font-size="13" fill="#111" text-anchor="middle" font-weight="normal">A 块  128 行 × 16 列</text>
+<text x="145" y="204" font-size="13" fill="#111" text-anchor="middle" font-weight="normal">= 2048 个元素</text>
+<rect x="70" y="228" width="150" height="56" fill="#eceff4" stroke="#555" stroke-width="1.5"/>
+<text x="145" y="250" font-size="13" fill="#111" text-anchor="middle" font-weight="normal">B 块  16 行 × 256 列</text>
+<text x="145" y="272" font-size="13" fill="#111" text-anchor="middle" font-weight="normal">= 4096 个元素</text>
+<rect x="70" y="296" width="150" height="56" fill="#f2f2f2" stroke="#555" stroke-width="1.5"/>
+<text x="145" y="318" font-size="13" fill="#111" text-anchor="middle" font-weight="normal">累加器 128 × 256</text>
+<text x="145" y="340" font-size="13" fill="#111" text-anchor="middle" font-weight="normal">（存在本块的 TMEM）</text>
+<text x="145" y="372" font-size="14" fill="#111" text-anchor="middle" font-weight="normal">本块共搬 6144 个元素</text>
+<text x="145" y="398" font-size="13" fill="#666" text-anchor="middle" font-weight="normal">结果：128×256 的一片</text>
+<rect x="260" y="122" width="190" height="300" fill="#ffffff" stroke="#555" stroke-width="1.5"/>
+<text x="355" y="146" font-size="15" fill="#111" text-anchor="middle" font-weight="normal">SM 1 上的线程块</text>
+<rect x="280" y="160" width="150" height="56" fill="#eceff4" stroke="#555" stroke-width="1.5"/>
+<text x="355" y="182" font-size="13" fill="#111" text-anchor="middle" font-weight="normal">A 块  128 行 × 16 列</text>
+<text x="355" y="204" font-size="13" fill="#111" text-anchor="middle" font-weight="normal">= 2048 个元素</text>
+<rect x="280" y="228" width="150" height="56" fill="#eceff4" stroke="#555" stroke-width="1.5"/>
+<text x="355" y="250" font-size="13" fill="#111" text-anchor="middle" font-weight="normal">B 块  16 行 × 256 列</text>
+<text x="355" y="272" font-size="13" fill="#111" text-anchor="middle" font-weight="normal">= 4096 个元素</text>
+<rect x="280" y="296" width="150" height="56" fill="#f2f2f2" stroke="#555" stroke-width="1.5"/>
+<text x="355" y="318" font-size="13" fill="#111" text-anchor="middle" font-weight="normal">累加器 128 × 256</text>
+<text x="355" y="340" font-size="13" fill="#111" text-anchor="middle" font-weight="normal">（存在本块的 TMEM）</text>
+<text x="355" y="372" font-size="14" fill="#111" text-anchor="middle" font-weight="normal">本块共搬 6144 个元素</text>
+<text x="355" y="398" font-size="13" fill="#666" text-anchor="middle" font-weight="normal">结果：128×256 的一片</text>
+<text x="50" y="438" font-size="14" fill="#333" text-anchor="start" font-weight="normal">两个块互不相干，各自把整块 B 读一遍。</text>
+<rect x="520" y="78" width="440" height="400" fill="#fafafa" stroke="#c23b22" stroke-width="2"/>
+<text x="740" y="104" font-size="17" fill="#c23b22" text-anchor="middle" font-weight="bold">结对共做一条（cta_group::2）</text>
+<rect x="540" y="122" width="190" height="300" fill="#ffffff" stroke="#555" stroke-width="1.5"/>
+<text x="635" y="146" font-size="15" fill="#111" text-anchor="middle" font-weight="normal">SM 0 上的线程块</text>
+<rect x="560" y="160" width="150" height="56" fill="#eceff4" stroke="#555" stroke-width="1.5"/>
+<text x="635" y="182" font-size="13" fill="#111" text-anchor="middle" font-weight="normal">A 块  128 行 × 16 列</text>
+<text x="635" y="204" font-size="13" fill="#111" text-anchor="middle" font-weight="normal">= 2048 个元素</text>
+<rect x="560" y="228" width="150" height="56" fill="#fdeeea" stroke="#c23b22" stroke-width="1.5"/>
+<text x="635" y="250" font-size="13" fill="#111" text-anchor="middle" font-weight="normal">B 块  16 行 × 128 列</text>
+<text x="635" y="272" font-size="13" fill="#111" text-anchor="middle" font-weight="normal">= 2048 个元素</text>
+<rect x="560" y="296" width="150" height="56" fill="#f2f2f2" stroke="#555" stroke-width="1.5"/>
+<text x="635" y="318" font-size="13" fill="#111" text-anchor="middle" font-weight="normal">累加器 128 × 256</text>
+<text x="635" y="340" font-size="13" fill="#111" text-anchor="middle" font-weight="normal">（存在本块的 TMEM）</text>
+<text x="635" y="372" font-size="14" fill="#111" text-anchor="middle" font-weight="normal">本块共搬 4096 个元素</text>
+<text x="635" y="398" font-size="13" fill="#666" text-anchor="middle" font-weight="normal">结果：128×256 的一片</text>
+<rect x="750" y="122" width="190" height="300" fill="#ffffff" stroke="#555" stroke-width="1.5"/>
+<text x="845" y="146" font-size="15" fill="#111" text-anchor="middle" font-weight="normal">SM 1 上的线程块</text>
+<rect x="770" y="160" width="150" height="56" fill="#eceff4" stroke="#555" stroke-width="1.5"/>
+<text x="845" y="182" font-size="13" fill="#111" text-anchor="middle" font-weight="normal">A 块  128 行 × 16 列</text>
+<text x="845" y="204" font-size="13" fill="#111" text-anchor="middle" font-weight="normal">= 2048 个元素</text>
+<rect x="770" y="228" width="150" height="56" fill="#fdeeea" stroke="#c23b22" stroke-width="1.5"/>
+<text x="845" y="250" font-size="13" fill="#111" text-anchor="middle" font-weight="normal">B 块  16 行 × 128 列</text>
+<text x="845" y="272" font-size="13" fill="#111" text-anchor="middle" font-weight="normal">= 2048 个元素</text>
+<rect x="770" y="296" width="150" height="56" fill="#f2f2f2" stroke="#555" stroke-width="1.5"/>
+<text x="845" y="318" font-size="13" fill="#111" text-anchor="middle" font-weight="normal">累加器 128 × 256</text>
+<text x="845" y="340" font-size="13" fill="#111" text-anchor="middle" font-weight="normal">（存在本块的 TMEM）</text>
+<text x="845" y="372" font-size="14" fill="#111" text-anchor="middle" font-weight="normal">本块共搬 4096 个元素</text>
+<text x="845" y="398" font-size="13" fill="#666" text-anchor="middle" font-weight="normal">结果：128×256 的一片</text>
+<text x="540" y="438" font-size="14" fill="#333" text-anchor="start" font-weight="normal">B 被劈成两半，一块读左半、一块读右半，</text>
+<text x="540" y="460" font-size="14" fill="#333" text-anchor="start" font-weight="normal">硬件在这对 SM 之间互相递送，谁也不必读全。</text>
+<text x="30" y="508" font-size="16" fill="#111" text-anchor="start" font-weight="bold">一对 SM 合计搬运量</text>
+<rect x="230" y="492" width="480" height="24" fill="#e0e0e0" stroke="#555" stroke-width="1.5"/>
+<text x="236" y="509" font-size="14" fill="#111" text-anchor="start" font-weight="normal">各做各的：12288 个元素</text>
+<rect x="230" y="526" width="320" height="24" fill="#f6c1b6" stroke="#c23b22" stroke-width="1.5"/>
+<text x="236" y="543" font-size="14" fill="#111" text-anchor="start" font-weight="normal">结对共做：8192 个元素</text>
+<text x="730" y="509" font-size="14" fill="#111" text-anchor="start" font-weight="normal">乘加次数两边都是</text>
+<text x="730" y="531" font-size="14" fill="#111" text-anchor="start" font-weight="normal">256×256×16 = 1048576 次</text>
+<text x="730" y="553" font-size="14" fill="#c23b22" text-anchor="start" font-weight="bold">搬运少了三分之一。</text>
+</g></svg>

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" width="1000" height="500">
+<rect x="0" y="0" width="1000" height="500" fill="#ffffff"/>
+<g font-family="sans-serif">
+<text x="30" y="34" font-size="20" fill="#111" text-anchor="start" font-weight="bold">最容易踩的撞名坑：两家的 "TensorCore" 差了一整个层级</text>
+<text x="30" y="58" font-size="15" fill="#333" text-anchor="start" font-weight="normal">左右两列是各自的层级：外面的框套着里面的框，框越小越靠近做乘加的电路。</text>
+<rect x="60" y="90" width="380" height="330" fill="#fafafa" stroke="#333" stroke-width="2"/>
+<text x="250" y="116" font-size="16" fill="#111" text-anchor="middle" font-weight="bold">NVIDIA GPU（一整颗芯片）</text>
+<rect x="90" y="130" width="320" height="270" fill="#ffffff" stroke="#555" stroke-width="1.5"/>
+<text x="250" y="154" font-size="15" fill="#111" text-anchor="middle" font-weight="normal">SM（132 个，一个计算核）</text>
+<rect x="120" y="168" width="260" height="212" fill="#f7f7f7" stroke="#555" stroke-width="1.5"/>
+<text x="250" y="192" font-size="15" fill="#111" text-anchor="middle" font-weight="normal">子分区（每个 SM 4 个）</text>
+<rect x="150" y="206" width="200" height="70" fill="#fdeeea" stroke="#c23b22" stroke-width="2"/>
+<text x="250" y="234" font-size="15" fill="#c23b22" text-anchor="middle" font-weight="bold">Tensor Core</text>
+<text x="250" y="256" font-size="13" fill="#111" text-anchor="middle" font-weight="normal">一个小矩阵引擎</text>
+<rect x="150" y="288" width="200" height="70" fill="#d6e4f5" stroke="#2a5d9c" stroke-width="1.5"/>
+<text x="250" y="316" font-size="14" fill="#111" text-anchor="middle" font-weight="normal">32 条普通算术通道</text>
+<text x="250" y="338" font-size="13" fill="#111" text-anchor="middle" font-weight="normal">＋ warp 调度器</text>
+<rect x="560" y="90" width="380" height="330" fill="#fafafa" stroke="#333" stroke-width="2"/>
+<text x="750" y="116" font-size="16" fill="#111" text-anchor="middle" font-weight="bold">谷歌 TPU（一整颗芯片）</text>
+<rect x="590" y="130" width="320" height="270" fill="#ffffff" stroke="#555" stroke-width="1.5"/>
+<text x="750" y="154" font-size="15" fill="#2a5d9c" text-anchor="middle" font-weight="bold">TensorCore（2 个，一个计算核）</text>
+<rect x="620" y="168" width="260" height="100" fill="#fdeeea" stroke="#c23b22" stroke-width="2"/>
+<text x="750" y="196" font-size="15" fill="#c23b22" text-anchor="middle" font-weight="bold">MXU</text>
+<text x="750" y="218" font-size="13" fill="#111" text-anchor="middle" font-weight="normal">128×128（v7 到 256 量级）</text>
+<text x="750" y="240" font-size="13" fill="#111" text-anchor="middle" font-weight="normal">的脉动阵列</text>
+<rect x="620" y="280" width="260" height="44" fill="#d6e4f5" stroke="#2a5d9c" stroke-width="1.5"/>
+<text x="750" y="308" font-size="14" fill="#111" text-anchor="middle" font-weight="normal">VPU 向量单元</text>
+<rect x="620" y="336" width="260" height="44" fill="#d6e4f5" stroke="#2a5d9c" stroke-width="1.5"/>
+<text x="750" y="364" font-size="13" fill="#111" text-anchor="middle" font-weight="normal">（同芯片另有 SparseCore）</text>
+<line x1="410" y1="154" x2="592" y2="154" stroke="#2a5d9c" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="500" y="146" font-size="14" fill="#2a5d9c" text-anchor="middle" font-weight="normal">这两个是同一层级</text>
+<line x1="352" y1="236" x2="618" y2="200" stroke="#c23b22" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="500" y="246" font-size="14" fill="#c23b22" text-anchor="middle" font-weight="normal">这两个才是同一层级</text>
+<rect x="30" y="436" width="940" height="52" fill="#f6f6f6" stroke="#555" stroke-width="1.5"/>
+<text x="46" y="468" font-size="15" fill="#111" text-anchor="start" font-weight="normal">记混的后果："TPU v5p 只有 2 个 TensorCore？那么少？"——那是 SM 级别的单位，每个里面是一整片阵列。</text>
+</g><defs><marker id="ar" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#c23b22"/></marker><marker id="ag" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#555"/></marker></defs></svg>

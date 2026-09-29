@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" font-family="sans-serif" font-size="15">
+<rect x="0" y="0" width="960" height="600" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#444"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/></marker><marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d9822b"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e7d32"/></marker><pattern id="h" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="#f4f4f4"/><line x1="0" y1="0" x2="0" y2="8" stroke="#bbb" stroke-width="2"/></pattern></defs>
+<text x="20.0" y="32.0" text-anchor="start" fill="#222222" font-size="19" font-weight="bold" >按轨道优化：每台机器的第 i 张卡都接到第 i 台叶交换机</text>
+<text x="20.0" y="58.0" text-anchor="start" fill="#555" font-size="15" >画 4 台机器、每台 4 张卡（真实集群通常每台 8 张卡、8 条轨道）；同一种颜色是同一条轨道</text>
+<rect x="200.0" y="90.0" width="560.0" height="44.0" rx="6" fill="#e8e8e8" stroke="#666666" stroke-width="1.5" />
+<text x="480.0" y="118.0" text-anchor="middle" fill="#222222" font-size="15" >脊交换机（跨轨道的流量才上到这里）</text>
+<rect x="60.0" y="200.0" width="170.0" height="44.0" rx="6" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="2" />
+<text x="145.0" y="227.0" text-anchor="middle" fill="#222222" font-size="14" font-weight="bold" >叶交换机 0（轨道 0）</text>
+<line x1="110.0" y1="198.0" x2="330.0" y2="136.0" stroke="#aaa" stroke-width="1.5"/>
+<line x1="145.0" y1="198.0" x2="342.0" y2="136.0" stroke="#aaa" stroke-width="1.5"/>
+<line x1="180.0" y1="198.0" x2="354.0" y2="136.0" stroke="#aaa" stroke-width="1.5"/>
+<rect x="285.0" y="200.0" width="170.0" height="44.0" rx="6" fill="#fde2c4" stroke="#d9822b" stroke-width="2" />
+<text x="370.0" y="227.0" text-anchor="middle" fill="#222222" font-size="14" font-weight="bold" >叶交换机 1（轨道 1）</text>
+<line x1="335.0" y1="198.0" x2="430.0" y2="136.0" stroke="#aaa" stroke-width="1.5"/>
+<line x1="370.0" y1="198.0" x2="442.0" y2="136.0" stroke="#aaa" stroke-width="1.5"/>
+<line x1="405.0" y1="198.0" x2="454.0" y2="136.0" stroke="#aaa" stroke-width="1.5"/>
+<rect x="510.0" y="200.0" width="170.0" height="44.0" rx="6" fill="#d4ecd4" stroke="#2e7d32" stroke-width="2" />
+<text x="595.0" y="227.0" text-anchor="middle" fill="#222222" font-size="14" font-weight="bold" >叶交换机 2（轨道 2）</text>
+<line x1="560.0" y1="198.0" x2="530.0" y2="136.0" stroke="#aaa" stroke-width="1.5"/>
+<line x1="595.0" y1="198.0" x2="542.0" y2="136.0" stroke="#aaa" stroke-width="1.5"/>
+<line x1="630.0" y1="198.0" x2="554.0" y2="136.0" stroke="#aaa" stroke-width="1.5"/>
+<rect x="735.0" y="200.0" width="170.0" height="44.0" rx="6" fill="#e6dcf2" stroke="#6a3d9a" stroke-width="2" />
+<text x="820.0" y="227.0" text-anchor="middle" fill="#222222" font-size="14" font-weight="bold" >叶交换机 3（轨道 3）</text>
+<line x1="785.0" y1="198.0" x2="630.0" y2="136.0" stroke="#aaa" stroke-width="1.5"/>
+<line x1="820.0" y1="198.0" x2="642.0" y2="136.0" stroke="#aaa" stroke-width="1.5"/>
+<line x1="855.0" y1="198.0" x2="654.0" y2="136.0" stroke="#aaa" stroke-width="1.5"/>
+<rect x="60.0" y="400.0" width="170.0" height="110.0" rx="8" fill="#fafafa" stroke="#222222" stroke-width="2" />
+<text x="145.0" y="500.0" text-anchor="middle" fill="#222222" font-size="15" font-weight="bold" >机器 A</text>
+<rect x="72.0" y="462.0" width="146.0" height="10.0" rx="0" fill="#f6c6c0" stroke="#c0392b" stroke-width="1" />
+<rect x="74.0" y="414.0" width="32.0" height="42.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5" />
+<text x="90.0" y="439.9" text-anchor="middle" fill="#222222" font-size="14" >卡0</text>
+<line x1="90.0" y1="412.0" x2="80.0" y2="246.0" stroke="#1f5fa8" stroke-width="1.8"/>
+<rect x="111.0" y="414.0" width="32.0" height="42.0" rx="0" fill="#fde2c4" stroke="#d9822b" stroke-width="1.5" />
+<text x="127.0" y="439.9" text-anchor="middle" fill="#222222" font-size="14" >卡1</text>
+<line x1="127.0" y1="412.0" x2="305.0" y2="246.0" stroke="#d9822b" stroke-width="1.8"/>
+<rect x="148.0" y="414.0" width="32.0" height="42.0" rx="0" fill="#d4ecd4" stroke="#2e7d32" stroke-width="1.5" />
+<text x="164.0" y="439.9" text-anchor="middle" fill="#222222" font-size="14" >卡2</text>
+<line x1="164.0" y1="412.0" x2="530.0" y2="246.0" stroke="#2e7d32" stroke-width="1.8"/>
+<rect x="185.0" y="414.0" width="32.0" height="42.0" rx="0" fill="#e6dcf2" stroke="#6a3d9a" stroke-width="1.5" />
+<text x="201.0" y="439.9" text-anchor="middle" fill="#222222" font-size="14" >卡3</text>
+<line x1="201.0" y1="412.0" x2="755.0" y2="246.0" stroke="#6a3d9a" stroke-width="1.8"/>
+<rect x="285.0" y="400.0" width="170.0" height="110.0" rx="8" fill="#fafafa" stroke="#222222" stroke-width="2" />
+<text x="370.0" y="500.0" text-anchor="middle" fill="#222222" font-size="15" font-weight="bold" >机器 B</text>
+<rect x="297.0" y="462.0" width="146.0" height="10.0" rx="0" fill="#f6c6c0" stroke="#c0392b" stroke-width="1" />
+<rect x="299.0" y="414.0" width="32.0" height="42.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5" />
+<text x="315.0" y="439.9" text-anchor="middle" fill="#222222" font-size="14" >卡0</text>
+<line x1="315.0" y1="412.0" x2="122.0" y2="246.0" stroke="#1f5fa8" stroke-width="1.8"/>
+<rect x="336.0" y="414.0" width="32.0" height="42.0" rx="0" fill="#fde2c4" stroke="#d9822b" stroke-width="1.5" />
+<text x="352.0" y="439.9" text-anchor="middle" fill="#222222" font-size="14" >卡1</text>
+<line x1="352.0" y1="412.0" x2="347.0" y2="246.0" stroke="#d9822b" stroke-width="1.8"/>
+<rect x="373.0" y="414.0" width="32.0" height="42.0" rx="0" fill="#d4ecd4" stroke="#2e7d32" stroke-width="1.5" />
+<text x="389.0" y="439.9" text-anchor="middle" fill="#222222" font-size="14" >卡2</text>
+<line x1="389.0" y1="412.0" x2="572.0" y2="246.0" stroke="#2e7d32" stroke-width="1.8"/>
+<rect x="410.0" y="414.0" width="32.0" height="42.0" rx="0" fill="#e6dcf2" stroke="#6a3d9a" stroke-width="1.5" />
+<text x="426.0" y="439.9" text-anchor="middle" fill="#222222" font-size="14" >卡3</text>
+<line x1="426.0" y1="412.0" x2="797.0" y2="246.0" stroke="#6a3d9a" stroke-width="1.8"/>
+<rect x="510.0" y="400.0" width="170.0" height="110.0" rx="8" fill="#fafafa" stroke="#222222" stroke-width="2" />
+<text x="595.0" y="500.0" text-anchor="middle" fill="#222222" font-size="15" font-weight="bold" >机器 C</text>
+<rect x="522.0" y="462.0" width="146.0" height="10.0" rx="0" fill="#f6c6c0" stroke="#c0392b" stroke-width="1" />
+<rect x="524.0" y="414.0" width="32.0" height="42.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5" />
+<text x="540.0" y="439.9" text-anchor="middle" fill="#222222" font-size="14" >卡0</text>
+<line x1="540.0" y1="412.0" x2="164.0" y2="246.0" stroke="#1f5fa8" stroke-width="1.8"/>
+<rect x="561.0" y="414.0" width="32.0" height="42.0" rx="0" fill="#fde2c4" stroke="#d9822b" stroke-width="1.5" />
+<text x="577.0" y="439.9" text-anchor="middle" fill="#222222" font-size="14" >卡1</text>
+<line x1="577.0" y1="412.0" x2="389.0" y2="246.0" stroke="#d9822b" stroke-width="1.8"/>
+<rect x="598.0" y="414.0" width="32.0" height="42.0" rx="0" fill="#d4ecd4" stroke="#2e7d32" stroke-width="1.5" />
+<text x="614.0" y="439.9" text-anchor="middle" fill="#222222" font-size="14" >卡2</text>
+<line x1="614.0" y1="412.0" x2="614.0" y2="246.0" stroke="#2e7d32" stroke-width="1.8"/>
+<rect x="635.0" y="414.0" width="32.0" height="42.0" rx="0" fill="#e6dcf2" stroke="#6a3d9a" stroke-width="1.5" />
+<text x="651.0" y="439.9" text-anchor="middle" fill="#222222" font-size="14" >卡3</text>
+<line x1="651.0" y1="412.0" x2="839.0" y2="246.0" stroke="#6a3d9a" stroke-width="1.8"/>
+<rect x="735.0" y="400.0" width="170.0" height="110.0" rx="8" fill="#fafafa" stroke="#222222" stroke-width="2" />
+<text x="820.0" y="500.0" text-anchor="middle" fill="#222222" font-size="15" font-weight="bold" >机器 D</text>
+<rect x="747.0" y="462.0" width="146.0" height="10.0" rx="0" fill="#f6c6c0" stroke="#c0392b" stroke-width="1" />
+<rect x="749.0" y="414.0" width="32.0" height="42.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5" />
+<text x="765.0" y="439.9" text-anchor="middle" fill="#222222" font-size="14" >卡0</text>
+<line x1="765.0" y1="412.0" x2="206.0" y2="246.0" stroke="#1f5fa8" stroke-width="1.8"/>
+<rect x="786.0" y="414.0" width="32.0" height="42.0" rx="0" fill="#fde2c4" stroke="#d9822b" stroke-width="1.5" />
+<text x="802.0" y="439.9" text-anchor="middle" fill="#222222" font-size="14" >卡1</text>
+<line x1="802.0" y1="412.0" x2="431.0" y2="246.0" stroke="#d9822b" stroke-width="1.8"/>
+<rect x="823.0" y="414.0" width="32.0" height="42.0" rx="0" fill="#d4ecd4" stroke="#2e7d32" stroke-width="1.5" />
+<text x="839.0" y="439.9" text-anchor="middle" fill="#222222" font-size="14" >卡2</text>
+<line x1="839.0" y1="412.0" x2="656.0" y2="246.0" stroke="#2e7d32" stroke-width="1.8"/>
+<rect x="860.0" y="414.0" width="32.0" height="42.0" rx="0" fill="#e6dcf2" stroke="#6a3d9a" stroke-width="1.5" />
+<text x="876.0" y="439.9" text-anchor="middle" fill="#222222" font-size="14" >卡3</text>
+<line x1="876.0" y1="412.0" x2="881.0" y2="246.0" stroke="#6a3d9a" stroke-width="1.8"/>
+<text x="60.0" y="540.0" text-anchor="start" fill="#c0392b" font-size="14" >机器里的红条是 NVLink：同一台机器的卡 0～3 是一个张量并行组，它们之间的通信不走网络</text>
+<text x="60.0" y="564.0" text-anchor="start" fill="#1f5fa8" font-size="14" >四台机器的卡 0 是一个数据并行组：它们都接在叶交换机 0 上，all-reduce 在这一台交换机里就做完了，不上脊交换机</text>
+</svg>

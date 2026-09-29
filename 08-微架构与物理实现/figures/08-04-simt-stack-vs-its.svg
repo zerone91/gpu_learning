@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" font-family="sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker></defs>
+<rect x="0" y="0" width="960" height="600" fill="#ffffff"/>
+<text x="480" y="28" font-size="18" text-anchor="middle" font-weight="bold" fill="#111">分支发散在硬件上存在哪：Volta 之前是一个栈，Volta 起是每线程一个 PC 加收敛屏障</text>
+<text x="480" y="54" font-size="14" text-anchor="middle" fill="#555">例子：if (tid &lt; 3) { A } else { B }  C —— 为了画得下，warp 只画 8 个线程，掩码第 k 位 = 线程 k 是否执行</text>
+<text x="230" y="90" font-size="16" text-anchor="middle" font-weight="bold" fill="#111">① Volta 之前：每 warp 一个 PC + SIMT 栈</text>
+<text x="30" y="126" font-size="14" fill="#111" font-weight="bold">第 1 段：执行 if 分支</text>
+<text x="30" y="154" font-size="14" fill="#111">当前 PC = A，掩码</text>
+<rect x="185" y="138" width="18" height="22" fill="#8fcf8f" stroke="#555" stroke-width="1"/>
+<text x="194" y="154" font-size="14" text-anchor="middle" fill="#111">1</text>
+<rect x="203" y="138" width="18" height="22" fill="#8fcf8f" stroke="#555" stroke-width="1"/>
+<text x="212" y="154" font-size="14" text-anchor="middle" fill="#111">1</text>
+<rect x="221" y="138" width="18" height="22" fill="#8fcf8f" stroke="#555" stroke-width="1"/>
+<text x="230" y="154" font-size="14" text-anchor="middle" fill="#111">1</text>
+<rect x="239" y="138" width="18" height="22" fill="#ffffff" stroke="#555" stroke-width="1"/>
+<text x="248" y="154" font-size="14" text-anchor="middle" fill="#111">0</text>
+<rect x="257" y="138" width="18" height="22" fill="#ffffff" stroke="#555" stroke-width="1"/>
+<text x="266" y="154" font-size="14" text-anchor="middle" fill="#111">0</text>
+<rect x="275" y="138" width="18" height="22" fill="#ffffff" stroke="#555" stroke-width="1"/>
+<text x="284" y="154" font-size="14" text-anchor="middle" fill="#111">0</text>
+<rect x="293" y="138" width="18" height="22" fill="#ffffff" stroke="#555" stroke-width="1"/>
+<text x="302" y="154" font-size="14" text-anchor="middle" fill="#111">0</text>
+<rect x="311" y="138" width="18" height="22" fill="#ffffff" stroke="#555" stroke-width="1"/>
+<text x="320" y="154" font-size="14" text-anchor="middle" fill="#111">0</text>
+<text x="345" y="154" font-size="14" fill="#555">栈：</text>
+<rect x="378" y="138" width="72" height="22" fill="#eef3fb" stroke="#555"/><text x="414" y="154" font-size="14" text-anchor="middle" fill="#111">合流 C</text>
+<rect x="450" y="138" width="56" height="22" fill="#eef3fb" stroke="#555"/><text x="478" y="154" font-size="14" text-anchor="middle" fill="#111">下条 B</text>
+<rect x="378" y="164" width="72" height="22" fill="#eef3fb" stroke="#555"/><text x="414" y="180" font-size="14" text-anchor="middle" fill="#111">合流 C</text>
+<rect x="450" y="164" width="56" height="22" fill="#eef3fb" stroke="#555"/><text x="478" y="180" font-size="14" text-anchor="middle" fill="#111">下条 C</text>
+<text x="30" y="244" font-size="14" fill="#111" font-weight="bold">第 2 段：走到 C，弹栈，执行 else</text>
+<text x="30" y="272" font-size="14" fill="#111">当前 PC = B，掩码</text>
+<rect x="185" y="256" width="18" height="22" fill="#ffffff" stroke="#555" stroke-width="1"/>
+<text x="194" y="272" font-size="14" text-anchor="middle" fill="#111">0</text>
+<rect x="203" y="256" width="18" height="22" fill="#ffffff" stroke="#555" stroke-width="1"/>
+<text x="212" y="272" font-size="14" text-anchor="middle" fill="#111">0</text>
+<rect x="221" y="256" width="18" height="22" fill="#ffffff" stroke="#555" stroke-width="1"/>
+<text x="230" y="272" font-size="14" text-anchor="middle" fill="#111">0</text>
+<rect x="239" y="256" width="18" height="22" fill="#8fcf8f" stroke="#555" stroke-width="1"/>
+<text x="248" y="272" font-size="14" text-anchor="middle" fill="#111">1</text>
+<rect x="257" y="256" width="18" height="22" fill="#8fcf8f" stroke="#555" stroke-width="1"/>
+<text x="266" y="272" font-size="14" text-anchor="middle" fill="#111">1</text>
+<rect x="275" y="256" width="18" height="22" fill="#8fcf8f" stroke="#555" stroke-width="1"/>
+<text x="284" y="272" font-size="14" text-anchor="middle" fill="#111">1</text>
+<rect x="293" y="256" width="18" height="22" fill="#8fcf8f" stroke="#555" stroke-width="1"/>
+<text x="302" y="272" font-size="14" text-anchor="middle" fill="#111">1</text>
+<rect x="311" y="256" width="18" height="22" fill="#8fcf8f" stroke="#555" stroke-width="1"/>
+<text x="320" y="272" font-size="14" text-anchor="middle" fill="#111">1</text>
+<text x="345" y="272" font-size="14" fill="#555">栈：</text>
+<rect x="378" y="256" width="72" height="22" fill="#eef3fb" stroke="#555"/><text x="414" y="272" font-size="14" text-anchor="middle" fill="#111">合流 C</text>
+<rect x="450" y="256" width="56" height="22" fill="#eef3fb" stroke="#555"/><text x="478" y="272" font-size="14" text-anchor="middle" fill="#111">下条 C</text>
+<text x="30" y="362" font-size="14" fill="#111" font-weight="bold">第 3 段：再走到 C，弹栈，重新合流</text>
+<text x="30" y="390" font-size="14" fill="#111">当前 PC = C，掩码</text>
+<rect x="185" y="374" width="18" height="22" fill="#8fcf8f" stroke="#555" stroke-width="1"/>
+<text x="194" y="390" font-size="14" text-anchor="middle" fill="#111">1</text>
+<rect x="203" y="374" width="18" height="22" fill="#8fcf8f" stroke="#555" stroke-width="1"/>
+<text x="212" y="390" font-size="14" text-anchor="middle" fill="#111">1</text>
+<rect x="221" y="374" width="18" height="22" fill="#8fcf8f" stroke="#555" stroke-width="1"/>
+<text x="230" y="390" font-size="14" text-anchor="middle" fill="#111">1</text>
+<rect x="239" y="374" width="18" height="22" fill="#8fcf8f" stroke="#555" stroke-width="1"/>
+<text x="248" y="390" font-size="14" text-anchor="middle" fill="#111">1</text>
+<rect x="257" y="374" width="18" height="22" fill="#8fcf8f" stroke="#555" stroke-width="1"/>
+<text x="266" y="390" font-size="14" text-anchor="middle" fill="#111">1</text>
+<rect x="275" y="374" width="18" height="22" fill="#8fcf8f" stroke="#555" stroke-width="1"/>
+<text x="284" y="390" font-size="14" text-anchor="middle" fill="#111">1</text>
+<rect x="293" y="374" width="18" height="22" fill="#8fcf8f" stroke="#555" stroke-width="1"/>
+<text x="302" y="390" font-size="14" text-anchor="middle" fill="#111">1</text>
+<rect x="311" y="374" width="18" height="22" fill="#8fcf8f" stroke="#555" stroke-width="1"/>
+<text x="320" y="390" font-size="14" text-anchor="middle" fill="#111">1</text>
+<text x="345" y="390" font-size="14" fill="#555">栈：</text>
+<text x="380" y="390" font-size="14" fill="#555">空</text>
+<text x="30" y="470" font-size="14" fill="#111">硬件：1 个 PC、1 个掩码、一小块栈（几十个条目）</text>
+<text x="30" y="492" font-size="14" fill="#b5451b">栈是后进先出：if 那半边没走到 C，else 那半边</text>
+<text x="30" y="514" font-size="14" fill="#b5451b">就被压在栈里，物理上无法推进 → 互等锁会死锁</text>
+<text x="378" y="208" font-size="14" fill="#555">（条目里的掩码略）</text>
+<line x1="530" y1="76" x2="530" y2="530" stroke="#ccc" stroke-width="1.5"/>
+<text x="745" y="90" font-size="16" text-anchor="middle" font-weight="bold" fill="#111">② Volta 起：每线程一个 PC + 收敛屏障</text>
+<text x="550" y="124" font-size="14" fill="#111" font-weight="bold">8 个线程各自的 PC（执行到一半时）</text>
+<rect x="560" y="136" width="40" height="30" fill="#fdf3e3" stroke="#222" stroke-width="1.3"/>
+<text x="580" y="156" font-size="14" text-anchor="middle" fill="#111">A</text>
+<text x="580" y="182" font-size="14" text-anchor="middle" fill="#555">t0</text>
+<rect x="604" y="136" width="40" height="30" fill="#fdf3e3" stroke="#222" stroke-width="1.3"/>
+<text x="624" y="156" font-size="14" text-anchor="middle" fill="#111">A</text>
+<text x="624" y="182" font-size="14" text-anchor="middle" fill="#555">t1</text>
+<rect x="648" y="136" width="40" height="30" fill="#fdf3e3" stroke="#222" stroke-width="1.3"/>
+<text x="668" y="156" font-size="14" text-anchor="middle" fill="#111">A</text>
+<text x="668" y="182" font-size="14" text-anchor="middle" fill="#555">t2</text>
+<rect x="692" y="136" width="40" height="30" fill="#d6e4f5" stroke="#222" stroke-width="1.3"/>
+<text x="712" y="156" font-size="14" text-anchor="middle" fill="#111">B</text>
+<text x="712" y="182" font-size="14" text-anchor="middle" fill="#555">t3</text>
+<rect x="736" y="136" width="40" height="30" fill="#d6e4f5" stroke="#222" stroke-width="1.3"/>
+<text x="756" y="156" font-size="14" text-anchor="middle" fill="#111">B</text>
+<text x="756" y="182" font-size="14" text-anchor="middle" fill="#555">t4</text>
+<rect x="780" y="136" width="40" height="30" fill="#d6e4f5" stroke="#222" stroke-width="1.3"/>
+<text x="800" y="156" font-size="14" text-anchor="middle" fill="#111">B</text>
+<text x="800" y="182" font-size="14" text-anchor="middle" fill="#555">t5</text>
+<rect x="824" y="136" width="40" height="30" fill="#d6e4f5" stroke="#222" stroke-width="1.3"/>
+<text x="844" y="156" font-size="14" text-anchor="middle" fill="#111">B</text>
+<text x="844" y="182" font-size="14" text-anchor="middle" fill="#555">t6</text>
+<rect x="868" y="136" width="40" height="30" fill="#d6e4f5" stroke="#222" stroke-width="1.3"/>
+<text x="888" y="156" font-size="14" text-anchor="middle" fill="#111">B</text>
+<text x="888" y="182" font-size="14" text-anchor="middle" fill="#555">t7</text>
+<text x="550" y="214" font-size="14" fill="#111">调度器可以这拍推进 A 组（t0～t2），</text>
+<text x="550" y="234" font-size="14" fill="#111">下拍推进 B 组（t3～t7），来回切换</text>
+<text x="550" y="276" font-size="14" fill="#111" font-weight="bold">收敛屏障寄存器（BSSY 建立）</text>
+<rect x="560" y="288" width="18" height="22" fill="#f5c79b" stroke="#555" stroke-width="1"/>
+<text x="569" y="304" font-size="14" text-anchor="middle" fill="#111">1</text>
+<rect x="578" y="288" width="18" height="22" fill="#f5c79b" stroke="#555" stroke-width="1"/>
+<text x="587" y="304" font-size="14" text-anchor="middle" fill="#111">1</text>
+<rect x="596" y="288" width="18" height="22" fill="#f5c79b" stroke="#555" stroke-width="1"/>
+<text x="605" y="304" font-size="14" text-anchor="middle" fill="#111">1</text>
+<rect x="614" y="288" width="18" height="22" fill="#f5c79b" stroke="#555" stroke-width="1"/>
+<text x="623" y="304" font-size="14" text-anchor="middle" fill="#111">1</text>
+<rect x="632" y="288" width="18" height="22" fill="#f5c79b" stroke="#555" stroke-width="1"/>
+<text x="641" y="304" font-size="14" text-anchor="middle" fill="#111">1</text>
+<rect x="650" y="288" width="18" height="22" fill="#f5c79b" stroke="#555" stroke-width="1"/>
+<text x="659" y="304" font-size="14" text-anchor="middle" fill="#111">1</text>
+<rect x="668" y="288" width="18" height="22" fill="#f5c79b" stroke="#555" stroke-width="1"/>
+<text x="677" y="304" font-size="14" text-anchor="middle" fill="#111">1</text>
+<rect x="686" y="288" width="18" height="22" fill="#f5c79b" stroke="#555" stroke-width="1"/>
+<text x="695" y="304" font-size="14" text-anchor="middle" fill="#111">1</text>
+<text x="720" y="304" font-size="14" fill="#555">这些线程要在 C 会合</text>
+<text x="550" y="344" font-size="14" fill="#111">BSYNC 放在 C 前：先到的线程在这里等，</text>
+<text x="550" y="364" font-size="14" fill="#111">8 个都到了才一起继续——合流由指令显式完成</text>
+<text x="550" y="410" font-size="14" fill="#111">代价：每 warp 存 32 个 PC 而不是 1 个。</text>
+<text x="550" y="432" font-size="14" fill="#111">按 PC 宽 32 位、每 SM 64 个 warp 算：</text>
+<text x="550" y="454" font-size="14" fill="#111" font-weight="bold">64 × 32 × 32 = 65536 个触发器</text>
+<text x="550" y="492" font-size="14" fill="#2e7d32">if 那半边卡住时，调度器能去推 else 那半边 → 不再死锁</text>
+<text x="550" y="514" font-size="14" fill="#b5451b">编译器不插 BSSY/BSYNC，就不保证自动合流</text>
+<text x="480" y="570" font-size="14" text-anchor="middle" fill="#555">两种方式下，同一拍都只有一组线程真正在算；被掩码关掉的 lane 照样在耗电，只是结果不写回</text>
+</svg>

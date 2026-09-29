@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" font-family="sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker></defs>
+<rect x="0" y="0" width="960" height="520" fill="#ffffff"/>
+<text x="480" y="30" font-size="18" text-anchor="middle" font-weight="bold" fill="#111">一拍里的时间账：触发器 → 组合逻辑 → 触发器，500 ps 里真正留给逻辑的是 430 ps</text>
+
+<!-- 上：电路 -->
+<rect x="120" y="70" width="110" height="80" fill="#eaf5e9" stroke="#222" stroke-width="1.8"/>
+<text x="175" y="100" font-size="15" text-anchor="middle" font-weight="bold" fill="#111">触发器 A</text>
+<text x="175" y="122" font-size="14" text-anchor="middle" fill="#555">时钟沿时</text>
+<text x="175" y="140" font-size="14" text-anchor="middle" fill="#555">放出数据</text>
+<line x1="230" y1="110" x2="318" y2="110" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<rect x="320" y="70" width="320" height="80" rx="30" fill="#fdf3e3" stroke="#222" stroke-width="1.8"/>
+<text x="480" y="102" font-size="15" text-anchor="middle" font-weight="bold" fill="#111">组合逻辑（没有记忆）</text>
+<text x="480" y="126" font-size="14" text-anchor="middle" fill="#555">加法器、多路选择器……一串门，信号逐级传过去</text>
+<line x1="640" y1="110" x2="728" y2="110" stroke="#222" stroke-width="1.8" marker-end="url(#a)"/>
+<rect x="730" y="70" width="110" height="80" fill="#eaf5e9" stroke="#222" stroke-width="1.8"/>
+<text x="785" y="100" font-size="15" text-anchor="middle" font-weight="bold" fill="#111">触发器 B</text>
+<text x="785" y="122" font-size="14" text-anchor="middle" fill="#555">下一个沿时</text>
+<text x="785" y="140" font-size="14" text-anchor="middle" fill="#555">把数据抓住</text>
+<polyline points="80,195 175,195 175,152" fill="none" stroke="#1f5fa8" stroke-width="1.8" marker-end="url(#a)"/>
+<polyline points="175,195 785,195 785,152" fill="none" stroke="#1f5fa8" stroke-width="1.8" marker-end="url(#a)"/>
+<text x="84" y="188" font-size="14" fill="#1f5fa8">时钟</text>
+<text x="480" y="215" font-size="14" text-anchor="middle" fill="#1f5fa8">同一个时钟同时送到两个触发器（实际会有偏斜，见下）</text>
+
+<!-- 2 GHz 条 -->
+<text x="80" y="262" font-size="15" font-weight="bold" fill="#111">2 GHz：一拍 500 ps（1 像素 ≈ 0.625 ps，按比例画）</text>
+<g font-size="14" text-anchor="middle">
+<rect x="80" y="274" width="32" height="46" fill="#9cc3ea" stroke="#222" stroke-width="1.2"/>
+<rect x="112" y="274" width="688" height="46" fill="#fdf3e3" stroke="#222" stroke-width="1.2"/>
+<text x="456" y="302" fill="#111" font-weight="bold">留给组合逻辑：430 ps（86%）</text>
+<rect x="800" y="274" width="32" height="46" fill="#9cc3ea" stroke="#222" stroke-width="1.2"/>
+<rect x="832" y="274" width="32" height="46" fill="#f2c9c9" stroke="#222" stroke-width="1.2"/>
+<rect x="864" y="274" width="16" height="46" fill="#e0b0e0" stroke="#222" stroke-width="1.2"/>
+</g>
+<line x1="80" y1="268" x2="80" y2="330" stroke="#222" stroke-width="2"/>
+<line x1="880" y1="268" x2="880" y2="330" stroke="#222" stroke-width="2"/>
+<text x="72" y="302" font-size="14" text-anchor="end" fill="#111">沿 1</text>
+<text x="888" y="302" font-size="14" text-anchor="start" fill="#111">沿 2</text>
+<!-- 小段标注 -->
+<line x1="96" y1="322" x2="96" y2="368" stroke="#555" stroke-width="1.2"/>
+<text x="100" y="384" font-size="14" fill="#111">t_cq 20：触发器 A 从沿到输出稳定</text>
+<line x1="816" y1="322" x2="816" y2="400" stroke="#555" stroke-width="1.2"/>
+<line x1="848" y1="322" x2="848" y2="422" stroke="#555" stroke-width="1.2"/>
+<line x1="872" y1="322" x2="872" y2="444" stroke="#555" stroke-width="1.2"/>
+<text x="810" y="404" font-size="14" text-anchor="end" fill="#111">建立时间 20：数据要比沿 2 提前稳定</text>
+<text x="842" y="426" font-size="14" text-anchor="end" fill="#111">偏斜 20：沿到 A、B 的时间差</text>
+<text x="866" y="448" font-size="14" text-anchor="end" fill="#111">抖动 10：沿 2 本身可能提前一点</text>
+
+<!-- 3 GHz 条 -->
+<text x="80" y="480" font-size="15" font-weight="bold" fill="#111">3 GHz：一拍 333 ps</text>
+<g font-size="14" text-anchor="middle">
+<rect x="250" y="462" width="32" height="30" fill="#9cc3ea" stroke="#222" stroke-width="1.2"/>
+<rect x="282" y="462" width="421" height="30" fill="#fdf3e3" stroke="#222" stroke-width="1.2"/>
+<text x="492" y="483" fill="#111" font-weight="bold">留给逻辑 263 ps（79%）</text>
+<rect x="703" y="462" width="32" height="30" fill="#9cc3ea" stroke="#222" stroke-width="1.2"/>
+<rect x="735" y="462" width="32" height="30" fill="#f2c9c9" stroke="#222" stroke-width="1.2"/>
+<rect x="767" y="462" width="16" height="30" fill="#e0b0e0" stroke="#222" stroke-width="1.2"/>
+</g>
+<text x="793" y="483" font-size="14" fill="#b5451b">同样扣 70 ps，占比更大</text>
+<text x="480" y="512" font-size="14" text-anchor="middle" fill="#555">蓝 = 触发器自身开销；红 = 偏斜；紫 = 抖动；这四项是按绝对值扣的，不随频率缩小</text>
+</svg>

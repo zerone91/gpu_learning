@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560">
+<rect x="0" y="0" width="960" height="560" fill="#ffffff"/>
+<defs><marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777"/></marker><marker id="alg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#bbb"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="agr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e7d32"/></marker><marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b9770e"/></marker><marker id="ap" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7d3c98"/></marker></defs>
+<text x="480.0" y="30.0" font-family="sans-serif" font-size="17" fill="#222" text-anchor="middle" font-weight="bold">等待靠什么判断：定长延迟由编译器写进指令，变长延迟由硬件记账</text>
+<rect x="20.0" y="50.0" width="450.0" height="490.0" rx="8" fill="#fbfcfe" stroke="#1f5fa8" stroke-width="2"/>
+<text x="245.0" y="78.0" font-family="sans-serif" font-size="16" fill="#1f5fa8" text-anchor="middle" font-weight="bold">情形一：乘加（延迟固定 4 拍）</text>
+<text x="245.0" y="102.0" font-family="sans-serif" font-size="15" fill="#222" text-anchor="middle">c = a*b;  e = c*d;</text>
+<rect x="40.0" y="118.0" width="410.0" height="44.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.5"/>
+<text x="52.0" y="145.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="start">指令 1：FMA R3 = R1 × R2</text>
+<rect x="290.0" y="124.0" width="150.0" height="32.0" rx="3" fill="#fdebd0" stroke="#b9770e" stroke-width="1.5"/>
+<text x="365.0" y="145.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle" font-weight="bold">控制位：停顿 4</text>
+<rect x="40.0" y="170.0" width="410.0" height="44.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.5"/>
+<text x="52.0" y="197.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="start">指令 2：FMA R5 = R3 × R4</text>
+<rect x="290.0" y="176.0" width="150.0" height="32.0" rx="3" fill="#fdebd0" stroke="#b9770e" stroke-width="1.5"/>
+<text x="365.0" y="197.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle" font-weight="bold">控制位：停顿 0</text>
+<text x="245.0" y="244.0" font-family="sans-serif" font-size="15" fill="#222" text-anchor="middle" font-weight="bold">运行时（这个 warp 的视角）</text>
+<text x="91.0" y="268.0" font-family="sans-serif" font-size="14" fill="#777" text-anchor="middle">1</text>
+<text x="153.0" y="268.0" font-family="sans-serif" font-size="14" fill="#777" text-anchor="middle">2</text>
+<text x="215.0" y="268.0" font-family="sans-serif" font-size="14" fill="#777" text-anchor="middle">3</text>
+<text x="277.0" y="268.0" font-family="sans-serif" font-size="14" fill="#777" text-anchor="middle">4</text>
+<text x="339.0" y="268.0" font-family="sans-serif" font-size="14" fill="#777" text-anchor="middle">5</text>
+<text x="401.0" y="268.0" font-family="sans-serif" font-size="14" fill="#777" text-anchor="middle">6</text>
+<rect x="62.0" y="276.0" width="58.0" height="30.0" rx="3" fill="#d7ecd9" stroke="#2e7d32" stroke-width="2"/>
+<text x="91.0" y="297.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">指令1</text>
+<rect x="124.0" y="283.0" width="244.0" height="16.0" rx="0" fill="#f2f2f2" stroke="#bbb" stroke-width="1"/>
+<text x="246.0" y="322.0" font-family="sans-serif" font-size="14" fill="#777" text-anchor="middle">照控制位歇 4 拍（期间调度器发别的 warp）</text>
+<rect x="372.0" y="276.0" width="58.0" height="30.0" rx="3" fill="#d7ecd9" stroke="#2e7d32" stroke-width="2"/>
+<text x="401.0" y="297.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle">指令2</text>
+<text x="245.0" y="356.0" font-family="sans-serif" font-size="15" fill="#222" text-anchor="middle">第 6 拍 R3 一定已经算好，</text>
+<text x="245.0" y="378.0" font-family="sans-serif" font-size="15" fill="#222" text-anchor="middle">因为 FMA 的延迟是硬件规格定死的</text>
+<rect x="40.0" y="400.0" width="410.0" height="120.0" rx="4" fill="#dbe9f7" stroke="none" stroke-width="0"/>
+<text x="245.0" y="428.0" font-family="sans-serif" font-size="15" fill="#222" text-anchor="middle" font-weight="bold">谁算出等几拍：编译器（ptxas）</text>
+<text x="245.0" y="454.0" font-family="sans-serif" font-size="15" fill="#222" text-anchor="middle">运行时硬件做什么：只数拍子，不检查</text>
+<text x="245.0" y="480.0" font-family="sans-serif" font-size="15" fill="#222" text-anchor="middle">若两条指令不相干，控制位写 0，</text>
+<text x="245.0" y="502.0" font-family="sans-serif" font-size="15" fill="#222" text-anchor="middle">背靠背连发</text>
+<rect x="490.0" y="50.0" width="450.0" height="490.0" rx="8" fill="#fffdf8" stroke="#b9770e" stroke-width="2"/>
+<text x="715.0" y="78.0" font-family="sans-serif" font-size="16" fill="#b9770e" text-anchor="middle" font-weight="bold">情形二：显存读取（延迟不固定）</text>
+<text x="715.0" y="102.0" font-family="sans-serif" font-size="15" fill="#222" text-anchor="middle">x = data[i];  …无关计算…;  y = x * 2;</text>
+<rect x="510.0" y="118.0" width="410.0" height="42.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.5"/>
+<text x="522.0" y="145.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="start">指令 1：LOAD R8 ← 显存</text>
+<rect x="768.0" y="124.0" width="144.0" height="30.0" rx="3" fill="#dbe9f7" stroke="#1f5fa8" stroke-width="1.5"/>
+<text x="840.0" y="145.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle" font-weight="bold">记账：0 号格子</text>
+<rect x="510.0" y="168.0" width="410.0" height="42.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.5"/>
+<text x="522.0" y="195.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="start">指令 2：FMA …（与 R8 无关）</text>
+<rect x="768.0" y="174.0" width="144.0" height="30.0" rx="3" fill="#fff" stroke="#777" stroke-width="1.5"/>
+<text x="840.0" y="195.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle" font-weight="bold">无标注，直接发</text>
+<rect x="510.0" y="218.0" width="410.0" height="42.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.5"/>
+<text x="522.0" y="245.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="start">指令 3：FMA …（与 R8 无关）</text>
+<rect x="768.0" y="224.0" width="144.0" height="30.0" rx="3" fill="#fff" stroke="#777" stroke-width="1.5"/>
+<text x="840.0" y="245.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle" font-weight="bold">无标注，直接发</text>
+<rect x="510.0" y="268.0" width="410.0" height="42.0" rx="0" fill="#fff" stroke="#222" stroke-width="1.5"/>
+<text x="522.0" y="295.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="start">指令 4：FMA R9 = R8 × 2</text>
+<rect x="768.0" y="274.0" width="144.0" height="30.0" rx="3" fill="#f6d5d0" stroke="#c0392b" stroke-width="1.5"/>
+<text x="840.0" y="295.0" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle" font-weight="bold">等 0 号格子销账</text>
+<text x="715.0" y="344.0" font-family="sans-serif" font-size="15" fill="#222" text-anchor="middle" font-weight="bold">每个 warp 的记账板：约 6 个格子</text>
+<rect x="540.0" y="356.0" width="56.0" height="40.0" rx="0" fill="#f6d5d0" stroke="#c0392b" stroke-width="2"/>
+<text x="568.0" y="382.0" font-family="sans-serif" font-size="15" fill="#222" text-anchor="middle" font-weight="bold">0</text>
+<rect x="604.0" y="356.0" width="56.0" height="40.0" rx="0" fill="#fff" stroke="#222" stroke-width="2"/>
+<text x="632.0" y="382.0" font-family="sans-serif" font-size="15" fill="#222" text-anchor="middle" font-weight="bold">1</text>
+<rect x="668.0" y="356.0" width="56.0" height="40.0" rx="0" fill="#fff" stroke="#222" stroke-width="2"/>
+<text x="696.0" y="382.0" font-family="sans-serif" font-size="15" fill="#222" text-anchor="middle" font-weight="bold">2</text>
+<rect x="732.0" y="356.0" width="56.0" height="40.0" rx="0" fill="#fff" stroke="#222" stroke-width="2"/>
+<text x="760.0" y="382.0" font-family="sans-serif" font-size="15" fill="#222" text-anchor="middle" font-weight="bold">3</text>
+<rect x="796.0" y="356.0" width="56.0" height="40.0" rx="0" fill="#fff" stroke="#222" stroke-width="2"/>
+<text x="824.0" y="382.0" font-family="sans-serif" font-size="15" fill="#222" text-anchor="middle" font-weight="bold">4</text>
+<rect x="860.0" y="356.0" width="56.0" height="40.0" rx="0" fill="#fff" stroke="#222" stroke-width="2"/>
+<text x="888.0" y="382.0" font-family="sans-serif" font-size="15" fill="#222" text-anchor="middle" font-weight="bold">5</text>
+<text x="568.0" y="414.0" font-family="sans-serif" font-size="14" fill="#c0392b" text-anchor="middle">↑ 欠账中</text>
+<rect x="510.0" y="430.0" width="410.0" height="90.0" rx="4" fill="#fdebd0" stroke="none" stroke-width="0"/>
+<text x="715.0" y="456.0" font-family="sans-serif" font-size="15" fill="#222" text-anchor="middle">LOAD 发出：0 号格子记一笔；数据回来：销账</text>
+<text x="715.0" y="480.0" font-family="sans-serif" font-size="15" fill="#222" text-anchor="middle">指令 4 发射前查 0 号格子：没销就跳过这个 warp</text>
+<text x="715.0" y="504.0" font-family="sans-serif" font-size="15" fill="#222" text-anchor="middle" font-weight="bold">格子编号和等待关系都由编译器事先标好</text>
+</svg>

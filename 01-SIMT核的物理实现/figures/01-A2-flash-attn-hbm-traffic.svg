@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 610" width="960" height="610" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="610" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker></defs>
+<text x="480" y="28" font-size="18" text-anchor="middle" fill="#222" font-weight="bold">一个注意力头的显存读写（N = 4096，d = 128，bf16）：标准实现 vs FlashAttention</text>
+<text x="30" y="62" font-size="16" fill="#222" font-weight="bold">左：标准实现，三个 kernel，中间矩阵在显存里进出</text>
+<rect x="30" y="76" width="100" height="370" fill="#fbe3c4" stroke="#b86a0c" stroke-width="2" rx="8"/>
+<text x="80.0" y="100" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">显存 HBM</text>
+<rect x="330" y="76" width="130" height="370" fill="#f3f7fc" stroke="#2c6fb7" stroke-width="2" rx="8"/>
+<text x="395.0" y="100" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">计算单元</text>
+<line x1="134" y1="128" x2="326" y2="128" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<text x="230.0" y="120" font-size="14" text-anchor="middle" fill="#222">读 Q、K（2 MB）</text>
+<text x="395" y="150" font-size="15" text-anchor="middle" fill="#222">S = Q·Kᵀ</text>
+<line x1="326" y1="176" x2="134" y2="176" stroke="#c0392b" stroke-width="3" marker-end="url(#r)"/>
+<text x="230.0" y="168" font-size="14" text-anchor="middle" fill="#c0392b" font-weight="bold">写 S（32 MB）</text>
+<line x1="134" y1="236" x2="326" y2="236" stroke="#c0392b" stroke-width="3" marker-end="url(#r)"/>
+<text x="230.0" y="228" font-size="14" text-anchor="middle" fill="#c0392b" font-weight="bold">读 S（32 MB）</text>
+<text x="395" y="258" font-size="15" text-anchor="middle" fill="#222">P = softmax(S)</text>
+<line x1="326" y1="284" x2="134" y2="284" stroke="#c0392b" stroke-width="3" marker-end="url(#r)"/>
+<text x="230.0" y="276" font-size="14" text-anchor="middle" fill="#c0392b" font-weight="bold">写 P（32 MB）</text>
+<line x1="134" y1="344" x2="326" y2="344" stroke="#c0392b" stroke-width="3" marker-end="url(#r)"/>
+<text x="230.0" y="336" font-size="14" text-anchor="middle" fill="#c0392b" font-weight="bold">读 P 32 MB、V 1 MB</text>
+<text x="395" y="366" font-size="15" text-anchor="middle" fill="#222">O = P·V</text>
+<line x1="326" y1="392" x2="134" y2="392" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<text x="230.0" y="384" font-size="14" text-anchor="middle" fill="#222">写 O（1 MB）</text>
+<line x1="340" y1="212" x2="450" y2="212" stroke="#2c6fb7" stroke-width="1.5" stroke-dasharray="5 4"/>
+<line x1="340" y1="320" x2="450" y2="320" stroke="#2c6fb7" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="395" y="432" font-size="14" text-anchor="middle" fill="#555">虚线：kernel 分界</text>
+<text x="30" y="470" font-size="14" fill="#c0392b">红色：N×N 中间矩阵 S、P，每个 4096×4096×2 字节 = 32 MB，</text>
+<text x="30" y="490" font-size="14" fill="#c0392b">共进出显存 4 次 = 128 MB</text>
+<line x1="485" y1="50" x2="485" y2="500" stroke="#bbb" stroke-width="1.5"/>
+<text x="500" y="62" font-size="16" fill="#222" font-weight="bold">右：FlashAttention，一个 kernel，S、P 只在片上</text>
+<rect x="500" y="76" width="100" height="370" fill="#fbe3c4" stroke="#b86a0c" stroke-width="2" rx="8"/>
+<text x="550.0" y="100" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">显存 HBM</text>
+<rect x="740" y="76" width="200" height="370" fill="#f3f7fc" stroke="#2c6fb7" stroke-width="2" rx="8"/>
+<text x="840.0" y="100" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">SM 片上存储</text>
+<rect x="754" y="112" width="172" height="50" fill="#dbe8f6" stroke="#222" stroke-width="1.5"/>
+<text x="840" y="133" font-size="14" text-anchor="middle" fill="#222">Q 块（128 行）</text>
+<text x="840" y="152" font-size="14" text-anchor="middle" fill="#555">整轮扫描都留着</text>
+<rect x="754" y="172" width="172" height="50" fill="#ffffff" stroke="#222" stroke-width="1.5"/>
+<text x="840" y="193" font-size="14" text-anchor="middle" fill="#222">当前一对 K、V 块</text>
+<text x="840" y="212" font-size="14" text-anchor="middle" fill="#555">32 块依次换入</text>
+<rect x="754" y="232" width="172" height="50" fill="#fdf2e3" stroke="#222" stroke-width="1.5"/>
+<text x="840" y="253" font-size="14" text-anchor="middle" fill="#222">分数块 S、权重块 P</text>
+<text x="840" y="272" font-size="14" text-anchor="middle" fill="#555">128×128×2 字节 = 32 KB</text>
+<rect x="754" y="292" width="172" height="50" fill="#dbe8f6" stroke="#222" stroke-width="1.5"/>
+<text x="840" y="313" font-size="14" text-anchor="middle" fill="#222">每行的 m、l</text>
+<text x="840" y="332" font-size="14" text-anchor="middle" fill="#555">在线 softmax 的中间量</text>
+<rect x="754" y="352" width="172" height="50" fill="#dbe8f6" stroke="#222" stroke-width="1.5"/>
+<text x="840" y="373" font-size="14" text-anchor="middle" fill="#222">输出累加器 O</text>
+<text x="840" y="392" font-size="14" text-anchor="middle" fill="#555">扫完才写回</text>
+<text x="840" y="425" font-size="14" text-anchor="middle" fill="#b86a0c">S、P 用完即丢，</text>
+<text x="840" y="442" font-size="14" text-anchor="middle" fill="#b86a0c">从不写回显存</text>
+<line x1="604" y1="137" x2="736" y2="137" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<text x="670.0" y="129" font-size="14" text-anchor="middle" fill="#222">读 Q（1 MB）</text>
+<line x1="604" y1="197" x2="736" y2="197" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<text x="670.0" y="189" font-size="14" text-anchor="middle" fill="#222">读 K、V（2 MB）</text>
+<text x="670.0" y="220" font-size="14" text-anchor="middle" fill="#555">分 32 块读入</text>
+<line x1="736" y1="377" x2="604" y2="377" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<text x="670.0" y="369" font-size="14" text-anchor="middle" fill="#222">写 O（1 MB）</text>
+<text x="500" y="470" font-size="14" fill="#222">显存只进出输入和输出，</text>
+<text x="500" y="490" font-size="14" fill="#222">共约 4 MB</text>
+<text x="30" y="524" font-size="15" fill="#222" font-weight="bold">显存读写总量（条长按比例）</text>
+<text x="170" y="552" font-size="14" text-anchor="end" fill="#222">标准实现</text>
+<rect x="180" y="538" width="678.8" height="20" fill="#f5c6c0" stroke="#c0392b" stroke-width="1.5"/>
+<rect x="858.8" y="538" width="21.2" height="20" fill="#ffffff" stroke="#222" stroke-width="1.5"/>
+<text x="888.0" y="553" font-size="14" fill="#222">132 MB</text>
+<text x="519.4" y="553" font-size="14" text-anchor="middle" fill="#c0392b">中间矩阵 128 MB（97%）</text>
+<text x="170" y="584" font-size="14" text-anchor="end" fill="#222">FlashAttention</text>
+<rect x="180" y="570" width="21.2" height="20" fill="#ffffff" stroke="#222" stroke-width="1.5"/>
+<text x="209.2" y="585" font-size="14" fill="#222">约 4 MB（白色：Q、K、V、O 各 1 MB）</text>
+</svg>

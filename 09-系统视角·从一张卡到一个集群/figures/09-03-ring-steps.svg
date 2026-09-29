@@ -1,0 +1,187 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 510" width="960" height="510" font-family="sans-serif" font-size="15">
+<rect x="0" y="0" width="960" height="510" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#444"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/></marker><marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d9822b"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e7d32"/></marker><pattern id="h" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="#f4f4f4"/><line x1="0" y1="0" x2="0" y2="8" stroke="#bbb" stroke-width="2"/></pattern></defs>
+<text x="20.0" y="32.0" text-anchor="start" fill="#222222" font-size="19" font-weight="bold" >环形 all-reduce 逐步走：先 3 步 reduce-scatter，再 3 步 all-gather</text>
+<text x="20.0" y="58.0" text-anchor="start" fill="#555" font-size="14" >4 张卡排成环（卡 i 发给卡 i+1，卡 3 发回卡 0）；每张卡的数据切成 a、b、c、d 四块；下标是这块里已经加进了哪几张卡的数据</text>
+<text x="222.0" y="94.0" text-anchor="middle" fill="#222222" font-size="15" font-weight="bold" >卡 0</text>
+<text x="420.0" y="94.0" text-anchor="middle" fill="#222222" font-size="15" font-weight="bold" >卡 1</text>
+<text x="618.0" y="94.0" text-anchor="middle" fill="#222222" font-size="15" font-weight="bold" >卡 2</text>
+<text x="816.0" y="94.0" text-anchor="middle" fill="#222222" font-size="15" font-weight="bold" >卡 3</text>
+<text x="118.0" y="136.0" text-anchor="end" fill="#222222" font-size="14" >初始</text>
+<rect x="130.0" y="108.0" width="43.0" height="42.0" rx="0" fill="#ffffff" stroke="#c0392b" stroke-width="3" />
+<text x="151.5" y="135.0" text-anchor="middle" fill="#222222" font-size="14" >a₀</text>
+<rect x="176.0" y="108.0" width="43.0" height="42.0" rx="0" fill="#ffffff" stroke="#666" stroke-width="1.2" />
+<text x="197.5" y="135.0" text-anchor="middle" fill="#222222" font-size="14" >b₀</text>
+<rect x="222.0" y="108.0" width="43.0" height="42.0" rx="0" fill="#ffffff" stroke="#666" stroke-width="1.2" />
+<text x="243.5" y="135.0" text-anchor="middle" fill="#222222" font-size="14" >c₀</text>
+<rect x="268.0" y="108.0" width="43.0" height="42.0" rx="0" fill="#ffffff" stroke="#666" stroke-width="1.2" />
+<text x="289.5" y="135.0" text-anchor="middle" fill="#222222" font-size="14" >d₀</text>
+<rect x="328.0" y="108.0" width="43.0" height="42.0" rx="0" fill="#ffffff" stroke="#666" stroke-width="1.2" />
+<text x="349.5" y="135.0" text-anchor="middle" fill="#222222" font-size="14" >a₁</text>
+<rect x="374.0" y="108.0" width="43.0" height="42.0" rx="0" fill="#ffffff" stroke="#c0392b" stroke-width="3" />
+<text x="395.5" y="135.0" text-anchor="middle" fill="#222222" font-size="14" >b₁</text>
+<rect x="420.0" y="108.0" width="43.0" height="42.0" rx="0" fill="#ffffff" stroke="#666" stroke-width="1.2" />
+<text x="441.5" y="135.0" text-anchor="middle" fill="#222222" font-size="14" >c₁</text>
+<rect x="466.0" y="108.0" width="43.0" height="42.0" rx="0" fill="#ffffff" stroke="#666" stroke-width="1.2" />
+<text x="487.5" y="135.0" text-anchor="middle" fill="#222222" font-size="14" >d₁</text>
+<rect x="526.0" y="108.0" width="43.0" height="42.0" rx="0" fill="#ffffff" stroke="#666" stroke-width="1.2" />
+<text x="547.5" y="135.0" text-anchor="middle" fill="#222222" font-size="14" >a₂</text>
+<rect x="572.0" y="108.0" width="43.0" height="42.0" rx="0" fill="#ffffff" stroke="#666" stroke-width="1.2" />
+<text x="593.5" y="135.0" text-anchor="middle" fill="#222222" font-size="14" >b₂</text>
+<rect x="618.0" y="108.0" width="43.0" height="42.0" rx="0" fill="#ffffff" stroke="#c0392b" stroke-width="3" />
+<text x="639.5" y="135.0" text-anchor="middle" fill="#222222" font-size="14" >c₂</text>
+<rect x="664.0" y="108.0" width="43.0" height="42.0" rx="0" fill="#ffffff" stroke="#666" stroke-width="1.2" />
+<text x="685.5" y="135.0" text-anchor="middle" fill="#222222" font-size="14" >d₂</text>
+<rect x="724.0" y="108.0" width="43.0" height="42.0" rx="0" fill="#ffffff" stroke="#666" stroke-width="1.2" />
+<text x="745.5" y="135.0" text-anchor="middle" fill="#222222" font-size="14" >a₃</text>
+<rect x="770.0" y="108.0" width="43.0" height="42.0" rx="0" fill="#ffffff" stroke="#666" stroke-width="1.2" />
+<text x="791.5" y="135.0" text-anchor="middle" fill="#222222" font-size="14" >b₃</text>
+<rect x="816.0" y="108.0" width="43.0" height="42.0" rx="0" fill="#ffffff" stroke="#666" stroke-width="1.2" />
+<text x="837.5" y="135.0" text-anchor="middle" fill="#222222" font-size="14" >c₃</text>
+<rect x="862.0" y="108.0" width="43.0" height="42.0" rx="0" fill="#ffffff" stroke="#c0392b" stroke-width="3" />
+<text x="883.5" y="135.0" text-anchor="middle" fill="#222222" font-size="14" >d₃</text>
+<text x="118.0" y="198.0" text-anchor="end" fill="#222222" font-size="14" >第 1 步后</text>
+<rect x="130.0" y="170.0" width="43.0" height="42.0" rx="0" fill="#ffffff" stroke="#666" stroke-width="1.2" />
+<text x="151.5" y="197.0" text-anchor="middle" fill="#222222" font-size="14" >a₀</text>
+<rect x="176.0" y="170.0" width="43.0" height="42.0" rx="0" fill="#ffffff" stroke="#666" stroke-width="1.2" />
+<text x="197.5" y="197.0" text-anchor="middle" fill="#222222" font-size="14" >b₀</text>
+<rect x="222.0" y="170.0" width="43.0" height="42.0" rx="0" fill="#ffffff" stroke="#666" stroke-width="1.2" />
+<text x="243.5" y="197.0" text-anchor="middle" fill="#222222" font-size="14" >c₀</text>
+<rect x="268.0" y="170.0" width="43.0" height="42.0" rx="0" fill="#fde2c4" stroke="#c0392b" stroke-width="3" />
+<text x="289.5" y="197.0" text-anchor="middle" fill="#222222" font-size="14" >d₀₃</text>
+<rect x="328.0" y="170.0" width="43.0" height="42.0" rx="0" fill="#fde2c4" stroke="#c0392b" stroke-width="3" />
+<text x="349.5" y="197.0" text-anchor="middle" fill="#222222" font-size="14" >a₀₁</text>
+<rect x="374.0" y="170.0" width="43.0" height="42.0" rx="0" fill="#ffffff" stroke="#666" stroke-width="1.2" />
+<text x="395.5" y="197.0" text-anchor="middle" fill="#222222" font-size="14" >b₁</text>
+<rect x="420.0" y="170.0" width="43.0" height="42.0" rx="0" fill="#ffffff" stroke="#666" stroke-width="1.2" />
+<text x="441.5" y="197.0" text-anchor="middle" fill="#222222" font-size="14" >c₁</text>
+<rect x="466.0" y="170.0" width="43.0" height="42.0" rx="0" fill="#ffffff" stroke="#666" stroke-width="1.2" />
+<text x="487.5" y="197.0" text-anchor="middle" fill="#222222" font-size="14" >d₁</text>
+<rect x="526.0" y="170.0" width="43.0" height="42.0" rx="0" fill="#ffffff" stroke="#666" stroke-width="1.2" />
+<text x="547.5" y="197.0" text-anchor="middle" fill="#222222" font-size="14" >a₂</text>
+<rect x="572.0" y="170.0" width="43.0" height="42.0" rx="0" fill="#fde2c4" stroke="#c0392b" stroke-width="3" />
+<text x="593.5" y="197.0" text-anchor="middle" fill="#222222" font-size="14" >b₁₂</text>
+<rect x="618.0" y="170.0" width="43.0" height="42.0" rx="0" fill="#ffffff" stroke="#666" stroke-width="1.2" />
+<text x="639.5" y="197.0" text-anchor="middle" fill="#222222" font-size="14" >c₂</text>
+<rect x="664.0" y="170.0" width="43.0" height="42.0" rx="0" fill="#ffffff" stroke="#666" stroke-width="1.2" />
+<text x="685.5" y="197.0" text-anchor="middle" fill="#222222" font-size="14" >d₂</text>
+<rect x="724.0" y="170.0" width="43.0" height="42.0" rx="0" fill="#ffffff" stroke="#666" stroke-width="1.2" />
+<text x="745.5" y="197.0" text-anchor="middle" fill="#222222" font-size="14" >a₃</text>
+<rect x="770.0" y="170.0" width="43.0" height="42.0" rx="0" fill="#ffffff" stroke="#666" stroke-width="1.2" />
+<text x="791.5" y="197.0" text-anchor="middle" fill="#222222" font-size="14" >b₃</text>
+<rect x="816.0" y="170.0" width="43.0" height="42.0" rx="0" fill="#fde2c4" stroke="#c0392b" stroke-width="3" />
+<text x="837.5" y="197.0" text-anchor="middle" fill="#222222" font-size="14" >c₂₃</text>
+<rect x="862.0" y="170.0" width="43.0" height="42.0" rx="0" fill="#ffffff" stroke="#666" stroke-width="1.2" />
+<text x="883.5" y="197.0" text-anchor="middle" fill="#222222" font-size="14" >d₃</text>
+<text x="118.0" y="260.0" text-anchor="end" fill="#222222" font-size="14" >第 2 步后</text>
+<rect x="130.0" y="232.0" width="43.0" height="42.0" rx="0" fill="#ffffff" stroke="#666" stroke-width="1.2" />
+<text x="151.5" y="259.0" text-anchor="middle" fill="#222222" font-size="14" >a₀</text>
+<rect x="176.0" y="232.0" width="43.0" height="42.0" rx="0" fill="#ffffff" stroke="#666" stroke-width="1.2" />
+<text x="197.5" y="259.0" text-anchor="middle" fill="#222222" font-size="14" >b₀</text>
+<rect x="222.0" y="232.0" width="43.0" height="42.0" rx="0" fill="#f7b877" stroke="#c0392b" stroke-width="3" />
+<text x="243.5" y="259.0" text-anchor="middle" fill="#222222" font-size="14" >c₀₂₃</text>
+<rect x="268.0" y="232.0" width="43.0" height="42.0" rx="0" fill="#fde2c4" stroke="#666" stroke-width="1.2" />
+<text x="289.5" y="259.0" text-anchor="middle" fill="#222222" font-size="14" >d₀₃</text>
+<rect x="328.0" y="232.0" width="43.0" height="42.0" rx="0" fill="#fde2c4" stroke="#666" stroke-width="1.2" />
+<text x="349.5" y="259.0" text-anchor="middle" fill="#222222" font-size="14" >a₀₁</text>
+<rect x="374.0" y="232.0" width="43.0" height="42.0" rx="0" fill="#ffffff" stroke="#666" stroke-width="1.2" />
+<text x="395.5" y="259.0" text-anchor="middle" fill="#222222" font-size="14" >b₁</text>
+<rect x="420.0" y="232.0" width="43.0" height="42.0" rx="0" fill="#ffffff" stroke="#666" stroke-width="1.2" />
+<text x="441.5" y="259.0" text-anchor="middle" fill="#222222" font-size="14" >c₁</text>
+<rect x="466.0" y="232.0" width="43.0" height="42.0" rx="0" fill="#f7b877" stroke="#c0392b" stroke-width="3" />
+<text x="487.5" y="259.0" text-anchor="middle" fill="#222222" font-size="14" >d₀₁₃</text>
+<rect x="526.0" y="232.0" width="43.0" height="42.0" rx="0" fill="#f7b877" stroke="#c0392b" stroke-width="3" />
+<text x="547.5" y="259.0" text-anchor="middle" fill="#222222" font-size="14" >a₀₁₂</text>
+<rect x="572.0" y="232.0" width="43.0" height="42.0" rx="0" fill="#fde2c4" stroke="#666" stroke-width="1.2" />
+<text x="593.5" y="259.0" text-anchor="middle" fill="#222222" font-size="14" >b₁₂</text>
+<rect x="618.0" y="232.0" width="43.0" height="42.0" rx="0" fill="#ffffff" stroke="#666" stroke-width="1.2" />
+<text x="639.5" y="259.0" text-anchor="middle" fill="#222222" font-size="14" >c₂</text>
+<rect x="664.0" y="232.0" width="43.0" height="42.0" rx="0" fill="#ffffff" stroke="#666" stroke-width="1.2" />
+<text x="685.5" y="259.0" text-anchor="middle" fill="#222222" font-size="14" >d₂</text>
+<rect x="724.0" y="232.0" width="43.0" height="42.0" rx="0" fill="#ffffff" stroke="#666" stroke-width="1.2" />
+<text x="745.5" y="259.0" text-anchor="middle" fill="#222222" font-size="14" >a₃</text>
+<rect x="770.0" y="232.0" width="43.0" height="42.0" rx="0" fill="#f7b877" stroke="#c0392b" stroke-width="3" />
+<text x="791.5" y="259.0" text-anchor="middle" fill="#222222" font-size="14" >b₁₂₃</text>
+<rect x="816.0" y="232.0" width="43.0" height="42.0" rx="0" fill="#fde2c4" stroke="#666" stroke-width="1.2" />
+<text x="837.5" y="259.0" text-anchor="middle" fill="#222222" font-size="14" >c₂₃</text>
+<rect x="862.0" y="232.0" width="43.0" height="42.0" rx="0" fill="#ffffff" stroke="#666" stroke-width="1.2" />
+<text x="883.5" y="259.0" text-anchor="middle" fill="#222222" font-size="14" >d₃</text>
+<text x="118.0" y="322.0" text-anchor="end" fill="#222222" font-size="14" font-weight="bold" >第 3 步后</text>
+<rect x="130.0" y="294.0" width="43.0" height="42.0" rx="0" fill="#ffffff" stroke="#666" stroke-width="1.2" />
+<text x="151.5" y="321.0" text-anchor="middle" fill="#222222" font-size="14" >a₀</text>
+<rect x="176.0" y="294.0" width="43.0" height="42.0" rx="0" fill="#e8e8e8" stroke="#666" stroke-width="1.2" />
+<text x="197.5" y="321.0" text-anchor="middle" fill="#222222" font-size="14" font-weight="bold" >Σb</text>
+<rect x="222.0" y="294.0" width="43.0" height="42.0" rx="0" fill="#f7b877" stroke="#666" stroke-width="1.2" />
+<text x="243.5" y="321.0" text-anchor="middle" fill="#222222" font-size="14" >c₀₂₃</text>
+<rect x="268.0" y="294.0" width="43.0" height="42.0" rx="0" fill="#fde2c4" stroke="#666" stroke-width="1.2" />
+<text x="289.5" y="321.0" text-anchor="middle" fill="#222222" font-size="14" >d₀₃</text>
+<rect x="328.0" y="294.0" width="43.0" height="42.0" rx="0" fill="#fde2c4" stroke="#666" stroke-width="1.2" />
+<text x="349.5" y="321.0" text-anchor="middle" fill="#222222" font-size="14" >a₀₁</text>
+<rect x="374.0" y="294.0" width="43.0" height="42.0" rx="0" fill="#ffffff" stroke="#666" stroke-width="1.2" />
+<text x="395.5" y="321.0" text-anchor="middle" fill="#222222" font-size="14" >b₁</text>
+<rect x="420.0" y="294.0" width="43.0" height="42.0" rx="0" fill="#e8e8e8" stroke="#666" stroke-width="1.2" />
+<text x="441.5" y="321.0" text-anchor="middle" fill="#222222" font-size="14" font-weight="bold" >Σc</text>
+<rect x="466.0" y="294.0" width="43.0" height="42.0" rx="0" fill="#f7b877" stroke="#666" stroke-width="1.2" />
+<text x="487.5" y="321.0" text-anchor="middle" fill="#222222" font-size="14" >d₀₁₃</text>
+<rect x="526.0" y="294.0" width="43.0" height="42.0" rx="0" fill="#f7b877" stroke="#666" stroke-width="1.2" />
+<text x="547.5" y="321.0" text-anchor="middle" fill="#222222" font-size="14" >a₀₁₂</text>
+<rect x="572.0" y="294.0" width="43.0" height="42.0" rx="0" fill="#fde2c4" stroke="#666" stroke-width="1.2" />
+<text x="593.5" y="321.0" text-anchor="middle" fill="#222222" font-size="14" >b₁₂</text>
+<rect x="618.0" y="294.0" width="43.0" height="42.0" rx="0" fill="#ffffff" stroke="#666" stroke-width="1.2" />
+<text x="639.5" y="321.0" text-anchor="middle" fill="#222222" font-size="14" >c₂</text>
+<rect x="664.0" y="294.0" width="43.0" height="42.0" rx="0" fill="#e8e8e8" stroke="#666" stroke-width="1.2" />
+<text x="685.5" y="321.0" text-anchor="middle" fill="#222222" font-size="14" font-weight="bold" >Σd</text>
+<rect x="724.0" y="294.0" width="43.0" height="42.0" rx="0" fill="#e8e8e8" stroke="#666" stroke-width="1.2" />
+<text x="745.5" y="321.0" text-anchor="middle" fill="#222222" font-size="14" font-weight="bold" >Σa</text>
+<rect x="770.0" y="294.0" width="43.0" height="42.0" rx="0" fill="#f7b877" stroke="#666" stroke-width="1.2" />
+<text x="791.5" y="321.0" text-anchor="middle" fill="#222222" font-size="14" >b₁₂₃</text>
+<rect x="816.0" y="294.0" width="43.0" height="42.0" rx="0" fill="#fde2c4" stroke="#666" stroke-width="1.2" />
+<text x="837.5" y="321.0" text-anchor="middle" fill="#222222" font-size="14" >c₂₃</text>
+<rect x="862.0" y="294.0" width="43.0" height="42.0" rx="0" fill="#ffffff" stroke="#666" stroke-width="1.2" />
+<text x="883.5" y="321.0" text-anchor="middle" fill="#222222" font-size="14" >d₃</text>
+<text x="130.0" y="354.0" text-anchor="start" fill="#c0392b" font-size="14" >↑ 到这里 reduce-scatter 结束：卡 0 有完整的 b，卡 1 有 c，卡 2 有 d，卡 3 有 a，每卡负责四分之一</text>
+<text x="118.0" y="410.0" text-anchor="end" fill="#222222" font-size="14" font-weight="bold" >第 6 步后</text>
+<rect x="130.0" y="382.0" width="43.0" height="42.0" rx="0" fill="#e8e8e8" stroke="#666" stroke-width="1.2" />
+<text x="151.5" y="409.0" text-anchor="middle" fill="#222222" font-size="14" font-weight="bold" >Σa</text>
+<rect x="176.0" y="382.0" width="43.0" height="42.0" rx="0" fill="#e8e8e8" stroke="#666" stroke-width="1.2" />
+<text x="197.5" y="409.0" text-anchor="middle" fill="#222222" font-size="14" font-weight="bold" >Σb</text>
+<rect x="222.0" y="382.0" width="43.0" height="42.0" rx="0" fill="#e8e8e8" stroke="#666" stroke-width="1.2" />
+<text x="243.5" y="409.0" text-anchor="middle" fill="#222222" font-size="14" font-weight="bold" >Σc</text>
+<rect x="268.0" y="382.0" width="43.0" height="42.0" rx="0" fill="#e8e8e8" stroke="#666" stroke-width="1.2" />
+<text x="289.5" y="409.0" text-anchor="middle" fill="#222222" font-size="14" font-weight="bold" >Σd</text>
+<rect x="328.0" y="382.0" width="43.0" height="42.0" rx="0" fill="#e8e8e8" stroke="#666" stroke-width="1.2" />
+<text x="349.5" y="409.0" text-anchor="middle" fill="#222222" font-size="14" font-weight="bold" >Σa</text>
+<rect x="374.0" y="382.0" width="43.0" height="42.0" rx="0" fill="#e8e8e8" stroke="#666" stroke-width="1.2" />
+<text x="395.5" y="409.0" text-anchor="middle" fill="#222222" font-size="14" font-weight="bold" >Σb</text>
+<rect x="420.0" y="382.0" width="43.0" height="42.0" rx="0" fill="#e8e8e8" stroke="#666" stroke-width="1.2" />
+<text x="441.5" y="409.0" text-anchor="middle" fill="#222222" font-size="14" font-weight="bold" >Σc</text>
+<rect x="466.0" y="382.0" width="43.0" height="42.0" rx="0" fill="#e8e8e8" stroke="#666" stroke-width="1.2" />
+<text x="487.5" y="409.0" text-anchor="middle" fill="#222222" font-size="14" font-weight="bold" >Σd</text>
+<rect x="526.0" y="382.0" width="43.0" height="42.0" rx="0" fill="#e8e8e8" stroke="#666" stroke-width="1.2" />
+<text x="547.5" y="409.0" text-anchor="middle" fill="#222222" font-size="14" font-weight="bold" >Σa</text>
+<rect x="572.0" y="382.0" width="43.0" height="42.0" rx="0" fill="#e8e8e8" stroke="#666" stroke-width="1.2" />
+<text x="593.5" y="409.0" text-anchor="middle" fill="#222222" font-size="14" font-weight="bold" >Σb</text>
+<rect x="618.0" y="382.0" width="43.0" height="42.0" rx="0" fill="#e8e8e8" stroke="#666" stroke-width="1.2" />
+<text x="639.5" y="409.0" text-anchor="middle" fill="#222222" font-size="14" font-weight="bold" >Σc</text>
+<rect x="664.0" y="382.0" width="43.0" height="42.0" rx="0" fill="#e8e8e8" stroke="#666" stroke-width="1.2" />
+<text x="685.5" y="409.0" text-anchor="middle" fill="#222222" font-size="14" font-weight="bold" >Σd</text>
+<rect x="724.0" y="382.0" width="43.0" height="42.0" rx="0" fill="#e8e8e8" stroke="#666" stroke-width="1.2" />
+<text x="745.5" y="409.0" text-anchor="middle" fill="#222222" font-size="14" font-weight="bold" >Σa</text>
+<rect x="770.0" y="382.0" width="43.0" height="42.0" rx="0" fill="#e8e8e8" stroke="#666" stroke-width="1.2" />
+<text x="791.5" y="409.0" text-anchor="middle" fill="#222222" font-size="14" font-weight="bold" >Σb</text>
+<rect x="816.0" y="382.0" width="43.0" height="42.0" rx="0" fill="#e8e8e8" stroke="#666" stroke-width="1.2" />
+<text x="837.5" y="409.0" text-anchor="middle" fill="#222222" font-size="14" font-weight="bold" >Σc</text>
+<rect x="862.0" y="382.0" width="43.0" height="42.0" rx="0" fill="#e8e8e8" stroke="#666" stroke-width="1.2" />
+<text x="883.5" y="409.0" text-anchor="middle" fill="#222222" font-size="14" font-weight="bold" >Σd</text>
+<text x="130.0" y="446.0" text-anchor="start" fill="#222222" font-size="14" >第 4～6 步是 all-gather：每张卡把手上完整的那一块沿环往下传，3 步后每块走遍 4 张卡</text>
+<rect x="130.0" y="474.0" width="30.0" height="18.0" rx="0" fill="#fff" stroke="#c0392b" stroke-width="3" />
+<text x="168.0" y="488.0" text-anchor="start" fill="#222222" font-size="14" >粗红框：下一步要发给右边邻居的那一块</text>
+<rect x="460.0" y="474.0" width="26.0" height="18.0" rx="0" fill="#ffffff" stroke="#666" stroke-width="1.2" />
+<text x="492.0" y="488.0" text-anchor="start" fill="#222222" font-size="14" >含 1 张卡</text>
+<rect x="570.0" y="474.0" width="26.0" height="18.0" rx="0" fill="#fde2c4" stroke="#666" stroke-width="1.2" />
+<text x="602.0" y="488.0" text-anchor="start" fill="#222222" font-size="14" >含 2 张卡</text>
+<rect x="680.0" y="474.0" width="26.0" height="18.0" rx="0" fill="#f7b877" stroke="#666" stroke-width="1.2" />
+<text x="712.0" y="488.0" text-anchor="start" fill="#222222" font-size="14" >含 3 张卡</text>
+<rect x="790.0" y="474.0" width="26.0" height="18.0" rx="0" fill="#e8e8e8" stroke="#666" stroke-width="1.2" />
+<text x="822.0" y="488.0" text-anchor="start" fill="#222222" font-size="14" >含 4 张卡</text>
+</svg>

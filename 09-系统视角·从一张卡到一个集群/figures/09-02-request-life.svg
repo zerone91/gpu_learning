@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" font-family="sans-serif" font-size="15">
+<rect x="0" y="0" width="960" height="560" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#444"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/></marker><marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d9822b"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e7d32"/></marker><pattern id="h" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="#f4f4f4"/><line x1="0" y1="0" x2="0" y2="8" stroke="#bbb" stroke-width="2"/></pattern></defs>
+<text x="20.0" y="32.0" text-anchor="start" fill="#222222" font-size="19" font-weight="bold" >一个请求的一生：排队、一次性处理输入、再一个一个地吐字</text>
+<text x="20.0" y="58.0" text-anchor="start" fill="#555" font-size="15" >70B 级模型（GQA，每 token 的 KV 为 328 KB），输入 4096 个 token；时间轴不按比例，数值为量级示意</text>
+<rect x="60.0" y="130.0" width="120.0" height="50.0" rx="0" fill="url(#h)" stroke="#999" stroke-width="1.5" />
+<text x="120.0" y="160.0" text-anchor="middle" fill="#222222" font-size="15" >排队</text>
+<text x="120.0" y="200.0" text-anchor="middle" fill="#555" font-size="14" >等调度器放行</text>
+<rect x="180.0" y="130.0" width="230.0" height="50.0" rx="0" fill="#fde2c4" stroke="#d9822b" stroke-width="1.5" />
+<text x="295.0" y="154.0" text-anchor="middle" fill="#222222" font-size="15" font-weight="bold" >prefill</text>
+<text x="295.0" y="173.0" text-anchor="middle" fill="#222222" font-size="14" >4096 个 token 一次算完</text>
+<text x="295.0" y="200.0" text-anchor="middle" fill="#d9822b" font-size="14" >约 500 毫秒（算力受限）</text>
+<rect x="410.0" y="130.0" width="34.0" height="50.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5" />
+<text x="427.0" y="161.0" text-anchor="middle" fill="#222222" font-size="14" >2</text>
+<rect x="444.0" y="130.0" width="34.0" height="50.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5" />
+<text x="461.0" y="161.0" text-anchor="middle" fill="#222222" font-size="14" >3</text>
+<rect x="478.0" y="130.0" width="34.0" height="50.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5" />
+<text x="495.0" y="161.0" text-anchor="middle" fill="#222222" font-size="14" >4</text>
+<rect x="512.0" y="130.0" width="34.0" height="50.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5" />
+<text x="529.0" y="161.0" text-anchor="middle" fill="#222222" font-size="14" >5</text>
+<rect x="546.0" y="130.0" width="34.0" height="50.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5" />
+<text x="563.0" y="161.0" text-anchor="middle" fill="#222222" font-size="14" >6</text>
+<rect x="580.0" y="130.0" width="34.0" height="50.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5" />
+<text x="597.0" y="161.0" text-anchor="middle" fill="#222222" font-size="14" >7</text>
+<text x="644.0" y="161.0" text-anchor="middle" fill="#222222" font-size="16" >……</text>
+<rect x="674.0" y="130.0" width="34.0" height="50.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5" />
+<rect x="708.0" y="130.0" width="34.0" height="50.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5" />
+<text x="691.0" y="161.0" text-anchor="middle" fill="#222222" font-size="13" >D−1</text>
+<text x="725.0" y="161.0" text-anchor="middle" fill="#222222" font-size="14" >D</text>
+<text x="416.0" y="200.0" text-anchor="start" fill="#1f5fa8" font-size="14" >decode：每步 1 个 token，约 20 毫秒（带宽受限）</text>
+<line x1="60.0" y1="100.0" x2="60.0" y2="230.0" stroke="#222222" stroke-width="1.5" stroke-dasharray="4,3"/>
+<text x="60.0" y="94.0" text-anchor="middle" fill="#222222" font-size="14" >请求到达</text>
+<line x1="410.0" y1="100.0" x2="410.0" y2="230.0" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="4,3"/>
+<text x="410.0" y="94.0" text-anchor="middle" fill="#c0392b" font-size="14" >prefill 结束，吐出第 1 个 token</text>
+<line x1="742.0" y1="100.0" x2="742.0" y2="230.0" stroke="#222222" stroke-width="1.5" stroke-dasharray="4,3"/>
+<text x="742.0" y="94.0" text-anchor="middle" fill="#222222" font-size="14" >结束，释放 KV</text>
+<line x1="62.0" y1="230.0" x2="408.0" y2="230.0" stroke="#c0392b" stroke-width="2" marker-end="url(#ar)" marker-start="url(#ar)"/>
+<text x="235.0" y="252.0" text-anchor="middle" fill="#c0392b" font-size="15" font-weight="bold" >TTFT（首 token 延迟）= 排队 + prefill</text>
+<line x1="478.0" y1="230.0" x2="512.0" y2="230.0" stroke="#1f5fa8" stroke-width="2" marker-end="url(#ab)" marker-start="url(#ab)"/>
+<text x="495.0" y="252.0" text-anchor="middle" fill="#1f5fa8" font-size="15" font-weight="bold" >TPOT</text>
+<text x="495.0" y="272.0" text-anchor="middle" fill="#1f5fa8" font-size="14" >相邻两个 token 的间隔</text>
+<text x="20.0" y="318.0" text-anchor="start" fill="#222222" font-size="15" font-weight="bold" >这个请求占用的 KV cache（显存）</text>
+<line x1="60.0" y1="510.0" x2="900.0" y2="510.0" stroke="#444" stroke-width="1.5" marker-end="url(#a)"/>
+<line x1="60.0" y1="510.0" x2="60.0" y2="335.0" stroke="#444" stroke-width="1.5"/>
+<text x="905.0" y="515.0" text-anchor="start" fill="#222222" font-size="14" >时间</text>
+<line x1="55.0" y1="510.0" x2="60.0" y2="510.0" stroke="#444" stroke-width="1.5"/>
+<text x="50.0" y="515.0" text-anchor="end" fill="#222222" font-size="14" >0</text>
+<line x1="55.0" y1="462.8" x2="60.0" y2="462.8" stroke="#444" stroke-width="1.5"/>
+<text x="50.0" y="467.8" text-anchor="end" fill="#222222" font-size="14" >0.5</text>
+<line x1="55.0" y1="415.6" x2="60.0" y2="415.6" stroke="#444" stroke-width="1.5"/>
+<text x="50.0" y="420.6" text-anchor="end" fill="#222222" font-size="14" >1</text>
+<line x1="55.0" y1="368.3" x2="60.0" y2="368.3" stroke="#444" stroke-width="1.5"/>
+<text x="50.0" y="373.3" text-anchor="end" fill="#222222" font-size="14" >1.5</text>
+<text x="50.0" y="335.0" text-anchor="end" fill="#222222" font-size="14" >GB</text>
+<path d="M60.0,510.0 L180.0,510.0 L410.0,383.4 L742.0,352.3" stroke="#6a3d9a" stroke-width="3" fill="none"/>
+<line x1="742.0" y1="352.3" x2="742.0" y2="510.0" stroke="#6a3d9a" stroke-width="3"/>
+<text x="290.0" y="387.2" text-anchor="end" fill="#6a3d9a" font-size="14" >prefill 期间一口气写入</text>
+<text x="290.0" y="407.2" text-anchor="end" fill="#6a3d9a" font-size="14" >4096 × 328 KB ≈ 1.34 GB</text>
+<text x="560.0" y="330.3" text-anchor="middle" fill="#6a3d9a" font-size="14" >decode 每步只多 328 KB，1000 步后约 1.67 GB</text>
+<text x="750.0" y="490.0" text-anchor="start" fill="#6a3d9a" font-size="14" >一次还清</text>
+</svg>

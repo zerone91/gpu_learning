@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" font-family="sans-serif" font-size="15">
+<rect x="0" y="0" width="960" height="560" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#444"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/></marker><marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d9822b"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e7d32"/></marker><pattern id="h" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="#f4f4f4"/><line x1="0" y1="0" x2="0" y2="8" stroke="#bbb" stroke-width="2"/></pattern></defs>
+<text x="20.0" y="32.0" text-anchor="start" fill="#222222" font-size="19" font-weight="bold" >存一次检查点要让训练停多久：朴素、分片、分片加异步</text>
+<text x="20.0" y="58.0" text-anchor="start" fill="#555" font-size="14" >70B 模型，要存的模型状态共 1120 GB，1024 张卡；红色块是训练被挡住的时间（时间轴示意，不按比例）</text>
+<text x="20.0" y="96.0" text-anchor="start" fill="#222222" font-size="15" font-weight="bold" >① 朴素：先把全部状态汇总到一处，再写成一个文件</text>
+<text x="140.0" y="136.0" text-anchor="end" fill="#222222" font-size="14" font-weight="bold" >所有卡</text>
+<rect x="150.0" y="110.0" width="120.0" height="40.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5" />
+<text x="210.0" y="136.0" text-anchor="middle" fill="#222222" font-size="14" >训练</text>
+<rect x="270.0" y="110.0" width="440.0" height="40.0" rx="0" fill="#f6c6c0" stroke="#c0392b" stroke-width="2" />
+<text x="490.0" y="136.0" text-anchor="middle" fill="#222222" font-size="14" >汇总并写 1120 GB，按 10 GB/s 约 112 秒，所有卡干等</text>
+<rect x="710.0" y="110.0" width="220.0" height="40.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5" />
+<text x="820.0" y="136.0" text-anchor="middle" fill="#222222" font-size="14" >训练</text>
+<text x="20.0" y="211.0" text-anchor="start" fill="#222222" font-size="15" font-weight="bold" >② 分片：每张卡各写自己持有的那份（1120 ÷ 1024 ≈ 1.1 GB），1024 路同时写</text>
+<text x="140.0" y="251.0" text-anchor="end" fill="#222222" font-size="14" font-weight="bold" >所有卡</text>
+<rect x="150.0" y="225.0" width="120.0" height="40.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5" />
+<text x="210.0" y="251.0" text-anchor="middle" fill="#222222" font-size="14" >训练</text>
+<rect x="270.0" y="225.0" width="70.0" height="40.0" rx="0" fill="#f6c6c0" stroke="#c0392b" stroke-width="2" />
+<text x="305.0" y="251.0" text-anchor="middle" fill="#222222" font-size="14" >秒级</text>
+<rect x="340.0" y="225.0" width="590.0" height="40.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5" />
+<text x="635.0" y="251.0" text-anchor="middle" fill="#222222" font-size="14" >训练</text>
+<text x="350.0" y="289.0" text-anchor="start" fill="#555" font-size="14" >前提：并行文件系统扛得住上千个客户端同时写</text>
+<text x="20.0" y="331.0" text-anchor="start" fill="#222222" font-size="15" font-weight="bold" >③ 分片 + 异步：先把自己那份拷到本机主机内存，GPU 立刻继续；后台线程再慢慢写盘</text>
+<text x="140.0" y="371.0" text-anchor="end" fill="#222222" font-size="14" font-weight="bold" >GPU</text>
+<rect x="150.0" y="345.0" width="120.0" height="40.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5" />
+<text x="210.0" y="371.0" text-anchor="middle" fill="#222222" font-size="14" >训练</text>
+<rect x="270.0" y="345.0" width="14.0" height="40.0" rx="0" fill="#f6c6c0" stroke="#c0392b" stroke-width="2" />
+<rect x="284.0" y="345.0" width="646.0" height="40.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.5" />
+<text x="607.0" y="371.0" text-anchor="middle" fill="#222222" font-size="14" >训练</text>
+<text x="140.0" y="423.0" text-anchor="end" fill="#222222" font-size="14" font-weight="bold" >主机后台线程</text>
+<rect x="284.0" y="397.0" width="346.0" height="40.0" rx="0" fill="#fde2c4" stroke="#d9822b" stroke-width="1.5" />
+<text x="457.0" y="423.0" text-anchor="middle" fill="#222222" font-size="14" >把主机内存里那份写到存储</text>
+<line x1="277.0" y1="387.0" x2="290.0" y2="397.0" stroke="#d9822b" stroke-width="2" marker-end="url(#ao)"/>
+<text x="272.0" y="425.0" text-anchor="end" fill="#c0392b" font-size="14" >只等拷贝</text>
+<text x="20.0" y="500.0" text-anchor="start" fill="#c0392b" font-size="14" >被挡住的时间：① 约 112 秒 → ② 秒级（约两个数量级）→ ③ 只剩拷到主机内存的时间，通常再快约一个数量级</text>
+<text x="20.0" y="524.0" text-anchor="start" fill="#555" font-size="14" >按 §5.2 的公式，存一次的耗时 C 越小，最优间隔越短，可靠性造成的浪费越小</text>
+</svg>

@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="520" fill="#ffffff"/>
+<text x="480" y="28" font-size="18" text-anchor="middle" font-weight="bold" fill="#111">三条指令的逐拍跟踪：固定延迟由倒计数器放行，访存延迟由屏障计数放行</text>
+<text x="30" y="62" font-size="14" fill="#111" font-family="monospace">① LDG.E R4,[R2]   屏障 0 登记，stall=1</text>
+<text x="30" y="82" font-size="14" fill="#111" font-family="monospace">② FFMA R7,R5,R6,R7  与①无关，stall=4</text>
+<text x="30" y="102" font-size="14" fill="#111" font-family="monospace">③ FADD R8,R4,R7   等待掩码 = {屏障 0}</text>
+<text x="560" y="72" font-size="14" fill="#555">stall = 发射后本 warp 强制歇几拍（编译器写死）</text>
+<text x="560" y="94" font-size="14" fill="#555">屏障 0 = 硬件计数器：登记 +1，数据回来 −1</text>
+<text x="224.0" y="128" font-size="14" text-anchor="middle" fill="#111" font-weight="bold">0</text>
+<text x="292.0" y="128" font-size="14" text-anchor="middle" fill="#111" font-weight="bold">1</text>
+<text x="360.0" y="128" font-size="14" text-anchor="middle" fill="#111" font-weight="bold">2</text>
+<text x="428.0" y="128" font-size="14" text-anchor="middle" fill="#111" font-weight="bold">3</text>
+<text x="496.0" y="128" font-size="14" text-anchor="middle" fill="#111" font-weight="bold">4</text>
+<text x="564.0" y="128" font-size="14" text-anchor="middle" fill="#111" font-weight="bold">5</text>
+<text x="632.0" y="128" font-size="14" text-anchor="middle" fill="#111" font-weight="bold">6</text>
+<text x="700.0" y="128" font-size="14" text-anchor="middle" fill="#111" font-weight="bold">…</text>
+<text x="768.0" y="128" font-size="14" text-anchor="middle" fill="#111" font-weight="bold">400</text>
+<text x="836.0" y="128" font-size="14" text-anchor="middle" fill="#111" font-weight="bold">401</text>
+<text x="904.0" y="128" font-size="14" text-anchor="middle" fill="#111" font-weight="bold">402</text>
+<text x="30" y="128" font-size="14" fill="#111" font-weight="bold">拍</text>
+<text x="30" y="170" font-size="14" fill="#111">本 warp 发射</text>
+<rect x="190" y="140" width="68" height="44" fill="#8fcf8f" stroke="#999" stroke-width="1"/>
+<text x="224.0" y="168" font-size="14" text-anchor="middle" fill="#111">①</text>
+<rect x="258" y="140" width="68" height="44" fill="#8fcf8f" stroke="#999" stroke-width="1"/>
+<text x="292.0" y="168" font-size="14" text-anchor="middle" fill="#111">②</text>
+<rect x="326" y="140" width="68" height="44" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<text x="360.0" y="168" font-size="14" text-anchor="middle" fill="#111"></text>
+<rect x="394" y="140" width="68" height="44" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<text x="428.0" y="168" font-size="14" text-anchor="middle" fill="#111"></text>
+<rect x="462" y="140" width="68" height="44" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<text x="496.0" y="168" font-size="14" text-anchor="middle" fill="#111"></text>
+<rect x="530" y="140" width="68" height="44" fill="#f2c9c9" stroke="#999" stroke-width="1"/>
+<text x="564.0" y="168" font-size="14" text-anchor="middle" fill="#111">③ 被拦</text>
+<rect x="598" y="140" width="68" height="44" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<text x="632.0" y="168" font-size="14" text-anchor="middle" fill="#111"></text>
+<rect x="666" y="140" width="68" height="44" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<text x="700.0" y="168" font-size="14" text-anchor="middle" fill="#111"></text>
+<rect x="734" y="140" width="68" height="44" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<text x="768.0" y="168" font-size="14" text-anchor="middle" fill="#111"></text>
+<rect x="802" y="140" width="68" height="44" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<text x="836.0" y="168" font-size="14" text-anchor="middle" fill="#111"></text>
+<rect x="870" y="140" width="68" height="44" fill="#8fcf8f" stroke="#999" stroke-width="1"/>
+<text x="904.0" y="168" font-size="14" text-anchor="middle" fill="#111">③</text>
+<text x="30" y="222" font-size="14" fill="#111">stall 倒计数</text>
+<rect x="190" y="192" width="68" height="44" fill="#f9e0a0" stroke="#999" stroke-width="1"/>
+<text x="224.0" y="220" font-size="14" text-anchor="middle" fill="#111">1</text>
+<rect x="258" y="192" width="68" height="44" fill="#f9e0a0" stroke="#999" stroke-width="1"/>
+<text x="292.0" y="220" font-size="14" text-anchor="middle" fill="#111">4</text>
+<rect x="326" y="192" width="68" height="44" fill="#f9e0a0" stroke="#999" stroke-width="1"/>
+<text x="360.0" y="220" font-size="14" text-anchor="middle" fill="#111">3</text>
+<rect x="394" y="192" width="68" height="44" fill="#f9e0a0" stroke="#999" stroke-width="1"/>
+<text x="428.0" y="220" font-size="14" text-anchor="middle" fill="#111">2</text>
+<rect x="462" y="192" width="68" height="44" fill="#f9e0a0" stroke="#999" stroke-width="1"/>
+<text x="496.0" y="220" font-size="14" text-anchor="middle" fill="#111">1</text>
+<rect x="530" y="192" width="68" height="44" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<text x="564.0" y="220" font-size="14" text-anchor="middle" fill="#111">0</text>
+<rect x="598" y="192" width="68" height="44" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<text x="632.0" y="220" font-size="14" text-anchor="middle" fill="#111">0</text>
+<rect x="666" y="192" width="68" height="44" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<text x="700.0" y="220" font-size="14" text-anchor="middle" fill="#111"></text>
+<rect x="734" y="192" width="68" height="44" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<text x="768.0" y="220" font-size="14" text-anchor="middle" fill="#111">0</text>
+<rect x="802" y="192" width="68" height="44" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<text x="836.0" y="220" font-size="14" text-anchor="middle" fill="#111">0</text>
+<rect x="870" y="192" width="68" height="44" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<text x="904.0" y="220" font-size="14" text-anchor="middle" fill="#111"></text>
+<text x="30" y="274" font-size="14" fill="#111">屏障 0 计数</text>
+<rect x="190" y="244" width="68" height="44" fill="#d6e4f5" stroke="#999" stroke-width="1"/>
+<text x="224.0" y="272" font-size="14" text-anchor="middle" fill="#111">1</text>
+<rect x="258" y="244" width="68" height="44" fill="#d6e4f5" stroke="#999" stroke-width="1"/>
+<text x="292.0" y="272" font-size="14" text-anchor="middle" fill="#111">1</text>
+<rect x="326" y="244" width="68" height="44" fill="#d6e4f5" stroke="#999" stroke-width="1"/>
+<text x="360.0" y="272" font-size="14" text-anchor="middle" fill="#111">1</text>
+<rect x="394" y="244" width="68" height="44" fill="#d6e4f5" stroke="#999" stroke-width="1"/>
+<text x="428.0" y="272" font-size="14" text-anchor="middle" fill="#111">1</text>
+<rect x="462" y="244" width="68" height="44" fill="#d6e4f5" stroke="#999" stroke-width="1"/>
+<text x="496.0" y="272" font-size="14" text-anchor="middle" fill="#111">1</text>
+<rect x="530" y="244" width="68" height="44" fill="#d6e4f5" stroke="#999" stroke-width="1"/>
+<text x="564.0" y="272" font-size="14" text-anchor="middle" fill="#111">1</text>
+<rect x="598" y="244" width="68" height="44" fill="#d6e4f5" stroke="#999" stroke-width="1"/>
+<text x="632.0" y="272" font-size="14" text-anchor="middle" fill="#111">1</text>
+<rect x="666" y="244" width="68" height="44" fill="#d6e4f5" stroke="#999" stroke-width="1"/>
+<text x="700.0" y="272" font-size="14" text-anchor="middle" fill="#111">1</text>
+<rect x="734" y="244" width="68" height="44" fill="#d6e4f5" stroke="#999" stroke-width="1"/>
+<text x="768.0" y="272" font-size="14" text-anchor="middle" fill="#111">1</text>
+<rect x="802" y="244" width="68" height="44" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<text x="836.0" y="272" font-size="14" text-anchor="middle" fill="#111">0</text>
+<rect x="870" y="244" width="68" height="44" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<text x="904.0" y="272" font-size="14" text-anchor="middle" fill="#111">0</text>
+<text x="30" y="326" font-size="14" fill="#111">本 warp 状态</text>
+<rect x="190" y="296" width="68" height="44" fill="#8fcf8f" stroke="#999" stroke-width="1"/>
+<text x="224.0" y="324" font-size="14" text-anchor="middle" fill="#111">发射</text>
+<rect x="258" y="296" width="68" height="44" fill="#8fcf8f" stroke="#999" stroke-width="1"/>
+<text x="292.0" y="324" font-size="14" text-anchor="middle" fill="#111">发射</text>
+<rect x="326" y="296" width="68" height="44" fill="#f9e0a0" stroke="#999" stroke-width="1"/>
+<text x="360.0" y="324" font-size="14" text-anchor="middle" fill="#111">歇</text>
+<rect x="394" y="296" width="68" height="44" fill="#f9e0a0" stroke="#999" stroke-width="1"/>
+<text x="428.0" y="324" font-size="14" text-anchor="middle" fill="#111">歇</text>
+<rect x="462" y="296" width="68" height="44" fill="#f9e0a0" stroke="#999" stroke-width="1"/>
+<text x="496.0" y="324" font-size="14" text-anchor="middle" fill="#111">歇</text>
+<rect x="530" y="296" width="68" height="44" fill="#f2c9c9" stroke="#999" stroke-width="1"/>
+<text x="564.0" y="324" font-size="14" text-anchor="middle" fill="#111">挂起</text>
+<rect x="598" y="296" width="68" height="44" fill="#f2c9c9" stroke="#999" stroke-width="1"/>
+<text x="632.0" y="324" font-size="14" text-anchor="middle" fill="#111">挂起</text>
+<rect x="666" y="296" width="68" height="44" fill="#f2c9c9" stroke="#999" stroke-width="1"/>
+<text x="700.0" y="324" font-size="14" text-anchor="middle" fill="#111">挂起</text>
+<rect x="734" y="296" width="68" height="44" fill="#f2c9c9" stroke="#999" stroke-width="1"/>
+<text x="768.0" y="324" font-size="14" text-anchor="middle" fill="#111">挂起</text>
+<rect x="802" y="296" width="68" height="44" fill="#ffffff" stroke="#999" stroke-width="1"/>
+<text x="836.0" y="324" font-size="14" text-anchor="middle" fill="#111">就绪</text>
+<rect x="870" y="296" width="68" height="44" fill="#8fcf8f" stroke="#999" stroke-width="1"/>
+<text x="904.0" y="324" font-size="14" text-anchor="middle" fill="#111">发射</text>
+<text x="30" y="374" font-size="14" fill="#111">调度器在第 2～4 拍、第 5～400 拍发的是<tspan font-weight="bold">别的 warp</tspan>的指令：短空窗靠 ILP 或别的 warp 填，长空窗只能靠别的 warp 填。</text>
+<text x="30" y="398" font-size="14" fill="#111">第 5 拍：stall 已数到 0，但③的等待掩码要求屏障 0 为 0，它还是 1 → 不许发射，warp 挂起，调度器从此不再看它。</text>
+<text x="30" y="422" font-size="14" fill="#111">第 401 拍：显存数据写进 R4，硬件把屏障 0 减到 0 → 就绪位置 1；第 402 拍发射③。R7 由②的 stall=4 保证早已算好。</text>
+<text x="30" y="454" font-size="14" fill="#555">“第 401 拍数据回来”是示意（约 400 拍的显存延迟）；stall 计数的显示方式为示意：②发射后置 4，每拍减 1，减到 0 才放行下一条。</text>
+</svg>

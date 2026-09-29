@@ -137,14 +137,14 @@ def cmd_check(a):
             lines = open(f, encoding="utf-8").read().split("\n")
             nums = []
             for i, l in enumerate(lines):
-                for p in re.findall(r"!\[[^\]]*\]\((\./figures/[^)\s]+)\)", l):
+                for p in re.findall(r"!\[(?:[^\[\]]|\[[^\[\]]*\])*\]\((\./figures/[^)\s]+)\)", l):
                     used.add(os.path.basename(p))
                     if not os.path.exists(os.path.join(d, p)):
                         print(f"[缺文件] {f}:{i+1} {p}"); problems += 1
                     blk = lines[i + 1:i + 60]
                     if not any(x.startswith("> 来源：") for x in blk):
                         print(f"[无来源] {f}:{i+1}"); problems += 1
-                m = re.match(r"> \*\*图 ([\d]+-\d+)\*\*", l)
+                m = re.match(r"> \*\*图 ([A-Z]?\d+-\d+)\*\*", l)
                 if m:
                     nums.append(m.group(1))
                 if l.startswith("> 来源：") and i and lines[i - 1].startswith("> ") and lines[i - 1].strip() != ">":

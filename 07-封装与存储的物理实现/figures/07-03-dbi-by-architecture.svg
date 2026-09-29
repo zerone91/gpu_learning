@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" width="960" height="620" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="620" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker></defs>
+<text x="480" y="28" font-size="18" text-anchor="middle" fill="#222" font-weight="bold">架构级数据总线反相：和前一个 flit 比，标记位存进 DRAM</text>
+<text x="200" y="58" font-size="15" text-anchor="middle" font-weight="bold">（a）不做 DBI：原样发出</text>
+<text x="125.0" y="78" font-size="13" text-anchor="middle" fill="#555">Flit 0</text>
+<text x="235.0" y="78" font-size="13" text-anchor="middle" fill="#555">Flit 1</text>
+<text x="345.0" y="78" font-size="13" text-anchor="middle" fill="#555">Flit 2</text>
+<text x="60" y="114" font-size="12" text-anchor="end" fill="#555">线 0</text>
+<circle cx="180" cy="111" r="7" fill="none" stroke="#c0392b" stroke-width="2"/>
+<circle cx="290" cy="111" r="7" fill="none" stroke="#c0392b" stroke-width="2"/>
+<polyline points="70,122 180,122 180,100 290,100 290,122 400,122" fill="none" stroke="#1f4e79" stroke-width="2.5"/>
+<text x="60" y="156" font-size="12" text-anchor="end" fill="#555">线 1</text>
+<circle cx="180" cy="153" r="7" fill="none" stroke="#c0392b" stroke-width="2"/>
+<circle cx="290" cy="153" r="7" fill="none" stroke="#c0392b" stroke-width="2"/>
+<polyline points="70,164 180,164 180,142 290,142 290,164 400,164" fill="none" stroke="#1f4e79" stroke-width="2.5"/>
+<text x="60" y="198" font-size="12" text-anchor="end" fill="#555">线 2</text>
+<circle cx="180" cy="195" r="7" fill="none" stroke="#c0392b" stroke-width="2"/>
+<circle cx="290" cy="195" r="7" fill="none" stroke="#c0392b" stroke-width="2"/>
+<polyline points="70,206 180,206 180,184 290,184 290,206 400,206" fill="none" stroke="#1f4e79" stroke-width="2.5"/>
+<text x="60" y="240" font-size="12" text-anchor="end" fill="#555">线 3</text>
+<circle cx="180" cy="237" r="7" fill="none" stroke="#c0392b" stroke-width="2"/>
+<circle cx="290" cy="237" r="7" fill="none" stroke="#c0392b" stroke-width="2"/>
+<polyline points="70,248 180,248 180,226 290,226 290,248 400,248" fill="none" stroke="#1f4e79" stroke-width="2.5"/>
+<line x1="70" y1="88" x2="70" y2="266" stroke="#ccc" stroke-width="1"/>
+<line x1="180" y1="88" x2="180" y2="266" stroke="#ccc" stroke-width="1"/>
+<line x1="290" y1="88" x2="290" y2="266" stroke="#ccc" stroke-width="1"/>
+<line x1="400" y1="88" x2="400" y2="266" stroke="#ccc" stroke-width="1"/>
+<text x="670" y="58" font-size="15" text-anchor="middle" font-weight="bold">（b）做 DBI：与前一个 flit 比较</text>
+<text x="595.0" y="78" font-size="13" text-anchor="middle" fill="#555">Flit 0</text>
+<text x="705.0" y="78" font-size="13" text-anchor="middle" fill="#555">Flit 1</text>
+<text x="815.0" y="78" font-size="13" text-anchor="middle" fill="#555">Flit 2</text>
+<text x="530" y="114" font-size="12" text-anchor="end" fill="#555">线 0</text>
+<polyline points="540,122 650,122 650,122 760,122 760,122 870,122" fill="none" stroke="#1f4e79" stroke-width="2.5"/>
+<text x="530" y="156" font-size="12" text-anchor="end" fill="#555">线 1</text>
+<polyline points="540,164 650,164 650,164 760,164 760,164 870,164" fill="none" stroke="#1f4e79" stroke-width="2.5"/>
+<text x="530" y="198" font-size="12" text-anchor="end" fill="#555">线 2</text>
+<polyline points="540,206 650,206 650,206 760,206 760,206 870,206" fill="none" stroke="#1f4e79" stroke-width="2.5"/>
+<text x="530" y="240" font-size="12" text-anchor="end" fill="#555">线 3</text>
+<polyline points="540,248 650,248 650,248 760,248 760,248 870,248" fill="none" stroke="#1f4e79" stroke-width="2.5"/>
+<line x1="540" y1="88" x2="540" y2="266" stroke="#ccc" stroke-width="1"/>
+<line x1="650" y1="88" x2="650" y2="266" stroke="#ccc" stroke-width="1"/>
+<line x1="760" y1="88" x2="760" y2="266" stroke="#ccc" stroke-width="1"/>
+<line x1="870" y1="88" x2="870" y2="266" stroke="#ccc" stroke-width="1"/>
+<text x="595" y="284" font-size="13" text-anchor="middle" fill="#555" font-weight="bold">标记 = 0</text>
+<text x="705" y="284" font-size="13" text-anchor="middle" fill="#c0392b" font-weight="bold">标记 = 1</text>
+<text x="815" y="284" font-size="13" text-anchor="middle" fill="#555" font-weight="bold">标记 = 0</text>
+<text x="200" y="312" font-size="14" text-anchor="middle" fill="#c0392b" font-weight="bold">红圈 = 一次翻转：每根线翻 2 次</text>
+<text x="700" y="312" font-size="14" text-anchor="middle" fill="#1e7b34" font-weight="bold">线上一直是 0：翻转 0 次</text>
+<text x="700" y="332" font-size="13" text-anchor="middle" fill="#555">Flit 1 本来是全 1，与上一拍相比要翻 100%，超过一半，取反后发全 0</text>
+<text x="480" y="358" font-size="13" text-anchor="middle" fill="#555">（示意只画 4 根线；真实链路一次并行传 256 比特，每个 flit 128 字节）</text>
+<text x="30" y="428" font-size="15" font-weight="bold">写</text>
+<rect x="60" y="392" width="200" height="60" fill="#dbe6f3" stroke="#222" stroke-width="1.5" rx="5"/>
+<text x="160.0" y="416" font-size="14" text-anchor="middle" font-weight="bold">控制器：和前一个 flit 比</text>
+<text x="160.0" y="437" font-size="12" text-anchor="middle">翻转超过一半就整体取反</text>
+<rect x="320" y="392" width="180" height="60" fill="#eeeeee" stroke="#222" stroke-width="1.5" rx="5"/>
+<text x="410.0" y="416" font-size="14" text-anchor="middle" font-weight="bold">经 TSV 链路发送</text>
+<text x="410.0" y="437" font-size="12" text-anchor="middle">不加任何引脚</text>
+<rect x="560" y="392" width="340" height="60" fill="#e0d4ec" stroke="#222" stroke-width="1.5" rx="5"/>
+<text x="730.0" y="416" font-size="14" text-anchor="middle" font-weight="bold">DRAM：数据 + 1 位标记</text>
+<text x="730.0" y="437" font-size="12" text-anchor="middle">标记和纠错码元数据存在一起</text>
+<line x1="262" y1="422" x2="318" y2="422" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<line x1="502" y1="422" x2="558" y2="422" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<text x="30" y="518" font-size="15" font-weight="bold">读</text>
+<rect x="560" y="482" width="340" height="60" fill="#e0d4ec" stroke="#222" stroke-width="1.5" rx="5"/>
+<text x="730.0" y="506" font-size="14" text-anchor="middle" font-weight="bold">DRAM：先取出这 1 位标记</text>
+<text x="730.0" y="527" font-size="12" text-anchor="middle">连同数据一起读出</text>
+<rect x="320" y="482" width="180" height="60" fill="#eeeeee" stroke="#222" stroke-width="1.5" rx="5"/>
+<text x="410.0" y="506" font-size="14" text-anchor="middle" font-weight="bold">经 TSV 链路返回</text>
+<text x="410.0" y="527" font-size="12" text-anchor="middle"></text>
+<rect x="60" y="482" width="200" height="60" fill="#dbe6f3" stroke="#222" stroke-width="1.5" rx="5"/>
+<text x="160.0" y="506" font-size="14" text-anchor="middle" font-weight="bold">控制器：标记为 1 就取反</text>
+<text x="160.0" y="527" font-size="12" text-anchor="middle">把原数据交给上层</text>
+<line x1="558" y1="512" x2="502" y2="512" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<line x1="318" y1="512" x2="262" y2="512" stroke="#222" stroke-width="2" marker-end="url(#a)"/>
+<text x="480" y="580" font-size="14" text-anchor="middle" font-weight="bold">账：约 0.8% 的存储开销，换来约 20% 的接口功耗；物理层电路一个门都不改</text>
+</svg>

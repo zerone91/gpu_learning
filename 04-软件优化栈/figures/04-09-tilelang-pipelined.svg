@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" width="960" height="500" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="500" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222222"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f6db5"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777777"/></marker><marker id="o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c77a12"/></marker><marker id="n" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e8b57"/></marker><marker id="p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7a4fb0"/></marker></defs>
+<text x="480" y="32" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold">T.Pipelined(num_stages=3) 生成的流水：K 方向 6 块、3 个 shared 缓冲槽轮转</text>
+<g transform="translate(0,30)">
+<text x="224.0" y="78" font-size="15" text-anchor="middle" fill="#c77a12" font-weight="bold">序幕</text>
+<text x="332.0" y="78" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">第 0 轮</text>
+<text x="440.0" y="78" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">第 1 轮</text>
+<text x="548.0" y="78" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">第 2 轮</text>
+<text x="656.0" y="78" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">第 3 轮</text>
+<text x="764.0" y="78" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">第 4 轮</text>
+<text x="872.0" y="78" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">第 5 轮</text>
+<text x="818.0" y="58" font-size="14" text-anchor="start" fill="#222222"></text>
+<path d="M714,62 L714,56 L922,56 L922,62" fill="none" stroke="#777777" stroke-width="1.5"/>
+<text x="818" y="50" font-size="14" text-anchor="middle" fill="#777777">收尾：只算不搬</text>
+<text x="24" y="122" font-size="16" text-anchor="start" fill="#222222" font-weight="bold">拷贝引擎</text>
+<text x="24" y="142" font-size="13" text-anchor="start" fill="#444444">（cp.async / TMA）</text>
+<line x1="170" y1="164" x2="926" y2="164" stroke="#eeeeee" stroke-width="1.5"/>
+<text x="24" y="202" font-size="16" text-anchor="start" fill="#222222" font-weight="bold">Tensor Core</text>
+<text x="24" y="222" font-size="13" text-anchor="start" fill="#444444">（T.gemm）</text>
+<line x1="170" y1="244" x2="926" y2="244" stroke="#eeeeee" stroke-width="1.5"/>
+<rect x="174" y="100" width="100" height="26" rx="6" fill="#dbe7f5" stroke="#2f6db5" stroke-width="2"/>
+<text x="224.0" y="117.55" font-size="13" text-anchor="middle" fill="#222222">块0→槽0</text>
+<rect x="174" y="130" width="100" height="26" rx="6" fill="#f8e8cf" stroke="#c77a12" stroke-width="2"/>
+<text x="224.0" y="147.55" font-size="13" text-anchor="middle" fill="#222222">块1→槽1</text>
+<text x="224.0" y="214" font-size="14" text-anchor="middle" fill="#777777">空等</text>
+<rect x="282" y="106" width="100" height="44" rx="6" fill="#d9efe2" stroke="#2e8b57" stroke-width="2"/>
+<text x="332.0" y="132.9" font-size="14" text-anchor="middle" fill="#222222">块2→槽2</text>
+<rect x="282" y="186" width="100" height="44" rx="6" fill="#dbe7f5" stroke="#2f6db5" stroke-width="2"/>
+<text x="332.0" y="204.10000000000002" font-size="13" text-anchor="middle" fill="#222222" font-weight="bold"><tspan x="332.0" dy="0">算块0</tspan><tspan x="332.0" dy="16.9">（槽0）</tspan></text>
+<rect x="390" y="106" width="100" height="44" rx="6" fill="#dbe7f5" stroke="#2f6db5" stroke-width="2"/>
+<text x="440.0" y="132.9" font-size="14" text-anchor="middle" fill="#222222">块3→槽0</text>
+<rect x="390" y="186" width="100" height="44" rx="6" fill="#f8e8cf" stroke="#c77a12" stroke-width="2"/>
+<text x="440.0" y="204.10000000000002" font-size="13" text-anchor="middle" fill="#222222" font-weight="bold"><tspan x="440.0" dy="0">算块1</tspan><tspan x="440.0" dy="16.9">（槽1）</tspan></text>
+<rect x="498" y="106" width="100" height="44" rx="6" fill="#f8e8cf" stroke="#c77a12" stroke-width="2"/>
+<text x="548.0" y="132.9" font-size="14" text-anchor="middle" fill="#222222">块4→槽1</text>
+<rect x="498" y="186" width="100" height="44" rx="6" fill="#d9efe2" stroke="#2e8b57" stroke-width="2"/>
+<text x="548.0" y="204.10000000000002" font-size="13" text-anchor="middle" fill="#222222" font-weight="bold"><tspan x="548.0" dy="0">算块2</tspan><tspan x="548.0" dy="16.9">（槽2）</tspan></text>
+<rect x="606" y="106" width="100" height="44" rx="6" fill="#d9efe2" stroke="#2e8b57" stroke-width="2"/>
+<text x="656.0" y="132.9" font-size="14" text-anchor="middle" fill="#222222">块5→槽2</text>
+<rect x="606" y="186" width="100" height="44" rx="6" fill="#dbe7f5" stroke="#2f6db5" stroke-width="2"/>
+<text x="656.0" y="204.10000000000002" font-size="13" text-anchor="middle" fill="#222222" font-weight="bold"><tspan x="656.0" dy="0">算块3</tspan><tspan x="656.0" dy="16.9">（槽0）</tspan></text>
+<text x="764.0" y="134" font-size="16" text-anchor="middle" fill="#777777">—</text>
+<rect x="714" y="186" width="100" height="44" rx="6" fill="#f8e8cf" stroke="#c77a12" stroke-width="2"/>
+<text x="764.0" y="204.10000000000002" font-size="13" text-anchor="middle" fill="#222222" font-weight="bold"><tspan x="764.0" dy="0">算块4</tspan><tspan x="764.0" dy="16.9">（槽1）</tspan></text>
+<text x="872.0" y="134" font-size="16" text-anchor="middle" fill="#777777">—</text>
+<rect x="822" y="186" width="100" height="44" rx="6" fill="#d9efe2" stroke="#2e8b57" stroke-width="2"/>
+<text x="872.0" y="204.10000000000002" font-size="13" text-anchor="middle" fill="#222222" font-weight="bold"><tspan x="872.0" dy="0">算块5</tspan><tspan x="872.0" dy="16.9">（槽2）</tspan></text>
+<line x1="278" y1="176" x2="278" y2="244" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="4 3"/>
+<line x1="386" y1="176" x2="386" y2="244" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="4 3"/>
+<line x1="494" y1="176" x2="494" y2="244" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="4 3"/>
+<line x1="602" y1="176" x2="602" y2="244" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="4 3"/>
+<line x1="710" y1="176" x2="710" y2="244" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="4 3"/>
+<line x1="818" y1="176" x2="818" y2="244" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="4 3"/>
+<text x="278" y="262" font-size="14" text-anchor="start" fill="#c0392b">红虚线：每轮计算前的屏障，“等第 k 块到货”</text>
+<line x1="170" y1="290" x2="926" y2="290" stroke="#444444" stroke-width="2" marker-end="url(#a)"/>
+<text x="926" y="312" font-size="14" text-anchor="end" fill="#444444">时间 →</text>
+<line x1="366" y1="186" x2="404" y2="152" stroke="#2f6db5" stroke-width="2" marker-end="url(#b)"/>
+<text x="488.0" y="346" font-size="14" text-anchor="middle" fill="#2f6db5">蓝箭头：槽 0 在第 1 轮才被块 3 覆盖：此时块 0 已在第 0 轮算完，不会冲掉还没用的数据</text>
+<rect x="60" y="380" width="30" height="22" rx="0" fill="#dbe7f5" stroke="#2f6db5" stroke-width="2"/>
+<text x="100" y="397" font-size="14" text-anchor="start" fill="#222222">shared 缓冲槽 0</text>
+<rect x="240" y="380" width="30" height="22" rx="0" fill="#f8e8cf" stroke="#c77a12" stroke-width="2"/>
+<text x="280" y="397" font-size="14" text-anchor="start" fill="#222222">shared 缓冲槽 1</text>
+<rect x="420" y="380" width="30" height="22" rx="0" fill="#d9efe2" stroke="#2e8b57" stroke-width="2"/>
+<text x="460" y="397" font-size="14" text-anchor="start" fill="#222222">shared 缓冲槽 2</text>
+<text x="60" y="436" font-size="14" text-anchor="start" fill="#444444">稳态规律：第 k 轮一边把第 k+2 块搬进槽 (k+2) mod 3，一边计算槽 k mod 3 里的第 k 块。</text>
+<text x="60" y="458" font-size="14" text-anchor="start" fill="#444444">源码里只有两个决定：num_stages = 3，以及流水化的是 ko 这层循环；其余全部由编译器生成。</text>
+</g>
+</svg>

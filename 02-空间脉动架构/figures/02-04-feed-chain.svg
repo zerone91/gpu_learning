@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470" width="960" height="470" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="470" fill="#ffffff"/>
+<defs><marker id="mk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e6fb7"/></marker><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f8a4a"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d9822b"/></marker><marker id="my" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777"/></marker><marker id="mp" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7b4fa0"/></marker></defs>
+<text x="480" y="31.9" font-size="17" text-anchor="middle" fill="#222" font-weight="bold">喂食链：128×128 阵列、1 GHz，每一级靠复用把带宽需求降下来</text>
+<rect x="30" y="150" width="170" height="150" rx="6" fill="#e8e8e8" stroke="#222" stroke-width="2" />
+<text x="115" y="205.9" font-size="17" text-anchor="middle" fill="#222" font-weight="bold">片外 DRAM</text>
+<text x="115" y="232.9" font-size="14" text-anchor="middle" fill="#777">容量几十 GB</text>
+<text x="115" y="254.9" font-size="14" text-anchor="middle" fill="#777">供数几十 GB/s</text>
+<rect x="270" y="180" width="110" height="90" rx="6" fill="#e9ddf3" stroke="#7b4fa0" stroke-width="2" />
+<text x="325" y="217.6" font-size="16" text-anchor="middle" fill="#222" font-weight="bold">DMA</text>
+<text x="325" y="242.9" font-size="14" text-anchor="middle" fill="#222">搬运引擎</text>
+<rect x="450" y="130" width="200" height="190" rx="6" fill="#fbe3c8" stroke="#d9822b" stroke-width="2" />
+<text x="550" y="160.6" font-size="16" text-anchor="middle" fill="#222" font-weight="bold">scratchpad</text>
+<text x="550" y="182.9" font-size="14" text-anchor="middle" fill="#222">片上 SRAM，约 24 MB</text>
+<rect x="470" y="200" width="75" height="90" rx="0" fill="#fff" stroke="#d9822b" stroke-width="1.6" />
+<text x="507" y="240.6" font-size="16" text-anchor="middle" fill="#222" font-weight="bold">甲</text>
+<text x="507" y="266.9" font-size="14" text-anchor="middle" fill="#777">正在用</text>
+<rect x="555" y="200" width="75" height="90" rx="0" fill="#fff" stroke="#d9822b" stroke-width="1.6" stroke-dasharray="5 3" />
+<text x="592" y="240.6" font-size="16" text-anchor="middle" fill="#222" font-weight="bold">乙</text>
+<text x="592" y="266.9" font-size="14" text-anchor="middle" fill="#777">正在装</text>
+<rect x="760" y="140" width="24" height="24" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.2" />
+<rect x="788" y="140" width="24" height="24" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.2" />
+<rect x="816" y="140" width="24" height="24" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.2" />
+<rect x="844" y="140" width="24" height="24" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.2" />
+<rect x="872" y="140" width="24" height="24" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.2" />
+<rect x="900" y="140" width="24" height="24" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.2" />
+<rect x="760" y="168" width="24" height="24" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.2" />
+<rect x="788" y="168" width="24" height="24" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.2" />
+<rect x="816" y="168" width="24" height="24" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.2" />
+<rect x="844" y="168" width="24" height="24" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.2" />
+<rect x="872" y="168" width="24" height="24" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.2" />
+<rect x="900" y="168" width="24" height="24" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.2" />
+<rect x="760" y="196" width="24" height="24" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.2" />
+<rect x="788" y="196" width="24" height="24" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.2" />
+<rect x="816" y="196" width="24" height="24" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.2" />
+<rect x="844" y="196" width="24" height="24" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.2" />
+<rect x="872" y="196" width="24" height="24" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.2" />
+<rect x="900" y="196" width="24" height="24" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.2" />
+<rect x="760" y="224" width="24" height="24" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.2" />
+<rect x="788" y="224" width="24" height="24" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.2" />
+<rect x="816" y="224" width="24" height="24" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.2" />
+<rect x="844" y="224" width="24" height="24" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.2" />
+<rect x="872" y="224" width="24" height="24" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.2" />
+<rect x="900" y="224" width="24" height="24" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.2" />
+<rect x="760" y="252" width="24" height="24" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.2" />
+<rect x="788" y="252" width="24" height="24" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.2" />
+<rect x="816" y="252" width="24" height="24" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.2" />
+<rect x="844" y="252" width="24" height="24" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.2" />
+<rect x="872" y="252" width="24" height="24" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.2" />
+<rect x="900" y="252" width="24" height="24" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.2" />
+<rect x="760" y="280" width="24" height="24" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.2" />
+<rect x="788" y="280" width="24" height="24" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.2" />
+<rect x="816" y="280" width="24" height="24" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.2" />
+<rect x="844" y="280" width="24" height="24" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.2" />
+<rect x="872" y="280" width="24" height="24" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.2" />
+<rect x="900" y="280" width="24" height="24" rx="0" fill="#d7efdc" stroke="#2f8a4a" stroke-width="1.2" />
+<text x="842" y="129.2" font-size="15" text-anchor="middle" fill="#222" font-weight="bold">128×128 阵列</text>
+<line x1="200" y1="225" x2="268" y2="225" stroke="#2e6fb7" stroke-width="3" marker-end="url(#mb)"/>
+<line x1="380" y1="225" x2="448" y2="225" stroke="#2e6fb7" stroke-width="3" marker-end="url(#mb)"/>
+<text x="325" y="155.2" font-size="15" text-anchor="middle" fill="#2e6fb7" font-weight="bold">约 60 GB/s 就够</text>
+<text x="325" y="304.9" font-size="14" text-anchor="middle" fill="#777">每个数只搬一次</text>
+<line x1="650" y1="225" x2="755" y2="225" stroke="#2f8a4a" stroke-width="4" marker-end="url(#mg)"/>
+<text x="703" y="203.2" font-size="15" text-anchor="middle" fill="#2f8a4a" font-weight="bold">0.5 TB/s</text>
+<text x="703" y="256.9" font-size="14" text-anchor="middle" fill="#2f8a4a">边缘流量</text>
+<text x="550" y="349.9" font-size="14" text-anchor="middle" fill="#222">同一个数在这里被反复送进阵列：</text>
+<text x="550" y="371.9" font-size="14" text-anchor="middle" fill="#222" font-weight="bold">DRAM 流量 = 边缘流量 ÷ 复用次数</text>
+<path d="M115,300 C115,420 842,420 842,312" stroke="#c0392b" stroke-width="2.2" fill="none" stroke-dasharray="7 5" marker-end="url(#mr)"/>
+<text x="480" y="436.9" font-size="14" text-anchor="middle" fill="#c0392b">如果不要 scratchpad、直接从 DRAM 喂：需要 0.5 TB/s，DRAM 只有几十 GB/s，阵列约九成时间在等数据</text>
+<text x="480" y="74.9" font-size="14" text-anchor="middle" fill="#777">0.5 TB/s 的来历：每拍左边送进 128 个输入、底边收走 128 个部分和，共 256 个数 × 2 字节 = 512 字节，× 10⁹ 拍/秒</text>
+<text x="480" y="98.9" font-size="14" text-anchor="middle" fill="#777">60 GB/s 的来历：切成 1024×1024 的块后，每 65 微秒的计算只需搬入约 4 MB 的下一块（§5）</text>
+</svg>

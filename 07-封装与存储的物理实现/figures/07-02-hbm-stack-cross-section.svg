@@ -1,0 +1,207 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 570" width="960" height="570" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="570" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker></defs>
+<text x="480" y="28" font-size="18" text-anchor="middle" fill="#222" font-weight="bold">HBM 堆叠剖面：内部竖着叠（3D），对外和 GPU 并排（2.5D）（示意，不按比例）</text>
+<rect x="70" y="341" width="300" height="44" fill="#e8a86b" stroke="#222" stroke-width="1.5"/>
+<text x="78" y="361" font-size="14" font-weight="bold">B-die</text>
+<text x="78" y="378" font-size="13">基底裸片</text>
+<rect x="70" y="310" width="300" height="24" fill="#c9b3dd" stroke="#444" stroke-width="1.2"/>
+<circle cx="200" cy="337.5" r="3.2" fill="#b8860b"/>
+<circle cx="215" cy="337.5" r="3.2" fill="#b8860b"/>
+<circle cx="230" cy="337.5" r="3.2" fill="#b8860b"/>
+<circle cx="260" cy="337.5" r="3.2" fill="#b8860b"/>
+<circle cx="275" cy="337.5" r="3.2" fill="#b8860b"/>
+<circle cx="290" cy="337.5" r="3.2" fill="#b8860b"/>
+<rect x="198" y="310" width="4" height="24" fill="#d9822b"/>
+<rect x="213" y="310" width="4" height="24" fill="#d9822b"/>
+<rect x="228" y="310" width="4" height="24" fill="#d9822b"/>
+<rect x="258" y="310" width="4" height="24" fill="#d9822b"/>
+<rect x="273" y="310" width="4" height="24" fill="#d9822b"/>
+<rect x="288" y="310" width="4" height="24" fill="#d9822b"/>
+<rect x="70" y="279" width="300" height="24" fill="#c9b3dd" stroke="#444" stroke-width="1.2"/>
+<circle cx="200" cy="306.5" r="3.2" fill="#b8860b"/>
+<circle cx="215" cy="306.5" r="3.2" fill="#b8860b"/>
+<circle cx="230" cy="306.5" r="3.2" fill="#b8860b"/>
+<circle cx="260" cy="306.5" r="3.2" fill="#b8860b"/>
+<circle cx="275" cy="306.5" r="3.2" fill="#b8860b"/>
+<circle cx="290" cy="306.5" r="3.2" fill="#b8860b"/>
+<rect x="198" y="279" width="4" height="24" fill="#d9822b"/>
+<rect x="213" y="279" width="4" height="24" fill="#d9822b"/>
+<rect x="228" y="279" width="4" height="24" fill="#d9822b"/>
+<rect x="258" y="279" width="4" height="24" fill="#d9822b"/>
+<rect x="273" y="279" width="4" height="24" fill="#d9822b"/>
+<rect x="288" y="279" width="4" height="24" fill="#d9822b"/>
+<rect x="70" y="248" width="300" height="24" fill="#c9b3dd" stroke="#444" stroke-width="1.2"/>
+<circle cx="200" cy="275.5" r="3.2" fill="#b8860b"/>
+<circle cx="215" cy="275.5" r="3.2" fill="#b8860b"/>
+<circle cx="230" cy="275.5" r="3.2" fill="#b8860b"/>
+<circle cx="260" cy="275.5" r="3.2" fill="#b8860b"/>
+<circle cx="275" cy="275.5" r="3.2" fill="#b8860b"/>
+<circle cx="290" cy="275.5" r="3.2" fill="#b8860b"/>
+<rect x="198" y="248" width="4" height="24" fill="#d9822b"/>
+<rect x="213" y="248" width="4" height="24" fill="#d9822b"/>
+<rect x="228" y="248" width="4" height="24" fill="#d9822b"/>
+<rect x="258" y="248" width="4" height="24" fill="#d9822b"/>
+<rect x="273" y="248" width="4" height="24" fill="#d9822b"/>
+<rect x="288" y="248" width="4" height="24" fill="#d9822b"/>
+<rect x="70" y="217" width="300" height="24" fill="#c9b3dd" stroke="#444" stroke-width="1.2"/>
+<circle cx="200" cy="244.5" r="3.2" fill="#b8860b"/>
+<circle cx="215" cy="244.5" r="3.2" fill="#b8860b"/>
+<circle cx="230" cy="244.5" r="3.2" fill="#b8860b"/>
+<circle cx="260" cy="244.5" r="3.2" fill="#b8860b"/>
+<circle cx="275" cy="244.5" r="3.2" fill="#b8860b"/>
+<circle cx="290" cy="244.5" r="3.2" fill="#b8860b"/>
+<rect x="198" y="217" width="4" height="24" fill="#d9822b"/>
+<rect x="213" y="217" width="4" height="24" fill="#d9822b"/>
+<rect x="228" y="217" width="4" height="24" fill="#d9822b"/>
+<rect x="258" y="217" width="4" height="24" fill="#d9822b"/>
+<rect x="273" y="217" width="4" height="24" fill="#d9822b"/>
+<rect x="288" y="217" width="4" height="24" fill="#d9822b"/>
+<rect x="70" y="186" width="300" height="24" fill="#c9b3dd" stroke="#444" stroke-width="1.2"/>
+<circle cx="200" cy="213.5" r="3.2" fill="#b8860b"/>
+<circle cx="215" cy="213.5" r="3.2" fill="#b8860b"/>
+<circle cx="230" cy="213.5" r="3.2" fill="#b8860b"/>
+<circle cx="260" cy="213.5" r="3.2" fill="#b8860b"/>
+<circle cx="275" cy="213.5" r="3.2" fill="#b8860b"/>
+<circle cx="290" cy="213.5" r="3.2" fill="#b8860b"/>
+<rect x="198" y="186" width="4" height="24" fill="#d9822b"/>
+<rect x="213" y="186" width="4" height="24" fill="#d9822b"/>
+<rect x="228" y="186" width="4" height="24" fill="#d9822b"/>
+<rect x="258" y="186" width="4" height="24" fill="#d9822b"/>
+<rect x="273" y="186" width="4" height="24" fill="#d9822b"/>
+<rect x="288" y="186" width="4" height="24" fill="#d9822b"/>
+<rect x="70" y="155" width="300" height="24" fill="#c9b3dd" stroke="#444" stroke-width="1.2"/>
+<circle cx="200" cy="182.5" r="3.2" fill="#b8860b"/>
+<circle cx="215" cy="182.5" r="3.2" fill="#b8860b"/>
+<circle cx="230" cy="182.5" r="3.2" fill="#b8860b"/>
+<circle cx="260" cy="182.5" r="3.2" fill="#b8860b"/>
+<circle cx="275" cy="182.5" r="3.2" fill="#b8860b"/>
+<circle cx="290" cy="182.5" r="3.2" fill="#b8860b"/>
+<rect x="198" y="155" width="4" height="24" fill="#d9822b"/>
+<rect x="213" y="155" width="4" height="24" fill="#d9822b"/>
+<rect x="228" y="155" width="4" height="24" fill="#d9822b"/>
+<rect x="258" y="155" width="4" height="24" fill="#d9822b"/>
+<rect x="273" y="155" width="4" height="24" fill="#d9822b"/>
+<rect x="288" y="155" width="4" height="24" fill="#d9822b"/>
+<rect x="70" y="124" width="300" height="24" fill="#c9b3dd" stroke="#444" stroke-width="1.2"/>
+<circle cx="200" cy="151.5" r="3.2" fill="#b8860b"/>
+<circle cx="215" cy="151.5" r="3.2" fill="#b8860b"/>
+<circle cx="230" cy="151.5" r="3.2" fill="#b8860b"/>
+<circle cx="260" cy="151.5" r="3.2" fill="#b8860b"/>
+<circle cx="275" cy="151.5" r="3.2" fill="#b8860b"/>
+<circle cx="290" cy="151.5" r="3.2" fill="#b8860b"/>
+<rect x="198" y="124" width="4" height="24" fill="#d9822b"/>
+<rect x="213" y="124" width="4" height="24" fill="#d9822b"/>
+<rect x="228" y="124" width="4" height="24" fill="#d9822b"/>
+<rect x="258" y="124" width="4" height="24" fill="#d9822b"/>
+<rect x="273" y="124" width="4" height="24" fill="#d9822b"/>
+<rect x="288" y="124" width="4" height="24" fill="#d9822b"/>
+<rect x="70" y="93" width="300" height="24" fill="#c9b3dd" stroke="#444" stroke-width="1.2"/>
+<circle cx="200" cy="120.5" r="3.2" fill="#b8860b"/>
+<circle cx="215" cy="120.5" r="3.2" fill="#b8860b"/>
+<circle cx="230" cy="120.5" r="3.2" fill="#b8860b"/>
+<circle cx="260" cy="120.5" r="3.2" fill="#b8860b"/>
+<circle cx="275" cy="120.5" r="3.2" fill="#b8860b"/>
+<circle cx="290" cy="120.5" r="3.2" fill="#b8860b"/>
+<text x="120" y="110" font-size="13" text-anchor="middle">C-die</text>
+<text x="335" y="110" font-size="13" text-anchor="middle">C-die</text>
+<rect x="198" y="341" width="4" height="28" fill="#d9822b"/>
+<rect x="213" y="341" width="4" height="28" fill="#d9822b"/>
+<rect x="228" y="341" width="4" height="28" fill="#d9822b"/>
+<rect x="258" y="341" width="4" height="28" fill="#d9822b"/>
+<rect x="273" y="341" width="4" height="28" fill="#d9822b"/>
+<rect x="288" y="341" width="4" height="28" fill="#d9822b"/>
+<line x1="56" y1="93" x2="56" y2="334" stroke="#222" stroke-width="1.5"/>
+<text x="48" y="217.0" font-size="14" text-anchor="middle" transform="rotate(-90 48 217.0)">C-die 核心裸片 8～16 层，只存数据</text>
+<text x="404" y="143" font-size="14" fill="#222">橙色竖条：TSV，</text>
+<text x="404" y="161" font-size="14" fill="#222">竖着穿过每一片 C-die</text>
+<text x="404" y="193" font-size="14" fill="#222">层间小金点：微凸块</text>
+<text x="404" y="211" font-size="14" fill="#222">（每片减薄到约 30 微米）</text>
+<rect x="188" y="369" width="114" height="14" fill="#fff3e0" stroke="#8b4513" stroke-width="1"/>
+<text x="245" y="380" font-size="11" text-anchor="middle">TSV PHY（朝上）</text>
+<rect x="295" y="371" width="73" height="12" fill="#fde0dc" stroke="#8b2f24" stroke-width="1"/>
+<text x="331" y="381" font-size="11" text-anchor="middle">微凸块 PHY</text>
+<rect x="560" y="231" width="340" height="150" fill="#9bb7d4" stroke="#222" stroke-width="1.5"/>
+<text x="730.0" y="301" font-size="16" text-anchor="middle" font-weight="bold">计算裸片（GPU / xPU）</text>
+<text x="730.0" y="323" font-size="13" text-anchor="middle">几百瓦，热往上走</text>
+<rect x="562" y="369" width="70" height="12" fill="#fde0dc" stroke="#8b2f24" stroke-width="1"/>
+<text x="597" y="365" font-size="11" text-anchor="middle">HBM PHY</text>
+<circle cx="80.0" cy="390" r="4" fill="#b8860b"/>
+<circle cx="96.5" cy="390" r="4" fill="#b8860b"/>
+<circle cx="113.0" cy="390" r="4" fill="#b8860b"/>
+<circle cx="129.5" cy="390" r="4" fill="#b8860b"/>
+<circle cx="146.0" cy="390" r="4" fill="#b8860b"/>
+<circle cx="162.5" cy="390" r="4" fill="#b8860b"/>
+<circle cx="179.0" cy="390" r="4" fill="#b8860b"/>
+<circle cx="195.5" cy="390" r="4" fill="#b8860b"/>
+<circle cx="212.0" cy="390" r="4" fill="#b8860b"/>
+<circle cx="228.5" cy="390" r="4" fill="#b8860b"/>
+<circle cx="245.0" cy="390" r="4" fill="#b8860b"/>
+<circle cx="261.5" cy="390" r="4" fill="#b8860b"/>
+<circle cx="278.0" cy="390" r="4" fill="#b8860b"/>
+<circle cx="294.5" cy="390" r="4" fill="#b8860b"/>
+<circle cx="311.0" cy="390" r="4" fill="#b8860b"/>
+<circle cx="327.5" cy="390" r="4" fill="#b8860b"/>
+<circle cx="344.0" cy="390" r="4" fill="#b8860b"/>
+<circle cx="360.5" cy="390" r="4" fill="#b8860b"/>
+<circle cx="570.0" cy="390" r="4" fill="#b8860b"/>
+<circle cx="586.8" cy="390" r="4" fill="#b8860b"/>
+<circle cx="603.6" cy="390" r="4" fill="#b8860b"/>
+<circle cx="620.4" cy="390" r="4" fill="#b8860b"/>
+<circle cx="637.2" cy="390" r="4" fill="#b8860b"/>
+<circle cx="654.0" cy="390" r="4" fill="#b8860b"/>
+<circle cx="670.8" cy="390" r="4" fill="#b8860b"/>
+<circle cx="687.6" cy="390" r="4" fill="#b8860b"/>
+<circle cx="704.4" cy="390" r="4" fill="#b8860b"/>
+<circle cx="721.2" cy="390" r="4" fill="#b8860b"/>
+<circle cx="738.0" cy="390" r="4" fill="#b8860b"/>
+<circle cx="754.8" cy="390" r="4" fill="#b8860b"/>
+<circle cx="771.6" cy="390" r="4" fill="#b8860b"/>
+<circle cx="788.4" cy="390" r="4" fill="#b8860b"/>
+<circle cx="805.2" cy="390" r="4" fill="#b8860b"/>
+<circle cx="822.0" cy="390" r="4" fill="#b8860b"/>
+<circle cx="838.8" cy="390" r="4" fill="#b8860b"/>
+<circle cx="855.6" cy="390" r="4" fill="#b8860b"/>
+<circle cx="872.4000000000001" cy="390" r="4" fill="#b8860b"/>
+<circle cx="889.2" cy="390" r="4" fill="#b8860b"/>
+<rect x="40" y="395" width="880" height="44" fill="#8fa3b8" stroke="#222" stroke-width="1.5"/>
+<path d="M310,387 L310,400 L570,400 L570,387" fill="none" stroke="#f5d27a" stroke-width="1.6"/>
+<path d="M322,387 L322,404 L584,404 L584,387" fill="none" stroke="#f5d27a" stroke-width="1.6"/>
+<path d="M334,387 L334,408 L598,408 L598,387" fill="none" stroke="#f5d27a" stroke-width="1.6"/>
+<path d="M346,387 L346,412 L612,412 L612,387" fill="none" stroke="#f5d27a" stroke-width="1.6"/>
+<rect x="60" y="417" width="4" height="22" fill="#d9822b"/>
+<rect x="135" y="417" width="4" height="22" fill="#d9822b"/>
+<rect x="210" y="417" width="4" height="22" fill="#d9822b"/>
+<rect x="285" y="417" width="4" height="22" fill="#d9822b"/>
+<rect x="360" y="417" width="4" height="22" fill="#d9822b"/>
+<rect x="435" y="417" width="4" height="22" fill="#d9822b"/>
+<rect x="510" y="417" width="4" height="22" fill="#d9822b"/>
+<rect x="585" y="417" width="4" height="22" fill="#d9822b"/>
+<rect x="660" y="417" width="4" height="22" fill="#d9822b"/>
+<rect x="735" y="417" width="4" height="22" fill="#d9822b"/>
+<rect x="810" y="417" width="4" height="22" fill="#d9822b"/>
+<rect x="885" y="417" width="4" height="22" fill="#d9822b"/>
+<text x="480" y="433" font-size="14" text-anchor="middle" fill="#fff" font-weight="bold" stroke="#8fa3b8" stroke-width="5" paint-order="stroke">硅中介层：几毫米长的横向走线，每颗 HBM 上千根</text>
+<circle cx="60" cy="446" r="6" fill="#b8860b"/>
+<circle cx="123" cy="446" r="6" fill="#b8860b"/>
+<circle cx="186" cy="446" r="6" fill="#b8860b"/>
+<circle cx="249" cy="446" r="6" fill="#b8860b"/>
+<circle cx="312" cy="446" r="6" fill="#b8860b"/>
+<circle cx="375" cy="446" r="6" fill="#b8860b"/>
+<circle cx="438" cy="446" r="6" fill="#b8860b"/>
+<circle cx="501" cy="446" r="6" fill="#b8860b"/>
+<circle cx="564" cy="446" r="6" fill="#b8860b"/>
+<circle cx="627" cy="446" r="6" fill="#b8860b"/>
+<circle cx="690" cy="446" r="6" fill="#b8860b"/>
+<circle cx="753" cy="446" r="6" fill="#b8860b"/>
+<circle cx="816" cy="446" r="6" fill="#b8860b"/>
+<circle cx="879" cy="446" r="6" fill="#b8860b"/>
+<rect x="20" y="452" width="920" height="40" fill="#cfe3c4" stroke="#222" stroke-width="1.5"/>
+<text x="480" y="478" font-size="14" text-anchor="middle">有机封装基板（再往下是 BGA 焊球和主板）</text>
+<line x1="388" y1="93" x2="388" y2="385" stroke="#222" stroke-width="1.2" marker-start="url(#a)" marker-end="url(#a)"/>
+<text x="404" y="263" font-size="14" fill="#222">整摞高度上限：</text>
+<text x="404" y="281" font-size="14" fill="#222">775 微米（HBM4 规范）</text>
+<text x="220.0" y="81" font-size="15" text-anchor="middle" font-weight="bold">一个 HBM 堆叠（Cube）</text>
+<text x="480" y="532" font-size="13" text-anchor="middle" fill="#555">基底裸片里有两级 PHY（把数字信号变成能在导线上跑的电信号的电路）：TSV PHY 朝上对着核心裸片，微凸块 PHY 朝外对着 GPU</text>
+<text x="480" y="552" font-size="13" text-anchor="middle" fill="#555">GPU 那一侧也要有一套对称的 HBM PHY 来接；黄线示意中介层里的几根走线</text>
+</svg>

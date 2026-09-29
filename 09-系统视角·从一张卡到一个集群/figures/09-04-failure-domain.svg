@@ -1,0 +1,178 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" font-family="sans-serif" font-size="15">
+<rect x="0" y="0" width="960" height="560" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#444"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f5fa8"/></marker><marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d9822b"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e7d32"/></marker><pattern id="h" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="#f4f4f4"/><line x1="0" y1="0" x2="0" y2="8" stroke="#bbb" stroke-width="2"/></pattern></defs>
+<text x="20.0" y="32.0" text-anchor="start" fill="#222222" font-size="19" font-weight="bold" >故障域对齐：一台机器坏了，是一个副本缺整块，还是八个副本各缺一块</text>
+<text x="20.0" y="58.0" text-anchor="start" fill="#555" font-size="14" >64 张卡：8 个数据并行副本（行）× 每个副本切成 8 份张量并行分片（列）；红框是一台 8 卡服务器，假设它整台掉电</text>
+<text x="202.0" y="100.0" text-anchor="middle" fill="#2e7d32" font-size="16" font-weight="bold" >对齐：一台机器 = 一个副本的一整组 TP 分片</text>
+<text x="97.0" y="119.0" text-anchor="middle" fill="#555" font-size="14" >0</text>
+<text x="135.0" y="119.0" text-anchor="middle" fill="#555" font-size="14" >1</text>
+<text x="173.0" y="119.0" text-anchor="middle" fill="#555" font-size="14" >2</text>
+<text x="211.0" y="119.0" text-anchor="middle" fill="#555" font-size="14" >3</text>
+<text x="249.0" y="119.0" text-anchor="middle" fill="#555" font-size="14" >4</text>
+<text x="287.0" y="119.0" text-anchor="middle" fill="#555" font-size="14" >5</text>
+<text x="325.0" y="119.0" text-anchor="middle" fill="#555" font-size="14" >6</text>
+<text x="363.0" y="119.0" text-anchor="middle" fill="#555" font-size="14" >7</text>
+<text x="72.0" y="149.0" text-anchor="end" fill="#222222" font-size="14" >副本0</text>
+<rect x="82.0" y="127.0" width="32.0" height="32.0" rx="0" fill="#f6c6c0" stroke="#c0392b" stroke-width="1.2" />
+<rect x="120.0" y="127.0" width="32.0" height="32.0" rx="0" fill="#f6c6c0" stroke="#c0392b" stroke-width="1.2" />
+<rect x="158.0" y="127.0" width="32.0" height="32.0" rx="0" fill="#f6c6c0" stroke="#c0392b" stroke-width="1.2" />
+<rect x="196.0" y="127.0" width="32.0" height="32.0" rx="0" fill="#f6c6c0" stroke="#c0392b" stroke-width="1.2" />
+<rect x="234.0" y="127.0" width="32.0" height="32.0" rx="0" fill="#f6c6c0" stroke="#c0392b" stroke-width="1.2" />
+<rect x="272.0" y="127.0" width="32.0" height="32.0" rx="0" fill="#f6c6c0" stroke="#c0392b" stroke-width="1.2" />
+<rect x="310.0" y="127.0" width="32.0" height="32.0" rx="0" fill="#f6c6c0" stroke="#c0392b" stroke-width="1.2" />
+<rect x="348.0" y="127.0" width="32.0" height="32.0" rx="0" fill="#f6c6c0" stroke="#c0392b" stroke-width="1.2" />
+<text x="72.0" y="187.0" text-anchor="end" fill="#222222" font-size="14" >副本1</text>
+<rect x="82.0" y="165.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="120.0" y="165.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="158.0" y="165.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="196.0" y="165.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="234.0" y="165.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="272.0" y="165.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="310.0" y="165.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="348.0" y="165.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<text x="72.0" y="225.0" text-anchor="end" fill="#222222" font-size="14" >副本2</text>
+<rect x="82.0" y="203.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="120.0" y="203.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="158.0" y="203.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="196.0" y="203.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="234.0" y="203.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="272.0" y="203.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="310.0" y="203.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="348.0" y="203.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<text x="72.0" y="263.0" text-anchor="end" fill="#222222" font-size="14" >副本3</text>
+<rect x="82.0" y="241.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="120.0" y="241.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="158.0" y="241.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="196.0" y="241.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="234.0" y="241.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="272.0" y="241.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="310.0" y="241.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="348.0" y="241.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<text x="72.0" y="301.0" text-anchor="end" fill="#222222" font-size="14" >副本4</text>
+<rect x="82.0" y="279.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="120.0" y="279.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="158.0" y="279.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="196.0" y="279.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="234.0" y="279.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="272.0" y="279.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="310.0" y="279.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="348.0" y="279.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<text x="72.0" y="339.0" text-anchor="end" fill="#222222" font-size="14" >副本5</text>
+<rect x="82.0" y="317.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="120.0" y="317.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="158.0" y="317.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="196.0" y="317.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="234.0" y="317.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="272.0" y="317.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="310.0" y="317.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="348.0" y="317.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<text x="72.0" y="377.0" text-anchor="end" fill="#222222" font-size="14" >副本6</text>
+<rect x="82.0" y="355.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="120.0" y="355.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="158.0" y="355.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="196.0" y="355.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="234.0" y="355.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="272.0" y="355.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="310.0" y="355.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="348.0" y="355.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<text x="72.0" y="415.0" text-anchor="end" fill="#222222" font-size="14" >副本7</text>
+<rect x="82.0" y="393.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="120.0" y="393.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="158.0" y="393.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="196.0" y="393.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="234.0" y="393.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="272.0" y="393.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="310.0" y="393.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="348.0" y="393.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="78.0" y="123.0" width="306.0" height="40.0" rx="0" fill="none" stroke="#c0392b" stroke-width="3.5" />
+<text x="232.0" y="451.0" text-anchor="middle" fill="#555" font-size="14" >列号 = 张量并行分片号</text>
+<text x="30.0" y="483.0" text-anchor="start" fill="#2e7d32" font-size="14" font-weight="bold" >坏掉的是副本 0 的全部 8 个分片</text>
+<text x="30.0" y="505.0" text-anchor="start" fill="#222222" font-size="14" >其它 7 个副本完好；拿一台热备机整台顶上，</text>
+<text x="30.0" y="527.0" text-anchor="start" fill="#222222" font-size="14" >从检查点恢复这一组即可</text>
+<text x="682.0" y="100.0" text-anchor="middle" fill="#c0392b" font-size="16" font-weight="bold" >不对齐：一台机器 = 8 个副本各一个分片</text>
+<text x="577.0" y="119.0" text-anchor="middle" fill="#555" font-size="14" >0</text>
+<text x="615.0" y="119.0" text-anchor="middle" fill="#555" font-size="14" >1</text>
+<text x="653.0" y="119.0" text-anchor="middle" fill="#555" font-size="14" >2</text>
+<text x="691.0" y="119.0" text-anchor="middle" fill="#555" font-size="14" >3</text>
+<text x="729.0" y="119.0" text-anchor="middle" fill="#555" font-size="14" >4</text>
+<text x="767.0" y="119.0" text-anchor="middle" fill="#555" font-size="14" >5</text>
+<text x="805.0" y="119.0" text-anchor="middle" fill="#555" font-size="14" >6</text>
+<text x="843.0" y="119.0" text-anchor="middle" fill="#555" font-size="14" >7</text>
+<text x="552.0" y="149.0" text-anchor="end" fill="#222222" font-size="14" >副本0</text>
+<rect x="562.0" y="127.0" width="32.0" height="32.0" rx="0" fill="#f6c6c0" stroke="#c0392b" stroke-width="1.2" />
+<rect x="600.0" y="127.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="638.0" y="127.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="676.0" y="127.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="714.0" y="127.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="752.0" y="127.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="790.0" y="127.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="828.0" y="127.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<text x="552.0" y="187.0" text-anchor="end" fill="#222222" font-size="14" >副本1</text>
+<rect x="562.0" y="165.0" width="32.0" height="32.0" rx="0" fill="#f6c6c0" stroke="#c0392b" stroke-width="1.2" />
+<rect x="600.0" y="165.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="638.0" y="165.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="676.0" y="165.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="714.0" y="165.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="752.0" y="165.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="790.0" y="165.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="828.0" y="165.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<text x="552.0" y="225.0" text-anchor="end" fill="#222222" font-size="14" >副本2</text>
+<rect x="562.0" y="203.0" width="32.0" height="32.0" rx="0" fill="#f6c6c0" stroke="#c0392b" stroke-width="1.2" />
+<rect x="600.0" y="203.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="638.0" y="203.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="676.0" y="203.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="714.0" y="203.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="752.0" y="203.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="790.0" y="203.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="828.0" y="203.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<text x="552.0" y="263.0" text-anchor="end" fill="#222222" font-size="14" >副本3</text>
+<rect x="562.0" y="241.0" width="32.0" height="32.0" rx="0" fill="#f6c6c0" stroke="#c0392b" stroke-width="1.2" />
+<rect x="600.0" y="241.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="638.0" y="241.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="676.0" y="241.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="714.0" y="241.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="752.0" y="241.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="790.0" y="241.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="828.0" y="241.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<text x="552.0" y="301.0" text-anchor="end" fill="#222222" font-size="14" >副本4</text>
+<rect x="562.0" y="279.0" width="32.0" height="32.0" rx="0" fill="#f6c6c0" stroke="#c0392b" stroke-width="1.2" />
+<rect x="600.0" y="279.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="638.0" y="279.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="676.0" y="279.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="714.0" y="279.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="752.0" y="279.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="790.0" y="279.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="828.0" y="279.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<text x="552.0" y="339.0" text-anchor="end" fill="#222222" font-size="14" >副本5</text>
+<rect x="562.0" y="317.0" width="32.0" height="32.0" rx="0" fill="#f6c6c0" stroke="#c0392b" stroke-width="1.2" />
+<rect x="600.0" y="317.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="638.0" y="317.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="676.0" y="317.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="714.0" y="317.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="752.0" y="317.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="790.0" y="317.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="828.0" y="317.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<text x="552.0" y="377.0" text-anchor="end" fill="#222222" font-size="14" >副本6</text>
+<rect x="562.0" y="355.0" width="32.0" height="32.0" rx="0" fill="#f6c6c0" stroke="#c0392b" stroke-width="1.2" />
+<rect x="600.0" y="355.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="638.0" y="355.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="676.0" y="355.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="714.0" y="355.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="752.0" y="355.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="790.0" y="355.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="828.0" y="355.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<text x="552.0" y="415.0" text-anchor="end" fill="#222222" font-size="14" >副本7</text>
+<rect x="562.0" y="393.0" width="32.0" height="32.0" rx="0" fill="#f6c6c0" stroke="#c0392b" stroke-width="1.2" />
+<rect x="600.0" y="393.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="638.0" y="393.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="676.0" y="393.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="714.0" y="393.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="752.0" y="393.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="790.0" y="393.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="828.0" y="393.0" width="32.0" height="32.0" rx="0" fill="#cfe3f7" stroke="#1f5fa8" stroke-width="1.2" />
+<rect x="558.0" y="123.0" width="40.0" height="306.0" rx="0" fill="none" stroke="#c0392b" stroke-width="3.5" />
+<text x="712.0" y="451.0" text-anchor="middle" fill="#555" font-size="14" >列号 = 张量并行分片号</text>
+<text x="510.0" y="483.0" text-anchor="start" fill="#c0392b" font-size="14" font-weight="bold" >8 个副本都缺了分片 0，没有一个是完整的</text>
+<text x="510.0" y="505.0" text-anchor="start" fill="#222222" font-size="14" >恢复要牵动全部 8 个副本，</text>
+<text x="510.0" y="527.0" text-anchor="start" fill="#222222" font-size="14" >牵涉的范围是左边的 8 倍</text>
+</svg>

@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 590" width="960" height="590" font-family="sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker></defs>
+<rect x="0" y="0" width="960" height="590" fill="#ffffff"/>
+<text x="480" y="28" font-size="18" text-anchor="middle" font-weight="bold" fill="#111">同样 64 KB：做成一整块，位线太长；切成 16 块子阵列，每次只唤醒一块</text>
+<text x="200" y="62" font-size="16" text-anchor="middle" font-weight="bold" fill="#111">① 一整块：4096 行 × 128 列</text>
+<rect x="150" y="80" width="100" height="400" fill="#f4f4f4" stroke="#222" stroke-width="1.8"/>
+<line x1="162.5" y1="80" x2="162.5" y2="480" stroke="#bbb" stroke-width="1"/>
+<line x1="175.0" y1="80" x2="175.0" y2="480" stroke="#bbb" stroke-width="1"/>
+<line x1="187.5" y1="80" x2="187.5" y2="480" stroke="#bbb" stroke-width="1"/>
+<line x1="200.0" y1="80" x2="200.0" y2="480" stroke="#bbb" stroke-width="1"/>
+<line x1="212.5" y1="80" x2="212.5" y2="480" stroke="#bbb" stroke-width="1"/>
+<line x1="225.0" y1="80" x2="225.0" y2="480" stroke="#bbb" stroke-width="1"/>
+<line x1="237.5" y1="80" x2="237.5" y2="480" stroke="#bbb" stroke-width="1"/>
+<line x1="162.5" y1="80" x2="162.5" y2="480" stroke="#1f5fa8" stroke-width="3"/>
+<rect x="110" y="80" width="36" height="400" fill="#d6e4f5" stroke="#222" stroke-width="1.2"/>
+<text x="128" y="285" font-size="14" text-anchor="middle" fill="#111" transform="rotate(-90 128 285)">行译码器（4096 选 1）</text>
+<rect x="150" y="484" width="100" height="22" fill="#f5c79b" stroke="#222" stroke-width="1.2"/>
+<text x="200" y="500" font-size="14" text-anchor="middle" fill="#111">灵敏放大器</text>
+<line x1="150" y1="300" x2="250" y2="300" stroke="#b5451b" stroke-width="2.5"/>
+<text x="262" y="296" font-size="14" fill="#b5451b">一根字线</text>
+<text x="262" y="120" font-size="14" fill="#1f5fa8">蓝色竖线 = 一根位线，</text>
+<text x="262" y="140" font-size="14" fill="#1f5fa8">从顶到底挂了 4096 个单元</text>
+<text x="262" y="180" font-size="14" fill="#111">位线电容 ∝ 4096 个单元，</text>
+<text x="262" y="200" font-size="14" fill="#111">放电比挂 256 个时慢 16 倍</text>
+<text x="262" y="380" font-size="14" fill="#111">每次读，整根长位线</text>
+<text x="262" y="400" font-size="14" fill="#111">都要预充电、放电</text>
+<line x1="440" y1="50" x2="440" y2="520" stroke="#ccc" stroke-width="1.5"/>
+<text x="700" y="62" font-size="16" text-anchor="middle" font-weight="bold" fill="#111">② 切成 16 块子阵列：每块 256 行 × 128 列（4 KB）</text>
+<rect x="484" y="90" width="80" height="66" fill="#eeeeee" stroke="#222" stroke-width="1.2"/>
+<rect x="470" y="90" width="12" height="66" fill="#d6e4f5" stroke="#222" stroke-width="1"/>
+<rect x="484" y="158" width="80" height="12" fill="#f3dcc4" stroke="#222" stroke-width="1"/>
+<text x="524.0" y="130" font-size="14" text-anchor="middle" fill="#888">休眠</text>
+<rect x="592" y="90" width="80" height="66" fill="#eeeeee" stroke="#222" stroke-width="1.2"/>
+<rect x="578" y="90" width="12" height="66" fill="#d6e4f5" stroke="#222" stroke-width="1"/>
+<rect x="592" y="158" width="80" height="12" fill="#f3dcc4" stroke="#222" stroke-width="1"/>
+<text x="632.0" y="130" font-size="14" text-anchor="middle" fill="#888">休眠</text>
+<rect x="700" y="90" width="80" height="66" fill="#eeeeee" stroke="#222" stroke-width="1.2"/>
+<rect x="686" y="90" width="12" height="66" fill="#d6e4f5" stroke="#222" stroke-width="1"/>
+<rect x="700" y="158" width="80" height="12" fill="#f3dcc4" stroke="#222" stroke-width="1"/>
+<text x="740.0" y="130" font-size="14" text-anchor="middle" fill="#888">休眠</text>
+<rect x="808" y="90" width="80" height="66" fill="#eeeeee" stroke="#222" stroke-width="1.2"/>
+<rect x="794" y="90" width="12" height="66" fill="#d6e4f5" stroke="#222" stroke-width="1"/>
+<rect x="808" y="158" width="80" height="12" fill="#f3dcc4" stroke="#222" stroke-width="1"/>
+<text x="848.0" y="130" font-size="14" text-anchor="middle" fill="#888">休眠</text>
+<rect x="484" y="192" width="80" height="66" fill="#eeeeee" stroke="#222" stroke-width="1.2"/>
+<rect x="470" y="192" width="12" height="66" fill="#d6e4f5" stroke="#222" stroke-width="1"/>
+<rect x="484" y="260" width="80" height="12" fill="#f3dcc4" stroke="#222" stroke-width="1"/>
+<text x="524.0" y="232" font-size="14" text-anchor="middle" fill="#888">休眠</text>
+<rect x="592" y="192" width="80" height="66" fill="#eeeeee" stroke="#222" stroke-width="1.2"/>
+<rect x="578" y="192" width="12" height="66" fill="#d6e4f5" stroke="#222" stroke-width="1"/>
+<rect x="592" y="260" width="80" height="12" fill="#f3dcc4" stroke="#222" stroke-width="1"/>
+<text x="632.0" y="232" font-size="14" text-anchor="middle" fill="#888">休眠</text>
+<rect x="700" y="192" width="80" height="66" fill="#fdf3e3" stroke="#222" stroke-width="2.4"/>
+<rect x="686" y="192" width="12" height="66" fill="#9cc3ea" stroke="#222" stroke-width="1"/>
+<rect x="700" y="260" width="80" height="12" fill="#f5c79b" stroke="#222" stroke-width="1"/>
+<line x1="700" y1="222" x2="780" y2="222" stroke="#b5451b" stroke-width="2.5"/>
+<text x="740.0" y="214" font-size="14" text-anchor="middle" fill="#b5451b" font-weight="bold">被选中</text>
+<rect x="808" y="192" width="80" height="66" fill="#eeeeee" stroke="#222" stroke-width="1.2"/>
+<rect x="794" y="192" width="12" height="66" fill="#d6e4f5" stroke="#222" stroke-width="1"/>
+<rect x="808" y="260" width="80" height="12" fill="#f3dcc4" stroke="#222" stroke-width="1"/>
+<text x="848.0" y="232" font-size="14" text-anchor="middle" fill="#888">休眠</text>
+<rect x="484" y="294" width="80" height="66" fill="#eeeeee" stroke="#222" stroke-width="1.2"/>
+<rect x="470" y="294" width="12" height="66" fill="#d6e4f5" stroke="#222" stroke-width="1"/>
+<rect x="484" y="362" width="80" height="12" fill="#f3dcc4" stroke="#222" stroke-width="1"/>
+<text x="524.0" y="334" font-size="14" text-anchor="middle" fill="#888">休眠</text>
+<rect x="592" y="294" width="80" height="66" fill="#eeeeee" stroke="#222" stroke-width="1.2"/>
+<rect x="578" y="294" width="12" height="66" fill="#d6e4f5" stroke="#222" stroke-width="1"/>
+<rect x="592" y="362" width="80" height="12" fill="#f3dcc4" stroke="#222" stroke-width="1"/>
+<text x="632.0" y="334" font-size="14" text-anchor="middle" fill="#888">休眠</text>
+<rect x="700" y="294" width="80" height="66" fill="#eeeeee" stroke="#222" stroke-width="1.2"/>
+<rect x="686" y="294" width="12" height="66" fill="#d6e4f5" stroke="#222" stroke-width="1"/>
+<rect x="700" y="362" width="80" height="12" fill="#f3dcc4" stroke="#222" stroke-width="1"/>
+<text x="740.0" y="334" font-size="14" text-anchor="middle" fill="#888">休眠</text>
+<rect x="808" y="294" width="80" height="66" fill="#eeeeee" stroke="#222" stroke-width="1.2"/>
+<rect x="794" y="294" width="12" height="66" fill="#d6e4f5" stroke="#222" stroke-width="1"/>
+<rect x="808" y="362" width="80" height="12" fill="#f3dcc4" stroke="#222" stroke-width="1"/>
+<text x="848.0" y="334" font-size="14" text-anchor="middle" fill="#888">休眠</text>
+<rect x="484" y="396" width="80" height="66" fill="#eeeeee" stroke="#222" stroke-width="1.2"/>
+<rect x="470" y="396" width="12" height="66" fill="#d6e4f5" stroke="#222" stroke-width="1"/>
+<rect x="484" y="464" width="80" height="12" fill="#f3dcc4" stroke="#222" stroke-width="1"/>
+<text x="524.0" y="436" font-size="14" text-anchor="middle" fill="#888">休眠</text>
+<rect x="592" y="396" width="80" height="66" fill="#eeeeee" stroke="#222" stroke-width="1.2"/>
+<rect x="578" y="396" width="12" height="66" fill="#d6e4f5" stroke="#222" stroke-width="1"/>
+<rect x="592" y="464" width="80" height="12" fill="#f3dcc4" stroke="#222" stroke-width="1"/>
+<text x="632.0" y="436" font-size="14" text-anchor="middle" fill="#888">休眠</text>
+<rect x="700" y="396" width="80" height="66" fill="#eeeeee" stroke="#222" stroke-width="1.2"/>
+<rect x="686" y="396" width="12" height="66" fill="#d6e4f5" stroke="#222" stroke-width="1"/>
+<rect x="700" y="464" width="80" height="12" fill="#f3dcc4" stroke="#222" stroke-width="1"/>
+<text x="740.0" y="436" font-size="14" text-anchor="middle" fill="#888">休眠</text>
+<rect x="808" y="396" width="80" height="66" fill="#eeeeee" stroke="#222" stroke-width="1.2"/>
+<rect x="794" y="396" width="12" height="66" fill="#d6e4f5" stroke="#222" stroke-width="1"/>
+<rect x="808" y="464" width="80" height="12" fill="#f3dcc4" stroke="#222" stroke-width="1"/>
+<text x="848.0" y="436" font-size="14" text-anchor="middle" fill="#888">休眠</text>
+<text x="470" y="500" font-size="14" fill="#111">每块左边的蓝条 = 自己的行译码器（256 选 1）</text>
+<text x="470" y="520" font-size="14" fill="#111">下边的橙条 = 自己的灵敏放大器</text>
+<text x="470" y="540" font-size="14" fill="#111">地址高 4 位先选中哪一块（16 选 1），其余位在块内选行、选列</text>
+<text x="30" y="572" font-size="14" fill="#555">代价：外围电路变成 16 套，这就是 SRAM 宏里外围占三到五成面积的来源（示意，未画列选择器）</text>
+</svg>

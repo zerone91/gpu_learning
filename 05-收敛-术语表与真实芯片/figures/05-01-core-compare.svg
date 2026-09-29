@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1020 620" width="1020" height="620">
+<rect x="0" y="0" width="1020" height="620" fill="#ffffff"/>
+<g font-family="sans-serif">
+<text x="30" y="34" font-size="20" fill="#111" text-anchor="start" font-weight="bold">四家的"一个计算核"里装了什么</text>
+<text x="30" y="58" font-size="15" fill="#333" text-anchor="start" font-weight="normal">红色是矩阵引擎，蓝色是管杂活的单元，灰色是片上存储，黄色是搬运部件。四个框不是同一比例。</text>
+<rect x="30" y="80" width="232" height="508" fill="#fcfcfc" stroke="#333" stroke-width="2"/>
+<text x="146.0" y="106" font-size="16" fill="#111" text-anchor="middle" font-weight="bold">NVIDIA：一个 SM</text>
+<text x="146.0" y="128" font-size="13" fill="#666" text-anchor="middle" font-weight="normal">H100 每颗 132 个</text>
+<rect x="42" y="144" width="208" height="66" fill="#fdeeea" stroke="#c23b22" stroke-width="1.5"/>
+<text x="52" y="168" font-size="13" fill="#111" text-anchor="start" font-weight="normal">4 个子分区，每个里有</text>
+<text x="52" y="188" font-size="13" fill="#111" text-anchor="start" font-weight="normal">1 个 Tensor Core（矩阵引擎）</text>
+<rect x="42" y="224" width="208" height="86" fill="#d6e4f5" stroke="#2a5d9c" stroke-width="1.5"/>
+<text x="52" y="248" font-size="13" fill="#111" text-anchor="start" font-weight="normal">每个子分区另有 32 条</text>
+<text x="52" y="268" font-size="13" fill="#111" text-anchor="start" font-weight="normal">普通算术通道 + warp 调度器</text>
+<text x="52" y="288" font-size="13" fill="#111" text-anchor="start" font-weight="normal">矩阵与杂活同一个程序里混着发</text>
+<rect x="42" y="324" width="208" height="86" fill="#eceff4" stroke="#666" stroke-width="1.5"/>
+<text x="52" y="348" font-size="13" fill="#111" text-anchor="start" font-weight="normal">共享内存 / L1 共 256 KB</text>
+<text x="52" y="368" font-size="13" fill="#111" text-anchor="start" font-weight="normal">（一半硬件自动缓存、</text>
+<text x="52" y="388" font-size="13" fill="#111" text-anchor="start" font-weight="normal">一半由程序指定内容）</text>
+<rect x="42" y="424" width="208" height="46" fill="#fff3d6" stroke="#b07d00" stroke-width="1.5"/>
+<text x="52" y="448" font-size="13" fill="#111" text-anchor="start" font-weight="normal">TMA：下订单式搬运引擎</text>
+<rect x="282" y="80" width="232" height="508" fill="#fcfcfc" stroke="#333" stroke-width="2"/>
+<text x="398.0" y="106" font-size="16" fill="#111" text-anchor="middle" font-weight="bold">谷歌 TPU：一个 chiplet</text>
+<text x="398.0" y="128" font-size="13" fill="#666" text-anchor="middle" font-weight="normal">v7 每颗芯片 2 个 chiplet</text>
+<rect x="294" y="144" width="208" height="86" fill="#fdeeea" stroke="#c23b22" stroke-width="1.5"/>
+<text x="304" y="168" font-size="13" fill="#111" text-anchor="start" font-weight="normal">TensorCore（注意：这是整个核）</text>
+<text x="304" y="188" font-size="13" fill="#111" text-anchor="start" font-weight="normal">内含 MXU 脉动阵列</text>
+<text x="304" y="208" font-size="13" fill="#111" text-anchor="start" font-weight="normal">v1–v5 边长 128，v7 到 256 量级</text>
+<rect x="294" y="244" width="208" height="106" fill="#d6e4f5" stroke="#2a5d9c" stroke-width="1.5"/>
+<text x="304" y="268" font-size="13" fill="#111" text-anchor="start" font-weight="normal">同核里的 VPU 向量单元：</text>
+<text x="304" y="288" font-size="13" fill="#111" text-anchor="start" font-weight="normal">逐元素的杂活</text>
+<text x="304" y="308" font-size="13" fill="#111" text-anchor="start" font-weight="normal">另有 2 个 SparseCore：</text>
+<text x="304" y="328" font-size="13" fill="#111" text-anchor="start" font-weight="normal">查表、聚合这类不规则访问</text>
+<rect x="294" y="364" width="208" height="86" fill="#eceff4" stroke="#666" stroke-width="1.5"/>
+<text x="304" y="388" font-size="13" fill="#111" text-anchor="start" font-weight="normal">Unified Buffer：一大块便笺存储</text>
+<text x="304" y="408" font-size="13" fill="#111" text-anchor="start" font-weight="normal">内容完全由编译器安排</text>
+<text x="304" y="428" font-size="13" fill="#111" text-anchor="start" font-weight="normal">没有"命中/未命中"这回事</text>
+<rect x="294" y="464" width="208" height="66" fill="#fff3d6" stroke="#b07d00" stroke-width="1.5"/>
+<text x="304" y="488" font-size="13" fill="#111" text-anchor="start" font-weight="normal">DMA：按编译期排好的</text>
+<text x="304" y="508" font-size="13" fill="#111" text-anchor="start" font-weight="normal">时刻表搬运，无线程概念</text>
+<rect x="534" y="80" width="232" height="508" fill="#fcfcfc" stroke="#333" stroke-width="2"/>
+<text x="650.0" y="106" font-size="16" fill="#111" text-anchor="middle" font-weight="bold">华为昇腾：一个 AI Core</text>
+<text x="650.0" y="128" font-size="13" fill="#666" text-anchor="middle" font-weight="normal">一颗芯片数十个</text>
+<rect x="546" y="144" width="208" height="46" fill="#fdeeea" stroke="#c23b22" stroke-width="1.5"/>
+<text x="556" y="168" font-size="13" fill="#111" text-anchor="start" font-weight="normal">Cube：16×16×16 的立体矩阵阵列</text>
+<rect x="546" y="204" width="208" height="86" fill="#d6e4f5" stroke="#2a5d9c" stroke-width="1.5"/>
+<text x="556" y="228" font-size="13" fill="#111" text-anchor="start" font-weight="normal">Vector 引擎（向量杂活）</text>
+<text x="556" y="248" font-size="13" fill="#111" text-anchor="start" font-weight="normal">Scalar 引擎（地址、循环控制）</text>
+<text x="556" y="268" font-size="13" fill="#111" text-anchor="start" font-weight="normal">三个引擎并排在同一个核里</text>
+<rect x="546" y="304" width="208" height="86" fill="#eceff4" stroke="#666" stroke-width="1.5"/>
+<text x="556" y="328" font-size="13" fill="#111" text-anchor="start" font-weight="normal">L0A / L0B / L0C 贴着 Cube</text>
+<text x="556" y="348" font-size="13" fill="#111" text-anchor="start" font-weight="normal">→ L1 → UB，逐级显式</text>
+<text x="556" y="368" font-size="13" fill="#111" text-anchor="start" font-weight="normal">每一级搬什么都要写在程序里</text>
+<rect x="546" y="404" width="208" height="66" fill="#fff3d6" stroke="#b07d00" stroke-width="1.5"/>
+<text x="556" y="428" font-size="13" fill="#111" text-anchor="start" font-weight="normal">MTE：专职搬运引擎，</text>
+<text x="556" y="448" font-size="13" fill="#111" text-anchor="start" font-weight="normal">按指令执行</text>
+<rect x="786" y="80" width="232" height="508" fill="#fcfcfc" stroke="#333" stroke-width="2"/>
+<text x="902.0" y="106" font-size="16" fill="#111" text-anchor="middle" font-weight="bold">AMD：一个 CU</text>
+<text x="902.0" y="128" font-size="13" fill="#666" text-anchor="middle" font-weight="normal">MI300X 等，对应 SM</text>
+<rect x="798" y="144" width="208" height="46" fill="#fdeeea" stroke="#c23b22" stroke-width="1.5"/>
+<text x="808" y="168" font-size="13" fill="#111" text-anchor="start" font-weight="normal">Matrix Core（MFMA 指令族）</text>
+<rect x="798" y="204" width="208" height="86" fill="#d6e4f5" stroke="#2a5d9c" stroke-width="1.5"/>
+<text x="808" y="228" font-size="13" fill="#111" text-anchor="start" font-weight="normal">向量 ALU，一个 wavefront</text>
+<text x="808" y="248" font-size="13" fill="#111" text-anchor="start" font-weight="normal">是 64 个线程（NVIDIA 是 32）</text>
+<text x="808" y="268" font-size="13" fill="#111" text-anchor="start" font-weight="normal">同样与矩阵指令同 kernel 混编</text>
+<rect x="798" y="304" width="208" height="86" fill="#eceff4" stroke="#666" stroke-width="1.5"/>
+<text x="808" y="328" font-size="13" fill="#111" text-anchor="start" font-weight="normal">LDS（对应共享内存）</text>
+<text x="808" y="348" font-size="13" fill="#111" text-anchor="start" font-weight="normal">芯片级另多一层 Infinity Cache</text>
+<text x="808" y="368" font-size="13" fill="#111" text-anchor="start" font-weight="normal">垫在 L2 与显存之间</text>
+<rect x="798" y="404" width="208" height="66" fill="#fff3d6" stroke="#b07d00" stroke-width="1.5"/>
+<text x="808" y="428" font-size="13" fill="#111" text-anchor="start" font-weight="normal">没有独立的订单式引擎，</text>
+<text x="808" y="448" font-size="13" fill="#111" text-anchor="start" font-weight="normal">靠 buffer_load 一族指令搬</text>
+</g><defs><marker id="ar" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#c23b22"/></marker><marker id="ag" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#555"/></marker></defs></svg>

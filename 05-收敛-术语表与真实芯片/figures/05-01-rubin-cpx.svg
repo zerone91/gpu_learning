@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 540" width="1000" height="540">
+<rect x="0" y="0" width="1000" height="540" fill="#ffffff"/>
+<g font-family="sans-serif">
+<text x="30" y="34" font-size="20" fill="#111" text-anchor="start" font-weight="bold">把"两个阶段的瓶颈不同"做成两种芯片：Rubin CPX</text>
+<text x="30" y="58" font-size="15" fill="#333" text-anchor="start" font-weight="normal">大模型推理分两步：先把提示词整段读进去（预填充），再一个字一个字往外吐（解码）。</text>
+<rect x="30" y="86" width="450" height="330" fill="#fafafa" stroke="#c23b22" stroke-width="2"/>
+<text x="255" y="114" font-size="17" fill="#c23b22" text-anchor="middle" font-weight="bold">预填充：读进整段提示词</text>
+<text x="50" y="144" font-size="14" fill="#111" text-anchor="start" font-weight="normal">成千上万个 token 一起算，</text>
+<text x="50" y="166" font-size="14" fill="#111" text-anchor="start" font-weight="normal">每从显存取一个数，能摊上几百次乘加。</text>
+<text x="50" y="194" font-size="15" fill="#c23b22" text-anchor="start" font-weight="bold">瓶颈：算力。显存带宽根本用不满。</text>
+<rect x="50" y="212" width="410" height="104" fill="#ffffff" stroke="#555" stroke-width="1.5"/>
+<text x="60" y="238" font-size="14" fill="#111" text-anchor="start" font-weight="normal">配什么硬件才划算：</text>
+<text x="60" y="262" font-size="14" fill="#111" text-anchor="start" font-weight="normal">Rubin CPX —— 单 die、30 PFLOPS（NVFP4），</text>
+<text x="60" y="286" font-size="14" fill="#111" text-anchor="start" font-weight="normal">配 128 GB GDDR7：容量大、单价低、带宽一般。</text>
+<text x="50" y="344" font-size="13" fill="#666" text-anchor="start" font-weight="normal">GDDR7 是显卡上常见的那种显存颗粒，</text>
+<text x="50" y="364" font-size="13" fill="#666" text-anchor="start" font-weight="normal">贴在电路板上；比 HBM 便宜得多。</text>
+<text x="50" y="392" font-size="14" fill="#111" text-anchor="start" font-weight="normal">算得动就行，不必为带宽付钱。</text>
+<rect x="520" y="86" width="450" height="330" fill="#fafafa" stroke="#2a5d9c" stroke-width="2"/>
+<text x="745" y="114" font-size="17" fill="#2a5d9c" text-anchor="middle" font-weight="bold">解码：一个字一个字往外吐</text>
+<text x="540" y="144" font-size="14" fill="#111" text-anchor="start" font-weight="normal">每吐一个字都要把整套模型权重和</text>
+<text x="540" y="166" font-size="14" fill="#111" text-anchor="start" font-weight="normal">已经算过的缓存读一遍，乘加次数却很少。</text>
+<text x="540" y="194" font-size="15" fill="#2a5d9c" text-anchor="start" font-weight="bold">瓶颈：显存带宽。算力大半闲着。</text>
+<rect x="540" y="212" width="410" height="104" fill="#ffffff" stroke="#555" stroke-width="1.5"/>
+<text x="550" y="238" font-size="14" fill="#111" text-anchor="start" font-weight="normal">配什么硬件才划算：</text>
+<text x="550" y="262" font-size="14" fill="#111" text-anchor="start" font-weight="normal">Rubin 本体 —— 288 GB HBM4，</text>
+<text x="550" y="286" font-size="14" fill="#111" text-anchor="start" font-weight="normal">约 20 TB/s：带宽拉满，单价高也认了。</text>
+<text x="540" y="344" font-size="13" fill="#666" text-anchor="start" font-weight="normal">HBM 是直接叠在芯片旁边的高带宽存储，</text>
+<text x="540" y="364" font-size="13" fill="#666" text-anchor="start" font-weight="normal">贵，但每秒能吐出的数据是 GDDR 的十几倍。</text>
+<text x="540" y="392" font-size="14" fill="#111" text-anchor="start" font-weight="normal">读得快，才吐得快。</text>
+<line x1="482" y1="250" x2="516" y2="250" stroke="#b07d00" stroke-width="3" marker-end="url(#ar)"/>
+<rect x="300" y="440" width="400" height="76" fill="#fff3d6" stroke="#b07d00" stroke-width="2"/>
+<text x="500" y="466" font-size="15" fill="#b07d00" text-anchor="middle" font-weight="bold">新多出来的一条通信边</text>
+<text x="500" y="490" font-size="14" fill="#111" text-anchor="middle" font-weight="normal">预填充算出的 KV 缓存要从 CPX 传给 Rubin 本体，</text>
+<text x="500" y="510" font-size="14" fill="#111" text-anchor="middle" font-weight="normal">走机架内的高速互连，量正比于上下文长度。</text>
+<line x1="255" y1="416" x2="420" y2="440" stroke="#b07d00" stroke-width="2" stroke-dasharray="5 4"/>
+<line x1="745" y1="416" x2="600" y2="440" stroke="#b07d00" stroke-width="2" stroke-dasharray="5 4"/>
+</g><defs><marker id="ar" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#c23b22"/></marker><marker id="ag" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#555"/></marker></defs></svg>

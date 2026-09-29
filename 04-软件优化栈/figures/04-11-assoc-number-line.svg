@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 630" width="960" height="630" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="630" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222222"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f6db5"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777777"/></marker><marker id="o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c77a12"/></marker><marker id="n" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e8b57"/></marker><marker id="p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7a4fb0"/></marker></defs>
+<text x="480" y="32" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold">a = 10²⁰，b = −10²⁰，c = 1（fp32）：换一个加法顺序，结果从 1 变成 0</text>
+<text x="30" y="92" font-size="16" text-anchor="start" fill="#2e8b57" font-weight="bold">(a + b) + c</text>
+<rect x="200" y="66" width="190" height="40" rx="6" fill="#eeeeee" stroke="#777777" stroke-width="2"/>
+<text x="295.0" y="90.9" font-size="14" text-anchor="middle" fill="#222222">a + b = 10²⁰ − 10²⁰</text>
+<line x1="392" y1="86" x2="420" y2="86" stroke="#222222" stroke-width="1.5" marker-end="url(#a)"/>
+<rect x="422" y="66" width="190" height="40" rx="6" fill="#d9efe2" stroke="#2e8b57" stroke-width="2"/>
+<text x="517.0" y="90.9" font-size="14" text-anchor="middle" fill="#222222">= 0，恰好精确</text>
+<line x1="614" y1="86" x2="642" y2="86" stroke="#222222" stroke-width="1.5" marker-end="url(#a)"/>
+<rect x="644" y="66" width="150" height="40" rx="6" fill="#d9efe2" stroke="#2e8b57" stroke-width="2"/>
+<text x="719.0" y="90.9" font-size="14" text-anchor="middle" fill="#222222">0 + 1 = 1</text>
+<text x="836" y="93" font-size="18" text-anchor="start" fill="#2e8b57" font-weight="bold">结果 1</text>
+<text x="30" y="152" font-size="16" text-anchor="start" fill="#c0392b" font-weight="bold">a + (b + c)</text>
+<rect x="200" y="126" width="190" height="40" rx="6" fill="#eeeeee" stroke="#777777" stroke-width="2"/>
+<text x="295.0" y="150.9" font-size="14" text-anchor="middle" fill="#222222">b + c = −10²⁰ + 1</text>
+<line x1="392" y1="146" x2="420" y2="146" stroke="#222222" stroke-width="1.5" marker-end="url(#a)"/>
+<rect x="422" y="126" width="190" height="40" rx="6" fill="#f6dcd8" stroke="#c0392b" stroke-width="2"/>
+<text x="517.0" y="150.9" font-size="14" text-anchor="middle" fill="#222222">舍入成 −10²⁰</text>
+<line x1="614" y1="146" x2="642" y2="146" stroke="#222222" stroke-width="1.5" marker-end="url(#a)"/>
+<rect x="644" y="126" width="150" height="40" rx="6" fill="#f6dcd8" stroke="#c0392b" stroke-width="2"/>
+<text x="719.0" y="150.9" font-size="14" text-anchor="middle" fill="#222222">10²⁰ − 10²⁰ = 0</text>
+<text x="836" y="153" font-size="18" text-anchor="start" fill="#c0392b" font-weight="bold">结果 0</text>
+<text x="30" y="206" font-size="16" text-anchor="start" fill="#222222" font-weight="bold">为什么 −10²⁰ + 1 会被舍入成 −10²⁰：把 −10²⁰ 附近的数轴放大看</text>
+<line x1="60" y1="322" x2="900" y2="322" stroke="#222222" stroke-width="2"/>
+<line x1="100" y1="306" x2="100" y2="338" stroke="#222222" stroke-width="2.5"/>
+<text x="100" y="362" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">−10²⁰ − 8.8×10¹²</text>
+<text x="100" y="384" font-size="13" text-anchor="middle" fill="#444444">前一个 fp32</text>
+<line x1="480.0" y1="306" x2="480.0" y2="338" stroke="#222222" stroke-width="2.5"/>
+<text x="480.0" y="362" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">−10²⁰</text>
+<text x="480.0" y="384" font-size="13" text-anchor="middle" fill="#444444">fp32 能表示</text>
+<line x1="860" y1="306" x2="860" y2="338" stroke="#222222" stroke-width="2.5"/>
+<text x="860" y="362" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">−10²⁰ + 8.8×10¹²</text>
+<text x="860" y="384" font-size="13" text-anchor="middle" fill="#444444">后一个 fp32</text>
+<path d="M480.0,296 L480.0,286 L860,286 L860,296" fill="none" stroke="#2f6db5" stroke-width="1.8"/>
+<text x="670.0" y="278" font-size="14" text-anchor="middle" fill="#2f6db5">相邻两个 fp32 相距 2⁴³ ≈ 8.8×10¹²（这就是这里的 ULP）</text>
+<circle cx="481.2" cy="322" r="6" fill="#c0392b" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="440.0" y1="264" x2="475.0" y2="314" stroke="#c0392b" stroke-width="1.8" marker-end="url(#r)"/>
+<text x="436.0" y="238" font-size="14" text-anchor="end" fill="#c0392b">精确值 −10²⁰ + 1 在这里：离 −10²⁰ 只有 1，</text>
+<text x="436.0" y="258" font-size="14" text-anchor="end" fill="#c0392b">离下一个 fp32 差 8.8×10¹² − 1。取最近的，1 就没了</text>
+<text x="30" y="430" font-size="15" text-anchor="start" fill="#222222" font-weight="bold">相邻 fp32 之间的间隔（ULP）随数值大小按比例变大：</text>
+<text x="60" y="462" font-size="14" text-anchor="start" fill="#222222">数值在 1.0 附近</text>
+<text x="300" y="462" font-size="14" text-anchor="start" fill="#2f6db5" font-weight="bold">间隔约 1.2×10⁻⁷</text>
+<text x="540" y="462" font-size="14" text-anchor="start" fill="#444444">加 1 当然看得见</text>
+<text x="60" y="492" font-size="14" text-anchor="start" fill="#222222">数值在 10¹⁰ 附近</text>
+<text x="300" y="492" font-size="14" text-anchor="start" fill="#2f6db5" font-weight="bold">间隔约 10³（1024）</text>
+<text x="540" y="492" font-size="14" text-anchor="start" fill="#444444">加 1 已被舍掉</text>
+<text x="60" y="522" font-size="14" text-anchor="start" fill="#222222">数值在 10²⁰ 附近</text>
+<text x="300" y="522" font-size="14" text-anchor="start" fill="#2f6db5" font-weight="bold">间隔约 8.8×10¹²</text>
+<text x="540" y="522" font-size="14" text-anchor="start" fill="#444444">加 1 被舍掉，加 10¹² 也被舍掉</text>
+<text x="30" y="570" font-size="14" text-anchor="start" fill="#444444">fp32 的尾数只有 23 位，任何数都只能精确到自身大小的约 1/8,000,000。加上一个比这还小的数，结果与原数相同。</text>
+<text x="30" y="594" font-size="13" text-anchor="start" fill="#777777">注：10²⁰ 在 fp32 里不能精确表示，图中的 “10²⁰” 指 fp32 里离它最近的那个数（100000002004087734272）。</text>
+</svg>

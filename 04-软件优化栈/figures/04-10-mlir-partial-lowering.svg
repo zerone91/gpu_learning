@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="600" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222222"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f6db5"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777777"/></marker><marker id="o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c77a12"/></marker><marker id="n" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e8b57"/></marker><marker id="p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7a4fb0"/></marker></defs>
+<text x="480" y="32" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold">MLIR 的下沉：同一个模块里的操作，逐个从高层 dialect 换成低层 dialect</text>
+<rect x="10" y="100" width="940" height="72" rx="0" fill="#f7f7f7" stroke="#eeeeee" stroke-width="1.5"/>
+<text x="20" y="130" font-size="15" text-anchor="start" fill="#222222" font-weight="bold">框架图</text>
+<text x="20" y="152" font-size="14" text-anchor="start" fill="#444444">StableHLO 等</text>
+<rect x="10" y="172" width="940" height="72" rx="0" fill="#ffffff" stroke="#eeeeee" stroke-width="1.5"/>
+<text x="20" y="202" font-size="15" text-anchor="start" fill="#222222" font-weight="bold">张量运算</text>
+<text x="20" y="224" font-size="14" text-anchor="start" fill="#444444">Linalg</text>
+<rect x="10" y="244" width="940" height="72" rx="0" fill="#f7f7f7" stroke="#eeeeee" stroke-width="1.5"/>
+<text x="20" y="274" font-size="15" text-anchor="start" fill="#222222" font-weight="bold">显式循环</text>
+<text x="20" y="296" font-size="14" text-anchor="start" fill="#444444">affine / SCF</text>
+<rect x="10" y="316" width="940" height="72" rx="0" fill="#ffffff" stroke="#eeeeee" stroke-width="1.5"/>
+<text x="20" y="346" font-size="15" text-anchor="start" fill="#222222" font-weight="bold">并行结构</text>
+<text x="20" y="368" font-size="14" text-anchor="start" fill="#444444">gpu</text>
+<rect x="10" y="388" width="940" height="72" rx="0" fill="#f7f7f7" stroke="#eeeeee" stroke-width="1.5"/>
+<text x="20" y="418" font-size="15" text-anchor="start" fill="#222222" font-weight="bold">目标指令</text>
+<text x="20" y="440" font-size="14" text-anchor="start" fill="#444444">NVVM / LLVM</text>
+<text x="285.0" y="86" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">① 起点</text>
+<text x="475.0" y="86" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">② 在高层融合</text>
+<text x="665.0" y="86" font-size="15" text-anchor="middle" fill="#c77a12" font-weight="bold">③ 部分下沉</text>
+<text x="855.0" y="86" font-size="15" text-anchor="middle" fill="#222222" font-weight="bold">④ 全部下沉</text>
+<rect x="200.0" y="121.0" width="170" height="30" rx="6" fill="#dbe7f5" stroke="#2f6db5" stroke-width="2"/>
+<text x="285.0" y="140.55" font-size="13" text-anchor="middle" fill="#222222">matmul → add → relu</text>
+<rect x="400.0" y="177.0" width="150" height="28" rx="6" fill="#dbe7f5" stroke="#2f6db5" stroke-width="2"/>
+<text x="475.0" y="195.55" font-size="13" text-anchor="middle" fill="#222222">linalg.matmul</text>
+<rect x="400.0" y="211.0" width="150" height="28" rx="6" fill="#d9efe2" stroke="#2e8b57" stroke-width="2"/>
+<text x="475.0" y="229.55" font-size="13" text-anchor="middle" fill="#222222">generic(add+relu)</text>
+<rect x="590.0" y="193.0" width="150" height="30" rx="6" fill="#d9efe2" stroke="#2e8b57" stroke-width="2"/>
+<text x="665.0" y="212.55" font-size="13" text-anchor="middle" fill="#222222">generic(add+relu)</text>
+<rect x="590.0" y="409.0" width="150" height="30" rx="6" fill="#f8e8cf" stroke="#c77a12" stroke-width="2"/>
+<text x="665.0" y="428.55" font-size="13" text-anchor="middle" fill="#222222">矩阵指令 / 库调用</text>
+<line x1="665.0" y1="409.0" x2="665.0" y2="225.0" stroke="#c77a12" stroke-width="2" marker-end="url(#o)" stroke-dasharray="6 4"/>
+<text x="568" y="326" font-size="13" text-anchor="end" fill="#c77a12">matmul 的结果</text>
+<text x="568" y="344" font-size="13" text-anchor="end" fill="#c77a12">直接喂给还在</text>
+<text x="568" y="362" font-size="13" text-anchor="end" fill="#c77a12">高层的 generic</text>
+<rect x="576" y="104" width="178" height="352" rx="8" fill="none" stroke="#c77a12" stroke-width="2" stroke-dasharray="8 5"/>
+<rect x="775.0" y="265.0" width="160" height="30" rx="6" fill="#eeeeee" stroke="#777777" stroke-width="2"/>
+<text x="855.0" y="284.55" font-size="13" text-anchor="middle" fill="#222222">scf.for 循环嵌套</text>
+<rect x="775.0" y="337.0" width="160" height="30" rx="6" fill="#eeeeee" stroke="#777777" stroke-width="2"/>
+<text x="855.0" y="356.55" font-size="13" text-anchor="middle" fill="#222222">gpu.launch 线程块</text>
+<rect x="775.0" y="409.0" width="160" height="30" rx="6" fill="#eeeeee" stroke="#777777" stroke-width="2"/>
+<text x="855.0" y="428.55" font-size="13" text-anchor="middle" fill="#222222">nvvm 指令</text>
+<line x1="855.0" y1="295" x2="855.0" y2="335" stroke="#777777" stroke-width="1.5" marker-end="url(#g)"/>
+<line x1="855.0" y1="367" x2="855.0" y2="407" stroke="#777777" stroke-width="1.5" marker-end="url(#g)"/>
+<line x1="190" y1="484" x2="940" y2="484" stroke="#444444" stroke-width="2" marker-end="url(#a)"/>
+<text x="940" y="506" font-size="14" text-anchor="end" fill="#444444">pass 流水线往后走 →</text>
+<text x="20" y="536" font-size="14" text-anchor="start" fill="#444444">橙色虚框：同一时刻、同一个模块里，一部分操作已在最底层，另一部分还留在 Linalg 层——dialect 能共存，这件事才做得到。</text>
+<text x="20" y="560" font-size="14" text-anchor="start" fill="#444444">这正是“矩阵乘用手写模板、周围逐元素操作自动生成”在编译器内部的形态。</text>
+</svg>
