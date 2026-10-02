@@ -45,14 +45,14 @@
   <text x="795" y="134" font-size="16" font-weight="bold" fill="#1a3d70" text-anchor="middle">一个 SM 本来能做多少乘加</text>
   <line x1="680" y1="148" x2="910" y2="148" stroke="#2c5aa0" stroke-width="1.5"/>
   <text x="678" y="174" font-size="14" fill="#222">矩阵单元每拍：2048 次 bf16 乘加</text>
-  <text x="678" y="200" font-size="14" fill="#222">一次往返：约 500～700 拍</text>
-  <text x="678" y="226" font-size="14" fill="#222">相乘：约 100 万～140 万次乘加</text>
+  <text x="678" y="200" font-size="14" fill="#222">一次往返：约 480～730 拍</text>
+  <text x="678" y="226" font-size="14" fill="#222">相乘：约 98 万～150 万次乘加</text>
   <text x="678" y="260" font-size="14" fill="#222">一个 128×128×64 的矩阵乘分块：</text>
   <text x="678" y="282" font-size="14" fill="#222">128 × 128 × 64 ≈ 105 万次乘加</text>
   <rect x="678" y="300" width="234" height="52" fill="#ffffff" stroke="#2c5aa0" stroke-width="1.5"/>
   <text x="795" y="322" font-size="15" font-weight="bold" fill="#1a3d70" text-anchor="middle">干等一次 ≈ 白扔</text>
   <text x="795" y="342" font-size="15" font-weight="bold" fill="#1a3d70" text-anchor="middle">一整个分块的计算</text>
 
-  <text x="40" y="412" font-size="14" fill="#444">注：范围来自两篇微基准论文：H800 上 L2 263 拍、显存 479 拍；H100 上请求落在本侧 L2 分区 295 / 554 拍，对侧分区 470 / 728 拍。</text>
+  <text x="40" y="412" font-size="14" fill="#444">注：范围来自两篇微基准论文：H800 上 L2 263 拍、显存 479 拍；H100 SXM5 上本侧 / 对侧 L2 分区命中 295 / 470 拍，经本侧 / 对侧分区到显存 554 / 728 拍。</text>
   <text x="40" y="436" font-size="14" fill="#444">"拍"是一个 GPU 时钟周期，H100 约 0.55 纳秒。</text>
 </svg>

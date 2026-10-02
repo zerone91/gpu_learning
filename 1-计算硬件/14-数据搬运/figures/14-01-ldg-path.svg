@@ -34,7 +34,7 @@
   <text x="314" y="132" font-size="13" text-anchor="middle" font-weight="bold">③ 合并</text>
   <text x="314" y="150" font-size="12" text-anchor="middle">归成 N 个 32 字</text>
   <text x="314" y="166" font-size="12" text-anchor="middle">节段请求</text>
-  <text x="314" y="180" font-size="12" text-anchor="middle" fill="#a33">N 拍（4～32）</text>
+  <text x="314" y="180" font-size="12" text-anchor="middle" fill="#a33">段越多越久</text>
 
   <!-- L1 -->
   <rect x="380" y="80" width="150" height="120" fill="#eef4fb" stroke="#2a5d9f" stroke-width="1.5"/>
@@ -52,12 +52,12 @@
   <text x="601" y="132" font-size="13" text-anchor="middle" font-weight="bold">⑤ 片上网络</text>
   <text x="601" y="150" font-size="12" text-anchor="middle">按地址散列选</text>
   <text x="601" y="166" font-size="12" text-anchor="middle">一片 L2</text>
-  <text x="601" y="180" font-size="12" text-anchor="middle" fill="#a33">来回 30～60 拍</text>
+  <text x="601" y="180" font-size="12" text-anchor="middle" fill="#a33">⑤⑥ 两站合计</text>
   <rect x="652" y="112" width="86" height="72" fill="#ffffff" stroke="#b5651d" stroke-width="1.5"/>
   <text x="695" y="132" font-size="13" text-anchor="middle" font-weight="bold">⑥ 查 L2</text>
   <text x="695" y="150" font-size="12" text-anchor="middle">tag 比较 +</text>
   <text x="695" y="166" font-size="12" text-anchor="middle">读 SRAM</text>
-  <text x="695" y="180" font-size="12" text-anchor="middle" fill="#a33">约 20～40 拍</text>
+  <text x="695" y="180" font-size="12" text-anchor="middle" fill="#a33">约 220 拍</text>
 
   <!-- HBM -->
   <rect x="762" y="80" width="178" height="120" fill="#fdecec" stroke="#a33" stroke-width="1.5"/>
@@ -66,7 +66,7 @@
   <text x="851" y="132" font-size="13" text-anchor="middle" font-weight="bold">⑦ 显存控制器 + HBM</text>
   <text x="851" y="150" font-size="12" text-anchor="middle">排队、开行、读列</text>
   <text x="851" y="166" font-size="12" text-anchor="middle">再走回来</text>
-  <text x="851" y="180" font-size="12" text-anchor="middle" fill="#a33">约 200 拍以上</text>
+  <text x="851" y="180" font-size="12" text-anchor="middle" fill="#a33">再加约 220 拍</text>
 
   <!-- arrows between -->
   <defs>

@@ -65,5 +65,5 @@
 <rect x="310" y="395" width="531" height="26" fill="#e6eefc" stroke="#2a5d9f"/>
 <text x="576" y="413" font-size="12" text-anchor="middle" fill="#2a5d9f">调度器把这 480 拍全用来发别的 warp 的指令——驻留的 warp 够多，执行单元才不空转</text>
 <text x="20" y="500" font-size="13" fill="#444">读出三件事：① 这段 SASS 一共 18 条指令，只有 1 条 FFMA 在真正算数；② 这个 warp 一生中最长的一段是干等；</text>
-<text x="20" y="522" font-size="13" fill="#444">③ 提速的办法不是让这一次等待变短（它由物理距离决定），而是让这 480 拍里有别的 warp 在干活。</text>
+<text x="20" y="522" font-size="13" fill="#444">③ 提速的办法不是让这一次等待变短（它由沿途各站的查找和排队决定），而是让这 480 拍里有别的 warp 在干活。</text>
 </svg>
