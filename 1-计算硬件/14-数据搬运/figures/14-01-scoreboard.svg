@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" font-family="sans-serif">
+  <defs>
+    <marker id="ar" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#333"/></marker>
+    <marker id="arR" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#b52a2a"/></marker>
+    <marker id="arG" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#2e7d32"/></marker>
+    <marker id="arB" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#1f4e9a"/></marker>
+  </defs>
+  <rect x="0" y="0" width="960" height="560" fill="#ffffff"/>
+  <text x="30" y="34" font-size="20" font-weight="bold" fill="#111">记分牌怎么工作：编译器写好"登记几号、等哪几号"，硬件只做加一、减一、查零</text>
+
+  <!-- left: instruction stream -->
+  <text x="30" y="60" font-size="15" font-weight="bold" fill="#333">一个 warp 的指令流（控制位由编译器写进指令）</text>
+  <rect x="30" y="100" width="300" height="64" fill="#fdecea" stroke="#b52a2a" stroke-width="2"/>
+  <text x="44" y="125" font-size="15" font-family="monospace" fill="#111">LDG.E  R2, [R2.64]</text>
+  <text x="44" y="150" font-size="14" fill="#b52a2a">读 x[i] 进 R2；控制位：登记到 2 号</text>
+
+  <rect x="30" y="180" width="300" height="64" fill="#f5f5f5" stroke="#888" stroke-width="1.8"/>
+  <text x="44" y="205" font-size="15" font-family="monospace" fill="#111">IMAD.WIDE  R4, R7, 0x4, R4</text>
+  <text x="44" y="230" font-size="14" fill="#555">算写回地址，不用 R2；等待：1 号</text>
+
+  <rect x="30" y="260" width="300" height="64" fill="#e8f0fb" stroke="#1f4e9a" stroke-width="2"/>
+  <text x="44" y="285" font-size="15" font-family="monospace" fill="#111">FFMA  R7, R2, R8, R9</text>
+  <text x="44" y="310" font-size="14" fill="#1f4e9a">要用 R2；控制位：等待 2 号</text>
+
+  <!-- middle: counters -->
+  <text x="460" y="60" font-size="15" font-weight="bold" fill="#333" text-anchor="middle">这个 warp 的 6 个计数器</text>
+  <rect x="390" y="100" width="140" height="30" fill="#f5f5f5" stroke="#999" stroke-width="1.5"/>
+  <text x="460" y="121" font-size="14" fill="#555" text-anchor="middle">0 号 = 0</text>
+  <rect x="390" y="138" width="140" height="30" fill="#f5f5f5" stroke="#999" stroke-width="1.5"/>
+  <text x="460" y="159" font-size="14" fill="#555" text-anchor="middle">1 号 = 0</text>
+  <rect x="390" y="176" width="140" height="30" fill="#f8d7da" stroke="#b52a2a" stroke-width="2.5"/>
+  <text x="460" y="197" font-size="15" font-weight="bold" fill="#7a1f1f" text-anchor="middle">2 号 = 1</text>
+  <rect x="390" y="214" width="140" height="30" fill="#f5f5f5" stroke="#999" stroke-width="1.5"/>
+  <text x="460" y="235" font-size="14" fill="#555" text-anchor="middle">3 号 = 0</text>
+  <rect x="390" y="252" width="140" height="30" fill="#f5f5f5" stroke="#999" stroke-width="1.5"/>
+  <text x="460" y="273" font-size="14" fill="#555" text-anchor="middle">4 号 = 0</text>
+  <rect x="390" y="290" width="140" height="30" fill="#f5f5f5" stroke="#999" stroke-width="1.5"/>
+  <text x="460" y="311" font-size="14" fill="#555" text-anchor="middle">5 号 = 0</text>
+
+  <!-- right: memory system -->
+  <rect x="610" y="100" width="320" height="76" fill="#fff6e0" stroke="#b8860b" stroke-width="2"/>
+  <text x="770" y="126" font-size="15" font-weight="bold" fill="#6b4e00" text-anchor="middle">存储系统（L1 / L2 / 显存）</text>
+  <text x="770" y="150" font-size="14" fill="#6b4e00" text-anchor="middle">40～730 拍后数据回来，</text>
+  <text x="770" y="168" font-size="14" fill="#6b4e00" text-anchor="middle">写进这个 warp 的 R2</text>
+
+  <!-- right: scheduler -->
+  <rect x="610" y="232" width="320" height="100" fill="#e9f5ea" stroke="#2e7d32" stroke-width="2"/>
+  <text x="770" y="258" font-size="15" font-weight="bold" fill="#1b4620" text-anchor="middle">warp 调度器（每拍挑一个 warp 发射）</text>
+  <text x="626" y="284" font-size="14" fill="#1b4620">看这个 warp 下一条（FFMA）等 2 号：</text>
+  <text x="626" y="304" font-size="14" fill="#1b4620">2 号 ≠ 0 → 本拍落选，挑别的 warp</text>
+  <text x="626" y="324" font-size="14" fill="#1b4620">2 号 = 0 → 可以发射</text>
+
+  <!-- arrow 1: LDG -> counter 2 (+1) -->
+  <line x1="330" y1="132" x2="388" y2="186" stroke="#b52a2a" stroke-width="2" marker-end="url(#arR)"/>
+  <text x="338" y="114" font-size="14" font-weight="bold" fill="#b52a2a">① +1</text>
+  <!-- LDG request to memory system -->
+  <path d="M180 100 L180 76 L770 76 L770 98" fill="none" stroke="#b8860b" stroke-width="1.8" stroke-dasharray="5,4" marker-end="url(#ar)"/>
+  <text x="590" y="70" font-size="13" fill="#8a6d00">请求发往存储系统</text>
+  <!-- arrow 2: memory -> counter 2 (-1) -->
+  <line x1="610" y1="160" x2="533" y2="188" stroke="#b8860b" stroke-width="2" marker-end="url(#ar)"/>
+  <text x="548" y="150" font-size="14" font-weight="bold" fill="#8a6d00">② −1</text>
+  <!-- arrow 3: counter 2 -> scheduler -->
+  <line x1="530" y1="200" x2="608" y2="262" stroke="#2e7d32" stroke-width="2" marker-end="url(#arG)"/>
+  <text x="536" y="276" font-size="14" font-weight="bold" fill="#2e7d32">③ 查零</text>
+  <!-- arrow 4: FFMA wait mask -> scheduler -->
+  <path d="M180 324 L180 352 L770 352 L770 334" fill="none" stroke="#1f4e9a" stroke-width="1.8" marker-end="url(#arB)"/>
+  <text x="400" y="346" font-size="13" fill="#1f4e9a">FFMA 的等待掩码交给调度器检查</text>
+
+  <!-- legend -->
+  <rect x="30" y="378" width="900" height="166" fill="#fafafa" stroke="#bbb" stroke-width="1.5"/>
+  <text x="46" y="404" font-size="14" fill="#222">① LDG 发射的那一拍，2 号计数器加一。"登记到 2 号"是编译器写在 LDG 控制位里的。</text>
+  <text x="46" y="430" font-size="14" fill="#222">② 数据回来、写进 R2 的那一拍，2 号减一。硬件能报告的完成事件只有这一个：目的寄存器被写入。</text>
+  <text x="46" y="456" font-size="14" fill="#222">③ 调度器挑 warp 前，查这个 warp 下一条指令要等的计数器是否都为零。不为零，这个 warp 本拍落选。</text>
+  <text x="46" y="482" font-size="14" fill="#222">中间那条 IMAD.WIDE 不等 2 号，所以 LDG 之后它照常发射；同一个 warp 只能按程序顺序发射，卡在 FFMA 上后，</text>
+  <text x="46" y="502" font-size="14" fill="#222">FFMA 后面的指令也一起等。</text>
+  <text x="46" y="530" font-size="14" font-weight="bold" fill="#7a1f1f">硬件里没有"R2 对应 2 号"的表：是编译器看出 LDG 写 R2、FFMA 读 R2，才把两条指令配到同一个号上。</text>
+</svg>

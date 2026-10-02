@@ -73,8 +73,8 @@
   <text x="121" y="427" font-size="13" fill="#555" text-anchor="middle">怎么知道到货了</text>
   <rect x="216" y="370" width="188" height="80" fill="#fcf3cf" stroke="#b8860b" stroke-width="2"/>
   <text x="310" y="398" font-size="14" fill="#5a4400" text-anchor="middle">记分牌自动等</text>
-  <text x="310" y="420" font-size="14" fill="#5a4400" text-anchor="middle">但等的是寄存器，</text>
-  <text x="310" y="440" font-size="14" fill="#5a4400" text-anchor="middle">粒度粗、藏不深</text>
+  <text x="310" y="420" font-size="14" fill="#5a4400" text-anchor="middle">但挂在寄存器上：在途</text>
+  <text x="310" y="440" font-size="14" fill="#5a4400" text-anchor="middle">数据占寄存器，排不深</text>
   <rect x="412" y="370" width="188" height="80" fill="#fcf3cf" stroke="#b8860b" stroke-width="2"/>
   <text x="506" y="398" font-size="14" fill="#5a4400" text-anchor="middle">自己攒组、自己等组：</text>
   <text x="506" y="420" font-size="14" fill="#5a4400" text-anchor="middle">commit_group /</text>

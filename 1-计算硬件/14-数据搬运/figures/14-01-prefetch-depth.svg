@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" font-family="sans-serif">
+  <rect x="0" y="0" width="960" height="540" fill="#ffffff"/>
+  <text x="30" y="34" font-size="20" font-weight="bold" fill="#111">计算一代比一代快，显存往返不变：要提前发起的级数越来越多</text>
+  <text x="30" y="60" font-size="14" fill="#444">横条：一个 SM 算完一个 128×128×64 分块要多少拍（假设这个 SM 只跑这一个分块）。红色竖带：一次显存往返。</text>
+
+  <!-- latency band 480..730 at 0.28 px/拍, x0=190 -->
+  <rect x="324" y="92" width="70" height="236" fill="#f8d7da" stroke="#c9302c" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="359" y="86" font-size="13" fill="#a94442" text-anchor="middle">显存往返 480～730 拍</text>
+
+  <!-- rows -->
+  <text x="30" y="122" font-size="15" font-weight="bold" fill="#222">V100（2017）</text>
+  <text x="30" y="140" font-size="12" fill="#555">每拍 512 次乘加</text>
+  <rect x="190" y="104" width="573" height="34" fill="#9ec5e8" stroke="#2c5aa0" stroke-width="1.5"/>
+  <text x="470" y="127" font-size="14" fill="#13335f" text-anchor="middle">2048 拍</text>
+  <text x="790" y="127" font-size="15" fill="#2e7d32" font-weight="bold">提前 1 级就够</text>
+
+  <text x="30" y="182" font-size="15" font-weight="bold" fill="#222">A100（2020）</text>
+  <text x="30" y="200" font-size="12" fill="#555">每拍 1024 次</text>
+  <rect x="190" y="164" width="287" height="34" fill="#9ec5e8" stroke="#2c5aa0" stroke-width="1.5"/>
+  <text x="430" y="187" font-size="14" fill="#13335f" text-anchor="middle">1024 拍</text>
+  <text x="790" y="187" font-size="15" fill="#8a6d00" font-weight="bold">1 级，余量很小</text>
+
+  <text x="30" y="242" font-size="15" font-weight="bold" fill="#222">H100（2022）</text>
+  <text x="30" y="260" font-size="12" fill="#555">每拍 2048 次</text>
+  <rect x="190" y="224" width="143" height="34" fill="#9ec5e8" stroke="#2c5aa0" stroke-width="1.5"/>
+  <text x="261" y="247" font-size="14" fill="#13335f" text-anchor="middle">512 拍</text>
+  <text x="790" y="247" font-size="15" fill="#b52a2a" font-weight="bold">至少提前 2 级</text>
+
+  <text x="30" y="302" font-size="15" font-weight="bold" fill="#222">B200（2024）</text>
+  <text x="30" y="320" font-size="12" fill="#555">约 4096 次（估算）</text>
+  <rect x="190" y="284" width="72" height="34" fill="#9ec5e8" stroke="#2c5aa0" stroke-width="1.5"/>
+  <text x="275" y="307" font-size="14" fill="#13335f">约 256 拍</text>
+  <text x="790" y="307" font-size="15" fill="#b52a2a" font-weight="bold">至少提前 3 级</text>
+
+  <!-- axis -->
+  <line x1="190" y1="340" x2="780" y2="340" stroke="#333" stroke-width="1.5"/>
+  <line x1="190" y1="340" x2="190" y2="346" stroke="#333" stroke-width="1.5"/>
+  <text x="190" y="362" font-size="13" fill="#333" text-anchor="middle">0</text>
+  <line x1="330" y1="340" x2="330" y2="346" stroke="#333" stroke-width="1.5"/>
+  <text x="330" y="362" font-size="13" fill="#333" text-anchor="middle">500</text>
+  <line x1="470" y1="340" x2="470" y2="346" stroke="#333" stroke-width="1.5"/>
+  <text x="470" y="362" font-size="13" fill="#333" text-anchor="middle">1000</text>
+  <line x1="610" y1="340" x2="610" y2="346" stroke="#333" stroke-width="1.5"/>
+  <text x="610" y="362" font-size="13" fill="#333" text-anchor="middle">1500</text>
+  <line x1="750" y1="340" x2="750" y2="346" stroke="#333" stroke-width="1.5"/>
+  <text x="750" y="362" font-size="13" fill="#333" text-anchor="middle">2000 拍</text>
+
+  <!-- explanation -->
+  <rect x="30" y="384" width="900" height="142" fill="#fafafa" stroke="#bbb" stroke-width="1.5"/>
+  <text x="46" y="410" font-size="14" fill="#222">"提前 d 级"：算第 k 块时，第 k+1 到 k+d 块已经在路上。要盖住一次往返，需要 d × 每块计算时间 ≥ 往返延迟</text>
+  <text x="46" y="430" font-size="14" fill="#222">（右列按无负载上限 730 拍算；带宽吃紧时排队会让延迟更长，要的级数更多）。</text>
+  <text x="46" y="460" font-size="14" fill="#7a1f1f" font-weight="bold">load/store 的在途数据只能停在寄存器里：128 个线程搬 A、B 两个分块各 16 KB，一级就要每线程 64 个寄存器；</text>
+  <text x="46" y="480" font-size="14" fill="#7a1f1f" font-weight="bold">128×128 的累加结果再占每线程 128 个，而每线程上限 255 个——只放得下一级。</text>
+  <text x="46" y="508" font-size="14" fill="#222">V100 上一级绰绰有余；A100 余量已经很小，H100 一级盖不住。Ampere 加 cp.async，就是让在途数据改停在 shared memory。</text>
+</svg>
