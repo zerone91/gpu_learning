@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 620" width="1000" height="620" font-family="sans-serif">
+<rect x="0" y="0" width="1000" height="620" fill="#ffffff"/>
+<text x="20" y="28" font-size="19" font-weight="bold" fill="#111">三格缓冲轮流用：两组屏障各管一个方向</text>
+<text x="20" y="50" font-size="13.5" fill="#555">假设搬一块和算一块耗时相同，各占一个时间片。第 k 块放进第 k mod 3 格。</text>
+
+<defs>
+<marker id="gd" markerWidth="8" markerHeight="8" refX="7" refY="2.5" orient="auto"><path d="M0,0 L7,2.5 L0,5 z" fill="#2e7d32"/></marker>
+<marker id="rd" markerWidth="8" markerHeight="8" refX="7" refY="2.5" orient="auto"><path d="M0,0 L7,2.5 L0,5 z" fill="#b03030"/></marker>
+</defs>
+
+<!-- 时间轴刻度 -->
+<g font-size="13" fill="#555">
+<text x="118" y="76">t0</text><text x="212" y="76">t1</text><text x="306" y="76">t2</text><text x="400" y="76">t3</text>
+<text x="494" y="76">t4</text><text x="588" y="76">t5</text><text x="682" y="76">t6</text><text x="776" y="76">t7</text><text x="870" y="76">t8</text>
+</g>
+<g stroke="#ddd" stroke-width="1">
+<line x1="110" y1="82" x2="110" y2="300"/><line x1="204" y1="82" x2="204" y2="300"/>
+<line x1="298" y1="82" x2="298" y2="300"/><line x1="392" y1="82" x2="392" y2="300"/>
+<line x1="486" y1="82" x2="486" y2="300"/><line x1="580" y1="82" x2="580" y2="300"/>
+<line x1="674" y1="82" x2="674" y2="300"/><line x1="768" y1="82" x2="768" y2="300"/>
+<line x1="862" y1="82" x2="862" y2="300"/><line x1="956" y1="82" x2="956" y2="300"/>
+</g>
+
+<!-- 泳道 1 生产者 -->
+<text x="14" y="106" font-size="14" font-weight="bold" fill="#8a4f05">生产者</text>
+<text x="14" y="124" font-size="12" fill="#8a4f05">(1 个线程)</text>
+<g font-size="12.5" fill="#fff">
+<rect x="112" y="90" width="90" height="34" fill="#c87c25" rx="3"/><text x="124" y="112">发块 0</text>
+<rect x="206" y="90" width="90" height="34" fill="#c87c25" rx="3"/><text x="218" y="112">发块 1</text>
+<rect x="300" y="90" width="90" height="34" fill="#c87c25" rx="3"/><text x="312" y="112">发块 2</text>
+<rect x="394" y="90" width="90" height="34" fill="#c87c25" rx="3"/><text x="406" y="112">发块 3</text>
+<rect x="488" y="90" width="90" height="34" fill="#c87c25" rx="3"/><text x="500" y="112">发块 4</text>
+<rect x="582" y="90" width="90" height="34" fill="#c87c25" rx="3"/><text x="594" y="112">发块 5</text>
+<rect x="676" y="90" width="90" height="34" fill="#c87c25" rx="3"/><text x="688" y="112">发块 6</text>
+<rect x="770" y="90" width="90" height="34" fill="#c87c25" rx="3"/><text x="782" y="112">发块 7</text>
+<rect x="864" y="90" width="90" height="34" fill="#c87c25" rx="3"/><text x="876" y="112">发块 8</text>
+</g>
+
+<!-- 泳道 2 引擎 -->
+<text x="14" y="166" font-size="14" font-weight="bold" fill="#1b5e20">TMA 引擎</text>
+<g font-size="12.5" fill="#fff">
+<rect x="112" y="148" width="90" height="34" fill="#2e7d32" rx="3"/><text x="118" y="170">块0 → 格0</text>
+<rect x="206" y="148" width="90" height="34" fill="#2e7d32" rx="3"/><text x="212" y="170">块1 → 格1</text>
+<rect x="300" y="148" width="90" height="34" fill="#2e7d32" rx="3"/><text x="306" y="170">块2 → 格2</text>
+<rect x="394" y="148" width="90" height="34" fill="#2e7d32" rx="3"/><text x="400" y="170">块3 → 格0</text>
+<rect x="488" y="148" width="90" height="34" fill="#2e7d32" rx="3"/><text x="494" y="170">块4 → 格1</text>
+<rect x="582" y="148" width="90" height="34" fill="#2e7d32" rx="3"/><text x="588" y="170">块5 → 格2</text>
+<rect x="676" y="148" width="90" height="34" fill="#2e7d32" rx="3"/><text x="682" y="170">块6 → 格0</text>
+<rect x="770" y="148" width="90" height="34" fill="#2e7d32" rx="3"/><text x="776" y="170">块7 → 格1</text>
+<rect x="864" y="148" width="90" height="34" fill="#2e7d32" rx="3"/><text x="870" y="170">块8 → 格2</text>
+</g>
+
+<!-- 泳道 3 消费者 -->
+<text x="14" y="226" font-size="14" font-weight="bold" fill="#14447a">消费者</text>
+<rect x="112" y="208" width="90" height="34" fill="#f2f2f2" stroke="#999" stroke-width="1.5" stroke-dasharray="4 3" rx="3"/>
+<text x="120" y="230" font-size="12.5" fill="#666">等 full[0]</text>
+<g font-size="12.5" fill="#fff">
+<rect x="206" y="208" width="90" height="34" fill="#1f5fa9" rx="3"/><text x="226" y="230">算块 0</text>
+<rect x="300" y="208" width="90" height="34" fill="#1f5fa9" rx="3"/><text x="320" y="230">算块 1</text>
+<rect x="394" y="208" width="90" height="34" fill="#1f5fa9" rx="3"/><text x="414" y="230">算块 2</text>
+<rect x="488" y="208" width="90" height="34" fill="#1f5fa9" rx="3"/><text x="508" y="230">算块 3</text>
+<rect x="582" y="208" width="90" height="34" fill="#1f5fa9" rx="3"/><text x="602" y="230">算块 4</text>
+<rect x="676" y="208" width="90" height="34" fill="#1f5fa9" rx="3"/><text x="696" y="230">算块 5</text>
+<rect x="770" y="208" width="90" height="34" fill="#1f5fa9" rx="3"/><text x="790" y="230">算块 6</text>
+<rect x="864" y="208" width="90" height="34" fill="#1f5fa9" rx="3"/><text x="884" y="230">算块 7</text>
+</g>
+
+<!-- full[0] 绿箭头：t0 末 和 t3 末 -->
+<path d="M202,182 L202,206" stroke="#2e7d32" stroke-width="2.5" fill="none" marker-end="url(#gd)"/>
+<text x="196" y="202" font-size="12" fill="#2e7d32" text-anchor="end">full[0] 翻转</text>
+<path d="M484,182 L484,206" stroke="#2e7d32" stroke-width="2.5" fill="none" marker-end="url(#gd)"/>
+<text x="478" y="202" font-size="12" fill="#2e7d32" text-anchor="end">full[0] 再翻转</text>
+
+<!-- empty[0] 红折线：消费者 t1 末 -> 生产者 t3 -->
+<path d="M298,250 L298,272 L392,272 L392,128" stroke="#b03030" stroke-width="2" fill="none" marker-end="url(#rd)" stroke-dasharray="5 3"/>
+<text x="300" y="290" font-size="12" fill="#b03030">empty[0]：块 0 算完（t1 末）</text>
+<path d="M580,250 L580,272 L674,272 L674,128" stroke="#b03030" stroke-width="2" fill="none" marker-end="url(#rd)" stroke-dasharray="5 3"/>
+<text x="582" y="290" font-size="12" fill="#b03030">empty[0]：块 3 算完（t4 末）</text>
+
+<!-- 说明 -->
+<line x1="20" y1="322" x2="978" y2="322" stroke="#bbb" stroke-width="1.5"/>
+
+<rect x="20" y="338" width="310" height="124" fill="#eaf5ea" stroke="#2e7d32" stroke-width="1.5" rx="4"/>
+<text x="32" y="360" font-size="14.5" font-weight="bold" fill="#1b5e20">full[s]：这一格装满了</text>
+<text x="32" y="384" font-size="13.5" fill="#222">由拷贝完成时减去字节数触发。</text>
+<text x="32" y="406" font-size="13.5" fill="#222">消费者在它上面等。</text>
+<text x="32" y="430" font-size="13.5" fill="#8a1f1f">缺了它：消费者读到搬了一半的数据。</text>
+<text x="32" y="450" font-size="13.5" fill="#8a1f1f">搬得快时碰巧算对，搬得慢时算错。</text>
+
+<rect x="344" y="338" width="310" height="124" fill="#fdeeee" stroke="#b03030" stroke-width="1.5" rx="4"/>
+<text x="356" y="360" font-size="14.5" font-weight="bold" fill="#8a1f1f">empty[s]：这一格用完了</text>
+<text x="356" y="384" font-size="13.5" fill="#222">由消费者执行到达触发。</text>
+<text x="356" y="406" font-size="13.5" fill="#222">生产者在它上面等。</text>
+<text x="356" y="430" font-size="13.5" fill="#8a1f1f">缺了它：引擎覆盖正在被读的那一格。</text>
+<text x="356" y="450" font-size="13.5" fill="#8a1f1f">同样是偶发的错误，不报错、不崩溃。</text>
+
+<rect x="668" y="338" width="310" height="124" fill="#f7f7f7" stroke="#777" stroke-width="1.5" rx="4"/>
+<text x="680" y="360" font-size="14.5" font-weight="bold" fill="#111">为什么开 3 格而不是 2 格</text>
+<text x="680" y="384" font-size="13.5" fill="#222">搬运和计算等长时，2 格就能满吞吐。</text>
+<text x="680" y="406" font-size="13.5" fill="#222">第 3 格让生产者在搬得快时多装一块。</text>
+<text x="680" y="426" font-size="13.5" fill="#222">之后某块特别慢时，消费者仍有存货可算。</text>
+<text x="680" y="450" font-size="13.5" fill="#222">代价是 shared memory：3 × 32 KB = 96 KB。</text>
+
+<rect x="20" y="478" width="958" height="124" fill="#fbfbfb" stroke="#999" stroke-width="1.5" rx="4"/>
+<text x="32" y="500" font-size="14.5" font-weight="bold" fill="#111">这张时间线要读出的三件事</text>
+<text x="32" y="524" font-size="13.5" fill="#222">1. 从 t1 起，搬运和计算一直重叠。t0 是唯一一次纯等待，也就是流水线的填充阶段。</text>
+<text x="32" y="546" font-size="13.5" fill="#222">2. 每一片里，一格在装，一格在被算，第三格空着等下一块。生产者发完指令就走，不等这一块搬完。</text>
+<text x="32" y="568" font-size="13.5" fill="#222">3. empty 的等待到 t3 才第一次可能阻塞。前 3 片三格都是空的，生产者不会被挡住。</text>
+<text x="32" y="590" font-size="13.5" fill="#222">　 从 t3 起，生产者要往格 0 写块 3，必须先确认块 0 已经被算完。消费者慢时，生产者就停在这里。</text>
+</svg>

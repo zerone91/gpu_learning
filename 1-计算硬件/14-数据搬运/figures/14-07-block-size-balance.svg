@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="580" fill="#ffffff"/>
+<text x="30" y="34" font-size="20" font-weight="bold" fill="#111">v5e 的一个 TensorCore：分块边长 b 多大，一步的计算才盖得住这一步的搬运</text>
+<text x="30" y="60" font-size="14" fill="#444">一步 = b×b×b 次乘加；要搬 A、B 两个 b×b 的 bf16 分块（4b² 字节）。每拍 65 536 次乘加，HBM 每拍 547 字节。</text>
+<rect x="560" y="76" width="22" height="14" fill="#9ec5e8" stroke="#2c5aa0" stroke-width="1.5"/><text x="588" y="88" font-size="14" fill="#222">一步计算（MXU）</text>
+<rect x="720" y="76" width="22" height="14" fill="#f6c89f" stroke="#b5651d" stroke-width="1.5"/><text x="748" y="88" font-size="14" fill="#222">一步搬运（HBM 带宽下限）</text>
+<line x1="250.0" y1="100" x2="250.0" y2="486" stroke="#ddd" stroke-width="1.5" stroke-dasharray="4,4"/>
+<line x1="484.4" y1="100" x2="484.4" y2="486" stroke="#ddd" stroke-width="1.5" stroke-dasharray="4,4"/>
+<line x1="718.9" y1="100" x2="718.9" y2="486" stroke="#ddd" stroke-width="1.5" stroke-dasharray="4,4"/>
+<text x="30" y="132" font-size="17" font-weight="bold" fill="#222">b = 128</text>
+<text x="30" y="154" font-size="14" fill="#b52a2a">MXU 最多 27% 时间在算</text>
+<rect x="250" y="114" width="118.4" height="24" fill="#9ec5e8" stroke="#2c5aa0" stroke-width="1.5"/>
+<text x="376.4" y="132" font-size="14" fill="#13335f">32 拍</text>
+<rect x="250" y="144" width="253.0" height="24" fill="#f6c89f" stroke="#b5651d" stroke-width="1.5"/>
+<text x="511.0" y="162" font-size="14" fill="#7a3f0c">120 拍</text>
+<text x="30" y="228" font-size="17" font-weight="bold" fill="#222">b = 256</text>
+<text x="30" y="250" font-size="14" fill="#8a6d00">MXU 最多 53% 时间在算</text>
+<rect x="250" y="210" width="330.1" height="24" fill="#9ec5e8" stroke="#2c5aa0" stroke-width="1.5"/>
+<text x="588.1" y="228" font-size="14" fill="#13335f">256 拍</text>
+<rect x="250" y="240" width="394.1" height="24" fill="#f6c89f" stroke="#b5651d" stroke-width="1.5"/>
+<text x="652.1" y="258" font-size="14" fill="#7a3f0c">480 拍</text>
+<text x="30" y="324" font-size="17" font-weight="bold" fill="#222">b = 512</text>
+<text x="30" y="346" font-size="14" fill="#2e7d32">计算盖住搬运</text>
+<text x="30" y="364" font-size="14" fill="#2e7d32">（搬运是计算的 94%）</text>
+<rect x="250" y="306" width="541.8" height="24" fill="#9ec5e8" stroke="#2c5aa0" stroke-width="1.5"/>
+<text x="799.8" y="324" font-size="14" fill="#13335f">2048 拍</text>
+<rect x="250" y="336" width="535.2" height="24" fill="#f6c89f" stroke="#b5651d" stroke-width="1.5"/>
+<text x="793.2" y="354" font-size="14" fill="#7a3f0c">1918 拍</text>
+<line x1="30" y1="392" x2="930" y2="392" stroke="#888" stroke-width="1.5"/>
+<text x="30" y="414" font-size="15" font-weight="bold" fill="#222">对照：运行例子 128×128×64 算一步要多少拍</text>
+<text x="30" y="444" font-size="14" fill="#222">H100 的一个 SM</text>
+<rect x="250" y="428" width="400.7" height="22" fill="#cfe8cf" stroke="#2e7d32" stroke-width="1.5"/>
+<text x="658.7" y="444" font-size="14" fill="#1b5e20">512 拍（每拍 2048 次乘加）</text>
+<text x="30" y="474" font-size="14" fill="#222">v5e 的一个 TensorCore</text>
+<rect x="250" y="458" width="47.9" height="22" fill="#9ec5e8" stroke="#2c5aa0" stroke-width="1.5"/>
+<text x="305.9" y="474" font-size="14" fill="#13335f">16 拍（每拍 65 536 次，是 SM 的 32 倍）</text>
+<line x1="250" y1="496" x2="860" y2="496" stroke="#333" stroke-width="1.5"/>
+<line x1="250.0" y1="496" x2="250.0" y2="503" stroke="#333" stroke-width="1.5"/>
+<text x="250.0" y="520" font-size="14" fill="#333" text-anchor="middle">10</text>
+<line x1="484.4" y1="496" x2="484.4" y2="503" stroke="#333" stroke-width="1.5"/>
+<text x="484.4" y="520" font-size="14" fill="#333" text-anchor="middle">100</text>
+<line x1="718.9" y1="496" x2="718.9" y2="503" stroke="#333" stroke-width="1.5"/>
+<text x="718.9" y="520" font-size="14" fill="#333" text-anchor="middle">1000</text>
+<text x="860" y="520" font-size="14" fill="#333" text-anchor="end">拍（对数刻度）</text>
+<text x="30" y="556" font-size="14" fill="#555">计算拍数随 b³ 增长，搬运拍数随 b² 增长，两者之比是 b ÷ 480。所以 b 要到约 480，取 512。</text>
+</svg>

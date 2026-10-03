@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 640" width="980" height="640" font-family="sans-serif">
+<defs><marker id="ar" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#333"/></marker><marker id="arR" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#b52a2a"/></marker><marker id="arG" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#2e7d32"/></marker><marker id="arB" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#1f4e9a"/></marker><marker id="arO" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#b8860b"/></marker><marker id="arP" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#6a3d9a"/></marker></defs>
+<rect x="0" y="0" width="980" height="640" fill="#ffffff"/>
+<text x="20" y="32" font-size="19" fill="#111" text-anchor="start" font-weight="bold">一次推进的数据路径：Blackwell 把 shared memory 之后的一段也交给了引擎</text>
+<rect x="10" y="48" width="960" height="262" rx="4" fill="#fafafa" stroke="#bbb" stroke-width="1.2"/>
+<text x="24" y="72" font-size="16" fill="#333" text-anchor="start" font-weight="bold">Hopper（sm_90）</text>
+<rect x="30" y="120" width="120" height="64" rx="4" fill="#fff6e0" stroke="#b8860b" stroke-width="2"/>
+<text x="90.0" y="146" font-size="15" fill="#111" text-anchor="middle" font-weight="bold">显存</text>
+<text x="90.0" y="168" font-size="13" fill="#444" text-anchor="middle">A、B 分块</text>
+<rect x="260" y="120" width="150" height="64" rx="4" fill="#e8f0fb" stroke="#1f4e9a" stroke-width="2"/>
+<text x="335.0" y="146" font-size="15" fill="#111" text-anchor="middle" font-weight="bold">shared memory</text>
+<text x="335.0" y="168" font-size="13" fill="#444" text-anchor="middle">每级 32 KB</text>
+<rect x="520" y="120" width="130" height="64" rx="4" fill="#f0f0f0" stroke="#555" stroke-width="2"/>
+<text x="585.0" y="146" font-size="15" fill="#111" text-anchor="middle" font-weight="bold">矩阵单元</text>
+<text x="585.0" y="168" font-size="13" fill="#444" text-anchor="middle">wgmma</text>
+<rect x="760" y="108" width="190" height="88" rx="4" fill="#fdecea" stroke="#b52a2a" stroke-width="2"/>
+<text x="855.0" y="134" font-size="15" fill="#111" text-anchor="middle" font-weight="bold">寄存器</text>
+<text x="855.0" y="156" font-size="13" fill="#444" text-anchor="middle">累加器：每线程 128 个</text>
+<text x="855" y="180" font-size="12" fill="#7a1f1f" text-anchor="middle">（128 个线程，共 64 KB）</text>
+<line x1="150" y1="152" x2="258" y2="152" stroke="#b8860b" stroke-width="2.2" marker-end="url(#arO)"/>
+<text x="204" y="210" font-size="13" fill="#6b4e00" text-anchor="middle">谁发起：1 个线程</text>
+<text x="204" y="228" font-size="13" fill="#6b4e00" text-anchor="middle">地址：张量描述符</text>
+<text x="204" y="246" font-size="13" fill="#6b4e00" text-anchor="middle">完成：mbarrier 按字节</text>
+<text x="204" y="144" font-size="14" fill="#6b4e00" text-anchor="middle" font-weight="bold">TMA</text>
+<line x1="410" y1="152" x2="518" y2="152" stroke="#b52a2a" stroke-width="2.2" marker-end="url(#arR)"/>
+<text x="464" y="210" font-size="13" fill="#b52a2a" text-anchor="middle">谁发起：128 个线程</text>
+<text x="464" y="228" font-size="13" fill="#b52a2a" text-anchor="middle">地址：smem 描述符</text>
+<text x="464" y="246" font-size="13" fill="#b52a2a" text-anchor="middle">完成：wait_group，仅发起者</text>
+<line x1="650" y1="152" x2="758" y2="152" stroke="#b52a2a" stroke-width="2.2" marker-end="url(#arR)"/>
+<text x="704" y="144" font-size="13" fill="#b52a2a" text-anchor="middle">写累加器</text>
+<text x="855" y="232" font-size="13" fill="#555" text-anchor="middle">结尾：线程直接用寄存器中的结果</text>
+<text x="855" y="252" font-size="13" fill="#555" text-anchor="middle">代价：主循环全程占着这 128 个</text>
+<rect x="10" y="322" width="960" height="308" rx="4" fill="#fafafa" stroke="#bbb" stroke-width="1.2"/>
+<text x="24" y="346" font-size="16" fill="#333" text-anchor="start" font-weight="bold">Blackwell 数据中心版（sm_100）</text>
+<rect x="30" y="394" width="120" height="64" rx="4" fill="#fff6e0" stroke="#b8860b" stroke-width="2"/>
+<text x="90.0" y="420" font-size="15" fill="#111" text-anchor="middle" font-weight="bold">显存</text>
+<text x="90.0" y="442" font-size="13" fill="#444" text-anchor="middle">A、B 分块</text>
+<rect x="260" y="394" width="150" height="64" rx="4" fill="#e8f0fb" stroke="#1f4e9a" stroke-width="2"/>
+<text x="335.0" y="420" font-size="15" fill="#111" text-anchor="middle" font-weight="bold">shared memory</text>
+<text x="335.0" y="442" font-size="13" fill="#444" text-anchor="middle">每级 32 KB</text>
+<rect x="520" y="394" width="130" height="64" rx="4" fill="#f0f0f0" stroke="#555" stroke-width="2"/>
+<text x="585.0" y="420" font-size="15" fill="#111" text-anchor="middle" font-weight="bold">矩阵单元</text>
+<text x="585.0" y="442" font-size="13" fill="#444" text-anchor="middle">tcgen05.mma</text>
+<rect x="760" y="382" width="190" height="88" rx="4" fill="#efe6f7" stroke="#6a3d9a" stroke-width="2"/>
+<text x="855.0" y="408" font-size="15" fill="#111" text-anchor="middle" font-weight="bold">TMEM</text>
+<text x="855.0" y="430" font-size="13" fill="#444" text-anchor="middle">累加器：128 列</text>
+<text x="855" y="454" font-size="12" fill="#4a2a70" text-anchor="middle">（256 KB 中的 64 KB）</text>
+<line x1="150" y1="426" x2="258" y2="426" stroke="#b8860b" stroke-width="2.2" marker-end="url(#arO)"/>
+<text x="204" y="418" font-size="14" fill="#6b4e00" text-anchor="middle" font-weight="bold">TMA</text>
+<text x="204" y="484" font-size="13" fill="#6b4e00" text-anchor="middle">谁发起：1 个线程</text>
+<text x="204" y="502" font-size="13" fill="#6b4e00" text-anchor="middle">地址：张量描述符</text>
+<text x="204" y="520" font-size="13" fill="#6b4e00" text-anchor="middle">完成：mbarrier 按字节</text>
+<line x1="410" y1="426" x2="518" y2="426" stroke="#2e7d32" stroke-width="2.2" marker-end="url(#arG)"/>
+<text x="464" y="484" font-size="13" fill="#2e7d32" text-anchor="middle">谁发起：1 个线程</text>
+<text x="464" y="502" font-size="13" fill="#2e7d32" text-anchor="middle">地址：smem 描述符</text>
+<text x="464" y="520" font-size="13" fill="#2e7d32" text-anchor="middle">完成：commit → mbarrier</text>
+<line x1="650" y1="426" x2="758" y2="426" stroke="#6a3d9a" stroke-width="2.2" marker-end="url(#arP)"/>
+<text x="704" y="418" font-size="13" fill="#6a3d9a" text-anchor="middle">写累加器</text>
+<path d="M335 394 L335 368 L855 368 L855 380" fill="none" stroke="#6a3d9a" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#arP)"/>
+<text x="600" y="362" font-size="13" fill="#6a3d9a" text-anchor="middle">tcgen05.cp：1 个线程发起，smem 描述符给地址，commit 记完成</text>
+<rect x="760" y="540" width="190" height="64" rx="4" fill="#e9f5ea" stroke="#2e7d32" stroke-width="2"/>
+<text x="855.0" y="566" font-size="15" fill="#111" text-anchor="middle" font-weight="bold">寄存器</text>
+<text x="855.0" y="588" font-size="13" fill="#444" text-anchor="middle">结尾时分批读入</text>
+<line x1="855" y1="470" x2="855" y2="538" stroke="#2e7d32" stroke-width="2.2" marker-end="url(#arG)"/>
+<text x="864" y="500" font-size="13" fill="#1b4620" text-anchor="start" font-family="monospace">tcgen05.ld</text>
+<text x="864" y="518" font-size="12" fill="#1b4620" text-anchor="start">一个 warp 读 32 行</text>
+<text x="560" y="560" font-size="14" fill="#1b4620" text-anchor="middle" font-weight="bold">主循环中没有字节经过寄存器</text>
+<text x="560" y="582" font-size="13" fill="#1b4620" text-anchor="middle">寄存器只在结尾参与</text>
+</svg>

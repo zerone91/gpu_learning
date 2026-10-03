@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 640" width="1000" height="640" font-family="sans-serif">
+<rect x="0" y="0" width="1000" height="640" fill="#ffffff"/>
+<text x="20" y="30" font-size="19" font-weight="bold" fill="#111">一次 TMA 搬运：参数切成两半，引擎完成搬运，完成记录在 mbarrier 上</text>
+
+<!-- 不变的一半 -->
+<rect x="20" y="58" width="250" height="132" fill="#f2f2f2" stroke="#555" stroke-width="2" rx="4"/>
+<text x="32" y="80" font-size="15" font-weight="bold" fill="#111">不变的一半（主机侧编好）</text>
+<text x="32" y="102" font-size="14" fill="#222">tensor map · 128 字节</text>
+<text x="32" y="122" font-size="14" fill="#222">基址 / 维度 4096×4096 / bf16</text>
+<text x="32" y="142" font-size="14" fill="#222">行步长 8192 字节</text>
+<text x="32" y="162" font-size="14" fill="#222">box 128×64 / swizzle 128B</text>
+<text x="32" y="182" font-size="14" fill="#222">越界填 0</text>
+<text x="32" y="208" font-size="13" fill="#777">编 1 次，被 A 的 2048 个分块共用</text>
+
+<!-- 变的一半 -->
+<rect x="20" y="228" width="250" height="140" fill="#fdf0e2" stroke="#c87c25" stroke-width="2" rx="4"/>
+<text x="32" y="250" font-size="15" font-weight="bold" fill="#8a4f05">变的一半（kernel 里，1 个线程）</text>
+<text x="32" y="272" font-size="14" fill="#222">① arrive.expect_tx  32768</text>
+<text x="32" y="292" font-size="14" fill="#222">② bulk.tensor.2d  A 坐标 {128, 256}</text>
+<text x="32" y="312" font-size="14" fill="#222">③ bulk.tensor.2d  B 坐标 {128, 512}</text>
+<text x="32" y="336" font-size="13" fill="#8a4f05">合计 3 条指令</text>
+<text x="32" y="358" font-size="13" fill="#8a4f05">其余 127 个线程：0 条指令</text>
+
+<!-- 箭头汇入引擎 -->
+<defs><marker id="ar" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto">
+<path d="M0,0 L8,3 L0,6 z" fill="#333"/></marker>
+<marker id="arg" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto">
+<path d="M0,0 L8,3 L0,6 z" fill="#2e7d32"/></marker>
+<marker id="aro" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto">
+<path d="M0,0 L8,3 L0,6 z" fill="#c87c25"/></marker></defs>
+<path d="M272,124 L348,170" stroke="#555" stroke-width="2" fill="none" marker-end="url(#ar)"/>
+<path d="M272,298 L348,252" stroke="#c87c25" stroke-width="2" fill="none" marker-end="url(#aro)"/>
+
+<!-- 引擎 -->
+<rect x="352" y="100" width="262" height="222" fill="#eaf5ea" stroke="#2e7d32" stroke-width="2" rx="4"/>
+<text x="364" y="122" font-size="15" font-weight="bold" fill="#1b5e20">TMA 单元（SM 内，不是线程）</text>
+<text x="364" y="146" font-size="14" fill="#222">1. 读这张描述符</text>
+<text x="364" y="168" font-size="14" fill="#222">2. 用计数器算出 128 个行首地址</text>
+<text x="364" y="190" font-size="14" fill="#222">3. 越界的部分按 oobFill 填值</text>
+<text x="364" y="212" font-size="14" fill="#222">4. 发请求、收数据</text>
+<text x="364" y="234" font-size="14" fill="#222">5. 按 swizzle 摆进 shared memory</text>
+<text x="364" y="256" font-size="14" fill="#222">6. 每条拷贝完成，按字节数登记一次</text>
+<rect x="364" y="272" width="238" height="36" fill="#ffffff" stroke="#2e7d32" stroke-width="1.5" rx="3"/>
+<text x="374" y="295" font-size="14" fill="#1b5e20">这一路用掉的地址算术指令：0 条</text>
+
+<!-- shared memory -->
+<path d="M616,150 L682,150" stroke="#2e7d32" stroke-width="2" fill="none" marker-end="url(#arg)"/>
+<rect x="686" y="100" width="292" height="100" fill="#e8f0fb" stroke="#1f5fa9" stroke-width="2" rx="4"/>
+<text x="698" y="122" font-size="15" font-weight="bold" fill="#14447a">shared memory</text>
+<text x="698" y="146" font-size="14" fill="#222">A 分块：128 行 × 128 字节 = 16 KB</text>
+<text x="698" y="168" font-size="14" fill="#222">B 分块：128 行 × 128 字节 = 16 KB</text>
+<text x="698" y="190" font-size="14" fill="#222">合计 32 KB，就是一次 K 推进的量</text>
+
+<!-- mbarrier -->
+<path d="M616,262 L682,262" stroke="#c87c25" stroke-width="2" fill="none" marker-end="url(#aro)"/>
+<rect x="686" y="216" width="292" height="106" fill="#fdf0e2" stroke="#c87c25" stroke-width="2" rx="4"/>
+<text x="698" y="238" font-size="15" font-weight="bold" fill="#8a4f05">mbarrier（回执，在 shared memory 里）</text>
+<text x="698" y="262" font-size="14" fill="#222">还差多少字节：32768 → … → 0</text>
+<text x="698" y="284" font-size="14" fill="#222">到达计数：1 → 0</text>
+<text x="698" y="310" font-size="14" fill="#222">两个都归零 → 相位由 0 翻成 1</text>
+
+<!-- 等待方 -->
+<rect x="352" y="338" width="626" height="54" fill="#f7f7f7" stroke="#777" stroke-width="1.5" rx="4"/>
+<text x="364" y="360" font-size="14" fill="#222">全部 128 个线程在这次相位翻转上等。try_wait 可以把等待的线程挂起，挂起期间不占发射口。</text>
+<text x="364" y="382" font-size="14" fill="#222">相位翻转后它们恢复执行；如果先到了时间上限，就回到循环再查一次。</text>
+
+<!-- 分隔 -->
+<line x1="20" y1="412" x2="978" y2="412" stroke="#bbb" stroke-width="1.5"/>
+<text x="20" y="438" font-size="16" font-weight="bold" fill="#111">同样搬这 32 KB：谁来发指令，发多少次</text>
+
+<text x="20" y="470" font-size="14" fill="#222">线程自己搬</text>
+<rect x="150" y="456" width="400" height="20" fill="#9c3b35"/>
+<text x="562" y="471" font-size="13" fill="#333">约 250 次 warp 级发射 · 128 个线程发 · 在途数据每线程 64 个寄存器</text>
+
+<text x="20" y="506" font-size="14" fill="#222">cp.async</text>
+<rect x="150" y="492" width="304" height="20" fill="#c87c25"/>
+<text x="562" y="507" font-size="13" fill="#333">约 190 次 warp 级发射 · 128 个线程发 · 地址仍占寄存器</text>
+
+<text x="20" y="542" font-size="14" font-weight="bold" fill="#1b5e20">TMA</text>
+<rect x="150" y="528" width="5" height="20" fill="#2e7d32"/>
+<text x="162" y="543" font-size="14" font-weight="bold" fill="#1b5e20">3 次</text>
+<text x="562" y="543" font-size="13" fill="#333">3 次发射 · 1 个线程发 · ptxas 回执 Used 4 registers</text>
+
+<text x="20" y="578" font-size="13" fill="#666">条形长度按发射次数等比绘制（400 像素对应 250 次）。TMA 那一条只有 5 像素，所以在旁边用文字标出。</text>
+<text x="20" y="600" font-size="13" fill="#666">发射口指 SM 每拍只能送出有限条指令的那个共享出口。在 512 拍的一次 K 推进中，一个 SM 的 4 个调度器共有 2048 个发射机会。</text>
+<text x="20" y="622" font-size="13" fill="#666">所以三条的差别不在发射口（250 次只占 12%），而在"谁来发"和"在途数据放在哪"。</text>
+</svg>

@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 520" width="1000" height="520" font-family="sans-serif">
+<rect x="0" y="0" width="1000" height="520" fill="#ffffff"/>
+<defs>
+<marker id="mg" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 z" fill="#1f7a3f"/></marker>
+</defs>
+<text x="20" y="30" font-size="19" font-weight="bold">少写一对标志不会报错，只会偶尔算错：这是昇腾上同步的全部代价所在</text>
+<text x="20" y="54" font-size="13" fill="#555">两幅图画的是同一段程序：MTE2 往 L1 的甲半区写第 1 块，MTE1 接着把甲半区的内容送进 L0。横轴是拍数。</text>
+
+<!-- left panel -->
+<rect x="20" y="78" width="465" height="286" fill="#f6fbf6" stroke="#2a662a" stroke-width="2"/>
+<text x="38" y="104" font-size="16" font-weight="bold" fill="#2a662a">排对了：③ 置位、④ 等待都写了</text>
+<text x="48" y="140" font-size="14" font-weight="bold" fill="#1f5c99">MTE2</text>
+<rect x="110" y="122" width="150" height="38" fill="#cfe2f3" stroke="#1f5c99" stroke-width="2"/>
+<text x="185" y="146" font-size="13" text-anchor="middle">写 L1 甲：第 1 块</text>
+<text x="48" y="232" font-size="14" font-weight="bold" fill="#2a662a">MTE1</text>
+<rect x="110" y="214" width="110" height="38" fill="#e8e8e8" stroke="#999" stroke-width="2" stroke-dasharray="5,4"/>
+<text x="165" y="238" font-size="13" text-anchor="middle" fill="#555">停在 WaitFlag</text>
+<rect x="260" y="214" width="90" height="38" fill="#d6ead6" stroke="#2a662a" stroke-width="2"/>
+<text x="305" y="238" font-size="13" text-anchor="middle">读 L1 甲</text>
+<path d="M260,164 L260,210" stroke="#1f7a3f" stroke-width="2.5" marker-end="url(#mg)"/>
+<text x="268" y="188" font-size="12.5" fill="#1f7a3f">SetFlag(MTE2_MTE1)</text>
+<line x1="110" y1="282" x2="430" y2="282" stroke="#333" stroke-width="2"/>
+<text x="110" y="300" font-size="12" text-anchor="middle">0</text>
+<text x="260" y="300" font-size="12" text-anchor="middle">128</text>
+<text x="350" y="300" font-size="12" text-anchor="middle">192</text>
+<rect x="38" y="316" width="430" height="36" fill="#d6ead6" stroke="#2a662a"/>
+<text x="54" y="340" font-size="14">MTE1 读到的是第 1 块。结果正确。</text>
+
+<!-- right panel -->
+<rect x="515" y="78" width="465" height="286" fill="#fdf5f5" stroke="#aa2222" stroke-width="2"/>
+<text x="533" y="104" font-size="16" font-weight="bold" fill="#aa2222">漏掉了那一对：③ ④ 都没写</text>
+<text x="543" y="140" font-size="14" font-weight="bold" fill="#1f5c99">MTE2</text>
+<rect x="605" y="122" width="150" height="38" fill="#cfe2f3" stroke="#1f5c99" stroke-width="2"/>
+<text x="680" y="146" font-size="13" text-anchor="middle">写 L1 甲：第 1 块</text>
+<text x="543" y="232" font-size="14" font-weight="bold" fill="#2a662a">MTE1</text>
+<rect x="605" y="214" width="90" height="38" fill="#f6c6c6" stroke="#aa2222" stroke-width="2.5"/>
+<text x="650" y="238" font-size="13" text-anchor="middle">读 L1 甲</text>
+<text x="705" y="238" font-size="13" fill="#aa2222">没有任何东西拦它</text>
+<line x1="605" y1="282" x2="925" y2="282" stroke="#333" stroke-width="2"/>
+<text x="605" y="300" font-size="12" text-anchor="middle">0</text>
+<text x="695" y="300" font-size="12" text-anchor="middle">64</text>
+<text x="755" y="300" font-size="12" text-anchor="middle">128</text>
+<rect x="533" y="316" width="430" height="36" fill="#f6c6c6" stroke="#aa2222"/>
+<text x="549" y="340" font-size="14">MTE1 读到的是上一轮留在甲半区的第 0 块。结果错，程序不报错。</text>
+
+<rect x="20" y="386" width="960" height="118" fill="#f7f7f7" stroke="#999"/>
+<text x="38" y="414" font-size="15" font-weight="bold">两种排错，症状完全不同</text>
+<text x="38" y="442" font-size="14">少写一对：数据竞争。错误与两条流水线的实际快慢有关，换一组形状可能就复现不了。</text>
+<text x="38" y="468" font-size="14">多写一对：结果仍然正确，但本来能并行的两段被串起来。在 Cube 和 MTE2 之间多排一对，搬运就不再和计算重叠。</text>
+<text x="38" y="492" font-size="13" fill="#555">CANN 提供 mssanitizer 的 synccheck 工具，它检查 SetFlag 与 WaitFlag 是否成对。</text>
+</svg>

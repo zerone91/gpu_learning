@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 500" width="980" height="500" font-family="sans-serif">
+<defs><marker id="ar" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#333"/></marker><marker id="arR" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#b52a2a"/></marker><marker id="arG" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#2e7d32"/></marker><marker id="arB" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#1f4e9a"/></marker><marker id="arO" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#b8860b"/></marker><marker id="arP" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#6a3d9a"/></marker></defs>
+<rect x="0" y="0" width="980" height="500" fill="#ffffff"/>
+<text x="20" y="32" font-size="19" fill="#111" text-anchor="start" font-weight="bold">TMEM 中放两份累加器：MMA warp 算一份的同时，结尾 warp 读另一份</text>
+<text x="20" y="110" font-size="15" fill="#111" text-anchor="start" font-weight="bold">MMA warp</text>
+<text x="20" y="130" font-size="12" fill="#555" text-anchor="start">（1 个线程发指令）</text>
+<text x="20" y="250" font-size="15" fill="#111" text-anchor="start" font-weight="bold">结尾 warp</text>
+<text x="20" y="270" font-size="12" fill="#555" text-anchor="start">（4 个 warp，128 线程）</text>
+<rect x="170" y="90" width="210" height="48" rx="4" fill="#9ec1ea" stroke="#1f4e9a" stroke-width="1.8"/>
+<text x="275" y="110" font-size="14" fill="#0d2f66" text-anchor="middle" font-weight="bold">块 i</text>
+<text x="275" y="128" font-size="12" fill="#0d2f66" text-anchor="middle">累加进第 0 份（列 0～127）</text>
+<rect x="390" y="90" width="210" height="48" rx="4" fill="#d6e6f8" stroke="#1f4e9a" stroke-width="1.8"/>
+<text x="495" y="110" font-size="14" fill="#0d2f66" text-anchor="middle" font-weight="bold">块 i+1</text>
+<text x="495" y="128" font-size="12" fill="#0d2f66" text-anchor="middle">累加进第 1 份（列 128～255）</text>
+<rect x="610" y="90" width="210" height="48" rx="4" fill="#9ec1ea" stroke="#1f4e9a" stroke-width="1.8"/>
+<text x="715" y="110" font-size="14" fill="#0d2f66" text-anchor="middle" font-weight="bold">块 i+2</text>
+<text x="715" y="128" font-size="12" fill="#0d2f66" text-anchor="middle">累加进第 0 份（列 0～127）</text>
+<rect x="830" y="90" width="120" height="48" rx="4" fill="#d6e6f8" stroke="#1f4e9a" stroke-width="1.8"/>
+<text x="890" y="118" font-size="13" fill="#0d2f66" text-anchor="middle">块 i+3 …</text>
+<rect x="384" y="230" width="42" height="44" rx="4" fill="#d6ecd8" stroke="#2e7d32" stroke-width="1.6"/>
+<text x="405" y="257" font-size="11" fill="#1b4620" text-anchor="middle">0+</text>
+<rect x="428" y="230" width="42" height="44" rx="4" fill="#d6ecd8" stroke="#2e7d32" stroke-width="1.6"/>
+<text x="449" y="257" font-size="11" fill="#1b4620" text-anchor="middle">32+</text>
+<rect x="472" y="230" width="42" height="44" rx="4" fill="#d6ecd8" stroke="#2e7d32" stroke-width="1.6"/>
+<text x="493" y="257" font-size="11" fill="#1b4620" text-anchor="middle">64+</text>
+<rect x="516" y="230" width="42" height="44" rx="4" fill="#d6ecd8" stroke="#2e7d32" stroke-width="1.6"/>
+<text x="537" y="257" font-size="11" fill="#1b4620" text-anchor="middle">96+</text>
+<text x="472" y="296" font-size="13" fill="#1b4620" text-anchor="middle">读第 0 份（块 i）</text>
+<rect x="604" y="230" width="42" height="44" rx="4" fill="#d6ecd8" stroke="#2e7d32" stroke-width="1.6"/>
+<text x="625" y="257" font-size="11" fill="#1b4620" text-anchor="middle">0+</text>
+<rect x="648" y="230" width="42" height="44" rx="4" fill="#d6ecd8" stroke="#2e7d32" stroke-width="1.6"/>
+<text x="669" y="257" font-size="11" fill="#1b4620" text-anchor="middle">32+</text>
+<rect x="692" y="230" width="42" height="44" rx="4" fill="#d6ecd8" stroke="#2e7d32" stroke-width="1.6"/>
+<text x="713" y="257" font-size="11" fill="#1b4620" text-anchor="middle">64+</text>
+<rect x="736" y="230" width="42" height="44" rx="4" fill="#d6ecd8" stroke="#2e7d32" stroke-width="1.6"/>
+<text x="757" y="257" font-size="11" fill="#1b4620" text-anchor="middle">96+</text>
+<text x="692" y="296" font-size="13" fill="#1b4620" text-anchor="middle">读第 1 份（块 i+1）</text>
+<text x="384" y="316" font-size="12" fill="#1b4620" text-anchor="start">每格：一批 tcgen05.ld，读 32 列，每线程 32 个寄存器</text>
+<line x1="380" y1="140" x2="386" y2="226" stroke="#1f4e9a" stroke-width="2" marker-end="url(#arB)"/>
+<line x1="600" y1="140" x2="606" y2="226" stroke="#1f4e9a" stroke-width="2" marker-end="url(#arB)"/>
+<text x="300" y="180" font-size="12" fill="#1f4e9a" text-anchor="end">commit →</text>
+<text x="300" y="196" font-size="12" fill="#1f4e9a" text-anchor="end">“满”屏障翻转</text>
+<path d="M560 228 L560 170 L606 150" fill="none" stroke="#2e7d32" stroke-width="2" marker-end="url(#arG)"/>
+<text x="568" y="186" font-size="12" fill="#2e7d32" text-anchor="start">128 次到达 →</text>
+<text x="568" y="202" font-size="12" fill="#2e7d32" text-anchor="start">“空”屏障翻转</text>
+<text x="20" y="380" font-size="15" fill="#111" text-anchor="start" font-weight="bold">TMEM 占用</text>
+<rect x="170" y="360" width="780" height="36" rx="0" fill="#f2f2f2" stroke="#555" stroke-width="1.6"/>
+<rect x="170" y="360" width="195.0" height="36" rx="0" fill="#9ec1ea" stroke="#1f4e9a" stroke-width="1.4"/>
+<rect x="365.0" y="360" width="195.0" height="36" rx="0" fill="#d6e6f8" stroke="#1f4e9a" stroke-width="1.4"/>
+<text x="267.5" y="383" font-size="12" fill="#0d2f66" text-anchor="middle">第 0 份：列 0～127</text>
+<text x="462.5" y="383" font-size="12" fill="#0d2f66" text-anchor="middle">第 1 份：列 128～255</text>
+<text x="755.0" y="383" font-size="12" fill="#666" text-anchor="middle">空闲：列 256～511</text>
+<line x1="170" y1="450" x2="950" y2="450" stroke="#333" stroke-width="1.8" marker-end="url(#ar)"/>
+<text x="950" y="474" font-size="13" fill="#333" text-anchor="end">时间（示意，各段长度未按实测比例）</text>
+</svg>

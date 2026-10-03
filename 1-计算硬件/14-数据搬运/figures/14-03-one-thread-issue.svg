@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 644" width="1000" height="644" font-family="sans-serif">
+<rect x="0" y="0" width="1000" height="644" fill="#ffffff"/>
+<text x="20" y="30" font-size="19" font-weight="bold" fill="#111">一条 TMA 指令由一个线程执行一次就搬完一整块：机器码里的证据</text>
+
+<!-- 左：if (threadIdx.x == 0) -->
+<rect x="20" y="52" width="470" height="280" fill="#fbfbfb" stroke="#555" stroke-width="2" rx="4"/>
+<text x="32" y="74" font-size="15" font-weight="bold" fill="#111">写法甲：用分支选出一个线程</text>
+<text x="32" y="96" font-size="14" fill="#444" font-family="monospace">if (threadIdx.x == 0) { 发起搬运 }</text>
+<text x="32" y="124" font-size="14" fill="#666">ptxas 编出来的机器码：</text>
+<rect x="32" y="134" width="446" height="186" fill="#ffffff" stroke="#999" stroke-width="1.5" rx="3"/>
+<text x="42" y="156" font-size="13.5" font-family="monospace" fill="#222">ISETP.NE.U32.AND P0, PT, R0, RZ, PT</text>
+<text x="42" y="175" font-size="13.5" font-family="monospace" fill="#222">@P0 EXIT   (不是 0 号线程的退出)</text>
+<text x="42" y="194" font-size="13.5" font-family="monospace" fill="#222">PLOP3.LUT P0, ...  (P0 置真)</text>
+<text x="42" y="218" font-size="13.5" font-family="monospace" fill="#b03030">L:  @P0 ELECT P1, URZ, PT</text>
+<text x="42" y="237" font-size="13.5" font-family="monospace" fill="#b03030">    UTMALDG.2D [UR4], [UR8]</text>
+<text x="42" y="256" font-size="13.5" font-family="monospace" fill="#b03030">    @P1 PLOP3.LUT P0, ...</text>
+<text x="42" y="275" font-size="13.5" font-family="monospace" fill="#b03030">    @P0 BRA.U.ANY  L</text>
+<text x="42" y="300" font-size="13" fill="#b03030">红色四条是一个循环：每圈选出一个还没发过的活跃线程，</text>
+<text x="42" y="314" font-size="13" fill="#b03030">用它的操作数发一条命令，再把它标记为已发过。</text>
+
+<!-- 右：elect.sync -->
+<rect x="510" y="52" width="470" height="280" fill="#fbfbfb" stroke="#555" stroke-width="2" rx="4"/>
+<text x="522" y="74" font-size="15" font-weight="bold" fill="#111">写法乙：用 elect.sync 选出一个线程</text>
+<text x="522" y="96" font-size="14" fill="#444" font-family="monospace">elect.sync %r|%p, -1;  @%p 发起搬运</text>
+<text x="522" y="124" font-size="14" fill="#666">ptxas 编出来的机器码：</text>
+<rect x="522" y="134" width="446" height="186" fill="#ffffff" stroke="#999" stroke-width="1.5" rx="3"/>
+<text x="532" y="156" font-size="13.5" fill="#222" font-family="monospace">ELECT P0, URZ, PT</text>
+<text x="532" y="176" font-size="13.5" fill="#222" font-family="monospace">@!P0 EXIT</text>
+<text x="532" y="200" font-size="13.5" fill="#1b5e20" font-family="monospace">SYNCS.ARRIVE.TRANS64 RZ, [UR9], R0</text>
+<text x="532" y="220" font-size="13.5" fill="#1b5e20" font-family="monospace">UTMALDG.2D [UR8], [UR6]</text>
+<text x="532" y="246" font-size="13" fill="#1b5e20">没有循环。硬件已经知道只剩一个线程，所以只发一条命令。</text>
+<text x="532" y="268" font-size="13" fill="#666">R0 里装的就是 expect_tx 的字节数。</text>
+
+<!-- 中间：下单是标量业务 -->
+<rect x="20" y="348" width="960" height="92" fill="#eaf5ea" stroke="#2e7d32" stroke-width="2" rx="4"/>
+<text x="32" y="370" font-size="15" font-weight="bold" fill="#1b5e20">两种写法的共同点：操作数全是 UR 开头的统一寄存器</text>
+<text x="32" y="394" font-size="14" fill="#222">UR 是 warp 内 32 个线程共用一份的寄存器。一次搬运只需要一组描述符地址、坐标、目的地址、屏障地址，</text>
+<text x="32" y="416" font-size="14" fill="#222">所以放在统一寄存器里，不占每线程的寄存器配额。多个线程都要发起时，只能像写法甲那样每圈发一个。</text>
+
+<!-- 底：全员执行会怎样 -->
+<rect x="20" y="456" width="960" height="168" fill="#fdeeee" stroke="#b03030" stroke-width="2" rx="4"/>
+<text x="32" y="478" font-size="15" font-weight="bold" fill="#8a1f1f">如果不选出一个线程，让一个 warp 的 32 个线程都执行这条指令</text>
+<text x="32" y="502" font-size="14" fill="#222">那个 ELECT 循环会转 32 圈。引擎收到 32 条内容完全相同的命令，把同一块 16 KB 搬 32 遍。</text>
+
+<text x="32" y="536" font-size="14" fill="#222">从 L2 读出的字节数：</text>
+<rect x="190" y="522" width="26" height="18" fill="#2e7d32"/>
+<text x="224" y="536" font-size="14" fill="#1b5e20">16 KB（选出一个线程）</text>
+
+<rect x="190" y="550" width="700" height="18" fill="#b03030"/>
+<text x="32" y="564" font-size="14" fill="#222">　</text>
+<text x="896" y="564" font-size="14" fill="#8a1f1f">512 KB</text>
+<text x="190" y="590" font-size="14" fill="#8a1f1f">32 个线程各发一次：读出 512 KB，其中 31/32 是同一份数据的重复副本。结果不会算错，多用了 31 份带宽。</text>
+<text x="32" y="614" font-size="13" fill="#666">条形长度按字节数等比绘制。写法甲的分支和写法乙的 elect.sync 都只是"选出一个线程"的两种写法，效果相同。</text>
+</svg>

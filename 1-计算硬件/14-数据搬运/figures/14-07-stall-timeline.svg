@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="1000" height="600" font-family="sans-serif">
+<rect x="0" y="0" width="1000" height="600" fill="#ffffff"/>
+<text x="20" y="32" font-size="20" font-weight="bold" fill="#111">稳定阶段的时间线：等待指令到达时，信号量满了没有</text>
+<text x="20" y="56" font-size="14" fill="#444">只按 v5e 的 HBM 带宽计算，未计入 DMA 的启动延迟。上下两部分横轴比例不同，请读各自的刻度。</text>
+<text x="20" y="96" font-size="17" font-weight="bold" fill="#222">b = 512：每步 2048 拍计算，1918 拍搬运</text>
+<text x="400" y="96" font-size="14" fill="#444">竖虚线 = 等待指令。到达时信号量已满，直接通过</text>
+<text x="20" y="138" font-size="15" fill="#222">DMA</text>
+<text x="20" y="182" font-size="15" fill="#222">MXU</text>
+<text x="20" y="226" font-size="15" fill="#222">信号量</text>
+<rect x="150.0" y="116" width="249.7" height="32" fill="#f6c89f" stroke="#b5651d" stroke-width="1.5"/>
+<text x="274.9" y="137" font-size="13" fill="#222" text-anchor="middle">第 k+1 步的 A、B：1918 拍</text>
+<rect x="416.7" y="116" width="249.7" height="32" fill="#9ec5e8" stroke="#2c5aa0" stroke-width="1.5"/>
+<text x="541.5" y="137" font-size="13" fill="#222" text-anchor="middle">第 k+2 步：1918 拍</text>
+<rect x="683.3" y="116" width="249.7" height="32" fill="#f6c89f" stroke="#b5651d" stroke-width="1.5"/>
+<text x="808.2" y="137" font-size="13" fill="#222" text-anchor="middle">第 k+3 步：1918 拍</text>
+<rect x="150.0" y="160" width="266.7" height="32" fill="#cfe8cf" stroke="#2e7d32" stroke-width="1.5"/>
+<text x="283.3" y="181" font-size="13" fill="#1b5e20" text-anchor="middle">算第 k 步：2048 拍</text>
+<rect x="416.7" y="160" width="266.7" height="32" fill="#cfe8cf" stroke="#2e7d32" stroke-width="1.5"/>
+<text x="550.0" y="181" font-size="13" fill="#1b5e20" text-anchor="middle">算第 k+1 步：2048 拍</text>
+<rect x="683.3" y="160" width="266.7" height="32" fill="#cfe8cf" stroke="#2e7d32" stroke-width="1.5"/>
+<text x="816.7" y="181" font-size="13" fill="#1b5e20" text-anchor="middle">算第 k+2 步：2048 拍</text>
+<polyline points="150.0,242.0 399.7,206.0 416.7,206.0 416.7,242.0 416.7,242.0 666.4,206.0 683.3,206.0 683.3,242.0 683.3,242.0 933.1,206.0 950.0,206.0 950.0,242.0" fill="none" stroke="#b5651d" stroke-width="2.2"/>
+<line x1="150" y1="206" x2="950.0" y2="206" stroke="#b5651d" stroke-width="1" stroke-dasharray="3,3"/>
+<text x="144" y="210" font-size="12" fill="#7a3f0c" text-anchor="end">满</text>
+<text x="144" y="244" font-size="12" fill="#7a3f0c" text-anchor="end">0</text>
+<line x1="416.7" y1="108" x2="416.7" y2="248" stroke="#555" stroke-width="1.5" stroke-dasharray="5,4"/>
+<line x1="683.3" y1="108" x2="683.3" y2="248" stroke="#555" stroke-width="1.5" stroke-dasharray="5,4"/>
+<line x1="950.0" y1="108" x2="950.0" y2="248" stroke="#555" stroke-width="1.5" stroke-dasharray="5,4"/>
+<line x1="150" y1="264" x2="950.0" y2="264" stroke="#333" stroke-width="1.5"/>
+<line x1="150.0" y1="264" x2="150.0" y2="270" stroke="#333" stroke-width="1.5"/>
+<text x="150.0" y="285" font-size="13" fill="#333" text-anchor="middle">0</text>
+<line x1="416.7" y1="264" x2="416.7" y2="270" stroke="#333" stroke-width="1.5"/>
+<text x="416.7" y="285" font-size="13" fill="#333" text-anchor="middle">2048</text>
+<line x1="683.3" y1="264" x2="683.3" y2="270" stroke="#333" stroke-width="1.5"/>
+<text x="683.3" y="285" font-size="13" fill="#333" text-anchor="middle">4096</text>
+<line x1="950.0" y1="264" x2="950.0" y2="270" stroke="#333" stroke-width="1.5"/>
+<text x="950.0" y="285" font-size="13" fill="#333" text-anchor="middle">6144</text>
+<text x="976.0" y="285" font-size="13" fill="#333">拍</text>
+<text x="20" y="340" font-size="17" font-weight="bold" fill="#222">b = 256：每步 256 拍计算，480 拍搬运</text>
+<text x="400" y="340" font-size="14" fill="#444">等待指令到达时信号量还差约一半，整个核停 224 拍</text>
+<text x="20" y="382" font-size="15" fill="#222">DMA</text>
+<text x="20" y="426" font-size="15" fill="#222">MXU</text>
+<text x="20" y="470" font-size="15" fill="#222">信号量</text>
+<rect x="150.0" y="360" width="266.7" height="32" fill="#f6c89f" stroke="#b5651d" stroke-width="1.5"/>
+<text x="158.0" y="381" font-size="13" fill="#222">第 k+1 步：480 拍</text>
+<rect x="416.7" y="360" width="266.7" height="32" fill="#9ec5e8" stroke="#2c5aa0" stroke-width="1.5"/>
+<text x="424.7" y="381" font-size="13" fill="#222">第 k+2 步：480 拍</text>
+<rect x="683.3" y="360" width="266.7" height="32" fill="#f6c89f" stroke="#b5651d" stroke-width="1.5"/>
+<text x="691.3" y="381" font-size="13" fill="#222">第 k+3 步：480 拍</text>
+<rect x="150.0" y="404" width="142.2" height="32" fill="#cfe8cf" stroke="#2e7d32" stroke-width="1.5"/>
+<text x="221.1" y="425" font-size="13" fill="#1b5e20" text-anchor="middle">算 256 拍</text>
+<rect x="416.7" y="404" width="142.2" height="32" fill="#cfe8cf" stroke="#2e7d32" stroke-width="1.5"/>
+<text x="487.8" y="425" font-size="13" fill="#1b5e20" text-anchor="middle">算 256 拍</text>
+<rect x="683.3" y="404" width="142.2" height="32" fill="#cfe8cf" stroke="#2e7d32" stroke-width="1.5"/>
+<text x="754.4" y="425" font-size="13" fill="#1b5e20" text-anchor="middle">算 256 拍</text>
+<rect x="292.2" y="404" width="124.4" height="32" fill="#f8d7da" stroke="#b52a2a" stroke-width="1.5"/>
+<text x="354.4" y="425" font-size="13" fill="#b52a2a" text-anchor="middle">停 224 拍</text>
+<rect x="558.9" y="404" width="124.4" height="32" fill="#f8d7da" stroke="#b52a2a" stroke-width="1.5"/>
+<text x="621.1" y="425" font-size="13" fill="#b52a2a" text-anchor="middle">停 224 拍</text>
+<rect x="825.6" y="404" width="124.4" height="32" fill="#f8d7da" stroke="#b52a2a" stroke-width="1.5"/>
+<text x="887.8" y="425" font-size="13" fill="#b52a2a" text-anchor="middle">停 224 拍</text>
+<polyline points="150.0,486.0 416.7,450.0 416.7,486.0 683.3,450.0 683.3,486.0 950.0,450.0" fill="none" stroke="#b5651d" stroke-width="2.2"/>
+<line x1="150" y1="450" x2="950.0" y2="450" stroke="#b5651d" stroke-width="1" stroke-dasharray="3,3"/>
+<text x="144" y="454" font-size="12" fill="#7a3f0c" text-anchor="end">满</text>
+<text x="144" y="488" font-size="12" fill="#7a3f0c" text-anchor="end">0</text>
+<line x1="292.2" y1="352" x2="292.2" y2="492" stroke="#555" stroke-width="1.5" stroke-dasharray="5,4"/>
+<line x1="558.9" y1="352" x2="558.9" y2="492" stroke="#555" stroke-width="1.5" stroke-dasharray="5,4"/>
+<line x1="825.6" y1="352" x2="825.6" y2="492" stroke="#555" stroke-width="1.5" stroke-dasharray="5,4"/>
+<line x1="150" y1="508" x2="950.0" y2="508" stroke="#333" stroke-width="1.5"/>
+<line x1="150.0" y1="508" x2="150.0" y2="514" stroke="#333" stroke-width="1.5"/>
+<text x="150.0" y="529" font-size="13" fill="#333" text-anchor="middle">0</text>
+<line x1="416.7" y1="508" x2="416.7" y2="514" stroke="#333" stroke-width="1.5"/>
+<text x="416.7" y="529" font-size="13" fill="#333" text-anchor="middle">480</text>
+<line x1="683.3" y1="508" x2="683.3" y2="514" stroke="#333" stroke-width="1.5"/>
+<text x="683.3" y="529" font-size="13" fill="#333" text-anchor="middle">960</text>
+<line x1="950.0" y1="508" x2="950.0" y2="514" stroke="#333" stroke-width="1.5"/>
+<text x="950.0" y="529" font-size="13" fill="#333" text-anchor="middle">1440</text>
+<text x="976.0" y="529" font-size="13" fill="#333">拍</text>
+<text x="20" y="584" font-size="14" fill="#444">b = 256 时，每 480 拍中 MXU 只工作 256 拍（53%）。停下的 224 拍里标量单元不取新的指令束，VPU、MXU 也就没有新指令可执行。</text>
+</svg>

@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 560" width="980" height="560" font-family="sans-serif">
+<defs><marker id="ar" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#333"/></marker><marker id="arR" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#b52a2a"/></marker><marker id="arG" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#2e7d32"/></marker><marker id="arB" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#1f4e9a"/></marker><marker id="arO" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#b8860b"/></marker><marker id="arP" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#6a3d9a"/></marker></defs>
+<rect x="0" y="0" width="980" height="560" fill="#ffffff"/>
+<text x="20" y="32" font-size="19" fill="#111" text-anchor="start" font-weight="bold">一次推进（第 s 级缓冲）的时间线：两种完成都记在 mbarrier 上</text>
+<text x="20" y="95" font-size="15" fill="#111" text-anchor="start" font-weight="bold">TMA 线程</text>
+<line x1="150" y1="90" x2="950" y2="90" stroke="#ccc" stroke-width="1.2"/>
+<text x="20" y="155" font-size="15" fill="#111" text-anchor="start" font-weight="bold">“满”屏障</text>
+<line x1="150" y1="150" x2="950" y2="150" stroke="#ccc" stroke-width="1.2"/>
+<text x="20" y="235" font-size="15" fill="#111" text-anchor="start" font-weight="bold">MMA 线程</text>
+<line x1="150" y1="230" x2="950" y2="230" stroke="#ccc" stroke-width="1.2"/>
+<text x="20" y="305" font-size="15" fill="#111" text-anchor="start" font-weight="bold">矩阵单元</text>
+<line x1="150" y1="300" x2="950" y2="300" stroke="#ccc" stroke-width="1.2"/>
+<text x="20" y="385" font-size="15" fill="#111" text-anchor="start" font-weight="bold">“空”屏障</text>
+<line x1="150" y1="380" x2="950" y2="380" stroke="#ccc" stroke-width="1.2"/>
+<rect x="160" y="74" width="96" height="32" rx="4" fill="#fff1dc" stroke="#b8660b" stroke-width="1.6"/>
+<text x="208" y="95" font-size="12" fill="#6b4e00" text-anchor="middle" font-family="monospace">expect_tx</text>
+<rect x="262" y="74" width="96" height="32" rx="4" fill="#fff1dc" stroke="#b8660b" stroke-width="1.6"/>
+<text x="310" y="95" font-size="12" fill="#6b4e00" text-anchor="middle">UTMALDG ×2</text>
+<text x="364" y="82" font-size="13" fill="#6b4e00" text-anchor="start">登记 32 768 字节，发出 A、B 两条 TMA</text>
+<path d="M210 135 L420 135 L420 150 L520 150 L520 160 L580 160 L580 165" fill="none" stroke="#b8860b" stroke-width="2.2"/>
+<text x="214" y="130" font-size="12" fill="#6b4e00" text-anchor="start">剩 32 768 字节</text>
+<text x="424" y="145" font-size="12" fill="#6b4e00" text-anchor="start">剩 16 384</text>
+<text x="524" y="155" font-size="12" fill="#6b4e00" text-anchor="start">剩 4 096</text>
+<text x="586" y="170" font-size="13" fill="#b52a2a" text-anchor="start" font-weight="bold">0：阶段位翻转</text>
+<text x="260" y="184" font-size="12" fill="#777" text-anchor="start">（数据分批到达，各批的大小和时刻是示意）</text>
+<line x1="582" y1="172" x2="600" y2="212" stroke="#b52a2a" stroke-width="1.8" marker-end="url(#arR)"/>
+<rect x="600" y="214" width="40" height="32" rx="4" fill="#e9f5ea" stroke="#2e7d32" stroke-width="1.6"/>
+<text x="620" y="235" font-size="12" fill="#1b4620" text-anchor="middle">等</text>
+<rect x="644" y="214" width="28" height="32" rx="4" fill="#d6ecd8" stroke="#2e7d32" stroke-width="1.6"/>
+<text x="658" y="235" font-size="12" fill="#1b4620" text-anchor="middle" font-weight="bold">M</text>
+<rect x="674" y="214" width="28" height="32" rx="4" fill="#d6ecd8" stroke="#2e7d32" stroke-width="1.6"/>
+<text x="688" y="235" font-size="12" fill="#1b4620" text-anchor="middle" font-weight="bold">M</text>
+<rect x="704" y="214" width="28" height="32" rx="4" fill="#d6ecd8" stroke="#2e7d32" stroke-width="1.6"/>
+<text x="718" y="235" font-size="12" fill="#1b4620" text-anchor="middle" font-weight="bold">M</text>
+<rect x="734" y="214" width="28" height="32" rx="4" fill="#d6ecd8" stroke="#2e7d32" stroke-width="1.6"/>
+<text x="748" y="235" font-size="12" fill="#1b4620" text-anchor="middle" font-weight="bold">M</text>
+<rect x="766" y="214" width="40" height="32" rx="4" fill="#efe6f7" stroke="#6a3d9a" stroke-width="1.6"/>
+<text x="786" y="235" font-size="11" fill="#4a2a70" text-anchor="middle">BAR</text>
+<text x="594" y="236" font-size="12" fill="#1b4620" text-anchor="end">4 条 UTCHMMA + 1 条 UTCBAR，几拍发完</text>
+<text x="812" y="235" font-size="12" fill="#1b4620" text-anchor="start">→ 去做别的事</text>
+<rect x="650" y="284" width="70" height="32" rx="4" fill="#e8f0fb" stroke="#1f4e9a" stroke-width="1.6"/>
+<text x="685" y="305" font-size="12" fill="#0d2f66" text-anchor="middle">第 1 条</text>
+<rect x="722" y="284" width="70" height="32" rx="4" fill="#e8f0fb" stroke="#1f4e9a" stroke-width="1.6"/>
+<text x="757" y="305" font-size="12" fill="#0d2f66" text-anchor="middle">第 2 条</text>
+<rect x="794" y="284" width="70" height="32" rx="4" fill="#e8f0fb" stroke="#1f4e9a" stroke-width="1.6"/>
+<text x="829" y="305" font-size="12" fill="#0d2f66" text-anchor="middle">第 3 条</text>
+<rect x="866" y="284" width="70" height="32" rx="4" fill="#e8f0fb" stroke="#1f4e9a" stroke-width="1.6"/>
+<text x="901" y="305" font-size="12" fill="#0d2f66" text-anchor="middle">第 4 条</text>
+<text x="650" y="336" font-size="12" fill="#0d2f66" text-anchor="start">4 × 约 64 拍 ≈ 256 拍（估算），结果累加进 TMEM</text>
+<line x1="658" y1="246" x2="662" y2="282" stroke="#2e7d32" stroke-width="1.6" marker-end="url(#arG)"/>
+<path d="M150 372 L936 372 L936 388 L950 388" fill="none" stroke="#6a3d9a" stroke-width="2.2"/>
+<text x="160" y="366" font-size="12" fill="#4a2a70" text-anchor="start">到达数 = 1（还差 1 次）</text>
+<line x1="936" y1="318" x2="936" y2="370" stroke="#6a3d9a" stroke-width="1.8" marker-end="url(#arP)"/>
+<text x="930" y="412" font-size="13" fill="#b52a2a" text-anchor="end" font-weight="bold">第 4 条做完：UTCBAR 触发一次到达，阶段位翻转</text>
+<path d="M950 392 L960 392 L960 470 L170 470 L170 110" fill="none" stroke="#b8860b" stroke-width="1.8" stroke-dasharray="6,4" marker-end="url(#arO)"/>
+<text x="560" y="462" font-size="13" fill="#6b4e00" text-anchor="middle">TMA 线程看到“空”屏障翻转，才把下一块数据写进第 s 级缓冲</text>
+<line x1="150" y1="510" x2="950" y2="510" stroke="#333" stroke-width="1.8" marker-end="url(#ar)"/>
+<text x="950" y="500" font-size="13" fill="#333" text-anchor="end">时间（示意，未按比例）</text>
+<text x="150" y="532" font-size="12" fill="#555" text-anchor="start">TMA 下单</text>
+<text x="580" y="532" font-size="12" fill="#555" text-anchor="middle">数据到齐</text>
+<text x="810" y="532" font-size="12" fill="#555" text-anchor="middle">矩阵乘进行中</text>
+</svg>

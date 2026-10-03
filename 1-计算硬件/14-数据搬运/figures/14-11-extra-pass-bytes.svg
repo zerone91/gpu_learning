@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" font-family="sans-serif">
+<rect x="0" y="0" width="960" height="560" fill="#ffffff"/>
+
+<text x="24" y="34" font-size="20" font-weight="bold" fill="#111">单独变一趟，显存通道上多过多少字节</text>
+<text x="24" y="58" font-size="14" fill="#555">每个例子内部，横条长度按字节数等比画。右侧标出倍数。显存带宽按 3.35 TB/s 折算时间。</text>
+
+<!-- ===== Case 1: transpose ===== -->
+<text x="24" y="98" font-size="17" font-weight="bold" fill="#111">例一　4096 × 4096 的 bf16 矩阵 B（33.55 MB）需要转置</text>
+
+<!-- bar A: separate pass -->
+<text x="24" y="130" font-size="14" fill="#333">单独转一趟</text>
+<rect x="128" y="112" width="200" height="30" fill="#e8b9b9" stroke="#8a3a3a" stroke-width="1.5"/>
+<text x="228" y="132" font-size="13" fill="#111" text-anchor="middle">读 B　33.55</text>
+<rect x="328" y="112" width="200" height="30" fill="#e8b9b9" stroke="#8a3a3a" stroke-width="1.5"/>
+<text x="428" y="132" font-size="13" fill="#111" text-anchor="middle">写回 B　33.55</text>
+<rect x="528" y="112" width="200" height="30" fill="#b9c9e8" stroke="#2f4f8a" stroke-width="1.5"/>
+<text x="628" y="132" font-size="13" fill="#111" text-anchor="middle">矩阵乘读 B　33.55</text>
+<text x="742" y="132" font-size="15" font-weight="bold" fill="#8a3a3a">合计 100.66 MB</text>
+
+<!-- bar B: fused -->
+<text x="24" y="178" font-size="14" fill="#333">顺路转</text>
+<rect x="128" y="160" width="200" height="30" fill="#b9c9e8" stroke="#2f4f8a" stroke-width="1.5"/>
+<text x="228" y="180" font-size="13" fill="#111" text-anchor="middle">矩阵乘读 B　33.55</text>
+<text x="742" y="180" font-size="15" font-weight="bold" fill="#2f4f8a">合计 33.55 MB</text>
+
+<!-- ratio bracket -->
+<line x1="128" y1="202" x2="728" y2="202" stroke="#8a3a3a" stroke-width="1.5"/>
+<line x1="128" y1="198" x2="128" y2="206" stroke="#8a3a3a" stroke-width="1.5"/>
+<line x1="728" y1="198" x2="728" y2="206" stroke="#8a3a3a" stroke-width="1.5"/>
+<text x="340" y="222" font-size="14" fill="#8a3a3a">多出 67.11 MB ÷ 3.35 TB/s = 20.0 微秒</text>
+<text x="742" y="208" font-size="16" font-weight="bold" fill="#8a3a3a">3 倍</text>
+
+<line x1="24" y1="244" x2="936" y2="244" stroke="#ccc" stroke-width="1.5"/>
+
+<!-- ===== Case 2: im2col ===== -->
+<text x="24" y="280" font-size="17" font-weight="bold" fill="#111">例二　56 × 56 × 256 的 bf16 特征图（1.606 MB）需要按 3 × 3 卷积展开</text>
+
+<text x="24" y="312" font-size="14" fill="#333">单独展一趟</text>
+<rect x="128" y="294" width="32" height="30" fill="#e8b9b9" stroke="#8a3a3a" stroke-width="1.5"/>
+<text x="144" y="345" font-size="12" fill="#8a3a3a" text-anchor="middle">1.606</text>
+<rect x="160" y="294" width="284" height="30" fill="#e8b9b9" stroke="#8a3a3a" stroke-width="1.5"/>
+<text x="302" y="314" font-size="13" fill="#111" text-anchor="middle">写展开矩阵　14.45</text>
+<rect x="444" y="294" width="284" height="30" fill="#b9c9e8" stroke="#2f4f8a" stroke-width="1.5"/>
+<text x="586" y="314" font-size="13" fill="#111" text-anchor="middle">矩阵乘读展开矩阵　14.45</text>
+<text x="742" y="314" font-size="15" font-weight="bold" fill="#8a3a3a">合计 30.5 MB</text>
+<text x="112" y="364" font-size="12" fill="#8a3a3a">（读特征图）</text>
+
+<text x="24" y="398" font-size="14" fill="#333">顺路展</text>
+<rect x="128" y="380" width="32" height="30" fill="#b9c9e8" stroke="#2f4f8a" stroke-width="1.5"/>
+<text x="176" y="400" font-size="13" fill="#111">矩阵乘读特征图　1.606（展开只发生在片上）</text>
+<text x="742" y="400" font-size="15" font-weight="bold" fill="#2f4f8a">合计 1.606 MB</text>
+
+<line x1="128" y1="422" x2="728" y2="422" stroke="#8a3a3a" stroke-width="1.5"/>
+<line x1="128" y1="418" x2="128" y2="426" stroke="#8a3a3a" stroke-width="1.5"/>
+<line x1="728" y1="418" x2="728" y2="426" stroke="#8a3a3a" stroke-width="1.5"/>
+<text x="742" y="428" font-size="16" font-weight="bold" fill="#8a3a3a">19 倍</text>
+<text x="200" y="442" font-size="14" fill="#8a3a3a">倍数这么大的原因：3 × 3 卷积的展开矩阵里，同一个输入像素出现 9 次</text>
+
+<!-- bottom note -->
+<rect x="24" y="464" width="912" height="76" fill="#f4f4f4" stroke="#999" stroke-width="1.5"/>
+<text x="40" y="488" font-size="14" fill="#111">参照量：一次 4096³ 的 bf16 矩阵乘要 2 × 4096³ = 137.4 GFLOP，按 989 TFLOP/s 算是 139.0 微秒。</text>
+<text x="40" y="510" font-size="14" fill="#111">例一多出的 20.0 微秒占它的 14%。再加约 3 微秒的 kernel 启动开销（示意值），合计约 17%。</text>
+<text x="40" y="532" font-size="14" fill="#555">这 20 微秒是带宽的硬账：字节总量摆在那里，代码写得再好也省不掉。</text>
+</svg>

@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="1000" height="600" font-family="sans-serif">
+<rect x="0" y="0" width="1000" height="600" fill="#ffffff"/>
+<text x="20" y="30" font-size="19" font-weight="bold" fill="#111">等待条件为什么不能写成"计数等于 0"</text>
+
+<!-- 左：错的 -->
+<rect x="20" y="52" width="470" height="282" fill="#fdeeee" stroke="#b03030" stroke-width="2" rx="4"/>
+<text x="32" y="76" font-size="15" font-weight="bold" fill="#8a1f1f">写法一：等"计数等于 0"</text>
+<line x1="60" y1="118" x2="460" y2="118" stroke="#8a1f1f" stroke-width="2"/>
+<g fill="#8a1f1f" font-size="13">
+<line x1="110" y1="112" x2="110" y2="124" stroke="#8a1f1f" stroke-width="2"/>
+<line x1="230" y1="112" x2="230" y2="124" stroke="#8a1f1f" stroke-width="2"/>
+<line x1="360" y1="112" x2="360" y2="124" stroke="#8a1f1f" stroke-width="2"/>
+</g>
+<text x="76" y="140" font-size="13" fill="#8a1f1f">第 1 拍</text>
+<text x="196" y="140" font-size="13" fill="#8a1f1f">第 2 拍</text>
+<text x="326" y="140" font-size="13" fill="#8a1f1f">第 3 拍</text>
+<text x="32" y="172" font-size="14" fill="#222">① 第 1 拍：最后一条拷贝完成，计数归零。</text>
+<text x="32" y="196" font-size="14" fill="#222">② 第 2 拍：硬件立刻把计数重置成下一轮的期望值，</text>
+<text x="52" y="216" font-size="14" fill="#222">这时计数又不是 0 了。</text>
+<text x="32" y="240" font-size="14" fill="#222">③ 第 3 拍：等待的线程才轮到去查。它看到的不是 0。</text>
+<rect x="32" y="254" width="426" height="64" fill="#ffffff" stroke="#b03030" stroke-width="1.5" rx="3"/>
+<text x="44" y="276" font-size="14" font-weight="bold" fill="#8a1f1f">结果：它以为这一轮还没完成，接着等下去。</text>
+<text x="44" y="300" font-size="14" fill="#222">完成的那一瞬间只有一拍宽，错过了就再也看不到。</text>
+
+<!-- 右：对的 -->
+<rect x="510" y="52" width="470" height="282" fill="#eaf5ea" stroke="#2e7d32" stroke-width="2" rx="4"/>
+<text x="522" y="76" font-size="15" font-weight="bold" fill="#1b5e20">写法二：等"相位和我手里的不一样"</text>
+<line x1="550" y1="118" x2="950" y2="118" stroke="#1b5e20" stroke-width="2"/>
+<g font-size="13">
+<line x1="600" y1="112" x2="600" y2="124" stroke="#1b5e20" stroke-width="2"/>
+<line x1="720" y1="112" x2="720" y2="124" stroke="#1b5e20" stroke-width="2"/>
+<line x1="850" y1="112" x2="850" y2="124" stroke="#1b5e20" stroke-width="2"/>
+</g>
+<text x="566" y="140" font-size="13" fill="#1b5e20">第 1 拍</text>
+<text x="686" y="140" font-size="13" fill="#1b5e20">第 2 拍</text>
+<text x="816" y="140" font-size="13" fill="#1b5e20">第 3 拍</text>
+<text x="522" y="172" font-size="14" fill="#222">线程手里记着：我这一轮该看到的相位是 0。</text>
+<text x="522" y="196" font-size="14" fill="#222">① 第 1 拍：两个计数都归零。硬件在同一拍做三件事：</text>
+<text x="542" y="216" font-size="14" fill="#222">相位 0 翻成 1、重置到达计数、进入下一轮。</text>
+<text x="522" y="240" font-size="14" fill="#222">② 第 2 拍、第 3 拍、再往后：相位一直是 1。</text>
+<rect x="522" y="254" width="446" height="64" fill="#ffffff" stroke="#2e7d32" stroke-width="1.5" rx="3"/>
+<text x="534" y="276" font-size="14" font-weight="bold" fill="#1b5e20">结果：线程什么时候去查，结论都一样：1 不等于 0，放行。</text>
+<text x="534" y="300" font-size="14" fill="#222">相位不是一瞬间的状态，它一直保持到下一轮完成。</text>
+
+<!-- 下半：软件要自己记 -->
+<line x1="20" y1="356" x2="978" y2="356" stroke="#bbb" stroke-width="1.5"/>
+<text x="20" y="382" font-size="16" font-weight="bold" fill="#111">代价：软件要自己记住"我现在是第几轮"</text>
+<text x="20" y="408" font-size="14" fill="#222">缓冲开 3 格时，第 k 块放进第 k mod 3 格。这一格此前已经用过 k / 3 轮，所以要传的相位是 (k / 3) mod 2。</text>
+
+<rect x="20" y="424" width="600" height="128" fill="#fbfbfb" stroke="#777" stroke-width="1.5" rx="4"/>
+<line x1="20" y1="452" x2="620" y2="452" stroke="#777" stroke-width="1.5"/>
+<text x="34" y="444" font-size="13.5" fill="#111">块号 k</text>
+<text x="190" y="444" font-size="13.5" fill="#111">用第几格</text>
+<text x="330" y="444" font-size="13.5" fill="#111">这一格的第几轮</text>
+<text x="500" y="444" font-size="13.5" fill="#111">要传的相位</text>
+<text x="34" y="474" font-size="13.5" fill="#222">0, 1, 2</text>
+<text x="190" y="474" font-size="13.5" fill="#222">0, 1, 2</text>
+<text x="330" y="474" font-size="13.5" fill="#222">0</text>
+<text x="500" y="474" font-size="13.5" font-weight="bold" fill="#222">0</text>
+<text x="34" y="500" font-size="13.5" fill="#222">3, 4, 5</text>
+<text x="190" y="500" font-size="13.5" fill="#222">0, 1, 2</text>
+<text x="330" y="500" font-size="13.5" fill="#222">1</text>
+<text x="500" y="500" font-size="13.5" font-weight="bold" fill="#222">1</text>
+<text x="34" y="526" font-size="13.5" fill="#222">6, 7, 8</text>
+<text x="190" y="526" font-size="13.5" fill="#222">0, 1, 2</text>
+<text x="330" y="526" font-size="13.5" fill="#222">2</text>
+<text x="500" y="526" font-size="13.5" font-weight="bold" fill="#222">0</text>
+<text x="34" y="546" font-size="13" fill="#666">…以此类推</text>
+
+<rect x="640" y="424" width="338" height="128" fill="#fdeeee" stroke="#b03030" stroke-width="1.5" rx="4"/>
+<text x="652" y="446" font-size="14" font-weight="bold" fill="#8a1f1f">写错了会怎样</text>
+<text x="652" y="470" font-size="13.5" fill="#222">格号回绕和相位翻转必须写在同一处。</text>
+<text x="652" y="492" font-size="13.5" fill="#222">忘了翻相位时，第一圈全对，</text>
+<text x="652" y="514" font-size="13.5" fill="#222">第二圈开始要么算错，要么挂死。</text>
+<text x="652" y="538" font-size="13.5" fill="#8a1f1f">性能分析器查不出这类错。</text>
+
+<text x="20" y="576" font-size="13" fill="#666">这张图里的"拍"只用来表示先后顺序，不是实测的拍数。</text>
+</svg>

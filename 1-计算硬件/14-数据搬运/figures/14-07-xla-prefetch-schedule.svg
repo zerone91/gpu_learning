@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 580" width="1000" height="580" font-family="sans-serif">
+<rect x="0" y="0" width="1000" height="580" fill="#ffffff"/>
+<text x="20" y="32" font-size="20" font-weight="bold" fill="#111">XLA 为 v5e 排好的预取顺序：4 层前馈网络，8 个 32 MiB 权重，VMEM 128 MiB</text>
+<text x="20" y="56" font-size="14" fill="#444">横轴是编译结果中指令的先后顺序，不是时间。每一行是一个权重：条从第一次 start 画到 done。</text>
+<text x="20" y="76" font-size="14" fill="#444">▼ 是每一片的 start（×n 表示同一位置发出 n 片），● 是用到这个权重的矩阵乘。</text>
+<line x1="309.0" y1="98" x2="309.0" y2="434" stroke="#e0e0e0" stroke-width="1.5"/>
+<line x1="441.5" y1="98" x2="441.5" y2="434" stroke="#e0e0e0" stroke-width="1.5"/>
+<line x1="521.0" y1="98" x2="521.0" y2="434" stroke="#e0e0e0" stroke-width="1.5"/>
+<line x1="600.5" y1="98" x2="600.5" y2="434" stroke="#e0e0e0" stroke-width="1.5"/>
+<line x1="680.0" y1="98" x2="680.0" y2="434" stroke="#e0e0e0" stroke-width="1.5"/>
+<line x1="759.5" y1="98" x2="759.5" y2="434" stroke="#e0e0e0" stroke-width="1.5"/>
+<line x1="839.0" y1="98" x2="839.0" y2="434" stroke="#e0e0e0" stroke-width="1.5"/>
+<line x1="918.5" y1="98" x2="918.5" y2="434" stroke="#e0e0e0" stroke-width="1.5"/>
+<text x="20" y="126" font-size="14" fill="#222">ws_0（整块）</text>
+<rect x="150.0" y="112" width="53.0" height="20" fill="#9ec5e8" stroke="#2c5aa0" stroke-width="1.5"/>
+<path d="M150.0,110 l-6,-9 l12,0 z" fill="#2c5aa0"/>
+<text x="207.0" y="127" font-size="12" fill="#333">done</text>
+<circle cx="309.0" cy="122" r="6" fill="#555"/>
+<text x="20" y="166" font-size="14" fill="#222">ws_1（整块）</text>
+<rect x="176.5" y="152" width="159.0" height="20" fill="#9ec5e8" stroke="#2c5aa0" stroke-width="1.5"/>
+<path d="M176.5,150 l-6,-9 l12,0 z" fill="#2c5aa0"/>
+<text x="339.5" y="167" font-size="12" fill="#333">done</text>
+<circle cx="441.5" cy="162" r="6" fill="#555"/>
+<text x="20" y="206" font-size="14" fill="#222">ws_2（4 片）</text>
+<rect x="229.5" y="192" width="238.5" height="20" fill="#f6c89f" stroke="#b5651d" stroke-width="1.5"/>
+<path d="M229.5,190 l-6,-9 l12,0 z" fill="#b5651d"/>
+<path d="M256.0,190 l-6,-9 l12,0 z" fill="#b5651d"/>
+<path d="M282.5,190 l-6,-9 l12,0 z" fill="#b5651d"/>
+<path d="M362.0,190 l-6,-9 l12,0 z" fill="#b5651d"/>
+<text x="472.0" y="207" font-size="12" fill="#333">done</text>
+<circle cx="521.0" cy="202" r="6" fill="#555"/>
+<text x="20" y="246" font-size="14" fill="#222">ws_3（4 片）</text>
+<rect x="388.5" y="232" width="159.0" height="20" fill="#f6c89f" stroke="#b5651d" stroke-width="1.5"/>
+<path d="M388.5,230 l-6,-9 l12,0 z" fill="#b5651d"/>
+<path d="M415.0,230 l-6,-9 l12,0 z" fill="#b5651d"/>
+<path d="M494.5,230 l-6,-9 l12,0 z" fill="#b5651d"/>
+<text x="502.5" y="226" font-size="12" fill="#b5651d">×2</text>
+<text x="551.5" y="247" font-size="12" fill="#333">done</text>
+<circle cx="600.5" cy="242" r="6" fill="#555"/>
+<text x="20" y="286" font-size="14" fill="#222">ws_4（4 片）</text>
+<rect x="494.5" y="272" width="132.5" height="20" fill="#f6c89f" stroke="#b5651d" stroke-width="1.5"/>
+<path d="M494.5,270 l-6,-9 l12,0 z" fill="#b5651d"/>
+<text x="502.5" y="266" font-size="12" fill="#b5651d">×3</text>
+<path d="M574.0,270 l-6,-9 l12,0 z" fill="#b5651d"/>
+<text x="631.0" y="287" font-size="12" fill="#333">done</text>
+<circle cx="680.0" cy="282" r="6" fill="#555"/>
+<text x="20" y="326" font-size="14" fill="#222">ws_5（4 片）</text>
+<rect x="574.0" y="312" width="132.5" height="20" fill="#f6c89f" stroke="#b5651d" stroke-width="1.5"/>
+<path d="M574.0,310 l-6,-9 l12,0 z" fill="#b5651d"/>
+<text x="582.0" y="306" font-size="12" fill="#b5651d">×2</text>
+<path d="M653.5,310 l-6,-9 l12,0 z" fill="#b5651d"/>
+<text x="661.5" y="306" font-size="12" fill="#b5651d">×2</text>
+<text x="710.5" y="327" font-size="12" fill="#333">done</text>
+<circle cx="759.5" cy="322" r="6" fill="#555"/>
+<text x="20" y="366" font-size="14" fill="#222">ws_6（4 片）</text>
+<rect x="653.5" y="352" width="132.5" height="20" fill="#f6c89f" stroke="#b5651d" stroke-width="1.5"/>
+<path d="M653.5,350 l-6,-9 l12,0 z" fill="#b5651d"/>
+<text x="661.5" y="346" font-size="12" fill="#b5651d">×3</text>
+<path d="M733.0,350 l-6,-9 l12,0 z" fill="#b5651d"/>
+<text x="790.0" y="367" font-size="12" fill="#333">done</text>
+<circle cx="839.0" cy="362" r="6" fill="#555"/>
+<text x="20" y="406" font-size="14" fill="#222">ws_7（4 片）</text>
+<rect x="733.0" y="392" width="132.5" height="20" fill="#f6c89f" stroke="#b5651d" stroke-width="1.5"/>
+<path d="M733.0,390 l-6,-9 l12,0 z" fill="#b5651d"/>
+<text x="741.0" y="386" font-size="12" fill="#b5651d">×2</text>
+<path d="M812.5,390 l-6,-9 l12,0 z" fill="#b5651d"/>
+<text x="820.5" y="386" font-size="12" fill="#b5651d">×2</text>
+<text x="869.5" y="407" font-size="12" fill="#333">done</text>
+<circle cx="918.5" cy="402" r="6" fill="#555"/>
+<rect x="892.0" y="112" width="53.0" height="20" fill="#d6c7ef" stroke="#6a3d9a" stroke-width="1.5" stroke-dasharray="4,3"/>
+<path d="M892.0,110 l-6,-9 l12,0 z" fill="#6a3d9a"/>
+<text x="521.0" y="126" font-size="13" fill="#6a3d9a">末尾再预取 ws_0，供下一次执行（跨程序预取）→</text>
+<text x="152.0" y="102" font-size="12" fill="#2c5aa0">跨程序预取</text>
+<text x="20" y="470" font-size="14" font-weight="bold" fill="#222">矩阵乘</text>
+<rect x="296.0" y="452" width="26" height="28" fill="#bbbbbb" stroke="#555" stroke-width="1.5"/>
+<text x="309.0" y="496" font-size="13" fill="#222" text-anchor="middle">0-1</text>
+<rect x="428.5" y="452" width="26" height="28" fill="#bbbbbb" stroke="#555" stroke-width="1.5"/>
+<text x="441.5" y="496" font-size="13" fill="#222" text-anchor="middle">0-2</text>
+<rect x="508.0" y="452" width="26" height="28" fill="#bbbbbb" stroke="#555" stroke-width="1.5"/>
+<text x="521.0" y="496" font-size="13" fill="#222" text-anchor="middle">1-1</text>
+<rect x="587.5" y="452" width="26" height="28" fill="#bbbbbb" stroke="#555" stroke-width="1.5"/>
+<text x="600.5" y="496" font-size="13" fill="#222" text-anchor="middle">1-2</text>
+<rect x="667.0" y="452" width="26" height="28" fill="#bbbbbb" stroke="#555" stroke-width="1.5"/>
+<text x="680.0" y="496" font-size="13" fill="#222" text-anchor="middle">2-1</text>
+<rect x="746.5" y="452" width="26" height="28" fill="#bbbbbb" stroke="#555" stroke-width="1.5"/>
+<text x="759.5" y="496" font-size="13" fill="#222" text-anchor="middle">2-2</text>
+<rect x="826.0" y="452" width="26" height="28" fill="#bbbbbb" stroke="#555" stroke-width="1.5"/>
+<text x="839.0" y="496" font-size="13" fill="#222" text-anchor="middle">3-1</text>
+<rect x="905.5" y="452" width="26" height="28" fill="#bbbbbb" stroke="#555" stroke-width="1.5"/>
+<text x="918.5" y="496" font-size="13" fill="#222" text-anchor="middle">3-2</text>
+<text x="20" y="496" font-size="13" fill="#555">层-次</text>
+<line x1="150.0" y1="512" x2="945.0" y2="512" stroke="#333" stroke-width="1.5"/>
+<line x1="150.0" y1="512" x2="150.0" y2="517" stroke="#333" stroke-width="1.5"/>
+<line x1="309.0" y1="512" x2="309.0" y2="517" stroke="#333" stroke-width="1.5"/>
+<line x1="441.5" y1="512" x2="441.5" y2="517" stroke="#333" stroke-width="1.5"/>
+<line x1="521.0" y1="512" x2="521.0" y2="517" stroke="#333" stroke-width="1.5"/>
+<line x1="600.5" y1="512" x2="600.5" y2="517" stroke="#333" stroke-width="1.5"/>
+<line x1="680.0" y1="512" x2="680.0" y2="517" stroke="#333" stroke-width="1.5"/>
+<line x1="759.5" y1="512" x2="759.5" y2="517" stroke="#333" stroke-width="1.5"/>
+<line x1="839.0" y1="512" x2="839.0" y2="517" stroke="#333" stroke-width="1.5"/>
+<line x1="918.5" y1="512" x2="918.5" y2="517" stroke="#333" stroke-width="1.5"/>
+<line x1="945.0" y1="512" x2="945.0" y2="517" stroke="#333" stroke-width="1.5"/>
+<text x="945.0" y="532" font-size="13" fill="#333" text-anchor="end">指令顺序 →</text>
+<text x="20" y="556" font-size="14" fill="#444">每层算第 1 次矩阵乘时，后面的权重已在后台分片搬运。每片 8 MiB；一次矩阵乘约 26 万拍，搬一个 32 MiB 权重按带宽约 6.1 万拍。</text>
+<text x="20" y="578" font-size="14" fill="#444">第 0 层第 1 次矩阵乘的输出留在 VMEM 中；第 2 次矩阵乘的输出写回 HBM。</text>
+</svg>

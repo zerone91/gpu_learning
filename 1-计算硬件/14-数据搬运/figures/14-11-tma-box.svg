@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 600" width="980" height="600" font-family="sans-serif">
+<rect x="0" y="0" width="980" height="600" fill="#ffffff"/>
+<defs>
+  <marker id="a2" markerWidth="9" markerHeight="9" refX="7" refY="3.2" orient="auto">
+    <path d="M0,0 L7,3.2 L0,6.4 z" fill="#8a3a3a"/>
+  </marker>
+  <marker id="a3" markerWidth="9" markerHeight="9" refX="7" refY="3.2" orient="auto">
+    <path d="M0,0 L7,3.2 L0,6.4 z" fill="#2f4f8a"/>
+  </marker>
+  <marker id="a4" markerWidth="9" markerHeight="9" refX="7" refY="3.2" orient="auto">
+    <path d="M0,0 L7,3.2 L0,6.4 z" fill="#333"/>
+  </marker>
+</defs>
+
+<text x="24" y="34" font-size="20" font-weight="bold" fill="#111">张量描述符用几个数字说清"取哪一块"，引擎按它算出每一行的起点</text>
+
+<!-- global tensor -->
+<text x="60" y="78" font-size="16" font-weight="bold" fill="#111">显存里的张量　4096 × 4096 bf16</text>
+<rect x="60" y="92" width="280" height="280" fill="#f2f2f2" stroke="#555" stroke-width="1.8"/>
+<!-- box -->
+<rect x="96" y="128" width="56" height="112" fill="#f5c89a" stroke="#b36b00" stroke-width="2"/>
+<text x="124" y="184" font-size="13" fill="#111" text-anchor="middle">128 行</text>
+<text x="124" y="202" font-size="13" fill="#111" text-anchor="middle">× 64 列</text>
+
+<!-- width arrow -->
+<line x1="96" y1="118" x2="152" y2="118" stroke="#8a3a3a" stroke-width="1.8" marker-end="url(#a2)"/>
+<text x="124" y="112" font-size="13" fill="#8a3a3a" text-anchor="middle">boxDim[0] = 64 个元素 = 128 字节</text>
+<!-- height arrow -->
+<line x1="162" y1="128" x2="162" y2="240" stroke="#8a3a3a" stroke-width="1.8" marker-end="url(#a2)"/>
+<text x="170" y="190" font-size="13" fill="#8a3a3a">boxDim[1] = 128 行</text>
+<!-- pitch arrow -->
+<line x1="60" y1="386" x2="340" y2="386" stroke="#2f4f8a" stroke-width="1.8" marker-end="url(#a3)"/>
+<text x="200" y="404" font-size="13" fill="#2f4f8a" text-anchor="middle">globalStrides[0] = 4096 × 2 = 8192 字节（源矩阵一行）</text>
+
+<!-- arrow to smem -->
+<line x1="360" y1="230" x2="440" y2="230" stroke="#333" stroke-width="2.5" marker-end="url(#a4)"/>
+<text x="400" y="218" font-size="14" fill="#111" text-anchor="middle">TMA</text>
+
+<!-- shared memory result -->
+<text x="470" y="78" font-size="16" font-weight="bold" fill="#111">落进 shared memory</text>
+<rect x="470" y="128" width="56" height="112" fill="#f5c89a" stroke="#b36b00" stroke-width="2"/>
+<text x="498" y="184" font-size="13" fill="#111" text-anchor="middle">128 行</text>
+<text x="498" y="202" font-size="13" fill="#111" text-anchor="middle">× 128 B</text>
+<line x1="470" y1="254" x2="526" y2="254" stroke="#2f4f8a" stroke-width="1.8" marker-end="url(#a3)"/>
+<text x="534" y="259" font-size="13" fill="#2f4f8a">目的行跨度 = 128 字节</text>
+<text x="470" y="278" font-size="14" font-weight="bold" fill="#8a3a3a">行跨度从 8192 字节变成 128 字节</text>
+<text x="470" y="298" font-size="14" fill="#333">这就是"切块"这次变换的全部内容。</text>
+<text x="470" y="318" font-size="14" fill="#333">分块在片上紧凑存放，共 16 KB。</text>
+<text x="470" y="338" font-size="14" fill="#333">下游取数的指令只按 128 字节一行算</text>
+<text x="470" y="358" font-size="14" fill="#333">地址，不需要知道原张量有多宽。</text>
+
+<!-- elementStrides -->
+<text x="60" y="446" font-size="16" font-weight="bold" fill="#111">采样步长：同样取 64 个元素，覆盖源矩阵 128 列的范围</text>
+<text x="60" y="470" font-size="14" fill="#333">elementStrides[0] = 1（默认）：行内连续取</text>
+<g>
+<rect x="60" y="480" width="16" height="16" fill="#f5c89a" stroke="#b36b00" stroke-width="1.5"/>
+<rect x="76" y="480" width="16" height="16" fill="#f5c89a" stroke="#b36b00" stroke-width="1.5"/>
+<rect x="92" y="480" width="16" height="16" fill="#f5c89a" stroke="#b36b00" stroke-width="1.5"/>
+<rect x="108" y="480" width="16" height="16" fill="#f5c89a" stroke="#b36b00" stroke-width="1.5"/>
+<rect x="124" y="480" width="16" height="16" fill="#f5c89a" stroke="#b36b00" stroke-width="1.5"/>
+<rect x="140" y="480" width="16" height="16" fill="#f5c89a" stroke="#b36b00" stroke-width="1.5"/>
+<rect x="156" y="480" width="16" height="16" fill="#f5c89a" stroke="#b36b00" stroke-width="1.5"/>
+<rect x="172" y="480" width="16" height="16" fill="#f5c89a" stroke="#b36b00" stroke-width="1.5"/>
+</g>
+<text x="60" y="524" font-size="14" fill="#333">elementStrides[0] = 2：每隔一个取一个（膨胀卷积要的取法）</text>
+<g>
+<rect x="60" y="534" width="16" height="16" fill="#f5c89a" stroke="#b36b00" stroke-width="1.5"/>
+<rect x="76" y="534" width="16" height="16" fill="#ffffff" stroke="#999" stroke-width="1.5"/>
+<rect x="92" y="534" width="16" height="16" fill="#f5c89a" stroke="#b36b00" stroke-width="1.5"/>
+<rect x="108" y="534" width="16" height="16" fill="#ffffff" stroke="#999" stroke-width="1.5"/>
+<rect x="124" y="534" width="16" height="16" fill="#f5c89a" stroke="#b36b00" stroke-width="1.5"/>
+<rect x="140" y="534" width="16" height="16" fill="#ffffff" stroke="#999" stroke-width="1.5"/>
+<rect x="156" y="534" width="16" height="16" fill="#f5c89a" stroke="#b36b00" stroke-width="1.5"/>
+<rect x="172" y="534" width="16" height="16" fill="#ffffff" stroke="#999" stroke-width="1.5"/>
+<rect x="188" y="534" width="16" height="16" fill="#f5c89a" stroke="#b36b00" stroke-width="1.5"/>
+<rect x="204" y="534" width="16" height="16" fill="#ffffff" stroke="#999" stroke-width="1.5"/>
+</g>
+<text x="232" y="548" font-size="13" fill="#555">橙格取走，白格跳过</text>
+
+<!-- limits box -->
+<rect x="470" y="420" width="486" height="150" fill="#f4f4f4" stroke="#999" stroke-width="1.5"/>
+<text x="486" y="444" font-size="15" font-weight="bold" fill="#111">描述符的几条硬限制</text>
+<text x="486" y="468" font-size="14" fill="#333">tensorRank（维数）：1 到 5</text>
+<text x="486" y="490" font-size="14" fill="#333">boxDim（每维取多少）：每维非零，不超过 256</text>
+<text x="486" y="512" font-size="14" fill="#333">elementStrides（采样步长）：每维 1 到 8</text>
+<text x="486" y="534" font-size="14" fill="#333">globalStrides：只有 tensorRank − 1 个，16 的倍数</text>
+<text x="486" y="556" font-size="14" fill="#8a3a3a">最内维没有步长字段，所以描述符表达不了转置</text>
+</svg>

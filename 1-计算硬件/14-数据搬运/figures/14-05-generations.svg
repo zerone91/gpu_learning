@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1060 520" width="1060" height="520" font-family="sans-serif">
+  <rect x="0" y="0" width="1060" height="520" fill="#ffffff"/>
+  <text x="20" y="30" font-size="19" font-weight="bold" fill="#111">四代搬法改的是同三个问题的答案</text>
+  <text x="20" y="52" font-size="13" fill="#666">灰色格子表示这一代没有改这个答案。彩色格子表示换了新答案。</text>
+
+  <!-- 列头 -->
+  <text x="290" y="84" font-size="15" font-weight="bold" fill="#1b4f8a" text-anchor="middle">谁发起</text>
+  <text x="510" y="84" font-size="15" font-weight="bold" fill="#1b4f8a" text-anchor="middle">地址从哪来</text>
+  <text x="760" y="84" font-size="15" font-weight="bold" fill="#1b4f8a" text-anchor="middle">完成怎么知道</text>
+  <text x="990" y="84" font-size="15" font-weight="bold" fill="#111" text-anchor="middle">提前级数</text>
+  <line x1="20" y1="92" x2="1040" y2="92" stroke="#333" stroke-width="1.5"/>
+
+  <!-- 第 1 行 Volta -->
+  <text x="26" y="124" font-size="15" font-weight="bold" fill="#111">Volta 及以前</text>
+  <text x="26" y="144" font-size="13" fill="#666">LDG + STS</text>
+  <rect x="180" y="100" width="220" height="54" rx="4" fill="#eceff2" stroke="#8a97a3" stroke-width="1.5"/>
+  <text x="290" y="124" font-size="13" fill="#111" text-anchor="middle">每个线程</text>
+  <text x="290" y="142" font-size="12" fill="#666" text-anchor="middle">128 个全员参与</text>
+  <rect x="410" y="100" width="200" height="54" rx="4" fill="#eceff2" stroke="#8a97a3" stroke-width="1.5"/>
+  <text x="510" y="124" font-size="13" fill="#111" text-anchor="middle">每个线程自己算</text>
+  <text x="510" y="142" font-size="12" fill="#666" text-anchor="middle">约 120 次发射</text>
+  <rect x="620" y="100" width="280" height="54" rx="4" fill="#eceff2" stroke="#8a97a3" stroke-width="1.5"/>
+  <text x="760" y="124" font-size="13" fill="#111" text-anchor="middle">记分牌，完成是写进寄存器</text>
+  <text x="760" y="142" font-size="12" fill="#666" text-anchor="middle">只有发起的 warp 能等</text>
+  <text x="990" y="132" font-size="16" fill="#8f2a26" text-anchor="middle" font-weight="bold">1 级</text>
+
+  <!-- 第 2 行 Ampere -->
+  <text x="26" y="196" font-size="15" font-weight="bold" fill="#111">Ampere</text>
+  <text x="26" y="216" font-size="13" fill="#666">cp.async</text>
+  <rect x="180" y="172" width="220" height="54" rx="4" fill="#eceff2" stroke="#8a97a3" stroke-width="1.5"/>
+  <text x="290" y="196" font-size="13" fill="#666" text-anchor="middle">每个线程</text>
+  <text x="290" y="214" font-size="12" fill="#999" text-anchor="middle">没变</text>
+  <rect x="410" y="172" width="200" height="54" rx="4" fill="#eceff2" stroke="#8a97a3" stroke-width="1.5"/>
+  <text x="510" y="196" font-size="13" fill="#666" text-anchor="middle">每个线程自己算</text>
+  <text x="510" y="214" font-size="12" fill="#999" text-anchor="middle">没变</text>
+  <rect x="620" y="172" width="280" height="54" rx="4" fill="#fff3e0" stroke="#c98a16" stroke-width="2"/>
+  <text x="760" y="192" font-size="13" fill="#111" text-anchor="middle" font-weight="bold">组语义：完成是写进 shared memory</text>
+  <text x="760" y="210" font-size="12" fill="#9c5c13" text-anchor="middle">记分牌 SB0 数"还没到货的组数"</text>
+  <text x="760" y="224" font-size="12" fill="#9c5c13" text-anchor="middle">另有 mbarrier 一条路，任何线程都能等</text>
+  <text x="990" y="204" font-size="16" fill="#1b4f8a" text-anchor="middle" font-weight="bold">2～3 级</text>
+
+  <!-- 第 3 行 Hopper -->
+  <text x="26" y="268" font-size="15" font-weight="bold" fill="#111">Hopper</text>
+  <text x="26" y="288" font-size="13" fill="#666">TMA</text>
+  <rect x="180" y="244" width="220" height="54" rx="4" fill="#eef7f1" stroke="#1b5e35" stroke-width="2"/>
+  <text x="290" y="268" font-size="13" fill="#111" text-anchor="middle" font-weight="bold">一个线程</text>
+  <text x="290" y="286" font-size="12" fill="#1b5e35" text-anchor="middle">3 次 warp 级发射</text>
+  <rect x="410" y="244" width="200" height="54" rx="4" fill="#eef7f1" stroke="#1b5e35" stroke-width="2"/>
+  <text x="510" y="268" font-size="13" fill="#111" text-anchor="middle" font-weight="bold">引擎按描述符算</text>
+  <text x="510" y="286" font-size="12" fill="#1b5e35" text-anchor="middle">SM 里 0 条地址指令</text>
+  <rect x="620" y="244" width="280" height="54" rx="4" fill="#eef7f1" stroke="#1b5e35" stroke-width="2"/>
+  <text x="760" y="268" font-size="13" fill="#111" text-anchor="middle" font-weight="bold">mbarrier 按字节记</text>
+  <text x="760" y="286" font-size="12" fill="#1b5e35" text-anchor="middle">任何线程都能等</text>
+  <text x="990" y="276" font-size="16" fill="#1b4f8a" text-anchor="middle" font-weight="bold">2～3 级</text>
+
+  <!-- 第 4 行 Blackwell -->
+  <text x="26" y="348" font-size="15" font-weight="bold" fill="#111">Blackwell</text>
+  <text x="26" y="368" font-size="13" fill="#666">TMEM 与 tcgen05</text>
+  <rect x="180" y="316" width="220" height="60" rx="4" fill="#eceff2" stroke="#8a97a3" stroke-width="1.5"/>
+  <text x="290" y="340" font-size="13" fill="#666" text-anchor="middle">一个线程</text>
+  <text x="290" y="358" font-size="12" fill="#999" text-anchor="middle">第一段没变</text>
+  <rect x="410" y="316" width="200" height="60" rx="4" fill="#eceff2" stroke="#8a97a3" stroke-width="1.5"/>
+  <text x="510" y="340" font-size="13" fill="#666" text-anchor="middle">引擎按描述符算</text>
+  <text x="510" y="358" font-size="12" fill="#999" text-anchor="middle">第一段没变</text>
+  <rect x="620" y="316" width="280" height="60" rx="4" fill="#eceff2" stroke="#8a97a3" stroke-width="1.5"/>
+  <text x="760" y="340" font-size="13" fill="#666" text-anchor="middle">mbarrier 按字节记</text>
+  <text x="760" y="358" font-size="12" fill="#999" text-anchor="middle">第一段没变</text>
+  <text x="990" y="340" font-size="14" fill="#5b3a8f" text-anchor="middle" font-weight="bold">由 TMEM 列数</text>
+  <text x="990" y="360" font-size="14" fill="#5b3a8f" text-anchor="middle" font-weight="bold">与 shared 决定</text>
+
+  <!-- 第二段路 -->
+  <rect x="180" y="390" width="720" height="68" rx="6" fill="#f3eefb" stroke="#5b3a8f" stroke-width="2"/>
+  <text x="196" y="412" font-size="14" font-weight="bold" fill="#5b3a8f">第二段路：shared memory → 矩阵单元 → TMEM</text>
+  <text x="196" y="434" font-size="13" fill="#111">同样三个答案：一个线程发起（tcgen05.mma、tcgen05.cp），硬件按 64 位描述符算地址，</text>
+  <text x="196" y="452" font-size="13" fill="#111">完成由 tcgen05.commit 记一次到达到 mbarrier 上。累加器因此移出寄存器堆。</text>
+  <line x1="540" y1="376" x2="540" y2="386" stroke="#5b3a8f" stroke-width="2"/>
+  <path d="M 534 380 L 540 390 L 546 380 Z" fill="#5b3a8f"/>
+
+  <!-- 底部结论 -->
+  <rect x="20" y="472" width="1020" height="36" rx="6" fill="#fff6e5" stroke="#c98a16" stroke-width="1.5"/>
+  <text x="36" y="495" font-size="14" fill="#111">没有哪一代把三个答案一起换掉。Blackwell 这一行没有改前一段的答案，它把同样的答案用在了下一段路上。</text>
+</svg>

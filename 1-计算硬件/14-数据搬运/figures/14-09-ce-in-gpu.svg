@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" width="960" height="640" font-family="sans-serif">
+  <defs>
+    <marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f5fbf"/></marker>
+    <marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e8b3e"/></marker>
+    <marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d9771e"/></marker>
+  </defs>
+  <rect x="0" y="0" width="960" height="640" fill="#ffffff"/>
+  <!-- chip outline -->
+  <rect x="20" y="20" width="920" height="530" rx="10" fill="#fafafa" stroke="#333" stroke-width="2"/>
+  <text x="36" y="44" font-size="16" font-weight="bold" fill="#333">GPU 芯片（示意）</text>
+
+  <!-- external interfaces -->
+  <rect x="40" y="70" width="140" height="70" rx="6" fill="#eeeeee" stroke="#555" stroke-width="1.5"/>
+  <text x="110" y="100" font-size="16" text-anchor="middle" font-weight="bold">PCIe 接口</text>
+  <text x="110" y="124" font-size="14" text-anchor="middle" fill="#444">通向主机内存</text>
+  <rect x="40" y="440" width="140" height="70" rx="6" fill="#eeeeee" stroke="#555" stroke-width="1.5"/>
+  <text x="110" y="470" font-size="16" text-anchor="middle" font-weight="bold">NVLink 接口</text>
+  <text x="110" y="494" font-size="14" text-anchor="middle" fill="#444">通向其它 GPU</text>
+
+  <!-- hub -->
+  <rect x="200" y="70" width="44" height="210" rx="6" fill="#cfcfcf" stroke="#555" stroke-width="1.5"/>
+  <text x="222" y="175" font-size="15" text-anchor="middle" transform="rotate(-90 222 175)">枢纽 FBHUB</text>
+  <rect x="200" y="300" width="44" height="210" rx="6" fill="#cfcfcf" stroke="#555" stroke-width="1.5"/>
+  <text x="222" y="405" font-size="15" text-anchor="middle" transform="rotate(-90 222 405)">高速枢纽 HSHUB</text>
+  <line x1="180" y1="105" x2="200" y2="105" stroke="#555" stroke-width="3"/>
+  <line x1="180" y1="475" x2="200" y2="475" stroke="#555" stroke-width="3"/>
+
+  <!-- host front end -->
+  <rect x="270" y="70" width="230" height="84" rx="6" fill="#fde7cf" stroke="#d9771e" stroke-width="2"/>
+  <text x="385" y="100" font-size="16" text-anchor="middle" font-weight="bold">主机前端</text>
+  <text x="385" y="122" font-size="14" text-anchor="middle">取命令（PBDMA）</text>
+  <text x="385" y="142" font-size="14" text-anchor="middle">按通道分派</text>
+  <line x1="244" y1="100" x2="268" y2="100" stroke="#d9771e" stroke-width="2" marker-end="url(#ao)"/>
+
+  <!-- copy engine group -->
+  <rect x="270" y="200" width="220" height="310" rx="6" fill="#e3edfb" stroke="#1f5fbf" stroke-width="2"/>
+  <text x="380" y="226" font-size="16" text-anchor="middle" font-weight="bold" fill="#1f5fbf">copy engine 组</text>
+  <text x="380" y="254" font-size="14" text-anchor="middle">逻辑引擎 LCE：收命令</text>
+  <g font-size="14" text-anchor="middle">
+    <rect x="282" y="264" width="46" height="34" fill="#fff" stroke="#1f5fbf" stroke-width="1.5"/><text x="305" y="286">LCE</text>
+    <rect x="336" y="264" width="46" height="34" fill="#fff" stroke="#1f5fbf" stroke-width="1.5"/><text x="359" y="286">LCE</text>
+    <rect x="390" y="264" width="46" height="34" fill="#fff" stroke="#1f5fbf" stroke-width="1.5"/><text x="413" y="286">LCE</text>
+    <text x="460" y="286">…</text>
+  </g>
+  <g stroke="#1f5fbf" stroke-width="1.5">
+    <line x1="305" y1="298" x2="305" y2="375"/><line x1="305" y1="298" x2="359" y2="375"/>
+    <line x1="359" y1="298" x2="413" y2="375"/><line x1="413" y1="298" x2="461" y2="375"/>
+  </g>
+  <g font-size="14" text-anchor="middle">
+    <rect x="282" y="375" width="46" height="34" fill="#cfe0f7" stroke="#1f5fbf" stroke-width="1.5"/><text x="305" y="397">PCE</text>
+    <rect x="336" y="375" width="46" height="34" fill="#cfe0f7" stroke="#1f5fbf" stroke-width="1.5"/><text x="359" y="397">PCE</text>
+    <rect x="390" y="375" width="46" height="34" fill="#cfe0f7" stroke="#1f5fbf" stroke-width="1.5"/><text x="413" y="397">PCE</text>
+    <rect x="442" y="375" width="38" height="34" fill="#cfe0f7" stroke="#1f5fbf" stroke-width="1.5"/><text x="461" y="397">…</text>
+  </g>
+  <text x="380" y="432" font-size="14" text-anchor="middle">物理引擎 PCE：发读写请求</text>
+  <text x="380" y="462" font-size="14" text-anchor="middle" fill="#333">一个 LCE 可调用</text>
+  <text x="380" y="482" font-size="14" text-anchor="middle" fill="#333">一个或多个 PCE</text>
+  <!-- command from front end to CE -->
+  <line x1="380" y1="154" x2="380" y2="198" stroke="#d9771e" stroke-width="2" marker-end="url(#ao)"/>
+  <text x="388" y="182" font-size="14" fill="#d9771e">拷贝命令</text>
+
+  <!-- L2 and HBM -->
+  <rect x="550" y="250" width="120" height="150" rx="6" fill="#f1f1f1" stroke="#555" stroke-width="1.5"/>
+  <text x="610" y="310" font-size="16" text-anchor="middle" font-weight="bold">L2 缓存</text>
+  <text x="610" y="334" font-size="14" text-anchor="middle">显存控制器</text>
+  <rect x="550" y="425" width="120" height="85" rx="6" fill="#e8e8e8" stroke="#555" stroke-width="1.5"/>
+  <text x="610" y="460" font-size="16" text-anchor="middle" font-weight="bold">显存</text>
+  <text x="610" y="484" font-size="14" text-anchor="middle">（HBM）</text>
+  <line x1="610" y1="400" x2="610" y2="425" stroke="#555" stroke-width="3"/>
+
+  <!-- SM array -->
+  <rect x="700" y="70" width="222" height="440" rx="6" fill="#eef7ef" stroke="#2e8b3e" stroke-width="2"/>
+  <text x="811" y="96" font-size="16" text-anchor="middle" font-weight="bold" fill="#2e8b3e">SM 阵列</text>
+  <g font-size="14" text-anchor="middle">
+    <g>
+      <rect x="716" y="112" width="90" height="84" fill="#fff" stroke="#2e8b3e" stroke-width="1.5"/><text x="761" y="136">SM</text>
+      <rect x="734" y="152" width="54" height="30" fill="#c9e9cf" stroke="#2e8b3e" stroke-width="1.5"/><text x="761" y="172">TMA</text>
+      <rect x="816" y="112" width="90" height="84" fill="#fff" stroke="#2e8b3e" stroke-width="1.5"/><text x="861" y="136">SM</text>
+      <rect x="834" y="152" width="54" height="30" fill="#c9e9cf" stroke="#2e8b3e" stroke-width="1.5"/><text x="861" y="172">TMA</text>
+    </g>
+    <g>
+      <rect x="716" y="210" width="90" height="84" fill="#fff" stroke="#2e8b3e" stroke-width="1.5"/><text x="761" y="234">SM</text>
+      <rect x="734" y="250" width="54" height="30" fill="#c9e9cf" stroke="#2e8b3e" stroke-width="1.5"/><text x="761" y="270">TMA</text>
+      <rect x="816" y="210" width="90" height="84" fill="#fff" stroke="#2e8b3e" stroke-width="1.5"/><text x="861" y="234">SM</text>
+      <rect x="834" y="250" width="54" height="30" fill="#c9e9cf" stroke="#2e8b3e" stroke-width="1.5"/><text x="861" y="270">TMA</text>
+    </g>
+    <g>
+      <rect x="716" y="308" width="90" height="84" fill="#fff" stroke="#2e8b3e" stroke-width="1.5"/><text x="761" y="332">SM</text>
+      <rect x="734" y="348" width="54" height="30" fill="#c9e9cf" stroke="#2e8b3e" stroke-width="1.5"/><text x="761" y="368">TMA</text>
+      <rect x="816" y="308" width="90" height="84" fill="#fff" stroke="#2e8b3e" stroke-width="1.5"/><text x="861" y="332">SM</text>
+      <rect x="834" y="348" width="54" height="30" fill="#c9e9cf" stroke="#2e8b3e" stroke-width="1.5"/><text x="861" y="368">TMA</text>
+    </g>
+    <text x="811" y="430" fill="#333">……（H100 共 132 个）</text>
+  </g>
+  <!-- compute command -->
+  <path d="M500,90 L700,90" stroke="#d9771e" stroke-width="2" fill="none" marker-end="url(#ao)"/>
+  <text x="600" y="82" font-size="14" text-anchor="middle" fill="#d9771e">计算命令（启动 kernel）</text>
+
+  <!-- blue data paths: PCIe/NVLink -> hub -> PCE -> L2 -->
+  <path d="M244,230 C262,230 250,388 280,388" stroke="#1f5fbf" stroke-width="4" fill="none"/>
+  <path d="M244,460 C262,460 250,398 280,398" stroke="#1f5fbf" stroke-width="4" fill="none"/>
+  <line x1="482" y1="392" x2="548" y2="392" stroke="#1f5fbf" stroke-width="4" marker-end="url(#ab)"/>
+  <text x="518" y="380" font-size="14" text-anchor="middle" fill="#1f5fbf">数据</text>
+
+  <!-- green: L2 -> SM -->
+  <line x1="670" y1="290" x2="714" y2="290" stroke="#2e8b3e" stroke-width="4" marker-end="url(#ag)"/>
+
+  <!-- legend -->
+  <g font-size="14">
+    <line x1="40" y1="580" x2="90" y2="580" stroke="#1f5fbf" stroke-width="4"/>
+    <text x="100" y="585">copy engine 的路段：主机或其它 GPU ↔ 显存（跨出芯片）</text>
+    <line x1="40" y1="610" x2="90" y2="610" stroke="#2e8b3e" stroke-width="4"/>
+    <text x="100" y="615">TMA 的路段：显存 → SM（不出芯片）</text>
+    <line x1="560" y1="610" x2="610" y2="610" stroke="#d9771e" stroke-width="2"/>
+    <text x="620" y="615">命令（不是数据）</text>
+  </g>
+</svg>

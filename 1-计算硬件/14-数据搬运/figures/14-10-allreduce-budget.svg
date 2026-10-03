@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" width="960" height="620" font-family="sans-serif">
+  <defs>
+    <marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="960" height="620" fill="#ffffff"/>
+
+  <text x="30" y="32" font-size="17" font-weight="bold">一次梯度 all-reduce 的两段账：NVLink 一段，网卡一段</text>
+  <text x="30" y="56" font-size="14" fill="#555">设定：64 张 H100，分成 8 个节点，每节点 8 张卡经 NVSwitch 全互连；每张卡配一块 400 Gb/s 网卡。</text>
+  <text x="30" y="76" font-size="14" fill="#555">每卡 6 GB 的 bf16 梯度，分成 240 个 25 MB 的桶，逐桶做 all-reduce。</text>
+
+  <!-- wrong accounting -->
+  <rect x="30" y="94" width="440" height="160" rx="8" fill="#fdecea" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="48" y="120" font-size="15" font-weight="bold" fill="#c0392b">算错的记法：全部算到网卡头上</text>
+  <text x="48" y="148" font-size="13.5">环形 all-reduce 每卡收发 2 × 6 GB = 12 GB。</text>
+  <text x="48" y="172" font-size="13.5">按一块网卡 45 GB/s 算：12 ÷ 45 ≈ 267 毫秒。</text>
+  <text x="48" y="202" font-size="13.5" fill="#c0392b">错在哪：同一节点内的 8 张卡之间，数据走</text>
+  <text x="48" y="222" font-size="13.5" fill="#c0392b">NVLink，不上网络。网卡只承担跨节点的那一份。</text>
+
+  <!-- right accounting -->
+  <rect x="490" y="94" width="440" height="160" rx="8" fill="#e6f4e8" stroke="#2e8b3e" stroke-width="1.5"/>
+  <text x="508" y="120" font-size="15" font-weight="bold" fill="#2e8b3e">分两段记：每段各走各的链路</text>
+  <text x="508" y="148" font-size="13.5">机内 8 卡先把 25 MB 的桶归约并分发，每卡经</text>
+  <text x="508" y="168" font-size="13.5">NVLink 收发 2 × 25 × 7/8 ≈ 43.8 MB。</text>
+  <text x="508" y="192" font-size="13.5">机间只传每卡分到的 25 ÷ 8 ≈ 3.1 MB 那一份，</text>
+  <text x="508" y="212" font-size="13.5">8 个节点成环，每卡经网卡收发 2 × 3.1 × 7/8 ≈ 5.5 MB。</text>
+  <text x="508" y="240" font-size="13.5" fill="#2e8b3e">两段用的是两套硬件，可以同时进行。</text>
+
+  <!-- per bucket numbers -->
+  <text x="30" y="286" font-size="15" font-weight="bold">一个桶的两段用时，和产出一个桶的时间</text>
+  <g font-size="13.5">
+    <rect x="30" y="300" width="900" height="30" fill="#f7f7f7" stroke="#ddd"/>
+    <text x="44" y="320">反向传播产出一个桶：440 毫秒 ÷ 240 个桶 ≈ <tspan font-weight="bold">1.8 毫秒</tspan></text>
+    <rect x="30" y="332" width="900" height="30" fill="#e6f4e8" stroke="#2e8b3e"/>
+    <text x="44" y="352">机内一段：43.8 MB ÷ 370 GB/s ≈ <tspan font-weight="bold">0.12 毫秒</tspan>（370 GB/s 是 H100 上实测的卡间带宽）</text>
+    <rect x="30" y="364" width="900" height="30" fill="#e3edfb" stroke="#1f5fbf"/>
+    <text x="44" y="384">机间一段：5.5 MB ÷ 45 GB/s ≈ <tspan font-weight="bold">0.12 毫秒</tspan>（45 GB/s 是 400 Gb/s 网卡有效带宽的估算值）</text>
+  </g>
+  <text x="30" y="414" font-size="13.5" fill="#333">两段各 0.12 毫秒，都远小于产出一个桶的 1.8 毫秒。所以通信跟得上产出，可以一直藏在反向后面。</text>
+
+  <!-- timeline -->
+  <line x1="30" y1="434" x2="930" y2="434" stroke="#ccc" stroke-width="1.5"/>
+  <text x="30" y="462" font-size="15" font-weight="bold">放回时间轴：240 个桶排在 440 毫秒的反向里</text>
+
+  <g>
+    <text x="30" y="500" font-size="13.5">SM：反向</text>
+    <rect x="150" y="484" width="700" height="24" fill="#cfe8d4" stroke="#2e8b3e"/>
+    <text x="500" y="501" font-size="13" text-anchor="middle">反向传播 440 毫秒，一层一层倒着算，每算完一层就凑满若干个桶</text>
+
+    <text x="30" y="534" font-size="13.5">NVLink 一段</text>
+    <rect x="150" y="518" width="700" height="24" fill="#f7f7f7" stroke="#ddd"/>
+    <g fill="#2e8b3e">
+      <rect x="168" y="520" width="6" height="20"/><rect x="196" y="520" width="6" height="20"/><rect x="224" y="520" width="6" height="20"/>
+      <rect x="252" y="520" width="6" height="20"/><rect x="280" y="520" width="6" height="20"/><rect x="308" y="520" width="6" height="20"/>
+      <rect x="336" y="520" width="6" height="20"/><rect x="364" y="520" width="6" height="20"/><rect x="392" y="520" width="6" height="20"/>
+      <rect x="420" y="520" width="6" height="20"/><rect x="448" y="520" width="6" height="20"/><rect x="476" y="520" width="6" height="20"/>
+      <rect x="504" y="520" width="6" height="20"/><rect x="532" y="520" width="6" height="20"/><rect x="560" y="520" width="6" height="20"/>
+      <rect x="588" y="520" width="6" height="20"/><rect x="616" y="520" width="6" height="20"/><rect x="644" y="520" width="6" height="20"/>
+      <rect x="672" y="520" width="6" height="20"/><rect x="700" y="520" width="6" height="20"/><rect x="728" y="520" width="6" height="20"/>
+      <rect x="756" y="520" width="6" height="20"/><rect x="784" y="520" width="6" height="20"/><rect x="812" y="520" width="6" height="20"/>
+      <rect x="840" y="520" width="6" height="20"/>
+    </g>
+
+    <text x="30" y="568" font-size="13.5">网卡一段</text>
+    <rect x="150" y="552" width="700" height="24" fill="#f7f7f7" stroke="#ddd"/>
+    <g fill="#1f5fbf">
+      <rect x="178" y="554" width="6" height="20"/><rect x="206" y="554" width="6" height="20"/><rect x="234" y="554" width="6" height="20"/>
+      <rect x="262" y="554" width="6" height="20"/><rect x="290" y="554" width="6" height="20"/><rect x="318" y="554" width="6" height="20"/>
+      <rect x="346" y="554" width="6" height="20"/><rect x="374" y="554" width="6" height="20"/><rect x="402" y="554" width="6" height="20"/>
+      <rect x="430" y="554" width="6" height="20"/><rect x="458" y="554" width="6" height="20"/><rect x="486" y="554" width="6" height="20"/>
+      <rect x="514" y="554" width="6" height="20"/><rect x="542" y="554" width="6" height="20"/><rect x="570" y="554" width="6" height="20"/>
+      <rect x="598" y="554" width="6" height="20"/><rect x="626" y="554" width="6" height="20"/><rect x="654" y="554" width="6" height="20"/>
+      <rect x="682" y="554" width="6" height="20"/><rect x="710" y="554" width="6" height="20"/><rect x="738" y="554" width="6" height="20"/>
+      <rect x="766" y="554" width="6" height="20"/><rect x="794" y="554" width="6" height="20"/><rect x="822" y="554" width="6" height="20"/>
+      <rect x="850" y="554" width="6" height="20"/>
+    </g>
+  </g>
+  <text x="150" y="598" font-size="13" fill="#555">图中每根竖线代表一批桶，真实有 240 个。两行合计分别占约 28 和 29 毫秒，其余时间两条链路都空着。</text>
+</svg>

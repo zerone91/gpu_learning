@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="1000" height="600" font-family="sans-serif">
+<rect x="0" y="0" width="1000" height="600" fill="#ffffff"/>
+<text x="20" y="30" font-size="19" font-weight="bold" fill="#111">同一种分工，两代上的成本：Ampere 做得到，Hopper 才便宜</text>
+<text x="20" y="54" font-size="14" fill="#555">任务相同：一组 warp 专管搬运（生产者），另一组专管计算（消费者）。每轮搬 A、B 两个分块，合计 32 KB。</text>
+
+<!-- Ampere -->
+<rect x="20" y="70" width="470" height="312" fill="#fdf0e2" stroke="#c87c25" stroke-width="2" rx="4"/>
+<text x="32" y="94" font-size="16" font-weight="bold" fill="#8a4f05">Ampere（sm_80）：cp.async + mbarrier</text>
+<text x="32" y="122" font-size="14" fill="#222">谁发起：生产者必须是一整个 warp。</text>
+<text x="32" y="144" font-size="13.5" fill="#444">32 KB ÷ 16 字节 ÷ 32 个线程 = 每线程 64 条 cp.async。</text>
+<text x="32" y="174" font-size="14" fill="#222">地址：每个线程自己算，结果占它自己的寄存器。</text>
+<text x="32" y="204" font-size="14" fill="#222">完成记录：mbarrier 数的是线程，不是字节。</text>
+<text x="32" y="226" font-size="13.5" fill="#444">每个生产者线程都要执行一次 cp.async.mbarrier.arrive.noinc，</text>
+<text x="32" y="246" font-size="13.5" fill="#444">硬件在这个线程此前的 cp.async 全部落地后替它到达一次。</text>
+<text x="32" y="268" font-size="13.5" fill="#444">所以屏障的参与线程数必须写 32，一个都不能少。</text>
+<rect x="32" y="282" width="446" height="88" fill="#ffffff" stroke="#c87c25" stroke-width="1.5" rx="3"/>
+<text x="42" y="304" font-size="13.5" fill="#8a4f05">机器码里能看见它按线程登记：</text>
+<text x="42" y="326" font-size="13" fill="#222" font-family="monospace">ARRIVES.LDGSTSBAR.64 [bar]</text>
+<text x="42" y="346" font-size="13" fill="#222" font-family="monospace">（每个生产者线程各一条，共 32 次到达）</text>
+<text x="42" y="364" font-size="13" fill="#444">屏障初始化时写 32，少一个线程到达，这一轮就不会完成。</text>
+
+<!-- Hopper -->
+<rect x="510" y="70" width="470" height="312" fill="#eaf5ea" stroke="#2e7d32" stroke-width="2" rx="4"/>
+<text x="522" y="94" font-size="16" font-weight="bold" fill="#1b5e20">Hopper（sm_90）：TMA + expect_tx</text>
+<text x="522" y="122" font-size="14" fill="#222">谁发起：1 个线程。</text>
+<text x="522" y="144" font-size="13.5" fill="#444">3 条指令：1 条 arrive.expect_tx，2 条 bulk.tensor。</text>
+<text x="522" y="174" font-size="14" fill="#222">地址：引擎算。SM 里 0 条地址算术指令。</text>
+<text x="522" y="204" font-size="14" fill="#222">完成记录：按字节。每完成一次拷贝，硬件减去它的字节数。</text>
+<text x="522" y="226" font-size="13.5" fill="#444">发起线程发完指令就走，不参与这一步。</text>
+<text x="522" y="246" font-size="13.5" fill="#444">所以屏障的参与线程数写 1。</text>
+<text x="522" y="268" font-size="13.5" fill="#444">其余 127 个线程一条指令都不发。</text>
+<rect x="522" y="282" width="446" height="88" fill="#ffffff" stroke="#2e7d32" stroke-width="1.5" rx="3"/>
+<text x="532" y="304" font-size="13.5" fill="#1b5e20">机器码里能看见它在数字节：</text>
+<text x="532" y="326" font-size="13" fill="#222" font-family="monospace">SYNCS.ARRIVE.TRANS64 RZ, [bar], R0</text>
+<text x="532" y="346" font-size="13" fill="#222" font-family="monospace">UTMALDG.2D [UR8], [UR4]   ×2</text>
+<text x="532" y="364" font-size="13" fill="#444">R0 里装的是 32768，也就是这一轮要收的字节数。</text>
+
+<!-- 对比条 -->
+<line x1="20" y1="404" x2="978" y2="404" stroke="#bbb" stroke-width="1.5"/>
+<text x="20" y="430" font-size="16" font-weight="bold" fill="#111">这三处变化合起来，省下的是寄存器配额</text>
+
+<text x="20" y="464" font-size="14" fill="#222">发起搬运的线程数</text>
+<rect x="210" y="450" width="320" height="18" fill="#c87c25"/>
+<text x="538" y="464" font-size="13.5" fill="#8a4f05">32 个（一整个 warp）</text>
+<rect x="210" y="474" width="10" height="18" fill="#2e7d32"/>
+<text x="538" y="488" font-size="13.5" fill="#1b5e20">1 个</text>
+
+
+<rect x="20" y="506" width="958" height="80" fill="#f7f7f7" stroke="#999" stroke-width="1.5" rx="4"/>
+<text x="32" y="528" font-size="14" fill="#222">在 Hopper 上，一个只负责发起搬运的 kernel 编出来的回执是 Used 4 registers，描述符地址、坐标等操作数放在统一寄存器里。</text>
+<text x="32" y="550" font-size="14" fill="#222">生产者几乎不需要寄存器，于是可以用 setmaxnreg 把自己的配额降下来，让给消费者去装 128 × 128 的累加器。</text>
+<text x="32" y="572" font-size="14" fill="#222">Ampere 上做同样的分工，在途数据虽然已经不占寄存器，但地址还要占，而且生产者至少是一整个 warp。</text>
+</svg>

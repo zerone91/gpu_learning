@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" width="1000" height="560" font-family="sans-serif">
+<rect x="0" y="0" width="1000" height="560" fill="#ffffff"/>
+<defs><marker id="ar" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><path d="M0,0 L8,3.5 L0,7 z" fill="#777"/></marker></defs>
+<text x="20" y="32" font-size="20" font-weight="bold" fill="#111">Pallas 把 grid 展开成固定的"发出、等待、计算、写回"（M = N = K = 2048，b = 512）</text>
+<rect x="20" y="46" width="20" height="14" fill="#f6c89f" stroke="#b5651d" stroke-width="1.5"/><text x="46" y="58" font-size="14" fill="#222">槽 0</text>
+<rect x="100" y="46" width="20" height="14" fill="#bcd7f0" stroke="#2c5aa0" stroke-width="1.5"/><text x="126" y="58" font-size="14" fill="#222">槽 1</text>
+<text x="180" y="58" font-size="14" fill="#444">A、B、输出各有两个槽（VMEM 中的两份缓冲），每个槽配一个信号量。灰色箭头：本步等的是上一步发出的 DMA。</text>
+<text x="20" y="126" font-size="15" font-weight="bold" fill="#222">读入 DMA</text>
+<text x="20" y="146" font-size="12.5" fill="#555">下一步的 A、B</text>
+<line x1="20" y1="92" x2="979.0" y2="92" stroke="#e3e3e3" stroke-width="1.5"/>
+<text x="20" y="216" font-size="15" font-weight="bold" fill="#222">等待</text>
+<text x="20" y="236" font-size="12.5" fill="#555">本步分块所在槽</text>
+<line x1="20" y1="182" x2="979.0" y2="182" stroke="#e3e3e3" stroke-width="1.5"/>
+<text x="20" y="306" font-size="15" font-weight="bold" fill="#222">计算</text>
+<text x="20" y="326" font-size="12.5" fill="#555">MXU 读本步的槽</text>
+<line x1="20" y1="272" x2="979.0" y2="272" stroke="#e3e3e3" stroke-width="1.5"/>
+<text x="20" y="396" font-size="15" font-weight="bold" fill="#222">输出</text>
+<text x="20" y="416" font-size="12.5" fill="#555">只在 k 走完时</text>
+<line x1="20" y1="362" x2="979.0" y2="362" stroke="#e3e3e3" stroke-width="1.5"/>
+<text x="166.8" y="80" font-size="15" font-weight="bold" fill="#222" text-anchor="middle">序幕</text>
+<rect x="127.0" y="104" width="79.5" height="60" rx="4" fill="#f6c89f" stroke="#b5651d" stroke-width="1.5"/>
+<text x="166.8" y="131.0" font-size="13" fill="#7a3f0c" text-anchor="middle">A(0,0)</text>
+<text x="166.8" y="147.0" font-size="13" fill="#7a3f0c" text-anchor="middle">B(0,0)</text>
+<path d="M203.5,166 L221.5,190" fill="none" stroke="#777" stroke-width="1.5" marker-end="url(#ar)"/>
+<text x="252.2" y="80" font-size="15" font-weight="bold" fill="#222" text-anchor="middle">第 0 步</text>
+<text x="252.2" y="96" font-size="13" fill="#555" text-anchor="middle">(0,0,0)</text>
+<rect x="212.5" y="104" width="79.5" height="60" rx="4" fill="#bcd7f0" stroke="#2c5aa0" stroke-width="1.5"/>
+<text x="252.2" y="131.0" font-size="13" fill="#13335f" text-anchor="middle">A(0,1)</text>
+<text x="252.2" y="147.0" font-size="13" fill="#13335f" text-anchor="middle">B(1,0)</text>
+<rect x="212.5" y="194" width="79.5" height="60" rx="4" fill="#f6c89f" stroke="#b5651d" stroke-width="1.5"/>
+<text x="252.2" y="229.0" font-size="13" fill="#7a3f0c" text-anchor="middle">槽0</text>
+<rect x="212.5" y="284" width="79.5" height="60" rx="4" fill="#f6c89f" stroke="#b5651d" stroke-width="1.5"/>
+<text x="252.2" y="311.0" font-size="13" fill="#7a3f0c" text-anchor="middle">清零，</text>
+<text x="252.2" y="327.0" font-size="13" fill="#7a3f0c" text-anchor="middle">累加</text>
+<path d="M289.0,166 L307.0,190" fill="none" stroke="#777" stroke-width="1.5" marker-end="url(#ar)"/>
+<text x="337.8" y="80" font-size="15" font-weight="bold" fill="#222" text-anchor="middle">第 1 步</text>
+<text x="337.8" y="96" font-size="13" fill="#555" text-anchor="middle">(0,0,1)</text>
+<rect x="298.0" y="104" width="79.5" height="60" rx="4" fill="#f6c89f" stroke="#b5651d" stroke-width="1.5"/>
+<text x="337.8" y="131.0" font-size="13" fill="#7a3f0c" text-anchor="middle">A(0,2)</text>
+<text x="337.8" y="147.0" font-size="13" fill="#7a3f0c" text-anchor="middle">B(2,0)</text>
+<rect x="298.0" y="194" width="79.5" height="60" rx="4" fill="#bcd7f0" stroke="#2c5aa0" stroke-width="1.5"/>
+<text x="337.8" y="229.0" font-size="13" fill="#13335f" text-anchor="middle">槽1</text>
+<rect x="298.0" y="284" width="79.5" height="60" rx="4" fill="#bcd7f0" stroke="#2c5aa0" stroke-width="1.5"/>
+<text x="337.8" y="319.0" font-size="13" fill="#13335f" text-anchor="middle">累加</text>
+<path d="M374.5,166 L392.5,190" fill="none" stroke="#777" stroke-width="1.5" marker-end="url(#ar)"/>
+<text x="423.2" y="80" font-size="15" font-weight="bold" fill="#222" text-anchor="middle">第 2 步</text>
+<text x="423.2" y="96" font-size="13" fill="#555" text-anchor="middle">(0,0,2)</text>
+<rect x="383.5" y="104" width="79.5" height="60" rx="4" fill="#bcd7f0" stroke="#2c5aa0" stroke-width="1.5"/>
+<text x="423.2" y="131.0" font-size="13" fill="#13335f" text-anchor="middle">A(0,3)</text>
+<text x="423.2" y="147.0" font-size="13" fill="#13335f" text-anchor="middle">B(3,0)</text>
+<rect x="383.5" y="194" width="79.5" height="60" rx="4" fill="#f6c89f" stroke="#b5651d" stroke-width="1.5"/>
+<text x="423.2" y="229.0" font-size="13" fill="#7a3f0c" text-anchor="middle">槽0</text>
+<rect x="383.5" y="284" width="79.5" height="60" rx="4" fill="#f6c89f" stroke="#b5651d" stroke-width="1.5"/>
+<text x="423.2" y="319.0" font-size="13" fill="#7a3f0c" text-anchor="middle">累加</text>
+<path d="M460.0,166 L478.0,190" fill="none" stroke="#777" stroke-width="1.5" marker-end="url(#ar)"/>
+<text x="508.8" y="80" font-size="15" font-weight="bold" fill="#222" text-anchor="middle">第 3 步</text>
+<text x="508.8" y="96" font-size="13" fill="#555" text-anchor="middle">(0,0,3)</text>
+<rect x="469.0" y="104" width="79.5" height="60" rx="4" fill="#f6c89f" stroke="#b5651d" stroke-width="1.5"/>
+<text x="508.8" y="131.0" font-size="13" fill="#7a3f0c" text-anchor="middle">A(0,0)</text>
+<text x="508.8" y="147.0" font-size="13" fill="#7a3f0c" text-anchor="middle">B(0,1)</text>
+<rect x="469.0" y="194" width="79.5" height="60" rx="4" fill="#bcd7f0" stroke="#2c5aa0" stroke-width="1.5"/>
+<text x="508.8" y="229.0" font-size="13" fill="#13335f" text-anchor="middle">槽1</text>
+<rect x="469.0" y="284" width="79.5" height="60" rx="4" fill="#bcd7f0" stroke="#2c5aa0" stroke-width="1.5"/>
+<text x="508.8" y="311.0" font-size="13" fill="#13335f" text-anchor="middle">累加，</text>
+<text x="508.8" y="327.0" font-size="13" fill="#13335f" text-anchor="middle">写进输出槽0</text>
+<rect x="469.0" y="374" width="79.5" height="60" rx="4" fill="#f6c89f" stroke="#b5651d" stroke-width="1.5"/>
+<text x="508.8" y="401.0" font-size="13" fill="#7a3f0c" text-anchor="middle">写回</text>
+<text x="508.8" y="417.0" font-size="13" fill="#7a3f0c" text-anchor="middle">Z(0,0)</text>
+<path d="M545.5,166 L563.5,190" fill="none" stroke="#777" stroke-width="1.5" marker-end="url(#ar)"/>
+<text x="594.2" y="80" font-size="15" font-weight="bold" fill="#222" text-anchor="middle">第 4 步</text>
+<text x="594.2" y="96" font-size="13" fill="#555" text-anchor="middle">(0,1,0)</text>
+<rect x="554.5" y="104" width="79.5" height="60" rx="4" fill="#bcd7f0" stroke="#2c5aa0" stroke-width="1.5"/>
+<text x="594.2" y="131.0" font-size="13" fill="#13335f" text-anchor="middle">A(0,1)</text>
+<text x="594.2" y="147.0" font-size="13" fill="#13335f" text-anchor="middle">B(1,1)</text>
+<rect x="554.5" y="194" width="79.5" height="60" rx="4" fill="#f6c89f" stroke="#b5651d" stroke-width="1.5"/>
+<text x="594.2" y="229.0" font-size="13" fill="#7a3f0c" text-anchor="middle">槽0</text>
+<rect x="554.5" y="284" width="79.5" height="60" rx="4" fill="#f6c89f" stroke="#b5651d" stroke-width="1.5"/>
+<text x="594.2" y="311.0" font-size="13" fill="#7a3f0c" text-anchor="middle">清零，</text>
+<text x="594.2" y="327.0" font-size="13" fill="#7a3f0c" text-anchor="middle">累加</text>
+<rect x="554.5" y="374" width="79.5" height="60" rx="4" fill="#f4f4f4" stroke="#999" stroke-width="1.5"/>
+<text x="594.2" y="409.0" font-size="13" fill="#444" text-anchor="middle">改用输出槽1</text>
+<path d="M631.0,166 L649.0,190" fill="none" stroke="#777" stroke-width="1.5" marker-end="url(#ar)"/>
+<text x="679.8" y="80" font-size="15" font-weight="bold" fill="#222" text-anchor="middle">第 5 步</text>
+<text x="679.8" y="96" font-size="13" fill="#555" text-anchor="middle">(0,1,1)</text>
+<rect x="640.0" y="104" width="79.5" height="60" rx="4" fill="#f6c89f" stroke="#b5651d" stroke-width="1.5"/>
+<text x="679.8" y="131.0" font-size="13" fill="#7a3f0c" text-anchor="middle">A(0,2)</text>
+<text x="679.8" y="147.0" font-size="13" fill="#7a3f0c" text-anchor="middle">B(2,1)</text>
+<rect x="640.0" y="194" width="79.5" height="60" rx="4" fill="#bcd7f0" stroke="#2c5aa0" stroke-width="1.5"/>
+<text x="679.8" y="229.0" font-size="13" fill="#13335f" text-anchor="middle">槽1</text>
+<rect x="640.0" y="284" width="79.5" height="60" rx="4" fill="#bcd7f0" stroke="#2c5aa0" stroke-width="1.5"/>
+<text x="679.8" y="319.0" font-size="13" fill="#13335f" text-anchor="middle">累加</text>
+<path d="M716.5,166 L734.5,190" fill="none" stroke="#777" stroke-width="1.5" marker-end="url(#ar)"/>
+<text x="765.2" y="80" font-size="15" font-weight="bold" fill="#222" text-anchor="middle">第 6 步</text>
+<text x="765.2" y="96" font-size="13" fill="#555" text-anchor="middle">(0,1,2)</text>
+<rect x="725.5" y="104" width="79.5" height="60" rx="4" fill="#bcd7f0" stroke="#2c5aa0" stroke-width="1.5"/>
+<text x="765.2" y="131.0" font-size="13" fill="#13335f" text-anchor="middle">A(0,3)</text>
+<text x="765.2" y="147.0" font-size="13" fill="#13335f" text-anchor="middle">B(3,1)</text>
+<rect x="725.5" y="194" width="79.5" height="60" rx="4" fill="#f6c89f" stroke="#b5651d" stroke-width="1.5"/>
+<text x="765.2" y="229.0" font-size="13" fill="#7a3f0c" text-anchor="middle">槽0</text>
+<rect x="725.5" y="284" width="79.5" height="60" rx="4" fill="#f6c89f" stroke="#b5651d" stroke-width="1.5"/>
+<text x="765.2" y="319.0" font-size="13" fill="#7a3f0c" text-anchor="middle">累加</text>
+<path d="M802.0,166 L820.0,190" fill="none" stroke="#777" stroke-width="1.5" marker-end="url(#ar)"/>
+<text x="850.8" y="80" font-size="15" font-weight="bold" fill="#222" text-anchor="middle">第 7 步</text>
+<text x="850.8" y="96" font-size="13" fill="#555" text-anchor="middle">(0,1,3)</text>
+<rect x="811.0" y="104" width="79.5" height="60" rx="4" fill="#f6c89f" stroke="#b5651d" stroke-width="1.5"/>
+<text x="850.8" y="131.0" font-size="13" fill="#7a3f0c" text-anchor="middle">A(0,0)</text>
+<text x="850.8" y="147.0" font-size="13" fill="#7a3f0c" text-anchor="middle">B(0,2)</text>
+<rect x="811.0" y="194" width="79.5" height="60" rx="4" fill="#bcd7f0" stroke="#2c5aa0" stroke-width="1.5"/>
+<text x="850.8" y="229.0" font-size="13" fill="#13335f" text-anchor="middle">槽1</text>
+<rect x="811.0" y="284" width="79.5" height="60" rx="4" fill="#bcd7f0" stroke="#2c5aa0" stroke-width="1.5"/>
+<text x="850.8" y="311.0" font-size="13" fill="#13335f" text-anchor="middle">累加，</text>
+<text x="850.8" y="327.0" font-size="13" fill="#13335f" text-anchor="middle">写进输出槽1</text>
+<rect x="811.0" y="374" width="79.5" height="60" rx="4" fill="#bcd7f0" stroke="#2c5aa0" stroke-width="1.5"/>
+<text x="850.8" y="401.0" font-size="13" fill="#13335f" text-anchor="middle">写回</text>
+<text x="850.8" y="417.0" font-size="13" fill="#13335f" text-anchor="middle">Z(0,1)</text>
+<path d="M887.5,166 L905.5,190" fill="none" stroke="#777" stroke-width="1.5" marker-end="url(#ar)"/>
+<text x="936.2" y="80" font-size="15" font-weight="bold" fill="#222" text-anchor="middle">第 8 步</text>
+<text x="936.2" y="96" font-size="13" fill="#555" text-anchor="middle">(0,2,0)</text>
+<rect x="896.5" y="104" width="79.5" height="60" rx="4" fill="#bcd7f0" stroke="#2c5aa0" stroke-width="1.5"/>
+<text x="936.2" y="131.0" font-size="13" fill="#13335f" text-anchor="middle">A(0,1)</text>
+<text x="936.2" y="147.0" font-size="13" fill="#13335f" text-anchor="middle">B(1,2)</text>
+<rect x="896.5" y="194" width="79.5" height="60" rx="4" fill="#f6c89f" stroke="#b5651d" stroke-width="1.5"/>
+<text x="936.2" y="213.0" font-size="13" fill="#7a3f0c" text-anchor="middle">槽0 +</text>
+<text x="936.2" y="229.0" font-size="13" fill="#7a3f0c" text-anchor="middle">输出槽0 的</text>
+<text x="936.2" y="245.0" font-size="13" fill="#7a3f0c" text-anchor="middle">写回</text>
+<rect x="896.5" y="284" width="79.5" height="60" rx="4" fill="#f6c89f" stroke="#b5651d" stroke-width="1.5"/>
+<text x="936.2" y="311.0" font-size="13" fill="#7a3f0c" text-anchor="middle">清零，</text>
+<text x="936.2" y="327.0" font-size="13" fill="#7a3f0c" text-anchor="middle">累加</text>
+<rect x="896.5" y="374" width="79.5" height="60" rx="4" fill="#f6c89f" stroke="#b5651d" stroke-width="1.5"/>
+<text x="936.2" y="409.0" font-size="13" fill="#7a3f0c" text-anchor="middle">复用输出槽0</text>
+<path d="M508.8,436 L508.8,452 L987.0,452 L987.0,224 L978.0,224" fill="none" stroke="#b52a2a" stroke-width="1.8" stroke-dasharray="6,4" marker-end="url(#ar)"/>
+<text x="722.5" y="470" font-size="14" fill="#b52a2a" text-anchor="middle">第 8 步复用输出槽 0 之前，先等第 3 步发出的 Z(0,0) 写回完成</text>
+<text x="20" y="510" font-size="14" fill="#444">规律：计算行的颜色总是和同一列读入行的颜色相反。MXU 读一个槽时，DMA 正在写另一个槽。</text>
+<text x="20" y="534" font-size="14" fill="#444">第 3 步又发出 A(0,0)：相邻两步取的不是同一块，所以每一步都要搬 A 和 B。全程 64 步，读入 64 MiB，写回 8 MiB。</text>
+</svg>

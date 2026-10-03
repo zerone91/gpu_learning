@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 668" width="980" height="668" font-family="sans-serif">
+  <rect x="0" y="0" width="980" height="668" fill="#ffffff"/>
+  <defs>
+    <marker id="ar" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,1 L8,4.5 L0,8 z" fill="#c0392b"/>
+    </marker>
+    <marker id="ag" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,1 L8,4.5 L0,8 z" fill="#2e7d32"/>
+    </marker>
+  </defs>
+
+  <text x="24" y="32" font-size="19" font-weight="bold" fill="#111">多播让同一份数据从 L2 只被读一次，由硬件在投递路上复制成几份</text>
+  <text x="24" y="56" font-size="13.5" fill="#444">两边搬的是同一个 16 KB 的 B 分块（128 × 64 个 bf16）。两个线程块都要用它。</text>
+
+  <!-- left: no multicast -->
+  <rect x="24" y="72" width="452" height="236" rx="6" fill="#fdecea" stroke="#c0392b" stroke-width="1.6"/>
+  <text x="38" y="96" font-size="15" font-weight="bold" fill="#c0392b">不用多播：两个线程块各发一次读取</text>
+
+  <rect x="40" y="112" width="150" height="76" rx="5" fill="#ffffff" stroke="#c0392b"/>
+  <text x="115" y="138" font-size="13.5" font-weight="bold" fill="#111" text-anchor="middle">L2 中的 B 分块</text>
+  <text x="115" y="160" font-size="12.5" fill="#444" text-anchor="middle">16 KB</text>
+  <text x="115" y="179" font-size="12.5" fill="#444" text-anchor="middle">全芯片共用</text>
+
+  <rect x="300" y="108" width="162" height="56" rx="5" fill="#ffffff" stroke="#c0392b"/>
+  <text x="381" y="130" font-size="13" font-weight="bold" fill="#111" text-anchor="middle">SM 0 的 shared memory</text>
+  <text x="381" y="150" font-size="12.5" fill="#444" text-anchor="middle">线程块 0 自己那份</text>
+  <rect x="300" y="182" width="162" height="56" rx="5" fill="#ffffff" stroke="#c0392b"/>
+  <text x="381" y="204" font-size="13" font-weight="bold" fill="#111" text-anchor="middle">SM 1 的 shared memory</text>
+  <text x="381" y="224" font-size="12.5" fill="#444" text-anchor="middle">线程块 1 自己那份</text>
+
+  <path d="M190,140 L240,140 L240,124 L294,124" fill="none" stroke="#c0392b" stroke-width="2" marker-end="url(#ar)"/>
+  <path d="M190,160 L240,160 L240,206 L294,206" fill="none" stroke="#c0392b" stroke-width="2" marker-end="url(#ar)"/>
+  <text x="244" y="118" font-size="12" fill="#c0392b">第 1 次读</text>
+  <text x="248" y="252" font-size="12" fill="#c0392b">第 2 次读同样的 16 KB</text>
+  <text x="38" y="276" font-size="13.5" font-weight="bold" fill="#c0392b">L2 一共读出 32 KB</text>
+  <text x="38" y="296" font-size="12.5" fill="#444">第 2 次多半在 L2 命中，所以显存那一侧没有多搬。</text>
+
+  <!-- right: multicast -->
+  <rect x="500" y="72" width="456" height="236" rx="6" fill="#eaf6ec" stroke="#2e7d32" stroke-width="1.6"/>
+  <text x="514" y="96" font-size="15" font-weight="bold" fill="#2e7d32">用多播：读一次，片上复制成两份</text>
+
+  <rect x="516" y="112" width="140" height="76" rx="5" fill="#ffffff" stroke="#2e7d32"/>
+  <text x="586" y="138" font-size="13.5" font-weight="bold" fill="#111" text-anchor="middle">L2 中的 B 分块</text>
+  <text x="586" y="160" font-size="12.5" fill="#444" text-anchor="middle">16 KB</text>
+  <text x="586" y="179" font-size="12.5" fill="#444" text-anchor="middle">同一份</text>
+
+  <circle cx="712" cy="150" r="26" fill="#ffffff" stroke="#2e7d32" stroke-width="1.6"/>
+  <text x="712" y="146" font-size="11.5" fill="#2e7d32" text-anchor="middle">片上</text>
+  <text x="712" y="161" font-size="11.5" fill="#2e7d32" text-anchor="middle">分发</text>
+
+  <rect x="782" y="108" width="162" height="56" rx="5" fill="#ffffff" stroke="#2e7d32"/>
+  <text x="863" y="130" font-size="13" font-weight="bold" fill="#111" text-anchor="middle">SM 0 的 shared memory</text>
+  <text x="863" y="150" font-size="12.5" fill="#444" text-anchor="middle">同一个偏移处</text>
+  <rect x="782" y="182" width="162" height="56" rx="5" fill="#ffffff" stroke="#2e7d32"/>
+  <text x="863" y="204" font-size="13" font-weight="bold" fill="#111" text-anchor="middle">SM 1 的 shared memory</text>
+  <text x="863" y="224" font-size="12.5" fill="#444" text-anchor="middle">同一个偏移处</text>
+
+  <line x1="656" y1="150" x2="682" y2="150" stroke="#2e7d32" stroke-width="2" marker-end="url(#ag)"/>
+  <path d="M738,140 L760,124 L776,124" fill="none" stroke="#2e7d32" stroke-width="2" marker-end="url(#ag)"/>
+  <path d="M738,162 L760,206 L776,206" fill="none" stroke="#2e7d32" stroke-width="2" marker-end="url(#ag)"/>
+  <text x="514" y="276" font-size="13.5" font-weight="bold" fill="#2e7d32">L2 一共读出 16 KB</text>
+  <text x="514" y="296" font-size="12.5" fill="#444">两个线程块的屏障也各收到一次字节汇报。</text>
+
+  <!-- code + sass -->
+  <rect x="24" y="322" width="932" height="128" rx="6" fill="#f7f7f7" stroke="#999"/>
+  <text x="38" y="344" font-size="13.5" font-weight="bold" fill="#111">指令上的差别只有一个修饰和一个操作数</text>
+  <text x="38" y="366" font-size="11.5" fill="#333" font-family="monospace">cp.async.bulk.tensor.2d.shared::cluster.global.mbarrier::complete_tx::bytes.multicast::cluster</text>
+  <text x="38" y="384" font-size="11.5" fill="#333" font-family="monospace">        [smem], [tensorMap, {x, y}], [mbar], ctaMask;</text>
+  <text x="38" y="406" font-size="12.5" fill="#555">ctaMask 是一张 16 位的位图。第 i 位为 1，表示簇里第 i 个线程块也收这份数据。</text>
+  <text x="38" y="430" font-size="12.5" fill="#111">本库在 sm_90a 上编出的机器码：<tspan fill="#2e7d32" font-family="monospace">UTMALDG.2D.MULTICAST [UR8],[UR4],UR6</tspan>。不加修饰时是 UTMALDG.2D，少一个掩码操作数。</text>
+
+  <!-- traffic table -->
+  <rect x="24" y="466" width="932" height="178" rx="6" fill="#ffffff" stroke="#999"/>
+  <text x="38" y="490" font-size="14" font-weight="bold" fill="#111">一笔流量账：4096 × 4096 × 4096 的 bf16 矩阵乘，输出切成 128 × 128 的块，共 1024 块</text>
+  <text x="38" y="510" font-size="12.5" fill="#555">每块沿 K 方向要把 A 的 128 行和 B 的 128 列读完：各 128 × 4096 × 2 字节 = 1 MB。</text>
+
+  <line x1="38" y1="520" x2="942" y2="520" stroke="#bbb"/>
+  <text x="46" y="540" font-size="12.5" font-weight="bold" fill="#111">簇的形状</text>
+  <text x="250" y="540" font-size="12.5" font-weight="bold" fill="#111">从 L2 读出的总流量</text>
+  <text x="700" y="540" font-size="12.5" font-weight="bold" fill="#111">怎么算的</text>
+
+  <text x="46" y="566" font-size="12.5" fill="#333">不组簇</text>
+  <text x="250" y="566" font-size="12.5" font-weight="bold" fill="#c0392b">2 GB</text>
+  <rect x="300" y="556" width="360" height="13" fill="#c0392b" opacity="0.75"/>
+  <text x="700" y="566" font-size="12" fill="#555">1024 × (1 MB + 1 MB)</text>
+
+  <text x="46" y="592" font-size="12.5" fill="#333">2 × 1（两块共用同一份 B）</text>
+  <text x="250" y="592" font-size="12.5" font-weight="bold" fill="#d97706">1.5 GB</text>
+  <rect x="300" y="582" width="270" height="13" fill="#d97706" opacity="0.75"/>
+  <text x="700" y="592" font-size="12" fill="#555">1024 × 1 MB（A）+ 512 × 1 MB（B）</text>
+
+  <text x="46" y="618" font-size="12.5" fill="#333">2 × 2（A、B 各被两块共用）</text>
+  <text x="250" y="618" font-size="12.5" font-weight="bold" fill="#2e7d32">1 GB</text>
+  <rect x="300" y="608" width="180" height="13" fill="#2e7d32" opacity="0.75"/>
+  <text x="700" y="618" font-size="12" fill="#555">512 × 1 MB（A）+ 512 × 1 MB（B）</text>
+
+  <text x="46" y="638" font-size="12" fill="#555">条形长度按流量等比绘制（360 像素对应 2 GB）。同一个矩阵乘从显存读进来的数据只有 64 MB，其余都是 L2 的重复读出。</text>
+</svg>

@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="1000" height="600" font-family="sans-serif">
+  <rect x="0" y="0" width="1000" height="600" fill="#ffffff"/>
+  <text x="20" y="30" font-size="19" font-weight="bold" fill="#111">同一种生产者与消费者分工，三代上生产者要占多少线程和多少寄存器</text>
+
+  <!-- 三栏框 -->
+  <rect x="20" y="46" width="300" height="470" rx="6" fill="#fdf3f2" stroke="#8f2a26" stroke-width="1.5"/>
+  <rect x="348" y="46" width="300" height="470" rx="6" fill="#fff8ec" stroke="#c98a16" stroke-width="1.5"/>
+  <rect x="676" y="46" width="300" height="470" rx="6" fill="#f1f7f3" stroke="#1b5e35" stroke-width="1.5"/>
+
+  <text x="170" y="72" font-size="16" font-weight="bold" fill="#8f2a26" text-anchor="middle">Fermi：LDG 加命名屏障</text>
+  <text x="498" y="72" font-size="16" font-weight="bold" fill="#9c5c13" text-anchor="middle">Ampere：cp.async 加 mbarrier</text>
+  <text x="826" y="72" font-size="16" font-weight="bold" fill="#1b5e35" text-anchor="middle">Hopper：TMA</text>
+
+  <!-- ============ 第一栏 ============ -->
+  <rect x="40" y="88" width="260" height="104" rx="4" fill="#ffffff" stroke="#8f2a26" stroke-width="1.5"/>
+  <text x="52" y="108" font-size="14" font-weight="bold" fill="#111">生产者：一整个 warp（32 个线程）</text>
+  <text x="52" y="128" font-size="13" fill="#333">每人发 LDG，每人自己算地址</text>
+  <text x="52" y="148" font-size="13" fill="#333">在途数据占的寄存器（只是换人占）：</text>
+  <g fill="#d9534f" stroke="#8f2a26" stroke-width="0.8">
+    <rect x="52" y="156" width="10" height="10"/><rect x="66" y="156" width="10" height="10"/><rect x="80" y="156" width="10" height="10"/><rect x="94" y="156" width="10" height="10"/><rect x="108" y="156" width="10" height="10"/><rect x="122" y="156" width="10" height="10"/><rect x="136" y="156" width="10" height="10"/><rect x="150" y="156" width="10" height="10"/><rect x="164" y="156" width="10" height="10"/><rect x="178" y="156" width="10" height="10"/><rect x="192" y="156" width="10" height="10"/><rect x="206" y="156" width="10" height="10"/>
+  </g>
+  <text x="226" y="166" font-size="13" fill="#8f2a26" font-weight="bold">每线程几十个</text>
+  <text x="52" y="184" font-size="12" fill="#8f2a26">记分牌只对本 warp 可见，所以要先自己等</text>
+
+  <!-- 同步件 -->
+  <line x1="170" y1="192" x2="170" y2="212" stroke="#8f2a26" stroke-width="2"/>
+  <path d="M 164 206 L 170 214 L 176 206 Z" fill="#8f2a26"/>
+  <rect x="40" y="216" width="260" height="78" rx="4" fill="#f0e2e2" stroke="#8f2a26" stroke-width="1.5"/>
+  <text x="170" y="236" font-size="13" fill="#111" text-anchor="middle">① 记分牌：等自己那笔数据回来</text>
+  <text x="170" y="256" font-size="13" fill="#111" text-anchor="middle">② STS：写进 shared memory</text>
+  <text x="170" y="276" font-size="13" fill="#111" text-anchor="middle">③ 命名屏障：通知消费者</text>
+  <text x="170" y="290" font-size="12" fill="#8f2a26" text-anchor="middle">每一块要多做一次跨 warp 握手</text>
+  <line x1="170" y1="294" x2="170" y2="314" stroke="#8f2a26" stroke-width="2"/>
+  <path d="M 164 308 L 170 316 L 176 308 Z" fill="#8f2a26"/>
+
+  <rect x="40" y="318" width="260" height="70" rx="4" fill="#ffffff" stroke="#8f2a26" stroke-width="1.5"/>
+  <text x="52" y="340" font-size="14" font-weight="bold" fill="#111">消费者：算矩阵乘</text>
+  <text x="52" y="362" font-size="13" fill="#333">累加器要的寄存器：</text>
+  <rect x="52" y="368" width="150" height="12" fill="#4a6fa5" stroke="#2b4a77" stroke-width="1"/>
+  <text x="210" y="379" font-size="13" fill="#333">每线程 128 个</text>
+
+  <!-- ============ 第二栏 ============ -->
+  <rect x="368" y="88" width="260" height="104" rx="4" fill="#ffffff" stroke="#c98a16" stroke-width="1.5"/>
+  <text x="380" y="108" font-size="14" font-weight="bold" fill="#111">生产者：仍是一整个 warp</text>
+  <text x="380" y="128" font-size="13" fill="#333">屏障数的是线程，每人都要报到</text>
+  <text x="380" y="148" font-size="13" fill="#333">地址仍每线程自己算，占地址寄存器：</text>
+  <g fill="#e08b2d" stroke="#9c5c13" stroke-width="0.8">
+    <rect x="380" y="156" width="10" height="10"/><rect x="394" y="156" width="10" height="10"/><rect x="408" y="156" width="10" height="10"/><rect x="422" y="156" width="10" height="10"/><rect x="436" y="156" width="10" height="10"/><rect x="450" y="156" width="10" height="10"/>
+  </g>
+  <text x="474" y="166" font-size="13" fill="#9c5c13" font-weight="bold">每线程几个</text>
+  <text x="380" y="184" font-size="12" fill="#9c5c13">在途数据不占寄存器，它住在 shared memory</text>
+
+  <line x1="498" y1="192" x2="498" y2="212" stroke="#9c5c13" stroke-width="2"/>
+  <path d="M 492 206 L 498 214 L 504 206 Z" fill="#9c5c13"/>
+  <rect x="368" y="216" width="260" height="78" rx="4" fill="#eef4ea" stroke="#1b5e35" stroke-width="1.5"/>
+  <text x="498" y="234" font-size="12" fill="#1b5e35" text-anchor="middle">shared memory</text>
+  <rect x="408" y="240" width="180" height="26" rx="3" fill="#2f7d4f" stroke="#1b5e35" stroke-width="1.5"/>
+  <text x="498" y="258" font-size="13" fill="#ffffff" text-anchor="middle" font-weight="bold">mbarrier（数线程）</text>
+  <text x="498" y="284" font-size="12" fill="#9c5c13" text-anchor="middle">sm_80 上等待要写软件循环</text>
+  <line x1="498" y1="294" x2="498" y2="314" stroke="#1b5e35" stroke-width="2"/>
+  <path d="M 492 308 L 498 316 L 504 308 Z" fill="#1b5e35"/>
+
+  <rect x="368" y="318" width="260" height="70" rx="4" fill="#ffffff" stroke="#c98a16" stroke-width="1.5"/>
+  <text x="380" y="340" font-size="14" font-weight="bold" fill="#111">消费者：算矩阵乘</text>
+  <text x="380" y="362" font-size="13" fill="#333">累加器要的寄存器：</text>
+  <rect x="380" y="368" width="150" height="12" fill="#4a6fa5" stroke="#2b4a77" stroke-width="1"/>
+  <text x="538" y="379" font-size="13" fill="#333">每线程 128 个</text>
+
+  <!-- ============ 第三栏 ============ -->
+  <rect x="696" y="88" width="260" height="104" rx="4" fill="#ffffff" stroke="#1b5e35" stroke-width="1.5"/>
+  <text x="708" y="108" font-size="14" font-weight="bold" fill="#111">生产者：1 个线程</text>
+  <text x="708" y="128" font-size="13" fill="#333">字节由引擎登记，屏障参与数写 1</text>
+  <text x="708" y="148" font-size="13" fill="#333">整个 kernel 要的寄存器：</text>
+  <g fill="#2f7d4f" stroke="#1b5e35" stroke-width="0.8">
+    <rect x="708" y="156" width="10" height="10"/><rect x="722" y="156" width="10" height="10"/><rect x="736" y="156" width="10" height="10"/><rect x="750" y="156" width="10" height="10"/>
+  </g>
+  <text x="772" y="166" font-size="13" fill="#1b5e35" font-weight="bold">4 个（本机实测回执）</text>
+  <text x="708" y="184" font-size="12" fill="#1b5e35">坐标与描述符地址放在统一寄存器里</text>
+
+  <line x1="826" y1="192" x2="826" y2="212" stroke="#1b5e35" stroke-width="2"/>
+  <path d="M 820 206 L 826 214 L 832 206 Z" fill="#1b5e35"/>
+  <rect x="696" y="216" width="260" height="78" rx="4" fill="#eef4ea" stroke="#1b5e35" stroke-width="1.5"/>
+  <text x="826" y="234" font-size="12" fill="#1b5e35" text-anchor="middle">shared memory</text>
+  <rect x="736" y="240" width="180" height="26" rx="3" fill="#2f7d4f" stroke="#1b5e35" stroke-width="1.5"/>
+  <text x="826" y="258" font-size="13" fill="#ffffff" text-anchor="middle" font-weight="bold">mbarrier（数字节）</text>
+  <text x="826" y="284" font-size="12" fill="#1b5e35" text-anchor="middle">try_wait 可以挂起，不占发射口</text>
+  <line x1="826" y1="294" x2="826" y2="314" stroke="#1b5e35" stroke-width="2"/>
+  <path d="M 820 308 L 826 316 L 832 308 Z" fill="#1b5e35"/>
+
+  <rect x="696" y="318" width="260" height="70" rx="4" fill="#ffffff" stroke="#1b5e35" stroke-width="1.5"/>
+  <text x="708" y="340" font-size="14" font-weight="bold" fill="#111">消费者：用 setmaxnreg 接走配额</text>
+  <text x="708" y="362" font-size="13" fill="#333">累加器要的寄存器：</text>
+  <rect x="708" y="368" width="190" height="12" fill="#4a6fa5" stroke="#2b4a77" stroke-width="1"/>
+  <text x="904" y="379" font-size="13" fill="#1b5e35" font-weight="bold">更多</text>
+
+
+  <!-- 底部结论行 -->
+  <line x1="20" y1="402" x2="976" y2="402" stroke="#999" stroke-width="1.5"/>
+  <text x="32" y="428" font-size="14" font-weight="bold" fill="#111">生产者占用的线程数</text>
+  <text x="170" y="456" font-size="22" fill="#8f2a26" text-anchor="middle" font-weight="bold">32</text>
+  <text x="498" y="456" font-size="22" fill="#9c5c13" text-anchor="middle" font-weight="bold">32</text>
+  <text x="826" y="456" font-size="22" fill="#1b5e35" text-anchor="middle" font-weight="bold">1</text>
+  <text x="32" y="486" font-size="14" font-weight="bold" fill="#111">生产者占用的寄存器</text>
+  <text x="170" y="508" font-size="18" fill="#8f2a26" text-anchor="middle" font-weight="bold">每线程几十个</text>
+  <text x="498" y="508" font-size="18" fill="#9c5c13" text-anchor="middle" font-weight="bold">每线程几个</text>
+  <text x="826" y="508" font-size="18" fill="#1b5e35" text-anchor="middle" font-weight="bold">整个 kernel 4 个</text>
+
+  <rect x="20" y="532" width="956" height="54" rx="6" fill="#fff6e5" stroke="#c98a16" stroke-width="1.5"/>
+  <text x="36" y="554" font-size="14" fill="#111">三栏都写得出分工，差别在成本。前两栏的生产者仍占着本该给累加器的寄存器，所以分工不划算。</text>
+  <text x="36" y="576" font-size="14" fill="#111">FlashAttention-3 的 Hopper 实现里，K、V 用 TMA 搬时生产者降到 24 个寄存器，消费者各升到 240 个。</text>
+</svg>

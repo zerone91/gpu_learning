@@ -1,0 +1,170 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" width="1000" height="560" font-family="sans-serif">
+<rect x="0" y="0" width="1000" height="560" fill="#ffffff"/>
+<text x="20" y="30" font-size="19" font-weight="bold">硬件里的标志位：每一对"源流水线 → 目的流水线"各有 8 格，一格就是一次交接</text>
+<text x="20" y="54" font-size="13" fill="#555">下面画出 32 种配对中的 8 种。横向 8 列是事件 ID。每一格只记一件事：那一段做完了没有。</text>
+<text x="20" y="76" font-size="13" fill="#555">M 指 Cube（矩阵）流水线，V 指向量流水线，FIX 指 FixPipe，S 指标量流水线。</text>
+<text x="458" y="114" font-size="14" text-anchor="middle" font-weight="bold">事件 ID</text>
+<text x="276.0" y="138" font-size="14" text-anchor="middle">0</text>
+<text x="328.0" y="138" font-size="14" text-anchor="middle">1</text>
+<text x="380.0" y="138" font-size="14" text-anchor="middle">2</text>
+<text x="432.0" y="138" font-size="14" text-anchor="middle">3</text>
+<text x="484.0" y="138" font-size="14" text-anchor="middle">4</text>
+<text x="536.0" y="138" font-size="14" text-anchor="middle">5</text>
+<text x="588.0" y="138" font-size="14" text-anchor="middle">6</text>
+<text x="640.0" y="138" font-size="14" text-anchor="middle">7</text>
+<text x="236" y="174" font-size="14" text-anchor="end" font-family="monospace">MTE2_MTE1</text>
+<rect x="250" y="150" width="52" height="36" fill="#f6c6c6" stroke="#666" stroke-width="1.2"/>
+<text x="276.0" y="174" font-size="14" text-anchor="middle" font-weight="bold">1</text>
+<rect x="250" y="150" width="52" height="36" fill="none" stroke="#aa2222" stroke-width="3"/>
+<rect x="302" y="150" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="328.0" y="174" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<rect x="354" y="150" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="380.0" y="174" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<rect x="406" y="150" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="432.0" y="174" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<rect x="458" y="150" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="484.0" y="174" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<rect x="510" y="150" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="536.0" y="174" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<rect x="562" y="150" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="588.0" y="174" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<rect x="614" y="150" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="640.0" y="174" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<text x="236" y="210" font-size="14" text-anchor="end" font-family="monospace">MTE1_MTE2</text>
+<rect x="250" y="186" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="276.0" y="210" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<rect x="302" y="186" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="328.0" y="210" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<rect x="354" y="186" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="380.0" y="210" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<rect x="406" y="186" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="432.0" y="210" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<rect x="458" y="186" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="484.0" y="210" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<rect x="510" y="186" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="536.0" y="210" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<rect x="562" y="186" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="588.0" y="210" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<rect x="614" y="186" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="640.0" y="210" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<text x="236" y="246" font-size="14" text-anchor="end" font-family="monospace">MTE1_M</text>
+<rect x="250" y="222" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="276.0" y="246" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<rect x="302" y="222" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="328.0" y="246" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<rect x="354" y="222" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="380.0" y="246" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<rect x="406" y="222" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="432.0" y="246" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<rect x="458" y="222" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="484.0" y="246" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<rect x="510" y="222" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="536.0" y="246" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<rect x="562" y="222" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="588.0" y="246" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<rect x="614" y="222" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="640.0" y="246" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<text x="236" y="282" font-size="14" text-anchor="end" font-family="monospace">M_MTE1</text>
+<rect x="250" y="258" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="276.0" y="282" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<rect x="302" y="258" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="328.0" y="282" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<rect x="354" y="258" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="380.0" y="282" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<rect x="406" y="258" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="432.0" y="282" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<rect x="458" y="258" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="484.0" y="282" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<rect x="510" y="258" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="536.0" y="282" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<rect x="562" y="258" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="588.0" y="282" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<rect x="614" y="258" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="640.0" y="282" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<text x="236" y="318" font-size="14" text-anchor="end" font-family="monospace">M_FIX</text>
+<rect x="250" y="294" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="276.0" y="318" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<rect x="302" y="294" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="328.0" y="318" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<rect x="354" y="294" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="380.0" y="318" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<rect x="406" y="294" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="432.0" y="318" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<rect x="458" y="294" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="484.0" y="318" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<rect x="510" y="294" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="536.0" y="318" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<rect x="562" y="294" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="588.0" y="318" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<rect x="614" y="294" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="640.0" y="318" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<text x="236" y="354" font-size="14" text-anchor="end" font-family="monospace">FIX_M</text>
+<rect x="250" y="330" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="276.0" y="354" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<rect x="302" y="330" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="328.0" y="354" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<rect x="354" y="330" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="380.0" y="354" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<rect x="406" y="330" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="432.0" y="354" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<rect x="458" y="330" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="484.0" y="354" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<rect x="510" y="330" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="536.0" y="354" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<rect x="562" y="330" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="588.0" y="354" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<rect x="614" y="330" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="640.0" y="354" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<text x="236" y="390" font-size="14" text-anchor="end" font-family="monospace">MTE2_V</text>
+<rect x="250" y="366" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="276.0" y="390" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<rect x="302" y="366" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="328.0" y="390" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<rect x="354" y="366" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="380.0" y="390" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<rect x="406" y="366" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="432.0" y="390" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<rect x="458" y="366" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="484.0" y="390" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<rect x="510" y="366" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="536.0" y="390" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<rect x="562" y="366" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="588.0" y="390" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<rect x="614" y="366" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="640.0" y="390" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<text x="236" y="426" font-size="14" text-anchor="end" font-family="monospace">V_MTE3</text>
+<rect x="250" y="402" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="276.0" y="426" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<rect x="302" y="402" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="328.0" y="426" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<rect x="354" y="402" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="380.0" y="426" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<rect x="406" y="402" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="432.0" y="426" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<rect x="458" y="402" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="484.0" y="426" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<rect x="510" y="402" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="536.0" y="426" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<rect x="562" y="402" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="588.0" y="426" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<rect x="614" y="402" width="52" height="36" fill="#ffffff" stroke="#666" stroke-width="1.2"/>
+<text x="640.0" y="426" font-size="14" text-anchor="middle" font-weight="normal">0</text>
+<text x="236" y="462" font-size="13" text-anchor="end" fill="#555">其余 24 种配对</text>
+<rect x="250" y="438" width="416" height="36" fill="#f0f0f0" stroke="#999" stroke-dasharray="5,4"/>
+<text x="458" y="462" font-size="13" text-anchor="middle" fill="#555">…（S_V、V_S、MTE2_FIX、MTE3_MTE1 等）</text>
+<rect x="696" y="120" width="302" height="186" fill="#fbdcdc" stroke="#aa2222" stroke-width="2"/>
+<text x="710" y="144" font-size="15" font-weight="bold">红框那一格的一生</text>
+<text x="710" y="172" font-size="14">① MTE2 搬完数据，执行</text>
+<text x="724" y="194" font-size="13" font-family="monospace">SetFlag&lt;MTE2_MTE1&gt;(0)</text>
+<text x="724" y="214" font-size="14">把这一格置 1。</text>
+<text x="710" y="242" font-size="14">② MTE1 执行到</text>
+<text x="724" y="264" font-size="13" font-family="monospace">WaitFlag&lt;MTE2_MTE1&gt;(0)</text>
+<text x="724" y="284" font-size="14">时查这一格。是 0 就停住。</text>
+<rect x="696" y="322" width="302" height="120" fill="#f7f7f7" stroke="#999" stroke-width="2"/>
+<text x="710" y="346" font-size="15" font-weight="bold">③ 是 1 就放行，并把它清回 0</text>
+<text x="710" y="372" font-size="13">一格只有"做完了 / 没做完"两种状态，</text>
+<text x="710" y="394" font-size="13">表达不了"到了多少字节"。</text>
+<text x="710" y="418" font-size="13">置位和等待分属两条流水线，必须成对。</text>
+<rect x="20" y="494" width="950" height="46" fill="#f7f7f7" stroke="#999"/>
+<text x="36" y="522" font-size="14">每张卡的格数不同：Atlas 训练产品每种配对 4 个事件 ID（0～3），A2 / A3 和推理产品是 8 个（0～7）。</text>
+</svg>

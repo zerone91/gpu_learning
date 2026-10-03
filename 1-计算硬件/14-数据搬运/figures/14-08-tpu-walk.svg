@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 634" width="1000" height="634" font-family="sans-serif">
+  <rect x="0" y="0" width="1000" height="634" fill="#ffffff"/>
+  <text x="36" y="34" font-size="20" font-weight="bold" fill="#111">走查三：TPU 上，一个 A 分块从显存走到矩阵单元</text>
+  <text x="36" y="58" font-size="14" fill="#555">分块是 512 行 × 512 列的 bf16，共 524 288 字节。三跳，但只有第一跳要在运行时对账。</text>
+
+  <!-- chain -->
+  <rect x="36" y="86" width="150" height="76" fill="#fdeaea" stroke="#a94442" stroke-width="2"/>
+  <text x="111" y="116" font-size="15" font-weight="bold" fill="#6b1f1f" text-anchor="middle">HBM</text>
+  <text x="111" y="138" font-size="13" fill="#6b1f1f" text-anchor="middle">片外显存</text>
+  <text x="111" y="156" font-size="13" fill="#6b1f1f" text-anchor="middle">A 矩阵 2048 × 2048</text>
+
+  <line x1="186" y1="124" x2="252" y2="124" stroke="#2c5aa0" stroke-width="3.5"/>
+  <polygon points="266,124 248,116 248,132" fill="#2c5aa0"/>
+  <text x="226" y="112" font-size="14" font-weight="bold" fill="#1a3a66" text-anchor="middle">跳①</text>
+  <text x="226" y="150" font-size="13" fill="#1a3a66" text-anchor="middle">DMA 引擎</text>
+
+  <rect x="274" y="86" width="150" height="76" fill="#eef4fb" stroke="#2c5aa0" stroke-width="2"/>
+  <text x="349" y="116" font-size="15" font-weight="bold" fill="#1a3a66" text-anchor="middle">VMEM</text>
+  <text x="349" y="138" font-size="13" fill="#1a3a66" text-anchor="middle">核内 SRAM，128 MiB</text>
+  <text x="349" y="156" font-size="13" fill="#1a3a66" text-anchor="middle">没有标签，不会未命中</text>
+
+  <line x1="424" y1="124" x2="490" y2="124" stroke="#2c5aa0" stroke-width="3.5"/>
+  <polygon points="504,124 486,116 486,132" fill="#2c5aa0"/>
+  <text x="464" y="112" font-size="14" font-weight="bold" fill="#1a3a66" text-anchor="middle">跳②</text>
+  <text x="464" y="150" font-size="13" fill="#1a3a66" text-anchor="middle">向量读取</text>
+
+  <rect x="512" y="86" width="150" height="76" fill="#eef4fb" stroke="#2c5aa0" stroke-width="2"/>
+  <text x="587" y="116" font-size="15" font-weight="bold" fill="#1a3a66" text-anchor="middle">向量寄存器</text>
+  <text x="587" y="138" font-size="13" fill="#1a3a66" text-anchor="middle">一个 VREG 是</text>
+  <text x="587" y="156" font-size="13" fill="#1a3a66" text-anchor="middle">8 × 128 个 32 位数</text>
+
+  <line x1="662" y1="124" x2="728" y2="124" stroke="#2f6b2f" stroke-width="3.5"/>
+  <polygon points="742,124 724,116 724,132" fill="#2f6b2f"/>
+  <text x="702" y="112" font-size="14" font-weight="bold" fill="#1b4620" text-anchor="middle">跳③</text>
+  <text x="702" y="150" font-size="13" fill="#1b4620" text-anchor="middle">推入</text>
+
+  <rect x="750" y="86" width="214" height="76" fill="#dff0d8" stroke="#2f6b2f" stroke-width="2"/>
+  <text x="857" y="116" font-size="15" font-weight="bold" fill="#1b4620" text-anchor="middle">MXU 脉动阵列</text>
+  <text x="857" y="138" font-size="13" fill="#1b4620" text-anchor="middle">v5e 有 4 个 128 × 128 的阵列</text>
+  <text x="857" y="156" font-size="13" fill="#1b4620" text-anchor="middle">每拍 65 536 次乘加</text>
+
+  <!-- cards -->
+  <rect x="36" y="188" width="300" height="296" fill="#eef4fb" stroke="#2c5aa0" stroke-width="2"/>
+  <text x="186" y="212" font-size="16" font-weight="bold" fill="#1a3a66" text-anchor="middle">跳 ①　HBM → VMEM</text>
+  <line x1="52" y1="222" x2="320" y2="222" stroke="#2c5aa0" stroke-width="1.5"/>
+  <text x="52" y="246" font-size="14" font-weight="bold" fill="#1a3a66">谁发起</text>
+  <text x="52" y="266" font-size="13" fill="#333">标量单元执行一条 DMA 指令。这条指令</text>
+  <text x="52" y="284" font-size="13" fill="#333">由编译器排进指令流的固定位置</text>
+  <text x="52" y="310" font-size="14" font-weight="bold" fill="#1a3a66">地址从哪来</text>
+  <text x="52" y="330" font-size="13" fill="#333">标量单元算分块的起点，DMA 引擎按</text>
+  <text x="52" y="348" font-size="13" fill="#333">步长走完 64 段，每段 8 KiB</text>
+  <text x="52" y="374" font-size="14" font-weight="bold" fill="#1a3a66">完成怎么知道</text>
+  <text x="52" y="394" font-size="13" fill="#333">搬运期间硬件把信号量从 0 往上加。</text>
+  <text x="52" y="412" font-size="13" fill="#333">等待指令等它加到 524 288，再减回去</text>
+  <text x="52" y="438" font-size="14" font-weight="bold" fill="#1a3a66">完成记录放在哪</text>
+  <text x="52" y="458" font-size="13" fill="#333">一块专门的信号量存储。这是核内唯一</text>
+  <text x="52" y="476" font-size="13" fill="#333">需要在运行时对账的地方</text>
+
+  <rect x="350" y="188" width="300" height="296" fill="#eef4fb" stroke="#2c5aa0" stroke-width="2"/>
+  <text x="500" y="212" font-size="16" font-weight="bold" fill="#1a3a66" text-anchor="middle">跳 ②　VMEM → 向量寄存器</text>
+  <line x1="366" y1="222" x2="634" y2="222" stroke="#2c5aa0" stroke-width="1.5"/>
+  <text x="366" y="246" font-size="14" font-weight="bold" fill="#1a3a66">谁发起</text>
+  <text x="366" y="266" font-size="13" fill="#333">同一条指令流。每条超长指令字里有</text>
+  <text x="366" y="284" font-size="13" fill="#333">一个槽专管 VMEM 的读</text>
+  <text x="366" y="310" font-size="14" font-weight="bold" fill="#1a3a66">地址从哪来</text>
+  <text x="366" y="330" font-size="13" fill="#333">指令里写死的 VMEM 地址。这块缓冲放在</text>
+  <text x="366" y="348" font-size="13" fill="#333">哪个地址，编译期就定下了</text>
+  <text x="366" y="374" font-size="14" font-weight="bold" fill="#1a3a66">完成怎么知道</text>
+  <text x="366" y="394" font-size="13" fill="#333">不需要知道。VMEM 没有标签、不会未</text>
+  <text x="366" y="412" font-size="13" fill="#333">命中，读一次的拍数固定</text>
+  <text x="366" y="438" font-size="14" font-weight="bold" fill="#1a3a66">完成记录放在哪</text>
+  <text x="366" y="458" font-size="13" fill="#333">没有记录。编译器直接把用这个数的指令</text>
+  <text x="366" y="476" font-size="13" fill="#333">排在正确的拍数之后</text>
+
+  <rect x="664" y="188" width="300" height="296" fill="#f4faf4" stroke="#2f6b2f" stroke-width="2"/>
+  <text x="814" y="212" font-size="16" font-weight="bold" fill="#1b4620" text-anchor="middle">跳 ③　向量寄存器 → MXU</text>
+  <line x1="680" y1="222" x2="948" y2="222" stroke="#2f6b2f" stroke-width="1.5"/>
+  <text x="680" y="246" font-size="14" font-weight="bold" fill="#1b4620">谁发起</text>
+  <text x="680" y="266" font-size="13" fill="#333">同一条指令流。指令字里有一个槽专管</text>
+  <text x="680" y="284" font-size="13" fill="#333">向 MXU 推入操作数</text>
+  <text x="680" y="310" font-size="14" font-weight="bold" fill="#1b4620">地址从哪来</text>
+  <text x="680" y="330" font-size="13" fill="#333">不用算。操作数就是指令点名的那个</text>
+  <text x="680" y="348" font-size="13" fill="#333">向量寄存器</text>
+  <text x="680" y="374" font-size="14" font-weight="bold" fill="#1b4620">完成怎么知道</text>
+  <text x="680" y="394" font-size="13" fill="#333">不需要知道。MXU 的延迟固定，取结果的</text>
+  <text x="680" y="412" font-size="13" fill="#333">指令由编译器排在正确的位置</text>
+  <text x="680" y="438" font-size="14" font-weight="bold" fill="#1b4620">完成记录放在哪</text>
+  <text x="680" y="458" font-size="13" fill="#333">没有记录</text>
+
+  <!-- note -->
+  <rect x="36" y="498" width="928" height="112" fill="#fffdf2" stroke="#b8860b" stroke-width="2"/>
+  <text x="56" y="522" font-size="16" font-weight="bold" fill="#5a4400">这张走查最值得记的一点：三跳里只有一跳有完成记录。</text>
+  <text x="56" y="548" font-size="14" fill="#333">跳 ② 和跳 ③ 的延迟是固定的拍数，编译器算得出来，所以它直接把后续指令排在正确的位置，硬件不做任何检查。</text>
+  <text x="56" y="570" font-size="14" fill="#333">只有跳 ① 的耗时算不出来：HBM 要排队、要刷新，同一颗芯片上别的核也在访问它。</text>
+  <text x="56" y="592" font-size="14" fill="#333">对照 Hopper 的走查：那里两跳都要对账，因为跳 ② 的矩阵乘也是异步的，它要花多少拍由硬件决定。</text>
+</svg>

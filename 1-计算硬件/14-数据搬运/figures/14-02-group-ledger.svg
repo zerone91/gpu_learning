@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1020 520" width="1020" height="520" font-family="sans-serif">
+<rect x="0" y="0" width="1020" height="520" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker></defs>
+<text x="510" y="30" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold">组账本：commit 划一道线，wait_group N 要求没到货的组不超过 N 组</text>
+<line x1="110" y1="462" x2="960" y2="462" stroke="#222222" stroke-width="1.8" marker-end="url(#a)"/>
+<text x="966" y="466" font-size="13" text-anchor="start" fill="#222222">时间</text>
+<text x="102" y="86" font-size="13" text-anchor="end" fill="#222222" font-weight="bold">线程发出的指令</text>
+<rect x="110" y="66" width="88" height="30" fill="#d7ede1" stroke="#222222" stroke-width="1.5" rx="3"/>
+<text x="154.0" y="85.32" font-size="13" text-anchor="middle" fill="#222222">cp.async ×n</text>
+<rect x="204" y="66" width="68" height="30" fill="#b9dcc8" stroke="#222222" stroke-width="1.5" rx="3"/>
+<text x="238.0" y="85.32" font-size="14" text-anchor="middle" fill="#222222">commit</text>
+<rect x="280" y="66" width="88" height="30" fill="#d7ede1" stroke="#222222" stroke-width="1.5" rx="3"/>
+<text x="324.0" y="85.32" font-size="13" text-anchor="middle" fill="#222222">cp.async ×n</text>
+<rect x="374" y="66" width="68" height="30" fill="#b9dcc8" stroke="#222222" stroke-width="1.5" rx="3"/>
+<text x="408.0" y="85.32" font-size="14" text-anchor="middle" fill="#222222">commit</text>
+<rect x="450" y="66" width="88" height="30" fill="#d7ede1" stroke="#222222" stroke-width="1.5" rx="3"/>
+<text x="494.0" y="85.32" font-size="13" text-anchor="middle" fill="#222222">cp.async ×n</text>
+<rect x="544" y="66" width="68" height="30" fill="#b9dcc8" stroke="#222222" stroke-width="1.5" rx="3"/>
+<text x="578.0" y="85.32" font-size="14" text-anchor="middle" fill="#222222">commit</text>
+<rect x="620" y="66" width="114" height="30" fill="#f8d7d2" stroke="#c0392b" stroke-width="1.5" rx="3"/>
+<text x="677.0" y="86" font-size="14" text-anchor="middle" fill="#222222">wait_group 1</text>
+<text x="102" y="131" font-size="13" text-anchor="end" fill="#222222" font-weight="bold">第 0 组</text>
+<rect x="110" y="110" width="540" height="30" fill="#cfe6d6" stroke="#1f7a4d" stroke-width="1.5" rx="4"/>
+<text x="380.0" y="130" font-size="14" text-anchor="middle" fill="#222222">数据在路上 → 第 0 组到货（SB0 减 1）</text>
+<text x="102" y="187" font-size="13" text-anchor="end" fill="#222222" font-weight="bold">第 1 组</text>
+<rect x="300" y="166" width="510" height="30" fill="#cfe0f3" stroke="#2c6fb7" stroke-width="1.5" rx="4"/>
+<text x="555.0" y="186" font-size="14" text-anchor="middle" fill="#222222">数据在路上 → 第 1 组到货（SB0 减 1），放行</text>
+<text x="102" y="243" font-size="13" text-anchor="end" fill="#222222" font-weight="bold">第 2 组</text>
+<rect x="480" y="222" width="430" height="30" fill="#cfe0f3" stroke="#2c6fb7" stroke-width="1.5" rx="4"/>
+<text x="492" y="242" font-size="14" text-anchor="start" fill="#222222">数据在路上 → 第 2 组仍在路上</text>
+<line x1="740" y1="52" x2="740" y2="374" stroke="#c0392b" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="734" y="388" font-size="14" text-anchor="end" fill="#c0392b">执行 wait_group 1</text>
+<line x1="810" y1="52" x2="810" y2="374" stroke="#1f7a4d" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="816" y="388" font-size="14" text-anchor="start" fill="#1f7a4d">放行</text>
+<text x="102" y="309" font-size="13" text-anchor="end" fill="#222222" font-weight="bold">SB0 的值</text>
+<rect x="110" y="288" width="94" height="30" fill="#f7f7f7" stroke="#999999" stroke-width="1" rx="2"/>
+<text x="157.0" y="309" font-size="15" text-anchor="middle" fill="#222222">0</text>
+<rect x="204" y="288" width="170" height="30" fill="#f7f7f7" stroke="#999999" stroke-width="1" rx="2"/>
+<text x="289.0" y="309" font-size="15" text-anchor="middle" fill="#222222">1</text>
+<rect x="374" y="288" width="170" height="30" fill="#f7f7f7" stroke="#999999" stroke-width="1" rx="2"/>
+<text x="459.0" y="309" font-size="15" text-anchor="middle" fill="#222222">2</text>
+<rect x="544" y="288" width="106" height="30" fill="#fdeceb" stroke="#999999" stroke-width="1" rx="2"/>
+<text x="597.0" y="309" font-size="15" text-anchor="middle" fill="#c0392b" font-weight="bold">3</text>
+<rect x="650" y="288" width="160" height="30" fill="#fdeceb" stroke="#999999" stroke-width="1" rx="2"/>
+<text x="695.0" y="309" font-size="15" text-anchor="middle" fill="#c0392b" font-weight="bold">2</text>
+<rect x="810" y="288" width="140" height="30" fill="#f7f7f7" stroke="#999999" stroke-width="1" rx="2"/>
+<text x="880.0" y="309" font-size="15" text-anchor="middle" fill="#222222">1</text>
+<text x="110" y="344" font-size="14" text-anchor="start" fill="#222222">每 commit 一次，SB0 加 1；每到货一组，SB0 减 1。第 0 组到货时 SB0 从 3 降到 2，</text>
+<text x="110" y="364" font-size="14" text-anchor="start" fill="#222222">第 1 组到货时降到 1，满足“不超过 1 组”，线程才被放行。<tspan fill="#c0392b">红色格子表示 SB0 超过了 1。</tspan></text>
+<rect x="110" y="396" width="400" height="46" fill="#fbfbfb" stroke="#666666" stroke-width="1.4" rx="4"/>
+<text x="120" y="415" font-size="14" text-anchor="start" fill="#222222">写成 wait_group 0：太保守。提前量缩成</text>
+<text x="120" y="433" font-size="14" text-anchor="start" fill="#222222">一轮，但结果永远正确。</text>
+<rect x="540" y="396" width="430" height="46" fill="#fdeceb" stroke="#c0392b" stroke-width="1.4" rx="4"/>
+<text x="550" y="415" font-size="14" text-anchor="start" fill="#c0392b">写成 wait_group 2：太宽松。放行到还没到货的</text>
+<text x="550" y="433" font-size="14" text-anchor="start" fill="#c0392b">数据上，结果错，而且不报错。</text>
+</svg>

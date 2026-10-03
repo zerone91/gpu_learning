@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 646" width="1000" height="646" font-family="sans-serif">
+  <rect x="0" y="0" width="1000" height="646" fill="#ffffff"/>
+  <text x="36" y="34" font-size="20" font-weight="bold" fill="#111">两种完成记录的根源：谁在什么时候需要数据，是运行时才知道还是编译期就定下</text>
+  <text x="36" y="58" font-size="14" fill="#555">从上往下读每一列。第一行是硬件的前提，最后一行是这个前提逼出来的完成记录。</text>
+
+  <!-- left column -->
+  <rect x="36" y="80" width="448" height="376" fill="#eef4fb" stroke="#2c5aa0" stroke-width="2"/>
+  <text x="260" y="106" font-size="17" font-weight="bold" fill="#1a3a66" text-anchor="middle">GPU</text>
+
+  <rect x="56" y="120" width="408" height="62" fill="#ffffff" stroke="#2c5aa0" stroke-width="1.5"/>
+  <text x="66" y="141" font-size="14" font-weight="bold" fill="#1a3a66">前提：一个 SM 上最多驻留 64 个 warp</text>
+  <text x="66" y="162" font-size="13" fill="#333">4 个调度器每拍各挑一个 warp 发射。挑哪一个，由这一拍</text>
+  <text x="66" y="176" font-size="13" fill="#333">哪些 warp 的数据已经到齐决定。</text>
+
+  <line x1="260" y1="182" x2="260" y2="200" stroke="#2c5aa0" stroke-width="2.5"/>
+  <polygon points="260,210 253,194 267,194" fill="#2c5aa0"/>
+
+  <rect x="56" y="214" width="408" height="62" fill="#ffffff" stroke="#2c5aa0" stroke-width="1.5"/>
+  <text x="66" y="235" font-size="14" font-weight="bold" fill="#1a3a66">所以：谁要用这块数据，编译期说不准</text>
+  <text x="66" y="256" font-size="13" fill="#333">发起搬运的是一个代表线程，用数据的是另一组 warp。</text>
+  <text x="66" y="270" font-size="13" fill="#333">这组 warp 什么时候轮到发射，运行时才知道。</text>
+
+  <line x1="260" y1="276" x2="260" y2="294" stroke="#2c5aa0" stroke-width="2.5"/>
+  <polygon points="260,304 253,288 267,288" fill="#2c5aa0"/>
+
+  <rect x="56" y="308" width="408" height="62" fill="#dff0d8" stroke="#2f6b2f" stroke-width="1.5"/>
+  <text x="66" y="329" font-size="14" font-weight="bold" fill="#1b4620">所以：完成记录要让任何线程都能等</text>
+  <text x="66" y="350" font-size="13" fill="#333">记录放进 shared memory，做成一个共享对象（mbarrier），</text>
+  <text x="66" y="364" font-size="13" fill="#333">按字节记，带一个相位位好反复使用。</text>
+
+  <rect x="56" y="382" width="408" height="60" fill="#fdf5f5" stroke="#a94442" stroke-width="1.5"/>
+  <text x="66" y="403" font-size="14" font-weight="bold" fill="#6b1f1f">代价</text>
+  <text x="66" y="422" font-size="13" fill="#333">硬件：每 warp 6 个记分牌计数器、mbarrier 的挂起唤醒逻辑、</text>
+  <text x="66" y="436" font-size="13" fill="#333">为 64 个 warp 准备的 256 KB 寄存器堆。软件：相位和字节数写错不报错。</text>
+
+  <!-- right column -->
+  <rect x="516" y="80" width="448" height="376" fill="#fdf5f5" stroke="#a94442" stroke-width="2"/>
+  <text x="740" y="106" font-size="17" font-weight="bold" fill="#6b1f1f" text-anchor="middle">NPU（昇腾、TPU）</text>
+
+  <rect x="536" y="120" width="408" height="62" fill="#ffffff" stroke="#a94442" stroke-width="1.5"/>
+  <text x="546" y="141" font-size="14" font-weight="bold" fill="#6b1f1f">前提：一个核只有一条指令流</text>
+  <text x="546" y="162" font-size="13" fill="#333">计算部件只接着紧挨自己的缓冲，接线固定。没有 warp，</text>
+  <text x="546" y="176" font-size="13" fill="#333">也就没有"换一个 warp 来填这段等待"这件事。</text>
+
+  <line x1="740" y1="182" x2="740" y2="200" stroke="#a94442" stroke-width="2.5"/>
+  <polygon points="740,210 733,194 747,194" fill="#a94442"/>
+
+  <rect x="536" y="214" width="408" height="62" fill="#ffffff" stroke="#a94442" stroke-width="1.5"/>
+  <text x="546" y="235" font-size="14" font-weight="bold" fill="#6b1f1f">所以：谁要用这块数据，编译期就排定了</text>
+  <text x="546" y="256" font-size="13" fill="#333">哪条流水线搬、哪条流水线算、用哪一半缓冲，都写在程序里。</text>
+  <text x="546" y="270" font-size="13" fill="#333">运行时不确定的只有一件事：这次搬运花了多少拍。</text>
+
+  <line x1="740" y1="276" x2="740" y2="294" stroke="#a94442" stroke-width="2.5"/>
+  <polygon points="740,304 733,288 747,288" fill="#a94442"/>
+
+  <rect x="536" y="308" width="408" height="62" fill="#dff0d8" stroke="#2f6b2f" stroke-width="1.5"/>
+  <text x="546" y="329" font-size="14" font-weight="bold" fill="#1b4620">所以：完成记录只要点对点</text>
+  <text x="546" y="350" font-size="13" fill="#333">昇腾用一张小标志表，一格两种值。TPU 用一个按数据量</text>
+  <text x="546" y="364" font-size="13" fill="#333">累加的信号量。两者都不需要"任何人都能等"。</text>
+
+  <rect x="536" y="382" width="408" height="60" fill="#fdf5f5" stroke="#a94442" stroke-width="1.5"/>
+  <text x="546" y="403" font-size="14" font-weight="bold" fill="#6b1f1f">代价</text>
+  <text x="546" y="422" font-size="13" fill="#333">一条流水线停下来等，就是真的停住，没有别的线程可以填补。</text>
+  <text x="546" y="436" font-size="13" fill="#333">编译器排不好时，硬件没有任何补救手段。</text>
+
+  <!-- bottom table -->
+  <rect x="36" y="470" width="928" height="158" fill="#fafafa" stroke="#666" stroke-width="2"/>
+  <text x="56" y="494" font-size="16" font-weight="bold" fill="#111">省下来的面积去了哪里：同一笔预算，一边买线程，一边买缓冲</text>
+
+  <line x1="56" y1="506" x2="944" y2="506" stroke="#999" stroke-width="1.5"/>
+  <text x="66" y="526" font-size="13" font-weight="bold" fill="#333">一个核</text>
+  <text x="330" y="526" font-size="13" font-weight="bold" fill="#333">每拍乘加</text>
+  <text x="470" y="526" font-size="13" font-weight="bold" fill="#333">核内可用的片上存储</text>
+  <text x="790" y="526" font-size="13" font-weight="bold" fill="#333">每"每拍一次乘加"配多少存储</text>
+
+  <text x="66" y="550" font-size="13" fill="#222">H100 的一个 SM</text>
+  <text x="330" y="550" font-size="13" fill="#222">2 048</text>
+  <text x="470" y="550" font-size="13" fill="#222">寄存器 256 KB ＋ shared 228 KB</text>
+  <text x="790" y="550" font-size="13" fill="#222">0.24 KB</text>
+
+  <text x="66" y="574" font-size="13" fill="#222">昇腾的一个 AI Core</text>
+  <text x="330" y="574" font-size="13" fill="#222">4 096</text>
+  <text x="470" y="574" font-size="13" fill="#222">L1 1 MB ＋ L0 与 UB 共 640 KB</text>
+  <text x="790" y="574" font-size="13" fill="#222">0.41 KB</text>
+
+  <text x="66" y="598" font-size="13" fill="#222">TPU v5e 的一个 TensorCore</text>
+  <text x="330" y="598" font-size="13" fill="#222">65 536</text>
+  <text x="470" y="598" font-size="13" fill="#222">VMEM 128 MiB</text>
+  <text x="790" y="598" font-size="13" fill="#222">2.0 KB</text>
+
+  <text x="66" y="620" font-size="12.5" fill="#6b1f1f">最后一列是前两列相除，用来对照三种设计把片上面积花在了哪里。它不是厂商公布的指标。</text>
+</svg>

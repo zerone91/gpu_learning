@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" width="1000" height="560" font-family="sans-serif">
+<rect x="0" y="0" width="1000" height="560" fill="#ffffff"/>
+<text x="20" y="30" font-size="19" font-weight="bold" fill="#111">引擎拿到一对坐标，用一个计数器算出 128 个行首地址</text>
+
+<defs><marker id="a3" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto">
+<path d="M0,0 L8,3 L0,6 z" fill="#555"/></marker></defs>
+
+<!-- 变的 -->
+<rect x="20" y="58" width="240" height="78" fill="#fdf0e2" stroke="#c87c25" stroke-width="2" rx="4"/>
+<text x="32" y="80" font-size="15" font-weight="bold" fill="#8a4f05">指令每次带来的（变）</text>
+<text x="32" y="104" font-size="15" fill="#222">坐标 x = 128（第几列）</text>
+<text x="32" y="126" font-size="15" fill="#222">坐标 y = 256（第几行）</text>
+
+<!-- 不变的 -->
+<rect x="20" y="152" width="240" height="124" fill="#f2f2f2" stroke="#555" stroke-width="2" rx="4"/>
+<text x="32" y="174" font-size="15" font-weight="bold" fill="#111">描述符里一直不变的（不变）</text>
+<text x="32" y="198" font-size="15" fill="#222">基址 = A 矩阵首元素地址</text>
+<text x="32" y="220" font-size="15" fill="#222">行步长 = 8192 字节</text>
+<text x="32" y="242" font-size="15" fill="#222">box = 64 列 × 128 行</text>
+<text x="32" y="264" font-size="15" fill="#222">元素 bf16 = 2 字节</text>
+
+<path d="M262,97 L330,150" stroke="#555" stroke-width="2" fill="none" marker-end="url(#a3)"/>
+<path d="M262,214 L330,186" stroke="#555" stroke-width="2" fill="none" marker-end="url(#a3)"/>
+
+<!-- 算式 -->
+<rect x="334" y="120" width="286" height="152" fill="#eaf5ea" stroke="#2e7d32" stroke-width="2" rx="4"/>
+<text x="346" y="142" font-size="15" font-weight="bold" fill="#1b5e20">引擎内部的循环</text>
+<text x="346" y="168" font-size="14" fill="#222" font-family="monospace">对 r 从 0 到 127：</text>
+<text x="346" y="190" font-size="14" fill="#222" font-family="monospace">  行首 = 基址</text>
+<text x="346" y="210" font-size="14" fill="#222" font-family="monospace">       + (256 + r) × 8192</text>
+<text x="346" y="230" font-size="14" fill="#222" font-family="monospace">       + 128 × 2</text>
+<text x="346" y="254" font-size="14" fill="#222" font-family="monospace">  连续读 64 × 2 = 128 字节</text>
+
+<path d="M622,196 L676,196" stroke="#555" stroke-width="2" fill="none" marker-end="url(#a3)"/>
+
+<!-- 结果表 -->
+<rect x="680" y="58" width="298" height="286" fill="#e8f0fb" stroke="#1f5fa9" stroke-width="2" rx="4"/>
+<text x="692" y="80" font-size="15" font-weight="bold" fill="#14447a">算出来的 128 个行首</text>
+<line x1="692" y1="92" x2="966" y2="92" stroke="#1f5fa9" stroke-width="1.5"/>
+<text x="692" y="112" font-size="13" fill="#14447a">r</text>
+<text x="724" y="112" font-size="13" fill="#14447a">行号</text>
+<text x="790" y="112" font-size="13" fill="#14447a">相对基址的偏移</text>
+<text x="916" y="112" font-size="13" fill="#14447a">读几字节</text>
+<line x1="692" y1="120" x2="966" y2="120" stroke="#8fb4dd" stroke-width="1.2"/>
+<text x="692" y="140" font-size="13.5" fill="#222">0</text><text x="724" y="140" font-size="13.5" fill="#222">256</text><text x="790" y="140" font-size="13.5" fill="#222">2 097 408</text><text x="930" y="140" font-size="13.5" fill="#222">128</text>
+<text x="692" y="162" font-size="13.5" fill="#222">1</text><text x="724" y="162" font-size="13.5" fill="#222">257</text><text x="790" y="162" font-size="13.5" fill="#222">2 105 600</text><text x="930" y="162" font-size="13.5" fill="#222">128</text>
+<text x="692" y="184" font-size="13.5" fill="#222">2</text><text x="724" y="184" font-size="13.5" fill="#222">258</text><text x="790" y="184" font-size="13.5" fill="#222">2 113 792</text><text x="930" y="184" font-size="13.5" fill="#222">128</text>
+<text x="692" y="206" font-size="13.5" fill="#666">…</text><text x="724" y="206" font-size="13.5" fill="#666">…</text><text x="790" y="206" font-size="13.5" fill="#666">每行加 8192</text><text x="930" y="206" font-size="13.5" fill="#666">128</text>
+<text x="692" y="228" font-size="13.5" fill="#222">127</text><text x="724" y="228" font-size="13.5" fill="#222">383</text><text x="790" y="228" font-size="13.5" fill="#222">3 137 792</text><text x="930" y="228" font-size="13.5" fill="#222">128</text>
+<line x1="692" y1="242" x2="966" y2="242" stroke="#1f5fa9" stroke-width="1.5"/>
+<text x="692" y="264" font-size="14" font-weight="bold" fill="#14447a">128 行 × 128 字节 = 16 384 字节</text>
+<text x="692" y="288" font-size="13.5" fill="#222">这正好是 box 的大小，也正好是</text>
+<text x="692" y="308" font-size="13.5" fill="#222">expect_tx 里为 A 分块记的那一半</text>
+<text x="692" y="328" font-size="13.5" fill="#222">字节数（A 与 B 合计 32 768）。</text>
+
+<!-- 底部对照 -->
+<line x1="20" y1="368" x2="978" y2="368" stroke="#bbb" stroke-width="1.5"/>
+<text x="20" y="394" font-size="16" font-weight="bold" fill="#111">这件事值多少硬件</text>
+<rect x="20" y="408" width="465" height="96" fill="#fbfbfb" stroke="#777" stroke-width="1.5" rx="4"/>
+<text x="32" y="430" font-size="14" font-weight="bold" fill="#111">线程自己算</text>
+<text x="32" y="452" font-size="14" fill="#222">128 个线程每人算自己那几段的地址。</text>
+<text x="32" y="474" font-size="14" fill="#222">每次读取前一两条整数乘加指令，</text>
+<text x="32" y="496" font-size="14" fill="#222">结果还要各占几个寄存器。</text>
+
+<rect x="505" y="408" width="473" height="96" fill="#eaf5ea" stroke="#2e7d32" stroke-width="1.5" rx="4"/>
+<text x="517" y="430" font-size="14" font-weight="bold" fill="#1b5e20">引擎算（按功能估计）</text>
+<text x="517" y="452" font-size="14" fill="#222">一个乘加器加几个计数器，循环 128 圈。</text>
+<text x="517" y="474" font-size="14" fill="#222">整个过程只有加法和一次乘法，是纯整数运算，</text>
+<text x="517" y="496" font-size="14" fill="#222">所以值得做进专用电路。SM 里一条指令都不用发。</text>
+
+<text x="20" y="534" font-size="13" fill="#666">维度更多时循环就多几层：最内层始终是"连续读 boxDim[0] 个元素"，外面每一维各一个计数器，用自己那一维的步长做乘加。</text>
+<text x="20" y="552" font-size="13" fill="#666">张量维度上限是 5：最内层连续读，外面最多四层计数器。</text>
+</svg>

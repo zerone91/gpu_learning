@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 644" width="980" height="644" font-family="sans-serif">
+  <rect x="0" y="0" width="980" height="644" fill="#ffffff"/>
+  <text x="20" y="30" font-size="19" font-weight="bold" fill="#111">多提前一级流水，三代上花的是三笔不同的预算</text>
+
+  <!-- 第一组：寄存器 -->
+  <text x="20" y="66" font-size="16" font-weight="bold" fill="#8f2a26">一、寄存器预算（线程自己搬时用它）</text>
+  <text x="20" y="88" font-size="13" fill="#555">横轴是每线程的寄存器数。深色是 128 个累加器，浅色是每级在途数据的 64 个。</text>
+
+  <!-- 轴 -->
+  <line x1="150" y1="180" x2="820" y2="180" stroke="#999" stroke-width="1.5"/>
+  <text x="150" y="198" font-size="12" fill="#777" text-anchor="middle">0</text>
+  <text x="820" y="198" font-size="12" fill="#777" text-anchor="middle">255 个（硬上限）</text>
+  <line x1="820" y1="96" x2="820" y2="184" stroke="#b3261e" stroke-width="2" stroke-dasharray="6 4"/>
+
+  <!-- 条 1：1 级 -->
+  <text x="20" y="118" font-size="14" fill="#111">提前 1 级</text>
+  <rect x="150" y="102" width="337" height="24" fill="#4a6fa5" stroke="#2b4a77" stroke-width="1.5"/>
+  <rect x="487" y="102" width="168" height="24" fill="#b9cbe4" stroke="#2b4a77" stroke-width="1.5"/>
+  <text x="318" y="119" font-size="13" fill="#ffffff" text-anchor="middle">累加器 128</text>
+  <text x="571" y="119" font-size="13" fill="#111" text-anchor="middle">在途 64</text>
+  <text x="670" y="119" font-size="14" fill="#1b5e35" font-weight="bold">合计 192，放得下</text>
+
+  <!-- 条 2：2 级 -->
+  <text x="20" y="156" font-size="14" fill="#111">提前 2 级</text>
+  <rect x="150" y="140" width="337" height="24" fill="#4a6fa5" stroke="#2b4a77" stroke-width="1.5"/>
+  <rect x="487" y="140" width="168" height="24" fill="#b9cbe4" stroke="#2b4a77" stroke-width="1.5"/>
+  <rect x="655" y="140" width="168" height="24" fill="#f0b9b7" stroke="#8f2a26" stroke-width="1.5"/>
+  <text x="318" y="157" font-size="13" fill="#ffffff" text-anchor="middle">累加器 128</text>
+  <text x="571" y="157" font-size="13" fill="#111" text-anchor="middle">在途 64</text>
+  <text x="739" y="157" font-size="13" fill="#8f2a26" text-anchor="middle">在途 64</text>
+  <text x="836" y="157" font-size="14" fill="#b3261e" font-weight="bold">合计 256，越线</text>
+
+  <line x1="20" y1="214" x2="960" y2="214" stroke="#ddd" stroke-width="1.5"/>
+
+  <!-- 第二组：shared memory -->
+  <text x="20" y="244" font-size="16" font-weight="bold" fill="#1b4f8a">二、shared memory 预算（cp.async 与 TMA 用它）</text>
+  <text x="20" y="266" font-size="13" fill="#555">横轴是线程块申请的字节数。每份缓冲 32 KB。份数比提前级数多 1，多出的那份正被计算读。</text>
+
+  <line x1="150" y1="400" x2="820" y2="400" stroke="#999" stroke-width="1.5"/>
+  <text x="150" y="418" font-size="12" fill="#777" text-anchor="middle">0</text>
+  <text x="820" y="418" font-size="12" fill="#777" text-anchor="middle">227 KB（单块上限）</text>
+  <line x1="820" y1="276" x2="820" y2="404" stroke="#1b5e35" stroke-width="2" stroke-dasharray="6 4"/>
+
+  <text x="20" y="298" font-size="14" fill="#111">提前 1 级：2 份</text>
+  <rect x="150" y="282" width="189" height="22" fill="#5b8fb9" stroke="#2b4a77" stroke-width="1.5"/>
+  <text x="352" y="299" font-size="13" fill="#111">64 KB</text>
+  <text x="430" y="299" font-size="13" fill="#555">一个 SM 驻留 3 个线程块</text>
+
+  <text x="20" y="336" font-size="14" fill="#111">提前 2 级：3 份</text>
+  <rect x="150" y="320" width="283" height="22" fill="#5b8fb9" stroke="#2b4a77" stroke-width="1.5"/>
+  <text x="446" y="337" font-size="13" fill="#111">96 KB</text>
+  <text x="530" y="337" font-size="13" fill="#555">一个 SM 驻留 2 个线程块</text>
+
+  <text x="20" y="374" font-size="14" fill="#111">提前 3 级：4 份</text>
+  <rect x="150" y="358" width="378" height="22" fill="#5b8fb9" stroke="#2b4a77" stroke-width="1.5"/>
+  <text x="541" y="375" font-size="13" fill="#111">128 KB</text>
+  <text x="630" y="375" font-size="13" fill="#b3261e" font-weight="bold">一个 SM 只驻留 1 个线程块</text>
+
+  <rect x="150" y="428" width="670" height="26" rx="4" fill="#fff6e5" stroke="#c98a16" stroke-width="1.5"/>
+  <text x="166" y="446" font-size="13" fill="#111">真正起作用的约束不是右端那条绿虚线，而是最右一列的 occupancy。</text>
+
+  <line x1="20" y1="470" x2="960" y2="470" stroke="#ddd" stroke-width="1.5"/>
+
+  <!-- 第三组：TMEM -->
+  <text x="20" y="500" font-size="16" font-weight="bold" fill="#5b3a8f">三、TMEM 预算（Blackwell 把累加器搬到这里）</text>
+  <text x="20" y="522" font-size="13" fill="#555">横轴是列数，共 512 列。一份 128 × 128 的 fp32 累加器占 128 列。</text>
+
+  <line x1="150" y1="586" x2="820" y2="586" stroke="#999" stroke-width="1.5"/>
+  <text x="150" y="604" font-size="12" fill="#777" text-anchor="middle">0</text>
+  <text x="820" y="604" font-size="12" fill="#777" text-anchor="middle">512 列</text>
+  <line x1="820" y1="534" x2="820" y2="590" stroke="#5b3a8f" stroke-width="2" stroke-dasharray="6 4"/>
+
+  <text x="20" y="560" font-size="14" fill="#111">两份累加器</text>
+  <rect x="150" y="542" width="167" height="26" fill="#7e5bb0" stroke="#4a2d73" stroke-width="1.5"/>
+  <rect x="317" y="542" width="167" height="26" fill="#b49bd6" stroke="#4a2d73" stroke-width="1.5"/>
+  <rect x="484" y="542" width="336" height="26" fill="#efecf5" stroke="#9c8ab8" stroke-width="1.5"/>
+  <text x="233" y="560" font-size="13" fill="#ffffff" text-anchor="middle">第 0 份 128 列</text>
+  <text x="400" y="560" font-size="13" fill="#111" text-anchor="middle">第 1 份 128 列</text>
+  <text x="652" y="560" font-size="13" fill="#666" text-anchor="middle">空闲 256 列</text>
+  <text x="20" y="632" font-size="13" fill="#5b3a8f">累加器搬到这里之后，上面第一组里的深色一段就消失了</text>
+</svg>

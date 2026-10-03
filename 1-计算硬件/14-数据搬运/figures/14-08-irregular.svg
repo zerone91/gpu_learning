@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 612" width="1000" height="612" font-family="sans-serif">
+  <rect x="0" y="0" width="1000" height="612" fill="#ffffff"/>
+  <text x="36" y="34" font-size="20" font-weight="bold" fill="#111">同一件不规则的活，三种硬件给出三种答案</text>
+  <text x="36" y="58" font-size="14" fill="#555">题面相同：手上有一张 128 个行号的表，要从一个大表中取出这 128 行。行号是数据，事先不知道。</text>
+
+  <!-- task strip -->
+  <rect x="36" y="76" width="928" height="78" fill="#fafafa" stroke="#666" stroke-width="2"/>
+  <text x="56" y="100" font-size="14" font-weight="bold" fill="#111">题面：按索引表取行</text>
+  <rect x="56" y="112" width="52" height="26" fill="#f2f2f2" stroke="#999"/>
+  <text x="82" y="130" font-size="13" fill="#222" text-anchor="middle">17</text>
+  <rect x="112" y="112" width="52" height="26" fill="#f2f2f2" stroke="#999"/>
+  <text x="138" y="130" font-size="13" fill="#222" text-anchor="middle">4022</text>
+  <rect x="168" y="112" width="52" height="26" fill="#f2f2f2" stroke="#999"/>
+  <text x="194" y="130" font-size="13" fill="#222" text-anchor="middle">9</text>
+  <rect x="224" y="112" width="52" height="26" fill="#f2f2f2" stroke="#999"/>
+  <text x="250" y="130" font-size="13" fill="#222" text-anchor="middle">…</text>
+  <text x="292" y="130" font-size="13" fill="#333">共 128 个行号。每一行内部连续，行与行之间毫无规律。</text>
+  <text x="292" y="148" font-size="13" fill="#6b1f1f">描述符里那套"起点加步长"的写法表达不了这种访问。</text>
+
+  <!-- col 1 -->
+  <rect x="36" y="168" width="300" height="300" fill="#eef4fb" stroke="#2c5aa0" stroke-width="2"/>
+  <text x="186" y="194" font-size="16" font-weight="bold" fill="#1a3a66" text-anchor="middle">答案一：线程自己搬</text>
+  <text x="186" y="214" font-size="13" fill="#1a3a66" text-anchor="middle">GPU，从第一代到今天</text>
+  <line x1="52" y1="226" x2="320" y2="226" stroke="#2c5aa0" stroke-width="1.5"/>
+  <text x="52" y="250" font-size="14" font-weight="bold" fill="#1a3a66">谁发起</text>
+  <text x="52" y="270" font-size="13" fill="#333">128 个线程，每人读自己那一行</text>
+  <text x="52" y="296" font-size="14" font-weight="bold" fill="#1a3a66">地址从哪来</text>
+  <text x="52" y="316" font-size="13" fill="#333">每个线程用整数指令自己算：</text>
+  <text x="52" y="334" font-size="13" fill="#333">表的基址 ＋ 自己那个行号 × 行宽</text>
+  <text x="52" y="360" font-size="14" font-weight="bold" fill="#1a3a66">完成怎么知道</text>
+  <text x="52" y="380" font-size="13" fill="#333">记分牌。数据写进目的寄存器时减一</text>
+  <text x="52" y="406" font-size="14" font-weight="bold" fill="#1a3a66">代价</text>
+  <text x="52" y="426" font-size="13" fill="#333">在途数据占寄存器，地址也占寄存器。</text>
+  <text x="52" y="444" font-size="13" fill="#333">表达能力最强，单位数据的开销最大</text>
+
+  <!-- col 2 -->
+  <rect x="350" y="168" width="300" height="300" fill="#f4faf4" stroke="#2f6b2f" stroke-width="2"/>
+  <text x="500" y="194" font-size="16" font-weight="bold" fill="#1b4620" text-anchor="middle">答案二：引擎接管一部分</text>
+  <text x="500" y="214" font-size="13" fill="#1b4620" text-anchor="middle">Blackwell 的 TMA gather4</text>
+  <line x1="366" y1="226" x2="634" y2="226" stroke="#2f6b2f" stroke-width="1.5"/>
+  <text x="366" y="250" font-size="14" font-weight="bold" fill="#1b4620">谁发起</text>
+  <text x="366" y="270" font-size="13" fill="#333">1 个线程，发 32 条指令取满 128 行</text>
+  <text x="366" y="296" font-size="14" font-weight="bold" fill="#1b4620">地址从哪来</text>
+  <text x="366" y="316" font-size="13" fill="#333">一条指令带 1 个列坐标和 4 个行坐标。</text>
+  <text x="366" y="334" font-size="13" fill="#333">行内的地址由引擎按描述符算</text>
+  <text x="366" y="360" font-size="14" font-weight="bold" fill="#1b4620">完成怎么知道</text>
+  <text x="366" y="380" font-size="13" fill="#333">和普通 TMA 一样，按字节记在 mbarrier</text>
+  <text x="366" y="406" font-size="14" font-weight="bold" fill="#1b4620">代价</text>
+  <text x="366" y="426" font-size="13" fill="#333">只接管"整行分散、行内连续"这一类。</text>
+  <text x="366" y="444" font-size="13" fill="#333">再碎一点的访问仍然要退回答案一</text>
+
+  <!-- col 3 -->
+  <rect x="664" y="168" width="300" height="300" fill="#fffdf2" stroke="#b8860b" stroke-width="2"/>
+  <text x="814" y="194" font-size="16" font-weight="bold" fill="#5a4400" text-anchor="middle">答案三：另配一种核</text>
+  <text x="814" y="214" font-size="13" fill="#5a4400" text-anchor="middle">TPU 的 SparseCore</text>
+  <line x1="680" y1="226" x2="948" y2="226" stroke="#b8860b" stroke-width="1.5"/>
+  <text x="680" y="250" font-size="14" font-weight="bold" fill="#5a4400">谁发起</text>
+  <text x="680" y="270" font-size="13" fill="#333">每个向量子核各发各的。一个 SparseCore</text>
+  <text x="680" y="288" font-size="13" fill="#333">有 16 个子核，各有自己的指令流</text>
+  <text x="680" y="314" font-size="14" font-weight="bold" fill="#5a4400">地址从哪来</text>
+  <text x="680" y="334" font-size="13" fill="#333">一串索引。128 个索引用一条搬运操作</text>
+  <text x="680" y="352" font-size="13" fill="#333">描述，不是 128 次搬运</text>
+  <text x="680" y="378" font-size="14" font-weight="bold" fill="#5a4400">完成怎么知道</text>
+  <text x="680" y="398" font-size="13" fill="#333">和 TensorCore 一样，用 DMA 信号量</text>
+  <text x="680" y="424" font-size="14" font-weight="bold" fill="#5a4400">代价</text>
+  <text x="680" y="444" font-size="13" fill="#333">多一种核。它占芯片面积和功耗约 5%</text>
+
+  <!-- bottom -->
+  <rect x="36" y="484" width="928" height="112" fill="#fdf5f5" stroke="#a94442" stroke-width="2"/>
+  <text x="56" y="508" font-size="16" font-weight="bold" fill="#6b1f1f">三种答案对应三种硬件前提，值不值得看各自的实测。</text>
+  <text x="56" y="532" font-size="14" fill="#333">GPU 有现成的几千个线程，所以"退回线程自己搬"不花任何额外硬件，只是慢。TPU 的 TensorCore 没有这个退路：</text>
+  <text x="56" y="554" font-size="14" fill="#333">同一个 gather，交给 SparseCore 要 4.05 毫秒，交给 TensorCore 要 18.1 毫秒，相差约 4.5 倍。</text>
+  <text x="56" y="578" font-size="13" fill="#6b1f1f">昇腾一侧的对应做法，本节没有找到一手资料，记在正文的困惑栏里。</text>
+</svg>

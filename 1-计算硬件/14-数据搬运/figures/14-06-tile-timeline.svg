@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="1000" height="600" font-family="sans-serif">
+<rect x="0" y="0" width="1000" height="600" fill="#ffffff"/>
+<defs>
+<marker id="gD" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 z" fill="#1f7a3f"/></marker>
+<marker id="oU" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 z" fill="#c25e00"/></marker>
+</defs>
+<text x="20" y="30" font-size="19" font-weight="bold">一个 128×128 输出分块沿 K 推进四次：三条流水线各自推进，每个交接点上置一次标志位</text>
+<text x="20" y="54" font-size="13" fill="#555">横轴是拍数。一轮 256 拍，就是 Cube 算完一块 128×128×64 的时间。L1 和 L0 都开两份缓冲，图中写作甲、乙。</text>
+<line x1="150.0" y1="92" x2="150.0" y2="420" stroke="#bbb" stroke-width="1" stroke-dasharray="4,4"/>
+<line x1="328.3" y1="92" x2="328.3" y2="420" stroke="#bbb" stroke-width="1" stroke-dasharray="4,4"/>
+<line x1="506.6" y1="92" x2="506.6" y2="420" stroke="#bbb" stroke-width="1" stroke-dasharray="4,4"/>
+<line x1="684.9" y1="92" x2="684.9" y2="420" stroke="#bbb" stroke-width="1" stroke-dasharray="4,4"/>
+<line x1="863.1" y1="92" x2="863.1" y2="420" stroke="#bbb" stroke-width="1" stroke-dasharray="4,4"/>
+<text x="239.1" y="86" font-size="13" text-anchor="middle" fill="#555">第 0 轮</text>
+<text x="417.4" y="86" font-size="13" text-anchor="middle" fill="#555">第 1 轮</text>
+<text x="595.7" y="86" font-size="13" text-anchor="middle" fill="#555">第 2 轮</text>
+<text x="774.0" y="86" font-size="13" text-anchor="middle" fill="#555">第 3 轮</text>
+<text x="136" y="136" font-size="15" text-anchor="end" font-weight="bold" fill="#1f5c99">MTE2</text>
+<rect x="150" y="110" width="780" height="40" fill="#fafafa" stroke="#ddd"/>
+<text x="136" y="216" font-size="15" text-anchor="end" font-weight="bold" fill="#2a662a">MTE1</text>
+<rect x="150" y="190" width="780" height="40" fill="#fafafa" stroke="#ddd"/>
+<text x="136" y="296" font-size="15" text-anchor="end" font-weight="bold" fill="#8a4a00">Cube</text>
+<rect x="150" y="270" width="780" height="40" fill="#fafafa" stroke="#ddd"/>
+<text x="136" y="376" font-size="15" text-anchor="end" font-weight="bold" fill="#6a2f9e">FixPipe</text>
+<rect x="150" y="350" width="780" height="40" fill="#fafafa" stroke="#ddd"/>
+<rect x="150.0" y="110" width="89.1" height="40" fill="#cfe2f3" stroke="#1f5c99" stroke-width="2"/>
+<text x="194.6" y="135" font-size="13" text-anchor="middle">块0→L1甲</text>
+<rect x="328.3" y="110" width="89.1" height="40" fill="#cfe2f3" stroke="#1f5c99" stroke-width="2"/>
+<text x="372.9" y="135" font-size="13" text-anchor="middle">块1→L1乙</text>
+<rect x="506.6" y="110" width="89.1" height="40" fill="#cfe2f3" stroke="#1f5c99" stroke-width="2"/>
+<text x="551.1" y="135" font-size="13" text-anchor="middle">块2→L1甲</text>
+<rect x="684.9" y="110" width="89.1" height="40" fill="#cfe2f3" stroke="#1f5c99" stroke-width="2"/>
+<text x="729.4" y="135" font-size="13" text-anchor="middle">块3→L1乙</text>
+<rect x="328.3" y="190" width="44.6" height="40" fill="#d6ead6" stroke="#2a662a" stroke-width="2"/>
+<text x="350.6" y="215" font-size="12" text-anchor="middle">块0→L0甲</text>
+<rect x="506.6" y="190" width="44.6" height="40" fill="#d6ead6" stroke="#2a662a" stroke-width="2"/>
+<text x="528.9" y="215" font-size="12" text-anchor="middle">块1→L0乙</text>
+<rect x="684.9" y="190" width="44.6" height="40" fill="#d6ead6" stroke="#2a662a" stroke-width="2"/>
+<text x="707.1" y="215" font-size="12" text-anchor="middle">块2→L0甲</text>
+<rect x="506.6" y="270" width="178.3" height="40" fill="#f6e0c8" stroke="#8a4a00" stroke-width="2"/>
+<text x="595.7" y="295" font-size="13" text-anchor="middle">算块0，累加进 L0C</text>
+<rect x="684.9" y="270" width="178.3" height="40" fill="#f6e0c8" stroke="#8a4a00" stroke-width="2"/>
+<text x="774.0" y="295" font-size="13" text-anchor="middle">算块1，累加进 L0C</text>
+<rect x="863.1" y="350" width="66.9" height="40" fill="#e5d4f2" stroke="#6a2f9e" stroke-width="2"/>
+<text x="896.6" y="375" font-size="12" text-anchor="middle">写出 L0C</text>
+<text x="414.6" y="375" font-size="13" text-anchor="middle" fill="#888">FixPipe 在整个 K 循环里一直等，只在最后写出一次</text>
+<path d="M239.1,150 L239.1,186" stroke="#1f7a3f" stroke-width="2.5" marker-end="url(#gD)"/>
+<text x="247.1" y="172" font-size="12.5" fill="#1f7a3f" text-anchor="start">① 块0 到了 L1 甲</text>
+<path d="M372.9,230 L372.9,266" stroke="#1f7a3f" stroke-width="2.5" marker-end="url(#gD)"/>
+<text x="380.9" y="252" font-size="12.5" fill="#1f7a3f" text-anchor="start">② 块0 到了 L0 甲</text>
+<path d="M372.9,190 L372.9,154" stroke="#c25e00" stroke-width="2.5" marker-end="url(#oU)"/>
+<text x="380.9" y="176" font-size="12.5" fill="#c25e00" text-anchor="start">③ L1 甲腾空了</text>
+<path d="M551.1,230 L551.1,266" stroke="#1f7a3f" stroke-width="2.5" marker-end="url(#gD)"/>
+<path d="M551.1,190 L551.1,154" stroke="#c25e00" stroke-width="2.5" marker-end="url(#oU)"/>
+<path d="M595.7,150 L595.7,186" stroke="#1f7a3f" stroke-width="2.5" marker-end="url(#gD)"/>
+<path d="M684.9,270 L684.9,234" stroke="#c25e00" stroke-width="2.5" marker-end="url(#oU)"/>
+<text x="692.9" y="256" font-size="12.5" fill="#c25e00" text-anchor="start">④ L0 甲腾空了</text>
+<line x1="150" y1="440" x2="930" y2="440" stroke="#333" stroke-width="2"/>
+<line x1="150.0" y1="440" x2="150.0" y2="447" stroke="#333" stroke-width="1.5"/>
+<text x="150.0" y="464" font-size="12" text-anchor="middle">0</text>
+<line x1="239.1" y1="440" x2="239.1" y2="447" stroke="#333" stroke-width="1.5"/>
+<text x="239.1" y="464" font-size="12" text-anchor="middle">128</text>
+<line x1="328.3" y1="440" x2="328.3" y2="447" stroke="#333" stroke-width="1.5"/>
+<text x="328.3" y="464" font-size="12" text-anchor="middle">256</text>
+<line x1="417.4" y1="440" x2="417.4" y2="447" stroke="#333" stroke-width="1.5"/>
+<text x="417.4" y="464" font-size="12" text-anchor="middle">384</text>
+<line x1="506.6" y1="440" x2="506.6" y2="447" stroke="#333" stroke-width="1.5"/>
+<text x="506.6" y="464" font-size="12" text-anchor="middle">512</text>
+<line x1="595.7" y1="440" x2="595.7" y2="447" stroke="#333" stroke-width="1.5"/>
+<text x="595.7" y="464" font-size="12" text-anchor="middle">640</text>
+<line x1="684.9" y1="440" x2="684.9" y2="447" stroke="#333" stroke-width="1.5"/>
+<text x="684.9" y="464" font-size="12" text-anchor="middle">768</text>
+<line x1="774.0" y1="440" x2="774.0" y2="447" stroke="#333" stroke-width="1.5"/>
+<text x="774.0" y="464" font-size="12" text-anchor="middle">896</text>
+<line x1="863.1" y1="440" x2="863.1" y2="447" stroke="#333" stroke-width="1.5"/>
+<text x="863.1" y="464" font-size="12" text-anchor="middle">1024</text>
+<text x="960" y="464" font-size="13">拍</text>
+<rect x="20" y="486" width="950" height="102" fill="#f7f7f7" stroke="#999"/>
+<text x="36" y="512" font-size="14"><tspan fill="#1f7a3f" font-weight="bold">绿色向下的箭头</tspan>＝"数据到了"：上一段做完，下一段才敢读。</text>
+<text x="36" y="536" font-size="14"><tspan fill="#c25e00" font-weight="bold">橙色向上的箭头</tspan>＝"缓冲空了"：下一段读完，上一段才敢往同一块缓冲里写新数据。没有标注的箭头，是同一种交接在后面几轮的重复。</text>
+<text x="36" y="560" font-size="14">稳态下每轮 4 对标志。Cube 一直在忙，MTE2 占一半时间，MTE1 占四分之一，搬运藏在计算后面。</text>
+<text x="36" y="582" font-size="13" fill="#555">第 0、1 轮在等数据，从第 2 轮起进入稳态。各段拍数按端口位宽算，是最乐观的一档（见正文 §3.3）。</text>
+</svg>

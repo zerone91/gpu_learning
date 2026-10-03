@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 620" width="1000" height="620" font-family="sans-serif">
+<rect x="0" y="0" width="1000" height="620" fill="#ffffff"/>
+<text x="20" y="30" font-size="19" font-weight="bold" fill="#111">描述符的每一行，对应张量上的一件具体的事</text>
+
+<!-- 左表 -->
+<rect x="20" y="52" width="470" height="440" fill="#fbfbfb" stroke="#555" stroke-width="2" rx="4"/>
+<text x="32" y="74" font-size="15" font-weight="bold" fill="#111">tensor map（128 字节，主机侧编好）</text>
+<line x1="32" y1="84" x2="478" y2="84" stroke="#555" stroke-width="1.5"/>
+<g font-size="13.5">
+<text x="32" y="106" fill="#666">tensorDataType</text><text x="250" y="106" fill="#222">bf16（2 字节）</text>
+<text x="32" y="132" fill="#666">tensorRank</text><text x="250" y="132" fill="#222">2</text>
+<text x="32" y="158" fill="#666">globalAddress</text><text x="250" y="158" fill="#222">A 的首元素地址</text>
+<text x="32" y="184" fill="#666">globalDim</text><text x="250" y="184" fill="#222">{4096, 4096}</text>
+<text x="32" y="210" fill="#666">globalStrides</text><text x="250" y="210" fill="#222">{8192} 字节</text>
+<rect x="28" y="222" width="454" height="28" fill="#fdf0e2"/>
+<text x="32" y="242" font-weight="bold" fill="#8a4f05">boxDim</text><text x="250" y="242" font-weight="bold" fill="#8a4f05">{64, 128}</text>
+<text x="32" y="268" fill="#666">elementStrides</text><text x="250" y="268" fill="#222">{1, 1}（不跳格）</text>
+<text x="32" y="294" fill="#666">interleave</text><text x="250" y="294" fill="#222">NONE</text>
+<text x="32" y="320" fill="#666">swizzle</text><text x="250" y="320" fill="#222">128B</text>
+<text x="32" y="346" fill="#666">l2Promotion</text><text x="250" y="346" fill="#222">L2_128B</text>
+<text x="32" y="372" fill="#666">oobFill</text><text x="250" y="372" fill="#222">NONE（越界置零）</text>
+</g>
+<line x1="32" y1="386" x2="478" y2="386" stroke="#555" stroke-width="1.5"/>
+<text x="32" y="408" font-size="13" fill="#444">下标 0 指的是地址连续的那一维。对行优先存放的矩阵，</text>
+<text x="32" y="428" font-size="13" fill="#444">那是列，不是行。这一处最容易填反。</text>
+<text x="32" y="454" font-size="13" fill="#444">步长数组只有 1 项：第 0 维的步长就是元素大小，</text>
+<text x="32" y="474" font-size="13" fill="#444">已经由元素类型说明，不重复写。</text>
+
+<!-- 右：张量 -->
+<text x="512" y="74" font-size="15" font-weight="bold" fill="#111">同一份信息画在张量上</text>
+<rect x="520" y="92" width="240" height="240" fill="#f7f9fc" stroke="#1f5fa9" stroke-width="2"/>
+<g stroke="#dde6f2" stroke-width="1">
+<line x1="550" y1="92" x2="550" y2="332"/><line x1="580" y1="92" x2="580" y2="332"/>
+<line x1="610" y1="92" x2="610" y2="332"/><line x1="640" y1="92" x2="640" y2="332"/>
+<line x1="670" y1="92" x2="670" y2="332"/><line x1="700" y1="92" x2="700" y2="332"/>
+<line x1="730" y1="92" x2="730" y2="332"/>
+<line x1="520" y1="122" x2="760" y2="122"/><line x1="520" y1="152" x2="760" y2="152"/>
+<line x1="520" y1="182" x2="760" y2="182"/><line x1="520" y1="212" x2="760" y2="212"/>
+<line x1="520" y1="242" x2="760" y2="242"/><line x1="520" y1="272" x2="760" y2="272"/>
+<line x1="520" y1="302" x2="760" y2="302"/>
+</g>
+<rect x="527.5" y="99.5" width="3.8" height="7.5" fill="#c87c25" stroke="#8a4f05" stroke-width="1"/>
+<text x="520" y="352" font-size="13" fill="#14447a">globalDim[0] = 4096 列（地址连续的一维）</text>
+<text x="520" y="372" font-size="13" fill="#14447a">globalDim[1] = 4096 行，行步长 8192 字节</text>
+<text x="520" y="396" font-size="12.5" fill="#666">浅色网格每格 512 个元素，只为看清位置用</text>
+
+<!-- 放大 -->
+<path d="M534,106 L800,150" stroke="#8a4f05" stroke-width="1.5" stroke-dasharray="4 3" fill="none"/>
+<path d="M534,106 L800,246" stroke="#8a4f05" stroke-width="1.5" stroke-dasharray="4 3" fill="none"/>
+<rect x="800" y="150" width="120" height="96" fill="#fdf0e2" stroke="#c87c25" stroke-width="2"/>
+<text x="800" y="140" font-size="13" font-weight="bold" fill="#8a4f05">box 放大后</text>
+<text x="808" y="180" font-size="13" fill="#222">64 列 × 128 行</text>
+<text x="808" y="202" font-size="13" fill="#222">每行 64 × 2</text>
+<text x="808" y="222" font-size="13" fill="#222">= 128 字节</text>
+<text x="808" y="242" font-size="13" font-weight="bold" fill="#8a4f05">共 16 384 字节</text>
+<text x="800" y="272" font-size="12.5" fill="#666">左图中它只有几个像素，</text>
+<text x="800" y="292" font-size="12.5" fill="#666">不是按真实比例画的</text>
+
+<text x="800" y="330" font-size="13" fill="#222">128 字节正好配</text>
+<text x="800" y="350" font-size="13" fill="#222">128B 的 swizzle：</text>
+<text x="800" y="370" font-size="13" fill="#222">最内维的字节数</text>
+<text x="800" y="390" font-size="13" fill="#222">不得超过它</text>
+
+<!-- 底部 -->
+<rect x="20" y="506" width="958" height="96" fill="#eaf5ea" stroke="#2e7d32" stroke-width="2" rx="4"/>
+<text x="32" y="530" font-size="15" font-weight="bold" fill="#1b5e20">整张表编一次，指令每次只带两个坐标</text>
+<text x="32" y="556" font-size="14" fill="#222">A 矩阵沿行方向切成 4096 ÷ 128 = 32 块，沿列方向切成 4096 ÷ 64 = 64 块，合计 2048 块。</text>
+<text x="32" y="580" font-size="14" fill="#222">同一张描述符被这 2048 次搬运共用。每次搬运额外给出的，只有一对坐标，例如 {x = 128, y = 256}。</text>
+</svg>

@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 620" width="1000" height="620" font-family="sans-serif">
+<rect x="0" y="0" width="1000" height="620" fill="#ffffff"/>
+
+<text x="20" y="30" font-size="19" font-weight="bold">一个达芬奇 AI Core：计算单元只连着紧挨自己的缓冲，跨存储的每一段路各归一个搬运单元</text>
+
+<!-- GM -->
+<rect x="20" y="150" width="110" height="230" fill="#e8e8e8" stroke="#333" stroke-width="2"/>
+<text x="75" y="250" font-size="16" text-anchor="middle" font-weight="bold">GM</text>
+<text x="75" y="275" font-size="13" text-anchor="middle">片外 HBM</text>
+<text x="75" y="296" font-size="13" text-anchor="middle">几十 GB</text>
+
+<!-- AI Core dashed -->
+<rect x="175" y="60" width="800" height="500" fill="none" stroke="#555" stroke-width="2" stroke-dasharray="8,5"/>
+<text x="185" y="82" font-size="15" fill="#555">一个 AI Core（片上存储全部由软件安排，没有缓存的自动留存）</text>
+
+<!-- L1 -->
+<rect x="200" y="110" width="110" height="110" fill="#d6ead6" stroke="#2a662a" stroke-width="2"/>
+<text x="255" y="155" font-size="15" text-anchor="middle" font-weight="bold">L1 Buffer</text>
+<text x="255" y="178" font-size="13" text-anchor="middle">1 MB</text>
+<text x="255" y="199" font-size="12" text-anchor="middle" fill="#555">矩阵数据中转</text>
+
+<!-- MTE1 -->
+<rect x="355" y="130" width="72" height="70" fill="#cfe2f3" stroke="#1f5c99" stroke-width="2"/>
+<text x="391" y="160" font-size="15" text-anchor="middle" font-weight="bold">MTE1</text>
+<text x="391" y="182" font-size="12" text-anchor="middle">片内分发</text>
+
+<!-- L0A L0B -->
+<rect x="468" y="105" width="105" height="48" fill="#d6ead6" stroke="#2a662a" stroke-width="2"/>
+<text x="520" y="126" font-size="14" text-anchor="middle" font-weight="bold">L0A</text>
+<text x="520" y="145" font-size="12" text-anchor="middle">64 KB · 左操作数</text>
+<rect x="468" y="163" width="105" height="48" fill="#d6ead6" stroke="#2a662a" stroke-width="2"/>
+<text x="520" y="184" font-size="14" text-anchor="middle" font-weight="bold">L0B</text>
+<text x="520" y="203" font-size="12" text-anchor="middle">64 KB · 右操作数</text>
+
+<!-- Cube -->
+<rect x="620" y="105" width="118" height="106" fill="#fbdcdc" stroke="#aa2222" stroke-width="2"/>
+<text x="679" y="133" font-size="15" text-anchor="middle" font-weight="bold">Cube</text>
+<text x="679" y="155" font-size="12" text-anchor="middle">16×16×16</text>
+<text x="679" y="174" font-size="12" text-anchor="middle">每拍 4096 次</text>
+<text x="679" y="192" font-size="12" text-anchor="middle">fp16 乘加</text>
+
+<!-- L0C -->
+<rect x="790" y="105" width="105" height="106" fill="#d6ead6" stroke="#2a662a" stroke-width="2"/>
+<text x="842" y="145" font-size="14" text-anchor="middle" font-weight="bold">L0C</text>
+<text x="842" y="166" font-size="12" text-anchor="middle">256 KB</text>
+<text x="842" y="186" font-size="12" text-anchor="middle">累加结果</text>
+
+<!-- FixPipe -->
+<rect x="790" y="250" width="105" height="56" fill="#e5d4f2" stroke="#6a2f9e" stroke-width="2"/>
+<text x="842" y="274" font-size="15" text-anchor="middle" font-weight="bold">FixPipe</text>
+<text x="842" y="294" font-size="12" text-anchor="middle">矩阵结果出口</text>
+
+<!-- UB -->
+<rect x="430" y="370" width="185" height="86" fill="#d6ead6" stroke="#2a662a" stroke-width="2"/>
+<text x="522" y="402" font-size="15" text-anchor="middle" font-weight="bold">Unified Buffer</text>
+<text x="522" y="424" font-size="12" text-anchor="middle">256 KB</text>
+<text x="522" y="444" font-size="12" text-anchor="middle">向量单元的全部进出数据</text>
+
+<!-- Vector -->
+<rect x="660" y="370" width="120" height="86" fill="#fbdcdc" stroke="#aa2222" stroke-width="2"/>
+<text x="720" y="405" font-size="15" text-anchor="middle" font-weight="bold">Vector</text>
+<text x="720" y="428" font-size="12" text-anchor="middle">向量单元</text>
+
+<!-- Scalar -->
+<rect x="200" y="470" width="230" height="64" fill="#fff2cc" stroke="#9c7a00" stroke-width="2"/>
+<text x="315" y="495" font-size="15" text-anchor="middle" font-weight="bold">Scalar 单元</text>
+<text x="315" y="517" font-size="12" text-anchor="middle">按程序顺序发出全部指令</text>
+
+<!-- arrows: MTE2 GM->L1 -->
+<defs>
+<marker id="aBlue" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 z" fill="#1f5c99"/></marker>
+<marker id="aGreen" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 z" fill="#1f7a3f"/></marker>
+<marker id="aOrange" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 z" fill="#c25e00"/></marker>
+<marker id="aPurple" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 z" fill="#6a2f9e"/></marker>
+<marker id="aGray" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 z" fill="#666"/></marker>
+</defs>
+
+<!-- MTE2: GM -> L1 -->
+<path d="M130,165 L200,165" stroke="#1f5c99" stroke-width="3" fill="none" marker-end="url(#aBlue)"/>
+<text x="165" y="155" font-size="13" text-anchor="middle" fill="#1f5c99" font-weight="bold">MTE2</text>
+<!-- MTE2: GM -> UB -->
+<path d="M130,320 L158,320 L158,413 L430,413" stroke="#1f5c99" stroke-width="3" fill="none" marker-end="url(#aBlue)"/>
+<text x="250" y="405" font-size="13" text-anchor="middle" fill="#1f5c99" font-weight="bold">MTE2</text>
+<!-- MTE3: UB -> GM -->
+<path d="M430,440 L171,440 L171,355 L132,355" stroke="#c25e00" stroke-width="3" fill="none" marker-end="url(#aOrange)"/>
+<text x="250" y="458" font-size="13" text-anchor="middle" fill="#c25e00" font-weight="bold">MTE3</text>
+
+<!-- MTE1: L1 -> MTE1 -> L0A/L0B -->
+<path d="M310,165 L355,165" stroke="#1f5c99" stroke-width="3" fill="none" marker-end="url(#aBlue)"/>
+<path d="M427,150 L448,150 L448,129 L468,129" stroke="#1f5c99" stroke-width="3" fill="none" marker-end="url(#aBlue)"/>
+<path d="M427,180 L448,180 L448,187 L468,187" stroke="#1f5c99" stroke-width="3" fill="none" marker-end="url(#aBlue)"/>
+<text x="449" y="232" font-size="12" text-anchor="middle" fill="#1f5c99">L1 → L0：4096 bit/拍</text>
+
+<!-- Cube reads L0A/L0B -->
+<path d="M573,129 L598,129 L598,150 L620,150" stroke="#666" stroke-width="2.5" fill="none" marker-end="url(#aGray)"/>
+<path d="M573,187 L598,187 L598,168 L620,168" stroke="#666" stroke-width="2.5" fill="none" marker-end="url(#aGray)"/>
+<path d="M738,158 L790,158" stroke="#666" stroke-width="2.5" fill="none" marker-end="url(#aGray)"/>
+
+<!-- FixPipe L0C -> FixPipe -> GM / L1 -->
+<path d="M842,211 L842,250" stroke="#6a2f9e" stroke-width="3" fill="none" marker-end="url(#aPurple)"/>
+<path d="M790,278 L145,278 L145,240 L132,240" stroke="#6a2f9e" stroke-width="3" fill="none" marker-end="url(#aPurple)"/>
+<text x="470" y="270" font-size="13" text-anchor="middle" fill="#6a2f9e" font-weight="bold">FixPipe：L0C → GM 或 L1</text>
+
+<!-- Vector reads UB -->
+<path d="M615,400 L660,400" stroke="#666" stroke-width="2.5" fill="none" marker-end="url(#aGray)"/>
+<path d="M660,430 L615,430" stroke="#666" stroke-width="2.5" fill="none" marker-end="url(#aGray)"/>
+
+<!-- scalar dispatch arrows -->
+<path d="M391,470 L391,210" stroke="#9c7a00" stroke-width="2" stroke-dasharray="5,4" fill="none"/>
+<path d="M430,502 L679,502 L679,215" stroke="#9c7a00" stroke-width="2" stroke-dasharray="5,4" fill="none"/>
+<text x="560" y="520" font-size="12" fill="#9c7a00">虚线：标量单元把指令发给各个单元，不经手数据</text>
+
+<!-- bus widths -->
+<text x="165" y="186" font-size="12" text-anchor="middle" fill="#1f5c99">核到片外</text>
+<text x="165" y="202" font-size="12" text-anchor="middle" fill="#1f5c99">1024 bit×2</text>
+
+<!-- legend -->
+<rect x="20" y="565" width="955" height="42" fill="#f7f7f7" stroke="#999"/>
+<rect x="34" y="578" width="22" height="12" fill="#cfe2f3" stroke="#1f5c99"/><text x="62" y="589" font-size="13">蓝＝往片内搬（MTE2、MTE1）</text>
+<rect x="268" y="578" width="22" height="12" fill="#ffe0c2" stroke="#c25e00"/><text x="296" y="589" font-size="13">橙＝向量结果出片（MTE3）</text>
+<rect x="500" y="578" width="22" height="12" fill="#e5d4f2" stroke="#6a2f9e"/><text x="528" y="589" font-size="13">紫＝矩阵结果出片（FixPipe）</text>
+<rect x="742" y="578" width="22" height="12" fill="#e8e8e8" stroke="#666"/><text x="770" y="589" font-size="13">灰＝计算单元读写自己的缓冲</text>
+</svg>

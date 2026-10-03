@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 540" width="1000" height="540" font-family="sans-serif">
+<rect x="0" y="0" width="1000" height="540" fill="#ffffff"/>
+<text x="500" y="30" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold">多排一级流水，花的是哪一笔预算</text>
+<text x="28" y="66" font-size="15" text-anchor="start" fill="#c0392b" font-weight="bold">① 线程自己搬：在途数据存放在寄存器里，预算是每线程 255 个</text>
+<line x1="760" y1="80" x2="760" y2="196" stroke="#c0392b" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="768" y="92" font-size="14" fill="#c0392b">每线程 255 个</text>
+<text x="768" y="110" font-size="14" fill="#c0392b">（硬上限）</text>
+<text x="170" y="117" font-size="14" text-anchor="end" fill="#222222" font-weight="bold">在途 1 级</text>
+<rect x="180.0" y="92" width="291.1" height="38" fill="#fde6c8" stroke="#666666" stroke-width="1.5" rx="2"/>
+<text x="325.6" y="116" font-size="14" text-anchor="middle" fill="#222222">128 个累加器</text>
+<rect x="471.1" y="92" width="145.6" height="38" fill="#cfe0f3" stroke="#666666" stroke-width="1.5" rx="2"/>
+<text x="543.9" y="116" font-size="14" text-anchor="middle" fill="#222222">64 个在途数据</text>
+<text x="624.7" y="117" font-size="14" fill="#222222">192 个，放得下</text>
+<text x="170" y="175" font-size="14" text-anchor="end" fill="#222222" font-weight="bold">在途 2 级</text>
+<rect x="180.0" y="150" width="291.1" height="38" fill="#fde6c8" stroke="#666666" stroke-width="1.5" rx="2"/>
+<text x="325.6" y="174" font-size="14" text-anchor="middle" fill="#222222">128 个累加器</text>
+<rect x="471.1" y="150" width="145.6" height="38" fill="#cfe0f3" stroke="#666666" stroke-width="1.5" rx="2"/>
+<text x="543.9" y="174" font-size="14" text-anchor="middle" fill="#222222">64</text>
+<rect x="616.7" y="150" width="145.6" height="38" fill="#cfe0f3" stroke="#666666" stroke-width="1.5" rx="2"/>
+<text x="689.5" y="174" font-size="14" text-anchor="middle" fill="#222222">64</text>
+<text x="770.3" y="175" font-size="14" fill="#c0392b" font-weight="bold">256 个，超过上限</text>
+<text x="180" y="218" font-size="14" fill="#222222">每多排一级，多用 64 个寄存器。第 2 级越过了虚线，编译器只能把变量溢出到 local memory。</text>
+<text x="28" y="270" font-size="15" fill="#1f7a4d" font-weight="bold">② cp.async：在途数据存放在 shared memory 里，预算是每线程块 227 KB</text>
+<line x1="760" y1="284" x2="760" y2="440" stroke="#1f7a4d" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="768" y="298" font-size="14" fill="#1f7a4d">每线程块 227 KB</text>
+<text x="768" y="316" font-size="14" fill="#1f7a4d">（H100 的上限）</text>
+<text x="170" y="315" font-size="14" text-anchor="end" fill="#222222" font-weight="bold">在途 1 级：2 份</text>
+<rect x="180.0" y="292" width="81.8" height="34" fill="#d7ede1" stroke="#1f7a4d" stroke-width="1.5" rx="2"/>
+<text x="220.9" y="314" font-size="14" text-anchor="middle" fill="#222222">32 KB</text>
+<rect x="261.8" y="292" width="81.8" height="34" fill="#d7ede1" stroke="#1f7a4d" stroke-width="1.5" rx="2"/>
+<text x="302.6" y="314" font-size="14" text-anchor="middle" fill="#222222">32 KB</text>
+<text x="351.5" y="315" font-size="14" fill="#1f7a4d">64 KB，占 28%</text>
+<text x="170" y="363" font-size="14" text-anchor="end" fill="#222222" font-weight="bold">在途 2 级：3 份</text>
+<rect x="180.0" y="340" width="81.8" height="34" fill="#d7ede1" stroke="#1f7a4d" stroke-width="1.5" rx="2"/>
+<text x="220.9" y="362" font-size="14" text-anchor="middle" fill="#222222">32 KB</text>
+<rect x="261.8" y="340" width="81.8" height="34" fill="#d7ede1" stroke="#1f7a4d" stroke-width="1.5" rx="2"/>
+<text x="302.6" y="362" font-size="14" text-anchor="middle" fill="#222222">32 KB</text>
+<rect x="343.5" y="340" width="81.8" height="34" fill="#d7ede1" stroke="#1f7a4d" stroke-width="1.5" rx="2"/>
+<text x="384.4" y="362" font-size="14" text-anchor="middle" fill="#222222">32 KB</text>
+<text x="433.3" y="363" font-size="14" fill="#1f7a4d">96 KB，占 42%</text>
+<text x="170" y="411" font-size="14" text-anchor="end" fill="#222222" font-weight="bold">在途 3 级：4 份</text>
+<rect x="180.0" y="388" width="81.8" height="34" fill="#d7ede1" stroke="#1f7a4d" stroke-width="1.5" rx="2"/>
+<text x="220.9" y="410" font-size="14" text-anchor="middle" fill="#222222">32 KB</text>
+<rect x="261.8" y="388" width="81.8" height="34" fill="#d7ede1" stroke="#1f7a4d" stroke-width="1.5" rx="2"/>
+<text x="302.6" y="410" font-size="14" text-anchor="middle" fill="#222222">32 KB</text>
+<rect x="343.5" y="388" width="81.8" height="34" fill="#d7ede1" stroke="#1f7a4d" stroke-width="1.5" rx="2"/>
+<text x="384.4" y="410" font-size="14" text-anchor="middle" fill="#222222">32 KB</text>
+<rect x="425.3" y="388" width="81.8" height="34" fill="#d7ede1" stroke="#1f7a4d" stroke-width="1.5" rx="2"/>
+<text x="466.2" y="410" font-size="14" text-anchor="middle" fill="#222222">32 KB</text>
+<text x="515.0" y="411" font-size="14" fill="#1f7a4d">128 KB，占 56%</text>
+<text x="180" y="458" font-size="14" fill="#222222">每多排一级，多占一份 32 KB 缓冲，寄存器一个不加。三根条都没有碰到虚线。</text>
+<text x="180" y="482" font-size="14" fill="#c0392b">真正起作用的约束是 occupancy：开 4 份要 128 KB，一个 SM 只放得下 1 个线程块。</text>
+<text x="180" y="506" font-size="14" fill="#555555">缓冲份数 = 在途级数 + 1：多出的那一份正在被计算读取。</text>
+</svg>

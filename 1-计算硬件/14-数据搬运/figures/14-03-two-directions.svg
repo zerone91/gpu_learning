@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" width="1000" height="560" font-family="sans-serif">
+<rect x="0" y="0" width="1000" height="560" fill="#ffffff"/>
+<text x="20" y="30" font-size="19" font-weight="bold" fill="#111">同一个引擎，两个方向，两套完成记录</text>
+
+<!-- 读入 -->
+<rect x="20" y="52" width="470" height="330" fill="#eaf5ea" stroke="#2e7d32" stroke-width="2" rx="4"/>
+<text x="32" y="76" font-size="16" font-weight="bold" fill="#1b5e20">读入：显存 → shared memory</text>
+<rect x="32" y="88" width="446" height="64" fill="#ffffff" stroke="#2e7d32" stroke-width="1.5" rx="3"/>
+<text x="42" y="108" font-size="12.5" fill="#222" font-family="monospace">cp.async.bulk.tensor.2d.shared::cta.global</text>
+<text x="42" y="126" font-size="12.5" fill="#222" font-family="monospace">  .mbarrier::complete_tx::bytes [smem],[tmap,{x,y}],[bar]</text>
+<text x="42" y="146" font-size="12.5" fill="#1b5e20" font-family="monospace">机器码：UTMALDG.2D</text>
+<text x="32" y="178" font-size="14" fill="#222">完成记录放在哪：shared memory 里的 mbarrier，按字节</text>
+<text x="32" y="204" font-size="14" fill="#222">谁更新它：硬件，每完成一条拷贝减一次字节数</text>
+<text x="32" y="230" font-size="14" fill="#222">谁能等它：任何线程，包括一条指令都没发过的那 127 个</text>
+<rect x="32" y="248" width="446" height="120" fill="#ffffff" stroke="#2e7d32" stroke-width="1.5" rx="3"/>
+<text x="42" y="270" font-size="14" font-weight="bold" fill="#1b5e20">为什么要一个共享对象</text>
+<text x="42" y="294" font-size="13.5" fill="#222">等的人是一整组计算 warp，发指令的人是一个代表线程。</text>
+<text x="42" y="316" font-size="13.5" fill="#222">两者不是同一批人，所以完成记录必须放在大家都能读的</text>
+<text x="42" y="336" font-size="13.5" fill="#222">地方，也就是 shared memory 里。</text>
+<text x="42" y="360" font-size="13.5" fill="#222">这正是"任何线程都能等"的来源。</text>
+
+<!-- 写出 -->
+<rect x="510" y="52" width="470" height="330" fill="#e8f0fb" stroke="#1f5fa9" stroke-width="2" rx="4"/>
+<text x="522" y="76" font-size="16" font-weight="bold" fill="#14447a">写出：shared memory → 显存</text>
+<rect x="522" y="88" width="446" height="64" fill="#ffffff" stroke="#1f5fa9" stroke-width="1.5" rx="3"/>
+<text x="532" y="108" font-size="12.5" fill="#222" font-family="monospace">cp.async.bulk.tensor.2d.global.shared::cta.bulk_group</text>
+<text x="532" y="126" font-size="12.5" fill="#222" font-family="monospace">cp.async.bulk.commit_group ; cp.async.bulk.wait_group 0</text>
+<text x="532" y="146" font-size="12.5" fill="#14447a" font-family="monospace">机器码：UTMASTG.2D / UTMACMDFLUSH / DEPBAR.LE SB0</text>
+<text x="522" y="178" font-size="14" fill="#222">完成记录放在哪：发起线程所在 warp 的记分牌计数器</text>
+<text x="522" y="204" font-size="14" fill="#222">谁更新它：硬件，在这一组搬运做完时</text>
+<text x="522" y="230" font-size="14" fill="#222">谁能等它：只有发起它的那个线程</text>
+<rect x="522" y="248" width="446" height="120" fill="#ffffff" stroke="#1f5fa9" stroke-width="1.5" rx="3"/>
+<text x="532" y="270" font-size="14" font-weight="bold" fill="#14447a">为什么不需要共享对象（一个解释）</text>
+<text x="532" y="294" font-size="13.5" fill="#222">这个方向上，等待通常是为了判断这块 shared memory</text>
+<text x="532" y="316" font-size="13.5" fill="#222">能不能重用。这件事由发起线程自己处理即可。</text>
+<text x="532" y="336" font-size="13.5" fill="#222">所以用最便宜的办法：记分牌计数器。</text>
+<text x="532" y="360" font-size="13.5" fill="#14447a">DEPBAR 和上一节 cp.async.wait_group 编出来的是同一条。</text>
+
+<!-- 底部栅栏 -->
+<rect x="20" y="400" width="960" height="140" fill="#fdf0e2" stroke="#c87c25" stroke-width="2" rx="4"/>
+<text x="32" y="424" font-size="16" font-weight="bold" fill="#8a4f05">写出方向多一道必须插的栅栏</text>
+<text x="32" y="450" font-size="14" fill="#222">计算线程把结果写进 shared memory，走的是普通数据通路。TMA 引擎读 shared memory，走的是异步通路。</text>
+<text x="32" y="472" font-size="14" fill="#222">两条通路之间没有自动的顺序保证，所以中间要插一条 fence.proxy.async.shared::cta。</text>
+<text x="32" y="494" font-size="13.5" fill="#444" font-family="monospace">机器码：MEMBAR.ALL.CTA  +  FENCE.VIEW.ASYNC.S</text>
+<text x="32" y="520" font-size="14" fill="#8a1f1f">漏掉这道栅栏的症状：写回显存的结果里有一部分是旧值。不报错，时有时无。</text>
+</svg>

@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 620" width="980" height="620" font-family="sans-serif">
+  <rect x="0" y="0" width="980" height="620" fill="#ffffff"/>
+  <text x="20" y="30" font-size="19" font-weight="bold" fill="#111">从指标倒推到"该换哪一种搬法"的七步</text>
+  <text x="20" y="52" font-size="13" fill="#666">每个框上半是读到的数，下半是这一步排除了什么。读数是按本节机制构造的典型值，量级真实。</text>
+
+  <!-- 第 1 步 -->
+  <rect x="20" y="70" width="290" height="92" rx="6" fill="#eef1f4" stroke="#44515e" stroke-width="1.5"/>
+  <text x="34" y="92" font-size="14" font-weight="bold" fill="#111">第 1 步　Speed Of Light</text>
+  <text x="34" y="114" font-size="13" fill="#111">计算吞吐 39%，访存吞吐 52%</text>
+  <line x1="34" y1="124" x2="296" y2="124" stroke="#aab4bd" stroke-width="1.5"/>
+  <text x="34" y="144" font-size="13" fill="#1b5e35">排除了"贴着算力墙"和"贴着带宽墙"</text>
+  <text x="34" y="158" font-size="13" fill="#1b5e35">两条，指向延迟受限</text>
+  <line x1="310" y1="116" x2="340" y2="116" stroke="#44515e" stroke-width="2"/>
+  <path d="M 334 110 L 344 116 L 334 122 Z" fill="#44515e"/>
+
+  <!-- 第 2 步 -->
+  <rect x="344" y="70" width="290" height="92" rx="6" fill="#eef1f4" stroke="#44515e" stroke-width="1.5"/>
+  <text x="358" y="92" font-size="14" font-weight="bold" fill="#111">第 2 步　Warp State Statistics</text>
+  <text x="358" y="114" font-size="13" fill="#111">Long Scoreboard 41%，可发射 warp 0.7</text>
+  <line x1="358" y1="124" x2="620" y2="124" stroke="#aab4bd" stroke-width="1.5"/>
+  <text x="358" y="144" font-size="13" fill="#1b5e35">确认在等显存数据。但等显存可能是</text>
+  <text x="358" y="158" font-size="13" fill="#1b5e35">搬法不对，也可能是级数不够</text>
+  <line x1="634" y1="116" x2="664" y2="116" stroke="#44515e" stroke-width="2"/>
+  <path d="M 658 110 L 668 116 L 658 122 Z" fill="#44515e"/>
+
+  <!-- 第 3 步 -->
+  <rect x="668" y="70" width="292" height="92" rx="6" fill="#eef1f4" stroke="#44515e" stroke-width="1.5"/>
+  <text x="682" y="92" font-size="14" font-weight="bold" fill="#111">第 3 步　Memory Workload</text>
+  <text x="682" y="114" font-size="13" fill="#111">每请求 4.0 个段，L2 命中率 71%</text>
+  <line x1="682" y1="124" x2="946" y2="124" stroke="#aab4bd" stroke-width="1.5"/>
+  <text x="682" y="144" font-size="13" fill="#1b5e35">合并是最优值，所以排除了</text>
+  <text x="682" y="158" font-size="13" fill="#1b5e35">"访问模式差"这一条</text>
+  <line x1="814" y1="162" x2="814" y2="194" stroke="#44515e" stroke-width="2"/>
+  <path d="M 808 188 L 814 198 L 820 188 Z" fill="#44515e"/>
+
+  <!-- 第 4 步 -->
+  <rect x="668" y="200" width="292" height="92" rx="6" fill="#fff3e0" stroke="#c98a16" stroke-width="2"/>
+  <text x="682" y="222" font-size="14" font-weight="bold" fill="#9c5c13">第 4 步　Compute Workload（转折点）</text>
+  <text x="682" y="244" font-size="13" fill="#111">LSU 管线 64%，Tensor 管线 31%</text>
+  <line x1="682" y1="254" x2="946" y2="254" stroke="#e0c08a" stroke-width="1.5"/>
+  <text x="682" y="274" font-size="13" fill="#9c5c13">矩阵乘里访存管线比矩阵管线还忙。</text>
+  <text x="682" y="288" font-size="13" fill="#9c5c13">真走了 TMA，LSU 不该这么高</text>
+  <line x1="668" y1="246" x2="638" y2="246" stroke="#44515e" stroke-width="2"/>
+  <path d="M 644 240 L 634 246 L 644 252 Z" fill="#44515e"/>
+
+  <!-- 第 5 步 -->
+  <rect x="344" y="200" width="290" height="92" rx="6" fill="#fdeceb" stroke="#8f2a26" stroke-width="2"/>
+  <text x="358" y="222" font-size="14" font-weight="bold" fill="#8f2a26">第 5 步　打开编译产物（不看指标）</text>
+  <text x="358" y="244" font-size="13" fill="#111">PTX 里搜不到 cp.async.bulk.tensor</text>
+  <line x1="358" y1="254" x2="620" y2="254" stroke="#e8bdbb" stroke-width="1.5"/>
+  <text x="358" y="274" font-size="13" fill="#8f2a26">SASS 里全是 LDGSTS，一条 UTMALDG</text>
+  <text x="358" y="288" font-size="13" fill="#8f2a26">也没有。描述符没有兑现成 TMA</text>
+  <line x1="344" y1="246" x2="314" y2="246" stroke="#44515e" stroke-width="2"/>
+  <path d="M 320 240 L 310 246 L 320 252 Z" fill="#44515e"/>
+
+  <!-- 第 6 步 -->
+  <rect x="20" y="200" width="290" height="92" rx="6" fill="#eef1f4" stroke="#44515e" stroke-width="1.5"/>
+  <text x="34" y="222" font-size="14" font-weight="bold" fill="#111">第 6 步　逐条核对描述符的约束</text>
+  <text x="34" y="244" font-size="13" fill="#111">boxDim[0] 给成 128 个 bf16 ＝ 256 字节</text>
+  <line x1="34" y1="254" x2="296" y2="254" stroke="#aab4bd" stroke-width="1.5"/>
+  <text x="34" y="274" font-size="13" fill="#111">超过 128B swizzle 允许的 128 字节。</text>
+  <text x="34" y="288" font-size="13" fill="#111">把 BLOCK_K 从 128 改成 64</text>
+  <line x1="165" y1="292" x2="165" y2="324" stroke="#44515e" stroke-width="2"/>
+  <path d="M 159 318 L 165 328 L 171 318 Z" fill="#44515e"/>
+
+  <!-- 第 7 步 -->
+  <rect x="20" y="330" width="940" height="92" rx="6" fill="#eef7f1" stroke="#1b5e35" stroke-width="2"/>
+  <text x="34" y="352" font-size="14" font-weight="bold" fill="#1b5e35">第 7 步　复诊</text>
+  <text x="34" y="376" font-size="13" fill="#111">PTX 里出现 cp.async.bulk.tensor.2d，SASS 里出现 UTMALDG。</text>
+  <text x="34" y="398" font-size="13" fill="#111">LSU 管线 64% → <tspan font-weight="bold" fill="#1b5e35">19%</tspan>　　Tensor 管线 31% → <tspan font-weight="bold" fill="#1b5e35">68%</tspan>　　Long Scoreboard 41% → <tspan font-weight="bold" fill="#1b5e35">14%</tspan></text>
+  <text x="34" y="416" font-size="13" fill="#1b5e35" font-weight="bold">瓶颈搬到了 Tensor 管线上</text>
+
+  <!-- 两条使用注意 -->
+  <rect x="20" y="440" width="940" height="76" rx="6" fill="#fff6e5" stroke="#c98a16" stroke-width="1.5"/>
+  <text x="34" y="464" font-size="14" font-weight="bold" fill="#9c5c13">两条使用注意</text>
+  <text x="34" y="486" font-size="13" fill="#111">一、采样式的停顿指标把样本算在等待的那条指令上，不是算在发出搬运的那条指令上。要改的是它上游的搬运。</text>
+  <text x="34" y="508" font-size="13" fill="#111">二、不要把停顿计数清零当目标。优化的目标是提高发射槽的利用率。</text>
+
+  <!-- 底部提示 -->
+  <rect x="20" y="530" width="940" height="70" rx="6" fill="#f4f6f8" stroke="#8a97a3" stroke-width="1.5"/>
+  <text x="34" y="554" font-size="14" font-weight="bold" fill="#111">第 5 步为什么非看产物不可</text>
+  <text x="34" y="576" font-size="13" fill="#111">高层写法和真实指令之间隔着编译器版本、形状约束、代际支持三道坎。任何一道不满足，编译器通常静默</text>
+  <text x="34" y="594" font-size="13" fill="#111">退回一条能跑但更慢的路径。源码一个字都不用改，也不会报错。</text>
+</svg>

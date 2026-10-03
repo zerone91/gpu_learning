@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 496" width="1000" height="496" font-family="sans-serif">
+<rect x="0" y="0" width="1000" height="496" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker></defs>
+<text x="500" y="30" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold">wait_group 只保证自己发出的拷贝到了，整块数据还要一次块内屏障</text>
+<text x="28" y="66" font-size="15" text-anchor="start" fill="#c0392b" font-weight="bold">① 漏写 __syncthreads：warp 0 读到了 warp 1 还没搬完的那一半</text>
+<text x="112" y="103" font-size="13" text-anchor="end" fill="#222222" font-weight="bold">warp 0</text>
+<text x="112" y="157" font-size="13" text-anchor="end" fill="#222222" font-weight="bold">warp 1</text>
+<rect x="120" y="82" width="96" height="30" fill="#d7ede1" stroke="#222222" stroke-width="1.5" rx="3"/>
+<text x="168.0" y="101.32" font-size="12" text-anchor="middle" fill="#222222">cp.async ×16</text>
+<rect x="221" y="82" width="66" height="30" fill="#b9dcc8" stroke="#222222" stroke-width="1.5" rx="3"/>
+<text x="254.0" y="101.32" font-size="12" text-anchor="middle" fill="#222222">commit</text>
+<rect x="292" y="82" width="96" height="30" fill="#b9dcc8" stroke="#222222" stroke-width="1.5" rx="3"/>
+<text x="340.0" y="101.32" font-size="12" text-anchor="middle" fill="#222222">wait_group 0</text>
+<rect x="393" y="82" width="230" height="30" fill="#fde6c8" stroke="#222222" stroke-width="1.5" rx="3"/>
+<text x="508.0" y="101.32" font-size="12" text-anchor="middle" fill="#222222">读整个分块做矩阵乘</text>
+<rect x="120" y="136" width="120" height="30" fill="#eef3fa" stroke="#222222" stroke-width="1.5" rx="3"/>
+<text x="180.0" y="155.32" font-size="12" text-anchor="middle" fill="#222222">算地址（被调度得晚）</text>
+<rect x="245" y="136" width="96" height="30" fill="#d7ede1" stroke="#222222" stroke-width="1.5" rx="3"/>
+<text x="293.0" y="155.32" font-size="12" text-anchor="middle" fill="#222222">cp.async ×16</text>
+<rect x="346" y="136" width="66" height="30" fill="#b9dcc8" stroke="#222222" stroke-width="1.5" rx="3"/>
+<text x="379.0" y="155.32" font-size="12" text-anchor="middle" fill="#222222">commit</text>
+<rect x="417" y="136" width="170" height="30" fill="#cfe0f3" stroke="#2c6fb7" stroke-width="1.5" rx="4"/>
+<text x="502" y="156" font-size="12" text-anchor="middle" fill="#222222">这 16 笔拷贝还在路上</text>
+<line x1="508" y1="112" x2="508" y2="136" stroke="#c0392b" stroke-width="1.8" marker-end="url(#ar)" stroke-dasharray="4 3"/>
+<rect x="383" y="180" width="420" height="46" fill="#fdeceb" stroke="#c0392b" stroke-width="1.4" rx="4"/>
+<text x="393" y="199" font-size="12" text-anchor="start" fill="#c0392b">warp 0 读到的那一半，是这块缓冲上一轮留下的旧数据。</text>
+<text x="393" y="217" font-size="12" text-anchor="start" fill="#c0392b">结果错，而且不报错。</text>
+<text x="28" y="310" font-size="15" text-anchor="start" fill="#1f7a4d" font-weight="bold">② 正确写法：wait 之后补一次块内屏障，等所有线程都过了自己的 wait</text>
+<text x="112" y="347" font-size="13" text-anchor="end" fill="#222222" font-weight="bold">warp 0</text>
+<text x="112" y="401" font-size="13" text-anchor="end" fill="#222222" font-weight="bold">warp 1</text>
+<rect x="120" y="326" width="96" height="30" fill="#d7ede1" stroke="#222222" stroke-width="1.5" rx="3"/>
+<text x="168.0" y="345.32" font-size="12" text-anchor="middle" fill="#222222">cp.async ×16</text>
+<rect x="221" y="326" width="66" height="30" fill="#b9dcc8" stroke="#222222" stroke-width="1.5" rx="3"/>
+<text x="254.0" y="345.32" font-size="12" text-anchor="middle" fill="#222222">commit</text>
+<rect x="292" y="326" width="96" height="30" fill="#b9dcc8" stroke="#222222" stroke-width="1.5" rx="3"/>
+<text x="340.0" y="345.32" font-size="12" text-anchor="middle" fill="#222222">wait_group 0</text>
+<rect x="393" y="326" width="86" height="30" fill="#f8d7d2" stroke="#c0392b" stroke-width="1.5" rx="3"/>
+<text x="436.0" y="345.32" font-size="12" text-anchor="middle" fill="#222222">__syncthreads</text>
+<rect x="484" y="326" width="86" height="30" fill="#f4f4f4" stroke="#999999" stroke-width="1.2" rx="3"/>
+<text x="527" y="346" font-size="12" text-anchor="middle" fill="#777777">停下等齐</text>
+<rect x="575" y="326" width="230" height="30" fill="#fde6c8" stroke="#222222" stroke-width="1.5" rx="3"/>
+<text x="690.0" y="345.32" font-size="12" text-anchor="middle" fill="#222222">读整个分块做矩阵乘（数据完整）</text>
+<rect x="120" y="380" width="120" height="30" fill="#eef3fa" stroke="#222222" stroke-width="1.5" rx="3"/>
+<text x="180.0" y="399.32" font-size="12" text-anchor="middle" fill="#222222">算地址（被调度得晚）</text>
+<rect x="245" y="380" width="96" height="30" fill="#d7ede1" stroke="#222222" stroke-width="1.5" rx="3"/>
+<text x="293.0" y="399.32" font-size="12" text-anchor="middle" fill="#222222">cp.async ×16</text>
+<rect x="346" y="380" width="66" height="30" fill="#b9dcc8" stroke="#222222" stroke-width="1.5" rx="3"/>
+<text x="379.0" y="399.32" font-size="12" text-anchor="middle" fill="#222222">commit</text>
+<rect x="417" y="380" width="170" height="30" fill="#cfe0f3" stroke="#2c6fb7" stroke-width="1.5" rx="4"/>
+<text x="502" y="400" font-size="12" text-anchor="middle" fill="#222222">wait_group 0，等自己那份</text>
+<rect x="592" y="380" width="86" height="30" fill="#f8d7d2" stroke="#c0392b" stroke-width="1.5" rx="3"/>
+<text x="635.0" y="399.32" font-size="12" text-anchor="middle" fill="#222222">__syncthreads</text>
+<line x1="635" y1="380" x2="635" y2="356" stroke="#c0392b" stroke-width="1.6" marker-end="url(#ar)" stroke-dasharray="4 3"/>
+<rect x="120" y="424" width="760" height="46" fill="#eaf4ee" stroke="#1f7a4d" stroke-width="1.4" rx="4"/>
+<text x="130" y="443" font-size="12" text-anchor="start" fill="#1f7a4d">两个 warp 都过了各自的 wait_group，又都到达屏障，warp 0 才被放行。这时整个分块才是完整的。</text>
+<text x="130" y="461" font-size="12" text-anchor="start" fill="#1f7a4d">wait_group 管硬件拷贝的进度，__syncthreads 管线程的进度。两件事都要做。</text>
+</svg>

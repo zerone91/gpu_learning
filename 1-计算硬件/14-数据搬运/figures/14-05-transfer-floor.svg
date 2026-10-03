@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" width="960" height="420" font-family="sans-serif">
+  <rect x="0" y="0" width="960" height="420" fill="#ffffff"/>
+
+  <text x="24" y="34" font-size="19" font-weight="bold" fill="#111">传输这一项是给定条件：32 768 字节要多少拍的带宽份额</text>
+
+  <!-- 上：带宽份额算式 -->
+  <rect x="24" y="52" width="912" height="86" rx="6" fill="#f4f6f8" stroke="#8a97a3" stroke-width="1.5"/>
+  <text x="40" y="78" font-size="15" fill="#111">H100 显存带宽 3.35 TB/s ÷ 132 个 SM ÷ 1.83 GHz ＝ 每个 SM 每拍约 <tspan font-weight="bold">14 字节</tspan></text>
+  <text x="40" y="104" font-size="15" fill="#111">一次 K 推进要搬 32 768 字节 ÷ 14 字节/拍 ≈ <tspan font-weight="bold" fill="#b3261e">2340 拍</tspan>　（全部来自显存时所需的带宽份额）</text>
+  <text x="40" y="128" font-size="15" fill="#111">同一次 K 推进的计算时间 ＝ 128 × 128 × 64 ÷ 2048 次/拍 ＝ <tspan font-weight="bold" fill="#1b6e3c">512 拍</tspan></text>
+
+  <!-- 条形对比 -->
+  <text x="24" y="176" font-size="15" fill="#333">按拍数等比画出两者：</text>
+
+  <!-- 计算 512 拍 -->
+  <text x="24" y="213" font-size="15" fill="#111">计算一块</text>
+  <rect x="140" y="196" width="160" height="26" fill="#2f7d4f" stroke="#1b5e35" stroke-width="1.5"/>
+  <text x="310" y="214" font-size="15" fill="#1b5e35" font-weight="bold">512 拍</text>
+
+  <!-- 显存份额 2340 拍 -->
+  <text x="24" y="257" font-size="15" fill="#111">全从显存搬</text>
+  <rect x="140" y="240" width="731" height="26" fill="#d9534f" stroke="#8f2a26" stroke-width="1.5"/>
+  <text x="879" y="258" font-size="15" fill="#8f2a26" font-weight="bold">2340 拍</text>
+
+  <!-- L2 份额说明 -->
+  <text x="24" y="301" font-size="15" fill="#111">其中能从显</text>
+  <text x="24" y="319" font-size="15" fill="#111">存来的部分</text>
+  <rect x="140" y="288" width="160" height="26" fill="none" stroke="#8f2a26" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <rect x="140" y="288" width="35" height="26" fill="#f0b9b7" stroke="#8f2a26" stroke-width="1.5"/>
+  <text x="310" y="306" font-size="15" fill="#333">512 拍里，显存只供得上 512 × 14 ≈ 7 200 字节，约占 32 768 的 <tspan font-weight="bold">五分之一</tspan></text>
+
+  <!-- 结论 -->
+  <rect x="24" y="344" width="912" height="60" rx="6" fill="#fff6e5" stroke="#c98a16" stroke-width="1.5"/>
+  <text x="40" y="368" font-size="15" fill="#111">结论：矩阵单元全速运行时，多数分块必须在 L2 命中。所以四种搬法要盖住的是 L2 的 260～470 拍，</text>
+  <text x="40" y="392" font-size="15" fill="#111">显存的 480～730 拍是最坏情况。这一项四种搬法完全相同，搬运机制改不了它。</text>
+</svg>

@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 540" width="1000" height="540" font-family="sans-serif">
+<rect x="0" y="0" width="1000" height="540" fill="#ffffff"/>
+<defs>
+<marker id="dA" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 z" fill="#aa2222"/></marker>
+<marker id="dB" markerWidth="9" markerHeight="9" refX="1" refY="3" orient="auto"><path d="M8,0 L0,3 L8,6 z" fill="#aa2222"/></marker>
+<marker id="dG" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 z" fill="#1f5c99"/></marker>
+</defs>
+<text x="20" y="30" font-size="19" font-weight="bold">地址从哪来：一条搬运指令用四个数描述整个分块，剩下的地址由搬运引擎自己推</text>
+<text x="20" y="54" font-size="13" fill="#555">左边是显存里的矩阵 A（4096 × 4096 个 bf16，每个元素 2 字节）。要搬的是其中一个 128 行 × 64 列的分块。</text>
+
+<!-- matrix -->
+<rect x="60" y="90" width="340" height="340" fill="#f2f2f2" stroke="#333" stroke-width="2"/>
+<text x="230" y="112" font-size="14" text-anchor="middle" fill="#555">矩阵 A：4096 × 4096，按行存放</text>
+<rect x="120" y="150" width="56" height="200" fill="#cfe2f3" stroke="#1f5c99" stroke-width="2.5"/>
+<text x="148" y="250" font-size="13" text-anchor="middle" font-weight="bold">要搬</text>
+<text x="148" y="270" font-size="13" text-anchor="middle">的分块</text>
+<!-- row stripes -->
+<line x1="120" y1="166" x2="176" y2="166" stroke="#1f5c99" stroke-width="0.8"/>
+<line x1="120" y1="182" x2="176" y2="182" stroke="#1f5c99" stroke-width="0.8"/>
+<line x1="120" y1="198" x2="176" y2="198" stroke="#1f5c99" stroke-width="0.8"/>
+<line x1="120" y1="318" x2="176" y2="318" stroke="#1f5c99" stroke-width="0.8"/>
+<line x1="120" y1="334" x2="176" y2="334" stroke="#1f5c99" stroke-width="0.8"/>
+<!-- width annotation -->
+<path d="M120,140 L176,140" stroke="#aa2222" stroke-width="2" marker-start="url(#dB)" marker-end="url(#dA)"/>
+<text x="148" y="134" font-size="12" text-anchor="middle" fill="#aa2222">64 个元素 = 128 字节</text>
+<!-- full row annotation -->
+<path d="M60,448 L400,448" stroke="#aa2222" stroke-width="2" marker-start="url(#dB)" marker-end="url(#dA)"/>
+<text x="230" y="466" font-size="12" text-anchor="middle" fill="#aa2222">矩阵一整行 4096 个元素 = 8192 字节</text>
+<!-- gap annotation -->
+<path d="M176,174 L400,174" stroke="#aa2222" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#dA)"/>
+<text x="408" y="160" font-size="12" fill="#aa2222">这一行剩下的部分</text>
+<text x="408" y="180" font-size="12" fill="#aa2222">跳过 8064 字节</text>
+<text x="230" y="390" font-size="13" text-anchor="middle" fill="#555">每行的 128 字节是连续的，</text>
+<text x="230" y="410" font-size="13" text-anchor="middle" fill="#555">但相邻两行在显存里隔着 8064 字节，合 252 个数据块。</text>
+
+<!-- instruction -->
+<rect x="560" y="90" width="410" height="250" fill="#fff8e6" stroke="#9c7a00" stroke-width="2"/>
+<text x="578" y="118" font-size="15" font-weight="bold">一条 DataCopy 指令里的四个数</text>
+<text x="578" y="152" font-size="14" font-family="monospace">blockCount = 128</text>
+<text x="760" y="152" font-size="13" fill="#555">搬 128 段（128 行）</text>
+<text x="578" y="184" font-size="14" font-family="monospace">blockLen   = 4</text>
+<text x="760" y="184" font-size="13" fill="#555">每段 4 个数据块 = 128 字节</text>
+<text x="578" y="216" font-size="14" font-family="monospace">srcStride  = 252</text>
+<text x="760" y="216" font-size="13" fill="#555">源端两段之间空 252 个数据块</text>
+<text x="578" y="248" font-size="14" font-family="monospace">dstStride  = 0</text>
+<text x="760" y="248" font-size="13" fill="#555">目的端一段接一段放</text>
+<text x="578" y="284" font-size="13" fill="#555">再加上源地址（A 分块左上角）和目的地址（L1 里</text>
+<text x="578" y="304" font-size="13" fill="#555">的一块空间）。搬运引擎按这几个数算出 128 个起点。</text>
+<text x="578" y="326" font-size="13" fill="#555">四个数都是 uint16_t。长度和间隔按 32 字节的数据块计。</text>
+
+<!-- engine -->
+<rect x="560" y="366" width="190" height="56" fill="#cfe2f3" stroke="#1f5c99" stroke-width="2"/>
+<text x="655" y="390" font-size="15" text-anchor="middle" font-weight="bold">MTE2 引擎</text>
+<text x="655" y="411" font-size="12" text-anchor="middle">逐行算起点、发请求</text>
+<rect x="800" y="366" width="170" height="56" fill="#d6ead6" stroke="#2a662a" stroke-width="2"/>
+<text x="885" y="390" font-size="15" text-anchor="middle" font-weight="bold">L1 Buffer</text>
+<text x="885" y="411" font-size="12" text-anchor="middle">16 KB 连续摆好</text>
+<path d="M750,394 L800,394" stroke="#1f5c99" stroke-width="3" marker-end="url(#dG)"/>
+
+<rect x="20" y="478" width="950" height="48" fill="#f7f7f7" stroke="#999"/>
+<text x="36" y="506" font-size="14">对照本模块第 1 节：同样这 16 KB，GPU 上要 128 个线程各算各的地址，发出 1024 次线程级读取。这里是一条指令。</text>
+</svg>

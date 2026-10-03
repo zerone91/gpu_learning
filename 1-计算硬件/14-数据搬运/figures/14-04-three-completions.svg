@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 560" width="980" height="560" font-family="sans-serif">
+<defs><marker id="ar" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#333"/></marker><marker id="arR" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#b52a2a"/></marker><marker id="arG" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#2e7d32"/></marker><marker id="arB" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#1f4e9a"/></marker><marker id="arO" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#b8860b"/></marker><marker id="arP" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#6a3d9a"/></marker></defs>
+<rect x="0" y="0" width="980" height="560" fill="#ffffff"/>
+<text x="20" y="32" font-size="19" fill="#111" text-anchor="start" font-weight="bold">Blackwell 一次矩阵乘涉及的三种完成记录</text>
+<rect x="20" y="52" width="300" height="440" rx="4" fill="#fff6e0" stroke="#b8860b" stroke-width="2"/>
+<text x="170" y="80" font-size="15" fill="#6b4e00" text-anchor="middle" font-weight="bold">① TMA：显存 → shared memory</text>
+<rect x="340" y="52" width="300" height="440" rx="4" fill="#efe6f7" stroke="#6a3d9a" stroke-width="2"/>
+<text x="490" y="80" font-size="15" fill="#4a2a70" text-anchor="middle" font-weight="bold">② tcgen05.commit：mma / cp</text>
+<rect x="660" y="52" width="300" height="440" rx="4" fill="#e9f5ea" stroke="#2e7d32" stroke-width="2"/>
+<text x="810" y="80" font-size="15" fill="#1b4620" text-anchor="middle" font-weight="bold">③ tcgen05.ld：TMEM → 寄存器</text>
+<text x="40" y="112" font-size="13" fill="#6b4e00" text-anchor="start">记在哪里：shared memory 中的 mbarrier</text>
+<text x="40" y="132" font-size="13" fill="#6b4e00" text-anchor="start">计数单位：字节</text>
+<rect x="50" y="160" width="110" height="44" rx="4" fill="#fff" stroke="#b8860b" stroke-width="1.8"/>
+<text x="105" y="188" font-size="16" fill="#6b4e00" text-anchor="middle" font-weight="bold">32 768</text>
+<text x="172" y="188" font-size="13" fill="#6b4e00" text-anchor="start">expect_tx 登记</text>
+<line x1="105" y1="204" x2="105" y2="228" stroke="#b8860b" stroke-width="1.8" marker-end="url(#arO)"/>
+<rect x="50" y="230" width="110" height="44" rx="4" fill="#fff" stroke="#b8860b" stroke-width="1.8"/>
+<text x="105" y="258" font-size="16" fill="#6b4e00" text-anchor="middle" font-weight="bold">16 384</text>
+<text x="172" y="258" font-size="13" fill="#6b4e00" text-anchor="start">A 到达</text>
+<line x1="105" y1="274" x2="105" y2="298" stroke="#b8860b" stroke-width="1.8" marker-end="url(#arO)"/>
+<rect x="50" y="300" width="110" height="44" rx="4" fill="#fff" stroke="#b8860b" stroke-width="1.8"/>
+<text x="105" y="328" font-size="16" fill="#6b4e00" text-anchor="middle" font-weight="bold">0</text>
+<text x="172" y="328" font-size="13" fill="#6b4e00" text-anchor="start">B 到达 → 翻转</text>
+<text x="40" y="400" font-size="13" fill="#6b4e00" text-anchor="start">事先声明总字节数，</text>
+<text x="40" y="420" font-size="13" fill="#6b4e00" text-anchor="start">各批到达时减去各自的字节数。</text>
+<text x="360" y="112" font-size="13" fill="#4a2a70" text-anchor="start">记在哪里：shared memory 中的 mbarrier</text>
+<text x="360" y="132" font-size="13" fill="#4a2a70" text-anchor="start">计数单位：到达次数</text>
+<rect x="370" y="160" width="110" height="44" rx="4" fill="#fff" stroke="#6a3d9a" stroke-width="1.8"/>
+<text x="425" y="188" font-size="16" fill="#4a2a70" text-anchor="middle" font-weight="bold">1</text>
+<text x="492" y="188" font-size="13" fill="#4a2a70" text-anchor="start">初始化：等 1 次</text>
+<line x1="425" y1="204" x2="425" y2="228" stroke="#6a3d9a" stroke-width="1.8" marker-end="url(#arP)"/>
+<rect x="370" y="230" width="110" height="44" rx="4" fill="#fff" stroke="#6a3d9a" stroke-width="1.8"/>
+<text x="425" y="258" font-size="16" fill="#4a2a70" text-anchor="middle" font-weight="bold">1</text>
+<text x="492" y="258" font-size="13" fill="#4a2a70" text-anchor="start">4 条 mma 进行中</text>
+<line x1="425" y1="274" x2="425" y2="298" stroke="#6a3d9a" stroke-width="1.8" marker-end="url(#arP)"/>
+<rect x="370" y="300" width="110" height="44" rx="4" fill="#fff" stroke="#6a3d9a" stroke-width="1.8"/>
+<text x="425" y="328" font-size="16" fill="#4a2a70" text-anchor="middle" font-weight="bold">0</text>
+<text x="492" y="328" font-size="13" fill="#4a2a70" text-anchor="start">全部完成 → 翻转</text>
+<text x="360" y="400" font-size="13" fill="#4a2a70" text-anchor="start">跟踪发出 commit 的线程此前</text>
+<text x="360" y="420" font-size="13" fill="#4a2a70" text-anchor="start">发出的全部异步 tcgen05 操作。</text>
+<text x="680" y="112" font-size="13" fill="#1b4620" text-anchor="start">记在哪里：发出 LDTM 的 warp 的记分牌</text>
+<text x="680" y="132" font-size="13" fill="#1b4620" text-anchor="start">计数单位：在途读取的笔数</text>
+<rect x="680" y="160" width="260" height="44" rx="4" fill="#fff" stroke="#2e7d32" stroke-width="1.8"/>
+<text x="690" y="179" font-size="12" fill="#111" text-anchor="start" font-family="monospace">LDTM.x8 R4, tmem[UR7]</text>
+<text x="690" y="197" font-size="13" fill="#1b4620" text-anchor="start">登记 1 号：0 → 1</text>
+<line x1="810" y1="204" x2="810" y2="228" stroke="#2e7d32" stroke-width="1.8" marker-end="url(#arG)"/>
+<rect x="680" y="230" width="260" height="44" rx="4" fill="#fff" stroke="#2e7d32" stroke-width="1.8"/>
+<text x="690" y="249" font-size="12" fill="#111" text-anchor="start" font-family="monospace">数据写进 R4～R11</text>
+<text x="690" y="267" font-size="13" fill="#1b4620" text-anchor="start">1 号：1 → 0</text>
+<line x1="810" y1="274" x2="810" y2="298" stroke="#2e7d32" stroke-width="1.8" marker-end="url(#arG)"/>
+<rect x="680" y="300" width="260" height="44" rx="4" fill="#fff" stroke="#2e7d32" stroke-width="1.8"/>
+<text x="690" y="319" font-size="12" fill="#111" text-anchor="start" font-family="monospace">IMAD.IADD R11, R4, …</text>
+<text x="690" y="337" font-size="13" fill="#1b4620" text-anchor="start">等待 {1}，归零后发射</text>
+<text x="680" y="400" font-size="13" fill="#1b4620" text-anchor="start">数据写进寄存器才算完成，</text>
+<text x="680" y="420" font-size="13" fill="#1b4620" text-anchor="start">与第 1 节的 LDG 相同。</text>
+<rect x="20" y="506" width="940" height="40" rx="4" fill="#f7f7f7" stroke="#555" stroke-width="1.5"/>
+<text x="170" y="532" font-size="14" fill="#6b4e00" text-anchor="middle" font-weight="bold">谁能等：任何线程</text>
+<text x="490" y="532" font-size="14" fill="#4a2a70" text-anchor="middle" font-weight="bold">谁能等：任何线程</text>
+<text x="810" y="532" font-size="14" fill="#1b4620" text-anchor="middle" font-weight="bold">谁能等：只有发出 LDTM 的 warp</text>
+</svg>

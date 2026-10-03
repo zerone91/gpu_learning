@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" font-family="sans-serif">
+  <rect x="0" y="0" width="960" height="600" fill="#ffffff"/>
+
+  <text x="30" y="34" font-size="17" font-weight="bold" fill="#222">驱动按拷贝的大小选两条路，分界线在 24 KiB</text>
+
+  <!-- ===== 左列：内联 ===== -->
+  <rect x="30" y="52" width="430" height="300" fill="#fdf6ec" stroke="#c07b1c" stroke-width="2"/>
+  <text x="46" y="80" font-size="16" font-weight="bold" fill="#8a5a10">小于 24 KiB：数据跟着命令走</text>
+
+  <rect x="50" y="96" width="180" height="46" fill="#ffffff" stroke="#999" stroke-width="1.3"/>
+  <text x="140" y="118" font-size="14" fill="#222" text-anchor="middle">推送缓冲里的一条命令</text>
+  <text x="140" y="136" font-size="13" fill="#555" text-anchor="middle">目的地址 + 长度 + 数据本身</text>
+
+  <path d="M 230 119 L 290 119" stroke="#c07b1c" stroke-width="2.5" fill="none" marker-end="url(#ar1)"/>
+  <rect x="292" y="96" width="150" height="46" fill="#ffffff" stroke="#999" stroke-width="1.3"/>
+  <text x="367" y="118" font-size="14" fill="#222" text-anchor="middle">计算引擎</text>
+  <text x="367" y="136" font-size="13" fill="#555" text-anchor="middle">把数据写进显存</text>
+
+  <text x="50" y="176" font-size="15" fill="#222">启动延迟（引擎侧）：约 24 纳秒</text>
+  <text x="50" y="204" font-size="15" fill="#222">饱和带宽：8 KiB 时约 17.5 GiB/s</text>
+  <text x="50" y="232" font-size="15" fill="#222">上限：实验中超过 31 KiB 就不接受</text>
+  <text x="50" y="268" font-size="14" fill="#555">不启动 copy engine，省掉它的几百纳秒。</text>
+  <text x="50" y="292" font-size="14" fill="#555">代价是 CPU 要先把数据拷进命令里，</text>
+  <text x="50" y="314" font-size="14" fill="#555">而且这条路在 8 KiB 处就饱和。</text>
+
+  <!-- ===== 右列：copy engine ===== -->
+  <rect x="500" y="52" width="430" height="300" fill="#eef5fc" stroke="#2f6ea8" stroke-width="2"/>
+  <text x="516" y="80" font-size="16" font-weight="bold" fill="#1d4e7c">大于等于 24 KiB：命令里只写地址</text>
+
+  <rect x="520" y="96" width="180" height="46" fill="#ffffff" stroke="#999" stroke-width="1.3"/>
+  <text x="610" y="118" font-size="14" fill="#222" text-anchor="middle">推送缓冲里的一条命令</text>
+  <text x="610" y="136" font-size="13" fill="#555" text-anchor="middle">源地址 + 目的地址 + 长度</text>
+
+  <path d="M 700 119 L 760 119" stroke="#2f6ea8" stroke-width="2.5" fill="none" marker-end="url(#ar2)"/>
+  <rect x="762" y="96" width="150" height="46" fill="#ffffff" stroke="#999" stroke-width="1.3"/>
+  <text x="837" y="118" font-size="14" fill="#222" text-anchor="middle">copy engine</text>
+  <text x="837" y="136" font-size="13" fill="#555" text-anchor="middle">自己去读源数据</text>
+
+  <text x="520" y="176" font-size="15" fill="#222">启动延迟（引擎侧）：约 500 纳秒</text>
+  <text x="520" y="204" font-size="15" fill="#222">饱和带宽：约 1 MiB 时约 22 GiB/s</text>
+  <text x="520" y="232" font-size="15" fill="#222">上限：任意长度</text>
+  <text x="520" y="268" font-size="14" fill="#555">启动引擎要几百纳秒，但之后带宽更高，</text>
+  <text x="520" y="292" font-size="14" fill="#555">长度也不受限。大块搬运时这笔启动开销</text>
+  <text x="520" y="314" font-size="14" fill="#555">可以忽略。</text>
+
+  <!-- 分界线箭头 -->
+  <line x1="470" y1="60" x2="470" y2="344" stroke="#c0392b" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="470" y="372" font-size="15" font-weight="bold" fill="#c0392b" text-anchor="middle">24 KiB</text>
+
+  <!-- 下方：profiler 报的时间 vs 引擎自己的时间 -->
+  <rect x="30" y="392" width="900" height="186" fill="#f6f6f6" stroke="#999" stroke-width="1.5"/>
+  <text x="46" y="418" font-size="15" font-weight="bold" fill="#222">同一次拷贝，profiler 报的时间里有多少真的花在引擎上</text>
+
+  <text x="60" y="446" font-size="14" fill="#333">拷贝大小</text>
+  <text x="230" y="446" font-size="14" fill="#333">Nsight 报的时间</text>
+  <text x="420" y="446" font-size="14" fill="#333">引擎自己用的时间</text>
+  <text x="620" y="446" font-size="14" fill="#333">不在引擎上的部分</text>
+  <line x1="56" y1="454" x2="900" y2="454" stroke="#bbb" stroke-width="1.2"/>
+
+  <text x="60" y="476" font-size="14" fill="#333">8 字节（内联）</text>
+  <text x="230" y="476" font-size="14" fill="#333">468 纳秒</text>
+  <text x="420" y="476" font-size="14" fill="#333">24 纳秒</text>
+  <text x="620" y="476" font-size="14" fill="#c0392b">94.9%</text>
+
+  <text x="60" y="500" font-size="14" fill="#333">32 KiB（copy engine）</text>
+  <text x="230" y="500" font-size="14" fill="#333">3.78 微秒</text>
+  <text x="420" y="500" font-size="14" fill="#333">1.90 微秒</text>
+  <text x="620" y="500" font-size="14" fill="#c0392b">49.9%</text>
+
+  <text x="60" y="524" font-size="14" fill="#333">2 MiB（copy engine）</text>
+  <text x="230" y="524" font-size="14" fill="#333">87.89 微秒</text>
+  <text x="420" y="524" font-size="14" fill="#333">87.11 微秒</text>
+  <text x="620" y="524" font-size="14" fill="#333">0.9%</text>
+
+  <text x="60" y="548" font-size="14" fill="#333">32 MiB（copy engine）</text>
+  <text x="230" y="548" font-size="14" fill="#333">1390 微秒</text>
+  <text x="420" y="548" font-size="14" fill="#333">1385 微秒</text>
+  <text x="620" y="548" font-size="14" fill="#333">0.4%</text>
+
+  <text x="46" y="570" font-size="13" fill="#666">数据取自 arXiv:2604.26889 在一张 A40（PCIe 4.0 ×16）上的实测。阈值与具体数值随驱动版本和平台变化。</text>
+
+  <defs>
+    <marker id="ar1" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+      <path d="M 0 0 L 9 4.5 L 0 9 z" fill="#c07b1c"/>
+    </marker>
+    <marker id="ar2" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+      <path d="M 0 0 L 9 4.5 L 0 9 z" fill="#2f6ea8"/>
+    </marker>
+  </defs>
+</svg>

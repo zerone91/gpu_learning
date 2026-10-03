@@ -1,0 +1,156 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="1000" height="600" font-family="sans-serif">
+<rect x="0" y="0" width="1000" height="600" fill="#ffffff"/>
+<defs><marker id="ar" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><path d="M0,0 L8,3.5 L0,7 z" fill="#2e7d32"/></marker><marker id="ak" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><path d="M0,0 L8,3.5 L0,7 z" fill="#555"/></marker></defs>
+<text x="20" y="32" font-size="20" font-weight="bold" fill="#111">SparseCore：16 个小核各自拿一串索引，从 HBM 的表中取回散落的行</text>
+<rect x="20" y="50" width="450" height="380" rx="8" fill="#f7f7f7" stroke="#555" stroke-width="2"/>
+<text x="35" y="74" font-size="16" font-weight="bold" fill="#222">一个 SparseCore</text>
+<rect x="150" y="84" width="200" height="44" rx="5" fill="#fff6e5" stroke="#b5651d" stroke-width="1.5"/>
+<text x="250" y="104" font-size="14" font-weight="bold" fill="#7a3f0c" text-anchor="middle">标量子核</text>
+<text x="250" y="121" font-size="12.5" fill="#7a3f0c" text-anchor="middle">标量运算、动态索引、发起 DMA</text>
+<rect x="35" y="142" width="48" height="76" rx="4" fill="#ffffff" stroke="#777" stroke-width="1.5"/>
+<text x="59" y="160" font-size="12.5" fill="#222" text-anchor="middle">子核0</text>
+<rect x="41" y="168" width="36" height="22" fill="#eef4fb" stroke="#2c5aa0" stroke-width="1"/>
+<text x="59" y="183" font-size="11.5" fill="#13335f" text-anchor="middle">VMEM</text>
+<text x="59" y="208" font-size="11.5" fill="#555" text-anchor="middle">SMEM</text>
+<rect x="89" y="142" width="48" height="76" rx="4" fill="#ffffff" stroke="#777" stroke-width="1.5"/>
+<text x="113" y="160" font-size="12.5" fill="#222" text-anchor="middle">子核1</text>
+<rect x="95" y="168" width="36" height="22" fill="#eef4fb" stroke="#2c5aa0" stroke-width="1"/>
+<text x="113" y="183" font-size="11.5" fill="#13335f" text-anchor="middle">VMEM</text>
+<text x="113" y="208" font-size="11.5" fill="#555" text-anchor="middle">SMEM</text>
+<rect x="143" y="142" width="48" height="76" rx="4" fill="#d8e8f7" stroke="#2c5aa0" stroke-width="2.5"/>
+<text x="167" y="160" font-size="12.5" fill="#222" text-anchor="middle">子核2</text>
+<rect x="149" y="168" width="36" height="22" fill="#eef4fb" stroke="#2c5aa0" stroke-width="1"/>
+<text x="167" y="183" font-size="11.5" fill="#13335f" text-anchor="middle">VMEM</text>
+<text x="167" y="208" font-size="11.5" fill="#555" text-anchor="middle">SMEM</text>
+<rect x="197" y="142" width="48" height="76" rx="4" fill="#ffffff" stroke="#777" stroke-width="1.5"/>
+<text x="221" y="160" font-size="12.5" fill="#222" text-anchor="middle">子核3</text>
+<rect x="203" y="168" width="36" height="22" fill="#eef4fb" stroke="#2c5aa0" stroke-width="1"/>
+<text x="221" y="183" font-size="11.5" fill="#13335f" text-anchor="middle">VMEM</text>
+<text x="221" y="208" font-size="11.5" fill="#555" text-anchor="middle">SMEM</text>
+<rect x="251" y="142" width="48" height="76" rx="4" fill="#ffffff" stroke="#777" stroke-width="1.5"/>
+<text x="275" y="160" font-size="12.5" fill="#222" text-anchor="middle">子核4</text>
+<rect x="257" y="168" width="36" height="22" fill="#eef4fb" stroke="#2c5aa0" stroke-width="1"/>
+<text x="275" y="183" font-size="11.5" fill="#13335f" text-anchor="middle">VMEM</text>
+<text x="275" y="208" font-size="11.5" fill="#555" text-anchor="middle">SMEM</text>
+<rect x="305" y="142" width="48" height="76" rx="4" fill="#ffffff" stroke="#777" stroke-width="1.5"/>
+<text x="329" y="160" font-size="12.5" fill="#222" text-anchor="middle">子核5</text>
+<rect x="311" y="168" width="36" height="22" fill="#eef4fb" stroke="#2c5aa0" stroke-width="1"/>
+<text x="329" y="183" font-size="11.5" fill="#13335f" text-anchor="middle">VMEM</text>
+<text x="329" y="208" font-size="11.5" fill="#555" text-anchor="middle">SMEM</text>
+<rect x="359" y="142" width="48" height="76" rx="4" fill="#ffffff" stroke="#777" stroke-width="1.5"/>
+<text x="383" y="160" font-size="12.5" fill="#222" text-anchor="middle">子核6</text>
+<rect x="365" y="168" width="36" height="22" fill="#eef4fb" stroke="#2c5aa0" stroke-width="1"/>
+<text x="383" y="183" font-size="11.5" fill="#13335f" text-anchor="middle">VMEM</text>
+<text x="383" y="208" font-size="11.5" fill="#555" text-anchor="middle">SMEM</text>
+<rect x="413" y="142" width="48" height="76" rx="4" fill="#ffffff" stroke="#777" stroke-width="1.5"/>
+<text x="437" y="160" font-size="12.5" fill="#222" text-anchor="middle">子核7</text>
+<rect x="419" y="168" width="36" height="22" fill="#eef4fb" stroke="#2c5aa0" stroke-width="1"/>
+<text x="437" y="183" font-size="11.5" fill="#13335f" text-anchor="middle">VMEM</text>
+<text x="437" y="208" font-size="11.5" fill="#555" text-anchor="middle">SMEM</text>
+<rect x="35" y="228" width="425" height="30" rx="4" fill="#e9e1f5" stroke="#6a3d9a" stroke-width="1.5"/>
+<text x="247" y="248" font-size="13.5" fill="#4a2a70" text-anchor="middle">共享存储 SPMEM（Pallas：VMEM_SHARED），16 个子核都能访问</text>
+<rect x="35" y="266" width="48" height="76" rx="4" fill="#ffffff" stroke="#777" stroke-width="1.5"/>
+<text x="59" y="284" font-size="12.5" fill="#222" text-anchor="middle">子核8</text>
+<rect x="41" y="292" width="36" height="22" fill="#eef4fb" stroke="#2c5aa0" stroke-width="1"/>
+<text x="59" y="307" font-size="11.5" fill="#13335f" text-anchor="middle">VMEM</text>
+<text x="59" y="332" font-size="11.5" fill="#555" text-anchor="middle">SMEM</text>
+<rect x="89" y="266" width="48" height="76" rx="4" fill="#ffffff" stroke="#777" stroke-width="1.5"/>
+<text x="113" y="284" font-size="12.5" fill="#222" text-anchor="middle">子核9</text>
+<rect x="95" y="292" width="36" height="22" fill="#eef4fb" stroke="#2c5aa0" stroke-width="1"/>
+<text x="113" y="307" font-size="11.5" fill="#13335f" text-anchor="middle">VMEM</text>
+<text x="113" y="332" font-size="11.5" fill="#555" text-anchor="middle">SMEM</text>
+<rect x="143" y="266" width="48" height="76" rx="4" fill="#ffffff" stroke="#777" stroke-width="1.5"/>
+<text x="167" y="284" font-size="12.5" fill="#222" text-anchor="middle">子核10</text>
+<rect x="149" y="292" width="36" height="22" fill="#eef4fb" stroke="#2c5aa0" stroke-width="1"/>
+<text x="167" y="307" font-size="11.5" fill="#13335f" text-anchor="middle">VMEM</text>
+<text x="167" y="332" font-size="11.5" fill="#555" text-anchor="middle">SMEM</text>
+<rect x="197" y="266" width="48" height="76" rx="4" fill="#ffffff" stroke="#777" stroke-width="1.5"/>
+<text x="221" y="284" font-size="12.5" fill="#222" text-anchor="middle">子核11</text>
+<rect x="203" y="292" width="36" height="22" fill="#eef4fb" stroke="#2c5aa0" stroke-width="1"/>
+<text x="221" y="307" font-size="11.5" fill="#13335f" text-anchor="middle">VMEM</text>
+<text x="221" y="332" font-size="11.5" fill="#555" text-anchor="middle">SMEM</text>
+<rect x="251" y="266" width="48" height="76" rx="4" fill="#ffffff" stroke="#777" stroke-width="1.5"/>
+<text x="275" y="284" font-size="12.5" fill="#222" text-anchor="middle">子核12</text>
+<rect x="257" y="292" width="36" height="22" fill="#eef4fb" stroke="#2c5aa0" stroke-width="1"/>
+<text x="275" y="307" font-size="11.5" fill="#13335f" text-anchor="middle">VMEM</text>
+<text x="275" y="332" font-size="11.5" fill="#555" text-anchor="middle">SMEM</text>
+<rect x="305" y="266" width="48" height="76" rx="4" fill="#ffffff" stroke="#777" stroke-width="1.5"/>
+<text x="329" y="284" font-size="12.5" fill="#222" text-anchor="middle">子核13</text>
+<rect x="311" y="292" width="36" height="22" fill="#eef4fb" stroke="#2c5aa0" stroke-width="1"/>
+<text x="329" y="307" font-size="11.5" fill="#13335f" text-anchor="middle">VMEM</text>
+<text x="329" y="332" font-size="11.5" fill="#555" text-anchor="middle">SMEM</text>
+<rect x="359" y="266" width="48" height="76" rx="4" fill="#ffffff" stroke="#777" stroke-width="1.5"/>
+<text x="383" y="284" font-size="12.5" fill="#222" text-anchor="middle">子核14</text>
+<rect x="365" y="292" width="36" height="22" fill="#eef4fb" stroke="#2c5aa0" stroke-width="1"/>
+<text x="383" y="307" font-size="11.5" fill="#13335f" text-anchor="middle">VMEM</text>
+<text x="383" y="332" font-size="11.5" fill="#555" text-anchor="middle">SMEM</text>
+<rect x="413" y="266" width="48" height="76" rx="4" fill="#ffffff" stroke="#777" stroke-width="1.5"/>
+<text x="437" y="284" font-size="12.5" fill="#222" text-anchor="middle">子核15</text>
+<rect x="419" y="292" width="36" height="22" fill="#eef4fb" stroke="#2c5aa0" stroke-width="1"/>
+<text x="437" y="307" font-size="11.5" fill="#13335f" text-anchor="middle">VMEM</text>
+<text x="437" y="332" font-size="11.5" fill="#555" text-anchor="middle">SMEM</text>
+<text x="35" y="368" font-size="13" fill="#444">每个子核：自己的指令流、8～16 条通道的 SIMD、</text>
+<text x="35" y="386" font-size="13" fill="#444">自己的 VMEM（v5p、Ironwood 为 512 KiB）</text>
+<text x="35" y="412" font-size="13" fill="#444">芯片上有 2～4 个 SparseCore</text>
+<rect x="20" y="460" width="960" height="120" rx="8" fill="#fbeeee" stroke="#a94442" stroke-width="2"/>
+<text x="35" y="484" font-size="16" font-weight="bold" fill="#7f2a28">HBM</text>
+<line x1="59" y1="430" x2="59" y2="458" stroke="#a94442" stroke-width="1.5"/>
+<line x1="113" y1="430" x2="113" y2="458" stroke="#a94442" stroke-width="1.5"/>
+<line x1="167" y1="430" x2="167" y2="458" stroke="#a94442" stroke-width="1.5"/>
+<line x1="221" y1="430" x2="221" y2="458" stroke="#a94442" stroke-width="1.5"/>
+<line x1="275" y1="430" x2="275" y2="458" stroke="#a94442" stroke-width="1.5"/>
+<line x1="329" y1="430" x2="329" y2="458" stroke="#a94442" stroke-width="1.5"/>
+<line x1="383" y1="430" x2="383" y2="458" stroke="#a94442" stroke-width="1.5"/>
+<line x1="437" y1="430" x2="437" y2="458" stroke="#a94442" stroke-width="1.5"/>
+<line x1="59" y1="430" x2="59" y2="458" stroke="#a94442" stroke-width="1.5"/>
+<line x1="113" y1="430" x2="113" y2="458" stroke="#a94442" stroke-width="1.5"/>
+<line x1="167" y1="430" x2="167" y2="458" stroke="#a94442" stroke-width="1.5"/>
+<line x1="221" y1="430" x2="221" y2="458" stroke="#a94442" stroke-width="1.5"/>
+<line x1="275" y1="430" x2="275" y2="458" stroke="#a94442" stroke-width="1.5"/>
+<line x1="329" y1="430" x2="329" y2="458" stroke="#a94442" stroke-width="1.5"/>
+<line x1="383" y1="430" x2="383" y2="458" stroke="#a94442" stroke-width="1.5"/>
+<line x1="437" y1="430" x2="437" y2="458" stroke="#a94442" stroke-width="1.5"/>
+<text x="35" y="506" font-size="13" fill="#7f2a28">每个子核都有通向 HBM 的路径；多个子核、多笔访问同时在途</text>
+<text x="560" y="484" font-size="14" font-weight="bold" fill="#7f2a28">嵌入表：4096 行 × 512 字节 = 2 MiB</text>
+<rect x="560" y="492" width="400" height="80" fill="#ffffff" stroke="#a94442" stroke-width="1.5"/>
+<rect x="560" y="494" width="400" height="14" fill="#f6c89f" stroke="#555" stroke-width="1"/>
+<text x="566" y="505" font-size="12" fill="#222">第 9 行</text>
+<rect x="560" y="512" width="400" height="14" fill="#bcd7f0" stroke="#555" stroke-width="1"/>
+<text x="566" y="523" font-size="12" fill="#222">第 17 行</text>
+<rect x="560" y="544" width="400" height="14" fill="#cfe8cf" stroke="#555" stroke-width="1"/>
+<text x="566" y="555" font-size="12" fill="#222">第 4022 行</text>
+<text x="760" y="543" font-size="12" fill="#999" text-anchor="middle">⋮</text>
+<rect x="520" y="60" width="460" height="330" rx="8" fill="#f3f6fb" stroke="#2c5aa0" stroke-width="2"/>
+<text x="535" y="84" font-size="16" font-weight="bold" fill="#13335f">放大子核 2（左侧蓝框）的一步</text>
+<text x="535" y="110" font-size="14" fill="#222">VMEM 中的 128 个索引（512 字节）：</text>
+<rect x="535" y="120" width="58" height="28" fill="#ffffff" stroke="#2c5aa0" stroke-width="1.5"/>
+<text x="564" y="140" font-size="14" fill="#13335f" text-anchor="middle">17</text>
+<rect x="595" y="120" width="58" height="28" fill="#ffffff" stroke="#2c5aa0" stroke-width="1.5"/>
+<text x="624" y="140" font-size="14" fill="#13335f" text-anchor="middle">4022</text>
+<rect x="655" y="120" width="58" height="28" fill="#ffffff" stroke="#2c5aa0" stroke-width="1.5"/>
+<text x="684" y="140" font-size="14" fill="#13335f" text-anchor="middle">9</text>
+<rect x="715" y="120" width="58" height="28" fill="#ffffff" stroke="#2c5aa0" stroke-width="1.5"/>
+<text x="744" y="140" font-size="14" fill="#13335f" text-anchor="middle">…</text>
+<text x="782" y="140" font-size="13" fill="#444">共 128 个</text>
+<text x="535" y="178" font-size="14" fill="#222">一次间接 DMA：sync_copy(x_hbm.at[索引], 目的缓冲)</text>
+<text x="535" y="208" font-size="14" fill="#222">VMEM 中的目的缓冲（128 行 × 512 字节 = 64 KiB）：</text>
+<rect x="535" y="220" width="250" height="24" fill="#bcd7f0" stroke="#555" stroke-width="1"/>
+<text x="545" y="237" font-size="13" fill="#222">第 0 行 ← 表第 17 行</text>
+<rect x="535" y="246" width="250" height="24" fill="#cfe8cf" stroke="#555" stroke-width="1"/>
+<text x="545" y="263" font-size="13" fill="#222">第 1 行 ← 表第 4022 行</text>
+<rect x="535" y="272" width="250" height="24" fill="#f6c89f" stroke="#555" stroke-width="1"/>
+<text x="545" y="289" font-size="13" fill="#222">第 2 行 ← 表第 9 行</text>
+<rect x="535" y="298" width="250" height="24" fill="#ffffff" stroke="#555" stroke-width="1"/>
+<text x="545" y="315" font-size="13" fill="#222">⋮</text>
+<path d="M840,494 L840,284 L788,284" fill="none" stroke="#b5651d" stroke-width="2" marker-end="url(#ak)"/>
+<path d="M800,512 L800,232 L788,232" fill="none" stroke="#2c5aa0" stroke-width="2" marker-end="url(#ak)"/>
+<path d="M820,544 L820,258 L788,258" fill="none" stroke="#2e7d32" stroke-width="2" marker-end="url(#ak)"/>
+<rect x="860" y="210" width="110" height="96" rx="4" fill="#fff6e5" stroke="#b5651d" stroke-width="1.5"/>
+<text x="868" y="232" font-size="13" fill="#7a3f0c">DMA 信号量：</text>
+<text x="868" y="252" font-size="13" fill="#7a3f0c">128 行全部</text>
+<text x="868" y="272" font-size="13" fill="#7a3f0c">到达后，等待</text>
+<text x="868" y="292" font-size="13" fill="#7a3f0c">指令才通过</text>
+<text x="535" y="346" font-size="13.5" fill="#222">然后流水把这 64 KiB 写回 HBM 中的输出，</text>
+<text x="535" y="366" font-size="13.5" fill="#222">再取下一组 128 个索引。同一时刻，</text>
+<text x="535" y="386" font-size="13.5" fill="#222">其余子核用各自的索引做同样的事。</text>
+</svg>

@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 660" width="980" height="660" font-family="sans-serif">
+  <rect x="0" y="0" width="980" height="660" fill="#ffffff"/>
+
+  <text x="24" y="32" font-size="19" font-weight="bold" fill="#111">一次 16 字节的拷贝有一半落在矩阵外面时，三种写法的结果完全不同</text>
+  <text x="24" y="56" font-size="13.5" fill="#444">例子：A 的逻辑宽度 K = 4004 个 bf16，行距补齐到 4008 个元素（8016 字节，是 16 的倍数）。最后一次沿 K 推进取第 3968～4031 列。</text>
+
+  <!-- memory row -->
+  <text x="24" y="92" font-size="13" font-weight="bold" fill="#111">显存里 A 的这一行（只画第 3992～4007 列）</text>
+  <g>
+    <!-- 8 valid cells 3992..3999 -->
+    <g font-size="11" text-anchor="middle">
+      <rect x="150" y="104" width="46" height="34" fill="#eaf6ec" stroke="#2e7d32"/><text x="173" y="126" fill="#111">3992</text>
+      <rect x="196" y="104" width="46" height="34" fill="#eaf6ec" stroke="#2e7d32"/><text x="219" y="126" fill="#111">3993</text>
+      <rect x="242" y="104" width="46" height="34" fill="#eaf6ec" stroke="#2e7d32"/><text x="265" y="126" fill="#111">…</text>
+      <rect x="288" y="104" width="46" height="34" fill="#eaf6ec" stroke="#2e7d32"/><text x="311" y="126" fill="#111">3999</text>
+      <rect x="334" y="104" width="46" height="34" fill="#eaf6ec" stroke="#2e7d32"/><text x="357" y="126" fill="#111">4000</text>
+      <rect x="380" y="104" width="46" height="34" fill="#eaf6ec" stroke="#2e7d32"/><text x="403" y="126" fill="#111">4001</text>
+      <rect x="426" y="104" width="46" height="34" fill="#eaf6ec" stroke="#2e7d32"/><text x="449" y="126" fill="#111">4002</text>
+      <rect x="472" y="104" width="46" height="34" fill="#eaf6ec" stroke="#2e7d32"/><text x="495" y="126" fill="#111">4003</text>
+      <rect x="518" y="104" width="46" height="34" fill="#f2f2f2" stroke="#999" stroke-dasharray="4,3"/><text x="541" y="126" fill="#777">4004</text>
+      <rect x="564" y="104" width="46" height="34" fill="#f2f2f2" stroke="#999" stroke-dasharray="4,3"/><text x="587" y="126" fill="#777">4005</text>
+      <rect x="610" y="104" width="46" height="34" fill="#f2f2f2" stroke="#999" stroke-dasharray="4,3"/><text x="633" y="126" fill="#777">4006</text>
+      <rect x="656" y="104" width="46" height="34" fill="#f2f2f2" stroke="#999" stroke-dasharray="4,3"/><text x="679" y="126" fill="#777">4007</text>
+    </g>
+    <line x1="518" y1="96" x2="518" y2="150" stroke="#c0392b" stroke-width="2.4"/>
+    <text x="712" y="118" font-size="12" fill="#2e7d32">绿底：矩阵里真实存在的列</text>
+    <text x="712" y="136" font-size="12" fill="#777">灰底虚线：矩阵外面，只是行距补齐出来的空位</text>
+    <text x="524" y="92" font-size="12" fill="#c0392b">K = 4004，边界在这里</text>
+  </g>
+
+  <!-- copy brackets -->
+  <path d="M150,148 L150,158 L334,158 L334,148" fill="none" stroke="#2c5aa0" stroke-width="1.6"/>
+  <text x="242" y="174" font-size="12" fill="#2c5aa0" text-anchor="middle">第 4 次拷贝：16 字节全部有效</text>
+  <path d="M334,148 L334,158 L702,158 L702,148" fill="none" stroke="#c0392b" stroke-width="1.6"/>
+  <text x="518" y="174" font-size="12" fill="#c0392b" text-anchor="middle">第 5 次拷贝：16 字节 = 8 个 bf16，前 4 个有效，后 4 个在矩阵外面</text>
+
+  <!-- three options -->
+  <rect x="24" y="190" width="932" height="76" rx="6" fill="#fdecea" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="38" y="212" font-size="14" font-weight="bold" fill="#c0392b">写法一：用谓词跳过这条指令</text>
+  <text x="38" y="234" font-size="12.5" fill="#333">做法：越界时不执行这条 cp.async。</text>
+  <text x="38" y="254" font-size="12.5" fill="#333">结果：shared memory 里这 16 字节保持原样，装的是这块缓冲上一轮的数据。矩阵乘把旧数据算了进去，而且不报错。</text>
+  <g font-size="11" text-anchor="middle">
+    <rect x="700" y="208" width="30" height="30" fill="#fdecea" stroke="#c0392b"/><text x="715" y="228" fill="#c0392b">旧</text>
+    <rect x="730" y="208" width="30" height="30" fill="#fdecea" stroke="#c0392b"/><text x="745" y="228" fill="#c0392b">旧</text>
+    <rect x="760" y="208" width="30" height="30" fill="#fdecea" stroke="#c0392b"/><text x="775" y="228" fill="#c0392b">旧</text>
+    <rect x="790" y="208" width="30" height="30" fill="#fdecea" stroke="#c0392b"/><text x="805" y="228" fill="#c0392b">旧</text>
+    <rect x="820" y="208" width="30" height="30" fill="#fdecea" stroke="#c0392b"/><text x="835" y="228" fill="#c0392b">旧</text>
+    <rect x="850" y="208" width="30" height="30" fill="#fdecea" stroke="#c0392b"/><text x="865" y="228" fill="#c0392b">旧</text>
+    <rect x="880" y="208" width="30" height="30" fill="#fdecea" stroke="#c0392b"/><text x="895" y="228" fill="#c0392b">旧</text>
+    <rect x="910" y="208" width="30" height="30" fill="#fdecea" stroke="#c0392b"/><text x="925" y="228" fill="#c0392b">旧</text>
+    <text x="820" y="254" fill="#555" font-size="11">shared memory 里这 8 个 bf16 槽位</text>
+  </g>
+
+  <rect x="24" y="276" width="932" height="76" rx="6" fill="#fff6e5" stroke="#d97706" stroke-width="1.5"/>
+  <text x="38" y="298" font-size="14" font-weight="bold" fill="#b45309">写法二：把 ignore-src 谓词置为真</text>
+  <text x="38" y="320" font-size="12.5" fill="#333">做法：指令照发，但告诉硬件源数据整个忽略。按 PTX 手册，这时零被拷进目的地。</text>
+  <text x="38" y="340" font-size="12.5" fill="#333">结果：16 字节全是 0。不会读到旧数据，但第 4000～4003 列那 4 个真实的数也被抹成了 0。</text>
+  <g font-size="11" text-anchor="middle">
+    <rect x="700" y="294" width="30" height="30" fill="#fff6e5" stroke="#d97706"/><text x="715" y="314" fill="#b45309">0</text>
+    <rect x="730" y="294" width="30" height="30" fill="#fff6e5" stroke="#d97706"/><text x="745" y="314" fill="#b45309">0</text>
+    <rect x="760" y="294" width="30" height="30" fill="#fff6e5" stroke="#d97706"/><text x="775" y="314" fill="#b45309">0</text>
+    <rect x="790" y="294" width="30" height="30" fill="#fff6e5" stroke="#d97706"/><text x="805" y="314" fill="#b45309">0</text>
+    <rect x="820" y="294" width="30" height="30" fill="#fff6e5" stroke="#d97706"/><text x="835" y="314" fill="#b45309">0</text>
+    <rect x="850" y="294" width="30" height="30" fill="#fff6e5" stroke="#d97706"/><text x="865" y="314" fill="#b45309">0</text>
+    <rect x="880" y="294" width="30" height="30" fill="#fff6e5" stroke="#d97706"/><text x="895" y="314" fill="#b45309">0</text>
+    <rect x="910" y="294" width="30" height="30" fill="#fff6e5" stroke="#d97706"/><text x="925" y="314" fill="#b45309">0</text>
+  </g>
+
+  <rect x="24" y="362" width="932" height="76" rx="6" fill="#eaf6ec" stroke="#2e7d32" stroke-width="1.5"/>
+  <text x="38" y="384" font-size="14" font-weight="bold" fill="#2e7d32">写法三：另给一个 src-size = 8</text>
+  <text x="38" y="406" font-size="12.5" fill="#333">做法：拷贝大小仍写 16，再给一个更小的 src-size，说明真正要从源搬的只有 8 字节。</text>
+  <text x="38" y="426" font-size="12.5" fill="#333">结果：前 8 字节照搬，后 8 字节由硬件补零。一条指令完成，不发散、不分支。</text>
+  <g font-size="11" text-anchor="middle">
+    <rect x="700" y="380" width="30" height="30" fill="#eaf6ec" stroke="#2e7d32"/><text x="715" y="400" fill="#111">4000</text>
+    <rect x="730" y="380" width="30" height="30" fill="#eaf6ec" stroke="#2e7d32"/><text x="745" y="400" fill="#111">4001</text>
+    <rect x="760" y="380" width="30" height="30" fill="#eaf6ec" stroke="#2e7d32"/><text x="775" y="400" fill="#111">4002</text>
+    <rect x="790" y="380" width="30" height="30" fill="#eaf6ec" stroke="#2e7d32"/><text x="805" y="400" fill="#111">4003</text>
+    <rect x="820" y="380" width="30" height="30" fill="#f7f7f7" stroke="#2e7d32"/><text x="835" y="400" fill="#2e7d32">0</text>
+    <rect x="850" y="380" width="30" height="30" fill="#f7f7f7" stroke="#2e7d32"/><text x="865" y="400" fill="#2e7d32">0</text>
+    <rect x="880" y="380" width="30" height="30" fill="#f7f7f7" stroke="#2e7d32"/><text x="895" y="400" fill="#2e7d32">0</text>
+    <rect x="910" y="380" width="30" height="30" fill="#f7f7f7" stroke="#2e7d32"/><text x="925" y="400" fill="#2e7d32">0</text>
+  </g>
+
+  <!-- SASS evidence -->
+  <rect x="24" y="456" width="932" height="186" rx="6" fill="#f7f7f7" stroke="#999"/>
+  <text x="38" y="480" font-size="14" font-weight="bold" fill="#111">硬件怎么知道只搬 8 字节：本库在 sm_80 上的实测</text>
+  <text x="38" y="502" font-size="12.5" fill="#444">用 CUDA 12.8 的 ptxas 把四种写法编到 sm_80，再反汇编。机器码里没有"字节数"这个操作数，数字藏在源地址的低 4 位里。</text>
+
+  <line x1="38" y1="514" x2="942" y2="514" stroke="#bbb"/>
+  <text x="46" y="534" font-size="12.5" font-weight="bold" fill="#111">PTX 写法</text>
+  <text x="400" y="534" font-size="12.5" font-weight="bold" fill="#111">编出来的机器码</text>
+  <text x="760" y="534" font-size="12.5" font-weight="bold" fill="#111">源地址多加了多少</text>
+
+  <text x="46" y="558" font-size="11.5" fill="#333" font-family="monospace">cp.async.cg … [src], 16</text>
+  <text x="400" y="558" font-size="11.5" fill="#333" font-family="monospace">LDGSTS.E.BYPASS.128 [dst],[src]</text>
+  <text x="760" y="558" font-size="12" fill="#555">0，没有 ZFILL 后缀</text>
+
+  <text x="46" y="580" font-size="11.5" fill="#333" font-family="monospace">cp.async.cg … [src], 16, 12</text>
+  <text x="400" y="580" font-size="11.5" fill="#2e7d32" font-family="monospace">LDGSTS.E.BYPASS.128.ZFILL [dst],[src+4]</text>
+  <text x="760" y="580" font-size="12" fill="#555">+4 ＝ 16 − 12</text>
+
+  <text x="46" y="602" font-size="11.5" fill="#333" font-family="monospace">cp.async.cg … [src], 16, 8</text>
+  <text x="400" y="602" font-size="11.5" fill="#2e7d32" font-family="monospace">LDGSTS.E.BYPASS.128.ZFILL [dst],[src+8]</text>
+  <text x="760" y="602" font-size="12" fill="#555">+8 ＝ 16 − 8</text>
+
+  <text x="46" y="624" font-size="11.5" fill="#333" font-family="monospace">cp.async.ca … [src],  8,  4</text>
+  <text x="400" y="624" font-size="11.5" fill="#2e7d32" font-family="monospace">LDGSTS.E.64.ZFILL [dst],[src+4]</text>
+  <text x="760" y="624" font-size="12" fill="#555">+4 ＝ 8 − 4</text>
+</svg>

@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 470" width="980" height="470" font-family="sans-serif">
+<rect x="0" y="0" width="980" height="470" fill="#ffffff"/>
+<defs><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f7a4d"/></marker>
+<pattern id="hz" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="#f8d7d2"/><line x1="0" y1="0" x2="0" y2="8" stroke="#c0392b" stroke-width="1.6"/></pattern></defs>
+<text x="490" y="30" font-size="18" text-anchor="middle" fill="#222222" font-weight="bold">等待点在哪里：上面由指令依赖钉死，下面由程序员指定</text>
+<text x="30" y="66" font-size="15" text-anchor="start" fill="#2c6fb7" font-weight="bold">① 两步搬运：LDG 把数据读进寄存器，STS 要读这些寄存器</text>
+<rect x="40" y="84" width="66" height="42" fill="#eef3fa" stroke="#222222" stroke-width="1.5" rx="3"/>
+<text x="73.0" y="109.68" font-size="13" text-anchor="middle" fill="#222222">算地址</text>
+<rect x="112" y="84" width="70" height="42" fill="#cfe0f3" stroke="#222222" stroke-width="1.5" rx="3"/>
+<text x="147.0" y="109.68" font-size="13" text-anchor="middle" fill="#222222">LDG.128</text>
+<rect x="188" y="84" width="70" height="42" fill="#cfe0f3" stroke="#222222" stroke-width="1.5" rx="3"/>
+<text x="223.0" y="109.68" font-size="13" text-anchor="middle" fill="#222222">LDG.128</text>
+<rect x="264" y="84" width="70" height="42" fill="#cfe0f3" stroke="#222222" stroke-width="1.5" rx="3"/>
+<text x="299.0" y="109.68" font-size="13" text-anchor="middle" fill="#222222">LDG.128</text>
+<rect x="340" y="84" width="70" height="42" fill="#cfe0f3" stroke="#222222" stroke-width="1.5" rx="3"/>
+<text x="375.0" y="109.68" font-size="13" text-anchor="middle" fill="#222222">LDG.128</text>
+<rect x="416" y="84" width="320" height="42" fill="url(#hz)" stroke="#c0392b" stroke-width="1.5" rx="3"/>
+<text x="576" y="110" font-size="13" text-anchor="middle" fill="#8b1a0f">warp 挂起：等 R4 的数据回到寄存器（几百拍）</text>
+<rect x="742" y="84" width="70" height="42" fill="#cfe0f3" stroke="#222222" stroke-width="1.5" rx="3"/>
+<text x="777.0" y="109.68" font-size="13" text-anchor="middle" fill="#222222">STS.128</text>
+<rect x="818" y="84" width="60" height="42" fill="#fde6c8" stroke="#222222" stroke-width="1.5" rx="3"/>
+<text x="848.0" y="109.68" font-size="13" text-anchor="middle" fill="#222222">计算</text>
+<text x="40" y="152" font-size="13" text-anchor="start" fill="#c0392b">等待点的位置由指令依赖决定：STS 要读 LDG 写的那几个寄存器，硬件必然在这里挡住，程序员挪不动。</text>
+<text x="40" y="172" font-size="13" text-anchor="start" fill="#c0392b">整段挂起期间，这 16 个数据寄存器一直被占着，别的用途一个也拿不到。</text>
+<text x="30" y="234" font-size="15" text-anchor="start" fill="#1f7a4d" font-weight="bold">② cp.async：线程手里没有一条指令以这次搬运的结果为操作数</text>
+<rect x="40" y="252" width="66" height="42" fill="#eef3fa" stroke="#222222" stroke-width="1.5" rx="3"/>
+<text x="73.0" y="277.68" font-size="13" text-anchor="middle" fill="#222222">算地址</text>
+<rect x="112" y="252" width="74" height="42" fill="#d7ede1" stroke="#222222" stroke-width="1.5" rx="3"/>
+<text x="149.0" y="277.68" font-size="13" text-anchor="middle" fill="#222222">LDGSTS</text>
+<rect x="192" y="252" width="74" height="42" fill="#d7ede1" stroke="#222222" stroke-width="1.5" rx="3"/>
+<text x="229.0" y="277.68" font-size="13" text-anchor="middle" fill="#222222">LDGSTS</text>
+<rect x="272" y="252" width="74" height="42" fill="#d7ede1" stroke="#222222" stroke-width="1.5" rx="3"/>
+<text x="309.0" y="277.68" font-size="13" text-anchor="middle" fill="#222222">LDGSTS</text>
+<rect x="352" y="252" width="74" height="42" fill="#d7ede1" stroke="#222222" stroke-width="1.5" rx="3"/>
+<text x="389.0" y="277.68" font-size="13" text-anchor="middle" fill="#222222">LDGSTS</text>
+<rect x="432" y="252" width="94" height="42" fill="#b9dcc8" stroke="#222222" stroke-width="1.5" rx="3"/>
+<text x="479.0" y="277.68" font-size="13" text-anchor="middle" fill="#222222">LDGDEPBAR</text>
+<rect x="532" y="252" width="266" height="42" fill="#fde6c8" stroke="#222222" stroke-width="1.5" rx="3"/>
+<text x="665.0" y="277.68" font-size="13" text-anchor="middle" fill="#222222">计算上一个分块（几百拍）</text>
+<rect x="804" y="252" width="122" height="42" fill="#b9dcc8" stroke="#222222" stroke-width="1.5" rx="3"/>
+<text x="865.0" y="277.32" font-size="12" text-anchor="middle" fill="#222222">DEPBAR.LE SB0</text>
+<rect x="40" y="310" width="886" height="26" fill="#eaf4ee" stroke="#1f7a4d" stroke-width="1.2" rx="4"/>
+<text x="483.0" y="328" font-size="13" text-anchor="middle" fill="#1f7a4d">这四笔拷贝在整个计算期间都在后台进行，线程不看着它们</text>
+<line x1="482" y1="294" x2="482" y2="310" stroke="#1f7a4d" stroke-width="1.6" marker-end="url(#ag)" stroke-dasharray="4 3"/>
+<line x1="865" y1="336" x2="865" y2="294" stroke="#1f7a4d" stroke-width="1.6" marker-end="url(#ag)" stroke-dasharray="4 3"/>
+<text x="40" y="368" font-size="13" text-anchor="start" fill="#1f7a4d">等待点的位置由程序员决定：DEPBAR 写在哪一行，就在哪里回头确认。</text>
+<text x="40" y="388" font-size="13" text-anchor="start" fill="#1f7a4d">整段计算期间，搬运占用的数据寄存器是 0 个。</text>
+<text x="490" y="446" font-size="13" text-anchor="middle" fill="#222222">两行对照：同样几百拍的搬运延迟，上面那行是空等，下面那行被这个 warp 自己的计算填满了。</text>
+</svg>

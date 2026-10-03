@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1060 680" width="1060" height="680" font-family="sans-serif">
+<rect x="0" y="0" width="1060" height="680" fill="#ffffff"/>
+
+<text x="24" y="34" font-size="20" font-weight="bold" fill="#111">五段路，每一段上算地址的部件不同，能顺手做的变换也不同</text>
+<text x="24" y="58" font-size="14" fill="#555">橙色：由引擎算地址，不占 SM 资源。蓝色：由线程发的指令算地址，占发射机会。</text>
+
+<!-- storage boxes, left column -->
+<rect x="30" y="80" width="170" height="46" fill="#eeeeee" stroke="#555" stroke-width="1.5"/>
+<text x="115" y="109" font-size="15" fill="#111" text-anchor="middle">主机内存 / 别卡显存</text>
+
+<rect x="30" y="192" width="170" height="46" fill="#eeeeee" stroke="#555" stroke-width="1.5"/>
+<text x="115" y="221" font-size="15" fill="#111" text-anchor="middle">本卡显存（HBM）</text>
+
+<rect x="30" y="304" width="170" height="46" fill="#dce8dc" stroke="#2f6b2f" stroke-width="1.5"/>
+<text x="115" y="327" font-size="15" fill="#111" text-anchor="middle">shared memory</text>
+<text x="115" y="345" font-size="12" fill="#555" text-anchor="middle">SM 内部，程序显式管理</text>
+
+<rect x="30" y="432" width="170" height="46" fill="#dce8dc" stroke="#2f6b2f" stroke-width="1.5"/>
+<text x="115" y="461" font-size="15" fill="#111" text-anchor="middle">寄存器</text>
+
+<rect x="30" y="560" width="170" height="46" fill="#dce8dc" stroke="#2f6b2f" stroke-width="1.5"/>
+<text x="115" y="589" font-size="15" fill="#111" text-anchor="middle">矩阵单元</text>
+
+<!-- arrows -->
+<defs>
+  <marker id="ah" markerWidth="9" markerHeight="9" refX="7" refY="3.2" orient="auto">
+    <path d="M0,0 L7,3.2 L0,6.4 z" fill="#333"/>
+  </marker>
+</defs>
+<line x1="115" y1="126" x2="115" y2="188" stroke="#333" stroke-width="2" marker-end="url(#ah)"/>
+<line x1="115" y1="238" x2="115" y2="300" stroke="#333" stroke-width="2" marker-end="url(#ah)"/>
+<line x1="115" y1="350" x2="115" y2="428" stroke="#333" stroke-width="2" marker-end="url(#ah)"/>
+<line x1="115" y1="478" x2="115" y2="556" stroke="#333" stroke-width="2" marker-end="url(#ah)"/>
+<!-- shared -> matrix direct (Hopper) -->
+<path d="M30,336 L16,336 L16,578 L28,578" fill="none" stroke="#2f4f8a" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#ah)"/>
+
+<!-- hop label boxes, right of the column -->
+<!-- hop 1 -->
+<rect x="250" y="126" width="700" height="56" fill="#fbe6cf" stroke="#b36b00" stroke-width="1.8"/>
+<text x="266" y="148" font-size="15" font-weight="bold" fill="#111">① copy engine（按行跨度递推源地址和目的地址）</text>
+<text x="266" y="170" font-size="14" fill="#333">能做：按固定行距抠出子矩阵。做不到：转置、重排、类型转换、补零。</text>
+
+<!-- hop 2 -->
+<rect x="250" y="238" width="700" height="56" fill="#fbe6cf" stroke="#b36b00" stroke-width="1.8"/>
+<text x="266" y="260" font-size="15" font-weight="bold" fill="#111">② TMA 引擎（按张量描述符把一个坐标展开成一串地址）</text>
+<text x="266" y="282" font-size="14" fill="#333">能做：切块、采样、swizzle 置换、通道交织、卷积展开。做不到：转置。</text>
+
+<!-- hop 3 -->
+<rect x="250" y="350" width="700" height="56" fill="#cfe0f5" stroke="#2f4f8a" stroke-width="1.8"/>
+<text x="266" y="372" font-size="15" font-weight="bold" fill="#111">③ ldmatrix（8 / 16 / 32 个 lane 各交出一个行首地址）</text>
+<text x="266" y="394" font-size="14" fill="#333">能做：按矩阵指令的分布表重新分发、加 .trans 顺手转置。占一次 warp 级发射。</text>
+
+<!-- hop 3' -->
+<rect x="250" y="560" width="700" height="56" fill="#cfe0f5" stroke="#2f4f8a" stroke-width="1.8" stroke-dasharray="6 4"/>
+<text x="266" y="582" font-size="15" font-weight="bold" fill="#111">③′ wgmma / tcgen05.mma 的矩阵描述符（Hopper 起，直接从 shared memory 取操作数）</text>
+<text x="266" y="604" font-size="14" fill="#333">能做：转置，由指令里的一位控制。这一段把转置从第 ③ 段挪给了矩阵指令自己。</text>
+
+<!-- hop 4 -->
+<rect x="250" y="478" width="700" height="56" fill="#cfe0f5" stroke="#2f4f8a" stroke-width="1.8"/>
+<text x="266" y="500" font-size="15" font-weight="bold" fill="#111">④ shfl / prmt / movmatrix（线程自己算，或走 warp 内的交换网络）</text>
+<text x="266" y="522" font-size="14" fill="#333">能做：任意重排。每条指令占一次发射，是最贵的一段。</text>
+
+<!-- vertical trend arrow -->
+<line x1="990" y1="150" x2="990" y2="600" stroke="#8a3a3a" stroke-width="2" marker-end="url(#ah)"/>
+<text x="1012" y="248" font-size="14" fill="#8a3a3a" transform="rotate(90 1012 248)">越靠内：能表达的变换越多，但越贵</text>
+
+<!-- note: hop 5 -->
+<text x="250" y="642" font-size="14" fill="#555">⑤ 回程（寄存器 → shared memory → 显存）由 stmatrix 加 TMA store 完成，能做转置、swizzle 和切块的逆操作。</text>
+<text x="250" y="664" font-size="14" fill="#555">stmatrix 只支持 16 位和 8 位元素，所以 fp32 累加器要先转成 bf16 才能用它写回。</text>
+</svg>

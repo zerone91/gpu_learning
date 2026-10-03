@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" font-family="sans-serif">
+  <rect x="0" y="0" width="960" height="520" fill="#ffffff"/>
+
+  <text x="30" y="32" font-size="17" font-weight="bold">把标志混进数据里，一次写就同时送到数据和它的"到了"</text>
+  <text x="30" y="56" font-size="14" fill="#555">这是 NCCL 的 LL 协议。下面每个格子是 4 字节，整行 16 字节。</text>
+
+  <!-- LL line -->
+  <text x="30" y="92" font-size="15" font-weight="bold">LL：16 字节一行，一半是数据，一半是标志</text>
+  <g>
+    <rect x="30" y="104" width="200" height="46" fill="#dbe8fa" stroke="#1f5fbf" stroke-width="2"/>
+    <text x="130" y="132" font-size="14" text-anchor="middle">数据前半 4 B</text>
+    <rect x="230" y="104" width="200" height="46" fill="#fff6d6" stroke="#b58900" stroke-width="2"/>
+    <text x="330" y="132" font-size="14" text-anchor="middle">标志 4 B</text>
+    <rect x="430" y="104" width="200" height="46" fill="#dbe8fa" stroke="#1f5fbf" stroke-width="2"/>
+    <text x="530" y="132" font-size="14" text-anchor="middle">数据后半 4 B</text>
+    <rect x="630" y="104" width="200" height="46" fill="#fff6d6" stroke="#b58900" stroke-width="2"/>
+    <text x="730" y="132" font-size="14" text-anchor="middle">标志 4 B</text>
+  </g>
+  <text x="30" y="172" font-size="13.5" fill="#333">发送方一条 <tspan font-family="monospace" font-size="13">st.volatile.global.v4.u32</tspan> 把整行 16 字节一次写出去。</text>
+  <text x="30" y="194" font-size="13.5" fill="#333">接收方一条 <tspan font-family="monospace" font-size="13">ld.volatile.global.v4.u32</tspan> 把整行读进来，两个标志都等于本轮的值时，这行数据才算到齐。</text>
+  <text x="30" y="216" font-size="13.5" fill="#333">标志放在每半行的后面。这条协议假定写入以 8 字节为单位不可分割，所以标志到了，同一个 8 字节里的数据也到了。</text>
+
+  <!-- why -->
+  <rect x="30" y="236" width="440" height="128" rx="8" fill="#e6f4e8" stroke="#2e8b3e" stroke-width="1.5"/>
+  <text x="48" y="262" font-size="15" font-weight="bold" fill="#2e8b3e">换来了什么</text>
+  <text x="48" y="288" font-size="13.5">不需要屏障指令，也不需要先写数据再写标志这两步。</text>
+  <text x="48" y="310" font-size="13.5">接收方只读一次，就同时拿到数据和"数据已到"。</text>
+  <text x="48" y="332" font-size="13.5">小消息的一次传递因此省掉一个来回。</text>
+  <text x="48" y="354" font-size="13.5">NCCL 的延迟模型给 LL 的每一跳估 0.6 微秒（NVLink 上）。</text>
+
+  <rect x="490" y="236" width="440" height="128" rx="8" fill="#fdecea" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="508" y="262" font-size="15" font-weight="bold" fill="#c0392b">代价是什么</text>
+  <text x="508" y="288" font-size="13.5">一半的字节用来装标志，有效带宽只剩一半。</text>
+  <text x="508" y="310" font-size="13.5">NCCL 的带宽模型里，LL 这一档直接按链路带宽的 50% 算。</text>
+  <text x="508" y="332" font-size="13.5">所以 LL 只用于小消息。消息一大，就换成下面两种。</text>
+
+  <!-- LL128 -->
+  <line x1="30" y1="384" x2="930" y2="384" stroke="#ccc" stroke-width="1.5"/>
+  <text x="30" y="412" font-size="15" font-weight="bold">LL128：8 个线程合写 128 字节，只拿出最后 8 字节当标志</text>
+  <g>
+    <rect x="30" y="424" width="750" height="40" fill="#dbe8fa" stroke="#1f5fbf" stroke-width="2"/>
+    <text x="405" y="449" font-size="14" text-anchor="middle">数据 120 字节</text>
+    <rect x="780" y="424" width="50" height="40" fill="#fff6d6" stroke="#b58900" stroke-width="2"/>
+    <text x="805" y="449" font-size="13" text-anchor="middle">标志</text>
+  </g>
+  <text x="30" y="486" font-size="13.5" fill="#333">标志占的比例从一半降到 1/16。NCCL 给 LL128 的带宽打 0.92 折，每一跳估 1.9 微秒。</text>
+  <text x="30" y="508" font-size="13.5" fill="#333">代价是它依赖 128 字节整行写入不被拆开这一条硬件性质，NCCL 只在测过的配置上默认打开它，节点内必须是 NVLink。</text>
+</svg>

@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 620" width="1000" height="620" font-family="sans-serif">
+<rect x="0" y="0" width="1000" height="620" fill="#ffffff"/>
+<defs>
+<marker id="ar" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#333"/></marker>
+<marker id="arb" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#2c5aa0"/></marker>
+<marker id="aro" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#b5651d"/></marker>
+<marker id="arg" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#2e7d32"/></marker>
+<marker id="arr" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#b52a2a"/></marker>
+</defs>
+<text x="30" y="34" font-size="20" font-weight="bold" fill="#111">一个 TensorCore 中的一次 DMA：谁发起、地址从哪来、完成怎么知道</text>
+<rect x="30" y="60" width="370" height="300" rx="6" fill="#f3f6fb" stroke="#2c5aa0" stroke-width="2"/>
+<text x="45" y="84" font-size="17" font-weight="bold" fill="#13335f">标量单元（唯一的一条指令流）</text>
+<rect x="45" y="96" width="210" height="150" fill="#ffffff" stroke="#555" stroke-width="1.5"/>
+<text x="55" y="116" font-size="14" font-weight="bold" fill="#222">指令存储（编译器写好）</text>
+<text x="55" y="138" font-size="14" fill="#555">…</text>
+<text x="55" y="157" font-size="14" fill="#2c5aa0">enqueue_dma 源,目的,信号量0</text>
+<text x="55" y="176" font-size="14" fill="#555">…（其它指令束）</text>
+<text x="55" y="195" font-size="14" fill="#b52a2a">wait_dma 信号量0</text>
+<text x="55" y="214" font-size="14" fill="#555">向量读取 VMEM → VREG</text>
+<text x="55" y="233" font-size="14" fill="#555">…</text>
+<rect x="270" y="96" width="115" height="60" fill="#ffffff" stroke="#555" stroke-width="1.5"/>
+<text x="327" y="120" font-size="14" fill="#222" text-anchor="middle">标量寄存器</text>
+<text x="327" y="142" font-size="14" fill="#555" text-anchor="middle">算起点地址</text>
+<rect x="270" y="166" width="115" height="50" fill="#ffffff" stroke="#555" stroke-width="1.5"/>
+<text x="327" y="196" font-size="14" fill="#222" text-anchor="middle">SMEM</text>
+<rect x="160" y="262" width="225" height="84" fill="#fff6e5" stroke="#b5651d" stroke-width="1.5"/>
+<text x="172" y="282" font-size="14" font-weight="bold" fill="#7a3f0c">同步标志（Pallas：DMA 信号量）</text>
+<rect x="172" y="292" width="46" height="44" fill="#f6c89f" stroke="#b5651d" stroke-width="1.5"/>
+<text x="195" y="309" font-size="13" fill="#7a3f0c" text-anchor="middle">#0</text>
+<rect x="224" y="292" width="46" height="44" fill="#ffffff" stroke="#b5651d" stroke-width="1.5"/>
+<text x="247" y="309" font-size="13" fill="#7a3f0c" text-anchor="middle">#1</text>
+<rect x="276" y="292" width="46" height="44" fill="#ffffff" stroke="#b5651d" stroke-width="1.5"/>
+<text x="299" y="309" font-size="13" fill="#7a3f0c" text-anchor="middle">#2</text>
+<rect x="328" y="292" width="46" height="44" fill="#ffffff" stroke="#b5651d" stroke-width="1.5"/>
+<text x="351" y="309" font-size="13" fill="#7a3f0c" text-anchor="middle">#3</text>
+<text x="195" y="330" font-size="13" fill="#7a3f0c" text-anchor="middle">300 000</text>
+<text x="247" y="330" font-size="13" fill="#999" text-anchor="middle">0</text>
+<text x="299" y="330" font-size="13" fill="#999" text-anchor="middle">0</text>
+<text x="351" y="330" font-size="13" fill="#999" text-anchor="middle">0</text>
+<path d="M182,191 L240,191 L240,259" fill="none" stroke="#b52a2a" stroke-width="2" marker-end="url(#arr)"/>
+<text x="40" y="276" font-size="14" fill="#b52a2a">④ 查值</text>
+<text x="40" y="294" font-size="13" fill="#b52a2a">不够：不取</text>
+<text x="40" y="310" font-size="13" fill="#b52a2a">下一条指令束</text>
+<rect x="455" y="230" width="190" height="90" rx="6" fill="#eef7ee" stroke="#2e7d32" stroke-width="2"/>
+<text x="550" y="262" font-size="17" font-weight="bold" fill="#1b5e20" text-anchor="middle">DMA 引擎</text>
+<text x="550" y="286" font-size="14" fill="#1b5e20" text-anchor="middle">按步长逐段生成地址</text>
+<text x="550" y="306" font-size="14" fill="#1b5e20" text-anchor="middle">在后台搬运</text>
+<path d="M400,160 L430,160 L430,245 L453,245" fill="none" stroke="#2c5aa0" stroke-width="2.5" marker-end="url(#arb)"/>
+<text x="412" y="140" font-size="14" font-weight="bold" fill="#2c5aa0">① 发起</text>
+<text x="440" y="200" font-size="13" fill="#2c5aa0">源、目的、形状、</text>
+<text x="440" y="217" font-size="13" fill="#2c5aa0">信号量编号</text>
+<path d="M455,300 L387,300" fill="none" stroke="#b5651d" stroke-width="2.5" marker-end="url(#aro)"/>
+<text x="412" y="346" font-size="14" font-weight="bold" fill="#b5651d">③ 每写完一部分，</text>
+<text x="412" y="364" font-size="14" font-weight="bold" fill="#b5651d">信号量 #0 增加</text>
+<rect x="700" y="230" width="270" height="110" rx="6" fill="#f3f6fb" stroke="#2c5aa0" stroke-width="2"/>
+<text x="715" y="254" font-size="17" font-weight="bold" fill="#13335f">VMEM（软件管理的 SRAM）</text>
+<rect x="715" y="266" width="240" height="60" fill="#d8e8f7" stroke="#2c5aa0" stroke-width="1.5"/>
+<text x="835" y="292" font-size="14" fill="#13335f" text-anchor="middle">缓冲 buf：512×512 bf16</text>
+<text x="835" y="312" font-size="14" fill="#13335f" text-anchor="middle">= 512 KiB，64 段依次写入</text>
+<path d="M645,275 L698,275" fill="none" stroke="#2e7d32" stroke-width="2.5" marker-end="url(#arg)"/>
+<rect x="700" y="60" width="125" height="60" rx="6" fill="#eeeeee" stroke="#555" stroke-width="1.5"/>
+<text x="762" y="88" font-size="16" font-weight="bold" fill="#222" text-anchor="middle">VPU</text>
+<text x="762" y="108" font-size="13" fill="#444" text-anchor="middle">向量运算</text>
+<rect x="845" y="60" width="125" height="60" rx="6" fill="#eeeeee" stroke="#555" stroke-width="1.5"/>
+<text x="907" y="88" font-size="16" font-weight="bold" fill="#222" text-anchor="middle">MXU</text>
+<text x="907" y="108" font-size="13" fill="#444" text-anchor="middle">矩阵乘</text>
+<rect x="700" y="146" width="270" height="40" rx="4" fill="#ffffff" stroke="#555" stroke-width="1.5"/>
+<text x="835" y="171" font-size="14" fill="#222" text-anchor="middle">向量寄存器 VREG（8×128 个 32 位数）</text>
+<line x1="762" y1="122" x2="762" y2="144" stroke="#555" stroke-width="2"/>
+<line x1="907" y1="122" x2="907" y2="144" stroke="#555" stroke-width="2"/>
+<line x1="835" y1="188" x2="835" y2="228" stroke="#555" stroke-width="2"/>
+<text x="845" y="214" font-size="13" fill="#555">向量读写</text>
+<line x1="930" y1="342" x2="930" y2="440" stroke="#b52a2a" stroke-width="2" stroke-dasharray="6,4"/>
+<text x="916" y="400" font-size="26" font-weight="bold" fill="#b52a2a">✕</text>
+<text x="905" y="378" font-size="13" fill="#b52a2a" text-anchor="end">VPU、MXU、VMEM 的读写</text>
+<text x="905" y="395" font-size="13" fill="#b52a2a" text-anchor="end">指令都没有通向 HBM 的路径</text>
+<rect x="30" y="440" width="940" height="160" rx="6" fill="#fbeeee" stroke="#a94442" stroke-width="2"/>
+<text x="45" y="464" font-size="17" font-weight="bold" fill="#7f2a28">HBM：2048×2048 的 bf16 矩阵，按 8×128 小块存放（每块 2 KiB）</text>
+<text x="45" y="490" font-size="14" fill="#444">每 8 行是一个小块行，横跨 16 个小块 = 32 KiB。要取的分块在每个小块行中占第 8～11 块，连续 8 KiB。</text>
+<rect x="135" y="502" width="46" height="20" fill="#ffffff" stroke="#a94442" stroke-width="1"/>
+<rect x="183" y="502" width="46" height="20" fill="#ffffff" stroke="#a94442" stroke-width="1"/>
+<rect x="231" y="502" width="46" height="20" fill="#ffffff" stroke="#a94442" stroke-width="1"/>
+<rect x="279" y="502" width="46" height="20" fill="#ffffff" stroke="#a94442" stroke-width="1"/>
+<rect x="327" y="502" width="46" height="20" fill="#ffffff" stroke="#a94442" stroke-width="1"/>
+<rect x="375" y="502" width="46" height="20" fill="#ffffff" stroke="#a94442" stroke-width="1"/>
+<rect x="423" y="502" width="46" height="20" fill="#ffffff" stroke="#a94442" stroke-width="1"/>
+<rect x="471" y="502" width="46" height="20" fill="#ffffff" stroke="#a94442" stroke-width="1"/>
+<rect x="519" y="502" width="46" height="20" fill="#f6c89f" stroke="#a94442" stroke-width="1"/>
+<rect x="567" y="502" width="46" height="20" fill="#f6c89f" stroke="#a94442" stroke-width="1"/>
+<rect x="615" y="502" width="46" height="20" fill="#f6c89f" stroke="#a94442" stroke-width="1"/>
+<rect x="663" y="502" width="46" height="20" fill="#f6c89f" stroke="#a94442" stroke-width="1"/>
+<rect x="711" y="502" width="46" height="20" fill="#ffffff" stroke="#a94442" stroke-width="1"/>
+<rect x="759" y="502" width="46" height="20" fill="#ffffff" stroke="#a94442" stroke-width="1"/>
+<rect x="807" y="502" width="46" height="20" fill="#ffffff" stroke="#a94442" stroke-width="1"/>
+<rect x="855" y="502" width="46" height="20" fill="#ffffff" stroke="#a94442" stroke-width="1"/>
+<text x="45" y="517" font-size="13" fill="#444">小块行 64</text>
+<rect x="135" y="526" width="46" height="20" fill="#ffffff" stroke="#a94442" stroke-width="1"/>
+<rect x="183" y="526" width="46" height="20" fill="#ffffff" stroke="#a94442" stroke-width="1"/>
+<rect x="231" y="526" width="46" height="20" fill="#ffffff" stroke="#a94442" stroke-width="1"/>
+<rect x="279" y="526" width="46" height="20" fill="#ffffff" stroke="#a94442" stroke-width="1"/>
+<rect x="327" y="526" width="46" height="20" fill="#ffffff" stroke="#a94442" stroke-width="1"/>
+<rect x="375" y="526" width="46" height="20" fill="#ffffff" stroke="#a94442" stroke-width="1"/>
+<rect x="423" y="526" width="46" height="20" fill="#ffffff" stroke="#a94442" stroke-width="1"/>
+<rect x="471" y="526" width="46" height="20" fill="#ffffff" stroke="#a94442" stroke-width="1"/>
+<rect x="519" y="526" width="46" height="20" fill="#f6c89f" stroke="#a94442" stroke-width="1"/>
+<rect x="567" y="526" width="46" height="20" fill="#f6c89f" stroke="#a94442" stroke-width="1"/>
+<rect x="615" y="526" width="46" height="20" fill="#f6c89f" stroke="#a94442" stroke-width="1"/>
+<rect x="663" y="526" width="46" height="20" fill="#f6c89f" stroke="#a94442" stroke-width="1"/>
+<rect x="711" y="526" width="46" height="20" fill="#ffffff" stroke="#a94442" stroke-width="1"/>
+<rect x="759" y="526" width="46" height="20" fill="#ffffff" stroke="#a94442" stroke-width="1"/>
+<rect x="807" y="526" width="46" height="20" fill="#ffffff" stroke="#a94442" stroke-width="1"/>
+<rect x="855" y="526" width="46" height="20" fill="#ffffff" stroke="#a94442" stroke-width="1"/>
+<text x="45" y="541" font-size="13" fill="#444">小块行 65</text>
+<rect x="135" y="550" width="46" height="20" fill="#ffffff" stroke="#a94442" stroke-width="1"/>
+<rect x="183" y="550" width="46" height="20" fill="#ffffff" stroke="#a94442" stroke-width="1"/>
+<rect x="231" y="550" width="46" height="20" fill="#ffffff" stroke="#a94442" stroke-width="1"/>
+<rect x="279" y="550" width="46" height="20" fill="#ffffff" stroke="#a94442" stroke-width="1"/>
+<rect x="327" y="550" width="46" height="20" fill="#ffffff" stroke="#a94442" stroke-width="1"/>
+<rect x="375" y="550" width="46" height="20" fill="#ffffff" stroke="#a94442" stroke-width="1"/>
+<rect x="423" y="550" width="46" height="20" fill="#ffffff" stroke="#a94442" stroke-width="1"/>
+<rect x="471" y="550" width="46" height="20" fill="#ffffff" stroke="#a94442" stroke-width="1"/>
+<rect x="519" y="550" width="46" height="20" fill="#f6c89f" stroke="#a94442" stroke-width="1"/>
+<rect x="567" y="550" width="46" height="20" fill="#f6c89f" stroke="#a94442" stroke-width="1"/>
+<rect x="615" y="550" width="46" height="20" fill="#f6c89f" stroke="#a94442" stroke-width="1"/>
+<rect x="663" y="550" width="46" height="20" fill="#f6c89f" stroke="#a94442" stroke-width="1"/>
+<rect x="711" y="550" width="46" height="20" fill="#ffffff" stroke="#a94442" stroke-width="1"/>
+<rect x="759" y="550" width="46" height="20" fill="#ffffff" stroke="#a94442" stroke-width="1"/>
+<rect x="807" y="550" width="46" height="20" fill="#ffffff" stroke="#a94442" stroke-width="1"/>
+<rect x="855" y="550" width="46" height="20" fill="#ffffff" stroke="#a94442" stroke-width="1"/>
+<text x="45" y="565" font-size="13" fill="#444">小块行 66</text>
+<text x="519" y="588" font-size="13" fill="#7a3f0c">⋮ 共 64 段，每段 8 KiB，相邻两段起点相隔 32 KiB，合计 512 KiB</text>
+<path d="M615,440 L615,420 L560,420 L560,322" fill="none" stroke="#2e7d32" stroke-width="2.5" marker-end="url(#arg)"/>
+<text x="552" y="398" font-size="14" font-weight="bold" fill="#2e7d32" text-anchor="end">② 地址：标量单元给起点，</text>
+<text x="552" y="416" font-size="14" font-weight="bold" fill="#2e7d32" text-anchor="end">引擎自己走完 64 段</text>
+</svg>

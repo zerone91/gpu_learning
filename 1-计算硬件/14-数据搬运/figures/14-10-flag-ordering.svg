@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" font-family="sans-serif">
+  <defs>
+    <marker id="a1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#555"/></marker>
+    <marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker>
+  </defs>
+  <rect x="0" y="0" width="960" height="580" fill="#ffffff"/>
+
+  <text x="30" y="32" font-size="17" font-weight="bold">写数据、写标志、读标志、读数据：四步的顺序要靠指令保证</text>
+  <text x="30" y="56" font-size="14" fill="#555">下面的汇编由 ptxas 12.8 编到 sm_90a，再反汇编得到。左边是发送方，右边是接收方。</text>
+
+  <!-- producer -->
+  <rect x="30" y="74" width="420" height="240" rx="8" fill="#e6f4e8" stroke="#2e8b3e" stroke-width="2"/>
+  <text x="48" y="100" font-size="15" font-weight="bold" fill="#2e8b3e">GPU A 上的线程（发送方）</text>
+
+  <rect x="48" y="112" width="384" height="52" rx="5" fill="#ffffff" stroke="#2e8b3e"/>
+  <text x="60" y="134" font-size="14" font-weight="bold">① 写数据到对端缓冲</text>
+  <text x="60" y="154" font-size="13" font-family="monospace" fill="#1a1a1a">STG.E.128 desc[UR4][R2.64], R8</text>
+
+  <rect x="48" y="174" width="384" height="66" rx="5" fill="#fff6d6" stroke="#b58900"/>
+  <text x="60" y="196" font-size="14" font-weight="bold">② 挡一道：前面的写全部对外可见后才往下走</text>
+  <text x="60" y="216" font-size="13" font-family="monospace" fill="#1a1a1a">MEMBAR.ALL.SYS ; ERRBAR ; CGAERRBAR</text>
+  <text x="60" y="234" font-size="12.5" fill="#666">由 PTX 的 st.release.sys 生成。起排序作用的是 MEMBAR</text>
+
+  <rect x="48" y="250" width="384" height="52" rx="5" fill="#ffffff" stroke="#2e8b3e"/>
+  <text x="60" y="272" font-size="14" font-weight="bold">③ 写标志位</text>
+  <text x="60" y="292" font-size="13" font-family="monospace" fill="#1a1a1a">STG.E.STRONG.SYS desc[UR4][R4.64], R7</text>
+
+  <!-- consumer -->
+  <rect x="510" y="74" width="420" height="240" rx="8" fill="#e3edfb" stroke="#1f5fbf" stroke-width="2"/>
+  <text x="528" y="100" font-size="15" font-weight="bold" fill="#1f5fbf">GPU B 上的线程（接收方）</text>
+
+  <rect x="528" y="112" width="384" height="70" rx="5" fill="#ffffff" stroke="#1f5fbf"/>
+  <text x="540" y="134" font-size="14" font-weight="bold">④ 反复读标志位，直到它变成 1</text>
+  <text x="540" y="154" font-size="13" font-family="monospace" fill="#1a1a1a">LDG.E.STRONG.SYS R0, desc[UR4][R2.64]</text>
+  <text x="540" y="174" font-size="13" font-family="monospace" fill="#1a1a1a">ISETP.NE.U32 ... ; @P0 BRA 回到上一条</text>
+
+  <rect x="528" y="192" width="384" height="62" rx="5" fill="#fff6d6" stroke="#b58900"/>
+  <text x="540" y="214" font-size="14" font-weight="bold">⑤ 作废本卡缓存里的旧副本</text>
+  <text x="540" y="234" font-size="13" font-family="monospace" fill="#1a1a1a">CCTL.IVALL</text>
+  <text x="540" y="250" font-size="12.5" fill="#666">由 PTX 的 ld.acquire.sys 生成</text>
+
+  <rect x="528" y="264" width="384" height="38" rx="5" fill="#ffffff" stroke="#1f5fbf"/>
+  <text x="540" y="289" font-size="14" font-weight="bold">⑥ 读数据：<tspan font-family="monospace" font-size="13">LDG.E.128</tspan></text>
+
+  <!-- link arrow -->
+  <path d="M450,190 L505,190" stroke="#555" stroke-width="3" fill="none" marker-end="url(#a1)"/>
+  <text x="478" y="178" font-size="13" text-anchor="middle" fill="#555">NVLink</text>
+
+  <!-- failure panel -->
+  <rect x="30" y="336" width="900" height="134" rx="8" fill="#fdecea" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="48" y="362" font-size="15" font-weight="bold" fill="#c0392b">去掉第 ② 步会怎样</text>
+  <text x="48" y="388" font-size="14">写数据和写标志是两笔独立的写。它们各自经过本卡的缓存、NVLink 和对端的缓存，到达的先后没有保证。</text>
+  <text x="48" y="412" font-size="14">标志先到、数据后到时，GPU B 看到标志变成 1，就去读数据，读到的是这一轮之前的旧值。</text>
+  <text x="48" y="436" font-size="14">这种错误不会报错，只会让结果变成错数。第 ② 步的作用就是：挡住第 ③ 步，直到第 ① 步的数据确实已经写到对端。</text>
+  <text x="48" y="460" font-size="14">去掉第 ⑤ 步同样会出错：GPU B 的缓存里可能还留着这一行的旧副本。</text>
+
+  <!-- scope note -->
+  <rect x="30" y="486" width="900" height="76" rx="8" fill="#f7f7f7" stroke="#ccc"/>
+  <text x="48" y="512" font-size="14" font-weight="bold">为什么后缀是 <tspan font-family="monospace">.SYS</tspan></text>
+  <text x="48" y="536" font-size="14">PTX 用 <tspan font-family="monospace" font-size="13">.gpu</tspan> 表示"本卡上的线程看得到"，用 <tspan font-family="monospace" font-size="13">.sys</tspan> 表示"所有卡和主机都看得到"。</text>
+  <text x="48" y="556" font-size="14">对端是另一张卡，所以必须写 <tspan font-family="monospace" font-size="13">.sys</tspan>。把它改成 <tspan font-family="monospace" font-size="13">.gpu</tspan> 后，上面两处指令的后缀就变成 <tspan font-family="monospace" font-size="13">.GPU</tspan>。</text>
+</svg>

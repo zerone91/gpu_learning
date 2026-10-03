@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 590" width="1000" height="590" font-family="sans-serif">
+<rect x="0" y="0" width="1000" height="590" fill="#ffffff"/>
+<defs><marker id="ar" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><path d="M0,0 L8,3.5 L0,7 z" fill="#555"/></marker></defs>
+<text x="20" y="32" font-size="20" font-weight="bold" fill="#111">标量预取：SMEM 里的行号、列号决定每一步的 DMA 取哪一块</text>
+<text x="40" y="76" font-size="15" font-weight="bold" fill="#222">X：4×4 块，5 个非零</text>
+<text x="40" y="96" font-size="13" fill="#555">（行号 i，列号 k）</text>
+<rect x="40" y="110" width="50" height="50" fill="#f6c89f" stroke="#b5651d" stroke-width="1.5"/>
+<text x="65.0" y="141" font-size="16" font-weight="bold" fill="#222" text-anchor="middle">0</text>
+<rect x="90" y="110" width="50" height="50" fill="#ffffff" stroke="#bbb" stroke-width="1.5"/>
+<rect x="140" y="110" width="50" height="50" fill="#bcd7f0" stroke="#2c5aa0" stroke-width="1.5"/>
+<text x="165.0" y="141" font-size="16" font-weight="bold" fill="#222" text-anchor="middle">1</text>
+<rect x="190" y="110" width="50" height="50" fill="#ffffff" stroke="#bbb" stroke-width="1.5"/>
+<text x="32" y="141" font-size="13" fill="#555" text-anchor="end">0</text>
+<rect x="40" y="160" width="50" height="50" fill="#ffffff" stroke="#bbb" stroke-width="1.5"/>
+<rect x="90" y="160" width="50" height="50" fill="#cfe8cf" stroke="#2e7d32" stroke-width="1.5"/>
+<text x="115.0" y="191" font-size="16" font-weight="bold" fill="#222" text-anchor="middle">2</text>
+<rect x="140" y="160" width="50" height="50" fill="#ffffff" stroke="#bbb" stroke-width="1.5"/>
+<rect x="190" y="160" width="50" height="50" fill="#ffffff" stroke="#bbb" stroke-width="1.5"/>
+<text x="32" y="191" font-size="13" fill="#555" text-anchor="end">1</text>
+<rect x="40" y="210" width="50" height="50" fill="#ffffff" stroke="#bbb" stroke-width="1.5"/>
+<rect x="90" y="210" width="50" height="50" fill="#ffffff" stroke="#bbb" stroke-width="1.5"/>
+<rect x="140" y="210" width="50" height="50" fill="#ffffff" stroke="#bbb" stroke-width="1.5"/>
+<rect x="190" y="210" width="50" height="50" fill="#ffffff" stroke="#bbb" stroke-width="1.5"/>
+<text x="32" y="241" font-size="13" fill="#555" text-anchor="end">2</text>
+<rect x="40" y="260" width="50" height="50" fill="#e6d3f2" stroke="#6a3d9a" stroke-width="1.5"/>
+<text x="65.0" y="291" font-size="16" font-weight="bold" fill="#222" text-anchor="middle">3</text>
+<rect x="90" y="260" width="50" height="50" fill="#ffffff" stroke="#bbb" stroke-width="1.5"/>
+<rect x="140" y="260" width="50" height="50" fill="#ffffff" stroke="#bbb" stroke-width="1.5"/>
+<rect x="190" y="260" width="50" height="50" fill="#f9e79f" stroke="#9a7d0a" stroke-width="1.5"/>
+<text x="215.0" y="291" font-size="16" font-weight="bold" fill="#222" text-anchor="middle">4</text>
+<text x="32" y="291" font-size="13" fill="#555" text-anchor="end">3</text>
+<text x="65.0" y="328" font-size="13" fill="#555" text-anchor="middle">0</text>
+<text x="115.0" y="328" font-size="13" fill="#555" text-anchor="middle">1</text>
+<text x="165.0" y="328" font-size="13" fill="#555" text-anchor="middle">2</text>
+<text x="215.0" y="328" font-size="13" fill="#555" text-anchor="middle">3</text>
+<rect x="43" y="226" width="84" height="20" fill="#ffffff"/>
+<text x="46" y="241" font-size="13" fill="#999">第 2 行全零</text>
+<text x="40" y="354" font-size="13" fill="#444">程序只存 5 个非零块，</text>
+<text x="40" y="372" font-size="13" fill="#444">按行号分组排好</text>
+<text x="320" y="82" font-size="15" font-weight="bold" fill="#222">SMEM（流水开始前搬进来）</text>
+<text x="314" y="106" font-size="13" fill="#555" text-anchor="end">下标</text>
+<text x="344.0" y="106" font-size="13" fill="#555" text-anchor="middle">0</text>
+<text x="392.0" y="106" font-size="13" fill="#555" text-anchor="middle">1</text>
+<text x="440.0" y="106" font-size="13" fill="#555" text-anchor="middle">2</text>
+<text x="488.0" y="106" font-size="13" fill="#555" text-anchor="middle">3</text>
+<text x="536.0" y="106" font-size="13" fill="#555" text-anchor="middle">4</text>
+<text x="314" y="137" font-size="13" fill="#222" text-anchor="end">idxs_i</text>
+<rect x="320" y="114" width="48" height="32" fill="#f6c89f" stroke="#b5651d" stroke-width="1.5"/>
+<text x="344.0" y="136" font-size="15" fill="#222" text-anchor="middle">0</text>
+<rect x="368" y="114" width="48" height="32" fill="#bcd7f0" stroke="#2c5aa0" stroke-width="1.5"/>
+<text x="392.0" y="136" font-size="15" fill="#222" text-anchor="middle">0</text>
+<rect x="416" y="114" width="48" height="32" fill="#cfe8cf" stroke="#2e7d32" stroke-width="1.5"/>
+<text x="440.0" y="136" font-size="15" fill="#222" text-anchor="middle">1</text>
+<rect x="464" y="114" width="48" height="32" fill="#e6d3f2" stroke="#6a3d9a" stroke-width="1.5"/>
+<text x="488.0" y="136" font-size="15" fill="#222" text-anchor="middle">3</text>
+<rect x="512" y="114" width="48" height="32" fill="#f9e79f" stroke="#9a7d0a" stroke-width="1.5"/>
+<text x="536.0" y="136" font-size="15" fill="#222" text-anchor="middle">3</text>
+<text x="314" y="173" font-size="13" fill="#222" text-anchor="end">idxs_k</text>
+<rect x="320" y="150" width="48" height="32" fill="#f6c89f" stroke="#b5651d" stroke-width="1.5"/>
+<text x="344.0" y="172" font-size="15" fill="#222" text-anchor="middle">0</text>
+<rect x="368" y="150" width="48" height="32" fill="#bcd7f0" stroke="#2c5aa0" stroke-width="1.5"/>
+<text x="392.0" y="172" font-size="15" fill="#222" text-anchor="middle">2</text>
+<rect x="416" y="150" width="48" height="32" fill="#cfe8cf" stroke="#2e7d32" stroke-width="1.5"/>
+<text x="440.0" y="172" font-size="15" fill="#222" text-anchor="middle">1</text>
+<rect x="464" y="150" width="48" height="32" fill="#e6d3f2" stroke="#6a3d9a" stroke-width="1.5"/>
+<text x="488.0" y="172" font-size="15" fill="#222" text-anchor="middle">0</text>
+<rect x="512" y="150" width="48" height="32" fill="#f9e79f" stroke="#9a7d0a" stroke-width="1.5"/>
+<text x="536.0" y="172" font-size="15" fill="#222" text-anchor="middle">3</text>
+<text x="320" y="224" font-size="15" font-weight="bold" fill="#222">grid 的 5 步（对 Y 的第 j 列块）</text>
+<rect x="320" y="232" width="330" height="44" rx="4" fill="#f6c89f" stroke="#b5651d" stroke-width="1.5"/>
+<text x="330" y="251" font-size="14" fill="#222">步 0：读出 i = 0，k = 0</text>
+<text x="330" y="269" font-size="13" fill="#444">取 X 第 0 块、Y(0,j)；输出 Z(0,j)</text>
+<text x="642" y="251" font-size="13" fill="#555" text-anchor="end">清零</text>
+<path d="M320,254 L85,154" fill="none" stroke="#b5651d" stroke-width="1.5" stroke-opacity="0.8" marker-end="url(#ar)"/>
+<path d="M650,254 L718,135.0" fill="none" stroke="#b5651d" stroke-width="1.5" stroke-opacity="0.8" marker-end="url(#ar)"/>
+<rect x="320" y="284" width="330" height="44" rx="4" fill="#bcd7f0" stroke="#2c5aa0" stroke-width="1.5"/>
+<text x="330" y="303" font-size="14" fill="#222">步 1：读出 i = 0，k = 2</text>
+<text x="330" y="321" font-size="13" fill="#444">取 X 第 1 块、Y(2,j)；输出 Z(0,j)</text>
+<text x="642" y="303" font-size="13" fill="#555" text-anchor="end">同一块</text>
+<path d="M320,306 L185,154" fill="none" stroke="#2c5aa0" stroke-width="1.5" stroke-opacity="0.8" marker-end="url(#ar)"/>
+<path d="M650,306 L718,235.0" fill="none" stroke="#2c5aa0" stroke-width="1.5" stroke-opacity="0.8" marker-end="url(#ar)"/>
+<rect x="320" y="336" width="330" height="44" rx="4" fill="#cfe8cf" stroke="#2e7d32" stroke-width="1.5"/>
+<text x="330" y="355" font-size="14" fill="#222">步 2：读出 i = 1，k = 1</text>
+<text x="330" y="373" font-size="13" fill="#444">取 X 第 2 块、Y(1,j)；输出 Z(1,j)</text>
+<text x="642" y="355" font-size="13" fill="#b52a2a" text-anchor="end">写回 Z(0,j)，清零</text>
+<path d="M320,358 L135,204" fill="none" stroke="#2e7d32" stroke-width="1.5" stroke-opacity="0.8" marker-end="url(#ar)"/>
+<path d="M650,358 L718,185.0" fill="none" stroke="#2e7d32" stroke-width="1.5" stroke-opacity="0.8" marker-end="url(#ar)"/>
+<rect x="320" y="388" width="330" height="44" rx="4" fill="#e6d3f2" stroke="#6a3d9a" stroke-width="1.5"/>
+<text x="330" y="407" font-size="14" fill="#222">步 3：读出 i = 3，k = 0</text>
+<text x="330" y="425" font-size="13" fill="#444">取 X 第 3 块、Y(0,j)；输出 Z(3,j)</text>
+<text x="642" y="407" font-size="13" fill="#b52a2a" text-anchor="end">写回 Z(1,j)，清零</text>
+<path d="M320,410 L85,304" fill="none" stroke="#6a3d9a" stroke-width="1.5" stroke-opacity="0.8" marker-end="url(#ar)"/>
+<path d="M650,410 L718,135.0" fill="none" stroke="#6a3d9a" stroke-width="1.5" stroke-opacity="0.8" marker-end="url(#ar)"/>
+<rect x="320" y="440" width="330" height="44" rx="4" fill="#f9e79f" stroke="#9a7d0a" stroke-width="1.5"/>
+<text x="330" y="459" font-size="14" fill="#222">步 4：读出 i = 3，k = 3</text>
+<text x="330" y="477" font-size="13" fill="#444">取 X 第 4 块、Y(3,j)；输出 Z(3,j)</text>
+<text x="642" y="459" font-size="13" fill="#b52a2a" text-anchor="end">结束时写回 Z(3,j)</text>
+<path d="M320,462 L235,304" fill="none" stroke="#9a7d0a" stroke-width="1.5" stroke-opacity="0.8" marker-end="url(#ar)"/>
+<path d="M650,462 L718,285.0" fill="none" stroke="#9a7d0a" stroke-width="1.5" stroke-opacity="0.8" marker-end="url(#ar)"/>
+<text x="710" y="76" font-size="15" font-weight="bold" fill="#222">Y 的第 j 列块</text>
+<rect x="720" y="110" width="60" height="50" fill="#f4f4f4" stroke="#777" stroke-width="1.5"/>
+<text x="750" y="140" font-size="13" fill="#333" text-anchor="middle">Y(0,j)</text>
+<rect x="720" y="160" width="60" height="50" fill="#f4f4f4" stroke="#777" stroke-width="1.5"/>
+<text x="750" y="190" font-size="13" fill="#333" text-anchor="middle">Y(1,j)</text>
+<rect x="720" y="210" width="60" height="50" fill="#f4f4f4" stroke="#777" stroke-width="1.5"/>
+<text x="750" y="240" font-size="13" fill="#333" text-anchor="middle">Y(2,j)</text>
+<rect x="720" y="260" width="60" height="50" fill="#f4f4f4" stroke="#777" stroke-width="1.5"/>
+<text x="750" y="290" font-size="13" fill="#333" text-anchor="middle">Y(3,j)</text>
+<text x="850" y="76" font-size="15" font-weight="bold" fill="#222">Z 的第 j 列块</text>
+<rect x="860" y="110" width="60" height="50" fill="#ffffff" stroke="#777" stroke-width="1.5"/>
+<text x="890" y="140" font-size="13" fill="#333" text-anchor="middle">Z(0,j)</text>
+<rect x="860" y="160" width="60" height="50" fill="#ffffff" stroke="#777" stroke-width="1.5"/>
+<text x="890" y="190" font-size="13" fill="#333" text-anchor="middle">Z(1,j)</text>
+<rect x="860" y="210" width="60" height="50" fill="#ffffff" stroke="#777" stroke-width="1.5"/>
+<text x="890" y="240" font-size="13" fill="#333" text-anchor="middle">Z(2,j)</text>
+<rect x="860" y="260" width="60" height="50" fill="#ffffff" stroke="#777" stroke-width="1.5"/>
+<text x="890" y="290" font-size="13" fill="#333" text-anchor="middle">Z(3,j)</text>
+<text x="890" y="330" font-size="13" fill="#b52a2a" text-anchor="middle">Z(0,j)：第 2 步写回</text>
+<text x="890" y="348" font-size="13" fill="#b52a2a" text-anchor="middle">Z(1,j)：第 3 步写回</text>
+<text x="890" y="366" font-size="13" fill="#999" text-anchor="middle">Z(2,j)：不访问，保持 0</text>
+<text x="890" y="384" font-size="13" fill="#b52a2a" text-anchor="middle">Z(3,j)：结束时写回</text>
+<text x="890" y="406" font-size="12" fill="#555" text-anchor="middle">（Z 的初值由全零数组经</text>
+<text x="890" y="420" font-size="12" fill="#555" text-anchor="middle">输入输出别名提供）</text>
+<text x="20" y="540" font-size="14" fill="#444">每一步取哪一块由 SMEM 中的数决定；在第几步发出 DMA、每步发几次，仍由 grid 在编译期固定。</text>
+<text x="20" y="564" font-size="14" fill="#444">输出块只在行号变化时写回，之后不再访问。所以非零块必须按行号分组排好，否则同一个输出块会被写回两次，第二次覆盖第一次。</text>
+</svg>

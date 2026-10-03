@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" font-family="sans-serif">
+  <rect x="0" y="0" width="960" height="560" fill="#ffffff"/>
+
+  <text x="30" y="34" font-size="17" font-weight="bold">同一条 NVLink，三种发起方式的实测</text>
+  <text x="30" y="58" font-size="14" fill="#555">两张卡之间搬 1 GB，测到的带宽。括号里是占链路上限的比例。</text>
+
+  <!-- panel 1: bandwidth bars -->
+  <text x="30" y="92" font-size="15" font-weight="bold">① 搬 1 GB 时的带宽</text>
+
+  <!-- H100 group -->
+  <text x="30" y="122" font-size="14" fill="#333">H100（上限 450 GB/s）</text>
+  <g>
+    <rect x="230" y="106" width="430" height="20" fill="#f0f0f0" stroke="#ccc"/>
+    <rect x="230" y="106" width="353" height="20" fill="#1f5fbf"/>
+    <text x="676" y="121" font-size="13" fill="#1f5fbf">copy engine 369 GB/s（82%）</text>
+  </g>
+  <g>
+    <rect x="230" y="132" width="430" height="20" fill="#f0f0f0" stroke="#ccc"/>
+    <rect x="230" y="132" width="335" height="20" fill="#2e8b3e"/>
+    <text x="676" y="147" font-size="13" fill="#2e8b3e">TMA 350 GB/s（78%）</text>
+  </g>
+  <g>
+    <rect x="230" y="158" width="430" height="20" fill="#f0f0f0" stroke="#ccc"/>
+    <rect x="230" y="158" width="327" height="20" fill="#7d3c98"/>
+    <text x="676" y="173" font-size="13" fill="#7d3c98">逐条 store 343 GB/s（76%）</text>
+  </g>
+
+  <!-- B200 group -->
+  <text x="30" y="216" font-size="14" fill="#333">B200（上限 900 GB/s）</text>
+  <g>
+    <rect x="230" y="200" width="430" height="20" fill="#f0f0f0" stroke="#ccc"/>
+    <rect x="230" y="200" width="347" height="20" fill="#1f5fbf"/>
+    <text x="676" y="215" font-size="13" fill="#1f5fbf">copy engine 726 GB/s（81%）</text>
+  </g>
+  <g>
+    <rect x="230" y="226" width="430" height="20" fill="#f0f0f0" stroke="#ccc"/>
+    <rect x="230" y="226" width="318" height="20" fill="#2e8b3e"/>
+    <text x="676" y="241" font-size="13" fill="#2e8b3e">TMA 669 GB/s（74%）</text>
+  </g>
+  <g>
+    <rect x="230" y="252" width="430" height="20" fill="#f0f0f0" stroke="#ccc"/>
+    <rect x="230" y="252" width="300" height="20" fill="#7d3c98"/>
+    <text x="676" y="267" font-size="13" fill="#7d3c98">逐条 store 628 GB/s（70%）</text>
+  </g>
+  <text x="230" y="292" font-size="13" fill="#555">灰色条是链路上限。三种方式搬大块时，H100 上最多差 6 个百分点，B200 上最多差 11 个。</text>
+
+  <!-- panel 2: message size -->
+  <line x1="30" y1="312" x2="930" y2="312" stroke="#ccc" stroke-width="1.5"/>
+  <text x="30" y="340" font-size="15" font-weight="bold">② 消息要多大，才跑得到八成带宽</text>
+  <rect x="30" y="356" width="430" height="92" rx="6" fill="#e3edfb" stroke="#1f5fbf" stroke-width="1.5"/>
+  <text x="50" y="382" font-size="14" font-weight="bold" fill="#1f5fbf">copy engine：一次至少 256 MB</text>
+  <text x="50" y="406" font-size="13.5" fill="#333">每次都要主机写命令、芯片取命令，这笔开销是微秒级。</text>
+  <text x="50" y="428" font-size="13.5" fill="#333">消息小的时候，开销比传输本身还长。</text>
+  <rect x="500" y="356" width="430" height="92" rx="6" fill="#e6f4e8" stroke="#2e8b3e" stroke-width="1.5"/>
+  <text x="520" y="382" font-size="14" font-weight="bold" fill="#2e8b3e">线程发起：2 KB 就够</text>
+  <text x="520" y="406" font-size="13.5" fill="#333">下单就是 kernel 里的一条指令，没有主机参与。</text>
+  <text x="520" y="428" font-size="13.5" fill="#333">TMA 一次最多搬 227 KB，大消息要拆成多条。</text>
+
+  <!-- panel 3: SM cost -->
+  <line x1="30" y1="468" x2="930" y2="468" stroke="#ccc" stroke-width="1.5"/>
+  <text x="30" y="496" font-size="15" font-weight="bold">③ 要占几个 SM 才跑得满链路（H100 共 132 个）</text>
+  <g font-size="13.5">
+    <rect x="30" y="510" width="290" height="36" rx="5" fill="#e3edfb" stroke="#1f5fbf"/>
+    <text x="175" y="534" text-anchor="middle" fill="#1f5fbf">copy engine：0 个</text>
+    <rect x="335" y="510" width="290" height="36" rx="5" fill="#e6f4e8" stroke="#2e8b3e"/>
+    <text x="480" y="534" text-anchor="middle" fill="#2e8b3e">TMA：15 个（约 11%）</text>
+    <rect x="640" y="510" width="290" height="36" rx="5" fill="#f4ecf7" stroke="#7d3c98"/>
+    <text x="785" y="534" text-anchor="middle" fill="#7d3c98">逐条 store：约 76 个（约 58%）</text>
+  </g>
+</svg>

@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 540" width="1000" height="540" font-family="sans-serif">
+<rect x="0" y="0" width="1000" height="540" fill="#ffffff"/>
+<defs><marker id="ak" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><path d="M0,0 L8,3.5 L0,7 z" fill="#555"/></marker><pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="#eeeeee"/><line x1="0" y1="0" x2="0" y2="8" stroke="#999" stroke-width="2"/></pattern></defs>
+<text x="20" y="32" font-size="20" font-weight="bold" fill="#111">SparseCore 的 DMA 只搬 32 位数据：bf16 表先两行并一行，再取、再选半行</text>
+<text x="30" y="80" font-size="15" font-weight="bold" fill="#222">原表：bf16，(4096, 128)</text>
+<text x="30" y="98" font-size="13" fill="#555">每行 128 个 bf16 = 256 字节</text>
+<rect x="70" y="110" width="150" height="26" fill="#ffffff" stroke="#777" stroke-width="1.2"/>
+<text x="62" y="128" font-size="13" fill="#333" text-anchor="end">0</text>
+<rect x="70" y="136" width="150" height="26" fill="#ffffff" stroke="#777" stroke-width="1.2"/>
+<text x="62" y="154" font-size="13" fill="#333" text-anchor="end">1</text>
+<rect x="70" y="162" width="150" height="26" fill="#e6d3f2" stroke="#777" stroke-width="1.2"/>
+<text x="62" y="180" font-size="13" fill="#333" text-anchor="end">2</text>
+<rect x="70" y="188" width="150" height="26" fill="#e6d3f2" stroke="#777" stroke-width="1.2"/>
+<text x="62" y="206" font-size="13" fill="#333" text-anchor="end">3</text>
+<rect x="70" y="214" width="150" height="26" fill="#f6c89f" stroke="#777" stroke-width="1.2"/>
+<text x="62" y="232" font-size="13" fill="#333" text-anchor="end">4</text>
+<rect x="70" y="240" width="150" height="26" fill="#f6c89f" stroke="#777" stroke-width="1.2"/>
+<text x="62" y="258" font-size="13" fill="#333" text-anchor="end">5</text>
+<rect x="70" y="266" width="150" height="26" fill="#ffffff" stroke="#777" stroke-width="1.2"/>
+<text x="62" y="284" font-size="13" fill="#333" text-anchor="end">6</text>
+<rect x="70" y="292" width="150" height="26" fill="#ffffff" stroke="#777" stroke-width="1.2"/>
+<text x="62" y="310" font-size="13" fill="#333" text-anchor="end">7</text>
+<rect x="70" y="318" width="150" height="26" fill="#bcd7f0" stroke="#777" stroke-width="1.2"/>
+<text x="62" y="336" font-size="13" fill="#333" text-anchor="end">8</text>
+<rect x="70" y="344" width="150" height="26" fill="#bcd7f0" stroke="#777" stroke-width="1.2"/>
+<text x="62" y="362" font-size="13" fill="#333" text-anchor="end">9</text>
+<text x="145" y="388" font-size="14" fill="#999" text-anchor="middle">⋮</text>
+<text x="300" y="80" font-size="15" font-weight="bold" fill="#222">打包后：int32，(2048, 128)</text>
+<text x="300" y="98" font-size="13" fill="#555">第 r 行 = 原第 2r、2r+1 行，共 512 字节</text>
+<rect x="340" y="116" width="120" height="40" fill="#ffffff" stroke="#777" stroke-width="1.2"/>
+<text x="400" y="141" font-size="13" fill="#333" text-anchor="middle">原第 0 行</text>
+<rect x="460" y="116" width="120" height="40" fill="#ffffff" stroke="#777" stroke-width="1.2"/>
+<text x="520" y="141" font-size="13" fill="#333" text-anchor="middle">原第 1 行</text>
+<text x="332" y="141" font-size="13" fill="#333" text-anchor="end">0</text>
+<rect x="340" y="168" width="120" height="40" fill="#e6d3f2" stroke="#777" stroke-width="1.2"/>
+<text x="400" y="193" font-size="13" fill="#333" text-anchor="middle">原第 2 行</text>
+<rect x="460" y="168" width="120" height="40" fill="#e6d3f2" stroke="#777" stroke-width="1.2"/>
+<text x="520" y="193" font-size="13" fill="#333" text-anchor="middle">原第 3 行</text>
+<text x="332" y="193" font-size="13" fill="#333" text-anchor="end">1</text>
+<rect x="340" y="220" width="120" height="40" fill="#f6c89f" stroke="#777" stroke-width="1.2"/>
+<text x="400" y="245" font-size="13" fill="#333" text-anchor="middle">原第 4 行</text>
+<rect x="460" y="220" width="120" height="40" fill="#f6c89f" stroke="#777" stroke-width="1.2"/>
+<text x="520" y="245" font-size="13" fill="#333" text-anchor="middle">原第 5 行</text>
+<text x="332" y="245" font-size="13" fill="#333" text-anchor="end">2</text>
+<rect x="340" y="272" width="120" height="40" fill="#ffffff" stroke="#777" stroke-width="1.2"/>
+<text x="400" y="297" font-size="13" fill="#333" text-anchor="middle">原第 6 行</text>
+<rect x="460" y="272" width="120" height="40" fill="#ffffff" stroke="#777" stroke-width="1.2"/>
+<text x="520" y="297" font-size="13" fill="#333" text-anchor="middle">原第 7 行</text>
+<text x="332" y="297" font-size="13" fill="#333" text-anchor="end">3</text>
+<rect x="340" y="324" width="120" height="40" fill="#bcd7f0" stroke="#777" stroke-width="1.2"/>
+<text x="400" y="349" font-size="13" fill="#333" text-anchor="middle">原第 8 行</text>
+<rect x="460" y="324" width="120" height="40" fill="#bcd7f0" stroke="#777" stroke-width="1.2"/>
+<text x="520" y="349" font-size="13" fill="#333" text-anchor="middle">原第 9 行</text>
+<text x="332" y="349" font-size="13" fill="#333" text-anchor="end">4</text>
+<text x="460" y="388" font-size="14" fill="#999" text-anchor="middle">⋮</text>
+<rect x="620" y="70" width="360" height="104" rx="6" fill="#f7f7f7" stroke="#555" stroke-width="1.5"/>
+<text x="632" y="94" font-size="14" fill="#222">要取的原索引：[5, 2, 9]</text>
+<text x="632" y="120" font-size="14" fill="#222">÷ 2 → 打包后的行号 [2, 1, 4]，用它 gather</text>
+<text x="632" y="146" font-size="14" fill="#222">% 2 → 取哪一半 [1, 0, 1]</text>
+<text x="632" y="166" font-size="13" fill="#555">（0 = 前一半，1 = 后一半）</text>
+<text x="620" y="216" font-size="15" font-weight="bold" fill="#222">gather 取回的 3 行（VMEM 中，各 512 字节）</text>
+<rect x="620" y="230" width="120" height="40" fill="url(#hatch)" stroke="#999" stroke-width="1.2"/>
+<text x="680" y="255" font-size="13" fill="#777" text-anchor="middle">原第 4 行</text>
+<rect x="740" y="230" width="120" height="40" fill="#f6c89f" stroke="#222" stroke-width="2.2"/>
+<text x="800" y="255" font-size="13" fill="#222" text-anchor="middle">原第 5 行</text>
+<text x="870" y="255" font-size="14" fill="#222">→ 要的第 5 行</text>
+<path d="M582,240 L616,250" fill="none" stroke="#b5651d" stroke-width="1.8" marker-end="url(#ak)"/>
+<rect x="620" y="290" width="120" height="40" fill="#e6d3f2" stroke="#222" stroke-width="2.2"/>
+<text x="680" y="315" font-size="13" fill="#222" text-anchor="middle">原第 2 行</text>
+<rect x="740" y="290" width="120" height="40" fill="url(#hatch)" stroke="#999" stroke-width="1.2"/>
+<text x="800" y="315" font-size="13" fill="#777" text-anchor="middle">原第 3 行</text>
+<text x="870" y="315" font-size="14" fill="#222">→ 要的第 2 行</text>
+<path d="M582,188 L616,310" fill="none" stroke="#6a3d9a" stroke-width="1.8" marker-end="url(#ak)"/>
+<rect x="620" y="350" width="120" height="40" fill="url(#hatch)" stroke="#999" stroke-width="1.2"/>
+<text x="680" y="375" font-size="13" fill="#777" text-anchor="middle">原第 8 行</text>
+<rect x="740" y="350" width="120" height="40" fill="#bcd7f0" stroke="#222" stroke-width="2.2"/>
+<text x="800" y="375" font-size="13" fill="#222" text-anchor="middle">原第 9 行</text>
+<text x="870" y="375" font-size="14" fill="#222">→ 要的第 9 行</text>
+<path d="M582,344 L616,370" fill="none" stroke="#2c5aa0" stroke-width="1.8" marker-end="url(#ak)"/>
+<text x="620" y="422" font-size="14" fill="#b52a2a">每取 256 字节有用数据，实际搬 512 字节，一半丢弃。</text>
+<text x="20" y="500" font-size="14" fill="#444">颜色对应：紫色 = 原第 2、3 行（打包后第 1 行），橙色 = 原第 4、5 行（第 2 行），蓝色 = 原第 8、9 行（第 4 行）。</text>
+<text x="20" y="522" font-size="14" fill="#444">实线粗框是最后留下的半行；斜线填充的半行随数据一起搬来，然后被丢掉。</text>
+</svg>

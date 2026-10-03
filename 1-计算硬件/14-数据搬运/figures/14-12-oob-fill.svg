@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 600" width="980" height="600" font-family="sans-serif">
+  <rect x="0" y="0" width="980" height="600" fill="#ffffff"/>
+
+  <text x="24" y="32" font-size="19" font-weight="bold" fill="#111">描述符里写一个字段，引擎就自己裁掉出界的部分并补上填充值</text>
+  <text x="24" y="56" font-size="13.5" fill="#444">例子：4004 × 4004 的 bf16 矩阵，一次搬 64 列 × 128 行。取右下角那一块，坐标 x = 3968、y = 3968。</text>
+
+  <!-- left: picture of the block -->
+  <rect x="24" y="72" width="330" height="268" rx="6" fill="#ffffff" stroke="#999"/>
+  <text x="38" y="94" font-size="13.5" font-weight="bold" fill="#111">这一块在张量里的位置</text>
+  <g>
+    <rect x="60" y="110" width="128" height="128" fill="#eaf6ec" stroke="#2e7d32" stroke-width="1.6"/>
+    <text x="124" y="162" font-size="12" fill="#111" text-anchor="middle">真实数据</text>
+    <text x="124" y="182" font-size="12" fill="#111" text-anchor="middle">36 列 × 36 行</text>
+    <rect x="188" y="110" width="100" height="128" fill="#f2f2f2" stroke="#999" stroke-dasharray="4,3"/>
+    <rect x="60" y="238" width="128" height="76" fill="#f2f2f2" stroke="#999" stroke-dasharray="4,3"/>
+    <rect x="188" y="238" width="100" height="76" fill="#f2f2f2" stroke="#999" stroke-dasharray="4,3"/>
+    <text x="238" y="282" font-size="12" fill="#777" text-anchor="middle">张量外面</text>
+    <line x1="188" y1="98" x2="188" y2="322" stroke="#c0392b" stroke-width="2"/>
+    <line x1="48" y1="238" x2="300" y2="238" stroke="#c0392b" stroke-width="2"/>
+    <text x="196" y="106" font-size="11.5" fill="#c0392b">第 4004 列</text>
+    <text x="196" y="330" font-size="11.5" fill="#c0392b">第 4004 行</text>
+  </g>
+
+  <!-- right: engine walk -->
+  <rect x="368" y="72" width="588" height="268" rx="6" fill="#f7f7f7" stroke="#999"/>
+  <text x="382" y="94" font-size="13.5" font-weight="bold" fill="#111">引擎逐行推进时做了什么</text>
+  <line x1="382" y1="104" x2="942" y2="104" stroke="#bbb"/>
+  <text x="390" y="124" font-size="12.5" font-weight="bold" fill="#111">第几行</text>
+  <text x="480" y="124" font-size="12.5" font-weight="bold" fill="#111">行号</text>
+  <text x="566" y="124" font-size="12.5" font-weight="bold" fill="#111">在张量里吗</text>
+  <text x="690" y="124" font-size="12.5" font-weight="bold" fill="#111">引擎的动作</text>
+
+  <text x="390" y="148" font-size="12.5" fill="#333">0</text>
+  <text x="480" y="148" font-size="12.5" fill="#333">3968</text>
+  <text x="566" y="148" font-size="12.5" fill="#2e7d32">在</text>
+  <text x="690" y="148" font-size="12.5" fill="#333">读 36 个元素（72 字节），余下 56 字节填值</text>
+
+  <text x="390" y="172" font-size="12.5" fill="#333">1 … 34</text>
+  <text x="480" y="172" font-size="12.5" fill="#333">3969 … 4002</text>
+  <text x="566" y="172" font-size="12.5" fill="#2e7d32">在</text>
+  <text x="690" y="172" font-size="12.5" fill="#333">同上</text>
+
+  <text x="390" y="196" font-size="12.5" fill="#333">35</text>
+  <text x="480" y="196" font-size="12.5" fill="#333">4003</text>
+  <text x="566" y="196" font-size="12.5" fill="#2e7d32">在</text>
+  <text x="690" y="196" font-size="12.5" fill="#333">同上</text>
+
+  <text x="390" y="220" font-size="12.5" fill="#333">36 … 127</text>
+  <text x="480" y="220" font-size="12.5" fill="#333">4004 … 4095</text>
+  <text x="566" y="220" font-size="12.5" fill="#c0392b">不在</text>
+  <text x="690" y="220" font-size="12.5" fill="#333">一个请求都不发，整行 128 字节写填充值</text>
+
+  <line x1="382" y1="236" x2="942" y2="236" stroke="#bbb"/>
+  <text x="390" y="258" font-size="12.5" fill="#333">真正读回来的有效数据：36 行 × 72 字节 = 2592 字节</text>
+  <text x="390" y="280" font-size="12.5" font-weight="bold" fill="#c0392b">要等的字节数仍然写整块的 16384，不是 2592</text>
+  <text x="390" y="302" font-size="12.5" fill="#444">屏障按整块记账。填充的那部分也由引擎汇报，所以计数能凑满。</text>
+  <text x="390" y="324" font-size="12.5" fill="#444">写成 2592 的话，计数永远凑不满，等待的线程一直不放行。</text>
+
+  <!-- fill modes -->
+  <rect x="24" y="356" width="464" height="226" rx="6" fill="#eaf6ec" stroke="#2e7d32" stroke-width="1.5"/>
+  <text x="38" y="380" font-size="14" font-weight="bold" fill="#2e7d32">填充值有两种，在主机侧编描述符时选定</text>
+  <text x="38" y="404" font-size="12.5" fill="#333" font-family="monospace">CU_TENSOR_MAP_FLOAT_OOB_FILL_NONE</text>
+  <text x="38" y="424" font-size="12.5" fill="#333">出界的元素填 0。矩阵乘里 0 乘任何数都是 0，</text>
+  <text x="38" y="442" font-size="12.5" fill="#333">对累加没有贡献，所以边界块和普通块用同一段代码。</text>
+
+  <text x="38" y="472" font-size="12.5" fill="#333" font-family="monospace">CU_TENSOR_MAP_FLOAT_OOB_FILL_</text>
+  <text x="38" y="490" font-size="12.5" fill="#333" font-family="monospace">NAN_REQUEST_ZERO_FMA</text>
+  <text x="38" y="512" font-size="12.5" fill="#333">出界的元素填一个特殊的 NaN，叫 OOB-NaN。</text>
+  <text x="38" y="530" font-size="12.5" fill="#333">只有浮点类型能用。</text>
+  <text x="38" y="558" font-size="12" fill="#555">两种模式都不需要程序写任何判断语句。</text>
+
+  <rect x="504" y="356" width="452" height="226" rx="6" fill="#fff6e5" stroke="#d97706" stroke-width="1.5"/>
+  <text x="518" y="380" font-size="14" font-weight="bold" fill="#b45309">为什么还要第二种填充值</text>
+  <text x="518" y="404" font-size="12.5" fill="#333">填出来的 0 和数据里真实的 0 分不开。乘加不受影响，</text>
+  <text x="518" y="422" font-size="12.5" fill="#333">但别的运算会受影响。例如一行真实数据全是负数时，</text>
+  <text x="518" y="440" font-size="12.5" fill="#333">对这一行求最大值，填出来的 0 会成为最大值。</text>
+  <text x="518" y="470" font-size="12.5" fill="#333">OOB-NaN 是一个取值固定的 NaN。手册有两条规则：</text>
+  <text x="518" y="488" font-size="12.5" fill="#333">1. 带 .oob 的乘加遇到它，结果强制为 +0.0：</text>
+  <text x="518" y="508" font-size="12" fill="#111" font-family="monospace">fma.oob.f16 / .f16x2 / .bf16 / .bf16x2</text>
+  <text x="518" y="528" font-size="12.5" fill="#333">2. 不带 .NaN 的 max 遇到 NaN，返回另一个操作数。</text>
+  <text x="518" y="554" font-size="12" fill="#555">用法是本库按这两条规则推断的，NVIDIA 没有说明</text>
+  <text x="518" y="572" font-size="12" fill="#555">这种填充模式是为哪类算法设计的。</text>
+</svg>

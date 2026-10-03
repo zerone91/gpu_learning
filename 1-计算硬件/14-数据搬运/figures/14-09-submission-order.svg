@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" font-family="sans-serif">
+  <rect x="0" y="0" width="960" height="520" fill="#ffffff"/>
+
+  <text x="30" y="34" font-size="17" font-weight="bold" fill="#222">同一个程序的三种写法，在两张卡上的实测用时（毫秒，越短越好）</text>
+
+  <!-- 图例：三种写法 -->
+  <rect x="30" y="50" width="22" height="16" fill="#bbbbbb" stroke="#777" stroke-width="1.2"/>
+  <text x="60" y="64" font-size="14" fill="#333">串行：拷进去、算、拷回来，一块做完再做下一块</text>
+  <rect x="430" y="50" width="22" height="16" fill="#7fb3e0" stroke="#2f6ea8" stroke-width="1.2"/>
+  <text x="460" y="64" font-size="14" fill="#333">写法一：每块一条 stream，按块提交三件事</text>
+  <rect x="30" y="76" width="22" height="16" fill="#8fc98f" stroke="#3b7d3b" stroke-width="1.2"/>
+  <text x="60" y="90" font-size="14" fill="#333">写法二：先提交全部拷入，再提交全部计算，最后提交全部拷回</text>
+
+  <!-- ===== 左：C1060 ===== -->
+  <rect x="30" y="110" width="430" height="300" fill="#fbfbfb" stroke="#999" stroke-width="1.5"/>
+  <text x="46" y="136" font-size="16" font-weight="bold" fill="#222">Tesla C1060：1 个 copy engine</text>
+  <text x="46" y="158" font-size="14" fill="#555">两个方向的拷贝排在同一个引擎上</text>
+
+  <!-- 基线 -->
+  <line x1="130" y1="180" x2="130" y2="380" stroke="#444" stroke-width="1.5"/>
+  <!-- 条：比例 20 px/ms -->
+  <rect x="130" y="186" width="258" height="36" fill="#bbbbbb" stroke="#777" stroke-width="1.2"/>
+  <text x="46" y="210" font-size="14" fill="#333">串行</text>
+  <text x="396" y="210" font-size="15" fill="#222">12.92</text>
+
+  <rect x="130" y="248" width="273" height="36" fill="#7fb3e0" stroke="#2f6ea8" stroke-width="1.2"/>
+  <text x="46" y="272" font-size="14" fill="#333">写法一</text>
+  <text x="411" y="272" font-size="15" fill="#c0392b">13.64</text>
+
+  <rect x="130" y="310" width="177" height="36" fill="#8fc98f" stroke="#3b7d3b" stroke-width="1.2"/>
+  <text x="46" y="334" font-size="14" fill="#333">写法二</text>
+  <text x="315" y="334" font-size="15" fill="#222">8.85</text>
+
+  <text x="46" y="372" font-size="14" fill="#c0392b">写法一比串行还慢：块 0 的拷回挡住了块 1 的拷入。</text>
+  <text x="46" y="394" font-size="14" fill="#333">只有写法二能重叠。</text>
+
+  <!-- ===== 右：C2050 ===== -->
+  <rect x="500" y="110" width="430" height="300" fill="#fbfbfb" stroke="#999" stroke-width="1.5"/>
+  <text x="516" y="136" font-size="16" font-weight="bold" fill="#222">Tesla C2050：2 个 copy engine</text>
+  <text x="516" y="158" font-size="14" fill="#555">拷入和拷回各占一个引擎</text>
+
+  <line x1="600" y1="180" x2="600" y2="380" stroke="#444" stroke-width="1.5"/>
+  <rect x="600" y="186" width="200" height="36" fill="#bbbbbb" stroke="#777" stroke-width="1.2"/>
+  <text x="516" y="210" font-size="14" fill="#333">串行</text>
+  <text x="808" y="210" font-size="15" fill="#222">9.98</text>
+
+  <rect x="600" y="248" width="115" height="36" fill="#7fb3e0" stroke="#2f6ea8" stroke-width="1.2"/>
+  <text x="516" y="272" font-size="14" fill="#333">写法一</text>
+  <text x="723" y="272" font-size="15" fill="#222">5.74</text>
+
+  <rect x="600" y="310" width="152" height="36" fill="#8fc98f" stroke="#3b7d3b" stroke-width="1.2"/>
+  <text x="516" y="334" font-size="14" fill="#333">写法二</text>
+  <text x="760" y="334" font-size="15" fill="#222">7.60</text>
+
+  <text x="516" y="372" font-size="14" fill="#333">写法一最快：拷回不再挡住拷入。</text>
+  <text x="516" y="394" font-size="14" fill="#333">两种写法都能重叠，顺序不再决定成败。</text>
+
+  <!-- 结论 -->
+  <rect x="30" y="428" width="900" height="72" fill="#f6f6f6" stroke="#999" stroke-width="1.5"/>
+  <text x="46" y="454" font-size="15" fill="#222">结论：引擎的数目决定了提交顺序要不要讲究。只有一个引擎时，所有拷贝排一条队，顺序错了就没有重叠。</text>
+  <text x="46" y="478" font-size="15" fill="#222">今天的数据中心卡有多个引擎，也有多条硬件队列，所以这个顺序问题基本消失。</text>
+  <text x="46" y="496" font-size="13" fill="#666">数据取自 NVIDIA 技术博客 How to Overlap Data Transfers in CUDA C/C++ 的实测。两张卡的绝对值不可直接相比，只比同一张卡内的三根条。</text>
+</svg>

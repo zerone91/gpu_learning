@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 620" width="1000" height="620" font-family="sans-serif">
+<rect x="0" y="0" width="1000" height="620" fill="#ffffff"/>
+<defs>
+<marker id="aD" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 z" fill="#333"/></marker>
+<marker id="aR" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 z" fill="#aa2222"/></marker>
+</defs>
+
+<text x="20" y="30" font-size="19" font-weight="bold">一条标量指令流把搬运和计算分发到三个队列，队列之间的先后只能靠标志位</text>
+<text x="20" y="54" font-size="13" fill="#555">左边是程序里的指令顺序。右边是硬件上的三条队列。标量单元发出一条指令后不等它做完，立刻发下一条。</text>
+
+<!-- program -->
+<rect x="20" y="80" width="300" height="380" fill="#fff8e6" stroke="#9c7a00" stroke-width="2"/>
+<text x="170" y="104" font-size="15" text-anchor="middle" font-weight="bold">程序顺序（Scalar 单元逐条发出）</text>
+<text x="36" y="136" font-size="14" fill="#1f5c99">① DataCopy(A1, GM, …)</text>
+<text x="36" y="164" font-size="14" fill="#1f5c99">② DataCopy(B1, GM, …)</text>
+<text x="36" y="192" font-size="14" fill="#aa2222">③ SetFlag&lt;MTE2_MTE1&gt;(0)</text>
+<text x="36" y="220" font-size="14" fill="#aa2222">④ WaitFlag&lt;MTE2_MTE1&gt;(0)</text>
+<text x="36" y="248" font-size="14" fill="#2a662a">⑤ LoadData(A2, A1, …)</text>
+<text x="36" y="276" font-size="14" fill="#2a662a">⑥ LoadData(B2, B1, …)</text>
+<text x="36" y="304" font-size="14" fill="#aa2222">⑦ SetFlag&lt;MTE1_M&gt;(0)</text>
+<text x="36" y="332" font-size="14" fill="#aa2222">⑧ WaitFlag&lt;MTE1_M&gt;(0)</text>
+<text x="36" y="360" font-size="14" fill="#8a4a00">⑨ Mmad(CO1, A2, B2, …)</text>
+<text x="36" y="398" font-size="13" fill="#555">① ② 进 MTE2 队列，⑤ ⑥ 进 MTE1 队列，</text>
+<text x="36" y="418" font-size="13" fill="#555">⑨ 进 Cube 队列。③ ④ ⑦ ⑧ 只动标志位。</text>
+<text x="36" y="444" font-size="13" fill="#555">同一条队列内按发出顺序执行。</text>
+
+<!-- dispatch -->
+<rect x="350" y="230" width="90" height="80" fill="#e8e8e8" stroke="#333" stroke-width="2"/>
+<text x="395" y="262" font-size="14" text-anchor="middle" font-weight="bold">分发</text>
+<text x="395" y="284" font-size="13" text-anchor="middle">单元</text>
+<path d="M320,270 L350,270" stroke="#333" stroke-width="2.5" marker-end="url(#aD)"/>
+
+<!-- queues -->
+<g>
+<rect x="500" y="100" width="300" height="56" fill="#cfe2f3" stroke="#1f5c99" stroke-width="2"/>
+<line x1="600" y1="100" x2="600" y2="156" stroke="#1f5c99"/>
+<line x1="700" y1="100" x2="700" y2="156" stroke="#1f5c99"/>
+<text x="550" y="134" font-size="15" text-anchor="middle">①</text>
+<text x="650" y="134" font-size="15" text-anchor="middle">②</text>
+<text x="500" y="92" font-size="14" font-weight="bold" fill="#1f5c99">MTE2 队列（GM → L1 / UB）</text>
+<rect x="830" y="100" width="140" height="56" fill="#cfe2f3" stroke="#1f5c99" stroke-width="2"/>
+<text x="900" y="134" font-size="14" text-anchor="middle" font-weight="bold">MTE2 引擎</text>
+<path d="M800,128 L830,128" stroke="#333" stroke-width="2.5" marker-end="url(#aD)"/>
+</g>
+<g>
+<rect x="500" y="245" width="300" height="56" fill="#d6ead6" stroke="#2a662a" stroke-width="2"/>
+<line x1="600" y1="245" x2="600" y2="301" stroke="#2a662a"/>
+<line x1="700" y1="245" x2="700" y2="301" stroke="#2a662a"/>
+<text x="550" y="279" font-size="15" text-anchor="middle">⑤</text>
+<text x="650" y="279" font-size="15" text-anchor="middle">⑥</text>
+<text x="500" y="237" font-size="14" font-weight="bold" fill="#2a662a">MTE1 队列（L1 → L0A / L0B）</text>
+<rect x="830" y="245" width="140" height="56" fill="#d6ead6" stroke="#2a662a" stroke-width="2"/>
+<text x="900" y="279" font-size="14" text-anchor="middle" font-weight="bold">MTE1 引擎</text>
+<path d="M800,273 L830,273" stroke="#333" stroke-width="2.5" marker-end="url(#aD)"/>
+</g>
+<g>
+<rect x="500" y="390" width="300" height="56" fill="#f6e0c8" stroke="#8a4a00" stroke-width="2"/>
+<line x1="600" y1="390" x2="600" y2="446" stroke="#8a4a00"/>
+<line x1="700" y1="390" x2="700" y2="446" stroke="#8a4a00"/>
+<text x="550" y="424" font-size="15" text-anchor="middle">⑨</text>
+<text x="500" y="382" font-size="14" font-weight="bold" fill="#8a4a00">Cube 队列（矩阵乘加）</text>
+<rect x="830" y="390" width="140" height="56" fill="#f6e0c8" stroke="#8a4a00" stroke-width="2"/>
+<text x="900" y="424" font-size="14" text-anchor="middle" font-weight="bold">Cube 单元</text>
+<path d="M800,418 L830,418" stroke="#333" stroke-width="2.5" marker-end="url(#aD)"/>
+</g>
+<path d="M440,250 L470,250 L470,128 L500,128" stroke="#333" stroke-width="2.5" fill="none" marker-end="url(#aD)"/>
+<path d="M440,270 L500,270" stroke="#333" stroke-width="2.5" fill="none" marker-end="url(#aD)"/>
+<path d="M440,290 L470,290 L470,418 L500,418" stroke="#333" stroke-width="2.5" fill="none" marker-end="url(#aD)"/>
+
+<!-- flag register -->
+<rect x="500" y="488" width="470" height="60" fill="#fbdcdc" stroke="#aa2222" stroke-width="2"/>
+<text x="735" y="512" font-size="15" text-anchor="middle" font-weight="bold">标志寄存器组</text>
+<text x="735" y="534" font-size="13" text-anchor="middle">每种"源流水线 → 目的流水线"配对各 8 个事件 ID</text>
+<path d="M900,156 L900,170 L480,170 L480,518 L500,518" stroke="#aa2222" stroke-width="2.5" fill="none" marker-end="url(#aR)" stroke-dasharray="6,4"/>
+<text x="968" y="186" font-size="13" text-anchor="end" fill="#aa2222">MTE2 做完 ① ② 后，把这一位置 1</text>
+<path d="M500,530 L476,530 L476,214 L500,214" stroke="#aa2222" stroke-width="2.5" fill="none" marker-end="url(#aR)" stroke-dasharray="6,4"/>
+<text x="330" y="534" font-size="13" text-anchor="end" fill="#aa2222">MTE1 队列在 ④ 处等这一位变成 1</text>
+
+<rect x="20" y="565" width="950" height="42" fill="#f7f7f7" stroke="#999"/>
+<text x="36" y="592" font-size="14">结论：队列之间没有任何硬件检查。如果去掉 ③ ④ 两条，MTE1 会立刻搬走 L1 里的旧数据，程序不报错。</text>
+</svg>

@@ -1,0 +1,322 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 620" width="1180" height="620" font-family="sans-serif">
+<rect x="0" y="0" width="1180" height="620" fill="#ffffff"/>
+<defs><marker id="am" markerWidth="9" markerHeight="9" refX="7" refY="3.2" orient="auto"><path d="M0,0 L7,3.2 L0,6.4 z" fill="#8a3a3a"/></marker></defs>
+<text x="24" y="34" font-size="20" font-weight="bold" fill="#111">ldmatrix：8 个 lane 交出行首地址，硬件把 64 个数发给 32 个 lane</text>
+<text x="24" y="58" font-size="14" fill="#555">加上 .trans 之后，交出去的地址一个字都不改，改的只是"读出来的数往哪个 lane 发"。格里写的是"这个元素最后到哪个 lane 手里"。</text>
+<text x="176" y="94" font-size="16" font-weight="bold" fill="#111">不带 .trans：lane T 拿第 ⌊T/4⌋ 行的第 2(T mod 4) 与 +1 两列</text>
+<text x="176" y="116" font-size="14" fill="#8a3a3a">对照 mma 的 A 操作数表，严丝合缝</text>
+<text x="206.0" y="135" font-size="13" fill="#555" text-anchor="middle">列0</text>
+<text x="258.0" y="135" font-size="13" fill="#555" text-anchor="middle">列1</text>
+<text x="310.0" y="135" font-size="13" fill="#555" text-anchor="middle">列2</text>
+<text x="362.0" y="135" font-size="13" fill="#555" text-anchor="middle">列3</text>
+<text x="414.0" y="135" font-size="13" fill="#555" text-anchor="middle">列4</text>
+<text x="466.0" y="135" font-size="13" fill="#555" text-anchor="middle">列5</text>
+<text x="518.0" y="135" font-size="13" fill="#555" text-anchor="middle">列6</text>
+<text x="570.0" y="135" font-size="13" fill="#555" text-anchor="middle">列7</text>
+<text x="172" y="162" font-size="13" fill="#555" text-anchor="end">行0</text>
+<rect x="180" y="140" width="52" height="34" fill="#dce8f5" stroke="#777" stroke-width="1.5"/>
+<text x="206.0" y="162" font-size="14" fill="#111" text-anchor="middle">T0</text>
+<rect x="232" y="140" width="52" height="34" fill="#dce8f5" stroke="#777" stroke-width="1.5"/>
+<text x="258.0" y="162" font-size="14" fill="#111" text-anchor="middle">T0</text>
+<rect x="284" y="140" width="52" height="34" fill="#dce8f5" stroke="#777" stroke-width="1.5"/>
+<text x="310.0" y="162" font-size="14" fill="#111" text-anchor="middle">T1</text>
+<rect x="336" y="140" width="52" height="34" fill="#dce8f5" stroke="#777" stroke-width="1.5"/>
+<text x="362.0" y="162" font-size="14" fill="#111" text-anchor="middle">T1</text>
+<rect x="388" y="140" width="52" height="34" fill="#dce8f5" stroke="#777" stroke-width="1.5"/>
+<text x="414.0" y="162" font-size="14" fill="#111" text-anchor="middle">T2</text>
+<rect x="440" y="140" width="52" height="34" fill="#dce8f5" stroke="#777" stroke-width="1.5"/>
+<text x="466.0" y="162" font-size="14" fill="#111" text-anchor="middle">T2</text>
+<rect x="492" y="140" width="52" height="34" fill="#dce8f5" stroke="#777" stroke-width="1.5"/>
+<text x="518.0" y="162" font-size="14" fill="#111" text-anchor="middle">T3</text>
+<rect x="544" y="140" width="52" height="34" fill="#dce8f5" stroke="#777" stroke-width="1.5"/>
+<text x="570.0" y="162" font-size="14" fill="#111" text-anchor="middle">T3</text>
+<text x="172" y="196" font-size="13" fill="#555" text-anchor="end">行1</text>
+<rect x="180" y="174" width="52" height="34" fill="#e8dcf5" stroke="#777" stroke-width="1.5"/>
+<text x="206.0" y="196" font-size="14" fill="#111" text-anchor="middle">T4</text>
+<rect x="232" y="174" width="52" height="34" fill="#e8dcf5" stroke="#777" stroke-width="1.5"/>
+<text x="258.0" y="196" font-size="14" fill="#111" text-anchor="middle">T4</text>
+<rect x="284" y="174" width="52" height="34" fill="#e8dcf5" stroke="#777" stroke-width="1.5"/>
+<text x="310.0" y="196" font-size="14" fill="#111" text-anchor="middle">T5</text>
+<rect x="336" y="174" width="52" height="34" fill="#e8dcf5" stroke="#777" stroke-width="1.5"/>
+<text x="362.0" y="196" font-size="14" fill="#111" text-anchor="middle">T5</text>
+<rect x="388" y="174" width="52" height="34" fill="#e8dcf5" stroke="#777" stroke-width="1.5"/>
+<text x="414.0" y="196" font-size="14" fill="#111" text-anchor="middle">T6</text>
+<rect x="440" y="174" width="52" height="34" fill="#e8dcf5" stroke="#777" stroke-width="1.5"/>
+<text x="466.0" y="196" font-size="14" fill="#111" text-anchor="middle">T6</text>
+<rect x="492" y="174" width="52" height="34" fill="#e8dcf5" stroke="#777" stroke-width="1.5"/>
+<text x="518.0" y="196" font-size="14" fill="#111" text-anchor="middle">T7</text>
+<rect x="544" y="174" width="52" height="34" fill="#e8dcf5" stroke="#777" stroke-width="1.5"/>
+<text x="570.0" y="196" font-size="14" fill="#111" text-anchor="middle">T7</text>
+<text x="172" y="230" font-size="13" fill="#555" text-anchor="end">行2</text>
+<rect x="180" y="208" width="52" height="34" fill="#dcf5e4" stroke="#777" stroke-width="1.5"/>
+<text x="206.0" y="230" font-size="14" fill="#111" text-anchor="middle">T8</text>
+<rect x="232" y="208" width="52" height="34" fill="#dcf5e4" stroke="#777" stroke-width="1.5"/>
+<text x="258.0" y="230" font-size="14" fill="#111" text-anchor="middle">T8</text>
+<rect x="284" y="208" width="52" height="34" fill="#dcf5e4" stroke="#777" stroke-width="1.5"/>
+<text x="310.0" y="230" font-size="14" fill="#111" text-anchor="middle">T9</text>
+<rect x="336" y="208" width="52" height="34" fill="#dcf5e4" stroke="#777" stroke-width="1.5"/>
+<text x="362.0" y="230" font-size="14" fill="#111" text-anchor="middle">T9</text>
+<rect x="388" y="208" width="52" height="34" fill="#dcf5e4" stroke="#777" stroke-width="1.5"/>
+<text x="414.0" y="230" font-size="14" fill="#111" text-anchor="middle">T10</text>
+<rect x="440" y="208" width="52" height="34" fill="#dcf5e4" stroke="#777" stroke-width="1.5"/>
+<text x="466.0" y="230" font-size="14" fill="#111" text-anchor="middle">T10</text>
+<rect x="492" y="208" width="52" height="34" fill="#dcf5e4" stroke="#777" stroke-width="1.5"/>
+<text x="518.0" y="230" font-size="14" fill="#111" text-anchor="middle">T11</text>
+<rect x="544" y="208" width="52" height="34" fill="#dcf5e4" stroke="#777" stroke-width="1.5"/>
+<text x="570.0" y="230" font-size="14" fill="#111" text-anchor="middle">T11</text>
+<text x="172" y="264" font-size="13" fill="#555" text-anchor="end">行3</text>
+<rect x="180" y="242" width="52" height="34" fill="#f5f0dc" stroke="#777" stroke-width="1.5"/>
+<text x="206.0" y="264" font-size="14" fill="#111" text-anchor="middle">T12</text>
+<rect x="232" y="242" width="52" height="34" fill="#f5f0dc" stroke="#777" stroke-width="1.5"/>
+<text x="258.0" y="264" font-size="14" fill="#111" text-anchor="middle">T12</text>
+<rect x="284" y="242" width="52" height="34" fill="#f5f0dc" stroke="#777" stroke-width="1.5"/>
+<text x="310.0" y="264" font-size="14" fill="#111" text-anchor="middle">T13</text>
+<rect x="336" y="242" width="52" height="34" fill="#f5f0dc" stroke="#777" stroke-width="1.5"/>
+<text x="362.0" y="264" font-size="14" fill="#111" text-anchor="middle">T13</text>
+<rect x="388" y="242" width="52" height="34" fill="#f5f0dc" stroke="#777" stroke-width="1.5"/>
+<text x="414.0" y="264" font-size="14" fill="#111" text-anchor="middle">T14</text>
+<rect x="440" y="242" width="52" height="34" fill="#f5f0dc" stroke="#777" stroke-width="1.5"/>
+<text x="466.0" y="264" font-size="14" fill="#111" text-anchor="middle">T14</text>
+<rect x="492" y="242" width="52" height="34" fill="#f5f0dc" stroke="#777" stroke-width="1.5"/>
+<text x="518.0" y="264" font-size="14" fill="#111" text-anchor="middle">T15</text>
+<rect x="544" y="242" width="52" height="34" fill="#f5f0dc" stroke="#777" stroke-width="1.5"/>
+<text x="570.0" y="264" font-size="14" fill="#111" text-anchor="middle">T15</text>
+<text x="172" y="298" font-size="13" fill="#555" text-anchor="end">行4</text>
+<rect x="180" y="276" width="52" height="34" fill="#f5dcdc" stroke="#777" stroke-width="1.5"/>
+<text x="206.0" y="298" font-size="14" fill="#111" text-anchor="middle">T16</text>
+<rect x="232" y="276" width="52" height="34" fill="#f5dcdc" stroke="#777" stroke-width="1.5"/>
+<text x="258.0" y="298" font-size="14" fill="#111" text-anchor="middle">T16</text>
+<rect x="284" y="276" width="52" height="34" fill="#f5dcdc" stroke="#777" stroke-width="1.5"/>
+<text x="310.0" y="298" font-size="14" fill="#111" text-anchor="middle">T17</text>
+<rect x="336" y="276" width="52" height="34" fill="#f5dcdc" stroke="#777" stroke-width="1.5"/>
+<text x="362.0" y="298" font-size="14" fill="#111" text-anchor="middle">T17</text>
+<rect x="388" y="276" width="52" height="34" fill="#f5dcdc" stroke="#777" stroke-width="1.5"/>
+<text x="414.0" y="298" font-size="14" fill="#111" text-anchor="middle">T18</text>
+<rect x="440" y="276" width="52" height="34" fill="#f5dcdc" stroke="#777" stroke-width="1.5"/>
+<text x="466.0" y="298" font-size="14" fill="#111" text-anchor="middle">T18</text>
+<rect x="492" y="276" width="52" height="34" fill="#f5dcdc" stroke="#777" stroke-width="1.5"/>
+<text x="518.0" y="298" font-size="14" fill="#111" text-anchor="middle">T19</text>
+<rect x="544" y="276" width="52" height="34" fill="#f5dcdc" stroke="#777" stroke-width="1.5"/>
+<text x="570.0" y="298" font-size="14" fill="#111" text-anchor="middle">T19</text>
+<text x="172" y="332" font-size="13" fill="#555" text-anchor="end">行5</text>
+<rect x="180" y="310" width="52" height="34" fill="#dcf2f5" stroke="#777" stroke-width="1.5"/>
+<text x="206.0" y="332" font-size="14" fill="#111" text-anchor="middle">T20</text>
+<rect x="232" y="310" width="52" height="34" fill="#dcf2f5" stroke="#777" stroke-width="1.5"/>
+<text x="258.0" y="332" font-size="14" fill="#111" text-anchor="middle">T20</text>
+<rect x="284" y="310" width="52" height="34" fill="#dcf2f5" stroke="#777" stroke-width="1.5"/>
+<text x="310.0" y="332" font-size="14" fill="#111" text-anchor="middle">T21</text>
+<rect x="336" y="310" width="52" height="34" fill="#dcf2f5" stroke="#777" stroke-width="1.5"/>
+<text x="362.0" y="332" font-size="14" fill="#111" text-anchor="middle">T21</text>
+<rect x="388" y="310" width="52" height="34" fill="#dcf2f5" stroke="#777" stroke-width="1.5"/>
+<text x="414.0" y="332" font-size="14" fill="#111" text-anchor="middle">T22</text>
+<rect x="440" y="310" width="52" height="34" fill="#dcf2f5" stroke="#777" stroke-width="1.5"/>
+<text x="466.0" y="332" font-size="14" fill="#111" text-anchor="middle">T22</text>
+<rect x="492" y="310" width="52" height="34" fill="#dcf2f5" stroke="#777" stroke-width="1.5"/>
+<text x="518.0" y="332" font-size="14" fill="#111" text-anchor="middle">T23</text>
+<rect x="544" y="310" width="52" height="34" fill="#dcf2f5" stroke="#777" stroke-width="1.5"/>
+<text x="570.0" y="332" font-size="14" fill="#111" text-anchor="middle">T23</text>
+<text x="172" y="366" font-size="13" fill="#555" text-anchor="end">行6</text>
+<rect x="180" y="344" width="52" height="34" fill="#ecdcf5" stroke="#777" stroke-width="1.5"/>
+<text x="206.0" y="366" font-size="14" fill="#111" text-anchor="middle">T24</text>
+<rect x="232" y="344" width="52" height="34" fill="#ecdcf5" stroke="#777" stroke-width="1.5"/>
+<text x="258.0" y="366" font-size="14" fill="#111" text-anchor="middle">T24</text>
+<rect x="284" y="344" width="52" height="34" fill="#ecdcf5" stroke="#777" stroke-width="1.5"/>
+<text x="310.0" y="366" font-size="14" fill="#111" text-anchor="middle">T25</text>
+<rect x="336" y="344" width="52" height="34" fill="#ecdcf5" stroke="#777" stroke-width="1.5"/>
+<text x="362.0" y="366" font-size="14" fill="#111" text-anchor="middle">T25</text>
+<rect x="388" y="344" width="52" height="34" fill="#ecdcf5" stroke="#777" stroke-width="1.5"/>
+<text x="414.0" y="366" font-size="14" fill="#111" text-anchor="middle">T26</text>
+<rect x="440" y="344" width="52" height="34" fill="#ecdcf5" stroke="#777" stroke-width="1.5"/>
+<text x="466.0" y="366" font-size="14" fill="#111" text-anchor="middle">T26</text>
+<rect x="492" y="344" width="52" height="34" fill="#ecdcf5" stroke="#777" stroke-width="1.5"/>
+<text x="518.0" y="366" font-size="14" fill="#111" text-anchor="middle">T27</text>
+<rect x="544" y="344" width="52" height="34" fill="#ecdcf5" stroke="#777" stroke-width="1.5"/>
+<text x="570.0" y="366" font-size="14" fill="#111" text-anchor="middle">T27</text>
+<text x="172" y="400" font-size="13" fill="#555" text-anchor="end">行7</text>
+<rect x="180" y="378" width="52" height="34" fill="#e6f5dc" stroke="#777" stroke-width="1.5"/>
+<text x="206.0" y="400" font-size="14" fill="#111" text-anchor="middle">T28</text>
+<rect x="232" y="378" width="52" height="34" fill="#e6f5dc" stroke="#777" stroke-width="1.5"/>
+<text x="258.0" y="400" font-size="14" fill="#111" text-anchor="middle">T28</text>
+<rect x="284" y="378" width="52" height="34" fill="#e6f5dc" stroke="#777" stroke-width="1.5"/>
+<text x="310.0" y="400" font-size="14" fill="#111" text-anchor="middle">T29</text>
+<rect x="336" y="378" width="52" height="34" fill="#e6f5dc" stroke="#777" stroke-width="1.5"/>
+<text x="362.0" y="400" font-size="14" fill="#111" text-anchor="middle">T29</text>
+<rect x="388" y="378" width="52" height="34" fill="#e6f5dc" stroke="#777" stroke-width="1.5"/>
+<text x="414.0" y="400" font-size="14" fill="#111" text-anchor="middle">T30</text>
+<rect x="440" y="378" width="52" height="34" fill="#e6f5dc" stroke="#777" stroke-width="1.5"/>
+<text x="466.0" y="400" font-size="14" fill="#111" text-anchor="middle">T30</text>
+<rect x="492" y="378" width="52" height="34" fill="#e6f5dc" stroke="#777" stroke-width="1.5"/>
+<text x="518.0" y="400" font-size="14" fill="#111" text-anchor="middle">T31</text>
+<rect x="544" y="378" width="52" height="34" fill="#e6f5dc" stroke="#777" stroke-width="1.5"/>
+<text x="570.0" y="400" font-size="14" fill="#111" text-anchor="middle">T31</text>
+<text x="114" y="162" font-size="13" fill="#8a3a3a" text-anchor="end">t0 给地址</text>
+<line x1="118" y1="157" x2="146" y2="157" stroke="#8a3a3a" stroke-width="1.5" marker-end="url(#am)"/>
+<text x="114" y="196" font-size="13" fill="#8a3a3a" text-anchor="end">t1 给地址</text>
+<line x1="118" y1="191" x2="146" y2="191" stroke="#8a3a3a" stroke-width="1.5" marker-end="url(#am)"/>
+<text x="114" y="230" font-size="13" fill="#8a3a3a" text-anchor="end">t2 给地址</text>
+<line x1="118" y1="225" x2="146" y2="225" stroke="#8a3a3a" stroke-width="1.5" marker-end="url(#am)"/>
+<text x="114" y="264" font-size="13" fill="#8a3a3a" text-anchor="end">t3 给地址</text>
+<line x1="118" y1="259" x2="146" y2="259" stroke="#8a3a3a" stroke-width="1.5" marker-end="url(#am)"/>
+<text x="114" y="298" font-size="13" fill="#8a3a3a" text-anchor="end">t4 给地址</text>
+<line x1="118" y1="293" x2="146" y2="293" stroke="#8a3a3a" stroke-width="1.5" marker-end="url(#am)"/>
+<text x="114" y="332" font-size="13" fill="#8a3a3a" text-anchor="end">t5 给地址</text>
+<line x1="118" y1="327" x2="146" y2="327" stroke="#8a3a3a" stroke-width="1.5" marker-end="url(#am)"/>
+<text x="114" y="366" font-size="13" fill="#8a3a3a" text-anchor="end">t6 给地址</text>
+<line x1="118" y1="361" x2="146" y2="361" stroke="#8a3a3a" stroke-width="1.5" marker-end="url(#am)"/>
+<text x="114" y="400" font-size="13" fill="#8a3a3a" text-anchor="end">t7 给地址</text>
+<line x1="118" y1="395" x2="146" y2="395" stroke="#8a3a3a" stroke-width="1.5" marker-end="url(#am)"/>
+<text x="114" y="116" font-size="14" font-weight="bold" fill="#8a3a3a" text-anchor="end">8 个行首地址</text>
+<text x="114" y="135" font-size="12" fill="#8a3a3a" text-anchor="end">每个 16 字节</text>
+<text x="696" y="94" font-size="16" font-weight="bold" fill="#111">带 .trans：lane T 改拿第 ⌊T/4⌋ 列的第 2(T mod 4) 与 +1 两行</text>
+<text x="696" y="116" font-size="14" fill="#8a3a3a">地址与左图完全相同，一个字都没改</text>
+<text x="726.0" y="135" font-size="13" fill="#555" text-anchor="middle">列0</text>
+<text x="778.0" y="135" font-size="13" fill="#555" text-anchor="middle">列1</text>
+<text x="830.0" y="135" font-size="13" fill="#555" text-anchor="middle">列2</text>
+<text x="882.0" y="135" font-size="13" fill="#555" text-anchor="middle">列3</text>
+<text x="934.0" y="135" font-size="13" fill="#555" text-anchor="middle">列4</text>
+<text x="986.0" y="135" font-size="13" fill="#555" text-anchor="middle">列5</text>
+<text x="1038.0" y="135" font-size="13" fill="#555" text-anchor="middle">列6</text>
+<text x="1090.0" y="135" font-size="13" fill="#555" text-anchor="middle">列7</text>
+<text x="692" y="162" font-size="13" fill="#555" text-anchor="end">行0</text>
+<rect x="700" y="140" width="52" height="34" fill="#dce8f5" stroke="#777" stroke-width="1.5"/>
+<text x="726.0" y="162" font-size="14" fill="#111" text-anchor="middle">T0</text>
+<rect x="752" y="140" width="52" height="34" fill="#e8dcf5" stroke="#777" stroke-width="1.5"/>
+<text x="778.0" y="162" font-size="14" fill="#111" text-anchor="middle">T4</text>
+<rect x="804" y="140" width="52" height="34" fill="#dcf5e4" stroke="#777" stroke-width="1.5"/>
+<text x="830.0" y="162" font-size="14" fill="#111" text-anchor="middle">T8</text>
+<rect x="856" y="140" width="52" height="34" fill="#f5f0dc" stroke="#777" stroke-width="1.5"/>
+<text x="882.0" y="162" font-size="14" fill="#111" text-anchor="middle">T12</text>
+<rect x="908" y="140" width="52" height="34" fill="#f5dcdc" stroke="#777" stroke-width="1.5"/>
+<text x="934.0" y="162" font-size="14" fill="#111" text-anchor="middle">T16</text>
+<rect x="960" y="140" width="52" height="34" fill="#dcf2f5" stroke="#777" stroke-width="1.5"/>
+<text x="986.0" y="162" font-size="14" fill="#111" text-anchor="middle">T20</text>
+<rect x="1012" y="140" width="52" height="34" fill="#ecdcf5" stroke="#777" stroke-width="1.5"/>
+<text x="1038.0" y="162" font-size="14" fill="#111" text-anchor="middle">T24</text>
+<rect x="1064" y="140" width="52" height="34" fill="#e6f5dc" stroke="#777" stroke-width="1.5"/>
+<text x="1090.0" y="162" font-size="14" fill="#111" text-anchor="middle">T28</text>
+<text x="692" y="196" font-size="13" fill="#555" text-anchor="end">行1</text>
+<rect x="700" y="174" width="52" height="34" fill="#dce8f5" stroke="#777" stroke-width="1.5"/>
+<text x="726.0" y="196" font-size="14" fill="#111" text-anchor="middle">T0</text>
+<rect x="752" y="174" width="52" height="34" fill="#e8dcf5" stroke="#777" stroke-width="1.5"/>
+<text x="778.0" y="196" font-size="14" fill="#111" text-anchor="middle">T4</text>
+<rect x="804" y="174" width="52" height="34" fill="#dcf5e4" stroke="#777" stroke-width="1.5"/>
+<text x="830.0" y="196" font-size="14" fill="#111" text-anchor="middle">T8</text>
+<rect x="856" y="174" width="52" height="34" fill="#f5f0dc" stroke="#777" stroke-width="1.5"/>
+<text x="882.0" y="196" font-size="14" fill="#111" text-anchor="middle">T12</text>
+<rect x="908" y="174" width="52" height="34" fill="#f5dcdc" stroke="#777" stroke-width="1.5"/>
+<text x="934.0" y="196" font-size="14" fill="#111" text-anchor="middle">T16</text>
+<rect x="960" y="174" width="52" height="34" fill="#dcf2f5" stroke="#777" stroke-width="1.5"/>
+<text x="986.0" y="196" font-size="14" fill="#111" text-anchor="middle">T20</text>
+<rect x="1012" y="174" width="52" height="34" fill="#ecdcf5" stroke="#777" stroke-width="1.5"/>
+<text x="1038.0" y="196" font-size="14" fill="#111" text-anchor="middle">T24</text>
+<rect x="1064" y="174" width="52" height="34" fill="#e6f5dc" stroke="#777" stroke-width="1.5"/>
+<text x="1090.0" y="196" font-size="14" fill="#111" text-anchor="middle">T28</text>
+<text x="692" y="230" font-size="13" fill="#555" text-anchor="end">行2</text>
+<rect x="700" y="208" width="52" height="34" fill="#dce8f5" stroke="#777" stroke-width="1.5"/>
+<text x="726.0" y="230" font-size="14" fill="#111" text-anchor="middle">T1</text>
+<rect x="752" y="208" width="52" height="34" fill="#e8dcf5" stroke="#777" stroke-width="1.5"/>
+<text x="778.0" y="230" font-size="14" fill="#111" text-anchor="middle">T5</text>
+<rect x="804" y="208" width="52" height="34" fill="#dcf5e4" stroke="#777" stroke-width="1.5"/>
+<text x="830.0" y="230" font-size="14" fill="#111" text-anchor="middle">T9</text>
+<rect x="856" y="208" width="52" height="34" fill="#f5f0dc" stroke="#777" stroke-width="1.5"/>
+<text x="882.0" y="230" font-size="14" fill="#111" text-anchor="middle">T13</text>
+<rect x="908" y="208" width="52" height="34" fill="#f5dcdc" stroke="#777" stroke-width="1.5"/>
+<text x="934.0" y="230" font-size="14" fill="#111" text-anchor="middle">T17</text>
+<rect x="960" y="208" width="52" height="34" fill="#dcf2f5" stroke="#777" stroke-width="1.5"/>
+<text x="986.0" y="230" font-size="14" fill="#111" text-anchor="middle">T21</text>
+<rect x="1012" y="208" width="52" height="34" fill="#ecdcf5" stroke="#777" stroke-width="1.5"/>
+<text x="1038.0" y="230" font-size="14" fill="#111" text-anchor="middle">T25</text>
+<rect x="1064" y="208" width="52" height="34" fill="#e6f5dc" stroke="#777" stroke-width="1.5"/>
+<text x="1090.0" y="230" font-size="14" fill="#111" text-anchor="middle">T29</text>
+<text x="692" y="264" font-size="13" fill="#555" text-anchor="end">行3</text>
+<rect x="700" y="242" width="52" height="34" fill="#dce8f5" stroke="#777" stroke-width="1.5"/>
+<text x="726.0" y="264" font-size="14" fill="#111" text-anchor="middle">T1</text>
+<rect x="752" y="242" width="52" height="34" fill="#e8dcf5" stroke="#777" stroke-width="1.5"/>
+<text x="778.0" y="264" font-size="14" fill="#111" text-anchor="middle">T5</text>
+<rect x="804" y="242" width="52" height="34" fill="#dcf5e4" stroke="#777" stroke-width="1.5"/>
+<text x="830.0" y="264" font-size="14" fill="#111" text-anchor="middle">T9</text>
+<rect x="856" y="242" width="52" height="34" fill="#f5f0dc" stroke="#777" stroke-width="1.5"/>
+<text x="882.0" y="264" font-size="14" fill="#111" text-anchor="middle">T13</text>
+<rect x="908" y="242" width="52" height="34" fill="#f5dcdc" stroke="#777" stroke-width="1.5"/>
+<text x="934.0" y="264" font-size="14" fill="#111" text-anchor="middle">T17</text>
+<rect x="960" y="242" width="52" height="34" fill="#dcf2f5" stroke="#777" stroke-width="1.5"/>
+<text x="986.0" y="264" font-size="14" fill="#111" text-anchor="middle">T21</text>
+<rect x="1012" y="242" width="52" height="34" fill="#ecdcf5" stroke="#777" stroke-width="1.5"/>
+<text x="1038.0" y="264" font-size="14" fill="#111" text-anchor="middle">T25</text>
+<rect x="1064" y="242" width="52" height="34" fill="#e6f5dc" stroke="#777" stroke-width="1.5"/>
+<text x="1090.0" y="264" font-size="14" fill="#111" text-anchor="middle">T29</text>
+<text x="692" y="298" font-size="13" fill="#555" text-anchor="end">行4</text>
+<rect x="700" y="276" width="52" height="34" fill="#dce8f5" stroke="#777" stroke-width="1.5"/>
+<text x="726.0" y="298" font-size="14" fill="#111" text-anchor="middle">T2</text>
+<rect x="752" y="276" width="52" height="34" fill="#e8dcf5" stroke="#777" stroke-width="1.5"/>
+<text x="778.0" y="298" font-size="14" fill="#111" text-anchor="middle">T6</text>
+<rect x="804" y="276" width="52" height="34" fill="#dcf5e4" stroke="#777" stroke-width="1.5"/>
+<text x="830.0" y="298" font-size="14" fill="#111" text-anchor="middle">T10</text>
+<rect x="856" y="276" width="52" height="34" fill="#f5f0dc" stroke="#777" stroke-width="1.5"/>
+<text x="882.0" y="298" font-size="14" fill="#111" text-anchor="middle">T14</text>
+<rect x="908" y="276" width="52" height="34" fill="#f5dcdc" stroke="#777" stroke-width="1.5"/>
+<text x="934.0" y="298" font-size="14" fill="#111" text-anchor="middle">T18</text>
+<rect x="960" y="276" width="52" height="34" fill="#dcf2f5" stroke="#777" stroke-width="1.5"/>
+<text x="986.0" y="298" font-size="14" fill="#111" text-anchor="middle">T22</text>
+<rect x="1012" y="276" width="52" height="34" fill="#ecdcf5" stroke="#777" stroke-width="1.5"/>
+<text x="1038.0" y="298" font-size="14" fill="#111" text-anchor="middle">T26</text>
+<rect x="1064" y="276" width="52" height="34" fill="#e6f5dc" stroke="#777" stroke-width="1.5"/>
+<text x="1090.0" y="298" font-size="14" fill="#111" text-anchor="middle">T30</text>
+<text x="692" y="332" font-size="13" fill="#555" text-anchor="end">行5</text>
+<rect x="700" y="310" width="52" height="34" fill="#dce8f5" stroke="#777" stroke-width="1.5"/>
+<text x="726.0" y="332" font-size="14" fill="#111" text-anchor="middle">T2</text>
+<rect x="752" y="310" width="52" height="34" fill="#e8dcf5" stroke="#777" stroke-width="1.5"/>
+<text x="778.0" y="332" font-size="14" fill="#111" text-anchor="middle">T6</text>
+<rect x="804" y="310" width="52" height="34" fill="#dcf5e4" stroke="#777" stroke-width="1.5"/>
+<text x="830.0" y="332" font-size="14" fill="#111" text-anchor="middle">T10</text>
+<rect x="856" y="310" width="52" height="34" fill="#f5f0dc" stroke="#777" stroke-width="1.5"/>
+<text x="882.0" y="332" font-size="14" fill="#111" text-anchor="middle">T14</text>
+<rect x="908" y="310" width="52" height="34" fill="#f5dcdc" stroke="#777" stroke-width="1.5"/>
+<text x="934.0" y="332" font-size="14" fill="#111" text-anchor="middle">T18</text>
+<rect x="960" y="310" width="52" height="34" fill="#dcf2f5" stroke="#777" stroke-width="1.5"/>
+<text x="986.0" y="332" font-size="14" fill="#111" text-anchor="middle">T22</text>
+<rect x="1012" y="310" width="52" height="34" fill="#ecdcf5" stroke="#777" stroke-width="1.5"/>
+<text x="1038.0" y="332" font-size="14" fill="#111" text-anchor="middle">T26</text>
+<rect x="1064" y="310" width="52" height="34" fill="#e6f5dc" stroke="#777" stroke-width="1.5"/>
+<text x="1090.0" y="332" font-size="14" fill="#111" text-anchor="middle">T30</text>
+<text x="692" y="366" font-size="13" fill="#555" text-anchor="end">行6</text>
+<rect x="700" y="344" width="52" height="34" fill="#dce8f5" stroke="#777" stroke-width="1.5"/>
+<text x="726.0" y="366" font-size="14" fill="#111" text-anchor="middle">T3</text>
+<rect x="752" y="344" width="52" height="34" fill="#e8dcf5" stroke="#777" stroke-width="1.5"/>
+<text x="778.0" y="366" font-size="14" fill="#111" text-anchor="middle">T7</text>
+<rect x="804" y="344" width="52" height="34" fill="#dcf5e4" stroke="#777" stroke-width="1.5"/>
+<text x="830.0" y="366" font-size="14" fill="#111" text-anchor="middle">T11</text>
+<rect x="856" y="344" width="52" height="34" fill="#f5f0dc" stroke="#777" stroke-width="1.5"/>
+<text x="882.0" y="366" font-size="14" fill="#111" text-anchor="middle">T15</text>
+<rect x="908" y="344" width="52" height="34" fill="#f5dcdc" stroke="#777" stroke-width="1.5"/>
+<text x="934.0" y="366" font-size="14" fill="#111" text-anchor="middle">T19</text>
+<rect x="960" y="344" width="52" height="34" fill="#dcf2f5" stroke="#777" stroke-width="1.5"/>
+<text x="986.0" y="366" font-size="14" fill="#111" text-anchor="middle">T23</text>
+<rect x="1012" y="344" width="52" height="34" fill="#ecdcf5" stroke="#777" stroke-width="1.5"/>
+<text x="1038.0" y="366" font-size="14" fill="#111" text-anchor="middle">T27</text>
+<rect x="1064" y="344" width="52" height="34" fill="#e6f5dc" stroke="#777" stroke-width="1.5"/>
+<text x="1090.0" y="366" font-size="14" fill="#111" text-anchor="middle">T31</text>
+<text x="692" y="400" font-size="13" fill="#555" text-anchor="end">行7</text>
+<rect x="700" y="378" width="52" height="34" fill="#dce8f5" stroke="#777" stroke-width="1.5"/>
+<text x="726.0" y="400" font-size="14" fill="#111" text-anchor="middle">T3</text>
+<rect x="752" y="378" width="52" height="34" fill="#e8dcf5" stroke="#777" stroke-width="1.5"/>
+<text x="778.0" y="400" font-size="14" fill="#111" text-anchor="middle">T7</text>
+<rect x="804" y="378" width="52" height="34" fill="#dcf5e4" stroke="#777" stroke-width="1.5"/>
+<text x="830.0" y="400" font-size="14" fill="#111" text-anchor="middle">T11</text>
+<rect x="856" y="378" width="52" height="34" fill="#f5f0dc" stroke="#777" stroke-width="1.5"/>
+<text x="882.0" y="400" font-size="14" fill="#111" text-anchor="middle">T15</text>
+<rect x="908" y="378" width="52" height="34" fill="#f5dcdc" stroke="#777" stroke-width="1.5"/>
+<text x="934.0" y="400" font-size="14" fill="#111" text-anchor="middle">T19</text>
+<rect x="960" y="378" width="52" height="34" fill="#dcf2f5" stroke="#777" stroke-width="1.5"/>
+<text x="986.0" y="400" font-size="14" fill="#111" text-anchor="middle">T23</text>
+<rect x="1012" y="378" width="52" height="34" fill="#ecdcf5" stroke="#777" stroke-width="1.5"/>
+<text x="1038.0" y="400" font-size="14" fill="#111" text-anchor="middle">T27</text>
+<rect x="1064" y="378" width="52" height="34" fill="#e6f5dc" stroke="#777" stroke-width="1.5"/>
+<text x="1090.0" y="400" font-size="14" fill="#111" text-anchor="middle">T31</text>
+<rect x="40" y="448" width="1100" height="124" fill="#f4f4f4" stroke="#999" stroke-width="1.5"/>
+<text x="56" y="474" font-size="15" font-weight="bold" fill="#111">拿 lane 5 验一遍</text>
+<text x="56" y="500" font-size="14" fill="#333">不带 .trans：⌊5/4⌋ = 1，2 × (5 mod 4) = 2。所以它拿第 1 行的第 2、3 列，也就是 a[1][2] 和 a[1][3]。</text>
+<text x="56" y="524" font-size="14" fill="#333">带 .trans：同样的两个数字，但读作列和行。它拿第 1 列的第 2、3 行，也就是 a[2][1] 和 a[3][1]。行列正好换过来。</text>
+<text x="56" y="550" font-size="14" fill="#8a3a3a">本机实测：两条指令在 SASS 里的差别只有助记符里的一个字母。不转置是 LDSM.16.M88.4，转置是 LDSM.16.MT88.4，地址操作数相同。</text>
+<text x="40" y="604" font-size="13" fill="#555">同色的四格归同一组 lane（T0–T3、T4–T7 …… ）。每个 lane 收到一个 32 位寄存器，装相邻的两个 16 位元素，编号小的那个在低 16 位。</text>
+</svg>

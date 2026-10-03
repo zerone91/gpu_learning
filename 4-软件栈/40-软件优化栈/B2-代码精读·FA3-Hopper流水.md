@@ -260,7 +260,7 @@ named_barrier_arrive(9); named_barrier_wait(9);   // softmax 段同理交接
 | B1 里的写法 | B2 里的显式形态 | 机制出处 |
 | --- | --- | --- |
 | num_stages=3 | sK/sV 环形缓冲×3 + full/empty 屏障×3 + 相位票 | 模块 10 第 5 节、40 第 3 节 §5 |
-| make_block_ptr（要走 TMA 时是张量描述符） | Host 侧 TMA 订单模板 + 显式 swizzle 布局 | 模块 10 第 4 节、模块 14 第 4 节 |
+| make_block_ptr（要走 TMA 时是张量描述符） | Host 侧 TMA 订单模板 + 显式 swizzle 布局 | 模块 10 第 4 节、模块 14 第 3 节 |
 | tl.dot | wgmma 异步四件套，B 操作数直读 shared | 模块 12 第 1 节 |
 | 线程同构 | 三组分工 + 寄存器重分配 + 选代表 | 模块 40 第 4 节 §7.3 |
 | （Triton 表达不了） | **乒乓命名屏障** —— SOTA 与"良好"的差距所在 | 模块 10 第 5 节 |

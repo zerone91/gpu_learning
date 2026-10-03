@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 600" width="980" height="600" font-family="sans-serif">
+<defs><marker id="ar" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#333"/></marker><marker id="arR" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#b52a2a"/></marker><marker id="arG" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#2e7d32"/></marker><marker id="arB" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#1f4e9a"/></marker><marker id="arO" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#b8860b"/></marker><marker id="arP" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#6a3d9a"/></marker></defs>
+<rect x="0" y="0" width="980" height="600" fill="#ffffff"/>
+<text x="20" y="32" font-size="18" fill="#111" text-anchor="start" font-weight="bold">MXFP8 一次推进的字节流向：缩放因子比 A、B 多走一段（shared memory → TMEM）</text>
+<text x="90" y="66" font-size="15" fill="#111" text-anchor="middle" font-weight="bold">显存</text>
+<rect x="20" y="80" width="140" height="52" rx="4" fill="#e8f0fb" stroke="#1f4e9a" stroke-width="1.8"/>
+<text x="90" y="102" font-size="13" fill="#111" text-anchor="middle" font-weight="bold">A 分块</text>
+<text x="90" y="122" font-size="13" fill="#1f4e9a" text-anchor="middle">16 384 字节</text>
+<rect x="20" y="150" width="140" height="52" rx="4" fill="#e8f0fb" stroke="#1f4e9a" stroke-width="1.8"/>
+<text x="90" y="172" font-size="13" fill="#111" text-anchor="middle" font-weight="bold">B 分块</text>
+<text x="90" y="192" font-size="13" fill="#1f4e9a" text-anchor="middle">16 384 字节</text>
+<rect x="20" y="220" width="140" height="52" rx="4" fill="#fff1dc" stroke="#b8660b" stroke-width="1.8"/>
+<text x="90" y="242" font-size="13" fill="#111" text-anchor="middle" font-weight="bold">A 的缩放因子</text>
+<text x="90" y="262" font-size="13" fill="#b8660b" text-anchor="middle">512 字节</text>
+<rect x="20" y="290" width="140" height="52" rx="4" fill="#fff1dc" stroke="#b8660b" stroke-width="1.8"/>
+<text x="90" y="312" font-size="13" fill="#111" text-anchor="middle" font-weight="bold">B 的缩放因子</text>
+<text x="90" y="332" font-size="13" fill="#b8660b" text-anchor="middle">512 字节</text>
+<text x="90" y="375" font-size="13" fill="#333" text-anchor="middle" font-weight="bold">合计 33 792 字节</text>
+<line x1="160" y1="106" x2="288" y2="106" stroke="#b8860b" stroke-width="2" marker-end="url(#arO)"/>
+<line x1="160" y1="176" x2="288" y2="176" stroke="#b8860b" stroke-width="2" marker-end="url(#arO)"/>
+<line x1="160" y1="246" x2="288" y2="246" stroke="#b8860b" stroke-width="2" marker-end="url(#arO)"/>
+<line x1="160" y1="316" x2="288" y2="316" stroke="#b8860b" stroke-width="2" marker-end="url(#arO)"/>
+<text x="224" y="72" font-size="13" fill="#6b4e00" text-anchor="middle" font-weight="bold">TMA × 4</text>
+<text x="224" y="400" font-size="12" fill="#6b4e00" text-anchor="middle">完成：“满”屏障</text>
+<text x="224" y="418" font-size="12" fill="#6b4e00" text-anchor="middle">按 33 792 字节</text>
+<text x="360" y="66" font-size="15" fill="#111" text-anchor="middle" font-weight="bold">shared memory</text>
+<rect x="290" y="80" width="140" height="52" rx="4" fill="#e8f0fb" stroke="#1f4e9a" stroke-width="1.8"/>
+<text x="360" y="102" font-size="13" fill="#111" text-anchor="middle" font-weight="bold">A 分块</text>
+<text x="360" y="122" font-size="13" fill="#1f4e9a" text-anchor="middle">16 384 字节</text>
+<rect x="290" y="150" width="140" height="52" rx="4" fill="#e8f0fb" stroke="#1f4e9a" stroke-width="1.8"/>
+<text x="360" y="172" font-size="13" fill="#111" text-anchor="middle" font-weight="bold">B 分块</text>
+<text x="360" y="192" font-size="13" fill="#1f4e9a" text-anchor="middle">16 384 字节</text>
+<rect x="290" y="220" width="140" height="52" rx="4" fill="#fff1dc" stroke="#b8660b" stroke-width="1.8"/>
+<text x="360" y="242" font-size="13" fill="#111" text-anchor="middle" font-weight="bold">A 的缩放因子</text>
+<text x="360" y="262" font-size="13" fill="#b8660b" text-anchor="middle">512 字节</text>
+<rect x="290" y="290" width="140" height="52" rx="4" fill="#fff1dc" stroke="#b8660b" stroke-width="1.8"/>
+<text x="360" y="312" font-size="13" fill="#111" text-anchor="middle" font-weight="bold">B 的缩放因子</text>
+<text x="360" y="332" font-size="13" fill="#b8660b" text-anchor="middle">512 字节</text>
+<text x="770.0" y="66" font-size="15" fill="#111" text-anchor="middle" font-weight="bold">TMEM（申请了 256 列，宽度未按比例）</text>
+<rect x="600" y="80" width="340" height="280" rx="0" fill="#f2f2f2" stroke="#555" stroke-width="1.8"/>
+<rect x="600" y="80" width="160" height="280" rx="0" fill="#9ec1ea" stroke="#1f4e9a" stroke-width="1.6"/>
+<text x="680" y="220.0" font-size="14" fill="#0d2f66" text-anchor="middle" font-weight="bold">累加器</text>
+<text x="680" y="240.0" font-size="12" fill="#0d2f66" text-anchor="middle">第 0～127 列</text>
+<rect x="760" y="80" width="50" height="280" rx="0" fill="#f4b266" stroke="#b8660b" stroke-width="1.4"/>
+<rect x="810" y="80" width="50" height="280" rx="0" fill="#f9d6a8" stroke="#b8660b" stroke-width="1.4"/>
+<text x="785" y="96" font-size="11" fill="#6b3a00" text-anchor="middle">128～</text>
+<text x="785" y="110" font-size="11" fill="#6b3a00" text-anchor="middle">131</text>
+<text x="835" y="96" font-size="11" fill="#6b3a00" text-anchor="middle">132～</text>
+<text x="835" y="110" font-size="11" fill="#6b3a00" text-anchor="middle">135</text>
+<text x="900" y="220.0" font-size="13" fill="#666" text-anchor="middle">空闲</text>
+<text x="900" y="238.0" font-size="12" fill="#666" text-anchor="middle">120 列</text>
+<line x1="600" y1="150.0" x2="940" y2="150.0" stroke="#777" stroke-width="1.2" stroke-dasharray="5,4"/>
+<line x1="600" y1="220.0" x2="940" y2="220.0" stroke="#777" stroke-width="1.2" stroke-dasharray="5,4"/>
+<line x1="600" y1="290.0" x2="940" y2="290.0" stroke="#777" stroke-width="1.2" stroke-dasharray="5,4"/>
+<text x="594" y="120.0" font-size="11" fill="#444" text-anchor="end">warp 0 段</text>
+<text x="785" y="125.0" font-size="11" fill="#6b3a00" text-anchor="middle">SFA</text>
+<text x="835" y="125.0" font-size="11" fill="#6b3a00" text-anchor="middle">SFB</text>
+<text x="594" y="190.0" font-size="11" fill="#444" text-anchor="end">warp 1 段</text>
+<text x="785" y="195.0" font-size="11" fill="#6b3a00" text-anchor="middle">SFA</text>
+<text x="835" y="195.0" font-size="11" fill="#6b3a00" text-anchor="middle">SFB</text>
+<text x="594" y="260.0" font-size="11" fill="#444" text-anchor="end">warp 2 段</text>
+<text x="785" y="265.0" font-size="11" fill="#6b3a00" text-anchor="middle">SFA</text>
+<text x="835" y="265.0" font-size="11" fill="#6b3a00" text-anchor="middle">SFB</text>
+<text x="594" y="330.0" font-size="11" fill="#444" text-anchor="end">warp 3 段</text>
+<text x="785" y="335.0" font-size="11" fill="#6b3a00" text-anchor="middle">SFA</text>
+<text x="835" y="335.0" font-size="11" fill="#6b3a00" text-anchor="middle">SFB</text>
+<path d="M430 246 L470 246 L470 392 L785 392 L785 362" fill="none" stroke="#6a3d9a" stroke-width="2" marker-end="url(#arP)"/>
+<path d="M430 316 L455 316 L455 408 L835 408 L835 362" fill="none" stroke="#6a3d9a" stroke-width="2" marker-end="url(#arP)"/>
+<text x="560" y="436" font-size="13" fill="#4a2a70" text-anchor="middle" font-family="monospace">tcgen05.cp.32x128b.warpx4 × 2</text>
+<text x="560" y="456" font-size="12" fill="#4a2a70" text-anchor="middle">每条：512 字节源数据复制进 4 个 warp 段各一份</text>
+<text x="560" y="474" font-size="12" fill="#4a2a70" text-anchor="middle">= 2 KB = 128 条 lane × 16 字节 = 4 列</text>
+<rect x="300" y="520" width="560" height="60" rx="4" fill="#f0f0f0" stroke="#555" stroke-width="2"/>
+<text x="580" y="544" font-size="14" fill="#111" text-anchor="middle" font-weight="bold">矩阵单元：4 条 UTCQMMA（每条 K = 32）</text>
+<text x="580" y="566" font-size="12" fill="#333" text-anchor="middle">A、B 按描述符从 shared memory 读；缩放因子从 TMEM 读；结果累加进第 0～127 列</text>
+<line x1="360" y1="382" x2="360" y2="518" stroke="#1f4e9a" stroke-width="1.6" marker-end="url(#arB)"/>
+<text x="368" y="500" font-size="12" fill="#1f4e9a" text-anchor="start">读 A、B</text>
+<line x1="852" y1="362" x2="852" y2="518" stroke="#b8660b" stroke-width="1.6" marker-end="url(#arO)"/>
+<text x="860" y="500" font-size="12" fill="#8a4b00" text-anchor="start">读缩放因子</text>
+</svg>

@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 560" width="980" height="560" font-family="sans-serif">
+<defs><marker id="ar" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#333"/></marker><marker id="arR" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#b52a2a"/></marker><marker id="arG" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#2e7d32"/></marker><marker id="arB" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#1f4e9a"/></marker><marker id="arO" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#b8860b"/></marker><marker id="arP" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#6a3d9a"/></marker></defs>
+<rect x="0" y="0" width="980" height="560" fill="#ffffff"/>
+<text x="20" y="32" font-size="19" fill="#111" text-anchor="start" font-weight="bold">一条 tcgen05.mma 带的地址信息：两个 64 位描述符 + 一个 32 位指令描述符</text>
+<text x="20" y="66" font-size="15" fill="#333" text-anchor="start" font-weight="bold">① shared memory 描述符（A、B 各一个）：常数 0x4000404000000000 | (起点地址 &gt;&gt; 4)</text>
+<rect x="40.0" y="84" width="42.1875" height="52" rx="0" fill="#e9f5ea" stroke="#2e7d32" stroke-width="1.6"/>
+<text x="61.09375" y="105" font-size="12" fill="#111" text-anchor="middle">swizzle</text>
+<text x="61.09375" y="125" font-size="13" fill="#2e7d32" text-anchor="middle" font-weight="bold">2</text>
+<rect x="82.1875" y="84" width="98.4375" height="52" rx="0" fill="#f2f2f2" stroke="#777" stroke-width="1.6"/>
+<text x="131.40625" y="105" font-size="12" fill="#111" text-anchor="middle">固定</text>
+<text x="131.40625" y="125" font-size="13" fill="#777" text-anchor="middle" font-weight="bold">0</text>
+<rect x="180.625" y="84" width="28.125" height="52" rx="0" fill="#f2f2f2" stroke="#777" stroke-width="1.6"/>
+<text x="194.6875" y="105" font-size="12" fill="#111" text-anchor="middle"></text>
+<text x="194.6875" y="125" font-size="13" fill="#777" text-anchor="middle" font-weight="bold"></text>
+<rect x="208.75" y="84" width="42.1875" height="52" rx="0" fill="#f2f2f2" stroke="#777" stroke-width="1.6"/>
+<text x="229.84375" y="105" font-size="12" fill="#111" text-anchor="middle">基址</text>
+<text x="229.84375" y="125" font-size="13" fill="#777" text-anchor="middle" font-weight="bold">0</text>
+<rect x="250.9375" y="84" width="42.1875" height="52" rx="0" fill="#f2f2f2" stroke="#777" stroke-width="1.6"/>
+<text x="272.03125" y="105" font-size="12" fill="#111" text-anchor="middle">固定</text>
+<text x="272.03125" y="125" font-size="13" fill="#777" text-anchor="middle" font-weight="bold">0b001</text>
+<rect x="293.125" y="84" width="196.875" height="52" rx="0" fill="#fff1dc" stroke="#b8660b" stroke-width="1.6"/>
+<text x="391.5625" y="105" font-size="12" fill="#111" text-anchor="middle">stride 偏移&gt;&gt;4</text>
+<text x="391.5625" y="125" font-size="13" fill="#b8660b" text-anchor="middle" font-weight="bold">64</text>
+<rect x="490.0" y="84" width="14.0625" height="52" rx="0" fill="#f2f2f2" stroke="#777" stroke-width="1.6"/>
+<text x="497.03125" y="105" font-size="12" fill="#111" text-anchor="middle"></text>
+<text x="497.03125" y="125" font-size="13" fill="#777" text-anchor="middle" font-weight="bold"></text>
+<rect x="504.0625" y="84" width="210.9375" height="52" rx="0" fill="#f2f2f2" stroke="#777" stroke-width="1.6"/>
+<text x="609.53125" y="105" font-size="12" fill="#111" text-anchor="middle">leading 偏移&gt;&gt;4</text>
+<text x="609.53125" y="125" font-size="13" fill="#777" text-anchor="middle" font-weight="bold">0</text>
+<rect x="715.0" y="84" width="14.0625" height="52" rx="0" fill="#f2f2f2" stroke="#777" stroke-width="1.6"/>
+<text x="722.03125" y="105" font-size="12" fill="#111" text-anchor="middle"></text>
+<text x="722.03125" y="125" font-size="13" fill="#777" text-anchor="middle" font-weight="bold"></text>
+<rect x="729.0625" y="84" width="210.9375" height="52" rx="0" fill="#e8f0fb" stroke="#1f4e9a" stroke-width="1.6"/>
+<text x="834.53125" y="105" font-size="12" fill="#111" text-anchor="middle">起点地址&gt;&gt;4</text>
+<text x="834.53125" y="125" font-size="13" fill="#1f4e9a" text-anchor="middle" font-weight="bold">运行时填入</text>
+<text x="42.0" y="154" font-size="11" fill="#555" text-anchor="start">63</text>
+<text x="291.125" y="154" font-size="11" fill="#555" text-anchor="end">46</text>
+<text x="295.125" y="154" font-size="11" fill="#555" text-anchor="start">45</text>
+<text x="488.0" y="154" font-size="11" fill="#555" text-anchor="end">32</text>
+<text x="506.0625" y="154" font-size="11" fill="#555" text-anchor="start">30</text>
+<text x="713.0" y="154" font-size="11" fill="#555" text-anchor="end">16</text>
+<text x="731.0625" y="154" font-size="11" fill="#555" text-anchor="start">14</text>
+<text x="938.0" y="154" font-size="11" fill="#555" text-anchor="end">0</text>
+<text x="497.03125" y="154" font-size="11" fill="#111" text-anchor="start"></text>
+<text x="40" y="176" font-size="14" fill="#2e7d32" text-anchor="start">swizzle = 2：128 字节 swizzle，以 8 行为一组重复。</text>
+<text x="40" y="198" font-size="14" fill="#b8660b" text-anchor="start">stride = 64 × 16 = 1024 字节 = 8 行 × 128 字节（每行 64 个 bf16），即相邻两组 8 行的距离。</text>
+<text x="40" y="220" font-size="14" fill="#1f4e9a" text-anchor="start">起点地址以 16 字节为单位，由代码按这一级缓冲在 shared memory 中的位置填入。灰色字段在本例中为 0 或固定值。</text>
+<text x="20" y="270" font-size="15" fill="#333" text-anchor="start" font-weight="bold">② 指令描述符（32 位）：0x08200490</text>
+<rect x="40.0" y="286" width="84.375" height="52" rx="0" fill="#f2f2f2" stroke="#777" stroke-width="1.6"/>
+<text x="82.1875" y="307" font-size="12" fill="#111" text-anchor="middle">其它</text>
+<text x="82.1875" y="327" font-size="13" fill="#777" text-anchor="middle" font-weight="bold">0</text>
+<rect x="124.375" y="286" width="140.625" height="52" rx="0" fill="#fdecea" stroke="#b52a2a" stroke-width="1.6"/>
+<text x="194.6875" y="307" font-size="12" fill="#111" text-anchor="middle">M&gt;&gt;4</text>
+<text x="194.6875" y="327" font-size="13" fill="#b52a2a" text-anchor="middle" font-weight="bold">8 → M=128</text>
+<rect x="265.0" y="286" width="28.125" height="52" rx="0" fill="#f2f2f2" stroke="#777" stroke-width="1.6"/>
+<text x="279.0625" y="307" font-size="12" fill="#111" text-anchor="middle"></text>
+<text x="279.0625" y="327" font-size="13" fill="#777" text-anchor="middle" font-weight="bold"></text>
+<rect x="293.125" y="286" width="168.75" height="52" rx="0" fill="#fdecea" stroke="#b52a2a" stroke-width="1.6"/>
+<text x="377.5" y="307" font-size="12" fill="#111" text-anchor="middle">N&gt;&gt;3</text>
+<text x="377.5" y="327" font-size="13" fill="#b52a2a" text-anchor="middle" font-weight="bold">16 → N=128</text>
+<rect x="461.875" y="286" width="112.5" height="52" rx="0" fill="#f2f2f2" stroke="#777" stroke-width="1.6"/>
+<text x="518.125" y="307" font-size="12" fill="#111" text-anchor="middle">转置/取负</text>
+<text x="518.125" y="327" font-size="13" fill="#777" text-anchor="middle" font-weight="bold">0</text>
+<rect x="574.375" y="286" width="84.375" height="52" rx="0" fill="#e8f0fb" stroke="#1f4e9a" stroke-width="1.6"/>
+<text x="616.5625" y="307" font-size="12" fill="#111" text-anchor="middle">B 类型</text>
+<text x="616.5625" y="327" font-size="13" fill="#1f4e9a" text-anchor="middle" font-weight="bold">1 = bf16</text>
+<rect x="658.75" y="286" width="84.375" height="52" rx="0" fill="#e8f0fb" stroke="#1f4e9a" stroke-width="1.6"/>
+<text x="700.9375" y="307" font-size="12" fill="#111" text-anchor="middle">A 类型</text>
+<text x="700.9375" y="327" font-size="13" fill="#1f4e9a" text-anchor="middle" font-weight="bold">1 = bf16</text>
+<rect x="743.125" y="286" width="28.125" height="52" rx="0" fill="#f2f2f2" stroke="#777" stroke-width="1.6"/>
+<text x="757.1875" y="307" font-size="12" fill="#111" text-anchor="middle"></text>
+<text x="757.1875" y="327" font-size="13" fill="#777" text-anchor="middle" font-weight="bold"></text>
+<rect x="771.25" y="286" width="56.25" height="52" rx="0" fill="#e9f5ea" stroke="#2e7d32" stroke-width="1.6"/>
+<text x="799.375" y="307" font-size="12" fill="#111" text-anchor="middle">D</text>
+<text x="799.375" y="327" font-size="13" fill="#2e7d32" text-anchor="middle" font-weight="bold">1=f32</text>
+<rect x="827.5" y="286" width="112.5" height="52" rx="0" fill="#f2f2f2" stroke="#777" stroke-width="1.6"/>
+<text x="883.75" y="307" font-size="12" fill="#111" text-anchor="middle">其它</text>
+<text x="883.75" y="327" font-size="13" fill="#777" text-anchor="middle" font-weight="bold">0</text>
+<text x="40" y="362" font-size="14" fill="#333" text-anchor="start">K 字段（第 29 位）写 0：bf16 输入时 K 只能是 16，不必另行指定。</text>
+<text x="20" y="400" font-size="15" fill="#333" text-anchor="start" font-weight="bold">③ 同一次推进的 4 条 tcgen05.mma：只在描述符上做加法</text>
+<rect x="40" y="416" width="210" height="86" rx="4" fill="#f7f7f7" stroke="#555" stroke-width="1.6"/>
+<text x="145" y="440" font-size="14" fill="#111" text-anchor="middle" font-weight="bold">第 1 条</text>
+<text x="145" y="462" font-size="14" fill="#1f4e9a" text-anchor="middle" font-family="monospace">描述符 + 0</text>
+<text x="145" y="484" font-size="13" fill="#444" text-anchor="middle">K 方向后移 0 字节</text>
+<rect x="270" y="416" width="210" height="86" rx="4" fill="#f7f7f7" stroke="#555" stroke-width="1.6"/>
+<text x="375" y="440" font-size="14" fill="#111" text-anchor="middle" font-weight="bold">第 2 条</text>
+<text x="375" y="462" font-size="14" fill="#1f4e9a" text-anchor="middle" font-family="monospace">描述符 + 2</text>
+<text x="375" y="484" font-size="13" fill="#444" text-anchor="middle">K 方向后移 32 字节</text>
+<rect x="500" y="416" width="210" height="86" rx="4" fill="#f7f7f7" stroke="#555" stroke-width="1.6"/>
+<text x="605" y="440" font-size="14" fill="#111" text-anchor="middle" font-weight="bold">第 3 条</text>
+<text x="605" y="462" font-size="14" fill="#1f4e9a" text-anchor="middle" font-family="monospace">描述符 + 4</text>
+<text x="605" y="484" font-size="13" fill="#444" text-anchor="middle">K 方向后移 64 字节</text>
+<rect x="730" y="416" width="210" height="86" rx="4" fill="#f7f7f7" stroke="#555" stroke-width="1.6"/>
+<text x="835" y="440" font-size="14" fill="#111" text-anchor="middle" font-weight="bold">第 4 条</text>
+<text x="835" y="462" font-size="14" fill="#1f4e9a" text-anchor="middle" font-family="monospace">描述符 + 6</text>
+<text x="835" y="484" font-size="13" fill="#444" text-anchor="middle">K 方向后移 96 字节</text>
+<text x="40" y="530" font-size="14" fill="#333" text-anchor="start">每加 2 = 后移 32 字节 = 16 个 bf16 = 一条指令的 K。128 行各自的地址由硬件按描述符算出。</text>
+</svg>

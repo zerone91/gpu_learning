@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" font-family="sans-serif">
+  <rect x="0" y="0" width="960" height="560" fill="#ffffff"/>
+
+  <!-- ============ 上半：带宽 ============ -->
+  <text x="30" y="36" font-size="18" font-weight="bold" fill="#222">① 带宽：PCIe 这一段窄 67 倍</text>
+
+  <!-- 对数轴 -->
+  <line x1="120" y1="170" x2="760" y2="170" stroke="#444" stroke-width="1.5"/>
+  <line x1="120" y1="170" x2="120" y2="176" stroke="#444" stroke-width="1.5"/>
+  <line x1="320" y1="170" x2="320" y2="176" stroke="#444" stroke-width="1.5"/>
+  <line x1="520" y1="170" x2="520" y2="176" stroke="#444" stroke-width="1.5"/>
+  <line x1="720" y1="170" x2="720" y2="176" stroke="#444" stroke-width="1.5"/>
+  <text x="120" y="192" font-size="14" fill="#444" text-anchor="middle">10</text>
+  <text x="320" y="192" font-size="14" fill="#444" text-anchor="middle">100</text>
+  <text x="520" y="192" font-size="14" fill="#444" text-anchor="middle">1000</text>
+  <text x="720" y="192" font-size="14" fill="#444" text-anchor="middle">10000</text>
+  <text x="830" y="192" font-size="14" fill="#444" text-anchor="middle">GB/s（对数刻度）</text>
+
+  <!-- PCIe 条 -->
+  <rect x="120" y="62" width="140" height="34" fill="#f3b05a" stroke="#c07b1c" stroke-width="1.5"/>
+  <text x="30" y="84" font-size="15" fill="#222">PCIe 5.0 ×16</text>
+  <text x="272" y="84" font-size="15" fill="#222">约 50 GB/s（实测常见值）</text>
+
+  <!-- HBM 条 -->
+  <rect x="120" y="112" width="505" height="34" fill="#7fb3e0" stroke="#2f6ea8" stroke-width="1.5"/>
+  <text x="30" y="134" font-size="15" fill="#222">H100 的显存</text>
+  <text x="637" y="134" font-size="15" fill="#222">3350 GB/s</text>
+
+  <!-- 倍数标注 -->
+  <line x1="268" y1="79" x2="268" y2="129" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <line x1="625" y1="129" x2="625" y2="79" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <text x="446" y="108" font-size="15" fill="#c0392b" text-anchor="middle" font-weight="bold">相差 67 倍</text>
+
+  <text x="30" y="222" font-size="14" fill="#555">搬 1 GB：经 PCIe 约 20 毫秒，在显存内部约 0.3 毫秒。</text>
+
+  <!-- ============ 下半：延迟 ============ -->
+  <text x="30" y="276" font-size="18" font-weight="bold" fill="#222">② 延迟：PCIe 这一段只长约 1.4～4.7 倍</text>
+
+  <!-- 线性轴 -->
+  <line x1="120" y1="410" x2="760" y2="410" stroke="#444" stroke-width="1.5"/>
+  <g stroke="#444" stroke-width="1.5">
+    <line x1="120" y1="410" x2="120" y2="416"/>
+    <line x1="210" y1="410" x2="210" y2="416"/>
+    <line x1="300" y1="410" x2="300" y2="416"/>
+    <line x1="390" y1="410" x2="390" y2="416"/>
+    <line x1="480" y1="410" x2="480" y2="416"/>
+    <line x1="570" y1="410" x2="570" y2="416"/>
+    <line x1="660" y1="410" x2="660" y2="416"/>
+    <line x1="750" y1="410" x2="750" y2="416"/>
+  </g>
+  <text x="120" y="432" font-size="14" fill="#444" text-anchor="middle">0</text>
+  <text x="210" y="432" font-size="14" fill="#444" text-anchor="middle">200</text>
+  <text x="300" y="432" font-size="14" fill="#444" text-anchor="middle">400</text>
+  <text x="390" y="432" font-size="14" fill="#444" text-anchor="middle">600</text>
+  <text x="480" y="432" font-size="14" fill="#444" text-anchor="middle">800</text>
+  <text x="570" y="432" font-size="14" fill="#444" text-anchor="middle">1000</text>
+  <text x="660" y="432" font-size="14" fill="#444" text-anchor="middle">1200</text>
+  <text x="750" y="432" font-size="14" fill="#444" text-anchor="middle">1400</text>
+  <text x="840" y="432" font-size="14" fill="#444" text-anchor="middle">纳秒</text>
+
+  <!-- 显存往返 260~400 -->
+  <rect x="237" y="302" width="63" height="32" fill="#7fb3e0" stroke="#2f6ea8" stroke-width="1.5"/>
+  <text x="30" y="324" font-size="15" fill="#222">显存一次往返</text>
+  <text x="312" y="324" font-size="15" fill="#222">260～400 纳秒</text>
+
+  <!-- PCIe 读 547~1213 -->
+  <rect x="366" y="352" width="300" height="32" fill="#f3b05a" stroke="#c07b1c" stroke-width="1.5"/>
+  <text x="30" y="374" font-size="15" fill="#222">经 PCIe 读 64 字节</text>
+  <text x="678" y="374" font-size="15" fill="#222">547～1213 纳秒</text>
+
+  <!-- 结论框 -->
+  <rect x="30" y="462" width="900" height="76" fill="#f6f6f6" stroke="#999" stroke-width="1.5"/>
+  <text x="46" y="488" font-size="15" fill="#222">结论：跨出芯片这一段，窄的是带宽，不是延迟。所以这一段不靠「多提前几级」来掩盖，而靠「整批搬」：</text>
+  <text x="46" y="512" font-size="15" fill="#222">一次提交几百 MB，让它在上一步计算的时间里搬完。片上那一段正相反：每次只搬几十 KB，靠提前几级掩盖延迟。</text>
+  <text x="46" y="532" font-size="13" fill="#666">显存延迟取自 H800 与 H100 的实测（479～728 拍，约 0.26～0.40 微秒）。PCIe 读的延迟取自 pcie-bench 在两台 Haswell 服务器上的实测中位数。</text>
+</svg>

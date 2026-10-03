@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 640" width="1000" height="640" font-family="sans-serif">
+  <rect x="0" y="0" width="1000" height="640" fill="#ffffff"/>
+  <text x="36" y="34" font-size="20" font-weight="bold" fill="#111">三种完成记录：记的是什么、谁改它、谁读它</text>
+  <text x="36" y="58" font-size="14" fill="#555">三者都要回答同一个问题：数据到了没有。差别在记录放在哪，以及允许多少人去读它。</text>
+
+  <!-- column 1: mbarrier -->
+  <rect x="36" y="80" width="300" height="430" fill="#eef4fb" stroke="#2c5aa0" stroke-width="2"/>
+  <text x="186" y="106" font-size="17" font-weight="bold" fill="#1a3a66" text-anchor="middle">Hopper · mbarrier</text>
+  <text x="186" y="128" font-size="13" fill="#1a3a66" text-anchor="middle">放在 shared memory 里，8 字节</text>
+
+  <rect x="56" y="142" width="260" height="96" fill="#ffffff" stroke="#2c5aa0" stroke-width="1.5"/>
+  <line x1="56" y1="174" x2="316" y2="174" stroke="#2c5aa0" stroke-width="1"/>
+  <line x1="56" y1="206" x2="316" y2="206" stroke="#2c5aa0" stroke-width="1"/>
+  <text x="66" y="163" font-size="13" fill="#222">① 到达计数：还差几个线程没报到</text>
+  <text x="66" y="195" font-size="13" fill="#222">② 字节计数：还差多少字节没到货</text>
+  <text x="66" y="227" font-size="13" fill="#222">③ 相位：这一轮的奇偶</text>
+
+  <text x="56" y="266" font-size="14" font-weight="bold" fill="#1a3a66">谁改它</text>
+  <text x="56" y="286" font-size="13" fill="#333">线程执行到达指令时，① 减一。</text>
+  <text x="56" y="304" font-size="13" fill="#333">线程声明期望字节数时，② 加上去。</text>
+  <text x="56" y="322" font-size="13" fill="#333">TMA 引擎每完成一条拷贝，硬件把</text>
+  <text x="56" y="340" font-size="13" fill="#333">这条拷贝的字节数从 ② 里减掉。</text>
+
+  <text x="56" y="372" font-size="14" font-weight="bold" fill="#1a3a66">谁读它</text>
+  <text x="56" y="392" font-size="13" fill="#333">线程块里的任何线程。它执行一条</text>
+  <text x="56" y="410" font-size="13" fill="#333">等待指令，问"相位和我手里的</text>
+  <text x="56" y="428" font-size="13" fill="#333">不一样了吗"。</text>
+
+  <rect x="56" y="444" width="260" height="52" fill="#dff0d8" stroke="#2f6b2f" stroke-width="1.5"/>
+  <text x="66" y="465" font-size="13" fill="#1b4620">能表达"这一轮到了多少字节"，</text>
+  <text x="66" y="485" font-size="13" fill="#1b4620">所以引擎可以分几次送、分几次记。</text>
+
+  <!-- column 2: ascend flag -->
+  <rect x="350" y="80" width="300" height="430" fill="#fdf5f5" stroke="#a94442" stroke-width="2"/>
+  <text x="500" y="106" font-size="17" font-weight="bold" fill="#6b1f1f" text-anchor="middle">昇腾 · 标志位</text>
+  <text x="500" y="128" font-size="13" fill="#6b1f1f" text-anchor="middle">核内一张小表，32 种配对 × 8 个 ID</text>
+
+  <rect x="370" y="142" width="260" height="96" fill="#ffffff" stroke="#a94442" stroke-width="1.5"/>
+  <text x="380" y="162" font-size="12" fill="#6b1f1f">配对＼ID</text>
+  <text x="470" y="162" font-size="12" fill="#6b1f1f">0</text>
+  <text x="500" y="162" font-size="12" fill="#6b1f1f">1</text>
+  <text x="530" y="162" font-size="12" fill="#6b1f1f">2</text>
+  <text x="560" y="162" font-size="12" fill="#6b1f1f">…</text>
+  <text x="590" y="162" font-size="12" fill="#6b1f1f">7</text>
+  <text x="380" y="186" font-size="12" fill="#222">MTE2_MTE1</text>
+  <rect x="462" y="174" width="24" height="18" fill="#a94442"/>
+  <text x="474" y="188" font-size="12" fill="#ffffff" text-anchor="middle">1</text>
+  <rect x="492" y="174" width="24" height="18" fill="#f2f2f2" stroke="#999"/>
+  <text x="504" y="188" font-size="12" fill="#555" text-anchor="middle">0</text>
+  <rect x="522" y="174" width="24" height="18" fill="#f2f2f2" stroke="#999"/>
+  <text x="534" y="188" font-size="12" fill="#555" text-anchor="middle">0</text>
+  <rect x="582" y="174" width="24" height="18" fill="#f2f2f2" stroke="#999"/>
+  <text x="594" y="188" font-size="12" fill="#555" text-anchor="middle">0</text>
+  <text x="380" y="210" font-size="12" fill="#222">MTE1_M</text>
+  <rect x="462" y="198" width="24" height="18" fill="#f2f2f2" stroke="#999"/>
+  <text x="474" y="212" font-size="12" fill="#555" text-anchor="middle">0</text>
+  <rect x="492" y="198" width="24" height="18" fill="#f2f2f2" stroke="#999"/>
+  <text x="504" y="212" font-size="12" fill="#555" text-anchor="middle">0</text>
+  <text x="380" y="232" font-size="12" fill="#222">M_MTE1</text>
+  <text x="474" y="232" font-size="12" fill="#555" text-anchor="middle">…</text>
+
+  <text x="370" y="266" font-size="14" font-weight="bold" fill="#6b1f1f">谁改它</text>
+  <text x="370" y="286" font-size="13" fill="#333">源流水线执行 SetFlag，置 1。</text>
+  <text x="370" y="304" font-size="13" fill="#333">目的流水线执行 WaitFlag 通过时，</text>
+  <text x="370" y="322" font-size="13" fill="#333">把这一格清回 0。</text>
+  <text x="370" y="340" font-size="13" fill="#333">两条指令都写在程序里。</text>
+
+  <text x="370" y="372" font-size="14" font-weight="bold" fill="#6b1f1f">谁读它</text>
+  <text x="370" y="392" font-size="13" fill="#333">只有配对里点名的那一条流水线。</text>
+  <text x="370" y="410" font-size="13" fill="#333">格子的名字就写着从哪条到哪条，</text>
+  <text x="370" y="428" font-size="13" fill="#333">所以它是点对点的。</text>
+
+  <rect x="370" y="444" width="260" height="52" fill="#fdeaea" stroke="#a94442" stroke-width="1.5"/>
+  <text x="380" y="465" font-size="13" fill="#6b1f1f">只能表达"那一段做完了"。</text>
+  <text x="380" y="485" font-size="13" fill="#6b1f1f">表达不了"到了一半"。</text>
+
+  <!-- column 3: TPU semaphore -->
+  <rect x="664" y="80" width="300" height="430" fill="#fffdf2" stroke="#b8860b" stroke-width="2"/>
+  <text x="814" y="106" font-size="17" font-weight="bold" fill="#5a4400" text-anchor="middle">TPU · DMA 信号量</text>
+  <text x="814" y="128" font-size="13" fill="#5a4400" text-anchor="middle">放在一块专门的信号量存储里</text>
+
+  <rect x="684" y="142" width="260" height="96" fill="#ffffff" stroke="#b8860b" stroke-width="1.5"/>
+  <text x="694" y="166" font-size="13" fill="#222">一个整数形式的进度计数器</text>
+  <rect x="694" y="178" width="160" height="22" fill="#f6e7b8" stroke="#b8860b"/>
+  <rect x="694" y="178" width="104" height="22" fill="#b8860b"/>
+  <text x="862" y="195" font-size="12" fill="#5a4400">已到 / 应到</text>
+  <text x="694" y="224" font-size="13" fill="#222">这次要等的总量：524 288 字节</text>
+
+  <text x="684" y="266" font-size="14" font-weight="bold" fill="#5a4400">谁改它</text>
+  <text x="684" y="286" font-size="13" fill="#333">DMA 搬运期间，硬件按搬完的数据量</text>
+  <text x="684" y="304" font-size="13" fill="#333">把它往上加。</text>
+  <text x="684" y="322" font-size="13" fill="#333">等待通过时，减去同样的数量，</text>
+  <text x="684" y="340" font-size="13" fill="#333">所以它回到 0，下一轮接着用。</text>
+
+  <text x="684" y="372" font-size="14" font-weight="bold" fill="#5a4400">谁读它</text>
+  <text x="684" y="392" font-size="13" fill="#333">核里唯一的那条指令流。等待指令</text>
+  <text x="684" y="410" font-size="13" fill="#333">由编译器排在固定位置，数不够时</text>
+  <text x="684" y="428" font-size="13" fill="#333">整个核停住。</text>
+
+  <rect x="684" y="444" width="260" height="52" fill="#dff0d8" stroke="#2f6b2f" stroke-width="1.5"/>
+  <text x="694" y="465" font-size="13" fill="#1b4620">也能表达"到了多少"。但核里只有</text>
+  <text x="694" y="485" font-size="13" fill="#1b4620">一条指令流，所以不需要"谁都能等"。</text>
+
+  <!-- bottom -->
+  <rect x="36" y="524" width="928" height="96" fill="#fafafa" stroke="#666" stroke-width="2"/>
+  <text x="56" y="548" font-size="16" font-weight="bold" fill="#111">把三列横着读，差别只在一件事上：允许多少人去读这条记录。</text>
+  <text x="56" y="574" font-size="14" fill="#333">Hopper 允许线程块里任何线程读，代价是记录必须放进 shared memory，并且要带相位位才能一轮接一轮地用。</text>
+  <text x="56" y="596" font-size="14" fill="#333">昇腾只允许配对里点名的那条流水线读，所以一格两种值就够。TPU 只有一条指令流会去读，所以连"谁能读"</text>
+  <text x="56" y="612" font-size="14" fill="#333">这个问题都不存在。</text>
+</svg>

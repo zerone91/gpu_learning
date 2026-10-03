@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 520" width="980" height="520" font-family="sans-serif">
+<defs><marker id="ar" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#333"/></marker><marker id="arR" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#b52a2a"/></marker><marker id="arG" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#2e7d32"/></marker><marker id="arB" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#1f4e9a"/></marker><marker id="arO" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#b8860b"/></marker><marker id="arP" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#6a3d9a"/></marker></defs>
+<rect x="0" y="0" width="980" height="520" fill="#ffffff"/>
+<text x="20" y="34" font-size="18" fill="#111" text-anchor="start" font-weight="bold">累加器放在哪里：寄存器堆与 TMEM 的占用对照（本例 128 × 128 fp32 累加器 = 64 KB）</text>
+<text x="390.0" y="74" font-size="15" fill="#111" text-anchor="middle" font-weight="bold">寄存器堆 256 KB</text>
+<text x="390.0" y="94" font-size="13" fill="#555" text-anchor="middle">65 536 个 × 4 字节，所有驻留线程分用</text>
+<text x="800.0" y="74" font-size="15" fill="#111" text-anchor="middle" font-weight="bold">TMEM 256 KB</text>
+<text x="800.0" y="94" font-size="13" fill="#555" text-anchor="middle">128 条 lane × 512 列 × 4 字节</text>
+<line x1="230.0" y1="104" x2="230.0" y2="112" stroke="#777" stroke-width="1.5"/>
+<text x="230.0" y="126" font-size="13" fill="#777" text-anchor="middle">0</text>
+<line x1="310.0" y1="104" x2="310.0" y2="112" stroke="#777" stroke-width="1.5"/>
+<text x="310.0" y="126" font-size="13" fill="#777" text-anchor="middle">64</text>
+<line x1="390.0" y1="104" x2="390.0" y2="112" stroke="#777" stroke-width="1.5"/>
+<text x="390.0" y="126" font-size="13" fill="#777" text-anchor="middle">128</text>
+<line x1="470.0" y1="104" x2="470.0" y2="112" stroke="#777" stroke-width="1.5"/>
+<text x="470.0" y="126" font-size="13" fill="#777" text-anchor="middle">192</text>
+<line x1="550.0" y1="104" x2="550.0" y2="112" stroke="#777" stroke-width="1.5"/>
+<text x="550.0" y="126" font-size="13" fill="#777" text-anchor="middle">256</text>
+<text x="550" y="142" font-size="13" fill="#777" text-anchor="end">KB</text>
+<line x1="640.0" y1="104" x2="640.0" y2="112" stroke="#777" stroke-width="1.5"/>
+<text x="640.0" y="126" font-size="13" fill="#777" text-anchor="middle">0</text>
+<line x1="720.0" y1="104" x2="720.0" y2="112" stroke="#777" stroke-width="1.5"/>
+<text x="720.0" y="126" font-size="13" fill="#777" text-anchor="middle">64</text>
+<line x1="800.0" y1="104" x2="800.0" y2="112" stroke="#777" stroke-width="1.5"/>
+<text x="800.0" y="126" font-size="13" fill="#777" text-anchor="middle">128</text>
+<line x1="880.0" y1="104" x2="880.0" y2="112" stroke="#777" stroke-width="1.5"/>
+<text x="880.0" y="126" font-size="13" fill="#777" text-anchor="middle">192</text>
+<line x1="960.0" y1="104" x2="960.0" y2="112" stroke="#777" stroke-width="1.5"/>
+<text x="960.0" y="126" font-size="13" fill="#777" text-anchor="middle">256</text>
+<text x="960" y="142" font-size="13" fill="#777" text-anchor="end">KB</text>
+<text x="20" y="184" font-size="16" fill="#111" text-anchor="start" font-weight="bold">Hopper</text>
+<text x="20" y="206" font-size="14" fill="#444" text-anchor="start">单个计算 warpgroup</text>
+<text x="20" y="304" font-size="16" fill="#111" text-anchor="start" font-weight="bold">Hopper</text>
+<text x="20" y="326" font-size="14" fill="#444" text-anchor="start">ping-pong（两个 warpgroup）</text>
+<text x="20" y="424" font-size="16" fill="#111" text-anchor="start" font-weight="bold">Blackwell</text>
+<text x="20" y="446" font-size="14" fill="#444" text-anchor="start">CUTLASS 式 warp 分工</text>
+<rect x="230" y="160" width="80.0" height="56" rx="0" fill="#f6c9c9" stroke="#b52a2a" stroke-width="1.6"/>
+<text x="270.0" y="184" font-size="14" fill="#b52a2a" text-anchor="middle" font-weight="bold">累加器</text>
+<text x="270.0" y="204" font-size="14" fill="#b52a2a" text-anchor="middle">64 KB</text>
+<rect x="310.0" y="160" width="240.0" height="56" rx="0" fill="#eeeeee" stroke="#888" stroke-width="1.6"/>
+<text x="430.0" y="194" font-size="14" fill="#555" text-anchor="middle">其余 192 KB</text>
+<rect x="640" y="160" width="320" height="56" rx="0" fill="#ffffff" stroke="#999" stroke-width="1.6" stroke-dasharray="6,4"/>
+<text x="800.0" y="194" font-size="14" fill="#888" text-anchor="middle">没有 TMEM</text>
+<text x="230" y="238" font-size="14" fill="#b52a2a" text-anchor="start">主循环全程占着 64 KB：每线程 128 个寄存器</text>
+<rect x="230" y="280" width="80.0" height="56" rx="0" fill="#f6c9c9" stroke="#b52a2a" stroke-width="1.6"/>
+<text x="270.0" y="304" font-size="14" fill="#b52a2a" text-anchor="middle" font-weight="bold">第 0 份</text>
+<text x="270.0" y="324" font-size="14" fill="#b52a2a" text-anchor="middle">64 KB</text>
+<rect x="310.0" y="280" width="80.0" height="56" rx="0" fill="#f6c9c9" stroke="#b52a2a" stroke-width="1.6"/>
+<text x="350.0" y="304" font-size="14" fill="#b52a2a" text-anchor="middle" font-weight="bold">第 1 份</text>
+<text x="350.0" y="324" font-size="14" fill="#b52a2a" text-anchor="middle">64 KB</text>
+<rect x="390.0" y="280" width="160.0" height="56" rx="0" fill="#eeeeee" stroke="#888" stroke-width="1.6"/>
+<text x="470.0" y="314" font-size="14" fill="#555" text-anchor="middle">其余 128 KB</text>
+<rect x="640" y="280" width="320" height="56" rx="0" fill="#ffffff" stroke="#999" stroke-width="1.6" stroke-dasharray="6,4"/>
+<text x="800.0" y="314" font-size="14" fill="#888" text-anchor="middle">没有 TMEM</text>
+<text x="230" y="358" font-size="14" fill="#b52a2a" text-anchor="start">两份累加器共 128 KB，占寄存器堆的一半</text>
+<rect x="230" y="400" width="20.0" height="56" rx="0" fill="#cfe8d1" stroke="#2e7d32" stroke-width="1.6"/>
+<rect x="250.0" y="400" width="300.0" height="56" rx="0" fill="#eeeeee" stroke="#888" stroke-width="1.6"/>
+<text x="400.0" y="434" font-size="14" fill="#555" text-anchor="middle">其余 240 KB</text>
+<text x="230" y="478" font-size="14" fill="#2e7d32" text-anchor="start">绿色：结尾一批 = 128 线程 × 32 个 × 4 字节 = 16 KB</text>
+<rect x="640" y="400" width="80.0" height="56" rx="0" fill="#9ec1ea" stroke="#1f4e9a" stroke-width="1.6"/>
+<text x="680.0" y="424" font-size="14" fill="#0d2f66" text-anchor="middle" font-weight="bold">第 0 份</text>
+<text x="680.0" y="444" font-size="13" fill="#0d2f66" text-anchor="middle">列 0～127</text>
+<rect x="720.0" y="400" width="80.0" height="56" rx="0" fill="#d6e6f8" stroke="#1f4e9a" stroke-width="1.6"/>
+<text x="760.0" y="424" font-size="14" fill="#0d2f66" text-anchor="middle" font-weight="bold">第 1 份</text>
+<text x="760.0" y="444" font-size="13" fill="#0d2f66" text-anchor="middle">列 128～255</text>
+<rect x="800.0" y="400" width="160.0" height="56" rx="0" fill="#eeeeee" stroke="#888" stroke-width="1.6"/>
+<text x="880.0" y="434" font-size="14" fill="#555" text-anchor="middle">空闲 256 列</text>
+<text x="640" y="478" font-size="14" fill="#1f4e9a" text-anchor="start">两份累加器共 128 KB，主循环中不占寄存器</text>
+</svg>
